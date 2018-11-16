@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,7 +34,7 @@ class Client(BaseClient):
         
           response = client.create_app(
               CreateApplicationRequest={
-                  'Name': 'string'
+                  \'Name\': \'string\'
               }
           )
         :type CreateApplicationRequest: dict
@@ -50,9 +50,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationResponse': {
-                    'Id': 'string',
-                    'Name': 'string'
+                \'ApplicationResponse\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -77,222 +77,222 @@ class Client(BaseClient):
         ::
         
           response = client.create_campaign(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               WriteCampaignRequest={
-                  'AdditionalTreatments': [
+                  \'AdditionalTreatments\': [
                       {
-                          'MessageConfiguration': {
-                              'ADMMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                          \'MessageConfiguration\': {
+                              \'ADMMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'APNSMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'APNSMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'BaiduMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'BaiduMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'DefaultMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'DefaultMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'EmailMessage': {
-                                  'Body': 'string',
-                                  'FromAddress': 'string',
-                                  'HtmlBody': 'string',
-                                  'Title': 'string'
+                              \'EmailMessage\': {
+                                  \'Body\': \'string\',
+                                  \'FromAddress\': \'string\',
+                                  \'HtmlBody\': \'string\',
+                                  \'Title\': \'string\'
                               },
-                              'GCMMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'GCMMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'SMSMessage': {
-                                  'Body': 'string',
-                                  'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                  'SenderId': 'string'
+                              \'SMSMessage\': {
+                                  \'Body\': \'string\',
+                                  \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                  \'SenderId\': \'string\'
                               }
                           },
-                          'Schedule': {
-                              'EndTime': 'string',
-                              'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                              'IsLocalTime': True|False,
-                              'QuietTime': {
-                                  'End': 'string',
-                                  'Start': 'string'
+                          \'Schedule\': {
+                              \'EndTime\': \'string\',
+                              \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                              \'IsLocalTime\': True|False,
+                              \'QuietTime\': {
+                                  \'End\': \'string\',
+                                  \'Start\': \'string\'
                               },
-                              'StartTime': 'string',
-                              'Timezone': 'string'
+                              \'StartTime\': \'string\',
+                              \'Timezone\': \'string\'
                           },
-                          'SizePercent': 123,
-                          'TreatmentDescription': 'string',
-                          'TreatmentName': 'string'
+                          \'SizePercent\': 123,
+                          \'TreatmentDescription\': \'string\',
+                          \'TreatmentName\': \'string\'
                       },
                   ],
-                  'Description': 'string',
-                  'HoldoutPercent': 123,
-                  'Hook': {
-                      'LambdaFunctionName': 'string',
-                      'Mode': 'DELIVERY'|'FILTER',
-                      'WebUrl': 'string'
+                  \'Description\': \'string\',
+                  \'HoldoutPercent\': 123,
+                  \'Hook\': {
+                      \'LambdaFunctionName\': \'string\',
+                      \'Mode\': \'DELIVERY\'|\'FILTER\',
+                      \'WebUrl\': \'string\'
                   },
-                  'IsPaused': True|False,
-                  'Limits': {
-                      'Daily': 123,
-                      'MaximumDuration': 123,
-                      'MessagesPerSecond': 123,
-                      'Total': 123
+                  \'IsPaused\': True|False,
+                  \'Limits\': {
+                      \'Daily\': 123,
+                      \'MaximumDuration\': 123,
+                      \'MessagesPerSecond\': 123,
+                      \'Total\': 123
                   },
-                  'MessageConfiguration': {
-                      'ADMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                  \'MessageConfiguration\': {
+                      \'ADMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'APNSMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'APNSMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'BaiduMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'BaiduMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'DefaultMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'DefaultMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'EmailMessage': {
-                          'Body': 'string',
-                          'FromAddress': 'string',
-                          'HtmlBody': 'string',
-                          'Title': 'string'
+                      \'EmailMessage\': {
+                          \'Body\': \'string\',
+                          \'FromAddress\': \'string\',
+                          \'HtmlBody\': \'string\',
+                          \'Title\': \'string\'
                       },
-                      'GCMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'GCMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'SMSMessage': {
-                          'Body': 'string',
-                          'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                          'SenderId': 'string'
+                      \'SMSMessage\': {
+                          \'Body\': \'string\',
+                          \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                          \'SenderId\': \'string\'
                       }
                   },
-                  'Name': 'string',
-                  'Schedule': {
-                      'EndTime': 'string',
-                      'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                      'IsLocalTime': True|False,
-                      'QuietTime': {
-                          'End': 'string',
-                          'Start': 'string'
+                  \'Name\': \'string\',
+                  \'Schedule\': {
+                      \'EndTime\': \'string\',
+                      \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                      \'IsLocalTime\': True|False,
+                      \'QuietTime\': {
+                          \'End\': \'string\',
+                          \'Start\': \'string\'
                       },
-                      'StartTime': 'string',
-                      'Timezone': 'string'
+                      \'StartTime\': \'string\',
+                      \'Timezone\': \'string\'
                   },
-                  'SegmentId': 'string',
-                  'SegmentVersion': 123,
-                  'TreatmentDescription': 'string',
-                  'TreatmentName': 'string'
+                  \'SegmentId\': \'string\',
+                  \'SegmentVersion\': 123,
+                  \'TreatmentDescription\': \'string\',
+                  \'TreatmentName\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -309,7 +309,7 @@ class Client(BaseClient):
         
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -329,13 +329,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -355,13 +355,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -381,13 +381,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **DefaultMessage** *(dict) --* The default message for all channels.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -407,9 +407,9 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **EmailMessage** *(dict) --* The email message configuration.
         
@@ -423,7 +423,7 @@ class Client(BaseClient):
         
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -443,9 +443,9 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **SMSMessage** *(dict) --* The SMS message configuration.
         
@@ -461,7 +461,7 @@ class Client(BaseClient):
         
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
         
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
         
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
         
@@ -507,7 +507,7 @@ class Client(BaseClient):
         
             - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -527,13 +527,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -553,13 +553,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -579,13 +579,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **DefaultMessage** *(dict) --* The default message for all channels.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -605,9 +605,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **EmailMessage** *(dict) --* The email message configuration.
         
@@ -621,7 +621,7 @@ class Client(BaseClient):
         
             - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -641,9 +641,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **SMSMessage** *(dict) --* The SMS message configuration.
         
@@ -661,7 +661,7 @@ class Client(BaseClient):
         
             - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
         
-            - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+            - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
         
             - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
         
@@ -689,236 +689,236 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignResponse': {
-                    'AdditionalTreatments': [
+                \'CampaignResponse\': {
+                    \'AdditionalTreatments\': [
                         {
-                            'Id': 'string',
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'Id\': \'string\',
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SizePercent': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SizePercent\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string'
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\'
                         },
                     ],
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultState': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultState\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'Description': 'string',
-                    'HoldoutPercent': 123,
-                    'Hook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                    \'Description\': \'string\',
+                    \'HoldoutPercent\': 123,
+                    \'Hook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'Id': 'string',
-                    'IsPaused': True|False,
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'Id\': \'string\',
+                    \'IsPaused\': True|False,
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'MessageConfiguration': {
-                        'ADMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                    \'MessageConfiguration\': {
+                        \'ADMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'APNSMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'APNSMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'BaiduMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'BaiduMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'DefaultMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'DefaultMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'EmailMessage': {
-                            'Body': 'string',
-                            'FromAddress': 'string',
-                            'HtmlBody': 'string',
-                            'Title': 'string'
+                        \'EmailMessage\': {
+                            \'Body\': \'string\',
+                            \'FromAddress\': \'string\',
+                            \'HtmlBody\': \'string\',
+                            \'Title\': \'string\'
                         },
-                        'GCMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'GCMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'SMSMessage': {
-                            'Body': 'string',
-                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                            'SenderId': 'string'
+                        \'SMSMessage\': {
+                            \'Body\': \'string\',
+                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                            \'SenderId\': \'string\'
                         }
                     },
-                    'Name': 'string',
-                    'Schedule': {
-                        'EndTime': 'string',
-                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                        'IsLocalTime': True|False,
-                        'QuietTime': {
-                            'End': 'string',
-                            'Start': 'string'
+                    \'Name\': \'string\',
+                    \'Schedule\': {
+                        \'EndTime\': \'string\',
+                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                        \'IsLocalTime\': True|False,
+                        \'QuietTime\': {
+                            \'End\': \'string\',
+                            \'Start\': \'string\'
                         },
-                        'StartTime': 'string',
-                        'Timezone': 'string'
+                        \'StartTime\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'SegmentId': 'string',
-                    'SegmentVersion': 123,
-                    'State': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'SegmentId\': \'string\',
+                    \'SegmentVersion\': 123,
+                    \'State\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'TreatmentDescription': 'string',
-                    'TreatmentName': 'string',
-                    'Version': 123
+                    \'TreatmentDescription\': \'string\',
+                    \'TreatmentName\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -937,7 +937,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -957,13 +957,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -983,13 +983,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -1009,13 +1009,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -1035,9 +1035,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -1051,7 +1051,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -1071,9 +1071,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -1089,7 +1089,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -1115,7 +1115,7 @@ class Client(BaseClient):
               
               - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
               
-              - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+              - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                 
                 - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
             
@@ -1151,7 +1151,7 @@ class Client(BaseClient):
                 
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -1171,13 +1171,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -1197,13 +1197,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -1223,13 +1223,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **DefaultMessage** *(dict) --* The default message for all channels.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -1249,9 +1249,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **EmailMessage** *(dict) --* The email message configuration.
                   
@@ -1265,7 +1265,7 @@ class Client(BaseClient):
               
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -1285,9 +1285,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **SMSMessage** *(dict) --* The SMS message configuration.
                   
@@ -1305,7 +1305,7 @@ class Client(BaseClient):
                 
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                 
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                 
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                   
@@ -1343,12 +1343,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_export_job(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               ExportJobRequest={
-                  'RoleArn': 'string',
-                  'S3UrlPrefix': 'string',
-                  'SegmentId': 'string',
-                  'SegmentVersion': 123
+                  \'RoleArn\': \'string\',
+                  \'S3UrlPrefix\': \'string\',
+                  \'SegmentId\': \'string\',
+                  \'SegmentVersion\': 123
               }
           )
         :type ApplicationId: string
@@ -1373,27 +1373,27 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportJobResponse': {
-                    'ApplicationId': 'string',
-                    'CompletedPieces': 123,
-                    'CompletionDate': 'string',
-                    'CreationDate': 'string',
-                    'Definition': {
-                        'RoleArn': 'string',
-                        'S3UrlPrefix': 'string',
-                        'SegmentId': 'string',
-                        'SegmentVersion': 123
+                \'ExportJobResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CompletedPieces\': 123,
+                    \'CompletionDate\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Definition\': {
+                        \'RoleArn\': \'string\',
+                        \'S3UrlPrefix\': \'string\',
+                        \'SegmentId\': \'string\',
+                        \'SegmentVersion\': 123
                     },
-                    'FailedPieces': 123,
-                    'Failures': [
-                        'string',
+                    \'FailedPieces\': 123,
+                    \'Failures\': [
+                        \'string\',
                     ],
-                    'Id': 'string',
-                    'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                    'TotalFailures': 123,
-                    'TotalPieces': 123,
-                    'TotalProcessed': 123,
-                    'Type': 'string'
+                    \'Id\': \'string\',
+                    \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                    \'TotalFailures\': 123,
+                    \'TotalPieces\': 123,
+                    \'TotalProcessed\': 123,
+                    \'Type\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1436,7 +1436,7 @@ class Client(BaseClient):
               
               - **TotalProcessed** *(integer) --* The number of endpoints that were processed by the job.
               
-              - **Type** *(string) --* The job type. Will be 'EXPORT'.
+              - **Type** *(string) --* The job type. Will be \'EXPORT\'.
           
         """
         pass
@@ -1450,16 +1450,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_import_job(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               ImportJobRequest={
-                  'DefineSegment': True|False,
-                  'ExternalId': 'string',
-                  'Format': 'CSV'|'JSON',
-                  'RegisterEndpoints': True|False,
-                  'RoleArn': 'string',
-                  'S3Url': 'string',
-                  'SegmentId': 'string',
-                  'SegmentName': 'string'
+                  \'DefineSegment\': True|False,
+                  \'ExternalId\': \'string\',
+                  \'Format\': \'CSV\'|\'JSON\',
+                  \'RegisterEndpoints\': True|False,
+                  \'RoleArn\': \'string\',
+                  \'S3Url\': \'string\',
+                  \'SegmentId\': \'string\',
+                  \'SegmentName\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -1492,31 +1492,31 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportJobResponse': {
-                    'ApplicationId': 'string',
-                    'CompletedPieces': 123,
-                    'CompletionDate': 'string',
-                    'CreationDate': 'string',
-                    'Definition': {
-                        'DefineSegment': True|False,
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RegisterEndpoints': True|False,
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'SegmentId': 'string',
-                        'SegmentName': 'string'
+                \'ImportJobResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CompletedPieces\': 123,
+                    \'CompletionDate\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Definition\': {
+                        \'DefineSegment\': True|False,
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RegisterEndpoints\': True|False,
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'SegmentId\': \'string\',
+                        \'SegmentName\': \'string\'
                     },
-                    'FailedPieces': 123,
-                    'Failures': [
-                        'string',
+                    \'FailedPieces\': 123,
+                    \'Failures\': [
+                        \'string\',
                     ],
-                    'Id': 'string',
-                    'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                    'TotalFailures': 123,
-                    'TotalPieces': 123,
-                    'TotalProcessed': 123,
-                    'Type': 'string'
+                    \'Id\': \'string\',
+                    \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                    \'TotalFailures\': 123,
+                    \'TotalPieces\': 123,
+                    \'TotalProcessed\': 123,
+                    \'Type\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1581,191 +1581,191 @@ class Client(BaseClient):
         ::
         
           response = client.create_segment(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               WriteSegmentRequest={
-                  'Dimensions': {
-                      'Attributes': {
-                          'string': {
-                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                  \'Dimensions\': {
+                      \'Attributes\': {
+                          \'string\': {
+                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'Behavior': {
-                          'Recency': {
-                              'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                              'RecencyType': 'ACTIVE'|'INACTIVE'
+                      \'Behavior\': {
+                          \'Recency\': {
+                              \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                              \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                           }
                       },
-                      'Demographic': {
-                          'AppVersion': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'Demographic\': {
+                          \'AppVersion\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Channel': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Channel\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'DeviceType': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'DeviceType\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Make': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Make\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Model': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Model\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Platform': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Platform\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'Location': {
-                          'Country': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'Location\': {
+                          \'Country\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'GPSPoint': {
-                              'Coordinates': {
-                                  'Latitude': 123.0,
-                                  'Longitude': 123.0
+                          \'GPSPoint\': {
+                              \'Coordinates\': {
+                                  \'Latitude\': 123.0,
+                                  \'Longitude\': 123.0
                               },
-                              'RangeInKilometers': 123.0
+                              \'RangeInKilometers\': 123.0
                           }
                       },
-                      'Metrics': {
-                          'string': {
-                              'ComparisonOperator': 'string',
-                              'Value': 123.0
+                      \'Metrics\': {
+                          \'string\': {
+                              \'ComparisonOperator\': \'string\',
+                              \'Value\': 123.0
                           }
                       },
-                      'UserAttributes': {
-                          'string': {
-                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'UserAttributes\': {
+                          \'string\': {
+                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       }
                   },
-                  'Name': 'string',
-                  'SegmentGroups': {
-                      'Groups': [
+                  \'Name\': \'string\',
+                  \'SegmentGroups\': {
+                      \'Groups\': [
                           {
-                              'Dimensions': [
+                              \'Dimensions\': [
                                   {
-                                      'Attributes': {
-                                          'string': {
-                                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Attributes\': {
+                                          \'string\': {
+                                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       },
-                                      'Behavior': {
-                                          'Recency': {
-                                              'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                              'RecencyType': 'ACTIVE'|'INACTIVE'
+                                      \'Behavior\': {
+                                          \'Recency\': {
+                                              \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                              \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                           }
                                       },
-                                      'Demographic': {
-                                          'AppVersion': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Demographic\': {
+                                          \'AppVersion\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Channel': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Channel\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'DeviceType': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'DeviceType\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Make': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Make\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Model': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Model\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Platform': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Platform\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       },
-                                      'Location': {
-                                          'Country': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Location\': {
+                                          \'Country\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'GPSPoint': {
-                                              'Coordinates': {
-                                                  'Latitude': 123.0,
-                                                  'Longitude': 123.0
+                                          \'GPSPoint\': {
+                                              \'Coordinates\': {
+                                                  \'Latitude\': 123.0,
+                                                  \'Longitude\': 123.0
                                               },
-                                              'RangeInKilometers': 123.0
+                                              \'RangeInKilometers\': 123.0
                                           }
                                       },
-                                      'Metrics': {
-                                          'string': {
-                                              'ComparisonOperator': 'string',
-                                              'Value': 123.0
+                                      \'Metrics\': {
+                                          \'string\': {
+                                              \'ComparisonOperator\': \'string\',
+                                              \'Value\': 123.0
                                           }
                                       },
-                                      'UserAttributes': {
-                                          'string': {
-                                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'UserAttributes\': {
+                                          \'string\': {
+                                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       }
                                   },
                               ],
-                              'SourceSegments': [
+                              \'SourceSegments\': [
                                   {
-                                      'Id': 'string',
-                                      'Version': 123
+                                      \'Id\': \'string\',
+                                      \'Version\': 123
                                   },
                               ],
-                              'SourceType': 'ALL'|'ANY'|'NONE',
-                              'Type': 'ALL'|'ANY'|'NONE'
+                              \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                              \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                           },
                       ],
-                      'Include': 'ALL'|'ANY'|'NONE'
+                      \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                   }
               }
           )
@@ -1873,7 +1873,7 @@ class Client(BaseClient):
         
                 - *(dict) --* Custom metric dimension
         
-                  - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                  - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
         
                   - **Value** *(float) --* Value to be compared.
         
@@ -1997,7 +1997,7 @@ class Client(BaseClient):
         
                         - *(dict) --* Custom metric dimension
         
-                          - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                          - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
         
                           - **Value** *(float) --* Value to be compared.
         
@@ -2013,7 +2013,7 @@ class Client(BaseClient):
         
                             - *(string) --* 
         
-                - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
         
                   - *(dict) --* Segment reference.
         
@@ -2035,207 +2035,207 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Dimensions': {
-                        'Attributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                \'SegmentResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Dimensions\': {
+                        \'Attributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Behavior': {
-                            'Recency': {
-                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                        \'Behavior\': {
+                            \'Recency\': {
+                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                             }
                         },
-                        'Demographic': {
-                            'AppVersion': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Demographic\': {
+                            \'AppVersion\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Channel': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Channel\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'DeviceType': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'DeviceType\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Make': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Make\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Model': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Model\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Platform': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Platform\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Location': {
-                            'Country': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Location\': {
+                            \'Country\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'GPSPoint': {
-                                'Coordinates': {
-                                    'Latitude': 123.0,
-                                    'Longitude': 123.0
+                            \'GPSPoint\': {
+                                \'Coordinates\': {
+                                    \'Latitude\': 123.0,
+                                    \'Longitude\': 123.0
                                 },
-                                'RangeInKilometers': 123.0
+                                \'RangeInKilometers\': 123.0
                             }
                         },
-                        'Metrics': {
-                            'string': {
-                                'ComparisonOperator': 'string',
-                                'Value': 123.0
+                        \'Metrics\': {
+                            \'string\': {
+                                \'ComparisonOperator\': \'string\',
+                                \'Value\': 123.0
                             }
                         },
-                        'UserAttributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'UserAttributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
-                    'Id': 'string',
-                    'ImportDefinition': {
-                        'ChannelCounts': {
-                            'string': 123
+                    \'Id\': \'string\',
+                    \'ImportDefinition\': {
+                        \'ChannelCounts\': {
+                            \'string\': 123
                         },
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'Size': 123
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'Size\': 123
                     },
-                    'LastModifiedDate': 'string',
-                    'Name': 'string',
-                    'SegmentGroups': {
-                        'Groups': [
+                    \'LastModifiedDate\': \'string\',
+                    \'Name\': \'string\',
+                    \'SegmentGroups\': {
+                        \'Groups\': [
                             {
-                                'Dimensions': [
+                                \'Dimensions\': [
                                     {
-                                        'Attributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Attributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Behavior': {
-                                            'Recency': {
-                                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                                        \'Behavior\': {
+                                            \'Recency\': {
+                                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                             }
                                         },
-                                        'Demographic': {
-                                            'AppVersion': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Demographic\': {
+                                            \'AppVersion\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Channel': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Channel\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'DeviceType': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'DeviceType\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Make': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Make\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Model': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Model\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Platform': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Platform\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Location': {
-                                            'Country': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Location\': {
+                                            \'Country\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'GPSPoint': {
-                                                'Coordinates': {
-                                                    'Latitude': 123.0,
-                                                    'Longitude': 123.0
+                                            \'GPSPoint\': {
+                                                \'Coordinates\': {
+                                                    \'Latitude\': 123.0,
+                                                    \'Longitude\': 123.0
                                                 },
-                                                'RangeInKilometers': 123.0
+                                                \'RangeInKilometers\': 123.0
                                             }
                                         },
-                                        'Metrics': {
-                                            'string': {
-                                                'ComparisonOperator': 'string',
-                                                'Value': 123.0
+                                        \'Metrics\': {
+                                            \'string\': {
+                                                \'ComparisonOperator\': \'string\',
+                                                \'Value\': 123.0
                                             }
                                         },
-                                        'UserAttributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'UserAttributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
                                 ],
-                                'SourceSegments': [
+                                \'SourceSegments\': [
                                     {
-                                        'Id': 'string',
-                                        'Version': 123
+                                        \'Id\': \'string\',
+                                        \'Version\': 123
                                     },
                                 ],
-                                'SourceType': 'ALL'|'ANY'|'NONE',
-                                'Type': 'ALL'|'ANY'|'NONE'
+                                \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
                         ],
-                        'Include': 'ALL'|'ANY'|'NONE'
+                        \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                     },
-                    'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                    'Version': 123
+                    \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2346,7 +2346,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* Custom metric dimension
                       
-                      - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                      - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                       
                       - **Value** *(float) --* Value to be compared.
                   
@@ -2492,7 +2492,7 @@ class Client(BaseClient):
                             
                             - *(dict) --* Custom metric dimension
                               
-                              - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                              - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                               
                               - **Value** *(float) --* Value to be compared.
                           
@@ -2508,7 +2508,7 @@ class Client(BaseClient):
                                 
                                 - *(string) --* 
                             
-                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                       
                       - *(dict) --* Segment reference.
                         
@@ -2538,7 +2538,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_adm_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2551,17 +2551,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ADMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'ADMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2586,7 +2586,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -2602,7 +2602,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_apns_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2615,19 +2615,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2656,7 +2656,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -2672,7 +2672,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_apns_sandbox_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2685,19 +2685,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2742,7 +2742,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_apns_voip_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2755,19 +2755,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2812,7 +2812,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_apns_voip_sandbox_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2825,19 +2825,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2882,7 +2882,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_app(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2895,9 +2895,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationResponse': {
-                    'Id': 'string',
-                    'Name': 'string'
+                \'ApplicationResponse\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2922,7 +2922,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_baidu_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -2935,18 +2935,18 @@ class Client(BaseClient):
           ::
         
             {
-                'BaiduChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'BaiduChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -2989,8 +2989,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_campaign(
-              ApplicationId='string',
-              CampaignId='string'
+              ApplicationId=\'string\',
+              CampaignId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -3006,236 +3006,236 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignResponse': {
-                    'AdditionalTreatments': [
+                \'CampaignResponse\': {
+                    \'AdditionalTreatments\': [
                         {
-                            'Id': 'string',
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'Id\': \'string\',
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SizePercent': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SizePercent\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string'
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\'
                         },
                     ],
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultState': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultState\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'Description': 'string',
-                    'HoldoutPercent': 123,
-                    'Hook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                    \'Description\': \'string\',
+                    \'HoldoutPercent\': 123,
+                    \'Hook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'Id': 'string',
-                    'IsPaused': True|False,
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'Id\': \'string\',
+                    \'IsPaused\': True|False,
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'MessageConfiguration': {
-                        'ADMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                    \'MessageConfiguration\': {
+                        \'ADMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'APNSMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'APNSMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'BaiduMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'BaiduMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'DefaultMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'DefaultMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'EmailMessage': {
-                            'Body': 'string',
-                            'FromAddress': 'string',
-                            'HtmlBody': 'string',
-                            'Title': 'string'
+                        \'EmailMessage\': {
+                            \'Body\': \'string\',
+                            \'FromAddress\': \'string\',
+                            \'HtmlBody\': \'string\',
+                            \'Title\': \'string\'
                         },
-                        'GCMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'GCMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'SMSMessage': {
-                            'Body': 'string',
-                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                            'SenderId': 'string'
+                        \'SMSMessage\': {
+                            \'Body\': \'string\',
+                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                            \'SenderId\': \'string\'
                         }
                     },
-                    'Name': 'string',
-                    'Schedule': {
-                        'EndTime': 'string',
-                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                        'IsLocalTime': True|False,
-                        'QuietTime': {
-                            'End': 'string',
-                            'Start': 'string'
+                    \'Name\': \'string\',
+                    \'Schedule\': {
+                        \'EndTime\': \'string\',
+                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                        \'IsLocalTime\': True|False,
+                        \'QuietTime\': {
+                            \'End\': \'string\',
+                            \'Start\': \'string\'
                         },
-                        'StartTime': 'string',
-                        'Timezone': 'string'
+                        \'StartTime\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'SegmentId': 'string',
-                    'SegmentVersion': 123,
-                    'State': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'SegmentId\': \'string\',
+                    \'SegmentVersion\': 123,
+                    \'State\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'TreatmentDescription': 'string',
-                    'TreatmentName': 'string',
-                    'Version': 123
+                    \'TreatmentDescription\': \'string\',
+                    \'TreatmentName\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -3254,7 +3254,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -3274,13 +3274,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -3300,13 +3300,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -3326,13 +3326,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -3352,9 +3352,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -3368,7 +3368,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -3388,9 +3388,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -3406,7 +3406,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -3432,7 +3432,7 @@ class Client(BaseClient):
               
               - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
               
-              - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+              - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                 
                 - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
             
@@ -3468,7 +3468,7 @@ class Client(BaseClient):
                 
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -3488,13 +3488,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -3514,13 +3514,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -3540,13 +3540,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **DefaultMessage** *(dict) --* The default message for all channels.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -3566,9 +3566,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **EmailMessage** *(dict) --* The email message configuration.
                   
@@ -3582,7 +3582,7 @@ class Client(BaseClient):
               
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -3602,9 +3602,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **SMSMessage** *(dict) --* The SMS message configuration.
                   
@@ -3622,7 +3622,7 @@ class Client(BaseClient):
                 
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                 
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                 
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                   
@@ -3660,7 +3660,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_email_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -3673,22 +3673,22 @@ class Client(BaseClient):
           ::
         
             {
-                'EmailChannelResponse': {
-                    'ApplicationId': 'string',
-                    'ConfigurationSet': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'FromAddress': 'string',
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'Identity': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'MessagesPerSecond': 123,
-                    'Platform': 'string',
-                    'RoleArn': 'string',
-                    'Version': 123
+                \'EmailChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'ConfigurationSet\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'FromAddress\': \'string\',
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'Identity\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'MessagesPerSecond\': 123,
+                    \'Platform\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -3721,9 +3721,9 @@ class Client(BaseClient):
               
               - **MessagesPerSecond** *(integer) --* Messages per second that can be sent
               
-              - **Platform** *(string) --* Platform type. Will be "EMAIL"
+              - **Platform** *(string) --* Platform type. Will be \"EMAIL\"
               
-              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics\' event ingestion service
               
               - **Version** *(integer) --* Version of channel
           
@@ -3739,8 +3739,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_endpoint(
-              ApplicationId='string',
-              EndpointId='string'
+              ApplicationId=\'string\',
+              EndpointId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -3756,50 +3756,50 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointResponse': {
-                    'Address': 'string',
-                    'ApplicationId': 'string',
-                    'Attributes': {
-                        'string': [
-                            'string',
+                \'EndpointResponse\': {
+                    \'Address\': \'string\',
+                    \'ApplicationId\': \'string\',
+                    \'Attributes\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                    'CohortId': 'string',
-                    'CreationDate': 'string',
-                    'Demographic': {
-                        'AppVersion': 'string',
-                        'Locale': 'string',
-                        'Make': 'string',
-                        'Model': 'string',
-                        'ModelVersion': 'string',
-                        'Platform': 'string',
-                        'PlatformVersion': 'string',
-                        'Timezone': 'string'
+                    \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                    \'CohortId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Demographic\': {
+                        \'AppVersion\': \'string\',
+                        \'Locale\': \'string\',
+                        \'Make\': \'string\',
+                        \'Model\': \'string\',
+                        \'ModelVersion\': \'string\',
+                        \'Platform\': \'string\',
+                        \'PlatformVersion\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'EffectiveDate': 'string',
-                    'EndpointStatus': 'string',
-                    'Id': 'string',
-                    'Location': {
-                        'City': 'string',
-                        'Country': 'string',
-                        'Latitude': 123.0,
-                        'Longitude': 123.0,
-                        'PostalCode': 'string',
-                        'Region': 'string'
+                    \'EffectiveDate\': \'string\',
+                    \'EndpointStatus\': \'string\',
+                    \'Id\': \'string\',
+                    \'Location\': {
+                        \'City\': \'string\',
+                        \'Country\': \'string\',
+                        \'Latitude\': 123.0,
+                        \'Longitude\': 123.0,
+                        \'PostalCode\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'Metrics': {
-                        'string': 123.0
+                    \'Metrics\': {
+                        \'string\': 123.0
                     },
-                    'OptOut': 'string',
-                    'RequestId': 'string',
-                    'User': {
-                        'UserAttributes': {
-                            'string': [
-                                'string',
+                    \'OptOut\': \'string\',
+                    \'RequestId\': \'string\',
+                    \'User\': {
+                        \'UserAttributes\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'UserId': 'string'
+                        \'UserId\': \'string\'
                     }
                 }
             }
@@ -3813,7 +3813,7 @@ class Client(BaseClient):
               
               - **ApplicationId** *(string) --* The ID of the application that is associated with the endpoint.
               
-              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                 
                 - *(string) --* 
                   
@@ -3849,13 +3849,13 @@ class Client(BaseClient):
               
               - **EndpointStatus** *(string) --* Unused.
               
-              - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+              - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn\'t conflict with other endpoint IDs associated with the application.
               
               - **Location** *(dict) --* The endpoint location attributes.
                 
                 - **City** *(string) --* The city where the endpoint is located.
                 
-                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
                 
                 - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
                 
@@ -3877,7 +3877,7 @@ class Client(BaseClient):
               
               - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
                 
-                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                   
                   - *(string) --* 
                     
@@ -3899,7 +3899,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_event_stream(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -3912,13 +3912,13 @@ class Client(BaseClient):
           ::
         
             {
-                'EventStream': {
-                    'ApplicationId': 'string',
-                    'DestinationStreamArn': 'string',
-                    'ExternalId': 'string',
-                    'LastModifiedDate': 'string',
-                    'LastUpdatedBy': 'string',
-                    'RoleArn': 'string'
+                \'EventStream\': {
+                    \'ApplicationId\': \'string\',
+                    \'DestinationStreamArn\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'LastUpdatedBy\': \'string\',
+                    \'RoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3951,7 +3951,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_gcm_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -3964,18 +3964,18 @@ class Client(BaseClient):
           ::
         
             {
-                'GCMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'GCMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -4018,8 +4018,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_segment(
-              ApplicationId='string',
-              SegmentId='string'
+              ApplicationId=\'string\',
+              SegmentId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4035,207 +4035,207 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Dimensions': {
-                        'Attributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                \'SegmentResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Dimensions\': {
+                        \'Attributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Behavior': {
-                            'Recency': {
-                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                        \'Behavior\': {
+                            \'Recency\': {
+                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                             }
                         },
-                        'Demographic': {
-                            'AppVersion': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Demographic\': {
+                            \'AppVersion\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Channel': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Channel\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'DeviceType': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'DeviceType\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Make': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Make\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Model': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Model\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Platform': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Platform\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Location': {
-                            'Country': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Location\': {
+                            \'Country\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'GPSPoint': {
-                                'Coordinates': {
-                                    'Latitude': 123.0,
-                                    'Longitude': 123.0
+                            \'GPSPoint\': {
+                                \'Coordinates\': {
+                                    \'Latitude\': 123.0,
+                                    \'Longitude\': 123.0
                                 },
-                                'RangeInKilometers': 123.0
+                                \'RangeInKilometers\': 123.0
                             }
                         },
-                        'Metrics': {
-                            'string': {
-                                'ComparisonOperator': 'string',
-                                'Value': 123.0
+                        \'Metrics\': {
+                            \'string\': {
+                                \'ComparisonOperator\': \'string\',
+                                \'Value\': 123.0
                             }
                         },
-                        'UserAttributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'UserAttributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
-                    'Id': 'string',
-                    'ImportDefinition': {
-                        'ChannelCounts': {
-                            'string': 123
+                    \'Id\': \'string\',
+                    \'ImportDefinition\': {
+                        \'ChannelCounts\': {
+                            \'string\': 123
                         },
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'Size': 123
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'Size\': 123
                     },
-                    'LastModifiedDate': 'string',
-                    'Name': 'string',
-                    'SegmentGroups': {
-                        'Groups': [
+                    \'LastModifiedDate\': \'string\',
+                    \'Name\': \'string\',
+                    \'SegmentGroups\': {
+                        \'Groups\': [
                             {
-                                'Dimensions': [
+                                \'Dimensions\': [
                                     {
-                                        'Attributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Attributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Behavior': {
-                                            'Recency': {
-                                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                                        \'Behavior\': {
+                                            \'Recency\': {
+                                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                             }
                                         },
-                                        'Demographic': {
-                                            'AppVersion': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Demographic\': {
+                                            \'AppVersion\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Channel': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Channel\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'DeviceType': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'DeviceType\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Make': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Make\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Model': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Model\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Platform': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Platform\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Location': {
-                                            'Country': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Location\': {
+                                            \'Country\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'GPSPoint': {
-                                                'Coordinates': {
-                                                    'Latitude': 123.0,
-                                                    'Longitude': 123.0
+                                            \'GPSPoint\': {
+                                                \'Coordinates\': {
+                                                    \'Latitude\': 123.0,
+                                                    \'Longitude\': 123.0
                                                 },
-                                                'RangeInKilometers': 123.0
+                                                \'RangeInKilometers\': 123.0
                                             }
                                         },
-                                        'Metrics': {
-                                            'string': {
-                                                'ComparisonOperator': 'string',
-                                                'Value': 123.0
+                                        \'Metrics\': {
+                                            \'string\': {
+                                                \'ComparisonOperator\': \'string\',
+                                                \'Value\': 123.0
                                             }
                                         },
-                                        'UserAttributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'UserAttributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
                                 ],
-                                'SourceSegments': [
+                                \'SourceSegments\': [
                                     {
-                                        'Id': 'string',
-                                        'Version': 123
+                                        \'Id\': \'string\',
+                                        \'Version\': 123
                                     },
                                 ],
-                                'SourceType': 'ALL'|'ANY'|'NONE',
-                                'Type': 'ALL'|'ANY'|'NONE'
+                                \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
                         ],
-                        'Include': 'ALL'|'ANY'|'NONE'
+                        \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                     },
-                    'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                    'Version': 123
+                    \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -4346,7 +4346,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* Custom metric dimension
                       
-                      - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                      - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                       
                       - **Value** *(float) --* Value to be compared.
                   
@@ -4492,7 +4492,7 @@ class Client(BaseClient):
                             
                             - *(dict) --* Custom metric dimension
                               
-                              - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                              - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                               
                               - **Value** *(float) --* Value to be compared.
                           
@@ -4508,7 +4508,7 @@ class Client(BaseClient):
                                 
                                 - *(string) --* 
                             
-                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                       
                       - *(dict) --* Segment reference.
                         
@@ -4538,7 +4538,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_sms_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4551,21 +4551,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SMSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'PromotionalMessagesPerSecond': 123,
-                    'SenderId': 'string',
-                    'ShortCode': 'string',
-                    'TransactionalMessagesPerSecond': 123,
-                    'Version': 123
+                \'SMSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'PromotionalMessagesPerSecond\': 123,
+                    \'SenderId\': \'string\',
+                    \'ShortCode\': \'string\',
+                    \'TransactionalMessagesPerSecond\': 123,
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -4590,7 +4590,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* Last date this was updated
               
-              - **Platform** *(string) --* Platform type. Will be "SMS"
+              - **Platform** *(string) --* Platform type. Will be \"SMS\"
               
               - **PromotionalMessagesPerSecond** *(integer) --* Promotional messages per second that can be sent
               
@@ -4614,8 +4614,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_endpoints(
-              ApplicationId='string',
-              UserId='string'
+              ApplicationId=\'string\',
+              UserId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4631,52 +4631,52 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointsResponse': {
-                    'Item': [
+                \'EndpointsResponse\': {
+                    \'Item\': [
                         {
-                            'Address': 'string',
-                            'ApplicationId': 'string',
-                            'Attributes': {
-                                'string': [
-                                    'string',
+                            \'Address\': \'string\',
+                            \'ApplicationId\': \'string\',
+                            \'Attributes\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                            'CohortId': 'string',
-                            'CreationDate': 'string',
-                            'Demographic': {
-                                'AppVersion': 'string',
-                                'Locale': 'string',
-                                'Make': 'string',
-                                'Model': 'string',
-                                'ModelVersion': 'string',
-                                'Platform': 'string',
-                                'PlatformVersion': 'string',
-                                'Timezone': 'string'
+                            \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                            \'CohortId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Demographic\': {
+                                \'AppVersion\': \'string\',
+                                \'Locale\': \'string\',
+                                \'Make\': \'string\',
+                                \'Model\': \'string\',
+                                \'ModelVersion\': \'string\',
+                                \'Platform\': \'string\',
+                                \'PlatformVersion\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'EffectiveDate': 'string',
-                            'EndpointStatus': 'string',
-                            'Id': 'string',
-                            'Location': {
-                                'City': 'string',
-                                'Country': 'string',
-                                'Latitude': 123.0,
-                                'Longitude': 123.0,
-                                'PostalCode': 'string',
-                                'Region': 'string'
+                            \'EffectiveDate\': \'string\',
+                            \'EndpointStatus\': \'string\',
+                            \'Id\': \'string\',
+                            \'Location\': {
+                                \'City\': \'string\',
+                                \'Country\': \'string\',
+                                \'Latitude\': 123.0,
+                                \'Longitude\': 123.0,
+                                \'PostalCode\': \'string\',
+                                \'Region\': \'string\'
                             },
-                            'Metrics': {
-                                'string': 123.0
+                            \'Metrics\': {
+                                \'string\': 123.0
                             },
-                            'OptOut': 'string',
-                            'RequestId': 'string',
-                            'User': {
-                                'UserAttributes': {
-                                    'string': [
-                                        'string',
+                            \'OptOut\': \'string\',
+                            \'RequestId\': \'string\',
+                            \'User\': {
+                                \'UserAttributes\': {
+                                    \'string\': [
+                                        \'string\',
                                     ]
                                 },
-                                'UserId': 'string'
+                                \'UserId\': \'string\'
                             }
                         },
                     ]
@@ -4696,7 +4696,7 @@ class Client(BaseClient):
                   
                   - **ApplicationId** *(string) --* The ID of the application that is associated with the endpoint.
                   
-                  - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                  - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                     
                     - *(string) --* 
                       
@@ -4732,13 +4732,13 @@ class Client(BaseClient):
                   
                   - **EndpointStatus** *(string) --* Unused.
                   
-                  - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+                  - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn\'t conflict with other endpoint IDs associated with the application.
                   
                   - **Location** *(dict) --* The endpoint location attributes.
                     
                     - **City** *(string) --* The city where the endpoint is located.
                     
-                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
                     
                     - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
                     
@@ -4760,7 +4760,7 @@ class Client(BaseClient):
                   
                   - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
                     
-                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                       
                       - *(string) --* 
                         
@@ -4789,7 +4789,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -4804,7 +4804,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_adm_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4817,17 +4817,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ADMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'ADMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -4852,7 +4852,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -4868,7 +4868,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_apns_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4881,19 +4881,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -4922,7 +4922,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -4938,7 +4938,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_apns_sandbox_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -4951,19 +4951,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -5008,7 +5008,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_apns_voip_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5021,19 +5021,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -5078,7 +5078,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_apns_voip_sandbox_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5091,19 +5091,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -5148,7 +5148,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_app(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5161,9 +5161,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationResponse': {
-                    'Id': 'string',
-                    'Name': 'string'
+                \'ApplicationResponse\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5188,7 +5188,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_application_settings(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5201,23 +5201,23 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationSettingsResource': {
-                    'ApplicationId': 'string',
-                    'CampaignHook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                \'ApplicationSettingsResource\': {
+                    \'ApplicationId\': \'string\',
+                    \'CampaignHook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'QuietTime': {
-                        'End': 'string',
-                        'Start': 'string'
+                    \'QuietTime\': {
+                        \'End\': \'string\',
+                        \'Start\': \'string\'
                     }
                 }
             }
@@ -5267,8 +5267,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_apps(
-              PageSize='string',
-              Token='string'
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type PageSize: string
         :param PageSize: The number of entries you want on each page in the response.
@@ -5284,14 +5284,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationsResponse': {
-                    'Item': [
+                \'ApplicationsResponse\': {
+                    \'Item\': [
                         {
-                            'Id': 'string',
-                            'Name': 'string'
+                            \'Id\': \'string\',
+                            \'Name\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5322,7 +5322,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_baidu_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5335,18 +5335,18 @@ class Client(BaseClient):
           ::
         
             {
-                'BaiduChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'BaiduChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -5389,8 +5389,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_campaign(
-              ApplicationId='string',
-              CampaignId='string'
+              ApplicationId=\'string\',
+              CampaignId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -5406,236 +5406,236 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignResponse': {
-                    'AdditionalTreatments': [
+                \'CampaignResponse\': {
+                    \'AdditionalTreatments\': [
                         {
-                            'Id': 'string',
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'Id\': \'string\',
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SizePercent': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SizePercent\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string'
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\'
                         },
                     ],
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultState': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultState\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'Description': 'string',
-                    'HoldoutPercent': 123,
-                    'Hook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                    \'Description\': \'string\',
+                    \'HoldoutPercent\': 123,
+                    \'Hook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'Id': 'string',
-                    'IsPaused': True|False,
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'Id\': \'string\',
+                    \'IsPaused\': True|False,
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'MessageConfiguration': {
-                        'ADMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                    \'MessageConfiguration\': {
+                        \'ADMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'APNSMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'APNSMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'BaiduMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'BaiduMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'DefaultMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'DefaultMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'EmailMessage': {
-                            'Body': 'string',
-                            'FromAddress': 'string',
-                            'HtmlBody': 'string',
-                            'Title': 'string'
+                        \'EmailMessage\': {
+                            \'Body\': \'string\',
+                            \'FromAddress\': \'string\',
+                            \'HtmlBody\': \'string\',
+                            \'Title\': \'string\'
                         },
-                        'GCMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'GCMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'SMSMessage': {
-                            'Body': 'string',
-                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                            'SenderId': 'string'
+                        \'SMSMessage\': {
+                            \'Body\': \'string\',
+                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                            \'SenderId\': \'string\'
                         }
                     },
-                    'Name': 'string',
-                    'Schedule': {
-                        'EndTime': 'string',
-                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                        'IsLocalTime': True|False,
-                        'QuietTime': {
-                            'End': 'string',
-                            'Start': 'string'
+                    \'Name\': \'string\',
+                    \'Schedule\': {
+                        \'EndTime\': \'string\',
+                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                        \'IsLocalTime\': True|False,
+                        \'QuietTime\': {
+                            \'End\': \'string\',
+                            \'Start\': \'string\'
                         },
-                        'StartTime': 'string',
-                        'Timezone': 'string'
+                        \'StartTime\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'SegmentId': 'string',
-                    'SegmentVersion': 123,
-                    'State': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'SegmentId\': \'string\',
+                    \'SegmentVersion\': 123,
+                    \'State\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'TreatmentDescription': 'string',
-                    'TreatmentName': 'string',
-                    'Version': 123
+                    \'TreatmentDescription\': \'string\',
+                    \'TreatmentName\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -5654,7 +5654,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -5674,13 +5674,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -5700,13 +5700,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -5726,13 +5726,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -5752,9 +5752,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -5768,7 +5768,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -5788,9 +5788,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -5806,7 +5806,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -5832,7 +5832,7 @@ class Client(BaseClient):
               
               - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
               
-              - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+              - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                 
                 - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
             
@@ -5868,7 +5868,7 @@ class Client(BaseClient):
                 
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -5888,13 +5888,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -5914,13 +5914,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -5940,13 +5940,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **DefaultMessage** *(dict) --* The default message for all channels.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -5966,9 +5966,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **EmailMessage** *(dict) --* The email message configuration.
                   
@@ -5982,7 +5982,7 @@ class Client(BaseClient):
               
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6002,9 +6002,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **SMSMessage** *(dict) --* The SMS message configuration.
                   
@@ -6022,7 +6022,7 @@ class Client(BaseClient):
                 
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                 
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                 
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                   
@@ -6060,10 +6060,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_campaign_activities(
-              ApplicationId='string',
-              CampaignId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              CampaignId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -6085,25 +6085,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ActivitiesResponse': {
-                    'Item': [
+                \'ActivitiesResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CampaignId': 'string',
-                            'End': 'string',
-                            'Id': 'string',
-                            'Result': 'string',
-                            'ScheduledStart': 'string',
-                            'Start': 'string',
-                            'State': 'string',
-                            'SuccessfulEndpointCount': 123,
-                            'TimezonesCompletedCount': 123,
-                            'TimezonesTotalCount': 123,
-                            'TotalEndpointCount': 123,
-                            'TreatmentId': 'string'
+                            \'ApplicationId\': \'string\',
+                            \'CampaignId\': \'string\',
+                            \'End\': \'string\',
+                            \'Id\': \'string\',
+                            \'Result\': \'string\',
+                            \'ScheduledStart\': \'string\',
+                            \'Start\': \'string\',
+                            \'State\': \'string\',
+                            \'SuccessfulEndpointCount\': 123,
+                            \'TimezonesCompletedCount\': 123,
+                            \'TimezonesTotalCount\': 123,
+                            \'TotalEndpointCount\': 123,
+                            \'TreatmentId\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6156,9 +6156,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_campaign_version(
-              ApplicationId='string',
-              CampaignId='string',
-              Version='string'
+              ApplicationId=\'string\',
+              CampaignId=\'string\',
+              Version=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -6177,236 +6177,236 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignResponse': {
-                    'AdditionalTreatments': [
+                \'CampaignResponse\': {
+                    \'AdditionalTreatments\': [
                         {
-                            'Id': 'string',
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'Id\': \'string\',
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SizePercent': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SizePercent\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string'
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\'
                         },
                     ],
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultState': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultState\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'Description': 'string',
-                    'HoldoutPercent': 123,
-                    'Hook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                    \'Description\': \'string\',
+                    \'HoldoutPercent\': 123,
+                    \'Hook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'Id': 'string',
-                    'IsPaused': True|False,
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'Id\': \'string\',
+                    \'IsPaused\': True|False,
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'MessageConfiguration': {
-                        'ADMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                    \'MessageConfiguration\': {
+                        \'ADMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'APNSMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'APNSMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'BaiduMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'BaiduMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'DefaultMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'DefaultMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'EmailMessage': {
-                            'Body': 'string',
-                            'FromAddress': 'string',
-                            'HtmlBody': 'string',
-                            'Title': 'string'
+                        \'EmailMessage\': {
+                            \'Body\': \'string\',
+                            \'FromAddress\': \'string\',
+                            \'HtmlBody\': \'string\',
+                            \'Title\': \'string\'
                         },
-                        'GCMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'GCMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'SMSMessage': {
-                            'Body': 'string',
-                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                            'SenderId': 'string'
+                        \'SMSMessage\': {
+                            \'Body\': \'string\',
+                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                            \'SenderId\': \'string\'
                         }
                     },
-                    'Name': 'string',
-                    'Schedule': {
-                        'EndTime': 'string',
-                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                        'IsLocalTime': True|False,
-                        'QuietTime': {
-                            'End': 'string',
-                            'Start': 'string'
+                    \'Name\': \'string\',
+                    \'Schedule\': {
+                        \'EndTime\': \'string\',
+                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                        \'IsLocalTime\': True|False,
+                        \'QuietTime\': {
+                            \'End\': \'string\',
+                            \'Start\': \'string\'
                         },
-                        'StartTime': 'string',
-                        'Timezone': 'string'
+                        \'StartTime\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'SegmentId': 'string',
-                    'SegmentVersion': 123,
-                    'State': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'SegmentId\': \'string\',
+                    \'SegmentVersion\': 123,
+                    \'State\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'TreatmentDescription': 'string',
-                    'TreatmentName': 'string',
-                    'Version': 123
+                    \'TreatmentDescription\': \'string\',
+                    \'TreatmentName\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -6425,7 +6425,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -6445,13 +6445,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -6471,13 +6471,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -6497,13 +6497,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -6523,9 +6523,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -6539,7 +6539,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -6559,9 +6559,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -6577,7 +6577,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -6603,7 +6603,7 @@ class Client(BaseClient):
               
               - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
               
-              - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+              - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                 
                 - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
             
@@ -6639,7 +6639,7 @@ class Client(BaseClient):
                 
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6659,13 +6659,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6685,13 +6685,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6711,13 +6711,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **DefaultMessage** *(dict) --* The default message for all channels.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6737,9 +6737,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **EmailMessage** *(dict) --* The email message configuration.
                   
@@ -6753,7 +6753,7 @@ class Client(BaseClient):
               
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -6773,9 +6773,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **SMSMessage** *(dict) --* The SMS message configuration.
                   
@@ -6793,7 +6793,7 @@ class Client(BaseClient):
                 
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                 
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                 
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                   
@@ -6831,10 +6831,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_campaign_versions(
-              ApplicationId='string',
-              CampaignId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              CampaignId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -6856,241 +6856,241 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignsResponse': {
-                    'Item': [
+                \'CampaignsResponse\': {
+                    \'Item\': [
                         {
-                            'AdditionalTreatments': [
+                            \'AdditionalTreatments\': [
                                 {
-                                    'Id': 'string',
-                                    'MessageConfiguration': {
-                                        'ADMMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                    \'Id\': \'string\',
+                                    \'MessageConfiguration\': {
+                                        \'ADMMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'APNSMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'APNSMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'BaiduMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'BaiduMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'DefaultMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'DefaultMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'EmailMessage': {
-                                            'Body': 'string',
-                                            'FromAddress': 'string',
-                                            'HtmlBody': 'string',
-                                            'Title': 'string'
+                                        \'EmailMessage\': {
+                                            \'Body\': \'string\',
+                                            \'FromAddress\': \'string\',
+                                            \'HtmlBody\': \'string\',
+                                            \'Title\': \'string\'
                                         },
-                                        'GCMMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'GCMMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'SMSMessage': {
-                                            'Body': 'string',
-                                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                            'SenderId': 'string'
+                                        \'SMSMessage\': {
+                                            \'Body\': \'string\',
+                                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                            \'SenderId\': \'string\'
                                         }
                                     },
-                                    'Schedule': {
-                                        'EndTime': 'string',
-                                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                        'IsLocalTime': True|False,
-                                        'QuietTime': {
-                                            'End': 'string',
-                                            'Start': 'string'
+                                    \'Schedule\': {
+                                        \'EndTime\': \'string\',
+                                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                        \'IsLocalTime\': True|False,
+                                        \'QuietTime\': {
+                                            \'End\': \'string\',
+                                            \'Start\': \'string\'
                                         },
-                                        'StartTime': 'string',
-                                        'Timezone': 'string'
+                                        \'StartTime\': \'string\',
+                                        \'Timezone\': \'string\'
                                     },
-                                    'SizePercent': 123,
-                                    'State': {
-                                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                                    \'SizePercent\': 123,
+                                    \'State\': {
+                                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                                     },
-                                    'TreatmentDescription': 'string',
-                                    'TreatmentName': 'string'
+                                    \'TreatmentDescription\': \'string\',
+                                    \'TreatmentName\': \'string\'
                                 },
                             ],
-                            'ApplicationId': 'string',
-                            'CreationDate': 'string',
-                            'DefaultState': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'ApplicationId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'DefaultState\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'Description': 'string',
-                            'HoldoutPercent': 123,
-                            'Hook': {
-                                'LambdaFunctionName': 'string',
-                                'Mode': 'DELIVERY'|'FILTER',
-                                'WebUrl': 'string'
+                            \'Description\': \'string\',
+                            \'HoldoutPercent\': 123,
+                            \'Hook\': {
+                                \'LambdaFunctionName\': \'string\',
+                                \'Mode\': \'DELIVERY\'|\'FILTER\',
+                                \'WebUrl\': \'string\'
                             },
-                            'Id': 'string',
-                            'IsPaused': True|False,
-                            'LastModifiedDate': 'string',
-                            'Limits': {
-                                'Daily': 123,
-                                'MaximumDuration': 123,
-                                'MessagesPerSecond': 123,
-                                'Total': 123
+                            \'Id\': \'string\',
+                            \'IsPaused\': True|False,
+                            \'LastModifiedDate\': \'string\',
+                            \'Limits\': {
+                                \'Daily\': 123,
+                                \'MaximumDuration\': 123,
+                                \'MessagesPerSecond\': 123,
+                                \'Total\': 123
                             },
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Name': 'string',
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Name\': \'string\',
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SegmentId': 'string',
-                            'SegmentVersion': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SegmentId\': \'string\',
+                            \'SegmentVersion\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string',
-                            'Version': 123
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\',
+                            \'Version\': 123
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7113,7 +7113,7 @@ class Client(BaseClient):
                         
                         - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7133,13 +7133,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7159,13 +7159,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7185,13 +7185,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **DefaultMessage** *(dict) --* The default message for all channels.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7211,9 +7211,9 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **EmailMessage** *(dict) --* The email message configuration.
                           
@@ -7227,7 +7227,7 @@ class Client(BaseClient):
                       
                         - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7247,9 +7247,9 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **SMSMessage** *(dict) --* The SMS message configuration.
                           
@@ -7265,7 +7265,7 @@ class Client(BaseClient):
                         
                         - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                         
-                        - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                        - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                         
                         - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                           
@@ -7291,7 +7291,7 @@ class Client(BaseClient):
                   
                   - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
                   
-                  - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+                  - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                     
                     - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
                 
@@ -7327,7 +7327,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -7347,13 +7347,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -7373,13 +7373,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -7399,13 +7399,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -7425,9 +7425,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -7441,7 +7441,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -7461,9 +7461,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -7481,7 +7481,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -7521,9 +7521,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_campaigns(
-              ApplicationId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -7542,241 +7542,241 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignsResponse': {
-                    'Item': [
+                \'CampaignsResponse\': {
+                    \'Item\': [
                         {
-                            'AdditionalTreatments': [
+                            \'AdditionalTreatments\': [
                                 {
-                                    'Id': 'string',
-                                    'MessageConfiguration': {
-                                        'ADMMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                    \'Id\': \'string\',
+                                    \'MessageConfiguration\': {
+                                        \'ADMMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'APNSMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'APNSMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'BaiduMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'BaiduMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'DefaultMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'DefaultMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'EmailMessage': {
-                                            'Body': 'string',
-                                            'FromAddress': 'string',
-                                            'HtmlBody': 'string',
-                                            'Title': 'string'
+                                        \'EmailMessage\': {
+                                            \'Body\': \'string\',
+                                            \'FromAddress\': \'string\',
+                                            \'HtmlBody\': \'string\',
+                                            \'Title\': \'string\'
                                         },
-                                        'GCMMessage': {
-                                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                            'Body': 'string',
-                                            'ImageIconUrl': 'string',
-                                            'ImageSmallIconUrl': 'string',
-                                            'ImageUrl': 'string',
-                                            'JsonBody': 'string',
-                                            'MediaUrl': 'string',
-                                            'RawContent': 'string',
-                                            'SilentPush': True|False,
-                                            'TimeToLive': 123,
-                                            'Title': 'string',
-                                            'Url': 'string'
+                                        \'GCMMessage\': {
+                                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                            \'Body\': \'string\',
+                                            \'ImageIconUrl\': \'string\',
+                                            \'ImageSmallIconUrl\': \'string\',
+                                            \'ImageUrl\': \'string\',
+                                            \'JsonBody\': \'string\',
+                                            \'MediaUrl\': \'string\',
+                                            \'RawContent\': \'string\',
+                                            \'SilentPush\': True|False,
+                                            \'TimeToLive\': 123,
+                                            \'Title\': \'string\',
+                                            \'Url\': \'string\'
                                         },
-                                        'SMSMessage': {
-                                            'Body': 'string',
-                                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                            'SenderId': 'string'
+                                        \'SMSMessage\': {
+                                            \'Body\': \'string\',
+                                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                            \'SenderId\': \'string\'
                                         }
                                     },
-                                    'Schedule': {
-                                        'EndTime': 'string',
-                                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                        'IsLocalTime': True|False,
-                                        'QuietTime': {
-                                            'End': 'string',
-                                            'Start': 'string'
+                                    \'Schedule\': {
+                                        \'EndTime\': \'string\',
+                                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                        \'IsLocalTime\': True|False,
+                                        \'QuietTime\': {
+                                            \'End\': \'string\',
+                                            \'Start\': \'string\'
                                         },
-                                        'StartTime': 'string',
-                                        'Timezone': 'string'
+                                        \'StartTime\': \'string\',
+                                        \'Timezone\': \'string\'
                                     },
-                                    'SizePercent': 123,
-                                    'State': {
-                                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                                    \'SizePercent\': 123,
+                                    \'State\': {
+                                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                                     },
-                                    'TreatmentDescription': 'string',
-                                    'TreatmentName': 'string'
+                                    \'TreatmentDescription\': \'string\',
+                                    \'TreatmentName\': \'string\'
                                 },
                             ],
-                            'ApplicationId': 'string',
-                            'CreationDate': 'string',
-                            'DefaultState': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'ApplicationId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'DefaultState\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'Description': 'string',
-                            'HoldoutPercent': 123,
-                            'Hook': {
-                                'LambdaFunctionName': 'string',
-                                'Mode': 'DELIVERY'|'FILTER',
-                                'WebUrl': 'string'
+                            \'Description\': \'string\',
+                            \'HoldoutPercent\': 123,
+                            \'Hook\': {
+                                \'LambdaFunctionName\': \'string\',
+                                \'Mode\': \'DELIVERY\'|\'FILTER\',
+                                \'WebUrl\': \'string\'
                             },
-                            'Id': 'string',
-                            'IsPaused': True|False,
-                            'LastModifiedDate': 'string',
-                            'Limits': {
-                                'Daily': 123,
-                                'MaximumDuration': 123,
-                                'MessagesPerSecond': 123,
-                                'Total': 123
+                            \'Id\': \'string\',
+                            \'IsPaused\': True|False,
+                            \'LastModifiedDate\': \'string\',
+                            \'Limits\': {
+                                \'Daily\': 123,
+                                \'MaximumDuration\': 123,
+                                \'MessagesPerSecond\': 123,
+                                \'Total\': 123
                             },
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Name': 'string',
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Name\': \'string\',
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SegmentId': 'string',
-                            'SegmentVersion': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SegmentId\': \'string\',
+                            \'SegmentVersion\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string',
-                            'Version': 123
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\',
+                            \'Version\': 123
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7799,7 +7799,7 @@ class Client(BaseClient):
                         
                         - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7819,13 +7819,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7845,13 +7845,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7871,13 +7871,13 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **DefaultMessage** *(dict) --* The default message for all channels.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7897,9 +7897,9 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **EmailMessage** *(dict) --* The email message configuration.
                           
@@ -7913,7 +7913,7 @@ class Client(BaseClient):
                       
                         - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                           
-                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                          - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                           
                           - **Body** *(string) --* The message body. Can include up to 140 characters.
                           
@@ -7933,9 +7933,9 @@ class Client(BaseClient):
                           
                           - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                           
-                          - **Title** *(string) --* The message title that displays above the message on the user's device.
+                          - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                           
-                          - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                          - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                       
                         - **SMSMessage** *(dict) --* The SMS message configuration.
                           
@@ -7951,7 +7951,7 @@ class Client(BaseClient):
                         
                         - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                         
-                        - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                        - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                         
                         - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                           
@@ -7977,7 +7977,7 @@ class Client(BaseClient):
                   
                   - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
                   
-                  - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+                  - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                     
                     - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
                 
@@ -8013,7 +8013,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -8033,13 +8033,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -8059,13 +8059,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -8085,13 +8085,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -8111,9 +8111,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -8127,7 +8127,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -8147,9 +8147,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -8167,7 +8167,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -8207,7 +8207,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_channels(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8220,18 +8220,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ChannelsResponse': {
-                    'Channels': {
-                        'string': {
-                            'ApplicationId': 'string',
-                            'CreationDate': 'string',
-                            'Enabled': True|False,
-                            'HasCredential': True|False,
-                            'Id': 'string',
-                            'IsArchived': True|False,
-                            'LastModifiedBy': 'string',
-                            'LastModifiedDate': 'string',
-                            'Version': 123
+                \'ChannelsResponse\': {
+                    \'Channels\': {
+                        \'string\': {
+                            \'ApplicationId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Enabled\': True|False,
+                            \'HasCredential\': True|False,
+                            \'Id\': \'string\',
+                            \'IsArchived\': True|False,
+                            \'LastModifiedBy\': \'string\',
+                            \'LastModifiedDate\': \'string\',
+                            \'Version\': 123
                         }
                     }
                 }
@@ -8278,7 +8278,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_email_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8291,22 +8291,22 @@ class Client(BaseClient):
           ::
         
             {
-                'EmailChannelResponse': {
-                    'ApplicationId': 'string',
-                    'ConfigurationSet': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'FromAddress': 'string',
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'Identity': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'MessagesPerSecond': 123,
-                    'Platform': 'string',
-                    'RoleArn': 'string',
-                    'Version': 123
+                \'EmailChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'ConfigurationSet\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'FromAddress\': \'string\',
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'Identity\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'MessagesPerSecond\': 123,
+                    \'Platform\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -8339,9 +8339,9 @@ class Client(BaseClient):
               
               - **MessagesPerSecond** *(integer) --* Messages per second that can be sent
               
-              - **Platform** *(string) --* Platform type. Will be "EMAIL"
+              - **Platform** *(string) --* Platform type. Will be \"EMAIL\"
               
-              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics\' event ingestion service
               
               - **Version** *(integer) --* Version of channel
           
@@ -8357,8 +8357,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_endpoint(
-              ApplicationId='string',
-              EndpointId='string'
+              ApplicationId=\'string\',
+              EndpointId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8374,50 +8374,50 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointResponse': {
-                    'Address': 'string',
-                    'ApplicationId': 'string',
-                    'Attributes': {
-                        'string': [
-                            'string',
+                \'EndpointResponse\': {
+                    \'Address\': \'string\',
+                    \'ApplicationId\': \'string\',
+                    \'Attributes\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                    'CohortId': 'string',
-                    'CreationDate': 'string',
-                    'Demographic': {
-                        'AppVersion': 'string',
-                        'Locale': 'string',
-                        'Make': 'string',
-                        'Model': 'string',
-                        'ModelVersion': 'string',
-                        'Platform': 'string',
-                        'PlatformVersion': 'string',
-                        'Timezone': 'string'
+                    \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                    \'CohortId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Demographic\': {
+                        \'AppVersion\': \'string\',
+                        \'Locale\': \'string\',
+                        \'Make\': \'string\',
+                        \'Model\': \'string\',
+                        \'ModelVersion\': \'string\',
+                        \'Platform\': \'string\',
+                        \'PlatformVersion\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'EffectiveDate': 'string',
-                    'EndpointStatus': 'string',
-                    'Id': 'string',
-                    'Location': {
-                        'City': 'string',
-                        'Country': 'string',
-                        'Latitude': 123.0,
-                        'Longitude': 123.0,
-                        'PostalCode': 'string',
-                        'Region': 'string'
+                    \'EffectiveDate\': \'string\',
+                    \'EndpointStatus\': \'string\',
+                    \'Id\': \'string\',
+                    \'Location\': {
+                        \'City\': \'string\',
+                        \'Country\': \'string\',
+                        \'Latitude\': 123.0,
+                        \'Longitude\': 123.0,
+                        \'PostalCode\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'Metrics': {
-                        'string': 123.0
+                    \'Metrics\': {
+                        \'string\': 123.0
                     },
-                    'OptOut': 'string',
-                    'RequestId': 'string',
-                    'User': {
-                        'UserAttributes': {
-                            'string': [
-                                'string',
+                    \'OptOut\': \'string\',
+                    \'RequestId\': \'string\',
+                    \'User\': {
+                        \'UserAttributes\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'UserId': 'string'
+                        \'UserId\': \'string\'
                     }
                 }
             }
@@ -8431,7 +8431,7 @@ class Client(BaseClient):
               
               - **ApplicationId** *(string) --* The ID of the application that is associated with the endpoint.
               
-              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                 
                 - *(string) --* 
                   
@@ -8467,13 +8467,13 @@ class Client(BaseClient):
               
               - **EndpointStatus** *(string) --* Unused.
               
-              - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+              - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn\'t conflict with other endpoint IDs associated with the application.
               
               - **Location** *(dict) --* The endpoint location attributes.
                 
                 - **City** *(string) --* The city where the endpoint is located.
                 
-                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
                 
                 - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
                 
@@ -8495,7 +8495,7 @@ class Client(BaseClient):
               
               - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
                 
-                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                   
                   - *(string) --* 
                     
@@ -8517,7 +8517,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_event_stream(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8530,13 +8530,13 @@ class Client(BaseClient):
           ::
         
             {
-                'EventStream': {
-                    'ApplicationId': 'string',
-                    'DestinationStreamArn': 'string',
-                    'ExternalId': 'string',
-                    'LastModifiedDate': 'string',
-                    'LastUpdatedBy': 'string',
-                    'RoleArn': 'string'
+                \'EventStream\': {
+                    \'ApplicationId\': \'string\',
+                    \'DestinationStreamArn\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'LastUpdatedBy\': \'string\',
+                    \'RoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8569,8 +8569,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_export_job(
-              ApplicationId='string',
-              JobId='string'
+              ApplicationId=\'string\',
+              JobId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8586,27 +8586,27 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportJobResponse': {
-                    'ApplicationId': 'string',
-                    'CompletedPieces': 123,
-                    'CompletionDate': 'string',
-                    'CreationDate': 'string',
-                    'Definition': {
-                        'RoleArn': 'string',
-                        'S3UrlPrefix': 'string',
-                        'SegmentId': 'string',
-                        'SegmentVersion': 123
+                \'ExportJobResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CompletedPieces\': 123,
+                    \'CompletionDate\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Definition\': {
+                        \'RoleArn\': \'string\',
+                        \'S3UrlPrefix\': \'string\',
+                        \'SegmentId\': \'string\',
+                        \'SegmentVersion\': 123
                     },
-                    'FailedPieces': 123,
-                    'Failures': [
-                        'string',
+                    \'FailedPieces\': 123,
+                    \'Failures\': [
+                        \'string\',
                     ],
-                    'Id': 'string',
-                    'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                    'TotalFailures': 123,
-                    'TotalPieces': 123,
-                    'TotalProcessed': 123,
-                    'Type': 'string'
+                    \'Id\': \'string\',
+                    \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                    \'TotalFailures\': 123,
+                    \'TotalPieces\': 123,
+                    \'TotalProcessed\': 123,
+                    \'Type\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8649,7 +8649,7 @@ class Client(BaseClient):
               
               - **TotalProcessed** *(integer) --* The number of endpoints that were processed by the job.
               
-              - **Type** *(string) --* The job type. Will be 'EXPORT'.
+              - **Type** *(string) --* The job type. Will be \'EXPORT\'.
           
         """
         pass
@@ -8663,9 +8663,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_export_jobs(
-              ApplicationId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8684,32 +8684,32 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportJobsResponse': {
-                    'Item': [
+                \'ExportJobsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CompletedPieces': 123,
-                            'CompletionDate': 'string',
-                            'CreationDate': 'string',
-                            'Definition': {
-                                'RoleArn': 'string',
-                                'S3UrlPrefix': 'string',
-                                'SegmentId': 'string',
-                                'SegmentVersion': 123
+                            \'ApplicationId\': \'string\',
+                            \'CompletedPieces\': 123,
+                            \'CompletionDate\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Definition\': {
+                                \'RoleArn\': \'string\',
+                                \'S3UrlPrefix\': \'string\',
+                                \'SegmentId\': \'string\',
+                                \'SegmentVersion\': 123
                             },
-                            'FailedPieces': 123,
-                            'Failures': [
-                                'string',
+                            \'FailedPieces\': 123,
+                            \'Failures\': [
+                                \'string\',
                             ],
-                            'Id': 'string',
-                            'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                            'TotalFailures': 123,
-                            'TotalPieces': 123,
-                            'TotalProcessed': 123,
-                            'Type': 'string'
+                            \'Id\': \'string\',
+                            \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                            \'TotalFailures\': 123,
+                            \'TotalPieces\': 123,
+                            \'TotalProcessed\': 123,
+                            \'Type\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8756,7 +8756,7 @@ class Client(BaseClient):
                   
                   - **TotalProcessed** *(integer) --* The number of endpoints that were processed by the job.
                   
-                  - **Type** *(string) --* The job type. Will be 'EXPORT'.
+                  - **Type** *(string) --* The job type. Will be \'EXPORT\'.
               
               - **NextToken** *(string) --* The string that you use in a subsequent request to get the next page of results in a paginated response.
           
@@ -8772,7 +8772,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_gcm_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8785,18 +8785,18 @@ class Client(BaseClient):
           ::
         
             {
-                'GCMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'GCMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -8839,8 +8839,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_import_job(
-              ApplicationId='string',
-              JobId='string'
+              ApplicationId=\'string\',
+              JobId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8856,31 +8856,31 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportJobResponse': {
-                    'ApplicationId': 'string',
-                    'CompletedPieces': 123,
-                    'CompletionDate': 'string',
-                    'CreationDate': 'string',
-                    'Definition': {
-                        'DefineSegment': True|False,
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RegisterEndpoints': True|False,
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'SegmentId': 'string',
-                        'SegmentName': 'string'
+                \'ImportJobResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CompletedPieces\': 123,
+                    \'CompletionDate\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Definition\': {
+                        \'DefineSegment\': True|False,
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RegisterEndpoints\': True|False,
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'SegmentId\': \'string\',
+                        \'SegmentName\': \'string\'
                     },
-                    'FailedPieces': 123,
-                    'Failures': [
-                        'string',
+                    \'FailedPieces\': 123,
+                    \'Failures\': [
+                        \'string\',
                     ],
-                    'Id': 'string',
-                    'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                    'TotalFailures': 123,
-                    'TotalPieces': 123,
-                    'TotalProcessed': 123,
-                    'Type': 'string'
+                    \'Id\': \'string\',
+                    \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                    \'TotalFailures\': 123,
+                    \'TotalPieces\': 123,
+                    \'TotalProcessed\': 123,
+                    \'Type\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8945,9 +8945,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_import_jobs(
-              ApplicationId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -8966,36 +8966,36 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportJobsResponse': {
-                    'Item': [
+                \'ImportJobsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CompletedPieces': 123,
-                            'CompletionDate': 'string',
-                            'CreationDate': 'string',
-                            'Definition': {
-                                'DefineSegment': True|False,
-                                'ExternalId': 'string',
-                                'Format': 'CSV'|'JSON',
-                                'RegisterEndpoints': True|False,
-                                'RoleArn': 'string',
-                                'S3Url': 'string',
-                                'SegmentId': 'string',
-                                'SegmentName': 'string'
+                            \'ApplicationId\': \'string\',
+                            \'CompletedPieces\': 123,
+                            \'CompletionDate\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Definition\': {
+                                \'DefineSegment\': True|False,
+                                \'ExternalId\': \'string\',
+                                \'Format\': \'CSV\'|\'JSON\',
+                                \'RegisterEndpoints\': True|False,
+                                \'RoleArn\': \'string\',
+                                \'S3Url\': \'string\',
+                                \'SegmentId\': \'string\',
+                                \'SegmentName\': \'string\'
                             },
-                            'FailedPieces': 123,
-                            'Failures': [
-                                'string',
+                            \'FailedPieces\': 123,
+                            \'Failures\': [
+                                \'string\',
                             ],
-                            'Id': 'string',
-                            'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                            'TotalFailures': 123,
-                            'TotalPieces': 123,
-                            'TotalProcessed': 123,
-                            'Type': 'string'
+                            \'Id\': \'string\',
+                            \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                            \'TotalFailures\': 123,
+                            \'TotalPieces\': 123,
+                            \'TotalProcessed\': 123,
+                            \'Type\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9063,10 +9063,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -9086,8 +9086,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_segment(
-              ApplicationId='string',
-              SegmentId='string'
+              ApplicationId=\'string\',
+              SegmentId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -9103,207 +9103,207 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Dimensions': {
-                        'Attributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                \'SegmentResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Dimensions\': {
+                        \'Attributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Behavior': {
-                            'Recency': {
-                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                        \'Behavior\': {
+                            \'Recency\': {
+                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                             }
                         },
-                        'Demographic': {
-                            'AppVersion': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Demographic\': {
+                            \'AppVersion\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Channel': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Channel\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'DeviceType': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'DeviceType\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Make': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Make\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Model': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Model\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Platform': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Platform\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Location': {
-                            'Country': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Location\': {
+                            \'Country\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'GPSPoint': {
-                                'Coordinates': {
-                                    'Latitude': 123.0,
-                                    'Longitude': 123.0
+                            \'GPSPoint\': {
+                                \'Coordinates\': {
+                                    \'Latitude\': 123.0,
+                                    \'Longitude\': 123.0
                                 },
-                                'RangeInKilometers': 123.0
+                                \'RangeInKilometers\': 123.0
                             }
                         },
-                        'Metrics': {
-                            'string': {
-                                'ComparisonOperator': 'string',
-                                'Value': 123.0
+                        \'Metrics\': {
+                            \'string\': {
+                                \'ComparisonOperator\': \'string\',
+                                \'Value\': 123.0
                             }
                         },
-                        'UserAttributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'UserAttributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
-                    'Id': 'string',
-                    'ImportDefinition': {
-                        'ChannelCounts': {
-                            'string': 123
+                    \'Id\': \'string\',
+                    \'ImportDefinition\': {
+                        \'ChannelCounts\': {
+                            \'string\': 123
                         },
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'Size': 123
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'Size\': 123
                     },
-                    'LastModifiedDate': 'string',
-                    'Name': 'string',
-                    'SegmentGroups': {
-                        'Groups': [
+                    \'LastModifiedDate\': \'string\',
+                    \'Name\': \'string\',
+                    \'SegmentGroups\': {
+                        \'Groups\': [
                             {
-                                'Dimensions': [
+                                \'Dimensions\': [
                                     {
-                                        'Attributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Attributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Behavior': {
-                                            'Recency': {
-                                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                                        \'Behavior\': {
+                                            \'Recency\': {
+                                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                             }
                                         },
-                                        'Demographic': {
-                                            'AppVersion': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Demographic\': {
+                                            \'AppVersion\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Channel': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Channel\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'DeviceType': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'DeviceType\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Make': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Make\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Model': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Model\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Platform': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Platform\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Location': {
-                                            'Country': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Location\': {
+                                            \'Country\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'GPSPoint': {
-                                                'Coordinates': {
-                                                    'Latitude': 123.0,
-                                                    'Longitude': 123.0
+                                            \'GPSPoint\': {
+                                                \'Coordinates\': {
+                                                    \'Latitude\': 123.0,
+                                                    \'Longitude\': 123.0
                                                 },
-                                                'RangeInKilometers': 123.0
+                                                \'RangeInKilometers\': 123.0
                                             }
                                         },
-                                        'Metrics': {
-                                            'string': {
-                                                'ComparisonOperator': 'string',
-                                                'Value': 123.0
+                                        \'Metrics\': {
+                                            \'string\': {
+                                                \'ComparisonOperator\': \'string\',
+                                                \'Value\': 123.0
                                             }
                                         },
-                                        'UserAttributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'UserAttributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
                                 ],
-                                'SourceSegments': [
+                                \'SourceSegments\': [
                                     {
-                                        'Id': 'string',
-                                        'Version': 123
+                                        \'Id\': \'string\',
+                                        \'Version\': 123
                                     },
                                 ],
-                                'SourceType': 'ALL'|'ANY'|'NONE',
-                                'Type': 'ALL'|'ANY'|'NONE'
+                                \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
                         ],
-                        'Include': 'ALL'|'ANY'|'NONE'
+                        \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                     },
-                    'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                    'Version': 123
+                    \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -9414,7 +9414,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* Custom metric dimension
                       
-                      - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                      - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                       
                       - **Value** *(float) --* Value to be compared.
                   
@@ -9560,7 +9560,7 @@ class Client(BaseClient):
                             
                             - *(dict) --* Custom metric dimension
                               
-                              - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                              - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                               
                               - **Value** *(float) --* Value to be compared.
                           
@@ -9576,7 +9576,7 @@ class Client(BaseClient):
                                 
                                 - *(string) --* 
                             
-                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                       
                       - *(dict) --* Segment reference.
                         
@@ -9606,10 +9606,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_segment_export_jobs(
-              ApplicationId='string',
-              PageSize='string',
-              SegmentId='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              SegmentId=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -9631,32 +9631,32 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportJobsResponse': {
-                    'Item': [
+                \'ExportJobsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CompletedPieces': 123,
-                            'CompletionDate': 'string',
-                            'CreationDate': 'string',
-                            'Definition': {
-                                'RoleArn': 'string',
-                                'S3UrlPrefix': 'string',
-                                'SegmentId': 'string',
-                                'SegmentVersion': 123
+                            \'ApplicationId\': \'string\',
+                            \'CompletedPieces\': 123,
+                            \'CompletionDate\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Definition\': {
+                                \'RoleArn\': \'string\',
+                                \'S3UrlPrefix\': \'string\',
+                                \'SegmentId\': \'string\',
+                                \'SegmentVersion\': 123
                             },
-                            'FailedPieces': 123,
-                            'Failures': [
-                                'string',
+                            \'FailedPieces\': 123,
+                            \'Failures\': [
+                                \'string\',
                             ],
-                            'Id': 'string',
-                            'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                            'TotalFailures': 123,
-                            'TotalPieces': 123,
-                            'TotalProcessed': 123,
-                            'Type': 'string'
+                            \'Id\': \'string\',
+                            \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                            \'TotalFailures\': 123,
+                            \'TotalPieces\': 123,
+                            \'TotalProcessed\': 123,
+                            \'Type\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9703,7 +9703,7 @@ class Client(BaseClient):
                   
                   - **TotalProcessed** *(integer) --* The number of endpoints that were processed by the job.
                   
-                  - **Type** *(string) --* The job type. Will be 'EXPORT'.
+                  - **Type** *(string) --* The job type. Will be \'EXPORT\'.
               
               - **NextToken** *(string) --* The string that you use in a subsequent request to get the next page of results in a paginated response.
           
@@ -9719,10 +9719,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_segment_import_jobs(
-              ApplicationId='string',
-              PageSize='string',
-              SegmentId='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              SegmentId=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -9744,36 +9744,36 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportJobsResponse': {
-                    'Item': [
+                \'ImportJobsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CompletedPieces': 123,
-                            'CompletionDate': 'string',
-                            'CreationDate': 'string',
-                            'Definition': {
-                                'DefineSegment': True|False,
-                                'ExternalId': 'string',
-                                'Format': 'CSV'|'JSON',
-                                'RegisterEndpoints': True|False,
-                                'RoleArn': 'string',
-                                'S3Url': 'string',
-                                'SegmentId': 'string',
-                                'SegmentName': 'string'
+                            \'ApplicationId\': \'string\',
+                            \'CompletedPieces\': 123,
+                            \'CompletionDate\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Definition\': {
+                                \'DefineSegment\': True|False,
+                                \'ExternalId\': \'string\',
+                                \'Format\': \'CSV\'|\'JSON\',
+                                \'RegisterEndpoints\': True|False,
+                                \'RoleArn\': \'string\',
+                                \'S3Url\': \'string\',
+                                \'SegmentId\': \'string\',
+                                \'SegmentName\': \'string\'
                             },
-                            'FailedPieces': 123,
-                            'Failures': [
-                                'string',
+                            \'FailedPieces\': 123,
+                            \'Failures\': [
+                                \'string\',
                             ],
-                            'Id': 'string',
-                            'JobStatus': 'CREATED'|'INITIALIZING'|'PROCESSING'|'COMPLETING'|'COMPLETED'|'FAILING'|'FAILED',
-                            'TotalFailures': 123,
-                            'TotalPieces': 123,
-                            'TotalProcessed': 123,
-                            'Type': 'string'
+                            \'Id\': \'string\',
+                            \'JobStatus\': \'CREATED\'|\'INITIALIZING\'|\'PROCESSING\'|\'COMPLETING\'|\'COMPLETED\'|\'FAILING\'|\'FAILED\',
+                            \'TotalFailures\': 123,
+                            \'TotalPieces\': 123,
+                            \'TotalProcessed\': 123,
+                            \'Type\': \'string\'
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9844,9 +9844,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_segment_version(
-              ApplicationId='string',
-              SegmentId='string',
-              Version='string'
+              ApplicationId=\'string\',
+              SegmentId=\'string\',
+              Version=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -9865,207 +9865,207 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Dimensions': {
-                        'Attributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                \'SegmentResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Dimensions\': {
+                        \'Attributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Behavior': {
-                            'Recency': {
-                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                        \'Behavior\': {
+                            \'Recency\': {
+                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                             }
                         },
-                        'Demographic': {
-                            'AppVersion': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Demographic\': {
+                            \'AppVersion\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Channel': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Channel\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'DeviceType': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'DeviceType\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Make': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Make\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Model': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Model\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Platform': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Platform\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Location': {
-                            'Country': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Location\': {
+                            \'Country\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'GPSPoint': {
-                                'Coordinates': {
-                                    'Latitude': 123.0,
-                                    'Longitude': 123.0
+                            \'GPSPoint\': {
+                                \'Coordinates\': {
+                                    \'Latitude\': 123.0,
+                                    \'Longitude\': 123.0
                                 },
-                                'RangeInKilometers': 123.0
+                                \'RangeInKilometers\': 123.0
                             }
                         },
-                        'Metrics': {
-                            'string': {
-                                'ComparisonOperator': 'string',
-                                'Value': 123.0
+                        \'Metrics\': {
+                            \'string\': {
+                                \'ComparisonOperator\': \'string\',
+                                \'Value\': 123.0
                             }
                         },
-                        'UserAttributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'UserAttributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
-                    'Id': 'string',
-                    'ImportDefinition': {
-                        'ChannelCounts': {
-                            'string': 123
+                    \'Id\': \'string\',
+                    \'ImportDefinition\': {
+                        \'ChannelCounts\': {
+                            \'string\': 123
                         },
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'Size': 123
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'Size\': 123
                     },
-                    'LastModifiedDate': 'string',
-                    'Name': 'string',
-                    'SegmentGroups': {
-                        'Groups': [
+                    \'LastModifiedDate\': \'string\',
+                    \'Name\': \'string\',
+                    \'SegmentGroups\': {
+                        \'Groups\': [
                             {
-                                'Dimensions': [
+                                \'Dimensions\': [
                                     {
-                                        'Attributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Attributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Behavior': {
-                                            'Recency': {
-                                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                                        \'Behavior\': {
+                                            \'Recency\': {
+                                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                             }
                                         },
-                                        'Demographic': {
-                                            'AppVersion': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Demographic\': {
+                                            \'AppVersion\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Channel': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Channel\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'DeviceType': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'DeviceType\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Make': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Make\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Model': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Model\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Platform': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Platform\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Location': {
-                                            'Country': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Location\': {
+                                            \'Country\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'GPSPoint': {
-                                                'Coordinates': {
-                                                    'Latitude': 123.0,
-                                                    'Longitude': 123.0
+                                            \'GPSPoint\': {
+                                                \'Coordinates\': {
+                                                    \'Latitude\': 123.0,
+                                                    \'Longitude\': 123.0
                                                 },
-                                                'RangeInKilometers': 123.0
+                                                \'RangeInKilometers\': 123.0
                                             }
                                         },
-                                        'Metrics': {
-                                            'string': {
-                                                'ComparisonOperator': 'string',
-                                                'Value': 123.0
+                                        \'Metrics\': {
+                                            \'string\': {
+                                                \'ComparisonOperator\': \'string\',
+                                                \'Value\': 123.0
                                             }
                                         },
-                                        'UserAttributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'UserAttributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
                                 ],
-                                'SourceSegments': [
+                                \'SourceSegments\': [
                                     {
-                                        'Id': 'string',
-                                        'Version': 123
+                                        \'Id\': \'string\',
+                                        \'Version\': 123
                                     },
                                 ],
-                                'SourceType': 'ALL'|'ANY'|'NONE',
-                                'Type': 'ALL'|'ANY'|'NONE'
+                                \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
                         ],
-                        'Include': 'ALL'|'ANY'|'NONE'
+                        \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                     },
-                    'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                    'Version': 123
+                    \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -10176,7 +10176,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* Custom metric dimension
                       
-                      - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                      - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                       
                       - **Value** *(float) --* Value to be compared.
                   
@@ -10322,7 +10322,7 @@ class Client(BaseClient):
                             
                             - *(dict) --* Custom metric dimension
                               
-                              - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                              - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                               
                               - **Value** *(float) --* Value to be compared.
                           
@@ -10338,7 +10338,7 @@ class Client(BaseClient):
                                 
                                 - *(string) --* 
                             
-                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                       
                       - *(dict) --* Segment reference.
                         
@@ -10368,10 +10368,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_segment_versions(
-              ApplicationId='string',
-              PageSize='string',
-              SegmentId='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              SegmentId=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -10393,212 +10393,212 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentsResponse': {
-                    'Item': [
+                \'SegmentsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CreationDate': 'string',
-                            'Dimensions': {
-                                'Attributes': {
-                                    'string': {
-                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                            \'ApplicationId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Dimensions\': {
+                                \'Attributes\': {
+                                    \'string\': {
+                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Behavior': {
-                                    'Recency': {
-                                        'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                        'RecencyType': 'ACTIVE'|'INACTIVE'
+                                \'Behavior\': {
+                                    \'Recency\': {
+                                        \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                        \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                     }
                                 },
-                                'Demographic': {
-                                    'AppVersion': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'Demographic\': {
+                                    \'AppVersion\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Channel': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Channel\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'DeviceType': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'DeviceType\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Make': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Make\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Model': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Model\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Platform': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Platform\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Location': {
-                                    'Country': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'Location\': {
+                                    \'Country\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'GPSPoint': {
-                                        'Coordinates': {
-                                            'Latitude': 123.0,
-                                            'Longitude': 123.0
+                                    \'GPSPoint\': {
+                                        \'Coordinates\': {
+                                            \'Latitude\': 123.0,
+                                            \'Longitude\': 123.0
                                         },
-                                        'RangeInKilometers': 123.0
+                                        \'RangeInKilometers\': 123.0
                                     }
                                 },
-                                'Metrics': {
-                                    'string': {
-                                        'ComparisonOperator': 'string',
-                                        'Value': 123.0
+                                \'Metrics\': {
+                                    \'string\': {
+                                        \'ComparisonOperator\': \'string\',
+                                        \'Value\': 123.0
                                     }
                                 },
-                                'UserAttributes': {
-                                    'string': {
-                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'UserAttributes\': {
+                                    \'string\': {
+                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 }
                             },
-                            'Id': 'string',
-                            'ImportDefinition': {
-                                'ChannelCounts': {
-                                    'string': 123
+                            \'Id\': \'string\',
+                            \'ImportDefinition\': {
+                                \'ChannelCounts\': {
+                                    \'string\': 123
                                 },
-                                'ExternalId': 'string',
-                                'Format': 'CSV'|'JSON',
-                                'RoleArn': 'string',
-                                'S3Url': 'string',
-                                'Size': 123
+                                \'ExternalId\': \'string\',
+                                \'Format\': \'CSV\'|\'JSON\',
+                                \'RoleArn\': \'string\',
+                                \'S3Url\': \'string\',
+                                \'Size\': 123
                             },
-                            'LastModifiedDate': 'string',
-                            'Name': 'string',
-                            'SegmentGroups': {
-                                'Groups': [
+                            \'LastModifiedDate\': \'string\',
+                            \'Name\': \'string\',
+                            \'SegmentGroups\': {
+                                \'Groups\': [
                                     {
-                                        'Dimensions': [
+                                        \'Dimensions\': [
                                             {
-                                                'Attributes': {
-                                                    'string': {
-                                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Attributes\': {
+                                                    \'string\': {
+                                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 },
-                                                'Behavior': {
-                                                    'Recency': {
-                                                        'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                        'RecencyType': 'ACTIVE'|'INACTIVE'
+                                                \'Behavior\': {
+                                                    \'Recency\': {
+                                                        \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                        \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                                     }
                                                 },
-                                                'Demographic': {
-                                                    'AppVersion': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Demographic\': {
+                                                    \'AppVersion\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Channel': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Channel\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'DeviceType': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'DeviceType\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Make': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Make\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Model': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Model\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Platform': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Platform\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 },
-                                                'Location': {
-                                                    'Country': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Location\': {
+                                                    \'Country\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'GPSPoint': {
-                                                        'Coordinates': {
-                                                            'Latitude': 123.0,
-                                                            'Longitude': 123.0
+                                                    \'GPSPoint\': {
+                                                        \'Coordinates\': {
+                                                            \'Latitude\': 123.0,
+                                                            \'Longitude\': 123.0
                                                         },
-                                                        'RangeInKilometers': 123.0
+                                                        \'RangeInKilometers\': 123.0
                                                     }
                                                 },
-                                                'Metrics': {
-                                                    'string': {
-                                                        'ComparisonOperator': 'string',
-                                                        'Value': 123.0
+                                                \'Metrics\': {
+                                                    \'string\': {
+                                                        \'ComparisonOperator\': \'string\',
+                                                        \'Value\': 123.0
                                                     }
                                                 },
-                                                'UserAttributes': {
-                                                    'string': {
-                                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'UserAttributes\': {
+                                                    \'string\': {
+                                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 }
                                             },
                                         ],
-                                        'SourceSegments': [
+                                        \'SourceSegments\': [
                                             {
-                                                'Id': 'string',
-                                                'Version': 123
+                                                \'Id\': \'string\',
+                                                \'Version\': 123
                                             },
                                         ],
-                                        'SourceType': 'ALL'|'ANY'|'NONE',
-                                        'Type': 'ALL'|'ANY'|'NONE'
+                                        \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                        \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                                     },
                                 ],
-                                'Include': 'ALL'|'ANY'|'NONE'
+                                \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
-                            'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                            'Version': 123
+                            \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                            \'Version\': 123
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10713,7 +10713,7 @@ class Client(BaseClient):
                         
                         - *(dict) --* Custom metric dimension
                           
-                          - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                          - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                           
                           - **Value** *(float) --* Value to be compared.
                       
@@ -10859,7 +10859,7 @@ class Client(BaseClient):
                                 
                                 - *(dict) --* Custom metric dimension
                                   
-                                  - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                                  - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                                   
                                   - **Value** *(float) --* Value to be compared.
                               
@@ -10875,7 +10875,7 @@ class Client(BaseClient):
                                     
                                     - *(string) --* 
                                 
-                        - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                        - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                           
                           - *(dict) --* Segment reference.
                             
@@ -10907,9 +10907,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_segments(
-              ApplicationId='string',
-              PageSize='string',
-              Token='string'
+              ApplicationId=\'string\',
+              PageSize=\'string\',
+              Token=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -10928,212 +10928,212 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentsResponse': {
-                    'Item': [
+                \'SegmentsResponse\': {
+                    \'Item\': [
                         {
-                            'ApplicationId': 'string',
-                            'CreationDate': 'string',
-                            'Dimensions': {
-                                'Attributes': {
-                                    'string': {
-                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                            \'ApplicationId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Dimensions\': {
+                                \'Attributes\': {
+                                    \'string\': {
+                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Behavior': {
-                                    'Recency': {
-                                        'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                        'RecencyType': 'ACTIVE'|'INACTIVE'
+                                \'Behavior\': {
+                                    \'Recency\': {
+                                        \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                        \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                     }
                                 },
-                                'Demographic': {
-                                    'AppVersion': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'Demographic\': {
+                                    \'AppVersion\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Channel': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Channel\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'DeviceType': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'DeviceType\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Make': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Make\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Model': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Model\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'Platform': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                    \'Platform\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Location': {
-                                    'Country': {
-                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'Location\': {
+                                    \'Country\': {
+                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'GPSPoint': {
-                                        'Coordinates': {
-                                            'Latitude': 123.0,
-                                            'Longitude': 123.0
+                                    \'GPSPoint\': {
+                                        \'Coordinates\': {
+                                            \'Latitude\': 123.0,
+                                            \'Longitude\': 123.0
                                         },
-                                        'RangeInKilometers': 123.0
+                                        \'RangeInKilometers\': 123.0
                                     }
                                 },
-                                'Metrics': {
-                                    'string': {
-                                        'ComparisonOperator': 'string',
-                                        'Value': 123.0
+                                \'Metrics\': {
+                                    \'string\': {
+                                        \'ComparisonOperator\': \'string\',
+                                        \'Value\': 123.0
                                     }
                                 },
-                                'UserAttributes': {
-                                    'string': {
-                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                        'Values': [
-                                            'string',
+                                \'UserAttributes\': {
+                                    \'string\': {
+                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     }
                                 }
                             },
-                            'Id': 'string',
-                            'ImportDefinition': {
-                                'ChannelCounts': {
-                                    'string': 123
+                            \'Id\': \'string\',
+                            \'ImportDefinition\': {
+                                \'ChannelCounts\': {
+                                    \'string\': 123
                                 },
-                                'ExternalId': 'string',
-                                'Format': 'CSV'|'JSON',
-                                'RoleArn': 'string',
-                                'S3Url': 'string',
-                                'Size': 123
+                                \'ExternalId\': \'string\',
+                                \'Format\': \'CSV\'|\'JSON\',
+                                \'RoleArn\': \'string\',
+                                \'S3Url\': \'string\',
+                                \'Size\': 123
                             },
-                            'LastModifiedDate': 'string',
-                            'Name': 'string',
-                            'SegmentGroups': {
-                                'Groups': [
+                            \'LastModifiedDate\': \'string\',
+                            \'Name\': \'string\',
+                            \'SegmentGroups\': {
+                                \'Groups\': [
                                     {
-                                        'Dimensions': [
+                                        \'Dimensions\': [
                                             {
-                                                'Attributes': {
-                                                    'string': {
-                                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Attributes\': {
+                                                    \'string\': {
+                                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 },
-                                                'Behavior': {
-                                                    'Recency': {
-                                                        'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                        'RecencyType': 'ACTIVE'|'INACTIVE'
+                                                \'Behavior\': {
+                                                    \'Recency\': {
+                                                        \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                        \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                                     }
                                                 },
-                                                'Demographic': {
-                                                    'AppVersion': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Demographic\': {
+                                                    \'AppVersion\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Channel': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Channel\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'DeviceType': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'DeviceType\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Make': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Make\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Model': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Model\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'Platform': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                    \'Platform\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 },
-                                                'Location': {
-                                                    'Country': {
-                                                        'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'Location\': {
+                                                    \'Country\': {
+                                                        \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     },
-                                                    'GPSPoint': {
-                                                        'Coordinates': {
-                                                            'Latitude': 123.0,
-                                                            'Longitude': 123.0
+                                                    \'GPSPoint\': {
+                                                        \'Coordinates\': {
+                                                            \'Latitude\': 123.0,
+                                                            \'Longitude\': 123.0
                                                         },
-                                                        'RangeInKilometers': 123.0
+                                                        \'RangeInKilometers\': 123.0
                                                     }
                                                 },
-                                                'Metrics': {
-                                                    'string': {
-                                                        'ComparisonOperator': 'string',
-                                                        'Value': 123.0
+                                                \'Metrics\': {
+                                                    \'string\': {
+                                                        \'ComparisonOperator\': \'string\',
+                                                        \'Value\': 123.0
                                                     }
                                                 },
-                                                'UserAttributes': {
-                                                    'string': {
-                                                        'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                        'Values': [
-                                                            'string',
+                                                \'UserAttributes\': {
+                                                    \'string\': {
+                                                        \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                        \'Values\': [
+                                                            \'string\',
                                                         ]
                                                     }
                                                 }
                                             },
                                         ],
-                                        'SourceSegments': [
+                                        \'SourceSegments\': [
                                             {
-                                                'Id': 'string',
-                                                'Version': 123
+                                                \'Id\': \'string\',
+                                                \'Version\': 123
                                             },
                                         ],
-                                        'SourceType': 'ALL'|'ANY'|'NONE',
-                                        'Type': 'ALL'|'ANY'|'NONE'
+                                        \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                        \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                                     },
                                 ],
-                                'Include': 'ALL'|'ANY'|'NONE'
+                                \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
-                            'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                            'Version': 123
+                            \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                            \'Version\': 123
                         },
                     ],
-                    'NextToken': 'string'
+                    \'NextToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11248,7 +11248,7 @@ class Client(BaseClient):
                         
                         - *(dict) --* Custom metric dimension
                           
-                          - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                          - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                           
                           - **Value** *(float) --* Value to be compared.
                       
@@ -11394,7 +11394,7 @@ class Client(BaseClient):
                                 
                                 - *(dict) --* Custom metric dimension
                                   
-                                  - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                                  - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                                   
                                   - **Value** *(float) --* Value to be compared.
                               
@@ -11410,7 +11410,7 @@ class Client(BaseClient):
                                     
                                     - *(string) --* 
                                 
-                        - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                        - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                           
                           - *(dict) --* Segment reference.
                             
@@ -11442,7 +11442,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sms_channel(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -11455,21 +11455,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SMSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'PromotionalMessagesPerSecond': 123,
-                    'SenderId': 'string',
-                    'ShortCode': 'string',
-                    'TransactionalMessagesPerSecond': 123,
-                    'Version': 123
+                \'SMSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'PromotionalMessagesPerSecond\': 123,
+                    \'SenderId\': \'string\',
+                    \'ShortCode\': \'string\',
+                    \'TransactionalMessagesPerSecond\': 123,
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -11494,7 +11494,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* Last date this was updated
               
-              - **Platform** *(string) --* Platform type. Will be "SMS"
+              - **Platform** *(string) --* Platform type. Will be \"SMS\"
               
               - **PromotionalMessagesPerSecond** *(integer) --* Promotional messages per second that can be sent
               
@@ -11518,8 +11518,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_endpoints(
-              ApplicationId='string',
-              UserId='string'
+              ApplicationId=\'string\',
+              UserId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** The unique ID of your Amazon Pinpoint application.
@@ -11535,52 +11535,52 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointsResponse': {
-                    'Item': [
+                \'EndpointsResponse\': {
+                    \'Item\': [
                         {
-                            'Address': 'string',
-                            'ApplicationId': 'string',
-                            'Attributes': {
-                                'string': [
-                                    'string',
+                            \'Address\': \'string\',
+                            \'ApplicationId\': \'string\',
+                            \'Attributes\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                            'CohortId': 'string',
-                            'CreationDate': 'string',
-                            'Demographic': {
-                                'AppVersion': 'string',
-                                'Locale': 'string',
-                                'Make': 'string',
-                                'Model': 'string',
-                                'ModelVersion': 'string',
-                                'Platform': 'string',
-                                'PlatformVersion': 'string',
-                                'Timezone': 'string'
+                            \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                            \'CohortId\': \'string\',
+                            \'CreationDate\': \'string\',
+                            \'Demographic\': {
+                                \'AppVersion\': \'string\',
+                                \'Locale\': \'string\',
+                                \'Make\': \'string\',
+                                \'Model\': \'string\',
+                                \'ModelVersion\': \'string\',
+                                \'Platform\': \'string\',
+                                \'PlatformVersion\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'EffectiveDate': 'string',
-                            'EndpointStatus': 'string',
-                            'Id': 'string',
-                            'Location': {
-                                'City': 'string',
-                                'Country': 'string',
-                                'Latitude': 123.0,
-                                'Longitude': 123.0,
-                                'PostalCode': 'string',
-                                'Region': 'string'
+                            \'EffectiveDate\': \'string\',
+                            \'EndpointStatus\': \'string\',
+                            \'Id\': \'string\',
+                            \'Location\': {
+                                \'City\': \'string\',
+                                \'Country\': \'string\',
+                                \'Latitude\': 123.0,
+                                \'Longitude\': 123.0,
+                                \'PostalCode\': \'string\',
+                                \'Region\': \'string\'
                             },
-                            'Metrics': {
-                                'string': 123.0
+                            \'Metrics\': {
+                                \'string\': 123.0
                             },
-                            'OptOut': 'string',
-                            'RequestId': 'string',
-                            'User': {
-                                'UserAttributes': {
-                                    'string': [
-                                        'string',
+                            \'OptOut\': \'string\',
+                            \'RequestId\': \'string\',
+                            \'User\': {
+                                \'UserAttributes\': {
+                                    \'string\': [
+                                        \'string\',
                                     ]
                                 },
-                                'UserId': 'string'
+                                \'UserId\': \'string\'
                             }
                         },
                     ]
@@ -11600,7 +11600,7 @@ class Client(BaseClient):
                   
                   - **ApplicationId** *(string) --* The ID of the application that is associated with the endpoint.
                   
-                  - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                  - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                     
                     - *(string) --* 
                       
@@ -11636,13 +11636,13 @@ class Client(BaseClient):
                   
                   - **EndpointStatus** *(string) --* Unused.
                   
-                  - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+                  - **Id** *(string) --* The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn\'t conflict with other endpoint IDs associated with the application.
                   
                   - **Location** *(dict) --* The endpoint location attributes.
                     
                     - **City** *(string) --* The city where the endpoint is located.
                     
-                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
                     
                     - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
                     
@@ -11664,7 +11664,7 @@ class Client(BaseClient):
                   
                   - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
                     
-                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
                       
                       - *(string) --* 
                         
@@ -11699,8 +11699,8 @@ class Client(BaseClient):
         
           response = client.phone_number_validate(
               NumberValidateRequest={
-                  'IsoCountryCode': 'string',
-                  'PhoneNumber': 'string'
+                  \'IsoCountryCode\': \'string\',
+                  \'PhoneNumber\': \'string\'
               }
           )
         :type NumberValidateRequest: dict
@@ -11708,7 +11708,7 @@ class Client(BaseClient):
         
           - **IsoCountryCode** *(string) --* (Optional) The two-character ISO country code for the country or region where the phone number was originally registered.
         
-          - **PhoneNumber** *(string) --* The phone number to get information about. The phone number that you provide should include a country code. If the number doesn't include a valid country code, the operation might result in an error.
+          - **PhoneNumber** *(string) --* The phone number to get information about. The phone number that you provide should include a country code. If the number doesn\'t include a valid country code, the operation might result in an error.
         
         :rtype: dict
         :returns: 
@@ -11718,21 +11718,21 @@ class Client(BaseClient):
           ::
         
             {
-                'NumberValidateResponse': {
-                    'Carrier': 'string',
-                    'City': 'string',
-                    'CleansedPhoneNumberE164': 'string',
-                    'CleansedPhoneNumberNational': 'string',
-                    'Country': 'string',
-                    'CountryCodeIso2': 'string',
-                    'CountryCodeNumeric': 'string',
-                    'County': 'string',
-                    'OriginalCountryCodeIso2': 'string',
-                    'OriginalPhoneNumber': 'string',
-                    'PhoneType': 'string',
-                    'PhoneTypeCode': 123,
-                    'Timezone': 'string',
-                    'ZipCode': 'string'
+                \'NumberValidateResponse\': {
+                    \'Carrier\': \'string\',
+                    \'City\': \'string\',
+                    \'CleansedPhoneNumberE164\': \'string\',
+                    \'CleansedPhoneNumberNational\': \'string\',
+                    \'Country\': \'string\',
+                    \'CountryCodeIso2\': \'string\',
+                    \'CountryCodeNumeric\': \'string\',
+                    \'County\': \'string\',
+                    \'OriginalCountryCodeIso2\': \'string\',
+                    \'OriginalPhoneNumber\': \'string\',
+                    \'PhoneType\': \'string\',
+                    \'PhoneTypeCode\': 123,
+                    \'Timezone\': \'string\',
+                    \'ZipCode\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11781,10 +11781,10 @@ class Client(BaseClient):
         ::
         
           response = client.put_event_stream(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               WriteEventStream={
-                  'DestinationStreamArn': 'string',
-                  'RoleArn': 'string'
+                  \'DestinationStreamArn\': \'string\',
+                  \'RoleArn\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -11805,13 +11805,13 @@ class Client(BaseClient):
           ::
         
             {
-                'EventStream': {
-                    'ApplicationId': 'string',
-                    'DestinationStreamArn': 'string',
-                    'ExternalId': 'string',
-                    'LastModifiedDate': 'string',
-                    'LastUpdatedBy': 'string',
-                    'RoleArn': 'string'
+                \'EventStream\': {
+                    \'ApplicationId\': \'string\',
+                    \'DestinationStreamArn\': \'string\',
+                    \'ExternalId\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'LastUpdatedBy\': \'string\',
+                    \'RoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11844,69 +11844,69 @@ class Client(BaseClient):
         ::
         
           response = client.put_events(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               EventsRequest={
-                  'BatchItem': {
-                      'string': {
-                          'Endpoint': {
-                              'Address': 'string',
-                              'Attributes': {
-                                  'string': [
-                                      'string',
+                  \'BatchItem\': {
+                      \'string\': {
+                          \'Endpoint\': {
+                              \'Address\': \'string\',
+                              \'Attributes\': {
+                                  \'string\': [
+                                      \'string\',
                                   ]
                               },
-                              'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                              'Demographic': {
-                                  'AppVersion': 'string',
-                                  'Locale': 'string',
-                                  'Make': 'string',
-                                  'Model': 'string',
-                                  'ModelVersion': 'string',
-                                  'Platform': 'string',
-                                  'PlatformVersion': 'string',
-                                  'Timezone': 'string'
+                              \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                              \'Demographic\': {
+                                  \'AppVersion\': \'string\',
+                                  \'Locale\': \'string\',
+                                  \'Make\': \'string\',
+                                  \'Model\': \'string\',
+                                  \'ModelVersion\': \'string\',
+                                  \'Platform\': \'string\',
+                                  \'PlatformVersion\': \'string\',
+                                  \'Timezone\': \'string\'
                               },
-                              'EffectiveDate': 'string',
-                              'EndpointStatus': 'string',
-                              'Location': {
-                                  'City': 'string',
-                                  'Country': 'string',
-                                  'Latitude': 123.0,
-                                  'Longitude': 123.0,
-                                  'PostalCode': 'string',
-                                  'Region': 'string'
+                              \'EffectiveDate\': \'string\',
+                              \'EndpointStatus\': \'string\',
+                              \'Location\': {
+                                  \'City\': \'string\',
+                                  \'Country\': \'string\',
+                                  \'Latitude\': 123.0,
+                                  \'Longitude\': 123.0,
+                                  \'PostalCode\': \'string\',
+                                  \'Region\': \'string\'
                               },
-                              'Metrics': {
-                                  'string': 123.0
+                              \'Metrics\': {
+                                  \'string\': 123.0
                               },
-                              'OptOut': 'string',
-                              'RequestId': 'string',
-                              'User': {
-                                  'UserAttributes': {
-                                      'string': [
-                                          'string',
+                              \'OptOut\': \'string\',
+                              \'RequestId\': \'string\',
+                              \'User\': {
+                                  \'UserAttributes\': {
+                                      \'string\': [
+                                          \'string\',
                                       ]
                                   },
-                                  'UserId': 'string'
+                                  \'UserId\': \'string\'
                               }
                           },
-                          'Events': {
-                              'string': {
-                                  'Attributes': {
-                                      'string': 'string'
+                          \'Events\': {
+                              \'string\': {
+                                  \'Attributes\': {
+                                      \'string\': \'string\'
                                   },
-                                  'ClientSdkVersion': 'string',
-                                  'EventType': 'string',
-                                  'Metrics': {
-                                      'string': 123.0
+                                  \'ClientSdkVersion\': \'string\',
+                                  \'EventType\': \'string\',
+                                  \'Metrics\': {
+                                      \'string\': 123.0
                                   },
-                                  'Session': {
-                                      'Duration': 123,
-                                      'Id': 'string',
-                                      'StartTimestamp': 'string',
-                                      'StopTimestamp': 'string'
+                                  \'Session\': {
+                                      \'Duration\': 123,
+                                      \'Id\': \'string\',
+                                      \'StartTimestamp\': \'string\',
+                                      \'StopTimestamp\': \'string\'
                                   },
-                                  'Timestamp': 'string'
+                                  \'Timestamp\': \'string\'
                               }
                           }
                       }
@@ -11965,7 +11965,7 @@ class Client(BaseClient):
         
                     - **City** *(string) --* The city where the endpoint is located.
         
-                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                    - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
         
                     - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
         
@@ -11987,7 +11987,7 @@ class Client(BaseClient):
         
                   - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
         
-                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                    - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
         
                       - *(string) --* 
         
@@ -12003,15 +12003,15 @@ class Client(BaseClient):
         
                     - *(dict) --* Model for creating or updating events.
         
-                      - **Attributes** *(dict) --* Custom attributes that are associated with the event you're adding or updating.
+                      - **Attributes** *(dict) --* Custom attributes that are associated with the event you\'re adding or updating.
         
                         - *(string) --* 
         
                           - *(string) --* 
         
-                      - **ClientSdkVersion** *(string) --* The version of the SDK that's running on the client device.
+                      - **ClientSdkVersion** *(string) --* The version of the SDK that\'s running on the client device.
         
-                      - **EventType** *(string) --* The name of the custom event that you're recording.
+                      - **EventType** *(string) --* The name of the custom event that you\'re recording.
         
                       - **Metrics** *(dict) --* Custom metrics related to the event.
         
@@ -12039,17 +12039,17 @@ class Client(BaseClient):
           ::
         
             {
-                'EventsResponse': {
-                    'Results': {
-                        'string': {
-                            'EndpointItemResponse': {
-                                'Message': 'string',
-                                'StatusCode': 123
+                \'EventsResponse\': {
+                    \'Results\': {
+                        \'string\': {
+                            \'EndpointItemResponse\': {
+                                \'Message\': \'string\',
+                                \'StatusCode\': 123
                             },
-                            'EventsItemResponse': {
-                                'string': {
-                                    'Message': 'string',
-                                    'StatusCode': 123
+                            \'EventsItemResponse\': {
+                                \'string\': {
+                                    \'Message\': \'string\',
+                                    \'StatusCode\': 123
                                 }
                             }
                         }
@@ -12066,7 +12066,7 @@ class Client(BaseClient):
                 
                 - *(string) --* 
                   
-                  - *(dict) --* The response that's provided after registering the endpoint.
+                  - *(dict) --* The response that\'s provided after registering the endpoint.
                     
                     - **EndpointItemResponse** *(dict) --* The response received after the endpoint was accepted.
                       
@@ -12096,11 +12096,11 @@ class Client(BaseClient):
         ::
         
           response = client.remove_attributes(
-              ApplicationId='string',
-              AttributeType='string',
+              ApplicationId=\'string\',
+              AttributeType=\'string\',
               UpdateAttributesRequest={
-                  'Blacklist': [
-                      'string',
+                  \'Blacklist\': [
+                      \'string\',
                   ]
               }
           )
@@ -12125,11 +12125,11 @@ class Client(BaseClient):
           ::
         
             {
-                'AttributesResource': {
-                    'ApplicationId': 'string',
-                    'AttributeType': 'string',
-                    'Attributes': [
-                        'string',
+                \'AttributesResource\': {
+                    \'ApplicationId\': \'string\',
+                    \'AttributeType\': \'string\',
+                    \'Attributes\': [
+                        \'string\',
                     ]
                 }
             }
@@ -12159,206 +12159,206 @@ class Client(BaseClient):
         ::
         
           response = client.send_messages(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               MessageRequest={
-                  'Addresses': {
-                      'string': {
-                          'BodyOverride': 'string',
-                          'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                          'Context': {
-                              'string': 'string'
+                  \'Addresses\': {
+                      \'string\': {
+                          \'BodyOverride\': \'string\',
+                          \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                          \'Context\': {
+                              \'string\': \'string\'
                           },
-                          'RawContent': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'RawContent\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TitleOverride': 'string'
+                          \'TitleOverride\': \'string\'
                       }
                   },
-                  'Context': {
-                      'string': 'string'
+                  \'Context\': {
+                      \'string\': \'string\'
                   },
-                  'Endpoints': {
-                      'string': {
-                          'BodyOverride': 'string',
-                          'Context': {
-                              'string': 'string'
+                  \'Endpoints\': {
+                      \'string\': {
+                          \'BodyOverride\': \'string\',
+                          \'Context\': {
+                              \'string\': \'string\'
                           },
-                          'RawContent': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'RawContent\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TitleOverride': 'string'
+                          \'TitleOverride\': \'string\'
                       }
                   },
-                  'MessageConfiguration': {
-                      'ADMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ConsolidationKey': 'string',
-                          'Data': {
-                              'string': 'string'
+                  \'MessageConfiguration\': {
+                      \'ADMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ConsolidationKey\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'ExpiresAfter': 'string',
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'MD5': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'ExpiresAfter\': \'string\',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'MD5\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'APNSMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Badge': 123,
-                          'Body': 'string',
-                          'Category': 'string',
-                          'CollapseId': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'APNSMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Badge\': 123,
+                          \'Body\': \'string\',
+                          \'Category\': \'string\',
+                          \'CollapseId\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'MediaUrl': 'string',
-                          'PreferredAuthenticationMethod': 'string',
-                          'Priority': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'MediaUrl\': \'string\',
+                          \'PreferredAuthenticationMethod\': \'string\',
+                          \'Priority\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'ThreadId': 'string',
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'ThreadId\': \'string\',
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'BaiduMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'BaiduMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'DefaultMessage': {
-                          'Body': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                      \'DefaultMessage\': {
+                          \'Body\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'DefaultPushNotificationMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'DefaultPushNotificationMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'SilentPush': True|False,
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'SilentPush\': True|False,
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'EmailMessage': {
-                          'Body': 'string',
-                          'FeedbackForwardingAddress': 'string',
-                          'FromAddress': 'string',
-                          'RawEmail': {
-                              'Data': b'bytes'
+                      \'EmailMessage\': {
+                          \'Body\': \'string\',
+                          \'FeedbackForwardingAddress\': \'string\',
+                          \'FromAddress\': \'string\',
+                          \'RawEmail\': {
+                              \'Data\': b\'bytes\'
                           },
-                          'ReplyToAddresses': [
-                              'string',
+                          \'ReplyToAddresses\': [
+                              \'string\',
                           ],
-                          'SimpleEmail': {
-                              'HtmlPart': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                          \'SimpleEmail\': {
+                              \'HtmlPart\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               },
-                              'Subject': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                              \'Subject\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               },
-                              'TextPart': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                              \'TextPart\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               }
                           },
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'GCMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'CollapseKey': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'GCMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'CollapseKey\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'Priority': 'string',
-                          'RawContent': 'string',
-                          'RestrictedPackageName': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'Priority\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'RestrictedPackageName\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'SMSMessage': {
-                          'Body': 'string',
-                          'Keyword': 'string',
-                          'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                          'OriginationNumber': 'string',
-                          'SenderId': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                      \'SMSMessage\': {
+                          \'Body\': \'string\',
+                          \'Keyword\': \'string\',
+                          \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                          \'OriginationNumber\': \'string\',
+                          \'SenderId\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       }
                   },
-                  'TraceId': 'string'
+                  \'TraceId\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -12377,7 +12377,7 @@ class Client(BaseClient):
         
                 - **ChannelType** *(string) --* The channel type. Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
         
-                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification\'s \'data.pinpoint\' object or added to the email/sms delivery receipt event attributes.
         
                   - *(string) --* 
         
@@ -12385,7 +12385,7 @@ class Client(BaseClient):
         
                 - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
-                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage\'s substitutions. Substitutions on this map take precedence over the all other substitutions.
         
                   - *(string) --* 
         
@@ -12395,7 +12395,7 @@ class Client(BaseClient):
         
                 - **TitleOverride** *(string) --* Title override. If specified will override default title if applicable.
         
-          - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+          - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification\'s \'data.pinpoint\' object or added to the email/sms delivery receipt event attributes.
         
             - *(string) --* 
         
@@ -12409,7 +12409,7 @@ class Client(BaseClient):
         
                 - **BodyOverride** *(string) --* Body override. If specified will override default body.
         
-                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification\'s \'data.pinpoint\' object or added to the email/sms delivery receipt event attributes.
         
                   - *(string) --* 
         
@@ -12417,7 +12417,7 @@ class Client(BaseClient):
         
                 - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
-                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage\'s substitutions. Substitutions on this map take precedence over the all other substitutions.
         
                   - *(string) --* 
         
@@ -12431,13 +12431,13 @@ class Client(BaseClient):
         
             - **ADMMessage** *(dict) --* The message to ADM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
               - **ConsolidationKey** *(string) --* Optional. Arbitrary string used to indicate multiple messages are logically the same and that ADM is allowed to drop previously enqueued messages in favor of this one.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -12469,23 +12469,23 @@ class Client(BaseClient):
         
                     - *(string) --* 
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **APNSMessage** *(dict) --* The message to APNS channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Badge** *(integer) --* Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Category** *(string) --* Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
+              - **Category** *(string) --* Provide this key with a string value that represents the notification\'s type. This value corresponds to the value in the identifier property of one of your app\'s registered categories.
         
               - **CollapseId** *(string) --* An ID that, if assigned to multiple messages, causes APNs to coalesce the messages into a single push notification instead of delivering each message individually. The value must not exceed 64 bytes. Amazon Pinpoint uses this value to set the apns-collapse-id request header when it sends the message to APNs.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -12493,15 +12493,15 @@ class Client(BaseClient):
         
               - **MediaUrl** *(string) --* The URL that points to a video used in the push notification.
         
-              - **PreferredAuthenticationMethod** *(string) --* The preferred authentication method, either "CERTIFICATE" or "TOKEN"
+              - **PreferredAuthenticationMethod** *(string) --* The preferred authentication method, either \"CERTIFICATE\" or \"TOKEN\"
         
-              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values: "5" - Low priority. Messages might be delayed, delivered in groups, and throttled. "10" - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device. The default value is "10". The equivalent values for FCM or GCM messages are "normal" and "high". Amazon Pinpoint accepts these values for APNs messages and converts them. For more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide.
+              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values: \"5\" - Low priority. Messages might be delayed, delivered in groups, and throttled. \"10\" - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device. The default value is \"10\". The equivalent values for FCM or GCM messages are \"normal\" and \"high\". Amazon Pinpoint accepts these values for APNs messages and converts them. For more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide.
         
               - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
               - **SilentPush** *(boolean) --* Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
         
-              - **Sound** *(string) --* Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
+              - **Sound** *(string) --* Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app\'s main bundle or in the Library/Sounds folder of your app\'s data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -12515,17 +12515,17 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* The length of time (in seconds) that APNs stores and attempts to deliver the message. If the value is 0, APNs does not store the message or attempt to deliver it more than once. Amazon Pinpoint uses this value to set the apns-expiration request header when it sends the message to APNs.
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **BaiduMessage** *(dict) --* The message to Baidu GCM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -12555,9 +12555,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept in Baidu storage if the device is offline. The and the default value and the maximum time to live supported is 7 days (604800 seconds)
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **DefaultMessage** *(dict) --* The default message for all channels.
         
@@ -12573,17 +12573,17 @@ class Client(BaseClient):
         
             - **DefaultPushNotificationMessage** *(dict) --* The default push notification message for all push channels.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
                   - *(string) --* 
         
-              - **SilentPush** *(boolean) --* Indicates if the message should display on the recipient's device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
+              - **SilentPush** *(boolean) --* Indicates if the message should display on the recipient\'s device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -12593,9 +12593,9 @@ class Client(BaseClient):
         
                     - *(string) --* 
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **EmailMessage** *(dict) --* The message to Email channels. Overrides the default message.
         
@@ -12621,7 +12621,7 @@ class Client(BaseClient):
         
                   - **Data** *(string) --* The textual data of the content.
         
-                - **Subject** *(dict) --* The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+                - **Subject** *(dict) --* The subject of the message: A short summary of the content, which will appear in the recipient\'s inbox.
         
                   - **Charset** *(string) --* The character set of the content.
         
@@ -12643,13 +12643,13 @@ class Client(BaseClient):
         
             - **GCMMessage** *(dict) --* The message to GCM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **CollapseKey** *(string) --* This parameter identifies a group of messages (e.g., with collapse_key: "Updates Available") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
+              - **CollapseKey** *(string) --* This parameter identifies a group of messages (e.g., with collapse_key: \"Updates Available\") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -12661,7 +12661,7 @@ class Client(BaseClient):
         
               - **ImageUrl** *(string) --* The URL that points to an image used in the push notification.
         
-              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the FCM or GCM priority parameter when it sends the message. Accepts the following values: "Normal" - Messages might be delayed. Delivery is optimized for battery usage on the receiving device. Use normal priority unless immediate delivery is required. "High" - Messages are sent immediately and might wake a sleeping device. The equivalent values for APNs messages are "5" and "10". Amazon Pinpoint accepts these values here and converts them. For more information, see About FCM Messages in the Firebase documentation.
+              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the FCM or GCM priority parameter when it sends the message. Accepts the following values: \"Normal\" - Messages might be delayed. Delivery is optimized for battery usage on the receiving device. Use normal priority unless immediate delivery is required. \"High\" - Messages are sent immediately and might wake a sleeping device. The equivalent values for APNs messages are \"5\" and \"10\". Amazon Pinpoint accepts these values here and converts them. For more information, see About FCM Messages in the Firebase documentation.
         
               - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
@@ -12683,9 +12683,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* The length of time (in seconds) that FCM or GCM stores and attempts to deliver the message. If unspecified, the value defaults to the maximum, which is 2,419,200 seconds (28 days). Amazon Pinpoint uses this value to set the FCM or GCM time_to_live parameter.
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **SMSMessage** *(dict) --* The message to SMS channels. Overrides the default message.
         
@@ -12697,7 +12697,7 @@ class Client(BaseClient):
         
               - **OriginationNumber** *(string) --* The phone number that the SMS message originates from. Specify one of the dedicated long codes or short codes that you requested from AWS Support and that is assigned to your account. If this attribute is not specified, Amazon Pinpoint randomly assigns a long code.
         
-              - **SenderId** *(string) --* The sender ID that is shown as the message sender on the recipient's device. Support for sender IDs varies by country or region.
+              - **SenderId** *(string) --* The sender ID that is shown as the message sender on the recipient\'s device. Support for sender IDs varies by country or region.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -12717,26 +12717,26 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageResponse': {
-                    'ApplicationId': 'string',
-                    'EndpointResult': {
-                        'string': {
-                            'Address': 'string',
-                            'DeliveryStatus': 'SUCCESSFUL'|'THROTTLED'|'TEMPORARY_FAILURE'|'PERMANENT_FAILURE'|'UNKNOWN_FAILURE'|'OPT_OUT'|'DUPLICATE',
-                            'MessageId': 'string',
-                            'StatusCode': 123,
-                            'StatusMessage': 'string',
-                            'UpdatedToken': 'string'
+                \'MessageResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'EndpointResult\': {
+                        \'string\': {
+                            \'Address\': \'string\',
+                            \'DeliveryStatus\': \'SUCCESSFUL\'|\'THROTTLED\'|\'TEMPORARY_FAILURE\'|\'PERMANENT_FAILURE\'|\'UNKNOWN_FAILURE\'|\'OPT_OUT\'|\'DUPLICATE\',
+                            \'MessageId\': \'string\',
+                            \'StatusCode\': 123,
+                            \'StatusMessage\': \'string\',
+                            \'UpdatedToken\': \'string\'
                         }
                     },
-                    'RequestId': 'string',
-                    'Result': {
-                        'string': {
-                            'DeliveryStatus': 'SUCCESSFUL'|'THROTTLED'|'TEMPORARY_FAILURE'|'PERMANENT_FAILURE'|'UNKNOWN_FAILURE'|'OPT_OUT'|'DUPLICATE',
-                            'MessageId': 'string',
-                            'StatusCode': 123,
-                            'StatusMessage': 'string',
-                            'UpdatedToken': 'string'
+                    \'RequestId\': \'string\',
+                    \'Result\': {
+                        \'string\': {
+                            \'DeliveryStatus\': \'SUCCESSFUL\'|\'THROTTLED\'|\'TEMPORARY_FAILURE\'|\'PERMANENT_FAILURE\'|\'UNKNOWN_FAILURE\'|\'OPT_OUT\'|\'DUPLICATE\',
+                            \'MessageId\': \'string\',
+                            \'StatusCode\': 123,
+                            \'StatusMessage\': \'string\',
+                            \'UpdatedToken\': \'string\'
                         }
                     }
                 }
@@ -12757,7 +12757,7 @@ class Client(BaseClient):
                     
                     - **Address** *(string) --* Address that endpoint message was delivered to.
                     
-                    - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
+                    - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won\'t attempt to send the message again. TIMEOUT - The message couldn\'t be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
                     
                     - **MessageId** *(string) --* Unique message identifier associated with the message that was sent.
                     
@@ -12775,7 +12775,7 @@ class Client(BaseClient):
                   
                   - *(dict) --* The result from sending a message to an address.
                     
-                    - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
+                    - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won\'t attempt to send the message again. TIMEOUT - The message couldn\'t be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
                     
                     - **MessageId** *(string) --* Unique message identifier associated with the message that was sent.
                     
@@ -12797,188 +12797,188 @@ class Client(BaseClient):
         ::
         
           response = client.send_users_messages(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               SendUsersMessageRequest={
-                  'Context': {
-                      'string': 'string'
+                  \'Context\': {
+                      \'string\': \'string\'
                   },
-                  'MessageConfiguration': {
-                      'ADMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ConsolidationKey': 'string',
-                          'Data': {
-                              'string': 'string'
+                  \'MessageConfiguration\': {
+                      \'ADMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ConsolidationKey\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'ExpiresAfter': 'string',
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'MD5': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'ExpiresAfter\': \'string\',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'MD5\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'APNSMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Badge': 123,
-                          'Body': 'string',
-                          'Category': 'string',
-                          'CollapseId': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'APNSMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Badge\': 123,
+                          \'Body\': \'string\',
+                          \'Category\': \'string\',
+                          \'CollapseId\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'MediaUrl': 'string',
-                          'PreferredAuthenticationMethod': 'string',
-                          'Priority': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'MediaUrl\': \'string\',
+                          \'PreferredAuthenticationMethod\': \'string\',
+                          \'Priority\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'ThreadId': 'string',
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'ThreadId\': \'string\',
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'BaiduMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'BaiduMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'DefaultMessage': {
-                          'Body': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                      \'DefaultMessage\': {
+                          \'Body\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'DefaultPushNotificationMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'DefaultPushNotificationMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'SilentPush': True|False,
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'SilentPush\': True|False,
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'EmailMessage': {
-                          'Body': 'string',
-                          'FeedbackForwardingAddress': 'string',
-                          'FromAddress': 'string',
-                          'RawEmail': {
-                              'Data': b'bytes'
+                      \'EmailMessage\': {
+                          \'Body\': \'string\',
+                          \'FeedbackForwardingAddress\': \'string\',
+                          \'FromAddress\': \'string\',
+                          \'RawEmail\': {
+                              \'Data\': b\'bytes\'
                           },
-                          'ReplyToAddresses': [
-                              'string',
+                          \'ReplyToAddresses\': [
+                              \'string\',
                           ],
-                          'SimpleEmail': {
-                              'HtmlPart': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                          \'SimpleEmail\': {
+                              \'HtmlPart\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               },
-                              'Subject': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                              \'Subject\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               },
-                              'TextPart': {
-                                  'Charset': 'string',
-                                  'Data': 'string'
+                              \'TextPart\': {
+                                  \'Charset\': \'string\',
+                                  \'Data\': \'string\'
                               }
                           },
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'GCMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'CollapseKey': 'string',
-                          'Data': {
-                              'string': 'string'
+                      \'GCMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'CollapseKey\': \'string\',
+                          \'Data\': {
+                              \'string\': \'string\'
                           },
-                          'IconReference': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'Priority': 'string',
-                          'RawContent': 'string',
-                          'RestrictedPackageName': 'string',
-                          'SilentPush': True|False,
-                          'SmallImageIconUrl': 'string',
-                          'Sound': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'IconReference\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'Priority\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'RestrictedPackageName\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'SmallImageIconUrl\': \'string\',
+                          \'Sound\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'SMSMessage': {
-                          'Body': 'string',
-                          'Keyword': 'string',
-                          'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                          'OriginationNumber': 'string',
-                          'SenderId': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                      \'SMSMessage\': {
+                          \'Body\': \'string\',
+                          \'Keyword\': \'string\',
+                          \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                          \'OriginationNumber\': \'string\',
+                          \'SenderId\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           }
                       }
                   },
-                  'TraceId': 'string',
-                  'Users': {
-                      'string': {
-                          'BodyOverride': 'string',
-                          'Context': {
-                              'string': 'string'
+                  \'TraceId\': \'string\',
+                  \'Users\': {
+                      \'string\': {
+                          \'BodyOverride\': \'string\',
+                          \'Context\': {
+                              \'string\': \'string\'
                           },
-                          'RawContent': 'string',
-                          'Substitutions': {
-                              'string': [
-                                  'string',
+                          \'RawContent\': \'string\',
+                          \'Substitutions\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'TitleOverride': 'string'
+                          \'TitleOverride\': \'string\'
                       }
                   }
               }
@@ -12999,13 +12999,13 @@ class Client(BaseClient):
         
             - **ADMMessage** *(dict) --* The message to ADM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
               - **ConsolidationKey** *(string) --* Optional. Arbitrary string used to indicate multiple messages are logically the same and that ADM is allowed to drop previously enqueued messages in favor of this one.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -13037,23 +13037,23 @@ class Client(BaseClient):
         
                     - *(string) --* 
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **APNSMessage** *(dict) --* The message to APNS channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Badge** *(integer) --* Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Category** *(string) --* Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
+              - **Category** *(string) --* Provide this key with a string value that represents the notification\'s type. This value corresponds to the value in the identifier property of one of your app\'s registered categories.
         
               - **CollapseId** *(string) --* An ID that, if assigned to multiple messages, causes APNs to coalesce the messages into a single push notification instead of delivering each message individually. The value must not exceed 64 bytes. Amazon Pinpoint uses this value to set the apns-collapse-id request header when it sends the message to APNs.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -13061,15 +13061,15 @@ class Client(BaseClient):
         
               - **MediaUrl** *(string) --* The URL that points to a video used in the push notification.
         
-              - **PreferredAuthenticationMethod** *(string) --* The preferred authentication method, either "CERTIFICATE" or "TOKEN"
+              - **PreferredAuthenticationMethod** *(string) --* The preferred authentication method, either \"CERTIFICATE\" or \"TOKEN\"
         
-              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values: "5" - Low priority. Messages might be delayed, delivered in groups, and throttled. "10" - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device. The default value is "10". The equivalent values for FCM or GCM messages are "normal" and "high". Amazon Pinpoint accepts these values for APNs messages and converts them. For more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide.
+              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values: \"5\" - Low priority. Messages might be delayed, delivered in groups, and throttled. \"10\" - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device. The default value is \"10\". The equivalent values for FCM or GCM messages are \"normal\" and \"high\". Amazon Pinpoint accepts these values for APNs messages and converts them. For more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide.
         
               - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
               - **SilentPush** *(boolean) --* Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
         
-              - **Sound** *(string) --* Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
+              - **Sound** *(string) --* Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app\'s main bundle or in the Library/Sounds folder of your app\'s data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -13083,17 +13083,17 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* The length of time (in seconds) that APNs stores and attempts to deliver the message. If the value is 0, APNs does not store the message or attempt to deliver it more than once. Amazon Pinpoint uses this value to set the apns-expiration request header when it sends the message to APNs.
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **BaiduMessage** *(dict) --* The message to Baidu GCM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -13123,9 +13123,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept in Baidu storage if the device is offline. The and the default value and the maximum time to live supported is 7 days (604800 seconds)
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **DefaultMessage** *(dict) --* The default message for all channels.
         
@@ -13141,17 +13141,17 @@ class Client(BaseClient):
         
             - **DefaultPushNotificationMessage** *(dict) --* The default push notification message for all push channels.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
                   - *(string) --* 
         
-              - **SilentPush** *(boolean) --* Indicates if the message should display on the recipient's device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
+              - **SilentPush** *(boolean) --* Indicates if the message should display on the recipient\'s device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -13161,9 +13161,9 @@ class Client(BaseClient):
         
                     - *(string) --* 
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **EmailMessage** *(dict) --* The message to Email channels. Overrides the default message.
         
@@ -13189,7 +13189,7 @@ class Client(BaseClient):
         
                   - **Data** *(string) --* The textual data of the content.
         
-                - **Subject** *(dict) --* The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+                - **Subject** *(dict) --* The subject of the message: A short summary of the content, which will appear in the recipient\'s inbox.
         
                   - **Charset** *(string) --* The character set of the content.
         
@@ -13211,13 +13211,13 @@ class Client(BaseClient):
         
             - **GCMMessage** *(dict) --* The message to GCM channels. Overrides the default push notification message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
         
               - **Body** *(string) --* The message body of the notification.
         
-              - **CollapseKey** *(string) --* This parameter identifies a group of messages (e.g., with collapse_key: "Updates Available") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
+              - **CollapseKey** *(string) --* This parameter identifies a group of messages (e.g., with collapse_key: \"Updates Available\") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
         
-              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+              - **Data** *(dict) --* The data payload used for a silent push. This payload is added to the notifications\' data.pinpoint.jsonBody\' object
         
                 - *(string) --* 
         
@@ -13229,7 +13229,7 @@ class Client(BaseClient):
         
               - **ImageUrl** *(string) --* The URL that points to an image used in the push notification.
         
-              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the FCM or GCM priority parameter when it sends the message. Accepts the following values: "Normal" - Messages might be delayed. Delivery is optimized for battery usage on the receiving device. Use normal priority unless immediate delivery is required. "High" - Messages are sent immediately and might wake a sleeping device. The equivalent values for APNs messages are "5" and "10". Amazon Pinpoint accepts these values here and converts them. For more information, see About FCM Messages in the Firebase documentation.
+              - **Priority** *(string) --* The message priority. Amazon Pinpoint uses this value to set the FCM or GCM priority parameter when it sends the message. Accepts the following values: \"Normal\" - Messages might be delayed. Delivery is optimized for battery usage on the receiving device. Use normal priority unless immediate delivery is required. \"High\" - Messages are sent immediately and might wake a sleeping device. The equivalent values for APNs messages are \"5\" and \"10\". Amazon Pinpoint accepts these values here and converts them. For more information, see About FCM Messages in the Firebase documentation.
         
               - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
@@ -13251,9 +13251,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* The length of time (in seconds) that FCM or GCM stores and attempts to deliver the message. If unspecified, the value defaults to the maximum, which is 2,419,200 seconds (28 days). Amazon Pinpoint uses this value to set the FCM or GCM time_to_live parameter.
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **SMSMessage** *(dict) --* The message to SMS channels. Overrides the default message.
         
@@ -13265,7 +13265,7 @@ class Client(BaseClient):
         
               - **OriginationNumber** *(string) --* The phone number that the SMS message originates from. Specify one of the dedicated long codes or short codes that you requested from AWS Support and that is assigned to your account. If this attribute is not specified, Amazon Pinpoint randomly assigns a long code.
         
-              - **SenderId** *(string) --* The sender ID that is shown as the message sender on the recipient's device. Support for sender IDs varies by country or region.
+              - **SenderId** *(string) --* The sender ID that is shown as the message sender on the recipient\'s device. Support for sender IDs varies by country or region.
         
               - **Substitutions** *(dict) --* Default message substitutions. Can be overridden by individual address substitutions.
         
@@ -13285,7 +13285,7 @@ class Client(BaseClient):
         
                 - **BodyOverride** *(string) --* Body override. If specified will override default body.
         
-                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+                - **Context** *(dict) --* A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification\'s \'data.pinpoint\' object or added to the email/sms delivery receipt event attributes.
         
                   - *(string) --* 
         
@@ -13293,7 +13293,7 @@ class Client(BaseClient):
         
                 - **RawContent** *(string) --* The Raw JSON formatted string to be used as the payload. This value overrides the message.
         
-                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+                - **Substitutions** *(dict) --* A map of substitution values for the message to be merged with the DefaultMessage\'s substitutions. Substitutions on this map take precedence over the all other substitutions.
         
                   - *(string) --* 
         
@@ -13311,18 +13311,18 @@ class Client(BaseClient):
           ::
         
             {
-                'SendUsersMessageResponse': {
-                    'ApplicationId': 'string',
-                    'RequestId': 'string',
-                    'Result': {
-                        'string': {
-                            'string': {
-                                'Address': 'string',
-                                'DeliveryStatus': 'SUCCESSFUL'|'THROTTLED'|'TEMPORARY_FAILURE'|'PERMANENT_FAILURE'|'UNKNOWN_FAILURE'|'OPT_OUT'|'DUPLICATE',
-                                'MessageId': 'string',
-                                'StatusCode': 123,
-                                'StatusMessage': 'string',
-                                'UpdatedToken': 'string'
+                \'SendUsersMessageResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'RequestId\': \'string\',
+                    \'Result\': {
+                        \'string\': {
+                            \'string\': {
+                                \'Address\': \'string\',
+                                \'DeliveryStatus\': \'SUCCESSFUL\'|\'THROTTLED\'|\'TEMPORARY_FAILURE\'|\'PERMANENT_FAILURE\'|\'UNKNOWN_FAILURE\'|\'OPT_OUT\'|\'DUPLICATE\',
+                                \'MessageId\': \'string\',
+                                \'StatusCode\': 123,
+                                \'StatusMessage\': \'string\',
+                                \'UpdatedToken\': \'string\'
                             }
                         }
                     }
@@ -13350,7 +13350,7 @@ class Client(BaseClient):
                         
                         - **Address** *(string) --* Address that endpoint message was delivered to.
                         
-                        - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
+                        - **DeliveryStatus** *(string) --* The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won\'t attempt to send the message again. TIMEOUT - The message couldn\'t be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
                         
                         - **MessageId** *(string) --* Unique message identifier associated with the message that was sent.
                         
@@ -13373,11 +13373,11 @@ class Client(BaseClient):
         
           response = client.update_adm_channel(
               ADMChannelRequest={
-                  'ClientId': 'string',
-                  'ClientSecret': 'string',
-                  'Enabled': True|False
+                  \'ClientId\': \'string\',
+                  \'ClientSecret\': \'string\',
+                  \'Enabled\': True|False
               },
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ADMChannelRequest: dict
         :param ADMChannelRequest: **[REQUIRED]** Amazon Device Messaging channel definition.
@@ -13399,17 +13399,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ADMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'ADMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -13434,7 +13434,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -13451,16 +13451,16 @@ class Client(BaseClient):
         
           response = client.update_apns_channel(
               APNSChannelRequest={
-                  'BundleId': 'string',
-                  'Certificate': 'string',
-                  'DefaultAuthenticationMethod': 'string',
-                  'Enabled': True|False,
-                  'PrivateKey': 'string',
-                  'TeamId': 'string',
-                  'TokenKey': 'string',
-                  'TokenKeyId': 'string'
+                  \'BundleId\': \'string\',
+                  \'Certificate\': \'string\',
+                  \'DefaultAuthenticationMethod\': \'string\',
+                  \'Enabled\': True|False,
+                  \'PrivateKey\': \'string\',
+                  \'TeamId\': \'string\',
+                  \'TokenKey\': \'string\',
+                  \'TokenKeyId\': \'string\'
               },
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type APNSChannelRequest: dict
         :param APNSChannelRequest: **[REQUIRED]** Apple Push Notification Service channel definition.
@@ -13492,19 +13492,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -13533,7 +13533,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* The date and time when this channel was last modified.
               
-              - **Platform** *(string) --* The platform type. For this channel, the value is always "ADM."
+              - **Platform** *(string) --* The platform type. For this channel, the value is always \"ADM.\"
               
               - **Version** *(integer) --* The channel version.
           
@@ -13550,16 +13550,16 @@ class Client(BaseClient):
         
           response = client.update_apns_sandbox_channel(
               APNSSandboxChannelRequest={
-                  'BundleId': 'string',
-                  'Certificate': 'string',
-                  'DefaultAuthenticationMethod': 'string',
-                  'Enabled': True|False,
-                  'PrivateKey': 'string',
-                  'TeamId': 'string',
-                  'TokenKey': 'string',
-                  'TokenKeyId': 'string'
+                  \'BundleId\': \'string\',
+                  \'Certificate\': \'string\',
+                  \'DefaultAuthenticationMethod\': \'string\',
+                  \'Enabled\': True|False,
+                  \'PrivateKey\': \'string\',
+                  \'TeamId\': \'string\',
+                  \'TokenKey\': \'string\',
+                  \'TokenKeyId\': \'string\'
               },
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type APNSSandboxChannelRequest: dict
         :param APNSSandboxChannelRequest: **[REQUIRED]** Apple Development Push Notification Service channel definition.
@@ -13591,19 +13591,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -13649,16 +13649,16 @@ class Client(BaseClient):
         
           response = client.update_apns_voip_channel(
               APNSVoipChannelRequest={
-                  'BundleId': 'string',
-                  'Certificate': 'string',
-                  'DefaultAuthenticationMethod': 'string',
-                  'Enabled': True|False,
-                  'PrivateKey': 'string',
-                  'TeamId': 'string',
-                  'TokenKey': 'string',
-                  'TokenKeyId': 'string'
+                  \'BundleId\': \'string\',
+                  \'Certificate\': \'string\',
+                  \'DefaultAuthenticationMethod\': \'string\',
+                  \'Enabled\': True|False,
+                  \'PrivateKey\': \'string\',
+                  \'TeamId\': \'string\',
+                  \'TokenKey\': \'string\',
+                  \'TokenKeyId\': \'string\'
               },
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type APNSVoipChannelRequest: dict
         :param APNSVoipChannelRequest: **[REQUIRED]** Apple VoIP Push Notification Service channel definition.
@@ -13690,19 +13690,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -13748,16 +13748,16 @@ class Client(BaseClient):
         
           response = client.update_apns_voip_sandbox_channel(
               APNSVoipSandboxChannelRequest={
-                  'BundleId': 'string',
-                  'Certificate': 'string',
-                  'DefaultAuthenticationMethod': 'string',
-                  'Enabled': True|False,
-                  'PrivateKey': 'string',
-                  'TeamId': 'string',
-                  'TokenKey': 'string',
-                  'TokenKeyId': 'string'
+                  \'BundleId\': \'string\',
+                  \'Certificate\': \'string\',
+                  \'DefaultAuthenticationMethod\': \'string\',
+                  \'Enabled\': True|False,
+                  \'PrivateKey\': \'string\',
+                  \'TeamId\': \'string\',
+                  \'TokenKey\': \'string\',
+                  \'TokenKeyId\': \'string\'
               },
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type APNSVoipSandboxChannelRequest: dict
         :param APNSVoipSandboxChannelRequest: **[REQUIRED]** Apple VoIP Developer Push Notification Service channel definition.
@@ -13789,19 +13789,19 @@ class Client(BaseClient):
           ::
         
             {
-                'APNSVoipSandboxChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultAuthenticationMethod': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'HasTokenKey': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'APNSVoipSandboxChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultAuthenticationMethod\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'HasTokenKey\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -13846,23 +13846,23 @@ class Client(BaseClient):
         ::
         
           response = client.update_application_settings(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               WriteApplicationSettingsRequest={
-                  'CampaignHook': {
-                      'LambdaFunctionName': 'string',
-                      'Mode': 'DELIVERY'|'FILTER',
-                      'WebUrl': 'string'
+                  \'CampaignHook\': {
+                      \'LambdaFunctionName\': \'string\',
+                      \'Mode\': \'DELIVERY\'|\'FILTER\',
+                      \'WebUrl\': \'string\'
                   },
-                  'CloudWatchMetricsEnabled': True|False,
-                  'Limits': {
-                      'Daily': 123,
-                      'MaximumDuration': 123,
-                      'MessagesPerSecond': 123,
-                      'Total': 123
+                  \'CloudWatchMetricsEnabled\': True|False,
+                  \'Limits\': {
+                      \'Daily\': 123,
+                      \'MaximumDuration\': 123,
+                      \'MessagesPerSecond\': 123,
+                      \'Total\': 123
                   },
-                  'QuietTime': {
-                      'End': 'string',
-                      'Start': 'string'
+                  \'QuietTime\': {
+                      \'End\': \'string\',
+                      \'Start\': \'string\'
                   }
               }
           )
@@ -13906,23 +13906,23 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationSettingsResource': {
-                    'ApplicationId': 'string',
-                    'CampaignHook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                \'ApplicationSettingsResource\': {
+                    \'ApplicationId\': \'string\',
+                    \'CampaignHook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'QuietTime': {
-                        'End': 'string',
-                        'Start': 'string'
+                    \'QuietTime\': {
+                        \'End\': \'string\',
+                        \'Start\': \'string\'
                     }
                 }
             }
@@ -13972,11 +13972,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_baidu_channel(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               BaiduChannelRequest={
-                  'ApiKey': 'string',
-                  'Enabled': True|False,
-                  'SecretKey': 'string'
+                  \'ApiKey\': \'string\',
+                  \'Enabled\': True|False,
+                  \'SecretKey\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -13999,18 +13999,18 @@ class Client(BaseClient):
           ::
         
             {
-                'BaiduChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'BaiduChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -14053,223 +14053,223 @@ class Client(BaseClient):
         ::
         
           response = client.update_campaign(
-              ApplicationId='string',
-              CampaignId='string',
+              ApplicationId=\'string\',
+              CampaignId=\'string\',
               WriteCampaignRequest={
-                  'AdditionalTreatments': [
+                  \'AdditionalTreatments\': [
                       {
-                          'MessageConfiguration': {
-                              'ADMMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                          \'MessageConfiguration\': {
+                              \'ADMMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'APNSMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'APNSMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'BaiduMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'BaiduMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'DefaultMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'DefaultMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'EmailMessage': {
-                                  'Body': 'string',
-                                  'FromAddress': 'string',
-                                  'HtmlBody': 'string',
-                                  'Title': 'string'
+                              \'EmailMessage\': {
+                                  \'Body\': \'string\',
+                                  \'FromAddress\': \'string\',
+                                  \'HtmlBody\': \'string\',
+                                  \'Title\': \'string\'
                               },
-                              'GCMMessage': {
-                                  'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                  'Body': 'string',
-                                  'ImageIconUrl': 'string',
-                                  'ImageSmallIconUrl': 'string',
-                                  'ImageUrl': 'string',
-                                  'JsonBody': 'string',
-                                  'MediaUrl': 'string',
-                                  'RawContent': 'string',
-                                  'SilentPush': True|False,
-                                  'TimeToLive': 123,
-                                  'Title': 'string',
-                                  'Url': 'string'
+                              \'GCMMessage\': {
+                                  \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                  \'Body\': \'string\',
+                                  \'ImageIconUrl\': \'string\',
+                                  \'ImageSmallIconUrl\': \'string\',
+                                  \'ImageUrl\': \'string\',
+                                  \'JsonBody\': \'string\',
+                                  \'MediaUrl\': \'string\',
+                                  \'RawContent\': \'string\',
+                                  \'SilentPush\': True|False,
+                                  \'TimeToLive\': 123,
+                                  \'Title\': \'string\',
+                                  \'Url\': \'string\'
                               },
-                              'SMSMessage': {
-                                  'Body': 'string',
-                                  'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                  'SenderId': 'string'
+                              \'SMSMessage\': {
+                                  \'Body\': \'string\',
+                                  \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                  \'SenderId\': \'string\'
                               }
                           },
-                          'Schedule': {
-                              'EndTime': 'string',
-                              'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                              'IsLocalTime': True|False,
-                              'QuietTime': {
-                                  'End': 'string',
-                                  'Start': 'string'
+                          \'Schedule\': {
+                              \'EndTime\': \'string\',
+                              \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                              \'IsLocalTime\': True|False,
+                              \'QuietTime\': {
+                                  \'End\': \'string\',
+                                  \'Start\': \'string\'
                               },
-                              'StartTime': 'string',
-                              'Timezone': 'string'
+                              \'StartTime\': \'string\',
+                              \'Timezone\': \'string\'
                           },
-                          'SizePercent': 123,
-                          'TreatmentDescription': 'string',
-                          'TreatmentName': 'string'
+                          \'SizePercent\': 123,
+                          \'TreatmentDescription\': \'string\',
+                          \'TreatmentName\': \'string\'
                       },
                   ],
-                  'Description': 'string',
-                  'HoldoutPercent': 123,
-                  'Hook': {
-                      'LambdaFunctionName': 'string',
-                      'Mode': 'DELIVERY'|'FILTER',
-                      'WebUrl': 'string'
+                  \'Description\': \'string\',
+                  \'HoldoutPercent\': 123,
+                  \'Hook\': {
+                      \'LambdaFunctionName\': \'string\',
+                      \'Mode\': \'DELIVERY\'|\'FILTER\',
+                      \'WebUrl\': \'string\'
                   },
-                  'IsPaused': True|False,
-                  'Limits': {
-                      'Daily': 123,
-                      'MaximumDuration': 123,
-                      'MessagesPerSecond': 123,
-                      'Total': 123
+                  \'IsPaused\': True|False,
+                  \'Limits\': {
+                      \'Daily\': 123,
+                      \'MaximumDuration\': 123,
+                      \'MessagesPerSecond\': 123,
+                      \'Total\': 123
                   },
-                  'MessageConfiguration': {
-                      'ADMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                  \'MessageConfiguration\': {
+                      \'ADMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'APNSMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'APNSMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'BaiduMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'BaiduMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'DefaultMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'DefaultMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'EmailMessage': {
-                          'Body': 'string',
-                          'FromAddress': 'string',
-                          'HtmlBody': 'string',
-                          'Title': 'string'
+                      \'EmailMessage\': {
+                          \'Body\': \'string\',
+                          \'FromAddress\': \'string\',
+                          \'HtmlBody\': \'string\',
+                          \'Title\': \'string\'
                       },
-                      'GCMMessage': {
-                          'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                          'Body': 'string',
-                          'ImageIconUrl': 'string',
-                          'ImageSmallIconUrl': 'string',
-                          'ImageUrl': 'string',
-                          'JsonBody': 'string',
-                          'MediaUrl': 'string',
-                          'RawContent': 'string',
-                          'SilentPush': True|False,
-                          'TimeToLive': 123,
-                          'Title': 'string',
-                          'Url': 'string'
+                      \'GCMMessage\': {
+                          \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                          \'Body\': \'string\',
+                          \'ImageIconUrl\': \'string\',
+                          \'ImageSmallIconUrl\': \'string\',
+                          \'ImageUrl\': \'string\',
+                          \'JsonBody\': \'string\',
+                          \'MediaUrl\': \'string\',
+                          \'RawContent\': \'string\',
+                          \'SilentPush\': True|False,
+                          \'TimeToLive\': 123,
+                          \'Title\': \'string\',
+                          \'Url\': \'string\'
                       },
-                      'SMSMessage': {
-                          'Body': 'string',
-                          'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                          'SenderId': 'string'
+                      \'SMSMessage\': {
+                          \'Body\': \'string\',
+                          \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                          \'SenderId\': \'string\'
                       }
                   },
-                  'Name': 'string',
-                  'Schedule': {
-                      'EndTime': 'string',
-                      'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                      'IsLocalTime': True|False,
-                      'QuietTime': {
-                          'End': 'string',
-                          'Start': 'string'
+                  \'Name\': \'string\',
+                  \'Schedule\': {
+                      \'EndTime\': \'string\',
+                      \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                      \'IsLocalTime\': True|False,
+                      \'QuietTime\': {
+                          \'End\': \'string\',
+                          \'Start\': \'string\'
                       },
-                      'StartTime': 'string',
-                      'Timezone': 'string'
+                      \'StartTime\': \'string\',
+                      \'Timezone\': \'string\'
                   },
-                  'SegmentId': 'string',
-                  'SegmentVersion': 123,
-                  'TreatmentDescription': 'string',
-                  'TreatmentName': 'string'
+                  \'SegmentId\': \'string\',
+                  \'SegmentVersion\': 123,
+                  \'TreatmentDescription\': \'string\',
+                  \'TreatmentName\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -14289,7 +14289,7 @@ class Client(BaseClient):
         
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14309,13 +14309,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14335,13 +14335,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14361,13 +14361,13 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **DefaultMessage** *(dict) --* The default message for all channels.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14387,9 +14387,9 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **EmailMessage** *(dict) --* The email message configuration.
         
@@ -14403,7 +14403,7 @@ class Client(BaseClient):
         
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
         
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14423,9 +14423,9 @@ class Client(BaseClient):
         
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
                 - **SMSMessage** *(dict) --* The SMS message configuration.
         
@@ -14441,7 +14441,7 @@ class Client(BaseClient):
         
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
         
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
         
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
         
@@ -14487,7 +14487,7 @@ class Client(BaseClient):
         
             - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14507,13 +14507,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14533,13 +14533,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14559,13 +14559,13 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **DefaultMessage** *(dict) --* The default message for all channels.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14585,9 +14585,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **EmailMessage** *(dict) --* The email message configuration.
         
@@ -14601,7 +14601,7 @@ class Client(BaseClient):
         
             - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
         
-              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+              - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
         
               - **Body** *(string) --* The message body. Can include up to 140 characters.
         
@@ -14621,9 +14621,9 @@ class Client(BaseClient):
         
               - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
         
-              - **Title** *(string) --* The message title that displays above the message on the user's device.
+              - **Title** *(string) --* The message title that displays above the message on the user\'s device.
         
-              - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+              - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
         
             - **SMSMessage** *(dict) --* The SMS message configuration.
         
@@ -14641,7 +14641,7 @@ class Client(BaseClient):
         
             - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
         
-            - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+            - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
         
             - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
         
@@ -14669,236 +14669,236 @@ class Client(BaseClient):
           ::
         
             {
-                'CampaignResponse': {
-                    'AdditionalTreatments': [
+                \'CampaignResponse\': {
+                    \'AdditionalTreatments\': [
                         {
-                            'Id': 'string',
-                            'MessageConfiguration': {
-                                'ADMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                            \'Id\': \'string\',
+                            \'MessageConfiguration\': {
+                                \'ADMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'APNSMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'APNSMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'BaiduMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'BaiduMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'DefaultMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'DefaultMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'EmailMessage': {
-                                    'Body': 'string',
-                                    'FromAddress': 'string',
-                                    'HtmlBody': 'string',
-                                    'Title': 'string'
+                                \'EmailMessage\': {
+                                    \'Body\': \'string\',
+                                    \'FromAddress\': \'string\',
+                                    \'HtmlBody\': \'string\',
+                                    \'Title\': \'string\'
                                 },
-                                'GCMMessage': {
-                                    'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                                    'Body': 'string',
-                                    'ImageIconUrl': 'string',
-                                    'ImageSmallIconUrl': 'string',
-                                    'ImageUrl': 'string',
-                                    'JsonBody': 'string',
-                                    'MediaUrl': 'string',
-                                    'RawContent': 'string',
-                                    'SilentPush': True|False,
-                                    'TimeToLive': 123,
-                                    'Title': 'string',
-                                    'Url': 'string'
+                                \'GCMMessage\': {
+                                    \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                                    \'Body\': \'string\',
+                                    \'ImageIconUrl\': \'string\',
+                                    \'ImageSmallIconUrl\': \'string\',
+                                    \'ImageUrl\': \'string\',
+                                    \'JsonBody\': \'string\',
+                                    \'MediaUrl\': \'string\',
+                                    \'RawContent\': \'string\',
+                                    \'SilentPush\': True|False,
+                                    \'TimeToLive\': 123,
+                                    \'Title\': \'string\',
+                                    \'Url\': \'string\'
                                 },
-                                'SMSMessage': {
-                                    'Body': 'string',
-                                    'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                                    'SenderId': 'string'
+                                \'SMSMessage\': {
+                                    \'Body\': \'string\',
+                                    \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                                    \'SenderId\': \'string\'
                                 }
                             },
-                            'Schedule': {
-                                'EndTime': 'string',
-                                'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                                'IsLocalTime': True|False,
-                                'QuietTime': {
-                                    'End': 'string',
-                                    'Start': 'string'
+                            \'Schedule\': {
+                                \'EndTime\': \'string\',
+                                \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                                \'IsLocalTime\': True|False,
+                                \'QuietTime\': {
+                                    \'End\': \'string\',
+                                    \'Start\': \'string\'
                                 },
-                                'StartTime': 'string',
-                                'Timezone': 'string'
+                                \'StartTime\': \'string\',
+                                \'Timezone\': \'string\'
                             },
-                            'SizePercent': 123,
-                            'State': {
-                                'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                            \'SizePercent\': 123,
+                            \'State\': {
+                                \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                             },
-                            'TreatmentDescription': 'string',
-                            'TreatmentName': 'string'
+                            \'TreatmentDescription\': \'string\',
+                            \'TreatmentName\': \'string\'
                         },
                     ],
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'DefaultState': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'DefaultState\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'Description': 'string',
-                    'HoldoutPercent': 123,
-                    'Hook': {
-                        'LambdaFunctionName': 'string',
-                        'Mode': 'DELIVERY'|'FILTER',
-                        'WebUrl': 'string'
+                    \'Description\': \'string\',
+                    \'HoldoutPercent\': 123,
+                    \'Hook\': {
+                        \'LambdaFunctionName\': \'string\',
+                        \'Mode\': \'DELIVERY\'|\'FILTER\',
+                        \'WebUrl\': \'string\'
                     },
-                    'Id': 'string',
-                    'IsPaused': True|False,
-                    'LastModifiedDate': 'string',
-                    'Limits': {
-                        'Daily': 123,
-                        'MaximumDuration': 123,
-                        'MessagesPerSecond': 123,
-                        'Total': 123
+                    \'Id\': \'string\',
+                    \'IsPaused\': True|False,
+                    \'LastModifiedDate\': \'string\',
+                    \'Limits\': {
+                        \'Daily\': 123,
+                        \'MaximumDuration\': 123,
+                        \'MessagesPerSecond\': 123,
+                        \'Total\': 123
                     },
-                    'MessageConfiguration': {
-                        'ADMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                    \'MessageConfiguration\': {
+                        \'ADMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'APNSMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'APNSMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'BaiduMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'BaiduMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'DefaultMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'DefaultMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'EmailMessage': {
-                            'Body': 'string',
-                            'FromAddress': 'string',
-                            'HtmlBody': 'string',
-                            'Title': 'string'
+                        \'EmailMessage\': {
+                            \'Body\': \'string\',
+                            \'FromAddress\': \'string\',
+                            \'HtmlBody\': \'string\',
+                            \'Title\': \'string\'
                         },
-                        'GCMMessage': {
-                            'Action': 'OPEN_APP'|'DEEP_LINK'|'URL',
-                            'Body': 'string',
-                            'ImageIconUrl': 'string',
-                            'ImageSmallIconUrl': 'string',
-                            'ImageUrl': 'string',
-                            'JsonBody': 'string',
-                            'MediaUrl': 'string',
-                            'RawContent': 'string',
-                            'SilentPush': True|False,
-                            'TimeToLive': 123,
-                            'Title': 'string',
-                            'Url': 'string'
+                        \'GCMMessage\': {
+                            \'Action\': \'OPEN_APP\'|\'DEEP_LINK\'|\'URL\',
+                            \'Body\': \'string\',
+                            \'ImageIconUrl\': \'string\',
+                            \'ImageSmallIconUrl\': \'string\',
+                            \'ImageUrl\': \'string\',
+                            \'JsonBody\': \'string\',
+                            \'MediaUrl\': \'string\',
+                            \'RawContent\': \'string\',
+                            \'SilentPush\': True|False,
+                            \'TimeToLive\': 123,
+                            \'Title\': \'string\',
+                            \'Url\': \'string\'
                         },
-                        'SMSMessage': {
-                            'Body': 'string',
-                            'MessageType': 'TRANSACTIONAL'|'PROMOTIONAL',
-                            'SenderId': 'string'
+                        \'SMSMessage\': {
+                            \'Body\': \'string\',
+                            \'MessageType\': \'TRANSACTIONAL\'|\'PROMOTIONAL\',
+                            \'SenderId\': \'string\'
                         }
                     },
-                    'Name': 'string',
-                    'Schedule': {
-                        'EndTime': 'string',
-                        'Frequency': 'ONCE'|'HOURLY'|'DAILY'|'WEEKLY'|'MONTHLY',
-                        'IsLocalTime': True|False,
-                        'QuietTime': {
-                            'End': 'string',
-                            'Start': 'string'
+                    \'Name\': \'string\',
+                    \'Schedule\': {
+                        \'EndTime\': \'string\',
+                        \'Frequency\': \'ONCE\'|\'HOURLY\'|\'DAILY\'|\'WEEKLY\'|\'MONTHLY\',
+                        \'IsLocalTime\': True|False,
+                        \'QuietTime\': {
+                            \'End\': \'string\',
+                            \'Start\': \'string\'
                         },
-                        'StartTime': 'string',
-                        'Timezone': 'string'
+                        \'StartTime\': \'string\',
+                        \'Timezone\': \'string\'
                     },
-                    'SegmentId': 'string',
-                    'SegmentVersion': 123,
-                    'State': {
-                        'CampaignStatus': 'SCHEDULED'|'EXECUTING'|'PENDING_NEXT_RUN'|'COMPLETED'|'PAUSED'|'DELETED'
+                    \'SegmentId\': \'string\',
+                    \'SegmentVersion\': 123,
+                    \'State\': {
+                        \'CampaignStatus\': \'SCHEDULED\'|\'EXECUTING\'|\'PENDING_NEXT_RUN\'|\'COMPLETED\'|\'PAUSED\'|\'DELETED\'
                     },
-                    'TreatmentDescription': 'string',
-                    'TreatmentName': 'string',
-                    'Version': 123
+                    \'TreatmentDescription\': \'string\',
+                    \'TreatmentName\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -14917,7 +14917,7 @@ class Client(BaseClient):
                     
                     - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -14937,13 +14937,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -14963,13 +14963,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -14989,13 +14989,13 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **DefaultMessage** *(dict) --* The default message for all channels.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -15015,9 +15015,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **EmailMessage** *(dict) --* The email message configuration.
                       
@@ -15031,7 +15031,7 @@ class Client(BaseClient):
                   
                     - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                       
-                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                      - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                       
                       - **Body** *(string) --* The message body. Can include up to 140 characters.
                       
@@ -15051,9 +15051,9 @@ class Client(BaseClient):
                       
                       - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                       
-                      - **Title** *(string) --* The message title that displays above the message on the user's device.
+                      - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                       
-                      - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                      - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
                   
                     - **SMSMessage** *(dict) --* The SMS message configuration.
                       
@@ -15069,7 +15069,7 @@ class Client(BaseClient):
                     
                     - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                     
-                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                    - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                     
                     - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                       
@@ -15095,7 +15095,7 @@ class Client(BaseClient):
               
               - **CreationDate** *(string) --* The date the campaign was created in ISO 8601 format.
               
-              - **DefaultState** *(dict) --* The status of the campaign's default treatment. Only present for A/B test campaigns.
+              - **DefaultState** *(dict) --* The status of the campaign\'s default treatment. Only present for A/B test campaigns.
                 
                 - **CampaignStatus** *(string) --* The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
             
@@ -15131,7 +15131,7 @@ class Client(BaseClient):
                 
                 - **ADMMessage** *(dict) --* The message that the campaign delivers to ADM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -15151,13 +15151,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **APNSMessage** *(dict) --* The message that the campaign delivers to APNS channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -15177,13 +15177,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **BaiduMessage** *(dict) --* The message that the campaign delivers to Baidu channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -15203,13 +15203,13 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **DefaultMessage** *(dict) --* The default message for all channels.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -15229,9 +15229,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **EmailMessage** *(dict) --* The email message configuration.
                   
@@ -15245,7 +15245,7 @@ class Client(BaseClient):
               
                 - **GCMMessage** *(dict) --* The message that the campaign delivers to GCM channels. Overrides the default message.
                   
-                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+                  - **Action** *(string) --* The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user\'s device launches and opens a web page at the URL you specify.
                   
                   - **Body** *(string) --* The message body. Can include up to 140 characters.
                   
@@ -15265,9 +15265,9 @@ class Client(BaseClient):
                   
                   - **TimeToLive** *(integer) --* This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
                   
-                  - **Title** *(string) --* The message title that displays above the message on the user's device.
+                  - **Title** *(string) --* The message title that displays above the message on the user\'s device.
                   
-                  - **Url** *(string) --* The URL to open in the user's mobile browser. Used if the value for Action is URL.
+                  - **Url** *(string) --* The URL to open in the user\'s mobile browser. Used if the value for Action is URL.
               
                 - **SMSMessage** *(dict) --* The SMS message configuration.
                   
@@ -15285,7 +15285,7 @@ class Client(BaseClient):
                 
                 - **Frequency** *(string) --* How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
                 
-                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user's local time.
+                - **IsLocalTime** *(boolean) --* Indicates whether the campaign schedule takes effect according to each user\'s local time.
                 
                 - **QuietTime** *(dict) --* The time during which the campaign sends no messages.
                   
@@ -15323,13 +15323,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_email_channel(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               EmailChannelRequest={
-                  'ConfigurationSet': 'string',
-                  'Enabled': True|False,
-                  'FromAddress': 'string',
-                  'Identity': 'string',
-                  'RoleArn': 'string'
+                  \'ConfigurationSet\': \'string\',
+                  \'Enabled\': True|False,
+                  \'FromAddress\': \'string\',
+                  \'Identity\': \'string\',
+                  \'RoleArn\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -15346,7 +15346,7 @@ class Client(BaseClient):
         
           - **Identity** *(string) --* The ARN of an identity verified with SES.
         
-          - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+          - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics\' event ingestion service
         
         :rtype: dict
         :returns: 
@@ -15356,22 +15356,22 @@ class Client(BaseClient):
           ::
         
             {
-                'EmailChannelResponse': {
-                    'ApplicationId': 'string',
-                    'ConfigurationSet': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'FromAddress': 'string',
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'Identity': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'MessagesPerSecond': 123,
-                    'Platform': 'string',
-                    'RoleArn': 'string',
-                    'Version': 123
+                \'EmailChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'ConfigurationSet\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'FromAddress\': \'string\',
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'Identity\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'MessagesPerSecond\': 123,
+                    \'Platform\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -15404,9 +15404,9 @@ class Client(BaseClient):
               
               - **MessagesPerSecond** *(integer) --* Messages per second that can be sent
               
-              - **Platform** *(string) --* Platform type. Will be "EMAIL"
+              - **Platform** *(string) --* Platform type. Will be \"EMAIL\"
               
-              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+              - **RoleArn** *(string) --* The ARN of an IAM Role used to submit events to Mobile Analytics\' event ingestion service
               
               - **Version** *(integer) --* Version of channel
           
@@ -15422,48 +15422,48 @@ class Client(BaseClient):
         ::
         
           response = client.update_endpoint(
-              ApplicationId='string',
-              EndpointId='string',
+              ApplicationId=\'string\',
+              EndpointId=\'string\',
               EndpointRequest={
-                  'Address': 'string',
-                  'Attributes': {
-                      'string': [
-                          'string',
+                  \'Address\': \'string\',
+                  \'Attributes\': {
+                      \'string\': [
+                          \'string\',
                       ]
                   },
-                  'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                  'Demographic': {
-                      'AppVersion': 'string',
-                      'Locale': 'string',
-                      'Make': 'string',
-                      'Model': 'string',
-                      'ModelVersion': 'string',
-                      'Platform': 'string',
-                      'PlatformVersion': 'string',
-                      'Timezone': 'string'
+                  \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                  \'Demographic\': {
+                      \'AppVersion\': \'string\',
+                      \'Locale\': \'string\',
+                      \'Make\': \'string\',
+                      \'Model\': \'string\',
+                      \'ModelVersion\': \'string\',
+                      \'Platform\': \'string\',
+                      \'PlatformVersion\': \'string\',
+                      \'Timezone\': \'string\'
                   },
-                  'EffectiveDate': 'string',
-                  'EndpointStatus': 'string',
-                  'Location': {
-                      'City': 'string',
-                      'Country': 'string',
-                      'Latitude': 123.0,
-                      'Longitude': 123.0,
-                      'PostalCode': 'string',
-                      'Region': 'string'
+                  \'EffectiveDate\': \'string\',
+                  \'EndpointStatus\': \'string\',
+                  \'Location\': {
+                      \'City\': \'string\',
+                      \'Country\': \'string\',
+                      \'Latitude\': 123.0,
+                      \'Longitude\': 123.0,
+                      \'PostalCode\': \'string\',
+                      \'Region\': \'string\'
                   },
-                  'Metrics': {
-                      'string': 123.0
+                  \'Metrics\': {
+                      \'string\': 123.0
                   },
-                  'OptOut': 'string',
-                  'RequestId': 'string',
-                  'User': {
-                      'UserAttributes': {
-                          'string': [
-                              'string',
+                  \'OptOut\': \'string\',
+                  \'RequestId\': \'string\',
+                  \'User\': {
+                      \'UserAttributes\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       },
-                      'UserId': 'string'
+                      \'UserId\': \'string\'
                   }
               }
           )
@@ -15478,7 +15478,7 @@ class Client(BaseClient):
         
           - **Address** *(string) --* The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
         
-          - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
+          - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
         
             - *(string) --* 
         
@@ -15514,7 +15514,7 @@ class Client(BaseClient):
         
             - **City** *(string) --* The city where the endpoint is located.
         
-            - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+            - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
         
             - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
         
@@ -15536,7 +15536,7 @@ class Client(BaseClient):
         
           - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
         
-            - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+            - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
         
               - *(string) --* 
         
@@ -15554,9 +15554,9 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageBody': {
-                    'Message': 'string',
-                    'RequestID': 'string'
+                \'MessageBody\': {
+                    \'Message\': \'string\',
+                    \'RequestID\': \'string\'
                 }
             }
           **Response Structure** 
@@ -15565,7 +15565,7 @@ class Client(BaseClient):
             
             - **MessageBody** *(dict) --* Simple message object.
               
-              - **Message** *(string) --* The error message that's returned from the API.
+              - **Message** *(string) --* The error message that\'s returned from the API.
               
               - **RequestID** *(string) --* The unique message body ID.
           
@@ -15581,50 +15581,50 @@ class Client(BaseClient):
         ::
         
           response = client.update_endpoints_batch(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               EndpointBatchRequest={
-                  'Item': [
+                  \'Item\': [
                       {
-                          'Address': 'string',
-                          'Attributes': {
-                              'string': [
-                                  'string',
+                          \'Address\': \'string\',
+                          \'Attributes\': {
+                              \'string\': [
+                                  \'string\',
                               ]
                           },
-                          'ChannelType': 'GCM'|'APNS'|'APNS_SANDBOX'|'APNS_VOIP'|'APNS_VOIP_SANDBOX'|'ADM'|'SMS'|'EMAIL'|'BAIDU'|'CUSTOM',
-                          'Demographic': {
-                              'AppVersion': 'string',
-                              'Locale': 'string',
-                              'Make': 'string',
-                              'Model': 'string',
-                              'ModelVersion': 'string',
-                              'Platform': 'string',
-                              'PlatformVersion': 'string',
-                              'Timezone': 'string'
+                          \'ChannelType\': \'GCM\'|\'APNS\'|\'APNS_SANDBOX\'|\'APNS_VOIP\'|\'APNS_VOIP_SANDBOX\'|\'ADM\'|\'SMS\'|\'EMAIL\'|\'BAIDU\'|\'CUSTOM\',
+                          \'Demographic\': {
+                              \'AppVersion\': \'string\',
+                              \'Locale\': \'string\',
+                              \'Make\': \'string\',
+                              \'Model\': \'string\',
+                              \'ModelVersion\': \'string\',
+                              \'Platform\': \'string\',
+                              \'PlatformVersion\': \'string\',
+                              \'Timezone\': \'string\'
                           },
-                          'EffectiveDate': 'string',
-                          'EndpointStatus': 'string',
-                          'Id': 'string',
-                          'Location': {
-                              'City': 'string',
-                              'Country': 'string',
-                              'Latitude': 123.0,
-                              'Longitude': 123.0,
-                              'PostalCode': 'string',
-                              'Region': 'string'
+                          \'EffectiveDate\': \'string\',
+                          \'EndpointStatus\': \'string\',
+                          \'Id\': \'string\',
+                          \'Location\': {
+                              \'City\': \'string\',
+                              \'Country\': \'string\',
+                              \'Latitude\': 123.0,
+                              \'Longitude\': 123.0,
+                              \'PostalCode\': \'string\',
+                              \'Region\': \'string\'
                           },
-                          'Metrics': {
-                              'string': 123.0
+                          \'Metrics\': {
+                              \'string\': 123.0
                           },
-                          'OptOut': 'string',
-                          'RequestId': 'string',
-                          'User': {
-                              'UserAttributes': {
-                                  'string': [
-                                      'string',
+                          \'OptOut\': \'string\',
+                          \'RequestId\': \'string\',
+                          \'User\': {
+                              \'UserAttributes\': {
+                                  \'string\': [
+                                      \'string\',
                                   ]
                               },
-                              'UserId': 'string'
+                              \'UserId\': \'string\'
                           }
                       },
                   ]
@@ -15642,7 +15642,7 @@ class Client(BaseClient):
         
               - **Address** *(string) --* The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
         
-              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
+              - **Attributes** *(dict) --* Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named \"interests\" might have the values [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
         
                 - *(string) --* 
         
@@ -15680,7 +15680,7 @@ class Client(BaseClient):
         
                 - **City** *(string) --* The city where the endpoint is located.
         
-                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
+                - **Country** *(string) --* The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as \"US\" for the United States.
         
                 - **Latitude** *(float) --* The latitude of the endpoint location, rounded to one decimal place.
         
@@ -15702,7 +15702,7 @@ class Client(BaseClient):
         
               - **User** *(dict) --* Custom user-specific attributes that your app reports to Amazon Pinpoint.
         
-                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+                - **UserAttributes** *(dict) --* Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named \"interests\" might have the following values: [\"science\", \"politics\", \"travel\"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can\'t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
         
                   - *(string) --* 
         
@@ -15720,9 +15720,9 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageBody': {
-                    'Message': 'string',
-                    'RequestID': 'string'
+                \'MessageBody\': {
+                    \'Message\': \'string\',
+                    \'RequestID\': \'string\'
                 }
             }
           **Response Structure** 
@@ -15731,7 +15731,7 @@ class Client(BaseClient):
             
             - **MessageBody** *(dict) --* Simple message object.
               
-              - **Message** *(string) --* The error message that's returned from the API.
+              - **Message** *(string) --* The error message that\'s returned from the API.
               
               - **RequestID** *(string) --* The unique message body ID.
           
@@ -15747,10 +15747,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_gcm_channel(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               GCMChannelRequest={
-                  'ApiKey': 'string',
-                  'Enabled': True|False
+                  \'ApiKey\': \'string\',
+                  \'Enabled\': True|False
               }
           )
         :type ApplicationId: string
@@ -15771,18 +15771,18 @@ class Client(BaseClient):
           ::
         
             {
-                'GCMChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Credential': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'Version': 123
+                \'GCMChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Credential\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -15825,192 +15825,192 @@ class Client(BaseClient):
         ::
         
           response = client.update_segment(
-              ApplicationId='string',
-              SegmentId='string',
+              ApplicationId=\'string\',
+              SegmentId=\'string\',
               WriteSegmentRequest={
-                  'Dimensions': {
-                      'Attributes': {
-                          'string': {
-                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                  \'Dimensions\': {
+                      \'Attributes\': {
+                          \'string\': {
+                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'Behavior': {
-                          'Recency': {
-                              'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                              'RecencyType': 'ACTIVE'|'INACTIVE'
+                      \'Behavior\': {
+                          \'Recency\': {
+                              \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                              \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                           }
                       },
-                      'Demographic': {
-                          'AppVersion': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'Demographic\': {
+                          \'AppVersion\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Channel': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Channel\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'DeviceType': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'DeviceType\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Make': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Make\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Model': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Model\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'Platform': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                          \'Platform\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'Location': {
-                          'Country': {
-                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'Location\': {
+                          \'Country\': {
+                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
-                          'GPSPoint': {
-                              'Coordinates': {
-                                  'Latitude': 123.0,
-                                  'Longitude': 123.0
+                          \'GPSPoint\': {
+                              \'Coordinates\': {
+                                  \'Latitude\': 123.0,
+                                  \'Longitude\': 123.0
                               },
-                              'RangeInKilometers': 123.0
+                              \'RangeInKilometers\': 123.0
                           }
                       },
-                      'Metrics': {
-                          'string': {
-                              'ComparisonOperator': 'string',
-                              'Value': 123.0
+                      \'Metrics\': {
+                          \'string\': {
+                              \'ComparisonOperator\': \'string\',
+                              \'Value\': 123.0
                           }
                       },
-                      'UserAttributes': {
-                          'string': {
-                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                              'Values': [
-                                  'string',
+                      \'UserAttributes\': {
+                          \'string\': {
+                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           }
                       }
                   },
-                  'Name': 'string',
-                  'SegmentGroups': {
-                      'Groups': [
+                  \'Name\': \'string\',
+                  \'SegmentGroups\': {
+                      \'Groups\': [
                           {
-                              'Dimensions': [
+                              \'Dimensions\': [
                                   {
-                                      'Attributes': {
-                                          'string': {
-                                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Attributes\': {
+                                          \'string\': {
+                                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       },
-                                      'Behavior': {
-                                          'Recency': {
-                                              'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                              'RecencyType': 'ACTIVE'|'INACTIVE'
+                                      \'Behavior\': {
+                                          \'Recency\': {
+                                              \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                              \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                           }
                                       },
-                                      'Demographic': {
-                                          'AppVersion': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Demographic\': {
+                                          \'AppVersion\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Channel': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Channel\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'DeviceType': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'DeviceType\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Make': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Make\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Model': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Model\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'Platform': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                          \'Platform\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       },
-                                      'Location': {
-                                          'Country': {
-                                              'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'Location\': {
+                                          \'Country\': {
+                                              \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           },
-                                          'GPSPoint': {
-                                              'Coordinates': {
-                                                  'Latitude': 123.0,
-                                                  'Longitude': 123.0
+                                          \'GPSPoint\': {
+                                              \'Coordinates\': {
+                                                  \'Latitude\': 123.0,
+                                                  \'Longitude\': 123.0
                                               },
-                                              'RangeInKilometers': 123.0
+                                              \'RangeInKilometers\': 123.0
                                           }
                                       },
-                                      'Metrics': {
-                                          'string': {
-                                              'ComparisonOperator': 'string',
-                                              'Value': 123.0
+                                      \'Metrics\': {
+                                          \'string\': {
+                                              \'ComparisonOperator\': \'string\',
+                                              \'Value\': 123.0
                                           }
                                       },
-                                      'UserAttributes': {
-                                          'string': {
-                                              'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                              'Values': [
-                                                  'string',
+                                      \'UserAttributes\': {
+                                          \'string\': {
+                                              \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                              \'Values\': [
+                                                  \'string\',
                                               ]
                                           }
                                       }
                                   },
                               ],
-                              'SourceSegments': [
+                              \'SourceSegments\': [
                                   {
-                                      'Id': 'string',
-                                      'Version': 123
+                                      \'Id\': \'string\',
+                                      \'Version\': 123
                                   },
                               ],
-                              'SourceType': 'ALL'|'ANY'|'NONE',
-                              'Type': 'ALL'|'ANY'|'NONE'
+                              \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                              \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                           },
                       ],
-                      'Include': 'ALL'|'ANY'|'NONE'
+                      \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                   }
               }
           )
@@ -16121,7 +16121,7 @@ class Client(BaseClient):
         
                 - *(dict) --* Custom metric dimension
         
-                  - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                  - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
         
                   - **Value** *(float) --* Value to be compared.
         
@@ -16245,7 +16245,7 @@ class Client(BaseClient):
         
                         - *(dict) --* Custom metric dimension
         
-                          - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                          - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
         
                           - **Value** *(float) --* Value to be compared.
         
@@ -16261,7 +16261,7 @@ class Client(BaseClient):
         
                             - *(string) --* 
         
-                - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
         
                   - *(dict) --* Segment reference.
         
@@ -16283,207 +16283,207 @@ class Client(BaseClient):
           ::
         
             {
-                'SegmentResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Dimensions': {
-                        'Attributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                \'SegmentResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Dimensions\': {
+                        \'Attributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Behavior': {
-                            'Recency': {
-                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                        \'Behavior\': {
+                            \'Recency\': {
+                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                             }
                         },
-                        'Demographic': {
-                            'AppVersion': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Demographic\': {
+                            \'AppVersion\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Channel': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Channel\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'DeviceType': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'DeviceType\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Make': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Make\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Model': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Model\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'Platform': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                            \'Platform\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Location': {
-                            'Country': {
-                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'Location\': {
+                            \'Country\': {
+                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
-                            'GPSPoint': {
-                                'Coordinates': {
-                                    'Latitude': 123.0,
-                                    'Longitude': 123.0
+                            \'GPSPoint\': {
+                                \'Coordinates\': {
+                                    \'Latitude\': 123.0,
+                                    \'Longitude\': 123.0
                                 },
-                                'RangeInKilometers': 123.0
+                                \'RangeInKilometers\': 123.0
                             }
                         },
-                        'Metrics': {
-                            'string': {
-                                'ComparisonOperator': 'string',
-                                'Value': 123.0
+                        \'Metrics\': {
+                            \'string\': {
+                                \'ComparisonOperator\': \'string\',
+                                \'Value\': 123.0
                             }
                         },
-                        'UserAttributes': {
-                            'string': {
-                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                'Values': [
-                                    'string',
+                        \'UserAttributes\': {
+                            \'string\': {
+                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
-                    'Id': 'string',
-                    'ImportDefinition': {
-                        'ChannelCounts': {
-                            'string': 123
+                    \'Id\': \'string\',
+                    \'ImportDefinition\': {
+                        \'ChannelCounts\': {
+                            \'string\': 123
                         },
-                        'ExternalId': 'string',
-                        'Format': 'CSV'|'JSON',
-                        'RoleArn': 'string',
-                        'S3Url': 'string',
-                        'Size': 123
+                        \'ExternalId\': \'string\',
+                        \'Format\': \'CSV\'|\'JSON\',
+                        \'RoleArn\': \'string\',
+                        \'S3Url\': \'string\',
+                        \'Size\': 123
                     },
-                    'LastModifiedDate': 'string',
-                    'Name': 'string',
-                    'SegmentGroups': {
-                        'Groups': [
+                    \'LastModifiedDate\': \'string\',
+                    \'Name\': \'string\',
+                    \'SegmentGroups\': {
+                        \'Groups\': [
                             {
-                                'Dimensions': [
+                                \'Dimensions\': [
                                     {
-                                        'Attributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Attributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Behavior': {
-                                            'Recency': {
-                                                'Duration': 'HR_24'|'DAY_7'|'DAY_14'|'DAY_30',
-                                                'RecencyType': 'ACTIVE'|'INACTIVE'
+                                        \'Behavior\': {
+                                            \'Recency\': {
+                                                \'Duration\': \'HR_24\'|\'DAY_7\'|\'DAY_14\'|\'DAY_30\',
+                                                \'RecencyType\': \'ACTIVE\'|\'INACTIVE\'
                                             }
                                         },
-                                        'Demographic': {
-                                            'AppVersion': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Demographic\': {
+                                            \'AppVersion\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Channel': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Channel\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'DeviceType': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'DeviceType\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Make': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Make\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Model': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Model\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'Platform': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                            \'Platform\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Location': {
-                                            'Country': {
-                                                'DimensionType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'Location\': {
+                                            \'Country\': {
+                                                \'DimensionType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'GPSPoint': {
-                                                'Coordinates': {
-                                                    'Latitude': 123.0,
-                                                    'Longitude': 123.0
+                                            \'GPSPoint\': {
+                                                \'Coordinates\': {
+                                                    \'Latitude\': 123.0,
+                                                    \'Longitude\': 123.0
                                                 },
-                                                'RangeInKilometers': 123.0
+                                                \'RangeInKilometers\': 123.0
                                             }
                                         },
-                                        'Metrics': {
-                                            'string': {
-                                                'ComparisonOperator': 'string',
-                                                'Value': 123.0
+                                        \'Metrics\': {
+                                            \'string\': {
+                                                \'ComparisonOperator\': \'string\',
+                                                \'Value\': 123.0
                                             }
                                         },
-                                        'UserAttributes': {
-                                            'string': {
-                                                'AttributeType': 'INCLUSIVE'|'EXCLUSIVE',
-                                                'Values': [
-                                                    'string',
+                                        \'UserAttributes\': {
+                                            \'string\': {
+                                                \'AttributeType\': \'INCLUSIVE\'|\'EXCLUSIVE\',
+                                                \'Values\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
                                 ],
-                                'SourceSegments': [
+                                \'SourceSegments\': [
                                     {
-                                        'Id': 'string',
-                                        'Version': 123
+                                        \'Id\': \'string\',
+                                        \'Version\': 123
                                     },
                                 ],
-                                'SourceType': 'ALL'|'ANY'|'NONE',
-                                'Type': 'ALL'|'ANY'|'NONE'
+                                \'SourceType\': \'ALL\'|\'ANY\'|\'NONE\',
+                                \'Type\': \'ALL\'|\'ANY\'|\'NONE\'
                             },
                         ],
-                        'Include': 'ALL'|'ANY'|'NONE'
+                        \'Include\': \'ALL\'|\'ANY\'|\'NONE\'
                     },
-                    'SegmentType': 'DIMENSIONAL'|'IMPORT',
-                    'Version': 123
+                    \'SegmentType\': \'DIMENSIONAL\'|\'IMPORT\',
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -16594,7 +16594,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* Custom metric dimension
                       
-                      - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                      - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                       
                       - **Value** *(float) --* Value to be compared.
                   
@@ -16740,7 +16740,7 @@ class Client(BaseClient):
                             
                             - *(dict) --* Custom metric dimension
                               
-                              - **ComparisonOperator** *(string) --* The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+                              - **ComparisonOperator** *(string) --* The operator that you\'re using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
                               
                               - **Value** *(float) --* Value to be compared.
                           
@@ -16756,7 +16756,7 @@ class Client(BaseClient):
                                 
                                 - *(string) --* 
                             
-                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+                    - **SourceSegments** *(list) --* The base segment that you build your segment on. The source segment defines the starting \"universe\" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
                       
                       - *(dict) --* Segment reference.
                         
@@ -16786,11 +16786,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_sms_channel(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               SMSChannelRequest={
-                  'Enabled': True|False,
-                  'SenderId': 'string',
-                  'ShortCode': 'string'
+                  \'Enabled\': True|False,
+                  \'SenderId\': \'string\',
+                  \'ShortCode\': \'string\'
               }
           )
         :type ApplicationId: string
@@ -16813,21 +16813,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SMSChannelResponse': {
-                    'ApplicationId': 'string',
-                    'CreationDate': 'string',
-                    'Enabled': True|False,
-                    'HasCredential': True|False,
-                    'Id': 'string',
-                    'IsArchived': True|False,
-                    'LastModifiedBy': 'string',
-                    'LastModifiedDate': 'string',
-                    'Platform': 'string',
-                    'PromotionalMessagesPerSecond': 123,
-                    'SenderId': 'string',
-                    'ShortCode': 'string',
-                    'TransactionalMessagesPerSecond': 123,
-                    'Version': 123
+                \'SMSChannelResponse\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationDate\': \'string\',
+                    \'Enabled\': True|False,
+                    \'HasCredential\': True|False,
+                    \'Id\': \'string\',
+                    \'IsArchived\': True|False,
+                    \'LastModifiedBy\': \'string\',
+                    \'LastModifiedDate\': \'string\',
+                    \'Platform\': \'string\',
+                    \'PromotionalMessagesPerSecond\': 123,
+                    \'SenderId\': \'string\',
+                    \'ShortCode\': \'string\',
+                    \'TransactionalMessagesPerSecond\': 123,
+                    \'Version\': 123
                 }
             }
           **Response Structure** 
@@ -16852,7 +16852,7 @@ class Client(BaseClient):
               
               - **LastModifiedDate** *(string) --* Last date this was updated
               
-              - **Platform** *(string) --* Platform type. Will be "SMS"
+              - **Platform** *(string) --* Platform type. Will be \"SMS\"
               
               - **PromotionalMessagesPerSecond** *(integer) --* Promotional messages per second that can be sent
               

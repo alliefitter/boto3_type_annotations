@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -22,11 +22,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_certificate(
-              CertificateArn='string',
+              CertificateArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -66,10 +66,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -89,7 +89,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_certificate(
-              CertificateArn='string'
+              CertificateArn=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -113,7 +113,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_certificate(
-              CertificateArn='string'
+              CertificateArn=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -132,80 +132,80 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': {
-                    'CertificateArn': 'string',
-                    'DomainName': 'string',
-                    'SubjectAlternativeNames': [
-                        'string',
+                \'Certificate\': {
+                    \'CertificateArn\': \'string\',
+                    \'DomainName\': \'string\',
+                    \'SubjectAlternativeNames\': [
+                        \'string\',
                     ],
-                    'DomainValidationOptions': [
+                    \'DomainValidationOptions\': [
                         {
-                            'DomainName': 'string',
-                            'ValidationEmails': [
-                                'string',
+                            \'DomainName\': \'string\',
+                            \'ValidationEmails\': [
+                                \'string\',
                             ],
-                            'ValidationDomain': 'string',
-                            'ValidationStatus': 'PENDING_VALIDATION'|'SUCCESS'|'FAILED',
-                            'ResourceRecord': {
-                                'Name': 'string',
-                                'Type': 'CNAME',
-                                'Value': 'string'
+                            \'ValidationDomain\': \'string\',
+                            \'ValidationStatus\': \'PENDING_VALIDATION\'|\'SUCCESS\'|\'FAILED\',
+                            \'ResourceRecord\': {
+                                \'Name\': \'string\',
+                                \'Type\': \'CNAME\',
+                                \'Value\': \'string\'
                             },
-                            'ValidationMethod': 'EMAIL'|'DNS'
+                            \'ValidationMethod\': \'EMAIL\'|\'DNS\'
                         },
                     ],
-                    'Serial': 'string',
-                    'Subject': 'string',
-                    'Issuer': 'string',
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'IssuedAt': datetime(2015, 1, 1),
-                    'ImportedAt': datetime(2015, 1, 1),
-                    'Status': 'PENDING_VALIDATION'|'ISSUED'|'INACTIVE'|'EXPIRED'|'VALIDATION_TIMED_OUT'|'REVOKED'|'FAILED',
-                    'RevokedAt': datetime(2015, 1, 1),
-                    'RevocationReason': 'UNSPECIFIED'|'KEY_COMPROMISE'|'CA_COMPROMISE'|'AFFILIATION_CHANGED'|'SUPERCEDED'|'CESSATION_OF_OPERATION'|'CERTIFICATE_HOLD'|'REMOVE_FROM_CRL'|'PRIVILEGE_WITHDRAWN'|'A_A_COMPROMISE',
-                    'NotBefore': datetime(2015, 1, 1),
-                    'NotAfter': datetime(2015, 1, 1),
-                    'KeyAlgorithm': 'RSA_2048'|'RSA_1024'|'RSA_4096'|'EC_prime256v1'|'EC_secp384r1'|'EC_secp521r1',
-                    'SignatureAlgorithm': 'string',
-                    'InUseBy': [
-                        'string',
+                    \'Serial\': \'string\',
+                    \'Subject\': \'string\',
+                    \'Issuer\': \'string\',
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'IssuedAt\': datetime(2015, 1, 1),
+                    \'ImportedAt\': datetime(2015, 1, 1),
+                    \'Status\': \'PENDING_VALIDATION\'|\'ISSUED\'|\'INACTIVE\'|\'EXPIRED\'|\'VALIDATION_TIMED_OUT\'|\'REVOKED\'|\'FAILED\',
+                    \'RevokedAt\': datetime(2015, 1, 1),
+                    \'RevocationReason\': \'UNSPECIFIED\'|\'KEY_COMPROMISE\'|\'CA_COMPROMISE\'|\'AFFILIATION_CHANGED\'|\'SUPERCEDED\'|\'CESSATION_OF_OPERATION\'|\'CERTIFICATE_HOLD\'|\'REMOVE_FROM_CRL\'|\'PRIVILEGE_WITHDRAWN\'|\'A_A_COMPROMISE\',
+                    \'NotBefore\': datetime(2015, 1, 1),
+                    \'NotAfter\': datetime(2015, 1, 1),
+                    \'KeyAlgorithm\': \'RSA_2048\'|\'RSA_1024\'|\'RSA_4096\'|\'EC_prime256v1\'|\'EC_secp384r1\'|\'EC_secp521r1\',
+                    \'SignatureAlgorithm\': \'string\',
+                    \'InUseBy\': [
+                        \'string\',
                     ],
-                    'FailureReason': 'NO_AVAILABLE_CONTACTS'|'ADDITIONAL_VERIFICATION_REQUIRED'|'DOMAIN_NOT_ALLOWED'|'INVALID_PUBLIC_DOMAIN'|'CAA_ERROR'|'PCA_LIMIT_EXCEEDED'|'PCA_INVALID_ARN'|'PCA_INVALID_STATE'|'PCA_REQUEST_FAILED'|'PCA_RESOURCE_NOT_FOUND'|'PCA_INVALID_ARGS'|'OTHER',
-                    'Type': 'IMPORTED'|'AMAZON_ISSUED'|'PRIVATE',
-                    'RenewalSummary': {
-                        'RenewalStatus': 'PENDING_AUTO_RENEWAL'|'PENDING_VALIDATION'|'SUCCESS'|'FAILED',
-                        'DomainValidationOptions': [
+                    \'FailureReason\': \'NO_AVAILABLE_CONTACTS\'|\'ADDITIONAL_VERIFICATION_REQUIRED\'|\'DOMAIN_NOT_ALLOWED\'|\'INVALID_PUBLIC_DOMAIN\'|\'CAA_ERROR\'|\'PCA_LIMIT_EXCEEDED\'|\'PCA_INVALID_ARN\'|\'PCA_INVALID_STATE\'|\'PCA_REQUEST_FAILED\'|\'PCA_RESOURCE_NOT_FOUND\'|\'PCA_INVALID_ARGS\'|\'OTHER\',
+                    \'Type\': \'IMPORTED\'|\'AMAZON_ISSUED\'|\'PRIVATE\',
+                    \'RenewalSummary\': {
+                        \'RenewalStatus\': \'PENDING_AUTO_RENEWAL\'|\'PENDING_VALIDATION\'|\'SUCCESS\'|\'FAILED\',
+                        \'DomainValidationOptions\': [
                             {
-                                'DomainName': 'string',
-                                'ValidationEmails': [
-                                    'string',
+                                \'DomainName\': \'string\',
+                                \'ValidationEmails\': [
+                                    \'string\',
                                 ],
-                                'ValidationDomain': 'string',
-                                'ValidationStatus': 'PENDING_VALIDATION'|'SUCCESS'|'FAILED',
-                                'ResourceRecord': {
-                                    'Name': 'string',
-                                    'Type': 'CNAME',
-                                    'Value': 'string'
+                                \'ValidationDomain\': \'string\',
+                                \'ValidationStatus\': \'PENDING_VALIDATION\'|\'SUCCESS\'|\'FAILED\',
+                                \'ResourceRecord\': {
+                                    \'Name\': \'string\',
+                                    \'Type\': \'CNAME\',
+                                    \'Value\': \'string\'
                                 },
-                                'ValidationMethod': 'EMAIL'|'DNS'
+                                \'ValidationMethod\': \'EMAIL\'|\'DNS\'
                             },
                         ]
                     },
-                    'KeyUsages': [
+                    \'KeyUsages\': [
                         {
-                            'Name': 'DIGITAL_SIGNATURE'|'NON_REPUDIATION'|'KEY_ENCIPHERMENT'|'DATA_ENCIPHERMENT'|'KEY_AGREEMENT'|'CERTIFICATE_SIGNING'|'CRL_SIGNING'|'ENCIPHER_ONLY'|'DECIPHER_ONLY'|'ANY'|'CUSTOM'
+                            \'Name\': \'DIGITAL_SIGNATURE\'|\'NON_REPUDIATION\'|\'KEY_ENCIPHERMENT\'|\'DATA_ENCIPHERMENT\'|\'KEY_AGREEMENT\'|\'CERTIFICATE_SIGNING\'|\'CRL_SIGNING\'|\'ENCIPHER_ONLY\'|\'DECIPHER_ONLY\'|\'ANY\'|\'CUSTOM\'
                         },
                     ],
-                    'ExtendedKeyUsages': [
+                    \'ExtendedKeyUsages\': [
                         {
-                            'Name': 'TLS_WEB_SERVER_AUTHENTICATION'|'TLS_WEB_CLIENT_AUTHENTICATION'|'CODE_SIGNING'|'EMAIL_PROTECTION'|'TIME_STAMPING'|'OCSP_SIGNING'|'IPSEC_END_SYSTEM'|'IPSEC_TUNNEL'|'IPSEC_USER'|'ANY'|'NONE'|'CUSTOM',
-                            'OID': 'string'
+                            \'Name\': \'TLS_WEB_SERVER_AUTHENTICATION\'|\'TLS_WEB_CLIENT_AUTHENTICATION\'|\'CODE_SIGNING\'|\'EMAIL_PROTECTION\'|\'TIME_STAMPING\'|\'OCSP_SIGNING\'|\'IPSEC_END_SYSTEM\'|\'IPSEC_TUNNEL\'|\'IPSEC_USER\'|\'ANY\'|\'NONE\'|\'CUSTOM\',
+                            \'OID\': \'string\'
                         },
                     ],
-                    'CertificateAuthorityArn': 'string',
-                    'RenewalEligibility': 'ELIGIBLE'|'INELIGIBLE',
-                    'Options': {
-                        'CertificateTransparencyLoggingPreference': 'ENABLED'|'DISABLED'
+                    \'CertificateAuthorityArn\': \'string\',
+                    \'RenewalEligibility\': \'ELIGIBLE\'|\'INELIGIBLE\',
+                    \'Options\': {
+                        \'CertificateTransparencyLoggingPreference\': \'ENABLED\'|\'DISABLED\'
                     }
                 }
             }
@@ -351,15 +351,15 @@ class Client(BaseClient):
         
               - **RenewalSummary** *(dict) --* 
         
-                Contains information about the status of ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for the certificate. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
+                Contains information about the status of ACM\'s `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for the certificate. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
         
                 - **RenewalStatus** *(string) --* 
         
-                  The status of ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ of the certificate.
+                  The status of ACM\'s `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ of the certificate.
         
                 - **DomainValidationOptions** *(list) --* 
         
-                  Contains information about the validation of each domain name in the certificate, as it pertains to ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ . This is different from the initial validation that occurs as a result of the  RequestCertificate request. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
+                  Contains information about the validation of each domain name in the certificate, as it pertains to ACM\'s `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ . This is different from the initial validation that occurs as a result of the  RequestCertificate request. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
         
                   - *(dict) --* 
         
@@ -487,8 +487,8 @@ class Client(BaseClient):
         ::
         
           response = client.export_certificate(
-              CertificateArn='string',
-              Passphrase=b'bytes'
+              CertificateArn=\'string\',
+              Passphrase=b\'bytes\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -512,9 +512,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': 'string',
-                'CertificateChain': 'string',
-                'PrivateKey': 'string'
+                \'Certificate\': \'string\',
+                \'CertificateChain\': \'string\',
+                \'PrivateKey\': \'string\'
             }
           **Response Structure** 
         
@@ -551,7 +551,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -566,7 +566,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_certificate(
-              CertificateArn='string'
+              CertificateArn=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -585,8 +585,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': 'string',
-                'CertificateChain': 'string'
+                \'Certificate\': \'string\',
+                \'CertificateChain\': \'string\'
             }
           **Response Structure** 
         
@@ -609,10 +609,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -664,7 +664,7 @@ class Client(BaseClient):
          
         * When you import a certificate by using the CLI, you must specify the certificate, the certificate chain, and the private key by their file names preceded by ``file://`` . For example, you can specify a certificate saved in the ``C:\temp`` folder as ``file://C:\temp\certificate_to_import.pem`` . If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.  
          
-        * When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you're using.  
+        * When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you\'re using.  
          
         This operation returns the `Amazon Resource Name (ARN) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of the imported certificate.
         
@@ -674,10 +674,10 @@ class Client(BaseClient):
         ::
         
           response = client.import_certificate(
-              CertificateArn='string',
-              Certificate=b'bytes',
-              PrivateKey=b'bytes',
-              CertificateChain=b'bytes'
+              CertificateArn=\'string\',
+              Certificate=b\'bytes\',
+              PrivateKey=b\'bytes\',
+              CertificateChain=b\'bytes\'
           )
         :type CertificateArn: string
         :param CertificateArn: 
@@ -707,7 +707,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateArn': 'string'
+                \'CertificateArn\': \'string\'
             }
           **Response Structure** 
         
@@ -730,20 +730,20 @@ class Client(BaseClient):
         
           response = client.list_certificates(
               CertificateStatuses=[
-                  'PENDING_VALIDATION'|'ISSUED'|'INACTIVE'|'EXPIRED'|'VALIDATION_TIMED_OUT'|'REVOKED'|'FAILED',
+                  \'PENDING_VALIDATION\'|\'ISSUED\'|\'INACTIVE\'|\'EXPIRED\'|\'VALIDATION_TIMED_OUT\'|\'REVOKED\'|\'FAILED\',
               ],
               Includes={
-                  'extendedKeyUsage': [
-                      'TLS_WEB_SERVER_AUTHENTICATION'|'TLS_WEB_CLIENT_AUTHENTICATION'|'CODE_SIGNING'|'EMAIL_PROTECTION'|'TIME_STAMPING'|'OCSP_SIGNING'|'IPSEC_END_SYSTEM'|'IPSEC_TUNNEL'|'IPSEC_USER'|'ANY'|'NONE'|'CUSTOM',
+                  \'extendedKeyUsage\': [
+                      \'TLS_WEB_SERVER_AUTHENTICATION\'|\'TLS_WEB_CLIENT_AUTHENTICATION\'|\'CODE_SIGNING\'|\'EMAIL_PROTECTION\'|\'TIME_STAMPING\'|\'OCSP_SIGNING\'|\'IPSEC_END_SYSTEM\'|\'IPSEC_TUNNEL\'|\'IPSEC_USER\'|\'ANY\'|\'NONE\'|\'CUSTOM\',
                   ],
-                  'keyUsage': [
-                      'DIGITAL_SIGNATURE'|'NON_REPUDIATION'|'KEY_ENCIPHERMENT'|'DATA_ENCIPHERMENT'|'KEY_AGREEMENT'|'CERTIFICATE_SIGNING'|'CRL_SIGNING'|'ENCIPHER_ONLY'|'DECIPHER_ONLY'|'ANY'|'CUSTOM',
+                  \'keyUsage\': [
+                      \'DIGITAL_SIGNATURE\'|\'NON_REPUDIATION\'|\'KEY_ENCIPHERMENT\'|\'DATA_ENCIPHERMENT\'|\'KEY_AGREEMENT\'|\'CERTIFICATE_SIGNING\'|\'CRL_SIGNING\'|\'ENCIPHER_ONLY\'|\'DECIPHER_ONLY\'|\'ANY\'|\'CUSTOM\',
                   ],
-                  'keyTypes': [
-                      'RSA_2048'|'RSA_1024'|'RSA_4096'|'EC_prime256v1'|'EC_secp384r1'|'EC_secp521r1',
+                  \'keyTypes\': [
+                      \'RSA_2048\'|\'RSA_1024\'|\'RSA_4096\'|\'EC_prime256v1\'|\'EC_secp384r1\'|\'EC_secp521r1\',
                   ]
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxItems=123
           )
         :type CertificateStatuses: list
@@ -794,11 +794,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'CertificateSummaryList': [
+                \'NextToken\': \'string\',
+                \'CertificateSummaryList\': [
                     {
-                        'CertificateArn': 'string',
-                        'DomainName': 'string'
+                        \'CertificateArn\': \'string\',
+                        \'DomainName\': \'string\'
                     },
                 ]
             }
@@ -842,7 +842,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_certificate(
-              CertificateArn='string'
+              CertificateArn=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -861,10 +861,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -902,11 +902,11 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_certificate(
-              CertificateArn='string',
+              CertificateArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -951,22 +951,22 @@ class Client(BaseClient):
         ::
         
           response = client.request_certificate(
-              DomainName='string',
-              ValidationMethod='EMAIL'|'DNS',
+              DomainName=\'string\',
+              ValidationMethod=\'EMAIL\'|\'DNS\',
               SubjectAlternativeNames=[
-                  'string',
+                  \'string\',
               ],
-              IdempotencyToken='string',
+              IdempotencyToken=\'string\',
               DomainValidationOptions=[
                   {
-                      'DomainName': 'string',
-                      'ValidationDomain': 'string'
+                      \'DomainName\': \'string\',
+                      \'ValidationDomain\': \'string\'
                   },
               ],
               Options={
-                  'CertificateTransparencyLoggingPreference': 'ENABLED'|'DISABLED'
+                  \'CertificateTransparencyLoggingPreference\': \'ENABLED\'|\'DISABLED\'
               },
-              CertificateAuthorityArn='string'
+              CertificateAuthorityArn=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1051,7 +1051,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateArn': 'string'
+                \'CertificateArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1075,9 +1075,9 @@ class Client(BaseClient):
         ::
         
           response = client.resend_validation_email(
-              CertificateArn='string',
-              Domain='string',
-              ValidationDomain='string'
+              CertificateArn=\'string\',
+              Domain=\'string\',
+              ValidationDomain=\'string\'
           )
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]** 
@@ -1119,9 +1119,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_certificate_options(
-              CertificateArn='string',
+              CertificateArn=\'string\',
               Options={
-                  'CertificateTransparencyLoggingPreference': 'ENABLED'|'DISABLED'
+                  \'CertificateTransparencyLoggingPreference\': \'ENABLED\'|\'DISABLED\'
               }
           )
         :type CertificateArn: string

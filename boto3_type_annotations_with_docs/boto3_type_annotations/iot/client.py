@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -21,7 +21,7 @@ class Client(BaseClient):
         ::
         
           response = client.accept_certificate_transfer(
-              certificateId='string',
+              certificateId=\'string\',
               setAsActive=True|False
           )
         :type certificateId: string
@@ -47,10 +47,10 @@ class Client(BaseClient):
         ::
         
           response = client.add_thing_to_thing_group(
-              thingGroupName='string',
-              thingGroupArn='string',
-              thingName='string',
-              thingArn='string'
+              thingGroupName=\'string\',
+              thingGroupArn=\'string\',
+              thingName=\'string\',
+              thingArn=\'string\'
           )
         :type thingGroupName: string
         :param thingGroupName: 
@@ -89,9 +89,9 @@ class Client(BaseClient):
     def associate_targets_with_job(self, targets: List, jobId: str, comment: str = None) -> Dict:
         """
         
-        * The job must have been created with the ``targetSelection`` field set to "CONTINUOUS". 
+        * The job must have been created with the ``targetSelection`` field set to \"CONTINUOUS\". 
          
-        * The job status must currently be "IN_PROGRESS". 
+        * The job status must currently be \"IN_PROGRESS\". 
          
         * The total number of targets associated with a job must not exceed 100. 
          
@@ -102,10 +102,10 @@ class Client(BaseClient):
         
           response = client.associate_targets_with_job(
               targets=[
-                  'string',
+                  \'string\',
               ],
-              jobId='string',
-              comment='string'
+              jobId=\'string\',
+              comment=\'string\'
           )
         :type targets: list
         :param targets: **[REQUIRED]** 
@@ -132,9 +132,9 @@ class Client(BaseClient):
           ::
         
             {
-                'jobArn': 'string',
-                'jobId': 'string',
-                'description': 'string'
+                \'jobArn\': \'string\',
+                \'jobId\': \'string\',
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -164,8 +164,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_policy(
-              policyName='string',
-              target='string'
+              policyName=\'string\',
+              target=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -196,8 +196,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_principal_policy(
-              policyName='string',
-              principal='string'
+              policyName=\'string\',
+              principal=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -222,8 +222,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_security_profile(
-              securityProfileName='string',
-              securityProfileTargetArn='string'
+              securityProfileName=\'string\',
+              securityProfileTargetArn=\'string\'
           )
         :type securityProfileName: string
         :param securityProfileName: **[REQUIRED]** 
@@ -258,8 +258,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_thing_principal(
-              thingName='string',
-              principal='string'
+              thingName=\'string\',
+              principal=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -294,10 +294,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -313,12 +313,12 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_audit_task(
-              taskId='string'
+              taskId=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
         
-          The ID of the audit you want to cancel. You can only cancel an audit that is "IN_PROGRESS".
+          The ID of the audit you want to cancel. You can only cancel an audit that is \"IN_PROGRESS\".
         
         :rtype: dict
         :returns: 
@@ -347,7 +347,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_certificate_transfer(
-              certificateId='string'
+              certificateId=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -367,8 +367,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_job(
-              jobId='string',
-              comment='string',
+              jobId=\'string\',
+              comment=\'string\',
               force=True|False
           )
         :type jobId: string
@@ -384,9 +384,9 @@ class Client(BaseClient):
         :type force: boolean
         :param force: 
         
-          (Optional) If ``true`` job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is ``false`` .
+          (Optional) If ``true`` job executions with status \"IN_PROGRESS\" and \"QUEUED\" are canceled, otherwise only job executions with status \"QUEUED\" are canceled. The default is ``false`` .
         
-          Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
+          Canceling a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
         
         :rtype: dict
         :returns: 
@@ -396,9 +396,9 @@ class Client(BaseClient):
           ::
         
             {
-                'jobArn': 'string',
-                'jobId': 'string',
-                'description': 'string'
+                \'jobArn\': \'string\',
+                \'jobId\': \'string\',
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -428,12 +428,12 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_job_execution(
-              jobId='string',
-              thingName='string',
+              jobId=\'string\',
+              thingName=\'string\',
               force=True|False,
               expectedVersion=123,
               statusDetails={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type jobId: string
@@ -451,7 +451,7 @@ class Client(BaseClient):
         
           (Optional) If ``true`` the job execution will be canceled if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set ``force`` to ``true`` , then an ``InvalidStateTransitionException`` will be thrown. The default is ``false`` .
         
-          Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.
+          Canceling a job execution which is \"IN_PROGRESS\", will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.
         
         :type expectedVersion: integer
         :param expectedVersion: 
@@ -504,13 +504,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_authorizer(
-              authorizerName='string',
-              authorizerFunctionArn='string',
-              tokenKeyName='string',
+              authorizerName=\'string\',
+              authorizerFunctionArn=\'string\',
+              tokenKeyName=\'string\',
               tokenSigningPublicKeys={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              status='ACTIVE'|'INACTIVE'
+              status=\'ACTIVE\'|\'INACTIVE\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -520,7 +520,7 @@ class Client(BaseClient):
         :type authorizerFunctionArn: string
         :param authorizerFunctionArn: **[REQUIRED]** 
         
-          The ARN of the authorizer's Lambda function.
+          The ARN of the authorizer\'s Lambda function.
         
         :type tokenKeyName: string
         :param tokenKeyName: **[REQUIRED]** 
@@ -549,8 +549,8 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizerName': 'string',
-                'authorizerArn': 'string'
+                \'authorizerName\': \'string\',
+                \'authorizerArn\': \'string\'
             }
           **Response Structure** 
         
@@ -558,7 +558,7 @@ class Client(BaseClient):
             
             - **authorizerName** *(string) --* 
         
-              The authorizer's name.
+              The authorizer\'s name.
         
             - **authorizerArn** *(string) --* 
         
@@ -594,7 +594,7 @@ class Client(BaseClient):
         
         On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:
         
-        > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"
+        > forfiles /p my-csr-directory /c \"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\"
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateCertificateFromCsr>`_
         
@@ -602,7 +602,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_certificate_from_csr(
-              certificateSigningRequest='string',
+              certificateSigningRequest=\'string\',
               setAsActive=True|False
           )
         :type certificateSigningRequest: string
@@ -623,9 +623,9 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateArn': 'string',
-                'certificateId': 'string',
-                'certificatePem': 'string'
+                \'certificateArn\': \'string\',
+                \'certificateId\': \'string\',
+                \'certificatePem\': \'string\'
             }
           **Response Structure** 
         
@@ -657,29 +657,29 @@ class Client(BaseClient):
         ::
         
           response = client.create_job(
-              jobId='string',
+              jobId=\'string\',
               targets=[
-                  'string',
+                  \'string\',
               ],
-              documentSource='string',
-              document='string',
-              description='string',
+              documentSource=\'string\',
+              document=\'string\',
+              description=\'string\',
               presignedUrlConfig={
-                  'roleArn': 'string',
-                  'expiresInSec': 123
+                  \'roleArn\': \'string\',
+                  \'expiresInSec\': 123
               },
-              targetSelection='CONTINUOUS'|'SNAPSHOT',
+              targetSelection=\'CONTINUOUS\'|\'SNAPSHOT\',
               jobExecutionsRolloutConfig={
-                  'maximumPerMinute': 123
+                  \'maximumPerMinute\': 123
               },
               timeoutConfig={
-                  'inProgressTimeoutInMinutes': 123
+                  \'inProgressTimeoutInMinutes\': 123
               }
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
         
-          A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
+          A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for use here.
         
         :type targets: list
         :param targets: **[REQUIRED]** 
@@ -737,7 +737,7 @@ class Client(BaseClient):
         
           - **inProgressTimeoutInMinutes** *(integer) --* 
         
-            Specifies the amount of time, in minutes, this device has to finish execution of this job. A timer is started, or restarted, whenever this job's execution status is specified as ``IN_PROGRESS`` with this field populated. If the job execution status is not set to a terminal state before the timer expires, or before another job execution status update is sent with this field populated, the status will be automatically set to ``TIMED_OUT`` . Note that setting/resetting this timer has no effect on the job execution timeout timer which may have been specified when the job was created (``CreateJobExecution`` using the field ``timeoutConfig`` ).
+            Specifies the amount of time, in minutes, this device has to finish execution of this job. A timer is started, or restarted, whenever this job\'s execution status is specified as ``IN_PROGRESS`` with this field populated. If the job execution status is not set to a terminal state before the timer expires, or before another job execution status update is sent with this field populated, the status will be automatically set to ``TIMED_OUT`` . Note that setting/resetting this timer has no effect on the job execution timeout timer which may have been specified when the job was created (``CreateJobExecution`` using the field ``timeoutConfig`` ).
         
         :rtype: dict
         :returns: 
@@ -747,9 +747,9 @@ class Client(BaseClient):
           ::
         
             {
-                'jobArn': 'string',
-                'jobId': 'string',
-                'description': 'string'
+                \'jobArn\': \'string\',
+                \'jobId\': \'string\',
+                \'description\': \'string\'
             }
           **Response Structure** 
         
@@ -796,12 +796,12 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateArn': 'string',
-                'certificateId': 'string',
-                'certificatePem': 'string',
-                'keyPair': {
-                    'PublicKey': 'string',
-                    'PrivateKey': 'string'
+                \'certificateArn\': \'string\',
+                \'certificateId\': \'string\',
+                \'certificatePem\': \'string\',
+                \'keyPair\': {
+                    \'PublicKey\': \'string\',
+                    \'PrivateKey\': \'string\'
                 }
             }
           **Response Structure** 
@@ -846,66 +846,66 @@ class Client(BaseClient):
         ::
         
           response = client.create_ota_update(
-              otaUpdateId='string',
-              description='string',
+              otaUpdateId=\'string\',
+              description=\'string\',
               targets=[
-                  'string',
+                  \'string\',
               ],
-              targetSelection='CONTINUOUS'|'SNAPSHOT',
+              targetSelection=\'CONTINUOUS\'|\'SNAPSHOT\',
               awsJobExecutionsRolloutConfig={
-                  'maximumPerMinute': 123
+                  \'maximumPerMinute\': 123
               },
               files=[
                   {
-                      'fileName': 'string',
-                      'fileVersion': 'string',
-                      'fileLocation': {
-                          'stream': {
-                              'streamId': 'string',
-                              'fileId': 123
+                      \'fileName\': \'string\',
+                      \'fileVersion\': \'string\',
+                      \'fileLocation\': {
+                          \'stream\': {
+                              \'streamId\': \'string\',
+                              \'fileId\': 123
                           },
-                          's3Location': {
-                              'bucket': 'string',
-                              'key': 'string',
-                              'version': 'string'
+                          \'s3Location\': {
+                              \'bucket\': \'string\',
+                              \'key\': \'string\',
+                              \'version\': \'string\'
                           }
                       },
-                      'codeSigning': {
-                          'awsSignerJobId': 'string',
-                          'startSigningJobParameter': {
-                              'signingProfileParameter': {
-                                  'certificateArn': 'string',
-                                  'platform': 'string',
-                                  'certificatePathOnDevice': 'string'
+                      \'codeSigning\': {
+                          \'awsSignerJobId\': \'string\',
+                          \'startSigningJobParameter\': {
+                              \'signingProfileParameter\': {
+                                  \'certificateArn\': \'string\',
+                                  \'platform\': \'string\',
+                                  \'certificatePathOnDevice\': \'string\'
                               },
-                              'signingProfileName': 'string',
-                              'destination': {
-                                  's3Destination': {
-                                      'bucket': 'string',
-                                      'prefix': 'string'
+                              \'signingProfileName\': \'string\',
+                              \'destination\': {
+                                  \'s3Destination\': {
+                                      \'bucket\': \'string\',
+                                      \'prefix\': \'string\'
                                   }
                               }
                           },
-                          'customCodeSigning': {
-                              'signature': {
-                                  'inlineDocument': b'bytes'
+                          \'customCodeSigning\': {
+                              \'signature\': {
+                                  \'inlineDocument\': b\'bytes\'
                               },
-                              'certificateChain': {
-                                  'certificateName': 'string',
-                                  'inlineDocument': 'string'
+                              \'certificateChain\': {
+                                  \'certificateName\': \'string\',
+                                  \'inlineDocument\': \'string\'
                               },
-                              'hashAlgorithm': 'string',
-                              'signatureAlgorithm': 'string'
+                              \'hashAlgorithm\': \'string\',
+                              \'signatureAlgorithm\': \'string\'
                           }
                       },
-                      'attributes': {
-                          'string': 'string'
+                      \'attributes\': {
+                          \'string\': \'string\'
                       }
                   },
               ],
-              roleArn='string',
+              roleArn=\'string\',
               additionalParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type otaUpdateId: string
@@ -1098,11 +1098,11 @@ class Client(BaseClient):
           ::
         
             {
-                'otaUpdateId': 'string',
-                'awsIotJobId': 'string',
-                'otaUpdateArn': 'string',
-                'awsIotJobArn': 'string',
-                'otaUpdateStatus': 'CREATE_PENDING'|'CREATE_IN_PROGRESS'|'CREATE_COMPLETE'|'CREATE_FAILED'
+                \'otaUpdateId\': \'string\',
+                \'awsIotJobId\': \'string\',
+                \'otaUpdateArn\': \'string\',
+                \'awsIotJobArn\': \'string\',
+                \'otaUpdateStatus\': \'CREATE_PENDING\'|\'CREATE_IN_PROGRESS\'|\'CREATE_COMPLETE\'|\'CREATE_FAILED\'
             }
           **Response Structure** 
         
@@ -1134,7 +1134,7 @@ class Client(BaseClient):
     def create_policy(self, policyName: str, policyDocument: str) -> Dict:
         """
         
-        The created policy is the default version for the policy. This operation creates a policy version with a version identifier of **1** and sets **1** as the policy's default version.
+        The created policy is the default version for the policy. This operation creates a policy version with a version identifier of **1** and sets **1** as the policy\'s default version.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreatePolicy>`_
         
@@ -1142,8 +1142,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_policy(
-              policyName='string',
-              policyDocument='string'
+              policyName=\'string\',
+              policyDocument=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -1163,10 +1163,10 @@ class Client(BaseClient):
           ::
         
             {
-                'policyName': 'string',
-                'policyArn': 'string',
-                'policyDocument': 'string',
-                'policyVersionId': 'string'
+                \'policyName\': \'string\',
+                \'policyArn\': \'string\',
+                \'policyDocument\': \'string\',
+                \'policyVersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1196,7 +1196,7 @@ class Client(BaseClient):
     def create_policy_version(self, policyName: str, policyDocument: str, setAsDefault: bool = None) -> Dict:
         """
         
-        Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+        Optionally, you can set the new version as the policy\'s default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreatePolicyVersion>`_
         
@@ -1204,8 +1204,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_policy_version(
-              policyName='string',
-              policyDocument='string',
+              policyName=\'string\',
+              policyDocument=\'string\',
               setAsDefault=True|False
           )
         :type policyName: string
@@ -1231,10 +1231,10 @@ class Client(BaseClient):
           ::
         
             {
-                'policyArn': 'string',
-                'policyDocument': 'string',
-                'policyVersionId': 'string',
-                'isDefaultVersion': True|False
+                \'policyArn\': \'string\',
+                \'policyDocument\': \'string\',
+                \'policyVersionId\': \'string\',
+                \'isDefaultVersion\': True|False
             }
           **Response Structure** 
         
@@ -1270,8 +1270,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_role_alias(
-              roleAlias='string',
-              roleArn='string',
+              roleAlias=\'string\',
+              roleArn=\'string\',
               credentialDurationSeconds=123
           )
         :type roleAlias: string
@@ -1297,8 +1297,8 @@ class Client(BaseClient):
           ::
         
             {
-                'roleAlias': 'string',
-                'roleAliasArn': 'string'
+                \'roleAlias\': \'string\',
+                \'roleAliasArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1324,28 +1324,28 @@ class Client(BaseClient):
         ::
         
           response = client.create_scheduled_audit(
-              frequency='DAILY'|'WEEKLY'|'BIWEEKLY'|'MONTHLY',
-              dayOfMonth='string',
-              dayOfWeek='SUN'|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT',
+              frequency=\'DAILY\'|\'WEEKLY\'|\'BIWEEKLY\'|\'MONTHLY\',
+              dayOfMonth=\'string\',
+              dayOfWeek=\'SUN\'|\'MON\'|\'TUE\'|\'WED\'|\'THU\'|\'FRI\'|\'SAT\',
               targetCheckNames=[
-                  'string',
+                  \'string\',
               ],
-              scheduledAuditName='string'
+              scheduledAuditName=\'string\'
           )
         :type frequency: string
         :param frequency: **[REQUIRED]** 
         
-          How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The actual start time of each audit is determined by the system.
+          How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.
         
         :type dayOfMonth: string
         :param dayOfMonth: 
         
-          The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+          The day of the month on which the scheduled audit takes place. Can be \"1\" through \"31\" or \"LAST\". This field is required if the \"frequency\" parameter is set to \"MONTHLY\". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the \"LAST\" day of the month.
         
         :type dayOfWeek: string
         :param dayOfWeek: 
         
-          The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI" or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
+          The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".
         
         :type targetCheckNames: list
         :param targetCheckNames: **[REQUIRED]** 
@@ -1369,7 +1369,7 @@ class Client(BaseClient):
           ::
         
             {
-                'scheduledAuditArn': 'string'
+                \'scheduledAuditArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1391,31 +1391,31 @@ class Client(BaseClient):
         ::
         
           response = client.create_security_profile(
-              securityProfileName='string',
-              securityProfileDescription='string',
+              securityProfileName=\'string\',
+              securityProfileDescription=\'string\',
               behaviors=[
                   {
-                      'name': 'string',
-                      'metric': 'string',
-                      'criteria': {
-                          'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                          'value': {
-                              'count': 123,
-                              'cidrs': [
-                                  'string',
+                      \'name\': \'string\',
+                      \'metric\': \'string\',
+                      \'criteria\': {
+                          \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                          \'value\': {
+                              \'count\': 123,
+                              \'cidrs\': [
+                                  \'string\',
                               ],
-                              'ports': [
+                              \'ports\': [
                                   123,
                               ]
                           },
-                          'durationSeconds': 123
+                          \'durationSeconds\': 123
                       }
                   },
               ],
               alertTargets={
-                  'string': {
-                      'alertTargetArn': 'string',
-                      'roleArn': 'string'
+                  \'string\': {
+                      \'alertTargetArn\': \'string\',
+                      \'roleArn\': \'string\'
                   }
               }
           )
@@ -1485,7 +1485,7 @@ class Client(BaseClient):
         
           - *(string) --* 
         
-            The type of alert target: one of "SNS".
+            The type of alert target: one of \"SNS\".
         
             - *(dict) --* 
         
@@ -1507,8 +1507,8 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileName': 'string',
-                'securityProfileArn': 'string'
+                \'securityProfileName\': \'string\',
+                \'securityProfileArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1534,19 +1534,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_stream(
-              streamId='string',
-              description='string',
+              streamId=\'string\',
+              description=\'string\',
               files=[
                   {
-                      'fileId': 123,
-                      's3Location': {
-                          'bucket': 'string',
-                          'key': 'string',
-                          'version': 'string'
+                      \'fileId\': 123,
+                      \'s3Location\': {
+                          \'bucket\': \'string\',
+                          \'key\': \'string\',
+                          \'version\': \'string\'
                       }
                   },
               ],
-              roleArn='string'
+              roleArn=\'string\'
           )
         :type streamId: string
         :param streamId: **[REQUIRED]** 
@@ -1600,10 +1600,10 @@ class Client(BaseClient):
           ::
         
             {
-                'streamId': 'string',
-                'streamArn': 'string',
-                'description': 'string',
-                'streamVersion': 123
+                \'streamId\': \'string\',
+                \'streamArn\': \'string\',
+                \'description\': \'string\',
+                \'streamVersion\': 123
             }
           **Response Structure** 
         
@@ -1641,13 +1641,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_thing(
-              thingName='string',
-              thingTypeName='string',
+              thingName=\'string\',
+              thingTypeName=\'string\',
               attributePayload={
-                  'attributes': {
-                      'string': 'string'
+                  \'attributes\': {
+                      \'string\': \'string\'
                   },
-                  'merge': True|False
+                  \'merge\': True|False
               }
           )
         :type thingName: string
@@ -1665,13 +1665,13 @@ class Client(BaseClient):
         
           The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:
         
-           ``{\"attributes\":{\"string1\":\"string2\"}}``  
+           ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
           - **attributes** *(dict) --* 
         
             A JSON string containing up to three key-value pair in JSON format. For example:
         
-             ``{\"attributes\":{\"string1\":\"string2\"}}``  
+             ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
             - *(string) --* 
         
@@ -1695,9 +1695,9 @@ class Client(BaseClient):
           ::
         
             {
-                'thingName': 'string',
-                'thingArn': 'string',
-                'thingId': 'string'
+                \'thingName\': \'string\',
+                \'thingArn\': \'string\',
+                \'thingId\': \'string\'
             }
           **Response Structure** 
         
@@ -1733,15 +1733,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_thing_group(
-              thingGroupName='string',
-              parentGroupName='string',
+              thingGroupName=\'string\',
+              parentGroupName=\'string\',
               thingGroupProperties={
-                  'thingGroupDescription': 'string',
-                  'attributePayload': {
-                      'attributes': {
-                          'string': 'string'
+                  \'thingGroupDescription\': \'string\',
+                  \'attributePayload\': {
+                      \'attributes\': {
+                          \'string\': \'string\'
                       },
-                      'merge': True|False
+                      \'merge\': True|False
                   }
               }
           )
@@ -1772,7 +1772,7 @@ class Client(BaseClient):
         
               A JSON string containing up to three key-value pair in JSON format. For example:
         
-               ``{\"attributes\":{\"string1\":\"string2\"}}``  
+               ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
               - *(string) --* 
         
@@ -1796,9 +1796,9 @@ class Client(BaseClient):
           ::
         
             {
-                'thingGroupName': 'string',
-                'thingGroupArn': 'string',
-                'thingGroupId': 'string'
+                \'thingGroupName\': \'string\',
+                \'thingGroupArn\': \'string\',
+                \'thingGroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -1828,11 +1828,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_thing_type(
-              thingTypeName='string',
+              thingTypeName=\'string\',
               thingTypeProperties={
-                  'thingTypeDescription': 'string',
-                  'searchableAttributes': [
-                      'string',
+                  \'thingTypeDescription\': \'string\',
+                  \'searchableAttributes\': [
+                      \'string\',
                   ]
               }
           )
@@ -1864,9 +1864,9 @@ class Client(BaseClient):
           ::
         
             {
-                'thingTypeName': 'string',
-                'thingTypeArn': 'string',
-                'thingTypeId': 'string'
+                \'thingTypeName\': \'string\',
+                \'thingTypeArn\': \'string\',
+                \'thingTypeId\': \'string\'
             }
           **Response Structure** 
         
@@ -1898,188 +1898,188 @@ class Client(BaseClient):
         ::
         
           response = client.create_topic_rule(
-              ruleName='string',
+              ruleName=\'string\',
               topicRulePayload={
-                  'sql': 'string',
-                  'description': 'string',
-                  'actions': [
+                  \'sql\': \'string\',
+                  \'description\': \'string\',
+                  \'actions\': [
                       {
-                          'dynamoDB': {
-                              'tableName': 'string',
-                              'roleArn': 'string',
-                              'operation': 'string',
-                              'hashKeyField': 'string',
-                              'hashKeyValue': 'string',
-                              'hashKeyType': 'STRING'|'NUMBER',
-                              'rangeKeyField': 'string',
-                              'rangeKeyValue': 'string',
-                              'rangeKeyType': 'STRING'|'NUMBER',
-                              'payloadField': 'string'
+                          \'dynamoDB\': {
+                              \'tableName\': \'string\',
+                              \'roleArn\': \'string\',
+                              \'operation\': \'string\',
+                              \'hashKeyField\': \'string\',
+                              \'hashKeyValue\': \'string\',
+                              \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                              \'rangeKeyField\': \'string\',
+                              \'rangeKeyValue\': \'string\',
+                              \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                              \'payloadField\': \'string\'
                           },
-                          'dynamoDBv2': {
-                              'roleArn': 'string',
-                              'putItem': {
-                                  'tableName': 'string'
+                          \'dynamoDBv2\': {
+                              \'roleArn\': \'string\',
+                              \'putItem\': {
+                                  \'tableName\': \'string\'
                               }
                           },
-                          'lambda': {
-                              'functionArn': 'string'
+                          \'lambda\': {
+                              \'functionArn\': \'string\'
                           },
-                          'sns': {
-                              'targetArn': 'string',
-                              'roleArn': 'string',
-                              'messageFormat': 'RAW'|'JSON'
+                          \'sns\': {
+                              \'targetArn\': \'string\',
+                              \'roleArn\': \'string\',
+                              \'messageFormat\': \'RAW\'|\'JSON\'
                           },
-                          'sqs': {
-                              'roleArn': 'string',
-                              'queueUrl': 'string',
-                              'useBase64': True|False
+                          \'sqs\': {
+                              \'roleArn\': \'string\',
+                              \'queueUrl\': \'string\',
+                              \'useBase64\': True|False
                           },
-                          'kinesis': {
-                              'roleArn': 'string',
-                              'streamName': 'string',
-                              'partitionKey': 'string'
+                          \'kinesis\': {
+                              \'roleArn\': \'string\',
+                              \'streamName\': \'string\',
+                              \'partitionKey\': \'string\'
                           },
-                          'republish': {
-                              'roleArn': 'string',
-                              'topic': 'string'
+                          \'republish\': {
+                              \'roleArn\': \'string\',
+                              \'topic\': \'string\'
                           },
-                          's3': {
-                              'roleArn': 'string',
-                              'bucketName': 'string',
-                              'key': 'string',
-                              'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                          \'s3\': {
+                              \'roleArn\': \'string\',
+                              \'bucketName\': \'string\',
+                              \'key\': \'string\',
+                              \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                           },
-                          'firehose': {
-                              'roleArn': 'string',
-                              'deliveryStreamName': 'string',
-                              'separator': 'string'
+                          \'firehose\': {
+                              \'roleArn\': \'string\',
+                              \'deliveryStreamName\': \'string\',
+                              \'separator\': \'string\'
                           },
-                          'cloudwatchMetric': {
-                              'roleArn': 'string',
-                              'metricNamespace': 'string',
-                              'metricName': 'string',
-                              'metricValue': 'string',
-                              'metricUnit': 'string',
-                              'metricTimestamp': 'string'
+                          \'cloudwatchMetric\': {
+                              \'roleArn\': \'string\',
+                              \'metricNamespace\': \'string\',
+                              \'metricName\': \'string\',
+                              \'metricValue\': \'string\',
+                              \'metricUnit\': \'string\',
+                              \'metricTimestamp\': \'string\'
                           },
-                          'cloudwatchAlarm': {
-                              'roleArn': 'string',
-                              'alarmName': 'string',
-                              'stateReason': 'string',
-                              'stateValue': 'string'
+                          \'cloudwatchAlarm\': {
+                              \'roleArn\': \'string\',
+                              \'alarmName\': \'string\',
+                              \'stateReason\': \'string\',
+                              \'stateValue\': \'string\'
                           },
-                          'elasticsearch': {
-                              'roleArn': 'string',
-                              'endpoint': 'string',
-                              'index': 'string',
-                              'type': 'string',
-                              'id': 'string'
+                          \'elasticsearch\': {
+                              \'roleArn\': \'string\',
+                              \'endpoint\': \'string\',
+                              \'index\': \'string\',
+                              \'type\': \'string\',
+                              \'id\': \'string\'
                           },
-                          'salesforce': {
-                              'token': 'string',
-                              'url': 'string'
+                          \'salesforce\': {
+                              \'token\': \'string\',
+                              \'url\': \'string\'
                           },
-                          'iotAnalytics': {
-                              'channelArn': 'string',
-                              'channelName': 'string',
-                              'roleArn': 'string'
+                          \'iotAnalytics\': {
+                              \'channelArn\': \'string\',
+                              \'channelName\': \'string\',
+                              \'roleArn\': \'string\'
                           },
-                          'stepFunctions': {
-                              'executionNamePrefix': 'string',
-                              'stateMachineName': 'string',
-                              'roleArn': 'string'
+                          \'stepFunctions\': {
+                              \'executionNamePrefix\': \'string\',
+                              \'stateMachineName\': \'string\',
+                              \'roleArn\': \'string\'
                           }
                       },
                   ],
-                  'ruleDisabled': True|False,
-                  'awsIotSqlVersion': 'string',
-                  'errorAction': {
-                      'dynamoDB': {
-                          'tableName': 'string',
-                          'roleArn': 'string',
-                          'operation': 'string',
-                          'hashKeyField': 'string',
-                          'hashKeyValue': 'string',
-                          'hashKeyType': 'STRING'|'NUMBER',
-                          'rangeKeyField': 'string',
-                          'rangeKeyValue': 'string',
-                          'rangeKeyType': 'STRING'|'NUMBER',
-                          'payloadField': 'string'
+                  \'ruleDisabled\': True|False,
+                  \'awsIotSqlVersion\': \'string\',
+                  \'errorAction\': {
+                      \'dynamoDB\': {
+                          \'tableName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'operation\': \'string\',
+                          \'hashKeyField\': \'string\',
+                          \'hashKeyValue\': \'string\',
+                          \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                          \'rangeKeyField\': \'string\',
+                          \'rangeKeyValue\': \'string\',
+                          \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                          \'payloadField\': \'string\'
                       },
-                      'dynamoDBv2': {
-                          'roleArn': 'string',
-                          'putItem': {
-                              'tableName': 'string'
+                      \'dynamoDBv2\': {
+                          \'roleArn\': \'string\',
+                          \'putItem\': {
+                              \'tableName\': \'string\'
                           }
                       },
-                      'lambda': {
-                          'functionArn': 'string'
+                      \'lambda\': {
+                          \'functionArn\': \'string\'
                       },
-                      'sns': {
-                          'targetArn': 'string',
-                          'roleArn': 'string',
-                          'messageFormat': 'RAW'|'JSON'
+                      \'sns\': {
+                          \'targetArn\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'messageFormat\': \'RAW\'|\'JSON\'
                       },
-                      'sqs': {
-                          'roleArn': 'string',
-                          'queueUrl': 'string',
-                          'useBase64': True|False
+                      \'sqs\': {
+                          \'roleArn\': \'string\',
+                          \'queueUrl\': \'string\',
+                          \'useBase64\': True|False
                       },
-                      'kinesis': {
-                          'roleArn': 'string',
-                          'streamName': 'string',
-                          'partitionKey': 'string'
+                      \'kinesis\': {
+                          \'roleArn\': \'string\',
+                          \'streamName\': \'string\',
+                          \'partitionKey\': \'string\'
                       },
-                      'republish': {
-                          'roleArn': 'string',
-                          'topic': 'string'
+                      \'republish\': {
+                          \'roleArn\': \'string\',
+                          \'topic\': \'string\'
                       },
-                      's3': {
-                          'roleArn': 'string',
-                          'bucketName': 'string',
-                          'key': 'string',
-                          'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                      \'s3\': {
+                          \'roleArn\': \'string\',
+                          \'bucketName\': \'string\',
+                          \'key\': \'string\',
+                          \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                       },
-                      'firehose': {
-                          'roleArn': 'string',
-                          'deliveryStreamName': 'string',
-                          'separator': 'string'
+                      \'firehose\': {
+                          \'roleArn\': \'string\',
+                          \'deliveryStreamName\': \'string\',
+                          \'separator\': \'string\'
                       },
-                      'cloudwatchMetric': {
-                          'roleArn': 'string',
-                          'metricNamespace': 'string',
-                          'metricName': 'string',
-                          'metricValue': 'string',
-                          'metricUnit': 'string',
-                          'metricTimestamp': 'string'
+                      \'cloudwatchMetric\': {
+                          \'roleArn\': \'string\',
+                          \'metricNamespace\': \'string\',
+                          \'metricName\': \'string\',
+                          \'metricValue\': \'string\',
+                          \'metricUnit\': \'string\',
+                          \'metricTimestamp\': \'string\'
                       },
-                      'cloudwatchAlarm': {
-                          'roleArn': 'string',
-                          'alarmName': 'string',
-                          'stateReason': 'string',
-                          'stateValue': 'string'
+                      \'cloudwatchAlarm\': {
+                          \'roleArn\': \'string\',
+                          \'alarmName\': \'string\',
+                          \'stateReason\': \'string\',
+                          \'stateValue\': \'string\'
                       },
-                      'elasticsearch': {
-                          'roleArn': 'string',
-                          'endpoint': 'string',
-                          'index': 'string',
-                          'type': 'string',
-                          'id': 'string'
+                      \'elasticsearch\': {
+                          \'roleArn\': \'string\',
+                          \'endpoint\': \'string\',
+                          \'index\': \'string\',
+                          \'type\': \'string\',
+                          \'id\': \'string\'
                       },
-                      'salesforce': {
-                          'token': 'string',
-                          'url': 'string'
+                      \'salesforce\': {
+                          \'token\': \'string\',
+                          \'url\': \'string\'
                       },
-                      'iotAnalytics': {
-                          'channelArn': 'string',
-                          'channelName': 'string',
-                          'roleArn': 'string'
+                      \'iotAnalytics\': {
+                          \'channelArn\': \'string\',
+                          \'channelName\': \'string\',
+                          \'roleArn\': \'string\'
                       },
-                      'stepFunctions': {
-                          'executionNamePrefix': 'string',
-                          'stateMachineName': 'string',
-                          'roleArn': 'string'
+                      \'stepFunctions\': {
+                          \'executionNamePrefix\': \'string\',
+                          \'stateMachineName\': \'string\',
+                          \'roleArn\': \'string\'
                       }
                   }
               }
@@ -2136,7 +2136,7 @@ class Client(BaseClient):
         
                 - **hashKeyType** *(string) --* 
         
-                  The hash key type. Valid values are "STRING" or "NUMBER"
+                  The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
                 - **rangeKeyField** *(string) --* 
         
@@ -2148,7 +2148,7 @@ class Client(BaseClient):
         
                 - **rangeKeyType** *(string) --* 
         
-                  The range key type. Valid values are "STRING" or "NUMBER"
+                  The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
                 - **payloadField** *(string) --* 
         
@@ -2166,7 +2166,7 @@ class Client(BaseClient):
         
                   Specifies the DynamoDB table to which the message data will be written. For example:
         
-                   ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                   ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                   Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -2196,7 +2196,7 @@ class Client(BaseClient):
         
                 - **messageFormat** *(string) --* 
         
-                  (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                  (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
               - **sqs** *(dict) --* 
         
@@ -2276,7 +2276,7 @@ class Client(BaseClient):
         
                 - **separator** *(string) --* 
         
-                  A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                  A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
               - **cloudwatchMetric** *(dict) --* 
         
@@ -2392,7 +2392,7 @@ class Client(BaseClient):
         
                 - **roleArn** *(string) --* **[REQUIRED]** 
         
-                  The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                  The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
           - **ruleDisabled** *(boolean) --* 
         
@@ -2432,7 +2432,7 @@ class Client(BaseClient):
         
               - **hashKeyType** *(string) --* 
         
-                The hash key type. Valid values are "STRING" or "NUMBER"
+                The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
               - **rangeKeyField** *(string) --* 
         
@@ -2444,7 +2444,7 @@ class Client(BaseClient):
         
               - **rangeKeyType** *(string) --* 
         
-                The range key type. Valid values are "STRING" or "NUMBER"
+                The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
               - **payloadField** *(string) --* 
         
@@ -2462,7 +2462,7 @@ class Client(BaseClient):
         
                 Specifies the DynamoDB table to which the message data will be written. For example:
         
-                 ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                 ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                 Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -2492,7 +2492,7 @@ class Client(BaseClient):
         
               - **messageFormat** *(string) --* 
         
-                (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
             - **sqs** *(dict) --* 
         
@@ -2572,7 +2572,7 @@ class Client(BaseClient):
         
               - **separator** *(string) --* 
         
-                A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
             - **cloudwatchMetric** *(dict) --* 
         
@@ -2688,7 +2688,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
         :returns: None
         """
@@ -2733,7 +2733,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_authorizer(
-              authorizerName='string'
+              authorizerName=\'string\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -2763,7 +2763,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ca_certificate(
-              certificateId='string'
+              certificateId=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -2798,7 +2798,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_certificate(
-              certificateId='string',
+              certificateId=\'string\',
               forceDelete=True|False
           )
         :type certificateId: string
@@ -2818,9 +2818,9 @@ class Client(BaseClient):
     def delete_job(self, jobId: str, force: bool = None) -> NoReturn:
         """
         
-        Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.
+        Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as \"DELETION_IN_PROGRESS\". Attempting to delete or cancel a job whose status is already \"DELETION_IN_PROGRESS\" will result in an error.
         
-        Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.
+        Only 10 jobs may have status \"DELETION_IN_PROGRESS\" at the same time, or a LimitExceededException will occur.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeleteJob>`_
         
@@ -2828,7 +2828,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_job(
-              jobId='string',
+              jobId=\'string\',
               force=True|False
           )
         :type jobId: string
@@ -2841,11 +2841,11 @@ class Client(BaseClient):
         :type force: boolean
         :param force: 
         
-          (Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception will occur. The default is false.
+          (Optional) When true, you can delete a job which is \"IN_PROGRESS\". Otherwise, you can only delete a job which is in a terminal state (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default is false.
         
           .. note::
         
-            Deleting a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to access job information or update the job execution status. Use caution and ensure that each device executing a job which is deleted is able to recover to a valid state.
+            Deleting a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to access job information or update the job execution status. Use caution and ensure that each device executing a job which is deleted is able to recover to a valid state.
         
         :returns: None
         """
@@ -2860,8 +2860,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_job_execution(
-              jobId='string',
-              thingName='string',
+              jobId=\'string\',
+              thingName=\'string\',
               executionNumber=123,
               force=True|False
           )
@@ -2885,11 +2885,11 @@ class Client(BaseClient):
         :type force: boolean
         :param force: 
         
-          (Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise, you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.
+          (Optional) When true, you can delete a job execution which is \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is in a terminal state (\"SUCCEEDED\", \"FAILED\", \"REJECTED\", \"REMOVED\" or \"CANCELED\") or an exception will occur. The default is false.
         
           .. note::
         
-            Deleting a job execution which is "IN_PROGRESS", will cause the device to be unable to access job information or update the job execution status. Use caution and ensure that the device is able to recover to a valid state.
+            Deleting a job execution which is \"IN_PROGRESS\", will cause the device to be unable to access job information or update the job execution status. Use caution and ensure that the device is able to recover to a valid state.
         
         :returns: None
         """
@@ -2904,7 +2904,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ota_update(
-              otaUpdateId='string',
+              otaUpdateId=\'string\',
               deleteStream=True|False,
               forceDeleteAWSJob=True|False
           )
@@ -2952,7 +2952,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy(
-              policyName='string'
+              policyName=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -2972,8 +2972,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy_version(
-              policyName='string',
-              policyVersionId='string'
+              policyName=\'string\',
+              policyVersionId=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -3025,7 +3025,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_role_alias(
-              roleAlias='string'
+              roleAlias=\'string\'
           )
         :type roleAlias: string
         :param roleAlias: **[REQUIRED]** 
@@ -3055,7 +3055,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_scheduled_audit(
-              scheduledAuditName='string'
+              scheduledAuditName=\'string\'
           )
         :type scheduledAuditName: string
         :param scheduledAuditName: **[REQUIRED]** 
@@ -3085,7 +3085,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_security_profile(
-              securityProfileName='string',
+              securityProfileName=\'string\',
               expectedVersion=123
           )
         :type securityProfileName: string
@@ -3121,7 +3121,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stream(
-              streamId='string'
+              streamId=\'string\'
           )
         :type streamId: string
         :param streamId: **[REQUIRED]** 
@@ -3151,7 +3151,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_thing(
-              thingName='string',
+              thingName=\'string\',
               expectedVersion=123
           )
         :type thingName: string
@@ -3190,7 +3190,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_thing_group(
-              thingGroupName='string',
+              thingGroupName=\'string\',
               expectedVersion=123
           )
         :type thingGroupName: string
@@ -3226,7 +3226,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_thing_type(
-              thingTypeName='string'
+              thingTypeName=\'string\'
           )
         :type thingTypeName: string
         :param thingTypeName: **[REQUIRED]** 
@@ -3259,7 +3259,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_topic_rule(
-              ruleName='string'
+              ruleName=\'string\'
           )
         :type ruleName: string
         :param ruleName: **[REQUIRED]** 
@@ -3279,8 +3279,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_v2_logging_level(
-              targetType='DEFAULT'|'THING_GROUP',
-              targetName='string'
+              targetType=\'DEFAULT\'|\'THING_GROUP\',
+              targetName=\'string\'
           )
         :type targetType: string
         :param targetType: **[REQUIRED]** 
@@ -3305,7 +3305,7 @@ class Client(BaseClient):
         ::
         
           response = client.deprecate_thing_type(
-              thingTypeName='string',
+              thingTypeName=\'string\',
               undoDeprecate=True|False
           )
         :type thingTypeName: string
@@ -3353,17 +3353,17 @@ class Client(BaseClient):
           ::
         
             {
-                'roleArn': 'string',
-                'auditNotificationTargetConfigurations': {
-                    'string': {
-                        'targetArn': 'string',
-                        'roleArn': 'string',
-                        'enabled': True|False
+                \'roleArn\': \'string\',
+                \'auditNotificationTargetConfigurations\': {
+                    \'string\': {
+                        \'targetArn\': \'string\',
+                        \'roleArn\': \'string\',
+                        \'enabled\': True|False
                     }
                 },
-                'auditCheckConfigurations': {
-                    'string': {
-                        'enabled': True|False
+                \'auditCheckConfigurations\': {
+                    \'string\': {
+                        \'enabled\': True|False
                     }
                 }
             }
@@ -3427,7 +3427,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_audit_task(
-              taskId='string'
+              taskId=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
@@ -3442,27 +3442,27 @@ class Client(BaseClient):
           ::
         
             {
-                'taskStatus': 'IN_PROGRESS'|'COMPLETED'|'FAILED'|'CANCELED',
-                'taskType': 'ON_DEMAND_AUDIT_TASK'|'SCHEDULED_AUDIT_TASK',
-                'taskStartTime': datetime(2015, 1, 1),
-                'taskStatistics': {
-                    'totalChecks': 123,
-                    'inProgressChecks': 123,
-                    'waitingForDataCollectionChecks': 123,
-                    'compliantChecks': 123,
-                    'nonCompliantChecks': 123,
-                    'failedChecks': 123,
-                    'canceledChecks': 123
+                \'taskStatus\': \'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'CANCELED\',
+                \'taskType\': \'ON_DEMAND_AUDIT_TASK\'|\'SCHEDULED_AUDIT_TASK\',
+                \'taskStartTime\': datetime(2015, 1, 1),
+                \'taskStatistics\': {
+                    \'totalChecks\': 123,
+                    \'inProgressChecks\': 123,
+                    \'waitingForDataCollectionChecks\': 123,
+                    \'compliantChecks\': 123,
+                    \'nonCompliantChecks\': 123,
+                    \'failedChecks\': 123,
+                    \'canceledChecks\': 123
                 },
-                'scheduledAuditName': 'string',
-                'auditDetails': {
-                    'string': {
-                        'checkRunStatus': 'IN_PROGRESS'|'WAITING_FOR_DATA_COLLECTION'|'CANCELED'|'COMPLETED_COMPLIANT'|'COMPLETED_NON_COMPLIANT'|'FAILED',
-                        'checkCompliant': True|False,
-                        'totalResourcesCount': 123,
-                        'nonCompliantResourcesCount': 123,
-                        'errorCode': 'string',
-                        'message': 'string'
+                \'scheduledAuditName\': \'string\',
+                \'auditDetails\': {
+                    \'string\': {
+                        \'checkRunStatus\': \'IN_PROGRESS\'|\'WAITING_FOR_DATA_COLLECTION\'|\'CANCELED\'|\'COMPLETED_COMPLIANT\'|\'COMPLETED_NON_COMPLIANT\'|\'FAILED\',
+                        \'checkCompliant\': True|False,
+                        \'totalResourcesCount\': 123,
+                        \'nonCompliantResourcesCount\': 123,
+                        \'errorCode\': \'string\',
+                        \'message\': \'string\'
                     }
                 }
             }
@@ -3472,11 +3472,11 @@ class Client(BaseClient):
             
             - **taskStatus** *(string) --* 
         
-              The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+              The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".
         
             - **taskType** *(string) --* 
         
-              The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+              The type of audit: \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
         
             - **taskStartTime** *(datetime) --* 
         
@@ -3532,7 +3532,7 @@ class Client(BaseClient):
         
                   - **checkRunStatus** *(string) --* 
         
-                    The completion status of this check, one of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION", "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".
+                    The completion status of this check, one of \"IN_PROGRESS\", \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\", \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".
         
                   - **checkCompliant** *(boolean) --* 
         
@@ -3548,7 +3548,7 @@ class Client(BaseClient):
         
                   - **errorCode** *(string) --* 
         
-                    The code of any error encountered when performing this check during this audit. One of "INSUFFICIENT_PERMISSIONS", or "AUDIT_CHECK_DISABLED".
+                    The code of any error encountered when performing this check during this audit. One of \"INSUFFICIENT_PERMISSIONS\", or \"AUDIT_CHECK_DISABLED\".
         
                   - **message** *(string) --* 
         
@@ -3566,7 +3566,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_authorizer(
-              authorizerName='string'
+              authorizerName=\'string\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -3581,17 +3581,17 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizerDescription': {
-                    'authorizerName': 'string',
-                    'authorizerArn': 'string',
-                    'authorizerFunctionArn': 'string',
-                    'tokenKeyName': 'string',
-                    'tokenSigningPublicKeys': {
-                        'string': 'string'
+                \'authorizerDescription\': {
+                    \'authorizerName\': \'string\',
+                    \'authorizerArn\': \'string\',
+                    \'authorizerFunctionArn\': \'string\',
+                    \'tokenKeyName\': \'string\',
+                    \'tokenSigningPublicKeys\': {
+                        \'string\': \'string\'
                     },
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1)
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3612,7 +3612,7 @@ class Client(BaseClient):
         
               - **authorizerFunctionArn** *(string) --* 
         
-                The authorizer's Lambda function ARN.
+                The authorizer\'s Lambda function ARN.
         
               - **tokenKeyName** *(string) --* 
         
@@ -3650,7 +3650,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_ca_certificate(
-              certificateId='string'
+              certificateId=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -3665,25 +3665,25 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateDescription': {
-                    'certificateArn': 'string',
-                    'certificateId': 'string',
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'certificatePem': 'string',
-                    'ownedBy': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'autoRegistrationStatus': 'ENABLE'|'DISABLE',
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'customerVersion': 123,
-                    'generationId': 'string',
-                    'validity': {
-                        'notBefore': datetime(2015, 1, 1),
-                        'notAfter': datetime(2015, 1, 1)
+                \'certificateDescription\': {
+                    \'certificateArn\': \'string\',
+                    \'certificateId\': \'string\',
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'certificatePem\': \'string\',
+                    \'ownedBy\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'autoRegistrationStatus\': \'ENABLE\'|\'DISABLE\',
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'customerVersion\': 123,
+                    \'generationId\': \'string\',
+                    \'validity\': {
+                        \'notBefore\': datetime(2015, 1, 1),
+                        \'notAfter\': datetime(2015, 1, 1)
                     }
                 },
-                'registrationConfig': {
-                    'templateBody': 'string',
-                    'roleArn': 'string'
+                \'registrationConfig\': {
+                    \'templateBody\': \'string\',
+                    \'roleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3722,7 +3722,7 @@ class Client(BaseClient):
         
               - **autoRegistrationStatus** *(string) --* 
         
-                Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
+                Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\"
         
               - **lastModifiedDate** *(datetime) --* 
         
@@ -3772,7 +3772,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_certificate(
-              certificateId='string'
+              certificateId=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -3787,28 +3787,28 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateDescription': {
-                    'certificateArn': 'string',
-                    'certificateId': 'string',
-                    'caCertificateId': 'string',
-                    'status': 'ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION',
-                    'certificatePem': 'string',
-                    'ownedBy': 'string',
-                    'previousOwnedBy': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'customerVersion': 123,
-                    'transferData': {
-                        'transferMessage': 'string',
-                        'rejectReason': 'string',
-                        'transferDate': datetime(2015, 1, 1),
-                        'acceptDate': datetime(2015, 1, 1),
-                        'rejectDate': datetime(2015, 1, 1)
+                \'certificateDescription\': {
+                    \'certificateArn\': \'string\',
+                    \'certificateId\': \'string\',
+                    \'caCertificateId\': \'string\',
+                    \'status\': \'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\',
+                    \'certificatePem\': \'string\',
+                    \'ownedBy\': \'string\',
+                    \'previousOwnedBy\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'customerVersion\': 123,
+                    \'transferData\': {
+                        \'transferMessage\': \'string\',
+                        \'rejectReason\': \'string\',
+                        \'transferDate\': datetime(2015, 1, 1),
+                        \'acceptDate\': datetime(2015, 1, 1),
+                        \'rejectDate\': datetime(2015, 1, 1)
                     },
-                    'generationId': 'string',
-                    'validity': {
-                        'notBefore': datetime(2015, 1, 1),
-                        'notAfter': datetime(2015, 1, 1)
+                    \'generationId\': \'string\',
+                    \'validity\': {
+                        \'notBefore\': datetime(2015, 1, 1),
+                        \'notAfter\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -3923,17 +3923,17 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizerDescription': {
-                    'authorizerName': 'string',
-                    'authorizerArn': 'string',
-                    'authorizerFunctionArn': 'string',
-                    'tokenKeyName': 'string',
-                    'tokenSigningPublicKeys': {
-                        'string': 'string'
+                \'authorizerDescription\': {
+                    \'authorizerName\': \'string\',
+                    \'authorizerArn\': \'string\',
+                    \'authorizerFunctionArn\': \'string\',
+                    \'tokenKeyName\': \'string\',
+                    \'tokenSigningPublicKeys\': {
+                        \'string\': \'string\'
                     },
-                    'status': 'ACTIVE'|'INACTIVE',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1)
+                    \'status\': \'ACTIVE\'|\'INACTIVE\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3942,7 +3942,7 @@ class Client(BaseClient):
             
             - **authorizerDescription** *(dict) --* 
         
-              The default authorizer's description.
+              The default authorizer\'s description.
         
               - **authorizerName** *(string) --* 
         
@@ -3954,7 +3954,7 @@ class Client(BaseClient):
         
               - **authorizerFunctionArn** *(string) --* 
         
-                The authorizer's Lambda function ARN.
+                The authorizer\'s Lambda function ARN.
         
               - **tokenKeyName** *(string) --* 
         
@@ -3992,7 +3992,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_endpoint(
-              endpointType='string'
+              endpointType=\'string\'
           )
         :type endpointType: string
         :param endpointType: 
@@ -4015,7 +4015,7 @@ class Client(BaseClient):
           ::
         
             {
-                'endpointAddress': 'string'
+                \'endpointAddress\': \'string\'
             }
           **Response Structure** 
         
@@ -4048,13 +4048,13 @@ class Client(BaseClient):
           ::
         
             {
-                'eventConfigurations': {
-                    'string': {
-                        'Enabled': True|False
+                \'eventConfigurations\': {
+                    \'string\': {
+                        \'Enabled\': True|False
                     }
                 },
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1)
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -4094,7 +4094,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_index(
-              indexName='string'
+              indexName=\'string\'
           )
         :type indexName: string
         :param indexName: **[REQUIRED]** 
@@ -4109,9 +4109,9 @@ class Client(BaseClient):
           ::
         
             {
-                'indexName': 'string',
-                'indexStatus': 'ACTIVE'|'BUILDING'|'REBUILDING',
-                'schema': 'string'
+                \'indexName\': \'string\',
+                \'indexStatus\': \'ACTIVE\'|\'BUILDING\'|\'REBUILDING\',
+                \'schema\': \'string\'
             }
           **Response Structure** 
         
@@ -4145,7 +4145,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_job(
-              jobId='string'
+              jobId=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -4160,43 +4160,43 @@ class Client(BaseClient):
           ::
         
             {
-                'documentSource': 'string',
-                'job': {
-                    'jobArn': 'string',
-                    'jobId': 'string',
-                    'targetSelection': 'CONTINUOUS'|'SNAPSHOT',
-                    'status': 'IN_PROGRESS'|'CANCELED'|'COMPLETED'|'DELETION_IN_PROGRESS',
-                    'forceCanceled': True|False,
-                    'comment': 'string',
-                    'targets': [
-                        'string',
+                \'documentSource\': \'string\',
+                \'job\': {
+                    \'jobArn\': \'string\',
+                    \'jobId\': \'string\',
+                    \'targetSelection\': \'CONTINUOUS\'|\'SNAPSHOT\',
+                    \'status\': \'IN_PROGRESS\'|\'CANCELED\'|\'COMPLETED\'|\'DELETION_IN_PROGRESS\',
+                    \'forceCanceled\': True|False,
+                    \'comment\': \'string\',
+                    \'targets\': [
+                        \'string\',
                     ],
-                    'description': 'string',
-                    'presignedUrlConfig': {
-                        'roleArn': 'string',
-                        'expiresInSec': 123
+                    \'description\': \'string\',
+                    \'presignedUrlConfig\': {
+                        \'roleArn\': \'string\',
+                        \'expiresInSec\': 123
                     },
-                    'jobExecutionsRolloutConfig': {
-                        'maximumPerMinute': 123
+                    \'jobExecutionsRolloutConfig\': {
+                        \'maximumPerMinute\': 123
                     },
-                    'createdAt': datetime(2015, 1, 1),
-                    'lastUpdatedAt': datetime(2015, 1, 1),
-                    'completedAt': datetime(2015, 1, 1),
-                    'jobProcessDetails': {
-                        'processingTargets': [
-                            'string',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'lastUpdatedAt\': datetime(2015, 1, 1),
+                    \'completedAt\': datetime(2015, 1, 1),
+                    \'jobProcessDetails\': {
+                        \'processingTargets\': [
+                            \'string\',
                         ],
-                        'numberOfCanceledThings': 123,
-                        'numberOfSucceededThings': 123,
-                        'numberOfFailedThings': 123,
-                        'numberOfRejectedThings': 123,
-                        'numberOfQueuedThings': 123,
-                        'numberOfInProgressThings': 123,
-                        'numberOfRemovedThings': 123,
-                        'numberOfTimedOutThings': 123
+                        \'numberOfCanceledThings\': 123,
+                        \'numberOfSucceededThings\': 123,
+                        \'numberOfFailedThings\': 123,
+                        \'numberOfRejectedThings\': 123,
+                        \'numberOfQueuedThings\': 123,
+                        \'numberOfInProgressThings\': 123,
+                        \'numberOfRemovedThings\': 123,
+                        \'numberOfTimedOutThings\': 123
                     },
-                    'timeoutConfig': {
-                        'inProgressTimeoutInMinutes': 123
+                    \'timeoutConfig\': {
+                        \'inProgressTimeoutInMinutes\': 123
                     }
                 }
             }
@@ -4214,7 +4214,7 @@ class Client(BaseClient):
         
               - **jobArn** *(string) --* 
         
-                An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
+                An ARN identifying the job with format \"arn:aws:iot:region:account:job/jobId\".
         
               - **jobId** *(string) --* 
         
@@ -4326,7 +4326,7 @@ class Client(BaseClient):
         
                 - **inProgressTimeoutInMinutes** *(integer) --* 
         
-                  Specifies the amount of time, in minutes, this device has to finish execution of this job. A timer is started, or restarted, whenever this job's execution status is specified as ``IN_PROGRESS`` with this field populated. If the job execution status is not set to a terminal state before the timer expires, or before another job execution status update is sent with this field populated, the status will be automatically set to ``TIMED_OUT`` . Note that setting/resetting this timer has no effect on the job execution timeout timer which may have been specified when the job was created (``CreateJobExecution`` using the field ``timeoutConfig`` ).
+                  Specifies the amount of time, in minutes, this device has to finish execution of this job. A timer is started, or restarted, whenever this job\'s execution status is specified as ``IN_PROGRESS`` with this field populated. If the job execution status is not set to a terminal state before the timer expires, or before another job execution status update is sent with this field populated, the status will be automatically set to ``TIMED_OUT`` . Note that setting/resetting this timer has no effect on the job execution timeout timer which may have been specified when the job was created (``CreateJobExecution`` using the field ``timeoutConfig`` ).
         
         """
         pass
@@ -4340,8 +4340,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_job_execution(
-              jobId='string',
-              thingName='string',
+              jobId=\'string\',
+              thingName=\'string\',
               executionNumber=123
           )
         :type jobId: string
@@ -4357,7 +4357,7 @@ class Client(BaseClient):
         :type executionNumber: integer
         :param executionNumber: 
         
-          A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+          A string (consisting of the digits \"0\" through \"9\" which is used to specify a particular job execution on a particular device.
         
         :rtype: dict
         :returns: 
@@ -4367,22 +4367,22 @@ class Client(BaseClient):
           ::
         
             {
-                'execution': {
-                    'jobId': 'string',
-                    'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                    'forceCanceled': True|False,
-                    'statusDetails': {
-                        'detailsMap': {
-                            'string': 'string'
+                \'execution\': {
+                    \'jobId\': \'string\',
+                    \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                    \'forceCanceled\': True|False,
+                    \'statusDetails\': {
+                        \'detailsMap\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'thingArn': 'string',
-                    'queuedAt': datetime(2015, 1, 1),
-                    'startedAt': datetime(2015, 1, 1),
-                    'lastUpdatedAt': datetime(2015, 1, 1),
-                    'executionNumber': 123,
-                    'versionNumber': 123,
-                    'approximateSecondsBeforeTimedOut': 123
+                    \'thingArn\': \'string\',
+                    \'queuedAt\': datetime(2015, 1, 1),
+                    \'startedAt\': datetime(2015, 1, 1),
+                    \'lastUpdatedAt\': datetime(2015, 1, 1),
+                    \'executionNumber\': 123,
+                    \'versionNumber\': 123,
+                    \'approximateSecondsBeforeTimedOut\': 123
                 }
             }
           **Response Structure** 
@@ -4435,7 +4435,7 @@ class Client(BaseClient):
         
               - **executionNumber** *(integer) --* 
         
-                A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. 
+                A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. 
         
               - **versionNumber** *(integer) --* 
         
@@ -4457,7 +4457,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_role_alias(
-              roleAlias='string'
+              roleAlias=\'string\'
           )
         :type roleAlias: string
         :param roleAlias: **[REQUIRED]** 
@@ -4472,14 +4472,14 @@ class Client(BaseClient):
           ::
         
             {
-                'roleAliasDescription': {
-                    'roleAlias': 'string',
-                    'roleAliasArn': 'string',
-                    'roleArn': 'string',
-                    'owner': 'string',
-                    'credentialDurationSeconds': 123,
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1)
+                \'roleAliasDescription\': {
+                    \'roleAlias\': \'string\',
+                    \'roleAliasArn\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'owner\': \'string\',
+                    \'credentialDurationSeconds\': 123,
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4530,7 +4530,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_scheduled_audit(
-              scheduledAuditName='string'
+              scheduledAuditName=\'string\'
           )
         :type scheduledAuditName: string
         :param scheduledAuditName: **[REQUIRED]** 
@@ -4545,14 +4545,14 @@ class Client(BaseClient):
           ::
         
             {
-                'frequency': 'DAILY'|'WEEKLY'|'BIWEEKLY'|'MONTHLY',
-                'dayOfMonth': 'string',
-                'dayOfWeek': 'SUN'|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT',
-                'targetCheckNames': [
-                    'string',
+                \'frequency\': \'DAILY\'|\'WEEKLY\'|\'BIWEEKLY\'|\'MONTHLY\',
+                \'dayOfMonth\': \'string\',
+                \'dayOfWeek\': \'SUN\'|\'MON\'|\'TUE\'|\'WED\'|\'THU\'|\'FRI\'|\'SAT\',
+                \'targetCheckNames\': [
+                    \'string\',
                 ],
-                'scheduledAuditName': 'string',
-                'scheduledAuditArn': 'string'
+                \'scheduledAuditName\': \'string\',
+                \'scheduledAuditArn\': \'string\'
             }
           **Response Structure** 
         
@@ -4560,15 +4560,15 @@ class Client(BaseClient):
             
             - **frequency** *(string) --* 
         
-              How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The actual start time of each audit is determined by the system.
+              How often the scheduled audit takes place. One of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.
         
             - **dayOfMonth** *(string) --* 
         
-              The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+              The day of the month on which the scheduled audit takes place. Will be \"1\" through \"31\" or \"LAST\". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the \"LAST\" day of the month.
         
             - **dayOfWeek** *(string) --* 
         
-              The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI" or "SAT".
+              The day of the week on which the scheduled audit takes place. One of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\".
         
             - **targetCheckNames** *(list) --* 
         
@@ -4598,7 +4598,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_security_profile(
-              securityProfileName='string'
+              securityProfileName=\'string\'
           )
         :type securityProfileName: string
         :param securityProfileName: **[REQUIRED]** 
@@ -4613,37 +4613,37 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileName': 'string',
-                'securityProfileArn': 'string',
-                'securityProfileDescription': 'string',
-                'behaviors': [
+                \'securityProfileName\': \'string\',
+                \'securityProfileArn\': \'string\',
+                \'securityProfileDescription\': \'string\',
+                \'behaviors\': [
                     {
-                        'name': 'string',
-                        'metric': 'string',
-                        'criteria': {
-                            'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                            'value': {
-                                'count': 123,
-                                'cidrs': [
-                                    'string',
+                        \'name\': \'string\',
+                        \'metric\': \'string\',
+                        \'criteria\': {
+                            \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                            \'value\': {
+                                \'count\': 123,
+                                \'cidrs\': [
+                                    \'string\',
                                 ],
-                                'ports': [
+                                \'ports\': [
                                     123,
                                 ]
                             },
-                            'durationSeconds': 123
+                            \'durationSeconds\': 123
                         }
                     },
                 ],
-                'alertTargets': {
-                    'string': {
-                        'alertTargetArn': 'string',
-                        'roleArn': 'string'
+                \'alertTargets\': {
+                    \'string\': {
+                        \'alertTargetArn\': \'string\',
+                        \'roleArn\': \'string\'
                     }
                 },
-                'version': 123,
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1)
+                \'version\': 123,
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -4715,7 +4715,7 @@ class Client(BaseClient):
         
               - *(string) --* 
         
-                The type of alert target: one of "SNS".
+                The type of alert target: one of \"SNS\".
         
                 - *(dict) --* 
         
@@ -4753,7 +4753,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream(
-              streamId='string'
+              streamId=\'string\'
           )
         :type streamId: string
         :param streamId: **[REQUIRED]** 
@@ -4768,24 +4768,24 @@ class Client(BaseClient):
           ::
         
             {
-                'streamInfo': {
-                    'streamId': 'string',
-                    'streamArn': 'string',
-                    'streamVersion': 123,
-                    'description': 'string',
-                    'files': [
+                \'streamInfo\': {
+                    \'streamId\': \'string\',
+                    \'streamArn\': \'string\',
+                    \'streamVersion\': 123,
+                    \'description\': \'string\',
+                    \'files\': [
                         {
-                            'fileId': 123,
-                            's3Location': {
-                                'bucket': 'string',
-                                'key': 'string',
-                                'version': 'string'
+                            \'fileId\': 123,
+                            \'s3Location\': {
+                                \'bucket\': \'string\',
+                                \'key\': \'string\',
+                                \'version\': \'string\'
                             }
                         },
                     ],
-                    'createdAt': datetime(2015, 1, 1),
-                    'lastUpdatedAt': datetime(2015, 1, 1),
-                    'roleArn': 'string'
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'lastUpdatedAt\': datetime(2015, 1, 1),
+                    \'roleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4864,7 +4864,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_thing(
-              thingName='string'
+              thingName=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -4879,15 +4879,15 @@ class Client(BaseClient):
           ::
         
             {
-                'defaultClientId': 'string',
-                'thingName': 'string',
-                'thingId': 'string',
-                'thingArn': 'string',
-                'thingTypeName': 'string',
-                'attributes': {
-                    'string': 'string'
+                \'defaultClientId\': \'string\',
+                \'thingName\': \'string\',
+                \'thingId\': \'string\',
+                \'thingArn\': \'string\',
+                \'thingTypeName\': \'string\',
+                \'attributes\': {
+                    \'string\': \'string\'
                 },
-                'version': 123
+                \'version\': 123
             }
           **Response Structure** 
         
@@ -4943,7 +4943,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_thing_group(
-              thingGroupName='string'
+              thingGroupName=\'string\'
           )
         :type thingGroupName: string
         :param thingGroupName: **[REQUIRED]** 
@@ -4958,28 +4958,28 @@ class Client(BaseClient):
           ::
         
             {
-                'thingGroupName': 'string',
-                'thingGroupId': 'string',
-                'thingGroupArn': 'string',
-                'version': 123,
-                'thingGroupProperties': {
-                    'thingGroupDescription': 'string',
-                    'attributePayload': {
-                        'attributes': {
-                            'string': 'string'
+                \'thingGroupName\': \'string\',
+                \'thingGroupId\': \'string\',
+                \'thingGroupArn\': \'string\',
+                \'version\': 123,
+                \'thingGroupProperties\': {
+                    \'thingGroupDescription\': \'string\',
+                    \'attributePayload\': {
+                        \'attributes\': {
+                            \'string\': \'string\'
                         },
-                        'merge': True|False
+                        \'merge\': True|False
                     }
                 },
-                'thingGroupMetadata': {
-                    'parentGroupName': 'string',
-                    'rootToParentThingGroups': [
+                \'thingGroupMetadata\': {
+                    \'parentGroupName\': \'string\',
+                    \'rootToParentThingGroups\': [
                         {
-                            'groupName': 'string',
-                            'groupArn': 'string'
+                            \'groupName\': \'string\',
+                            \'groupArn\': \'string\'
                         },
                     ],
-                    'creationDate': datetime(2015, 1, 1)
+                    \'creationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -5018,7 +5018,7 @@ class Client(BaseClient):
         
                   A JSON string containing up to three key-value pair in JSON format. For example:
         
-                   ``{\"attributes\":{\"string1\":\"string2\"}}``  
+                   ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
                   - *(string) --* 
                     
@@ -5074,7 +5074,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_thing_registration_task(
-              taskId='string'
+              taskId=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
@@ -5089,18 +5089,18 @@ class Client(BaseClient):
           ::
         
             {
-                'taskId': 'string',
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1),
-                'templateBody': 'string',
-                'inputFileBucket': 'string',
-                'inputFileKey': 'string',
-                'roleArn': 'string',
-                'status': 'InProgress'|'Completed'|'Failed'|'Cancelled'|'Cancelling',
-                'message': 'string',
-                'successCount': 123,
-                'failureCount': 123,
-                'percentageProgress': 123
+                \'taskId\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1),
+                \'templateBody\': \'string\',
+                \'inputFileBucket\': \'string\',
+                \'inputFileKey\': \'string\',
+                \'roleArn\': \'string\',
+                \'status\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Cancelled\'|\'Cancelling\',
+                \'message\': \'string\',
+                \'successCount\': 123,
+                \'failureCount\': 123,
+                \'percentageProgress\': 123
             }
           **Response Structure** 
         
@@ -5120,7 +5120,7 @@ class Client(BaseClient):
         
             - **templateBody** *(string) --* 
         
-              The task's template.
+              The task\'s template.
         
             - **inputFileBucket** *(string) --* 
         
@@ -5166,7 +5166,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_thing_type(
-              thingTypeName='string'
+              thingTypeName=\'string\'
           )
         :type thingTypeName: string
         :param thingTypeName: **[REQUIRED]** 
@@ -5181,19 +5181,19 @@ class Client(BaseClient):
           ::
         
             {
-                'thingTypeName': 'string',
-                'thingTypeId': 'string',
-                'thingTypeArn': 'string',
-                'thingTypeProperties': {
-                    'thingTypeDescription': 'string',
-                    'searchableAttributes': [
-                        'string',
+                \'thingTypeName\': \'string\',
+                \'thingTypeId\': \'string\',
+                \'thingTypeArn\': \'string\',
+                \'thingTypeProperties\': {
+                    \'thingTypeDescription\': \'string\',
+                    \'searchableAttributes\': [
+                        \'string\',
                     ]
                 },
-                'thingTypeMetadata': {
-                    'deprecated': True|False,
-                    'deprecationDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1)
+                \'thingTypeMetadata\': {
+                    \'deprecated\': True|False,
+                    \'deprecationDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -5256,8 +5256,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_policy(
-              policyName='string',
-              target='string'
+              policyName=\'string\',
+              target=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -5288,8 +5288,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_principal_policy(
-              policyName='string',
-              principal='string'
+              policyName=\'string\',
+              principal=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -5316,8 +5316,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_security_profile(
-              securityProfileName='string',
-              securityProfileTargetArn='string'
+              securityProfileName=\'string\',
+              securityProfileTargetArn=\'string\'
           )
         :type securityProfileName: string
         :param securityProfileName: **[REQUIRED]** 
@@ -5352,8 +5352,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_thing_principal(
-              thingName='string',
-              principal='string'
+              thingName=\'string\',
+              principal=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -5391,7 +5391,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_topic_rule(
-              ruleName='string'
+              ruleName=\'string\'
           )
         :type ruleName: string
         :param ruleName: **[REQUIRED]** 
@@ -5411,7 +5411,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_topic_rule(
-              ruleName='string'
+              ruleName=\'string\'
           )
         :type ruleName: string
         :param ruleName: **[REQUIRED]** 
@@ -5438,7 +5438,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5453,9 +5453,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_effective_policies(
-              principal='string',
-              cognitoIdentityPoolId='string',
-              thingName='string'
+              principal=\'string\',
+              cognitoIdentityPoolId=\'string\',
+              thingName=\'string\'
           )
         :type principal: string
         :param principal: 
@@ -5480,11 +5480,11 @@ class Client(BaseClient):
           ::
         
             {
-                'effectivePolicies': [
+                \'effectivePolicies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string',
-                        'policyDocument': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\',
+                        \'policyDocument\': \'string\'
                     },
                 ]
             }
@@ -5533,11 +5533,11 @@ class Client(BaseClient):
           ::
         
             {
-                'thingIndexingConfiguration': {
-                    'thingIndexingMode': 'OFF'|'REGISTRY'|'REGISTRY_AND_SHADOW'
+                \'thingIndexingConfiguration\': {
+                    \'thingIndexingMode\': \'OFF\'|\'REGISTRY\'|\'REGISTRY_AND_SHADOW\'
                 },
-                'thingGroupIndexingConfiguration': {
-                    'thingGroupIndexingMode': 'OFF'|'ON'
+                \'thingGroupIndexingConfiguration\': {
+                    \'thingGroupIndexingMode\': \'OFF\'|\'ON\'
                 }
             }
           **Response Structure** 
@@ -5578,7 +5578,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_document(
-              jobId='string'
+              jobId=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -5593,7 +5593,7 @@ class Client(BaseClient):
           ::
         
             {
-                'document': 'string'
+                \'document\': \'string\'
             }
           **Response Structure** 
         
@@ -5626,8 +5626,8 @@ class Client(BaseClient):
           ::
         
             {
-                'roleArn': 'string',
-                'logLevel': 'DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED'
+                \'roleArn\': \'string\',
+                \'logLevel\': \'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\'
             }
           **Response Structure** 
         
@@ -5655,7 +5655,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_ota_update(
-              otaUpdateId='string'
+              otaUpdateId=\'string\'
           )
         :type otaUpdateId: string
         :param otaUpdateId: **[REQUIRED]** 
@@ -5670,76 +5670,76 @@ class Client(BaseClient):
           ::
         
             {
-                'otaUpdateInfo': {
-                    'otaUpdateId': 'string',
-                    'otaUpdateArn': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'description': 'string',
-                    'targets': [
-                        'string',
+                \'otaUpdateInfo\': {
+                    \'otaUpdateId\': \'string\',
+                    \'otaUpdateArn\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'description\': \'string\',
+                    \'targets\': [
+                        \'string\',
                     ],
-                    'awsJobExecutionsRolloutConfig': {
-                        'maximumPerMinute': 123
+                    \'awsJobExecutionsRolloutConfig\': {
+                        \'maximumPerMinute\': 123
                     },
-                    'targetSelection': 'CONTINUOUS'|'SNAPSHOT',
-                    'otaUpdateFiles': [
+                    \'targetSelection\': \'CONTINUOUS\'|\'SNAPSHOT\',
+                    \'otaUpdateFiles\': [
                         {
-                            'fileName': 'string',
-                            'fileVersion': 'string',
-                            'fileLocation': {
-                                'stream': {
-                                    'streamId': 'string',
-                                    'fileId': 123
+                            \'fileName\': \'string\',
+                            \'fileVersion\': \'string\',
+                            \'fileLocation\': {
+                                \'stream\': {
+                                    \'streamId\': \'string\',
+                                    \'fileId\': 123
                                 },
-                                's3Location': {
-                                    'bucket': 'string',
-                                    'key': 'string',
-                                    'version': 'string'
+                                \'s3Location\': {
+                                    \'bucket\': \'string\',
+                                    \'key\': \'string\',
+                                    \'version\': \'string\'
                                 }
                             },
-                            'codeSigning': {
-                                'awsSignerJobId': 'string',
-                                'startSigningJobParameter': {
-                                    'signingProfileParameter': {
-                                        'certificateArn': 'string',
-                                        'platform': 'string',
-                                        'certificatePathOnDevice': 'string'
+                            \'codeSigning\': {
+                                \'awsSignerJobId\': \'string\',
+                                \'startSigningJobParameter\': {
+                                    \'signingProfileParameter\': {
+                                        \'certificateArn\': \'string\',
+                                        \'platform\': \'string\',
+                                        \'certificatePathOnDevice\': \'string\'
                                     },
-                                    'signingProfileName': 'string',
-                                    'destination': {
-                                        's3Destination': {
-                                            'bucket': 'string',
-                                            'prefix': 'string'
+                                    \'signingProfileName\': \'string\',
+                                    \'destination\': {
+                                        \'s3Destination\': {
+                                            \'bucket\': \'string\',
+                                            \'prefix\': \'string\'
                                         }
                                     }
                                 },
-                                'customCodeSigning': {
-                                    'signature': {
-                                        'inlineDocument': b'bytes'
+                                \'customCodeSigning\': {
+                                    \'signature\': {
+                                        \'inlineDocument\': b\'bytes\'
                                     },
-                                    'certificateChain': {
-                                        'certificateName': 'string',
-                                        'inlineDocument': 'string'
+                                    \'certificateChain\': {
+                                        \'certificateName\': \'string\',
+                                        \'inlineDocument\': \'string\'
                                     },
-                                    'hashAlgorithm': 'string',
-                                    'signatureAlgorithm': 'string'
+                                    \'hashAlgorithm\': \'string\',
+                                    \'signatureAlgorithm\': \'string\'
                                 }
                             },
-                            'attributes': {
-                                'string': 'string'
+                            \'attributes\': {
+                                \'string\': \'string\'
                             }
                         },
                     ],
-                    'otaUpdateStatus': 'CREATE_PENDING'|'CREATE_IN_PROGRESS'|'CREATE_COMPLETE'|'CREATE_FAILED',
-                    'awsIotJobId': 'string',
-                    'awsIotJobArn': 'string',
-                    'errorInfo': {
-                        'code': 'string',
-                        'message': 'string'
+                    \'otaUpdateStatus\': \'CREATE_PENDING\'|\'CREATE_IN_PROGRESS\'|\'CREATE_COMPLETE\'|\'CREATE_FAILED\',
+                    \'awsIotJobId\': \'string\',
+                    \'awsIotJobArn\': \'string\',
+                    \'errorInfo\': {
+                        \'code\': \'string\',
+                        \'message\': \'string\'
                     },
-                    'additionalParameters': {
-                        'string': 'string'
+                    \'additionalParameters\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -5966,10 +5966,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5989,7 +5989,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy(
-              policyName='string'
+              policyName=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -6004,13 +6004,13 @@ class Client(BaseClient):
           ::
         
             {
-                'policyName': 'string',
-                'policyArn': 'string',
-                'policyDocument': 'string',
-                'defaultVersionId': 'string',
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1),
-                'generationId': 'string'
+                \'policyName\': \'string\',
+                \'policyArn\': \'string\',
+                \'policyDocument\': \'string\',
+                \'defaultVersionId\': \'string\',
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1),
+                \'generationId\': \'string\'
             }
           **Response Structure** 
         
@@ -6058,8 +6058,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy_version(
-              policyName='string',
-              policyVersionId='string'
+              policyName=\'string\',
+              policyVersionId=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -6079,14 +6079,14 @@ class Client(BaseClient):
           ::
         
             {
-                'policyArn': 'string',
-                'policyName': 'string',
-                'policyDocument': 'string',
-                'policyVersionId': 'string',
-                'isDefaultVersion': True|False,
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1),
-                'generationId': 'string'
+                \'policyArn\': \'string\',
+                \'policyName\': \'string\',
+                \'policyDocument\': \'string\',
+                \'policyVersionId\': \'string\',
+                \'isDefaultVersion\': True|False,
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1),
+                \'generationId\': \'string\'
             }
           **Response Structure** 
         
@@ -6147,7 +6147,7 @@ class Client(BaseClient):
           ::
         
             {
-                'registrationCode': 'string'
+                \'registrationCode\': \'string\'
             }
           **Response Structure** 
         
@@ -6171,7 +6171,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_topic_rule(
-              ruleName='string'
+              ruleName=\'string\'
           )
         :type ruleName: string
         :param ruleName: **[REQUIRED]** 
@@ -6186,190 +6186,190 @@ class Client(BaseClient):
           ::
         
             {
-                'ruleArn': 'string',
-                'rule': {
-                    'ruleName': 'string',
-                    'sql': 'string',
-                    'description': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'actions': [
+                \'ruleArn\': \'string\',
+                \'rule\': {
+                    \'ruleName\': \'string\',
+                    \'sql\': \'string\',
+                    \'description\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'actions\': [
                         {
-                            'dynamoDB': {
-                                'tableName': 'string',
-                                'roleArn': 'string',
-                                'operation': 'string',
-                                'hashKeyField': 'string',
-                                'hashKeyValue': 'string',
-                                'hashKeyType': 'STRING'|'NUMBER',
-                                'rangeKeyField': 'string',
-                                'rangeKeyValue': 'string',
-                                'rangeKeyType': 'STRING'|'NUMBER',
-                                'payloadField': 'string'
+                            \'dynamoDB\': {
+                                \'tableName\': \'string\',
+                                \'roleArn\': \'string\',
+                                \'operation\': \'string\',
+                                \'hashKeyField\': \'string\',
+                                \'hashKeyValue\': \'string\',
+                                \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                                \'rangeKeyField\': \'string\',
+                                \'rangeKeyValue\': \'string\',
+                                \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                                \'payloadField\': \'string\'
                             },
-                            'dynamoDBv2': {
-                                'roleArn': 'string',
-                                'putItem': {
-                                    'tableName': 'string'
+                            \'dynamoDBv2\': {
+                                \'roleArn\': \'string\',
+                                \'putItem\': {
+                                    \'tableName\': \'string\'
                                 }
                             },
-                            'lambda': {
-                                'functionArn': 'string'
+                            \'lambda\': {
+                                \'functionArn\': \'string\'
                             },
-                            'sns': {
-                                'targetArn': 'string',
-                                'roleArn': 'string',
-                                'messageFormat': 'RAW'|'JSON'
+                            \'sns\': {
+                                \'targetArn\': \'string\',
+                                \'roleArn\': \'string\',
+                                \'messageFormat\': \'RAW\'|\'JSON\'
                             },
-                            'sqs': {
-                                'roleArn': 'string',
-                                'queueUrl': 'string',
-                                'useBase64': True|False
+                            \'sqs\': {
+                                \'roleArn\': \'string\',
+                                \'queueUrl\': \'string\',
+                                \'useBase64\': True|False
                             },
-                            'kinesis': {
-                                'roleArn': 'string',
-                                'streamName': 'string',
-                                'partitionKey': 'string'
+                            \'kinesis\': {
+                                \'roleArn\': \'string\',
+                                \'streamName\': \'string\',
+                                \'partitionKey\': \'string\'
                             },
-                            'republish': {
-                                'roleArn': 'string',
-                                'topic': 'string'
+                            \'republish\': {
+                                \'roleArn\': \'string\',
+                                \'topic\': \'string\'
                             },
-                            's3': {
-                                'roleArn': 'string',
-                                'bucketName': 'string',
-                                'key': 'string',
-                                'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                            \'s3\': {
+                                \'roleArn\': \'string\',
+                                \'bucketName\': \'string\',
+                                \'key\': \'string\',
+                                \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                             },
-                            'firehose': {
-                                'roleArn': 'string',
-                                'deliveryStreamName': 'string',
-                                'separator': 'string'
+                            \'firehose\': {
+                                \'roleArn\': \'string\',
+                                \'deliveryStreamName\': \'string\',
+                                \'separator\': \'string\'
                             },
-                            'cloudwatchMetric': {
-                                'roleArn': 'string',
-                                'metricNamespace': 'string',
-                                'metricName': 'string',
-                                'metricValue': 'string',
-                                'metricUnit': 'string',
-                                'metricTimestamp': 'string'
+                            \'cloudwatchMetric\': {
+                                \'roleArn\': \'string\',
+                                \'metricNamespace\': \'string\',
+                                \'metricName\': \'string\',
+                                \'metricValue\': \'string\',
+                                \'metricUnit\': \'string\',
+                                \'metricTimestamp\': \'string\'
                             },
-                            'cloudwatchAlarm': {
-                                'roleArn': 'string',
-                                'alarmName': 'string',
-                                'stateReason': 'string',
-                                'stateValue': 'string'
+                            \'cloudwatchAlarm\': {
+                                \'roleArn\': \'string\',
+                                \'alarmName\': \'string\',
+                                \'stateReason\': \'string\',
+                                \'stateValue\': \'string\'
                             },
-                            'elasticsearch': {
-                                'roleArn': 'string',
-                                'endpoint': 'string',
-                                'index': 'string',
-                                'type': 'string',
-                                'id': 'string'
+                            \'elasticsearch\': {
+                                \'roleArn\': \'string\',
+                                \'endpoint\': \'string\',
+                                \'index\': \'string\',
+                                \'type\': \'string\',
+                                \'id\': \'string\'
                             },
-                            'salesforce': {
-                                'token': 'string',
-                                'url': 'string'
+                            \'salesforce\': {
+                                \'token\': \'string\',
+                                \'url\': \'string\'
                             },
-                            'iotAnalytics': {
-                                'channelArn': 'string',
-                                'channelName': 'string',
-                                'roleArn': 'string'
+                            \'iotAnalytics\': {
+                                \'channelArn\': \'string\',
+                                \'channelName\': \'string\',
+                                \'roleArn\': \'string\'
                             },
-                            'stepFunctions': {
-                                'executionNamePrefix': 'string',
-                                'stateMachineName': 'string',
-                                'roleArn': 'string'
+                            \'stepFunctions\': {
+                                \'executionNamePrefix\': \'string\',
+                                \'stateMachineName\': \'string\',
+                                \'roleArn\': \'string\'
                             }
                         },
                     ],
-                    'ruleDisabled': True|False,
-                    'awsIotSqlVersion': 'string',
-                    'errorAction': {
-                        'dynamoDB': {
-                            'tableName': 'string',
-                            'roleArn': 'string',
-                            'operation': 'string',
-                            'hashKeyField': 'string',
-                            'hashKeyValue': 'string',
-                            'hashKeyType': 'STRING'|'NUMBER',
-                            'rangeKeyField': 'string',
-                            'rangeKeyValue': 'string',
-                            'rangeKeyType': 'STRING'|'NUMBER',
-                            'payloadField': 'string'
+                    \'ruleDisabled\': True|False,
+                    \'awsIotSqlVersion\': \'string\',
+                    \'errorAction\': {
+                        \'dynamoDB\': {
+                            \'tableName\': \'string\',
+                            \'roleArn\': \'string\',
+                            \'operation\': \'string\',
+                            \'hashKeyField\': \'string\',
+                            \'hashKeyValue\': \'string\',
+                            \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                            \'rangeKeyField\': \'string\',
+                            \'rangeKeyValue\': \'string\',
+                            \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                            \'payloadField\': \'string\'
                         },
-                        'dynamoDBv2': {
-                            'roleArn': 'string',
-                            'putItem': {
-                                'tableName': 'string'
+                        \'dynamoDBv2\': {
+                            \'roleArn\': \'string\',
+                            \'putItem\': {
+                                \'tableName\': \'string\'
                             }
                         },
-                        'lambda': {
-                            'functionArn': 'string'
+                        \'lambda\': {
+                            \'functionArn\': \'string\'
                         },
-                        'sns': {
-                            'targetArn': 'string',
-                            'roleArn': 'string',
-                            'messageFormat': 'RAW'|'JSON'
+                        \'sns\': {
+                            \'targetArn\': \'string\',
+                            \'roleArn\': \'string\',
+                            \'messageFormat\': \'RAW\'|\'JSON\'
                         },
-                        'sqs': {
-                            'roleArn': 'string',
-                            'queueUrl': 'string',
-                            'useBase64': True|False
+                        \'sqs\': {
+                            \'roleArn\': \'string\',
+                            \'queueUrl\': \'string\',
+                            \'useBase64\': True|False
                         },
-                        'kinesis': {
-                            'roleArn': 'string',
-                            'streamName': 'string',
-                            'partitionKey': 'string'
+                        \'kinesis\': {
+                            \'roleArn\': \'string\',
+                            \'streamName\': \'string\',
+                            \'partitionKey\': \'string\'
                         },
-                        'republish': {
-                            'roleArn': 'string',
-                            'topic': 'string'
+                        \'republish\': {
+                            \'roleArn\': \'string\',
+                            \'topic\': \'string\'
                         },
-                        's3': {
-                            'roleArn': 'string',
-                            'bucketName': 'string',
-                            'key': 'string',
-                            'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                        \'s3\': {
+                            \'roleArn\': \'string\',
+                            \'bucketName\': \'string\',
+                            \'key\': \'string\',
+                            \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                         },
-                        'firehose': {
-                            'roleArn': 'string',
-                            'deliveryStreamName': 'string',
-                            'separator': 'string'
+                        \'firehose\': {
+                            \'roleArn\': \'string\',
+                            \'deliveryStreamName\': \'string\',
+                            \'separator\': \'string\'
                         },
-                        'cloudwatchMetric': {
-                            'roleArn': 'string',
-                            'metricNamespace': 'string',
-                            'metricName': 'string',
-                            'metricValue': 'string',
-                            'metricUnit': 'string',
-                            'metricTimestamp': 'string'
+                        \'cloudwatchMetric\': {
+                            \'roleArn\': \'string\',
+                            \'metricNamespace\': \'string\',
+                            \'metricName\': \'string\',
+                            \'metricValue\': \'string\',
+                            \'metricUnit\': \'string\',
+                            \'metricTimestamp\': \'string\'
                         },
-                        'cloudwatchAlarm': {
-                            'roleArn': 'string',
-                            'alarmName': 'string',
-                            'stateReason': 'string',
-                            'stateValue': 'string'
+                        \'cloudwatchAlarm\': {
+                            \'roleArn\': \'string\',
+                            \'alarmName\': \'string\',
+                            \'stateReason\': \'string\',
+                            \'stateValue\': \'string\'
                         },
-                        'elasticsearch': {
-                            'roleArn': 'string',
-                            'endpoint': 'string',
-                            'index': 'string',
-                            'type': 'string',
-                            'id': 'string'
+                        \'elasticsearch\': {
+                            \'roleArn\': \'string\',
+                            \'endpoint\': \'string\',
+                            \'index\': \'string\',
+                            \'type\': \'string\',
+                            \'id\': \'string\'
                         },
-                        'salesforce': {
-                            'token': 'string',
-                            'url': 'string'
+                        \'salesforce\': {
+                            \'token\': \'string\',
+                            \'url\': \'string\'
                         },
-                        'iotAnalytics': {
-                            'channelArn': 'string',
-                            'channelName': 'string',
-                            'roleArn': 'string'
+                        \'iotAnalytics\': {
+                            \'channelArn\': \'string\',
+                            \'channelName\': \'string\',
+                            \'roleArn\': \'string\'
                         },
-                        'stepFunctions': {
-                            'executionNamePrefix': 'string',
-                            'stateMachineName': 'string',
-                            'roleArn': 'string'
+                        \'stepFunctions\': {
+                            \'executionNamePrefix\': \'string\',
+                            \'stateMachineName\': \'string\',
+                            \'roleArn\': \'string\'
                         }
                     }
                 }
@@ -6438,7 +6438,7 @@ class Client(BaseClient):
         
                     - **hashKeyType** *(string) --* 
         
-                      The hash key type. Valid values are "STRING" or "NUMBER"
+                      The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
                     - **rangeKeyField** *(string) --* 
         
@@ -6450,7 +6450,7 @@ class Client(BaseClient):
         
                     - **rangeKeyType** *(string) --* 
         
-                      The range key type. Valid values are "STRING" or "NUMBER"
+                      The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
                     - **payloadField** *(string) --* 
         
@@ -6468,7 +6468,7 @@ class Client(BaseClient):
         
                       Specifies the DynamoDB table to which the message data will be written. For example:
         
-                       ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                       ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                       Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -6498,7 +6498,7 @@ class Client(BaseClient):
         
                     - **messageFormat** *(string) --* 
         
-                      (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                      (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
                   - **sqs** *(dict) --* 
         
@@ -6578,7 +6578,7 @@ class Client(BaseClient):
         
                     - **separator** *(string) --* 
         
-                      A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                      A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
                   - **cloudwatchMetric** *(dict) --* 
         
@@ -6694,7 +6694,7 @@ class Client(BaseClient):
         
                     - **roleArn** *(string) --* 
         
-                      The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                      The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
               - **ruleDisabled** *(boolean) --* 
         
@@ -6734,7 +6734,7 @@ class Client(BaseClient):
         
                   - **hashKeyType** *(string) --* 
         
-                    The hash key type. Valid values are "STRING" or "NUMBER"
+                    The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
                   - **rangeKeyField** *(string) --* 
         
@@ -6746,7 +6746,7 @@ class Client(BaseClient):
         
                   - **rangeKeyType** *(string) --* 
         
-                    The range key type. Valid values are "STRING" or "NUMBER"
+                    The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
                   - **payloadField** *(string) --* 
         
@@ -6764,7 +6764,7 @@ class Client(BaseClient):
         
                     Specifies the DynamoDB table to which the message data will be written. For example:
         
-                     ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                     ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                     Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -6794,7 +6794,7 @@ class Client(BaseClient):
         
                   - **messageFormat** *(string) --* 
         
-                    (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                    (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
                 - **sqs** *(dict) --* 
         
@@ -6874,7 +6874,7 @@ class Client(BaseClient):
         
                   - **separator** *(string) --* 
         
-                    A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                    A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
                 - **cloudwatchMetric** *(dict) --* 
         
@@ -6990,7 +6990,7 @@ class Client(BaseClient):
         
                   - **roleArn** *(string) --* 
         
-                    The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                    The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
         """
         pass
@@ -7013,9 +7013,9 @@ class Client(BaseClient):
           ::
         
             {
-                'roleArn': 'string',
-                'defaultLogLevel': 'DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED',
-                'disableAllLogs': True|False
+                \'roleArn\': \'string\',
+                \'defaultLogLevel\': \'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\',
+                \'disableAllLogs\': True|False
             }
           **Response Structure** 
         
@@ -7057,9 +7057,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_active_violations(
-              thingName='string',
-              securityProfileName='string',
-              nextToken='string',
+              thingName=\'string\',
+              securityProfileName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type thingName: string
@@ -7090,42 +7090,42 @@ class Client(BaseClient):
           ::
         
             {
-                'activeViolations': [
+                \'activeViolations\': [
                     {
-                        'violationId': 'string',
-                        'thingName': 'string',
-                        'securityProfileName': 'string',
-                        'behavior': {
-                            'name': 'string',
-                            'metric': 'string',
-                            'criteria': {
-                                'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                                'value': {
-                                    'count': 123,
-                                    'cidrs': [
-                                        'string',
+                        \'violationId\': \'string\',
+                        \'thingName\': \'string\',
+                        \'securityProfileName\': \'string\',
+                        \'behavior\': {
+                            \'name\': \'string\',
+                            \'metric\': \'string\',
+                            \'criteria\': {
+                                \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                                \'value\': {
+                                    \'count\': 123,
+                                    \'cidrs\': [
+                                        \'string\',
                                     ],
-                                    'ports': [
+                                    \'ports\': [
                                         123,
                                     ]
                                 },
-                                'durationSeconds': 123
+                                \'durationSeconds\': 123
                             }
                         },
-                        'lastViolationValue': {
-                            'count': 123,
-                            'cidrs': [
-                                'string',
+                        \'lastViolationValue\': {
+                            \'count\': 123,
+                            \'cidrs\': [
+                                \'string\',
                             ],
-                            'ports': [
+                            \'ports\': [
                                 123,
                             ]
                         },
-                        'lastViolationTime': datetime(2015, 1, 1),
-                        'violationStartTime': datetime(2015, 1, 1)
+                        \'lastViolationTime\': datetime(2015, 1, 1),
+                        \'violationStartTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7239,9 +7239,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_attached_policies(
-              target='string',
+              target=\'string\',
               recursive=True|False,
-              marker='string',
+              marker=\'string\',
               pageSize=123
           )
         :type target: string
@@ -7272,13 +7272,13 @@ class Client(BaseClient):
           ::
         
             {
-                'policies': [
+                \'policies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\'
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -7316,21 +7316,21 @@ class Client(BaseClient):
         ::
         
           response = client.list_audit_findings(
-              taskId='string',
-              checkName='string',
+              taskId=\'string\',
+              checkName=\'string\',
               resourceIdentifier={
-                  'deviceCertificateId': 'string',
-                  'caCertificateId': 'string',
-                  'cognitoIdentityPoolId': 'string',
-                  'clientId': 'string',
-                  'policyVersionIdentifier': {
-                      'policyName': 'string',
-                      'policyVersionId': 'string'
+                  \'deviceCertificateId\': \'string\',
+                  \'caCertificateId\': \'string\',
+                  \'cognitoIdentityPoolId\': \'string\',
+                  \'clientId\': \'string\',
+                  \'policyVersionIdentifier\': {
+                      \'policyName\': \'string\',
+                      \'policyVersionId\': \'string\'
                   },
-                  'account': 'string'
+                  \'account\': \'string\'
               },
               maxResults=123,
-              nextToken='string',
+              nextToken=\'string\',
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1)
           )
@@ -7409,54 +7409,54 @@ class Client(BaseClient):
           ::
         
             {
-                'findings': [
+                \'findings\': [
                     {
-                        'taskId': 'string',
-                        'checkName': 'string',
-                        'taskStartTime': datetime(2015, 1, 1),
-                        'findingTime': datetime(2015, 1, 1),
-                        'severity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW',
-                        'nonCompliantResource': {
-                            'resourceType': 'DEVICE_CERTIFICATE'|'CA_CERTIFICATE'|'IOT_POLICY'|'COGNITO_IDENTITY_POOL'|'CLIENT_ID'|'ACCOUNT_SETTINGS',
-                            'resourceIdentifier': {
-                                'deviceCertificateId': 'string',
-                                'caCertificateId': 'string',
-                                'cognitoIdentityPoolId': 'string',
-                                'clientId': 'string',
-                                'policyVersionIdentifier': {
-                                    'policyName': 'string',
-                                    'policyVersionId': 'string'
+                        \'taskId\': \'string\',
+                        \'checkName\': \'string\',
+                        \'taskStartTime\': datetime(2015, 1, 1),
+                        \'findingTime\': datetime(2015, 1, 1),
+                        \'severity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\',
+                        \'nonCompliantResource\': {
+                            \'resourceType\': \'DEVICE_CERTIFICATE\'|\'CA_CERTIFICATE\'|\'IOT_POLICY\'|\'COGNITO_IDENTITY_POOL\'|\'CLIENT_ID\'|\'ACCOUNT_SETTINGS\',
+                            \'resourceIdentifier\': {
+                                \'deviceCertificateId\': \'string\',
+                                \'caCertificateId\': \'string\',
+                                \'cognitoIdentityPoolId\': \'string\',
+                                \'clientId\': \'string\',
+                                \'policyVersionIdentifier\': {
+                                    \'policyName\': \'string\',
+                                    \'policyVersionId\': \'string\'
                                 },
-                                'account': 'string'
+                                \'account\': \'string\'
                             },
-                            'additionalInfo': {
-                                'string': 'string'
+                            \'additionalInfo\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'relatedResources': [
+                        \'relatedResources\': [
                             {
-                                'resourceType': 'DEVICE_CERTIFICATE'|'CA_CERTIFICATE'|'IOT_POLICY'|'COGNITO_IDENTITY_POOL'|'CLIENT_ID'|'ACCOUNT_SETTINGS',
-                                'resourceIdentifier': {
-                                    'deviceCertificateId': 'string',
-                                    'caCertificateId': 'string',
-                                    'cognitoIdentityPoolId': 'string',
-                                    'clientId': 'string',
-                                    'policyVersionIdentifier': {
-                                        'policyName': 'string',
-                                        'policyVersionId': 'string'
+                                \'resourceType\': \'DEVICE_CERTIFICATE\'|\'CA_CERTIFICATE\'|\'IOT_POLICY\'|\'COGNITO_IDENTITY_POOL\'|\'CLIENT_ID\'|\'ACCOUNT_SETTINGS\',
+                                \'resourceIdentifier\': {
+                                    \'deviceCertificateId\': \'string\',
+                                    \'caCertificateId\': \'string\',
+                                    \'cognitoIdentityPoolId\': \'string\',
+                                    \'clientId\': \'string\',
+                                    \'policyVersionIdentifier\': {
+                                        \'policyName\': \'string\',
+                                        \'policyVersionId\': \'string\'
                                     },
-                                    'account': 'string'
+                                    \'account\': \'string\'
                                 },
-                                'additionalInfo': {
-                                    'string': 'string'
+                                \'additionalInfo\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ],
-                        'reasonForNonCompliance': 'string',
-                        'reasonForNonComplianceCode': 'string'
+                        \'reasonForNonCompliance\': \'string\',
+                        \'reasonForNonComplianceCode\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7624,15 +7624,15 @@ class Client(BaseClient):
           response = client.list_audit_tasks(
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
-              taskType='ON_DEMAND_AUDIT_TASK'|'SCHEDULED_AUDIT_TASK',
-              taskStatus='IN_PROGRESS'|'COMPLETED'|'FAILED'|'CANCELED',
-              nextToken='string',
+              taskType=\'ON_DEMAND_AUDIT_TASK\'|\'SCHEDULED_AUDIT_TASK\',
+              taskStatus=\'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'CANCELED\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type startTime: datetime
         :param startTime: **[REQUIRED]** 
         
-          The beginning of the time period. Note that audit information is retained for a limited time (180 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
+          The beginning of the time period. Note that audit information is retained for a limited time (180 days). Requesting a start time prior to what is retained results in an \"InvalidRequestException\".
         
         :type endTime: datetime
         :param endTime: **[REQUIRED]** 
@@ -7642,12 +7642,12 @@ class Client(BaseClient):
         :type taskType: string
         :param taskType: 
         
-          A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
+          A filter to limit the output to the specified type of audit: can be one of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED__AUDIT_TASK\".
         
         :type taskStatus: string
         :param taskStatus: 
         
-          A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED" or "CANCELED".
+          A filter to limit the output to audits with the specified completion status: can be one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\" or \"CANCELED\".
         
         :type nextToken: string
         :param nextToken: 
@@ -7667,14 +7667,14 @@ class Client(BaseClient):
           ::
         
             {
-                'tasks': [
+                \'tasks\': [
                     {
-                        'taskId': 'string',
-                        'taskStatus': 'IN_PROGRESS'|'COMPLETED'|'FAILED'|'CANCELED',
-                        'taskType': 'ON_DEMAND_AUDIT_TASK'|'SCHEDULED_AUDIT_TASK'
+                        \'taskId\': \'string\',
+                        \'taskStatus\': \'IN_PROGRESS\'|\'COMPLETED\'|\'FAILED\'|\'CANCELED\',
+                        \'taskType\': \'ON_DEMAND_AUDIT_TASK\'|\'SCHEDULED_AUDIT_TASK\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7694,11 +7694,11 @@ class Client(BaseClient):
         
                 - **taskStatus** *(string) --* 
         
-                  The status of this audit: one of "IN_PROGRESS", "COMPLETED", "FAILED" or "CANCELED".
+                  The status of this audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\" or \"CANCELED\".
         
                 - **taskType** *(string) --* 
         
-                  The type of this audit: one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+                  The type of this audit: one of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".
         
             - **nextToken** *(string) --* 
         
@@ -7717,9 +7717,9 @@ class Client(BaseClient):
         
           response = client.list_authorizers(
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False,
-              status='ACTIVE'|'INACTIVE'
+              status=\'ACTIVE\'|\'INACTIVE\'
           )
         :type pageSize: integer
         :param pageSize: 
@@ -7749,13 +7749,13 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizers': [
+                \'authorizers\': [
                     {
-                        'authorizerName': 'string',
-                        'authorizerArn': 'string'
+                        \'authorizerName\': \'string\',
+                        \'authorizerArn\': \'string\'
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -7796,7 +7796,7 @@ class Client(BaseClient):
         
           response = client.list_ca_certificates(
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False
           )
         :type pageSize: integer
@@ -7822,15 +7822,15 @@ class Client(BaseClient):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -7883,7 +7883,7 @@ class Client(BaseClient):
         
           response = client.list_certificates(
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False
           )
         :type pageSize: integer
@@ -7909,15 +7909,15 @@ class Client(BaseClient):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -7967,9 +7967,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_certificates_by_ca(
-              caCertificateId='string',
+              caCertificateId=\'string\',
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False
           )
         :type caCertificateId: string
@@ -8000,15 +8000,15 @@ class Client(BaseClient):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -8058,7 +8058,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_indices(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -8079,10 +8079,10 @@ class Client(BaseClient):
           ::
         
             {
-                'indexNames': [
-                    'string',
+                \'indexNames\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8110,10 +8110,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_job_executions_for_job(
-              jobId='string',
-              status='QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
+              jobId=\'string\',
+              status=\'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -8143,19 +8143,19 @@ class Client(BaseClient):
           ::
         
             {
-                'executionSummaries': [
+                \'executionSummaries\': [
                     {
-                        'thingArn': 'string',
-                        'jobExecutionSummary': {
-                            'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                            'queuedAt': datetime(2015, 1, 1),
-                            'startedAt': datetime(2015, 1, 1),
-                            'lastUpdatedAt': datetime(2015, 1, 1),
-                            'executionNumber': 123
+                        \'thingArn\': \'string\',
+                        \'jobExecutionSummary\': {
+                            \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                            \'queuedAt\': datetime(2015, 1, 1),
+                            \'startedAt\': datetime(2015, 1, 1),
+                            \'lastUpdatedAt\': datetime(2015, 1, 1),
+                            \'executionNumber\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8195,7 +8195,7 @@ class Client(BaseClient):
         
                   - **executionNumber** *(integer) --* 
         
-                    A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
+                    A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
         
             - **nextToken** *(string) --* 
         
@@ -8213,10 +8213,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_job_executions_for_thing(
-              thingName='string',
-              status='QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
+              thingName=\'string\',
+              status=\'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -8246,19 +8246,19 @@ class Client(BaseClient):
           ::
         
             {
-                'executionSummaries': [
+                \'executionSummaries\': [
                     {
-                        'jobId': 'string',
-                        'jobExecutionSummary': {
-                            'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                            'queuedAt': datetime(2015, 1, 1),
-                            'startedAt': datetime(2015, 1, 1),
-                            'lastUpdatedAt': datetime(2015, 1, 1),
-                            'executionNumber': 123
+                        \'jobId\': \'string\',
+                        \'jobExecutionSummary\': {
+                            \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                            \'queuedAt\': datetime(2015, 1, 1),
+                            \'startedAt\': datetime(2015, 1, 1),
+                            \'lastUpdatedAt\': datetime(2015, 1, 1),
+                            \'executionNumber\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8298,7 +8298,7 @@ class Client(BaseClient):
         
                   - **executionNumber** *(integer) --* 
         
-                    A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
+                    A string (consisting of the digits \"0\" through \"9\") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
         
             - **nextToken** *(string) --* 
         
@@ -8316,12 +8316,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_jobs(
-              status='IN_PROGRESS'|'CANCELED'|'COMPLETED'|'DELETION_IN_PROGRESS',
-              targetSelection='CONTINUOUS'|'SNAPSHOT',
+              status=\'IN_PROGRESS\'|\'CANCELED\'|\'COMPLETED\'|\'DELETION_IN_PROGRESS\',
+              targetSelection=\'CONTINUOUS\'|\'SNAPSHOT\',
               maxResults=123,
-              nextToken='string',
-              thingGroupName='string',
-              thingGroupId='string'
+              nextToken=\'string\',
+              thingGroupName=\'string\',
+              thingGroupId=\'string\'
           )
         :type status: string
         :param status: 
@@ -8361,19 +8361,19 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'jobArn': 'string',
-                        'jobId': 'string',
-                        'thingGroupId': 'string',
-                        'targetSelection': 'CONTINUOUS'|'SNAPSHOT',
-                        'status': 'IN_PROGRESS'|'CANCELED'|'COMPLETED'|'DELETION_IN_PROGRESS',
-                        'createdAt': datetime(2015, 1, 1),
-                        'lastUpdatedAt': datetime(2015, 1, 1),
-                        'completedAt': datetime(2015, 1, 1)
+                        \'jobArn\': \'string\',
+                        \'jobId\': \'string\',
+                        \'thingGroupId\': \'string\',
+                        \'targetSelection\': \'CONTINUOUS\'|\'SNAPSHOT\',
+                        \'status\': \'IN_PROGRESS\'|\'CANCELED\'|\'COMPLETED\'|\'DELETION_IN_PROGRESS\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'lastUpdatedAt\': datetime(2015, 1, 1),
+                        \'completedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8436,8 +8436,8 @@ class Client(BaseClient):
         
           response = client.list_ota_updates(
               maxResults=123,
-              nextToken='string',
-              otaUpdateStatus='CREATE_PENDING'|'CREATE_IN_PROGRESS'|'CREATE_COMPLETE'|'CREATE_FAILED'
+              nextToken=\'string\',
+              otaUpdateStatus=\'CREATE_PENDING\'|\'CREATE_IN_PROGRESS\'|\'CREATE_COMPLETE\'|\'CREATE_FAILED\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -8462,14 +8462,14 @@ class Client(BaseClient):
           ::
         
             {
-                'otaUpdates': [
+                \'otaUpdates\': [
                     {
-                        'otaUpdateId': 'string',
-                        'otaUpdateArn': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'otaUpdateId\': \'string\',
+                        \'otaUpdateArn\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8512,7 +8512,7 @@ class Client(BaseClient):
         
           response = client.list_outgoing_certificates(
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False
           )
         :type pageSize: integer
@@ -8538,17 +8538,17 @@ class Client(BaseClient):
           ::
         
             {
-                'outgoingCertificates': [
+                \'outgoingCertificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'transferredTo': 'string',
-                        'transferDate': datetime(2015, 1, 1),
-                        'transferMessage': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'transferredTo\': \'string\',
+                        \'transferDate\': datetime(2015, 1, 1),
+                        \'transferMessage\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -8604,7 +8604,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_policies(
-              marker='string',
+              marker=\'string\',
               pageSize=123,
               ascendingOrder=True|False
           )
@@ -8631,13 +8631,13 @@ class Client(BaseClient):
           ::
         
             {
-                'policies': [
+                \'policies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\'
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -8683,8 +8683,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_policy_principals(
-              policyName='string',
-              marker='string',
+              policyName=\'string\',
+              marker=\'string\',
               pageSize=123,
               ascendingOrder=True|False
           )
@@ -8716,10 +8716,10 @@ class Client(BaseClient):
           ::
         
             {
-                'principals': [
-                    'string',
+                \'principals\': [
+                    \'string\',
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -8749,7 +8749,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_policy_versions(
-              policyName='string'
+              policyName=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -8764,11 +8764,11 @@ class Client(BaseClient):
           ::
         
             {
-                'policyVersions': [
+                \'policyVersions\': [
                     {
-                        'versionId': 'string',
-                        'isDefaultVersion': True|False,
-                        'createDate': datetime(2015, 1, 1)
+                        \'versionId\': \'string\',
+                        \'isDefaultVersion\': True|False,
+                        \'createDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -8816,8 +8816,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_principal_policies(
-              principal='string',
-              marker='string',
+              principal=\'string\',
+              marker=\'string\',
               pageSize=123,
               ascendingOrder=True|False
           )
@@ -8849,13 +8849,13 @@ class Client(BaseClient):
           ::
         
             {
-                'policies': [
+                \'policies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\'
                     },
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -8895,9 +8895,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_principal_things(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              principal='string'
+              principal=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -8922,10 +8922,10 @@ class Client(BaseClient):
           ::
         
             {
-                'things': [
-                    'string',
+                \'things\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8956,7 +8956,7 @@ class Client(BaseClient):
         
           response = client.list_role_aliases(
               pageSize=123,
-              marker='string',
+              marker=\'string\',
               ascendingOrder=True|False
           )
         :type pageSize: integer
@@ -8982,10 +8982,10 @@ class Client(BaseClient):
           ::
         
             {
-                'roleAliases': [
-                    'string',
+                \'roleAliases\': [
+                    \'string\',
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -9013,7 +9013,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_scheduled_audits(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -9034,16 +9034,16 @@ class Client(BaseClient):
           ::
         
             {
-                'scheduledAudits': [
+                \'scheduledAudits\': [
                     {
-                        'scheduledAuditName': 'string',
-                        'scheduledAuditArn': 'string',
-                        'frequency': 'DAILY'|'WEEKLY'|'BIWEEKLY'|'MONTHLY',
-                        'dayOfMonth': 'string',
-                        'dayOfWeek': 'SUN'|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT'
+                        \'scheduledAuditName\': \'string\',
+                        \'scheduledAuditArn\': \'string\',
+                        \'frequency\': \'DAILY\'|\'WEEKLY\'|\'BIWEEKLY\'|\'MONTHLY\',
+                        \'dayOfMonth\': \'string\',
+                        \'dayOfWeek\': \'SUN\'|\'MON\'|\'TUE\'|\'WED\'|\'THU\'|\'FRI\'|\'SAT\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9071,11 +9071,11 @@ class Client(BaseClient):
         
                 - **dayOfMonth** *(string) --* 
         
-                  The day of the month on which the scheduled audit is run (if the ``frequency`` is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+                  The day of the month on which the scheduled audit is run (if the ``frequency`` is \"MONTHLY\"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the \"LAST\" day of the month.
         
                 - **dayOfWeek** *(string) --* 
         
-                  The day of the week on which the scheduled audit is run (if the ``frequency`` is "WEEKLY" or "BIWEEKLY").
+                  The day of the week on which the scheduled audit is run (if the ``frequency`` is \"WEEKLY\" or \"BIWEEKLY\").
         
             - **nextToken** *(string) --* 
         
@@ -9093,7 +9093,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_security_profiles(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -9114,13 +9114,13 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileIdentifiers': [
+                \'securityProfileIdentifiers\': [
                     {
-                        'name': 'string',
-                        'arn': 'string'
+                        \'name\': \'string\',
+                        \'arn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9158,10 +9158,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_security_profiles_for_target(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
               recursive=True|False,
-              securityProfileTargetArn='string'
+              securityProfileTargetArn=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -9191,18 +9191,18 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileTargetMappings': [
+                \'securityProfileTargetMappings\': [
                     {
-                        'securityProfileIdentifier': {
-                            'name': 'string',
-                            'arn': 'string'
+                        \'securityProfileIdentifier\': {
+                            \'name\': \'string\',
+                            \'arn\': \'string\'
                         },
-                        'target': {
-                            'arn': 'string'
+                        \'target\': {
+                            \'arn\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9253,7 +9253,7 @@ class Client(BaseClient):
         
           response = client.list_streams(
               maxResults=123,
-              nextToken='string',
+              nextToken=\'string\',
               ascendingOrder=True|False
           )
         :type maxResults: integer
@@ -9279,15 +9279,15 @@ class Client(BaseClient):
           ::
         
             {
-                'streams': [
+                \'streams\': [
                     {
-                        'streamId': 'string',
-                        'streamArn': 'string',
-                        'streamVersion': 123,
-                        'description': 'string'
+                        \'streamId\': \'string\',
+                        \'streamArn\': \'string\',
+                        \'streamVersion\': 123,
+                        \'description\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9333,8 +9333,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_targets_for_policy(
-              policyName='string',
-              marker='string',
+              policyName=\'string\',
+              marker=\'string\',
               pageSize=123
           )
         :type policyName: string
@@ -9360,10 +9360,10 @@ class Client(BaseClient):
           ::
         
             {
-                'targets': [
-                    'string',
+                \'targets\': [
+                    \'string\',
                 ],
-                'nextMarker': 'string'
+                \'nextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -9391,8 +9391,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_targets_for_security_profile(
-              securityProfileName='string',
-              nextToken='string',
+              securityProfileName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type securityProfileName: string
@@ -9418,12 +9418,12 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileTargets': [
+                \'securityProfileTargets\': [
                     {
-                        'arn': 'string'
+                        \'arn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9457,10 +9457,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_groups(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              parentGroup='string',
-              namePrefixFilter='string',
+              parentGroup=\'string\',
+              namePrefixFilter=\'string\',
               recursive=True|False
           )
         :type nextToken: string
@@ -9496,13 +9496,13 @@ class Client(BaseClient):
           ::
         
             {
-                'thingGroups': [
+                \'thingGroups\': [
                     {
-                        'groupName': 'string',
-                        'groupArn': 'string'
+                        \'groupName\': \'string\',
+                        \'groupArn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9540,8 +9540,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_groups_for_thing(
-              thingName='string',
-              nextToken='string',
+              thingName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type thingName: string
@@ -9567,13 +9567,13 @@ class Client(BaseClient):
           ::
         
             {
-                'thingGroups': [
+                \'thingGroups\': [
                     {
-                        'groupName': 'string',
-                        'groupArn': 'string'
+                        \'groupName\': \'string\',
+                        \'groupArn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9611,7 +9611,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_principals(
-              thingName='string'
+              thingName=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -9626,8 +9626,8 @@ class Client(BaseClient):
           ::
         
             {
-                'principals': [
-                    'string',
+                \'principals\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -9654,9 +9654,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_registration_task_reports(
-              taskId='string',
-              reportType='ERRORS'|'RESULTS',
-              nextToken='string',
+              taskId=\'string\',
+              reportType=\'ERRORS\'|\'RESULTS\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type taskId: string
@@ -9687,11 +9687,11 @@ class Client(BaseClient):
           ::
         
             {
-                'resourceLinks': [
-                    'string',
+                \'resourceLinks\': [
+                    \'string\',
                 ],
-                'reportType': 'ERRORS'|'RESULTS',
-                'nextToken': 'string'
+                \'reportType\': \'ERRORS\'|\'RESULTS\',
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9723,9 +9723,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_registration_tasks(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              status='InProgress'|'Completed'|'Failed'|'Cancelled'|'Cancelling'
+              status=\'InProgress\'|\'Completed\'|\'Failed\'|\'Cancelled\'|\'Cancelling\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -9750,10 +9750,10 @@ class Client(BaseClient):
           ::
         
             {
-                'taskIds': [
-                    'string',
+                \'taskIds\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9781,9 +9781,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_thing_types(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              thingTypeName='string'
+              thingTypeName=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -9808,24 +9808,24 @@ class Client(BaseClient):
           ::
         
             {
-                'thingTypes': [
+                \'thingTypes\': [
                     {
-                        'thingTypeName': 'string',
-                        'thingTypeArn': 'string',
-                        'thingTypeProperties': {
-                            'thingTypeDescription': 'string',
-                            'searchableAttributes': [
-                                'string',
+                        \'thingTypeName\': \'string\',
+                        \'thingTypeArn\': \'string\',
+                        \'thingTypeProperties\': {
+                            \'thingTypeDescription\': \'string\',
+                            \'searchableAttributes\': [
+                                \'string\',
                             ]
                         },
-                        'thingTypeMetadata': {
-                            'deprecated': True|False,
-                            'deprecationDate': datetime(2015, 1, 1),
-                            'creationDate': datetime(2015, 1, 1)
+                        \'thingTypeMetadata\': {
+                            \'deprecated\': True|False,
+                            \'deprecationDate\': datetime(2015, 1, 1),
+                            \'creationDate\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9895,11 +9895,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_things(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              attributeName='string',
-              attributeValue='string',
-              thingTypeName='string'
+              attributeName=\'string\',
+              attributeValue=\'string\',
+              thingTypeName=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -9934,18 +9934,18 @@ class Client(BaseClient):
           ::
         
             {
-                'things': [
+                \'things\': [
                     {
-                        'thingName': 'string',
-                        'thingTypeName': 'string',
-                        'thingArn': 'string',
-                        'attributes': {
-                            'string': 'string'
+                        \'thingName\': \'string\',
+                        \'thingTypeName\': \'string\',
+                        \'thingArn\': \'string\',
+                        \'attributes\': {
+                            \'string\': \'string\'
                         },
-                        'version': 123
+                        \'version\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10001,9 +10001,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_things_in_thing_group(
-              thingGroupName='string',
+              thingGroupName=\'string\',
               recursive=True|False,
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type thingGroupName: string
@@ -10034,10 +10034,10 @@ class Client(BaseClient):
           ::
         
             {
-                'things': [
-                    'string',
+                \'things\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10065,9 +10065,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_topic_rules(
-              topic='string',
+              topic=\'string\',
               maxResults=123,
-              nextToken='string',
+              nextToken=\'string\',
               ruleDisabled=True|False
           )
         :type topic: string
@@ -10098,16 +10098,16 @@ class Client(BaseClient):
           ::
         
             {
-                'rules': [
+                \'rules\': [
                     {
-                        'ruleArn': 'string',
-                        'ruleName': 'string',
-                        'topicPattern': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'ruleDisabled': True|False
+                        \'ruleArn\': \'string\',
+                        \'ruleName\': \'string\',
+                        \'topicPattern\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'ruleDisabled\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10159,8 +10159,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_v2_logging_levels(
-              targetType='DEFAULT'|'THING_GROUP',
-              nextToken='string',
+              targetType=\'DEFAULT\'|\'THING_GROUP\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type targetType: string
@@ -10186,16 +10186,16 @@ class Client(BaseClient):
           ::
         
             {
-                'logTargetConfigurations': [
+                \'logTargetConfigurations\': [
                     {
-                        'logTarget': {
-                            'targetType': 'DEFAULT'|'THING_GROUP',
-                            'targetName': 'string'
+                        \'logTarget\': {
+                            \'targetType\': \'DEFAULT\'|\'THING_GROUP\',
+                            \'targetName\': \'string\'
                         },
-                        'logLevel': 'DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED'
+                        \'logLevel\': \'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10243,9 +10243,9 @@ class Client(BaseClient):
           response = client.list_violation_events(
               startTime=datetime(2015, 1, 1),
               endTime=datetime(2015, 1, 1),
-              thingName='string',
-              securityProfileName='string',
-              nextToken='string',
+              thingName=\'string\',
+              securityProfileName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type startTime: datetime
@@ -10286,42 +10286,42 @@ class Client(BaseClient):
           ::
         
             {
-                'violationEvents': [
+                \'violationEvents\': [
                     {
-                        'violationId': 'string',
-                        'thingName': 'string',
-                        'securityProfileName': 'string',
-                        'behavior': {
-                            'name': 'string',
-                            'metric': 'string',
-                            'criteria': {
-                                'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                                'value': {
-                                    'count': 123,
-                                    'cidrs': [
-                                        'string',
+                        \'violationId\': \'string\',
+                        \'thingName\': \'string\',
+                        \'securityProfileName\': \'string\',
+                        \'behavior\': {
+                            \'name\': \'string\',
+                            \'metric\': \'string\',
+                            \'criteria\': {
+                                \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                                \'value\': {
+                                    \'count\': 123,
+                                    \'cidrs\': [
+                                        \'string\',
                                     ],
-                                    'ports': [
+                                    \'ports\': [
                                         123,
                                     ]
                                 },
-                                'durationSeconds': 123
+                                \'durationSeconds\': 123
                             }
                         },
-                        'metricValue': {
-                            'count': 123,
-                            'cidrs': [
-                                'string',
+                        \'metricValue\': {
+                            \'count\': 123,
+                            \'cidrs\': [
+                                \'string\',
                             ],
-                            'ports': [
+                            \'ports\': [
                                 123,
                             ]
                         },
-                        'violationEventType': 'in-alarm'|'alarm-cleared'|'alarm-invalidated',
-                        'violationEventTime': datetime(2015, 1, 1)
+                        \'violationEventType\': \'in-alarm\'|\'alarm-cleared\'|\'alarm-invalidated\',
+                        \'violationEventTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -10435,13 +10435,13 @@ class Client(BaseClient):
         ::
         
           response = client.register_ca_certificate(
-              caCertificate='string',
-              verificationCertificate='string',
+              caCertificate=\'string\',
+              verificationCertificate=\'string\',
               setAsActive=True|False,
               allowAutoRegistration=True|False,
               registrationConfig={
-                  'templateBody': 'string',
-                  'roleArn': 'string'
+                  \'templateBody\': \'string\',
+                  \'roleArn\': \'string\'
               }
           )
         :type caCertificate: string
@@ -10485,8 +10485,8 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateArn': 'string',
-                'certificateId': 'string'
+                \'certificateArn\': \'string\',
+                \'certificateId\': \'string\'
             }
           **Response Structure** 
         
@@ -10514,10 +10514,10 @@ class Client(BaseClient):
         ::
         
           response = client.register_certificate(
-              certificatePem='string',
-              caCertificatePem='string',
+              certificatePem=\'string\',
+              caCertificatePem=\'string\',
               setAsActive=True|False,
-              status='ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION'
+              status=\'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\'
           )
         :type certificatePem: string
         :param certificatePem: **[REQUIRED]** 
@@ -10547,8 +10547,8 @@ class Client(BaseClient):
           ::
         
             {
-                'certificateArn': 'string',
-                'certificateId': 'string'
+                \'certificateArn\': \'string\',
+                \'certificateId\': \'string\'
             }
           **Response Structure** 
         
@@ -10576,9 +10576,9 @@ class Client(BaseClient):
         ::
         
           response = client.register_thing(
-              templateBody='string',
+              templateBody=\'string\',
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type templateBody: string
@@ -10603,9 +10603,9 @@ class Client(BaseClient):
           ::
         
             {
-                'certificatePem': 'string',
-                'resourceArns': {
-                    'string': 'string'
+                \'certificatePem\': \'string\',
+                \'resourceArns\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10632,7 +10632,7 @@ class Client(BaseClient):
         
         To check for pending certificate transfers, call  ListCertificates to enumerate your certificates.
         
-        This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.
+        This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source\'s account in the INACTIVE state.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/RejectCertificateTransfer>`_
         
@@ -10640,8 +10640,8 @@ class Client(BaseClient):
         ::
         
           response = client.reject_certificate_transfer(
-              certificateId='string',
-              rejectReason='string'
+              certificateId=\'string\',
+              rejectReason=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -10666,10 +10666,10 @@ class Client(BaseClient):
         ::
         
           response = client.remove_thing_from_thing_group(
-              thingGroupName='string',
-              thingGroupArn='string',
-              thingName='string',
-              thingArn='string'
+              thingGroupName=\'string\',
+              thingGroupArn=\'string\',
+              thingName=\'string\',
+              thingArn=\'string\'
           )
         :type thingGroupName: string
         :param thingGroupName: 
@@ -10714,188 +10714,188 @@ class Client(BaseClient):
         ::
         
           response = client.replace_topic_rule(
-              ruleName='string',
+              ruleName=\'string\',
               topicRulePayload={
-                  'sql': 'string',
-                  'description': 'string',
-                  'actions': [
+                  \'sql\': \'string\',
+                  \'description\': \'string\',
+                  \'actions\': [
                       {
-                          'dynamoDB': {
-                              'tableName': 'string',
-                              'roleArn': 'string',
-                              'operation': 'string',
-                              'hashKeyField': 'string',
-                              'hashKeyValue': 'string',
-                              'hashKeyType': 'STRING'|'NUMBER',
-                              'rangeKeyField': 'string',
-                              'rangeKeyValue': 'string',
-                              'rangeKeyType': 'STRING'|'NUMBER',
-                              'payloadField': 'string'
+                          \'dynamoDB\': {
+                              \'tableName\': \'string\',
+                              \'roleArn\': \'string\',
+                              \'operation\': \'string\',
+                              \'hashKeyField\': \'string\',
+                              \'hashKeyValue\': \'string\',
+                              \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                              \'rangeKeyField\': \'string\',
+                              \'rangeKeyValue\': \'string\',
+                              \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                              \'payloadField\': \'string\'
                           },
-                          'dynamoDBv2': {
-                              'roleArn': 'string',
-                              'putItem': {
-                                  'tableName': 'string'
+                          \'dynamoDBv2\': {
+                              \'roleArn\': \'string\',
+                              \'putItem\': {
+                                  \'tableName\': \'string\'
                               }
                           },
-                          'lambda': {
-                              'functionArn': 'string'
+                          \'lambda\': {
+                              \'functionArn\': \'string\'
                           },
-                          'sns': {
-                              'targetArn': 'string',
-                              'roleArn': 'string',
-                              'messageFormat': 'RAW'|'JSON'
+                          \'sns\': {
+                              \'targetArn\': \'string\',
+                              \'roleArn\': \'string\',
+                              \'messageFormat\': \'RAW\'|\'JSON\'
                           },
-                          'sqs': {
-                              'roleArn': 'string',
-                              'queueUrl': 'string',
-                              'useBase64': True|False
+                          \'sqs\': {
+                              \'roleArn\': \'string\',
+                              \'queueUrl\': \'string\',
+                              \'useBase64\': True|False
                           },
-                          'kinesis': {
-                              'roleArn': 'string',
-                              'streamName': 'string',
-                              'partitionKey': 'string'
+                          \'kinesis\': {
+                              \'roleArn\': \'string\',
+                              \'streamName\': \'string\',
+                              \'partitionKey\': \'string\'
                           },
-                          'republish': {
-                              'roleArn': 'string',
-                              'topic': 'string'
+                          \'republish\': {
+                              \'roleArn\': \'string\',
+                              \'topic\': \'string\'
                           },
-                          's3': {
-                              'roleArn': 'string',
-                              'bucketName': 'string',
-                              'key': 'string',
-                              'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                          \'s3\': {
+                              \'roleArn\': \'string\',
+                              \'bucketName\': \'string\',
+                              \'key\': \'string\',
+                              \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                           },
-                          'firehose': {
-                              'roleArn': 'string',
-                              'deliveryStreamName': 'string',
-                              'separator': 'string'
+                          \'firehose\': {
+                              \'roleArn\': \'string\',
+                              \'deliveryStreamName\': \'string\',
+                              \'separator\': \'string\'
                           },
-                          'cloudwatchMetric': {
-                              'roleArn': 'string',
-                              'metricNamespace': 'string',
-                              'metricName': 'string',
-                              'metricValue': 'string',
-                              'metricUnit': 'string',
-                              'metricTimestamp': 'string'
+                          \'cloudwatchMetric\': {
+                              \'roleArn\': \'string\',
+                              \'metricNamespace\': \'string\',
+                              \'metricName\': \'string\',
+                              \'metricValue\': \'string\',
+                              \'metricUnit\': \'string\',
+                              \'metricTimestamp\': \'string\'
                           },
-                          'cloudwatchAlarm': {
-                              'roleArn': 'string',
-                              'alarmName': 'string',
-                              'stateReason': 'string',
-                              'stateValue': 'string'
+                          \'cloudwatchAlarm\': {
+                              \'roleArn\': \'string\',
+                              \'alarmName\': \'string\',
+                              \'stateReason\': \'string\',
+                              \'stateValue\': \'string\'
                           },
-                          'elasticsearch': {
-                              'roleArn': 'string',
-                              'endpoint': 'string',
-                              'index': 'string',
-                              'type': 'string',
-                              'id': 'string'
+                          \'elasticsearch\': {
+                              \'roleArn\': \'string\',
+                              \'endpoint\': \'string\',
+                              \'index\': \'string\',
+                              \'type\': \'string\',
+                              \'id\': \'string\'
                           },
-                          'salesforce': {
-                              'token': 'string',
-                              'url': 'string'
+                          \'salesforce\': {
+                              \'token\': \'string\',
+                              \'url\': \'string\'
                           },
-                          'iotAnalytics': {
-                              'channelArn': 'string',
-                              'channelName': 'string',
-                              'roleArn': 'string'
+                          \'iotAnalytics\': {
+                              \'channelArn\': \'string\',
+                              \'channelName\': \'string\',
+                              \'roleArn\': \'string\'
                           },
-                          'stepFunctions': {
-                              'executionNamePrefix': 'string',
-                              'stateMachineName': 'string',
-                              'roleArn': 'string'
+                          \'stepFunctions\': {
+                              \'executionNamePrefix\': \'string\',
+                              \'stateMachineName\': \'string\',
+                              \'roleArn\': \'string\'
                           }
                       },
                   ],
-                  'ruleDisabled': True|False,
-                  'awsIotSqlVersion': 'string',
-                  'errorAction': {
-                      'dynamoDB': {
-                          'tableName': 'string',
-                          'roleArn': 'string',
-                          'operation': 'string',
-                          'hashKeyField': 'string',
-                          'hashKeyValue': 'string',
-                          'hashKeyType': 'STRING'|'NUMBER',
-                          'rangeKeyField': 'string',
-                          'rangeKeyValue': 'string',
-                          'rangeKeyType': 'STRING'|'NUMBER',
-                          'payloadField': 'string'
+                  \'ruleDisabled\': True|False,
+                  \'awsIotSqlVersion\': \'string\',
+                  \'errorAction\': {
+                      \'dynamoDB\': {
+                          \'tableName\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'operation\': \'string\',
+                          \'hashKeyField\': \'string\',
+                          \'hashKeyValue\': \'string\',
+                          \'hashKeyType\': \'STRING\'|\'NUMBER\',
+                          \'rangeKeyField\': \'string\',
+                          \'rangeKeyValue\': \'string\',
+                          \'rangeKeyType\': \'STRING\'|\'NUMBER\',
+                          \'payloadField\': \'string\'
                       },
-                      'dynamoDBv2': {
-                          'roleArn': 'string',
-                          'putItem': {
-                              'tableName': 'string'
+                      \'dynamoDBv2\': {
+                          \'roleArn\': \'string\',
+                          \'putItem\': {
+                              \'tableName\': \'string\'
                           }
                       },
-                      'lambda': {
-                          'functionArn': 'string'
+                      \'lambda\': {
+                          \'functionArn\': \'string\'
                       },
-                      'sns': {
-                          'targetArn': 'string',
-                          'roleArn': 'string',
-                          'messageFormat': 'RAW'|'JSON'
+                      \'sns\': {
+                          \'targetArn\': \'string\',
+                          \'roleArn\': \'string\',
+                          \'messageFormat\': \'RAW\'|\'JSON\'
                       },
-                      'sqs': {
-                          'roleArn': 'string',
-                          'queueUrl': 'string',
-                          'useBase64': True|False
+                      \'sqs\': {
+                          \'roleArn\': \'string\',
+                          \'queueUrl\': \'string\',
+                          \'useBase64\': True|False
                       },
-                      'kinesis': {
-                          'roleArn': 'string',
-                          'streamName': 'string',
-                          'partitionKey': 'string'
+                      \'kinesis\': {
+                          \'roleArn\': \'string\',
+                          \'streamName\': \'string\',
+                          \'partitionKey\': \'string\'
                       },
-                      'republish': {
-                          'roleArn': 'string',
-                          'topic': 'string'
+                      \'republish\': {
+                          \'roleArn\': \'string\',
+                          \'topic\': \'string\'
                       },
-                      's3': {
-                          'roleArn': 'string',
-                          'bucketName': 'string',
-                          'key': 'string',
-                          'cannedAcl': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control'|'log-delivery-write'
+                      \'s3\': {
+                          \'roleArn\': \'string\',
+                          \'bucketName\': \'string\',
+                          \'key\': \'string\',
+                          \'cannedAcl\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\'|\'log-delivery-write\'
                       },
-                      'firehose': {
-                          'roleArn': 'string',
-                          'deliveryStreamName': 'string',
-                          'separator': 'string'
+                      \'firehose\': {
+                          \'roleArn\': \'string\',
+                          \'deliveryStreamName\': \'string\',
+                          \'separator\': \'string\'
                       },
-                      'cloudwatchMetric': {
-                          'roleArn': 'string',
-                          'metricNamespace': 'string',
-                          'metricName': 'string',
-                          'metricValue': 'string',
-                          'metricUnit': 'string',
-                          'metricTimestamp': 'string'
+                      \'cloudwatchMetric\': {
+                          \'roleArn\': \'string\',
+                          \'metricNamespace\': \'string\',
+                          \'metricName\': \'string\',
+                          \'metricValue\': \'string\',
+                          \'metricUnit\': \'string\',
+                          \'metricTimestamp\': \'string\'
                       },
-                      'cloudwatchAlarm': {
-                          'roleArn': 'string',
-                          'alarmName': 'string',
-                          'stateReason': 'string',
-                          'stateValue': 'string'
+                      \'cloudwatchAlarm\': {
+                          \'roleArn\': \'string\',
+                          \'alarmName\': \'string\',
+                          \'stateReason\': \'string\',
+                          \'stateValue\': \'string\'
                       },
-                      'elasticsearch': {
-                          'roleArn': 'string',
-                          'endpoint': 'string',
-                          'index': 'string',
-                          'type': 'string',
-                          'id': 'string'
+                      \'elasticsearch\': {
+                          \'roleArn\': \'string\',
+                          \'endpoint\': \'string\',
+                          \'index\': \'string\',
+                          \'type\': \'string\',
+                          \'id\': \'string\'
                       },
-                      'salesforce': {
-                          'token': 'string',
-                          'url': 'string'
+                      \'salesforce\': {
+                          \'token\': \'string\',
+                          \'url\': \'string\'
                       },
-                      'iotAnalytics': {
-                          'channelArn': 'string',
-                          'channelName': 'string',
-                          'roleArn': 'string'
+                      \'iotAnalytics\': {
+                          \'channelArn\': \'string\',
+                          \'channelName\': \'string\',
+                          \'roleArn\': \'string\'
                       },
-                      'stepFunctions': {
-                          'executionNamePrefix': 'string',
-                          'stateMachineName': 'string',
-                          'roleArn': 'string'
+                      \'stepFunctions\': {
+                          \'executionNamePrefix\': \'string\',
+                          \'stateMachineName\': \'string\',
+                          \'roleArn\': \'string\'
                       }
                   }
               }
@@ -10952,7 +10952,7 @@ class Client(BaseClient):
         
                 - **hashKeyType** *(string) --* 
         
-                  The hash key type. Valid values are "STRING" or "NUMBER"
+                  The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
                 - **rangeKeyField** *(string) --* 
         
@@ -10964,7 +10964,7 @@ class Client(BaseClient):
         
                 - **rangeKeyType** *(string) --* 
         
-                  The range key type. Valid values are "STRING" or "NUMBER"
+                  The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
                 - **payloadField** *(string) --* 
         
@@ -10982,7 +10982,7 @@ class Client(BaseClient):
         
                   Specifies the DynamoDB table to which the message data will be written. For example:
         
-                   ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                   ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                   Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -11012,7 +11012,7 @@ class Client(BaseClient):
         
                 - **messageFormat** *(string) --* 
         
-                  (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                  (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
               - **sqs** *(dict) --* 
         
@@ -11092,7 +11092,7 @@ class Client(BaseClient):
         
                 - **separator** *(string) --* 
         
-                  A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                  A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
               - **cloudwatchMetric** *(dict) --* 
         
@@ -11208,7 +11208,7 @@ class Client(BaseClient):
         
                 - **roleArn** *(string) --* **[REQUIRED]** 
         
-                  The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                  The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
           - **ruleDisabled** *(boolean) --* 
         
@@ -11248,7 +11248,7 @@ class Client(BaseClient):
         
               - **hashKeyType** *(string) --* 
         
-                The hash key type. Valid values are "STRING" or "NUMBER"
+                The hash key type. Valid values are \"STRING\" or \"NUMBER\"
         
               - **rangeKeyField** *(string) --* 
         
@@ -11260,7 +11260,7 @@ class Client(BaseClient):
         
               - **rangeKeyType** *(string) --* 
         
-                The range key type. Valid values are "STRING" or "NUMBER"
+                The range key type. Valid values are \"STRING\" or \"NUMBER\"
         
               - **payloadField** *(string) --* 
         
@@ -11278,7 +11278,7 @@ class Client(BaseClient):
         
                 Specifies the DynamoDB table to which the message data will be written. For example:
         
-                 ``{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }``  
+                 ``{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }``  
         
                 Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         
@@ -11308,7 +11308,7 @@ class Client(BaseClient):
         
               - **messageFormat** *(string) --* 
         
-                (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
+                (Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see `http\://docs.aws.amazon.com/sns/latest/dg/json-formats.html <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html>`__ refer to their official documentation.
         
             - **sqs** *(dict) --* 
         
@@ -11388,7 +11388,7 @@ class Client(BaseClient):
         
               - **separator** *(string) --* 
         
-                A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+                A character separator that will be used to separate records written to the Firehose stream. Valid values are: \'\n\' (newline), \'\t\' (tab), \'\r\n\' (Windows newline), \',\' (comma).
         
             - **cloudwatchMetric** *(dict) --* 
         
@@ -11504,7 +11504,7 @@ class Client(BaseClient):
         
               - **roleArn** *(string) --* **[REQUIRED]** 
         
-                The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+                The ARN of the role that grants IoT permission to start execution of a state machine (\"Action\":\"states:StartExecution\").
         
         :returns: None
         """
@@ -11519,11 +11519,11 @@ class Client(BaseClient):
         ::
         
           response = client.search_index(
-              indexName='string',
-              queryString='string',
-              nextToken='string',
+              indexName=\'string\',
+              queryString=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              queryVersion='string'
+              queryVersion=\'string\'
           )
         :type indexName: string
         :param indexName: 
@@ -11558,31 +11558,31 @@ class Client(BaseClient):
           ::
         
             {
-                'nextToken': 'string',
-                'things': [
+                \'nextToken\': \'string\',
+                \'things\': [
                     {
-                        'thingName': 'string',
-                        'thingId': 'string',
-                        'thingTypeName': 'string',
-                        'thingGroupNames': [
-                            'string',
+                        \'thingName\': \'string\',
+                        \'thingId\': \'string\',
+                        \'thingTypeName\': \'string\',
+                        \'thingGroupNames\': [
+                            \'string\',
                         ],
-                        'attributes': {
-                            'string': 'string'
+                        \'attributes\': {
+                            \'string\': \'string\'
                         },
-                        'shadow': 'string'
+                        \'shadow\': \'string\'
                     },
                 ],
-                'thingGroups': [
+                \'thingGroups\': [
                     {
-                        'thingGroupName': 'string',
-                        'thingGroupId': 'string',
-                        'thingGroupDescription': 'string',
-                        'attributes': {
-                            'string': 'string'
+                        \'thingGroupName\': \'string\',
+                        \'thingGroupId\': \'string\',
+                        \'thingGroupDescription\': \'string\',
+                        \'attributes\': {
+                            \'string\': \'string\'
                         },
-                        'parentGroupNames': [
-                            'string',
+                        \'parentGroupNames\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -11679,7 +11679,7 @@ class Client(BaseClient):
         ::
         
           response = client.set_default_authorizer(
-              authorizerName='string'
+              authorizerName=\'string\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -11694,8 +11694,8 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizerName': 'string',
-                'authorizerArn': 'string'
+                \'authorizerName\': \'string\',
+                \'authorizerArn\': \'string\'
             }
           **Response Structure** 
         
@@ -11721,8 +11721,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_default_policy_version(
-              policyName='string',
-              policyVersionId='string'
+              policyName=\'string\',
+              policyVersionId=\'string\'
           )
         :type policyName: string
         :param policyName: **[REQUIRED]** 
@@ -11750,8 +11750,8 @@ class Client(BaseClient):
         
           response = client.set_logging_options(
               loggingOptionsPayload={
-                  'roleArn': 'string',
-                  'logLevel': 'DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED'
+                  \'roleArn\': \'string\',
+                  \'logLevel\': \'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\'
               }
           )
         :type loggingOptionsPayload: dict
@@ -11781,10 +11781,10 @@ class Client(BaseClient):
         
           response = client.set_v2_logging_level(
               logTarget={
-                  'targetType': 'DEFAULT'|'THING_GROUP',
-                  'targetName': 'string'
+                  \'targetType\': \'DEFAULT\'|\'THING_GROUP\',
+                  \'targetName\': \'string\'
               },
-              logLevel='DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED'
+              logLevel=\'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\'
           )
         :type logTarget: dict
         :param logTarget: **[REQUIRED]** 
@@ -11817,8 +11817,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_v2_logging_options(
-              roleArn='string',
-              defaultLogLevel='DEBUG'|'INFO'|'ERROR'|'WARN'|'DISABLED',
+              roleArn=\'string\',
+              defaultLogLevel=\'DEBUG\'|\'INFO\'|\'ERROR\'|\'WARN\'|\'DISABLED\',
               disableAllLogs=True|False
           )
         :type roleArn: string
@@ -11850,7 +11850,7 @@ class Client(BaseClient):
         
           response = client.start_on_demand_audit_task(
               targetCheckNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type targetCheckNames: list
@@ -11870,7 +11870,7 @@ class Client(BaseClient):
           ::
         
             {
-                'taskId': 'string'
+                \'taskId\': \'string\'
             }
           **Response Structure** 
         
@@ -11892,10 +11892,10 @@ class Client(BaseClient):
         ::
         
           response = client.start_thing_registration_task(
-              templateBody='string',
-              inputFileBucket='string',
-              inputFileKey='string',
-              roleArn='string'
+              templateBody=\'string\',
+              inputFileBucket=\'string\',
+              inputFileKey=\'string\',
+              roleArn=\'string\'
           )
         :type templateBody: string
         :param templateBody: **[REQUIRED]** 
@@ -11925,7 +11925,7 @@ class Client(BaseClient):
           ::
         
             {
-                'taskId': 'string'
+                \'taskId\': \'string\'
             }
           **Response Structure** 
         
@@ -11947,7 +11947,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_thing_registration_task(
-              taskId='string'
+              taskId=\'string\'
           )
         :type taskId: string
         :param taskId: **[REQUIRED]** 
@@ -11977,22 +11977,22 @@ class Client(BaseClient):
         ::
         
           response = client.test_authorization(
-              principal='string',
-              cognitoIdentityPoolId='string',
+              principal=\'string\',
+              cognitoIdentityPoolId=\'string\',
               authInfos=[
                   {
-                      'actionType': 'PUBLISH'|'SUBSCRIBE'|'RECEIVE'|'CONNECT',
-                      'resources': [
-                          'string',
+                      \'actionType\': \'PUBLISH\'|\'SUBSCRIBE\'|\'RECEIVE\'|\'CONNECT\',
+                      \'resources\': [
+                          \'string\',
                       ]
                   },
               ],
-              clientId='string',
+              clientId=\'string\',
               policyNamesToAdd=[
-                  'string',
+                  \'string\',
               ],
               policyNamesToSkip=[
-                  'string',
+                  \'string\',
               ]
           )
         :type principal: string
@@ -12051,43 +12051,43 @@ class Client(BaseClient):
           ::
         
             {
-                'authResults': [
+                \'authResults\': [
                     {
-                        'authInfo': {
-                            'actionType': 'PUBLISH'|'SUBSCRIBE'|'RECEIVE'|'CONNECT',
-                            'resources': [
-                                'string',
+                        \'authInfo\': {
+                            \'actionType\': \'PUBLISH\'|\'SUBSCRIBE\'|\'RECEIVE\'|\'CONNECT\',
+                            \'resources\': [
+                                \'string\',
                             ]
                         },
-                        'allowed': {
-                            'policies': [
+                        \'allowed\': {
+                            \'policies\': [
                                 {
-                                    'policyName': 'string',
-                                    'policyArn': 'string'
+                                    \'policyName\': \'string\',
+                                    \'policyArn\': \'string\'
                                 },
                             ]
                         },
-                        'denied': {
-                            'implicitDeny': {
-                                'policies': [
+                        \'denied\': {
+                            \'implicitDeny\': {
+                                \'policies\': [
                                     {
-                                        'policyName': 'string',
-                                        'policyArn': 'string'
+                                        \'policyName\': \'string\',
+                                        \'policyArn\': \'string\'
                                     },
                                 ]
                             },
-                            'explicitDeny': {
-                                'policies': [
+                            \'explicitDeny\': {
+                                \'policies\': [
                                     {
-                                        'policyName': 'string',
-                                        'policyArn': 'string'
+                                        \'policyName\': \'string\',
+                                        \'policyArn\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'authDecision': 'ALLOWED'|'EXPLICIT_DENY'|'IMPLICIT_DENY',
-                        'missingContextValues': [
-                            'string',
+                        \'authDecision\': \'ALLOWED\'|\'EXPLICIT_DENY\'|\'IMPLICIT_DENY\',
+                        \'missingContextValues\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -12144,11 +12144,11 @@ class Client(BaseClient):
         
                   - **implicitDeny** *(dict) --* 
         
-                    Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+                    Information that implicitly denies the authorization. When a policy doesn\'t explicitly deny or allow an action on a resource it is considered an implicit deny.
         
                     - **policies** *(list) --* 
         
-                      Policies that don't contain a matching allow or deny statement for the specified action on the specified resource. 
+                      Policies that don\'t contain a matching allow or deny statement for the specified action on the specified resource. 
         
                       - *(dict) --* 
         
@@ -12204,9 +12204,9 @@ class Client(BaseClient):
         ::
         
           response = client.test_invoke_authorizer(
-              authorizerName='string',
-              token='string',
-              tokenSignature='string'
+              authorizerName=\'string\',
+              token=\'string\',
+              tokenSignature=\'string\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -12221,7 +12221,7 @@ class Client(BaseClient):
         :type tokenSignature: string
         :param tokenSignature: **[REQUIRED]** 
         
-          The signature made with the token and your custom authentication service's private key.
+          The signature made with the token and your custom authentication service\'s private key.
         
         :rtype: dict
         :returns: 
@@ -12231,13 +12231,13 @@ class Client(BaseClient):
           ::
         
             {
-                'isAuthenticated': True|False,
-                'principalId': 'string',
-                'policyDocuments': [
-                    'string',
+                \'isAuthenticated\': True|False,
+                \'principalId\': \'string\',
+                \'policyDocuments\': [
+                    \'string\',
                 ],
-                'refreshAfterInSeconds': 123,
-                'disconnectAfterInSeconds': 123
+                \'refreshAfterInSeconds\': 123,
+                \'disconnectAfterInSeconds\': 123
             }
           **Response Structure** 
         
@@ -12273,7 +12273,7 @@ class Client(BaseClient):
         
         You can cancel the transfer until it is acknowledged by the recipient.
         
-        No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.
+        No notification is sent to the transfer destination\'s account. It is up to the caller to notify the transfer target.
         
         The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.
         
@@ -12285,9 +12285,9 @@ class Client(BaseClient):
         ::
         
           response = client.transfer_certificate(
-              certificateId='string',
-              targetAwsAccount='string',
-              transferMessage='string'
+              certificateId=\'string\',
+              targetAwsAccount=\'string\',
+              transferMessage=\'string\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -12312,7 +12312,7 @@ class Client(BaseClient):
           ::
         
             {
-                'transferredCertificateArn': 'string'
+                \'transferredCertificateArn\': \'string\'
             }
           **Response Structure** 
         
@@ -12336,17 +12336,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_account_audit_configuration(
-              roleArn='string',
+              roleArn=\'string\',
               auditNotificationTargetConfigurations={
-                  'string': {
-                      'targetArn': 'string',
-                      'roleArn': 'string',
-                      'enabled': True|False
+                  \'string\': {
+                      \'targetArn\': \'string\',
+                      \'roleArn\': \'string\',
+                      \'enabled\': True|False
                   }
               },
               auditCheckConfigurations={
-                  'string': {
-                      'enabled': True|False
+                  \'string\': {
+                      \'enabled\': True|False
                   }
               }
           )
@@ -12424,13 +12424,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_authorizer(
-              authorizerName='string',
-              authorizerFunctionArn='string',
-              tokenKeyName='string',
+              authorizerName=\'string\',
+              authorizerFunctionArn=\'string\',
+              tokenKeyName=\'string\',
               tokenSigningPublicKeys={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              status='ACTIVE'|'INACTIVE'
+              status=\'ACTIVE\'|\'INACTIVE\'
           )
         :type authorizerName: string
         :param authorizerName: **[REQUIRED]** 
@@ -12440,7 +12440,7 @@ class Client(BaseClient):
         :type authorizerFunctionArn: string
         :param authorizerFunctionArn: 
         
-          The ARN of the authorizer's Lambda function.
+          The ARN of the authorizer\'s Lambda function.
         
         :type tokenKeyName: string
         :param tokenKeyName: 
@@ -12469,8 +12469,8 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizerName': 'string',
-                'authorizerArn': 'string'
+                \'authorizerName\': \'string\',
+                \'authorizerArn\': \'string\'
             }
           **Response Structure** 
         
@@ -12496,12 +12496,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_ca_certificate(
-              certificateId='string',
-              newStatus='ACTIVE'|'INACTIVE',
-              newAutoRegistrationStatus='ENABLE'|'DISABLE',
+              certificateId=\'string\',
+              newStatus=\'ACTIVE\'|\'INACTIVE\',
+              newAutoRegistrationStatus=\'ENABLE\'|\'DISABLE\',
               registrationConfig={
-                  'templateBody': 'string',
-                  'roleArn': 'string'
+                  \'templateBody\': \'string\',
+                  \'roleArn\': \'string\'
               },
               removeAutoRegistration=True|False
           )
@@ -12520,7 +12520,7 @@ class Client(BaseClient):
         :type newAutoRegistrationStatus: string
         :param newAutoRegistrationStatus: 
         
-          The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
+          The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".
         
         :type registrationConfig: dict
         :param registrationConfig: 
@@ -12557,8 +12557,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_certificate(
-              certificateId='string',
-              newStatus='ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION'
+              certificateId=\'string\',
+              newStatus=\'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\'
           )
         :type certificateId: string
         :param certificateId: **[REQUIRED]** 
@@ -12588,8 +12588,8 @@ class Client(BaseClient):
         
           response = client.update_event_configurations(
               eventConfigurations={
-                  'string': {
-                      'Enabled': True|False
+                  \'string\': {
+                      \'Enabled\': True|False
                   }
               }
           )
@@ -12632,10 +12632,10 @@ class Client(BaseClient):
         
           response = client.update_indexing_configuration(
               thingIndexingConfiguration={
-                  'thingIndexingMode': 'OFF'|'REGISTRY'|'REGISTRY_AND_SHADOW'
+                  \'thingIndexingMode\': \'OFF\'|\'REGISTRY\'|\'REGISTRY_AND_SHADOW\'
               },
               thingGroupIndexingConfiguration={
-                  'thingGroupIndexingMode': 'OFF'|'ON'
+                  \'thingGroupIndexingMode\': \'OFF\'|\'ON\'
               }
           )
         :type thingIndexingConfiguration: dict
@@ -12685,8 +12685,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_role_alias(
-              roleAlias='string',
-              roleArn='string',
+              roleAlias=\'string\',
+              roleArn=\'string\',
               credentialDurationSeconds=123
           )
         :type roleAlias: string
@@ -12712,8 +12712,8 @@ class Client(BaseClient):
           ::
         
             {
-                'roleAlias': 'string',
-                'roleAliasArn': 'string'
+                \'roleAlias\': \'string\',
+                \'roleAliasArn\': \'string\'
             }
           **Response Structure** 
         
@@ -12739,28 +12739,28 @@ class Client(BaseClient):
         ::
         
           response = client.update_scheduled_audit(
-              frequency='DAILY'|'WEEKLY'|'BIWEEKLY'|'MONTHLY',
-              dayOfMonth='string',
-              dayOfWeek='SUN'|'MON'|'TUE'|'WED'|'THU'|'FRI'|'SAT',
+              frequency=\'DAILY\'|\'WEEKLY\'|\'BIWEEKLY\'|\'MONTHLY\',
+              dayOfMonth=\'string\',
+              dayOfWeek=\'SUN\'|\'MON\'|\'TUE\'|\'WED\'|\'THU\'|\'FRI\'|\'SAT\',
               targetCheckNames=[
-                  'string',
+                  \'string\',
               ],
-              scheduledAuditName='string'
+              scheduledAuditName=\'string\'
           )
         :type frequency: string
         :param frequency: 
         
-          How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The actual start time of each audit is determined by the system.
+          How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.
         
         :type dayOfMonth: string
         :param dayOfMonth: 
         
-          The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+          The day of the month on which the scheduled audit takes place. Can be \"1\" through \"31\" or \"LAST\". This field is required if the \"frequency\" parameter is set to \"MONTHLY\". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the \"LAST\" day of the month.
         
         :type dayOfWeek: string
         :param dayOfWeek: 
         
-          The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI" or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
+          The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".
         
         :type targetCheckNames: list
         :param targetCheckNames: 
@@ -12784,7 +12784,7 @@ class Client(BaseClient):
           ::
         
             {
-                'scheduledAuditArn': 'string'
+                \'scheduledAuditArn\': \'string\'
             }
           **Response Structure** 
         
@@ -12806,31 +12806,31 @@ class Client(BaseClient):
         ::
         
           response = client.update_security_profile(
-              securityProfileName='string',
-              securityProfileDescription='string',
+              securityProfileName=\'string\',
+              securityProfileDescription=\'string\',
               behaviors=[
                   {
-                      'name': 'string',
-                      'metric': 'string',
-                      'criteria': {
-                          'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                          'value': {
-                              'count': 123,
-                              'cidrs': [
-                                  'string',
+                      \'name\': \'string\',
+                      \'metric\': \'string\',
+                      \'criteria\': {
+                          \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                          \'value\': {
+                              \'count\': 123,
+                              \'cidrs\': [
+                                  \'string\',
                               ],
-                              'ports': [
+                              \'ports\': [
                                   123,
                               ]
                           },
-                          'durationSeconds': 123
+                          \'durationSeconds\': 123
                       }
                   },
               ],
               alertTargets={
-                  'string': {
-                      'alertTargetArn': 'string',
-                      'roleArn': 'string'
+                  \'string\': {
+                      \'alertTargetArn\': \'string\',
+                      \'roleArn\': \'string\'
                   }
               },
               expectedVersion=123
@@ -12901,7 +12901,7 @@ class Client(BaseClient):
         
           - *(string) --* 
         
-            The type of alert target: one of "SNS".
+            The type of alert target: one of \"SNS\".
         
             - *(dict) --* 
         
@@ -12928,37 +12928,37 @@ class Client(BaseClient):
           ::
         
             {
-                'securityProfileName': 'string',
-                'securityProfileArn': 'string',
-                'securityProfileDescription': 'string',
-                'behaviors': [
+                \'securityProfileName\': \'string\',
+                \'securityProfileArn\': \'string\',
+                \'securityProfileDescription\': \'string\',
+                \'behaviors\': [
                     {
-                        'name': 'string',
-                        'metric': 'string',
-                        'criteria': {
-                            'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                            'value': {
-                                'count': 123,
-                                'cidrs': [
-                                    'string',
+                        \'name\': \'string\',
+                        \'metric\': \'string\',
+                        \'criteria\': {
+                            \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                            \'value\': {
+                                \'count\': 123,
+                                \'cidrs\': [
+                                    \'string\',
                                 ],
-                                'ports': [
+                                \'ports\': [
                                     123,
                                 ]
                             },
-                            'durationSeconds': 123
+                            \'durationSeconds\': 123
                         }
                     },
                 ],
-                'alertTargets': {
-                    'string': {
-                        'alertTargetArn': 'string',
-                        'roleArn': 'string'
+                \'alertTargets\': {
+                    \'string\': {
+                        \'alertTargetArn\': \'string\',
+                        \'roleArn\': \'string\'
                     }
                 },
-                'version': 123,
-                'creationDate': datetime(2015, 1, 1),
-                'lastModifiedDate': datetime(2015, 1, 1)
+                \'version\': 123,
+                \'creationDate\': datetime(2015, 1, 1),
+                \'lastModifiedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -13030,7 +13030,7 @@ class Client(BaseClient):
         
               - *(string) --* 
         
-                The type of alert target: one of "SNS".
+                The type of alert target: one of \"SNS\".
         
                 - *(dict) --* 
         
@@ -13068,19 +13068,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_stream(
-              streamId='string',
-              description='string',
+              streamId=\'string\',
+              description=\'string\',
               files=[
                   {
-                      'fileId': 123,
-                      's3Location': {
-                          'bucket': 'string',
-                          'key': 'string',
-                          'version': 'string'
+                      \'fileId\': 123,
+                      \'s3Location\': {
+                          \'bucket\': \'string\',
+                          \'key\': \'string\',
+                          \'version\': \'string\'
                       }
                   },
               ],
-              roleArn='string'
+              roleArn=\'string\'
           )
         :type streamId: string
         :param streamId: **[REQUIRED]** 
@@ -13134,10 +13134,10 @@ class Client(BaseClient):
           ::
         
             {
-                'streamId': 'string',
-                'streamArn': 'string',
-                'description': 'string',
-                'streamVersion': 123
+                \'streamId\': \'string\',
+                \'streamArn\': \'string\',
+                \'description\': \'string\',
+                \'streamVersion\': 123
             }
           **Response Structure** 
         
@@ -13171,13 +13171,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_thing(
-              thingName='string',
-              thingTypeName='string',
+              thingName=\'string\',
+              thingTypeName=\'string\',
               attributePayload={
-                  'attributes': {
-                      'string': 'string'
+                  \'attributes\': {
+                      \'string\': \'string\'
                   },
-                  'merge': True|False
+                  \'merge\': True|False
               },
               expectedVersion=123,
               removeThingType=True|False
@@ -13197,7 +13197,7 @@ class Client(BaseClient):
         
           A list of thing attributes, a JSON string containing name-value pairs. For example:
         
-           ``{\"attributes\":{\"name1\":\"value2\"}}``  
+           ``{\\"attributes\\":{\\"name1\\":\\"value2\\"}}``  
         
           This data is used to add new attributes or update existing attributes.
         
@@ -13205,7 +13205,7 @@ class Client(BaseClient):
         
             A JSON string containing up to three key-value pair in JSON format. For example:
         
-             ``{\"attributes\":{\"string1\":\"string2\"}}``  
+             ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
             - *(string) --* 
         
@@ -13257,14 +13257,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_thing_group(
-              thingGroupName='string',
+              thingGroupName=\'string\',
               thingGroupProperties={
-                  'thingGroupDescription': 'string',
-                  'attributePayload': {
-                      'attributes': {
-                          'string': 'string'
+                  \'thingGroupDescription\': \'string\',
+                  \'attributePayload\': {
+                      \'attributes\': {
+                          \'string\': \'string\'
                       },
-                      'merge': True|False
+                      \'merge\': True|False
                   }
               },
               expectedVersion=123
@@ -13291,7 +13291,7 @@ class Client(BaseClient):
         
               A JSON string containing up to three key-value pair in JSON format. For example:
         
-               ``{\"attributes\":{\"string1\":\"string2\"}}``  
+               ``{\\"attributes\\":{\\"string1\\":\\"string2\\"}}``  
         
               - *(string) --* 
         
@@ -13320,7 +13320,7 @@ class Client(BaseClient):
           ::
         
             {
-                'version': 123
+                \'version\': 123
             }
           **Response Structure** 
         
@@ -13342,12 +13342,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_thing_groups_for_thing(
-              thingName='string',
+              thingName=\'string\',
               thingGroupsToAdd=[
-                  'string',
+                  \'string\',
               ],
               thingGroupsToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type thingName: string
@@ -13394,20 +13394,20 @@ class Client(BaseClient):
           response = client.validate_security_profile_behaviors(
               behaviors=[
                   {
-                      'name': 'string',
-                      'metric': 'string',
-                      'criteria': {
-                          'comparisonOperator': 'less-than'|'less-than-equals'|'greater-than'|'greater-than-equals'|'in-cidr-set'|'not-in-cidr-set'|'in-port-set'|'not-in-port-set',
-                          'value': {
-                              'count': 123,
-                              'cidrs': [
-                                  'string',
+                      \'name\': \'string\',
+                      \'metric\': \'string\',
+                      \'criteria\': {
+                          \'comparisonOperator\': \'less-than\'|\'less-than-equals\'|\'greater-than\'|\'greater-than-equals\'|\'in-cidr-set\'|\'not-in-cidr-set\'|\'in-port-set\'|\'not-in-port-set\',
+                          \'value\': {
+                              \'count\': 123,
+                              \'cidrs\': [
+                                  \'string\',
                               ],
-                              'ports': [
+                              \'ports\': [
                                   123,
                               ]
                           },
-                          'durationSeconds': 123
+                          \'durationSeconds\': 123
                       }
                   },
               ]
@@ -13469,10 +13469,10 @@ class Client(BaseClient):
           ::
         
             {
-                'valid': True|False,
-                'validationErrors': [
+                \'valid\': True|False,
+                \'validationErrors\': [
                     {
-                        'errorMessage': 'string'
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }

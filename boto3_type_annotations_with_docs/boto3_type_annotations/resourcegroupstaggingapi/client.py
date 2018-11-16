@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -41,7 +41,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -53,10 +53,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -76,19 +76,19 @@ class Client(BaseClient):
         ::
         
           response = client.get_resources(
-              PaginationToken='string',
+              PaginationToken=\'string\',
               TagFilters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ResourcesPerPage=123,
               TagsPerPage=123,
               ResourceTypeFilters=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PaginationToken: string
@@ -138,7 +138,7 @@ class Client(BaseClient):
         
           The constraints on the resources that you want returned. The format of each resource type is ``service[:resourceType]`` . For example, specifying a resource type of ``ec2`` returns all tagged Amazon EC2 resources (which includes tagged EC2 instances). Specifying a resource type of ``ec2:instance`` returns only EC2 instances. 
         
-          The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the *AWS General Reference* for the following:
+          The string for each service name and resource type is the same as that embedded in a resource\'s Amazon Resource Name (ARN). Consult the *AWS General Reference* for the following:
         
           * For a list of service name strings, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ . 
            
@@ -156,14 +156,14 @@ class Client(BaseClient):
           ::
         
             {
-                'PaginationToken': 'string',
-                'ResourceTagMappingList': [
+                \'PaginationToken\': \'string\',
+                \'ResourceTagMappingList\': [
                     {
-                        'ResourceARN': 'string',
-                        'Tags': [
+                        \'ResourceARN\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -217,7 +217,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_tag_keys(
-              PaginationToken='string'
+              PaginationToken=\'string\'
           )
         :type PaginationToken: string
         :param PaginationToken: 
@@ -232,9 +232,9 @@ class Client(BaseClient):
           ::
         
             {
-                'PaginationToken': 'string',
-                'TagKeys': [
-                    'string',
+                \'PaginationToken\': \'string\',
+                \'TagKeys\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -263,8 +263,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_tag_values(
-              PaginationToken='string',
-              Key='string'
+              PaginationToken=\'string\',
+              Key=\'string\'
           )
         :type PaginationToken: string
         :param PaginationToken: 
@@ -284,9 +284,9 @@ class Client(BaseClient):
           ::
         
             {
-                'PaginationToken': 'string',
-                'TagValues': [
-                    'string',
+                \'PaginationToken\': \'string\',
+                \'TagValues\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -337,10 +337,10 @@ class Client(BaseClient):
         
           response = client.tag_resources(
               ResourceARNList=[
-                  'string',
+                  \'string\',
               ],
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type ResourceARNList: list
@@ -367,11 +367,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedResourcesMap': {
-                    'string': {
-                        'StatusCode': 123,
-                        'ErrorCode': 'InternalServiceException'|'InvalidParameterException',
-                        'ErrorMessage': 'string'
+                \'FailedResourcesMap\': {
+                    \'string\': {
+                        \'StatusCode\': 123,
+                        \'ErrorCode\': \'InternalServiceException\'|\'InvalidParameterException\',
+                        \'ErrorMessage\': \'string\'
                     }
                 }
             }
@@ -419,10 +419,10 @@ class Client(BaseClient):
         
           response = client.untag_resources(
               ResourceARNList=[
-                  'string',
+                  \'string\',
               ],
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceARNList: list
@@ -447,11 +447,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedResourcesMap': {
-                    'string': {
-                        'StatusCode': 123,
-                        'ErrorCode': 'InternalServiceException'|'InvalidParameterException',
-                        'ErrorMessage': 'string'
+                \'FailedResourcesMap\': {
+                    \'string\': {
+                        \'StatusCode\': 123,
+                        \'ErrorCode\': \'InternalServiceException\'|\'InvalidParameterException\',
+                        \'ErrorMessage\': \'string\'
                     }
                 }
             }

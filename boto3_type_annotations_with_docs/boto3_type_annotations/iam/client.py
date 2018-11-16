@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -20,8 +20,8 @@ class Client(BaseClient):
         ::
         
           response = client.add_client_id_to_open_id_connect_provider(
-              OpenIDConnectProviderArn='string',
-              ClientID='string'
+              OpenIDConnectProviderArn=\'string\',
+              ClientID=\'string\'
           )
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]** 
@@ -52,8 +52,8 @@ class Client(BaseClient):
         ::
         
           response = client.add_role_to_instance_profile(
-              InstanceProfileName='string',
-              RoleName='string'
+              InstanceProfileName=\'string\',
+              RoleName=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -82,8 +82,8 @@ class Client(BaseClient):
         ::
         
           response = client.add_user_to_group(
-              GroupName='string',
-              UserName='string'
+              GroupName=\'string\',
+              UserName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -116,8 +116,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_group_policy(
-              GroupName='string',
-              PolicyArn='string'
+              GroupName=\'string\',
+              PolicyArn=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -142,7 +142,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
+          You cannot use a managed policy as the role\'s trust policy. The role\'s trust policy is created at the same time as the role, using  CreateRole . You can update a role\'s trust policy using  UpdateAssumeRolePolicy .
         
         Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -152,8 +152,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_role_policy(
-              RoleName='string',
-              PolicyArn='string'
+              RoleName=\'string\',
+              PolicyArn=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -186,8 +186,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_user_policy(
-              UserName='string',
-              PolicyArn='string'
+              UserName=\'string\',
+              PolicyArn=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -213,10 +213,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -234,18 +234,18 @@ class Client(BaseClient):
         ::
         
           response = client.change_password(
-              OldPassword='string',
-              NewPassword='string'
+              OldPassword=\'string\',
+              NewPassword=\'string\'
           )
         :type OldPassword: string
         :param OldPassword: **[REQUIRED]** 
         
-          The IAM user's current password.
+          The IAM user\'s current password.
         
         :type NewPassword: string
         :param NewPassword: **[REQUIRED]** 
         
-          The new password. The new password must conform to the AWS account's password policy, if one exists.
+          The new password. The new password must conform to the AWS account\'s password policy, if one exists.
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
         
@@ -270,7 +270,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_access_key(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -287,12 +287,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AccessKey': {
-                    'UserName': 'string',
-                    'AccessKeyId': 'string',
-                    'Status': 'Active'|'Inactive',
-                    'SecretAccessKey': 'string',
-                    'CreateDate': datetime(2015, 1, 1)
+                \'AccessKey\': {
+                    \'UserName\': \'string\',
+                    \'AccessKeyId\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\',
+                    \'SecretAccessKey\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -337,7 +337,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_account_alias(
-              AccountAlias='string'
+              AccountAlias=\'string\'
           )
         :type AccountAlias: string
         :param AccountAlias: **[REQUIRED]** 
@@ -361,8 +361,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_group(
-              Path='string',
-              GroupName='string'
+              Path=\'string\',
+              GroupName=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -378,7 +378,7 @@ class Client(BaseClient):
         
           The name of the group to create. Do not include the path in this value.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both \"ADMINS\" and \"admins\".
         
         :rtype: dict
         :returns: 
@@ -388,12 +388,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'Path': 'string',
-                    'GroupName': 'string',
-                    'GroupId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'Path\': \'string\',
+                    \'GroupName\': \'string\',
+                    \'GroupId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -440,8 +440,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_instance_profile(
-              InstanceProfileName='string',
-              Path='string'
+              InstanceProfileName=\'string\',
+              Path=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -467,25 +467,25 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceProfile': {
-                    'Path': 'string',
-                    'InstanceProfileName': 'string',
-                    'InstanceProfileId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'Roles': [
+                \'InstanceProfile\': {
+                    \'Path\': \'string\',
+                    \'InstanceProfileName\': \'string\',
+                    \'InstanceProfileId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'Roles\': [
                         {
-                            'Path': 'string',
-                            'RoleName': 'string',
-                            'RoleId': 'string',
-                            'Arn': 'string',
-                            'CreateDate': datetime(2015, 1, 1),
-                            'AssumeRolePolicyDocument': 'string',
-                            'Description': 'string',
-                            'MaxSessionDuration': 123,
-                            'PermissionsBoundary': {
-                                'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                'PermissionsBoundaryArn': 'string'
+                            \'Path\': \'string\',
+                            \'RoleName\': \'string\',
+                            \'RoleId\': \'string\',
+                            \'Arn\': \'string\',
+                            \'CreateDate\': datetime(2015, 1, 1),
+                            \'AssumeRolePolicyDocument\': \'string\',
+                            \'Description\': \'string\',
+                            \'MaxSessionDuration\': 123,
+                            \'PermissionsBoundary\': {
+                                \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                \'PermissionsBoundaryArn\': \'string\'
                             }
                         },
                     ]
@@ -587,8 +587,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_login_profile(
-              UserName='string',
-              Password='string',
+              UserName=\'string\',
+              Password=\'string\',
               PasswordResetRequired=True|False
           )
         :type UserName: string
@@ -618,10 +618,10 @@ class Client(BaseClient):
           ::
         
             {
-                'LoginProfile': {
-                    'UserName': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'PasswordResetRequired': True|False
+                \'LoginProfile\': {
+                    \'UserName\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'PasswordResetRequired\': True|False
                 }
             }
           **Response Structure** 
@@ -652,7 +652,7 @@ class Client(BaseClient):
     def create_open_id_connect_provider(self, Url: str, ThumbprintList: List, ClientIDList: List = None) -> Dict:
         """
         
-        The OIDC provider that you create with this operation can be used as a principal in a role's trust policy. Such a policy establishes a trust relationship between AWS and the OIDC provider.
+        The OIDC provider that you create with this operation can be used as a principal in a role\'s trust policy. Such a policy establishes a trust relationship between AWS and the OIDC provider.
         
         When you create the IAM OIDC provider, you specify the following:
         
@@ -674,25 +674,25 @@ class Client(BaseClient):
         ::
         
           response = client.create_open_id_connect_provider(
-              Url='string',
+              Url=\'string\',
               ClientIDList=[
-                  'string',
+                  \'string\',
               ],
               ThumbprintList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Url: string
         :param Url: **[REQUIRED]** 
         
-          The URL of the identity provider. The URL must begin with ``https://`` and should correspond to the ``iss`` claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like ``https://server.example.org`` or ``https://example.com`` .
+          The URL of the identity provider. The URL must begin with ``https://`` and should correspond to the ``iss`` claim in the provider\'s OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like ``https://server.example.org`` or ``https://example.com`` .
         
           You cannot register the same provider multiple times in a single AWS account. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
         
         :type ClientIDList: list
         :param ClientIDList: 
         
-          A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the ``client_id`` parameter on OAuth requests.)
+          A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that\'s sent as the ``client_id`` parameter on OAuth requests.)
         
           You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
         
@@ -703,19 +703,19 @@ class Client(BaseClient):
         :type ThumbprintList: list
         :param ThumbprintList: **[REQUIRED]** 
         
-          A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
+          A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider\'s server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
         
           The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
         
           You must provide at least one thumbprint when creating an IAM OIDC provider. For example, assume that the OIDC provider is ``server.example.com`` and the provider stores its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com.
         
-          For more information about obtaining the OIDC provider's thumbprint, see `Obtaining the Thumbprint for an OpenID Connect Provider <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html>`__ in the *IAM User Guide* .
+          For more information about obtaining the OIDC provider\'s thumbprint, see `Obtaining the Thumbprint for an OpenID Connect Provider <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html>`__ in the *IAM User Guide* .
         
           - *(string) --* 
         
-            Contains a thumbprint for an identity provider's server certificate.
+            Contains a thumbprint for an identity provider\'s server certificate.
         
-            The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
+            The identity provider\'s server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
         
         :rtype: dict
         :returns: 
@@ -725,7 +725,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OpenIDConnectProviderArn': 'string'
+                \'OpenIDConnectProviderArn\': \'string\'
             }
           **Response Structure** 
         
@@ -743,7 +743,7 @@ class Client(BaseClient):
     def create_policy(self, PolicyName: str, PolicyDocument: str, Path: str = None, Description: str = None) -> Dict:
         """
         
-        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy\'s default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         
         For more information about managed policies in general, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -753,10 +753,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_policy(
-              PolicyName='string',
-              Path='string',
-              PolicyDocument='string',
-              Description='string'
+              PolicyName=\'string\',
+              Path=\'string\',
+              PolicyDocument=\'string\',
+              Description=\'string\'
           )
         :type PolicyName: string
         :param PolicyName: **[REQUIRED]** 
@@ -794,7 +794,7 @@ class Client(BaseClient):
         
           A friendly description of the policy.
         
-          Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+          Typically used to store information about the permissions defined in the policy. For example, \"Grants access to production DynamoDB tables.\"
         
           The policy description is immutable. After a value is assigned, it cannot be changed.
         
@@ -806,18 +806,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicyName': 'string',
-                    'PolicyId': 'string',
-                    'Arn': 'string',
-                    'Path': 'string',
-                    'DefaultVersionId': 'string',
-                    'AttachmentCount': 123,
-                    'PermissionsBoundaryUsageCount': 123,
-                    'IsAttachable': True|False,
-                    'Description': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'UpdateDate': datetime(2015, 1, 1)
+                \'Policy\': {
+                    \'PolicyName\': \'string\',
+                    \'PolicyId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Path\': \'string\',
+                    \'DefaultVersionId\': \'string\',
+                    \'AttachmentCount\': 123,
+                    \'PermissionsBoundaryUsageCount\': 123,
+                    \'IsAttachable\': True|False,
+                    \'Description\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'UpdateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -892,7 +892,7 @@ class Client(BaseClient):
     def create_policy_version(self, PolicyArn: str, PolicyDocument: str, SetAsDefault: bool = None) -> Dict:
         """
         
-        Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
+        Optionally, you can set the new version as the policy\'s default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
         
         For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         
@@ -902,8 +902,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_policy_version(
-              PolicyArn='string',
-              PolicyDocument='string',
+              PolicyArn=\'string\',
+              PolicyDocument=\'string\',
               SetAsDefault=True|False
           )
         :type PolicyArn: string
@@ -929,7 +929,7 @@ class Client(BaseClient):
         :type SetAsDefault: boolean
         :param SetAsDefault: 
         
-          Specifies whether to set this version as the policy's default version.
+          Specifies whether to set this version as the policy\'s default version.
         
           When this parameter is ``true`` , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
         
@@ -943,11 +943,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyVersion': {
-                    'Document': 'string',
-                    'VersionId': 'string',
-                    'IsDefaultVersion': True|False,
-                    'CreateDate': datetime(2015, 1, 1)
+                \'PolicyVersion\': {
+                    \'Document\': \'string\',
+                    \'VersionId\': \'string\',
+                    \'IsDefaultVersion\': True|False,
+                    \'CreateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -976,7 +976,7 @@ class Client(BaseClient):
         
               - **IsDefaultVersion** *(boolean) --* 
         
-                Specifies whether the policy version is set as the policy's default version.
+                Specifies whether the policy version is set as the policy\'s default version.
         
               - **CreateDate** *(datetime) --* 
         
@@ -994,12 +994,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_role(
-              Path='string',
-              RoleName='string',
-              AssumeRolePolicyDocument='string',
-              Description='string',
+              Path=\'string\',
+              RoleName=\'string\',
+              AssumeRolePolicyDocument=\'string\',
+              Description=\'string\',
               MaxSessionDuration=123,
-              PermissionsBoundary='string'
+              PermissionsBoundary=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -1017,7 +1017,7 @@ class Client(BaseClient):
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
-          Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
+          Role names are not distinguished by case. For example, you cannot create roles named both \"PRODROLE\" and \"prodrole\".
         
         :type AssumeRolePolicyDocument: string
         :param AssumeRolePolicyDocument: **[REQUIRED]** 
@@ -1042,7 +1042,7 @@ class Client(BaseClient):
         
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don't specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         
         :type PermissionsBoundary: string
         :param PermissionsBoundary: 
@@ -1057,18 +1057,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Role': {
-                    'Path': 'string',
-                    'RoleName': 'string',
-                    'RoleId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'AssumeRolePolicyDocument': 'string',
-                    'Description': 'string',
-                    'MaxSessionDuration': 123,
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'Role\': {
+                    \'Path\': \'string\',
+                    \'RoleName\': \'string\',
+                    \'RoleId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'AssumeRolePolicyDocument\': \'string\',
+                    \'Description\': \'string\',
+                    \'MaxSessionDuration\': 123,
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -1134,9 +1134,9 @@ class Client(BaseClient):
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> Dict:
         """
         
-        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
+        The SAML provider resource that you create with this operation can be used as a principal in an IAM role\'s trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
         
-        When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+        When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
         .. note::
         
@@ -1150,13 +1150,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_saml_provider(
-              SAMLMetadataDocument='string',
-              Name='string'
+              SAMLMetadataDocument=\'string\',
+              Name=\'string\'
           )
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]** 
         
-          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
           For more information, see `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*  
         
@@ -1175,7 +1175,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SAMLProviderArn': 'string'
+                \'SAMLProviderArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1203,9 +1203,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_service_linked_role(
-              AWSServiceName='string',
-              Description='string',
-              CustomSuffix='string'
+              AWSServiceName=\'string\',
+              Description=\'string\',
+              CustomSuffix=\'string\'
           )
         :type AWSServiceName: string
         :param AWSServiceName: **[REQUIRED]** 
@@ -1230,18 +1230,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Role': {
-                    'Path': 'string',
-                    'RoleName': 'string',
-                    'RoleId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'AssumeRolePolicyDocument': 'string',
-                    'Description': 'string',
-                    'MaxSessionDuration': 123,
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'Role\': {
+                    \'Path\': \'string\',
+                    \'RoleName\': \'string\',
+                    \'RoleId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'AssumeRolePolicyDocument\': \'string\',
+                    \'Description\': \'string\',
+                    \'MaxSessionDuration\': 123,
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -1319,8 +1319,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_service_specific_credential(
-              UserName='string',
-              ServiceName='string'
+              UserName=\'string\',
+              ServiceName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1342,14 +1342,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceSpecificCredential': {
-                    'CreateDate': datetime(2015, 1, 1),
-                    'ServiceName': 'string',
-                    'ServiceUserName': 'string',
-                    'ServicePassword': 'string',
-                    'ServiceSpecificCredentialId': 'string',
-                    'UserName': 'string',
-                    'Status': 'Active'|'Inactive'
+                \'ServiceSpecificCredential\': {
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'ServiceName\': \'string\',
+                    \'ServiceUserName\': \'string\',
+                    \'ServicePassword\': \'string\',
+                    \'ServiceSpecificCredentialId\': \'string\',
+                    \'UserName\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\'
                 }
             }
           **Response Structure** 
@@ -1374,7 +1374,7 @@ class Client(BaseClient):
         
               - **ServiceUserName** *(string) --* 
         
-                The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in ``jane-at-123456789012`` , for example. This value cannot be configured by the user.
+                The generated user name for the service-specific credential. This value is generated by combining the IAM user\'s name combined with the ID number of the AWS account, as in ``jane-at-123456789012`` , for example. This value cannot be configured by the user.
         
               - **ServicePassword** *(string) --* 
         
@@ -1406,9 +1406,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              Path='string',
-              UserName='string',
-              PermissionsBoundary='string'
+              Path=\'string\',
+              UserName=\'string\',
+              PermissionsBoundary=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -1424,7 +1424,7 @@ class Client(BaseClient):
         
           The name of the user to create.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".
         
         :type PermissionsBoundary: string
         :param PermissionsBoundary: 
@@ -1439,16 +1439,16 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Path': 'string',
-                    'UserName': 'string',
-                    'UserId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'PasswordLastUsed': datetime(2015, 1, 1),
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'User\': {
+                    \'Path\': \'string\',
+                    \'UserName\': \'string\',
+                    \'UserId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'PasswordLastUsed\': datetime(2015, 1, 1),
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -1484,7 +1484,7 @@ class Client(BaseClient):
         
               - **PasswordLastUsed** *(datetime) --* 
         
-                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                 * The user never had a password. 
                  
@@ -1526,8 +1526,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_virtual_mfa_device(
-              Path='string',
-              VirtualMFADeviceName='string'
+              Path=\'string\',
+              VirtualMFADeviceName=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -1553,23 +1553,23 @@ class Client(BaseClient):
           ::
         
             {
-                'VirtualMFADevice': {
-                    'SerialNumber': 'string',
-                    'Base32StringSeed': b'bytes',
-                    'QRCodePNG': b'bytes',
-                    'User': {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'PasswordLastUsed': datetime(2015, 1, 1),
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                \'VirtualMFADevice\': {
+                    \'SerialNumber\': \'string\',
+                    \'Base32StringSeed\': b\'bytes\',
+                    \'QRCodePNG\': b\'bytes\',
+                    \'User\': {
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'PasswordLastUsed\': datetime(2015, 1, 1),
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
-                    'EnableDate': datetime(2015, 1, 1)
+                    \'EnableDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1620,7 +1620,7 @@ class Client(BaseClient):
         
                 - **PasswordLastUsed** *(datetime) --* 
         
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                   * The user never had a password. 
                    
@@ -1662,8 +1662,8 @@ class Client(BaseClient):
         ::
         
           response = client.deactivate_mfa_device(
-              UserName='string',
-              SerialNumber='string'
+              UserName=\'string\',
+              SerialNumber=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1694,8 +1694,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_access_key(
-              UserName='string',
-              AccessKeyId='string'
+              UserName=\'string\',
+              AccessKeyId=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -1724,7 +1724,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_account_alias(
-              AccountAlias='string'
+              AccountAlias=\'string\'
           )
         :type AccountAlias: string
         :param AccountAlias: **[REQUIRED]** 
@@ -1760,7 +1760,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group(
-              GroupName='string'
+              GroupName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -1784,8 +1784,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group_policy(
-              GroupName='string',
-              PolicyName='string'
+              GroupName=\'string\',
+              PolicyName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -1820,7 +1820,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_instance_profile(
-              InstanceProfileName='string'
+              InstanceProfileName=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -1838,7 +1838,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Deleting a user's password does not prevent a user from accessing AWS through the command line interface or the API. To prevent all user access you must also either make any access keys inactive or delete them. For more information about making keys inactive or deleting them, see  UpdateAccessKey and  DeleteAccessKey . 
+          Deleting a user\'s password does not prevent a user from accessing AWS through the command line interface or the API. To prevent all user access you must also either make any access keys inactive or delete them. For more information about making keys inactive or deleting them, see  UpdateAccessKey and  DeleteAccessKey . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteLoginProfile>`_
         
@@ -1846,7 +1846,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_login_profile(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1872,7 +1872,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_open_id_connect_provider(
-              OpenIDConnectProviderArn='string'
+              OpenIDConnectProviderArn=\'string\'
           )
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]** 
@@ -1886,13 +1886,13 @@ class Client(BaseClient):
     def delete_policy(self, PolicyArn: str) -> NoReturn:
         """
         
-        Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy's versions. The following steps describe the process for deleting a managed policy:
+        Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy\'s versions. The following steps describe the process for deleting a managed policy:
         
         * Detach the policy from all users, groups, and roles that the policy is attached to, using the  DetachUserPolicy ,  DetachGroupPolicy , or  DetachRolePolicy API operations. To list all the users, groups, and roles that a policy is attached to, use  ListEntitiesForPolicy . 
          
-        * Delete all versions of the policy using  DeletePolicyVersion . To list the policy's versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process. 
+        * Delete all versions of the policy using  DeletePolicyVersion . To list the policy\'s versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy\'s default version in the next step of the process. 
          
-        * Delete the policy (this automatically deletes the policy's default version) using this API. 
+        * Delete the policy (this automatically deletes the policy\'s default version) using this API. 
          
         For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -1902,7 +1902,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -1928,8 +1928,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy_version(
-              PolicyArn='string',
-              VersionId='string'
+              PolicyArn=\'string\',
+              VersionId=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -1943,7 +1943,7 @@ class Client(BaseClient):
         
           The policy version to delete.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consists of the lowercase letter \'v\' followed by one or two digits, and optionally followed by a period \'.\' and a string of letters and digits.
         
           For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         
@@ -1964,7 +1964,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_role(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -1990,7 +1990,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_role_permissions_boundary(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -2012,8 +2012,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_role_policy(
-              RoleName='string',
-              PolicyName='string'
+              RoleName=\'string\',
+              PolicyName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -2036,7 +2036,7 @@ class Client(BaseClient):
     def delete_saml_provider(self, SAMLProviderArn: str) -> NoReturn:
         """
         
-        Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
+        Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource\'s ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
         
         .. note::
         
@@ -2048,7 +2048,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_saml_provider(
-              SAMLProviderArn='string'
+              SAMLProviderArn=\'string\'
           )
         :type SAMLProviderArn: string
         :param SAMLProviderArn: **[REQUIRED]** 
@@ -2066,7 +2066,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
+          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn\'t detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServerCertificate>`_
         
@@ -2074,7 +2074,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_server_certificate(
-              ServerCertificateName='string'
+              ServerCertificateName=\'string\'
           )
         :type ServerCertificateName: string
         :param ServerCertificateName: **[REQUIRED]** 
@@ -2100,7 +2100,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_service_linked_role(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -2115,7 +2115,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletionTaskId': 'string'
+                \'DeletionTaskId\': \'string\'
             }
           **Response Structure** 
         
@@ -2137,8 +2137,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_service_specific_credential(
-              UserName='string',
-              ServiceSpecificCredentialId='string'
+              UserName=\'string\',
+              ServiceSpecificCredentialId=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -2169,8 +2169,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_signing_certificate(
-              UserName='string',
-              CertificateId='string'
+              UserName=\'string\',
+              CertificateId=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -2201,8 +2201,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ssh_public_key(
-              UserName='string',
-              SSHPublicKeyId='string'
+              UserName=\'string\',
+              SSHPublicKeyId=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2231,7 +2231,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2257,7 +2257,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_permissions_boundary(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2279,8 +2279,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_policy(
-              UserName='string',
-              PolicyName='string'
+              UserName=\'string\',
+              PolicyName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2305,7 +2305,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You must deactivate a user's virtual MFA device before you can delete it. For information about deactivating MFA devices, see  DeactivateMFADevice . 
+          You must deactivate a user\'s virtual MFA device before you can delete it. For information about deactivating MFA devices, see  DeactivateMFADevice . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteVirtualMFADevice>`_
         
@@ -2313,7 +2313,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_virtual_mfa_device(
-              SerialNumber='string'
+              SerialNumber=\'string\'
           )
         :type SerialNumber: string
         :param SerialNumber: **[REQUIRED]** 
@@ -2337,8 +2337,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_group_policy(
-              GroupName='string',
-              PolicyArn='string'
+              GroupName=\'string\',
+              PolicyArn=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -2369,8 +2369,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_role_policy(
-              RoleName='string',
-              PolicyArn='string'
+              RoleName=\'string\',
+              PolicyArn=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -2401,8 +2401,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_user_policy(
-              UserName='string',
-              PolicyArn='string'
+              UserName=\'string\',
+              PolicyArn=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2431,10 +2431,10 @@ class Client(BaseClient):
         ::
         
           response = client.enable_mfa_device(
-              UserName='string',
-              SerialNumber='string',
-              AuthenticationCode1='string',
-              AuthenticationCode2='string'
+              UserName=\'string\',
+              SerialNumber=\'string\',
+              AuthenticationCode1=\'string\',
+              AuthenticationCode2=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -2494,8 +2494,8 @@ class Client(BaseClient):
           ::
         
             {
-                'State': 'STARTED'|'INPROGRESS'|'COMPLETE',
-                'Description': 'string'
+                \'State\': \'STARTED\'|\'INPROGRESS\'|\'COMPLETE\',
+                \'Description\': \'string\'
             }
           **Response Structure** 
         
@@ -2530,7 +2530,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2545,7 +2545,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_access_key_last_used(
-              AccessKeyId='string'
+              AccessKeyId=\'string\'
           )
         :type AccessKeyId: string
         :param AccessKeyId: **[REQUIRED]** 
@@ -2562,11 +2562,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UserName': 'string',
-                'AccessKeyLastUsed': {
-                    'LastUsedDate': datetime(2015, 1, 1),
-                    'ServiceName': 'string',
-                    'Region': 'string'
+                \'UserName\': \'string\',
+                \'AccessKeyLastUsed\': {
+                    \'LastUsedDate\': datetime(2015, 1, 1),
+                    \'ServiceName\': \'string\',
+                    \'Region\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2595,7 +2595,7 @@ class Client(BaseClient):
                  
               - **ServiceName** *(string) --* 
         
-                The name of the AWS service with which this access key was most recently used. This field displays "N/A" in the following situations:
+                The name of the AWS service with which this access key was most recently used. This field displays \"N/A\" in the following situations:
         
                 * The user does not have an access key. 
                  
@@ -2605,7 +2605,7 @@ class Client(BaseClient):
                  
               - **Region** *(string) --* 
         
-                The AWS region where this access key was most recently used. This field is displays "N/A" in the following situations:
+                The AWS region where this access key was most recently used. This field is displays \"N/A\" in the following situations:
         
                 * The user does not have an access key. 
                  
@@ -2634,10 +2634,10 @@ class Client(BaseClient):
         
           response = client.get_account_authorization_details(
               Filter=[
-                  'User'|'Role'|'Group'|'LocalManagedPolicy'|'AWSManagedPolicy',
+                  \'User\'|\'Role\'|\'Group\'|\'LocalManagedPolicy\'|\'AWSManagedPolicy\',
               ],
               MaxItems=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Filter: list
         :param Filter: 
@@ -2668,131 +2668,131 @@ class Client(BaseClient):
           ::
         
             {
-                'UserDetailList': [
+                \'UserDetailList\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UserPolicyList': [
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UserPolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'GroupList': [
-                            'string',
+                        \'GroupList\': [
+                            \'string\',
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ],
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'GroupDetailList': [
+                \'GroupDetailList\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'GroupPolicyList': [
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'GroupPolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ]
                     },
                 ],
-                'RoleDetailList': [
+                \'RoleDetailList\': [
                     {
-                        'Path': 'string',
-                        'RoleName': 'string',
-                        'RoleId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'AssumeRolePolicyDocument': 'string',
-                        'InstanceProfileList': [
+                        \'Path\': \'string\',
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'AssumeRolePolicyDocument\': \'string\',
+                        \'InstanceProfileList\': [
                             {
-                                'Path': 'string',
-                                'InstanceProfileName': 'string',
-                                'InstanceProfileId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'Roles': [
+                                \'Path\': \'string\',
+                                \'InstanceProfileName\': \'string\',
+                                \'InstanceProfileId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'Roles\': [
                                     {
-                                        'Path': 'string',
-                                        'RoleName': 'string',
-                                        'RoleId': 'string',
-                                        'Arn': 'string',
-                                        'CreateDate': datetime(2015, 1, 1),
-                                        'AssumeRolePolicyDocument': 'string',
-                                        'Description': 'string',
-                                        'MaxSessionDuration': 123,
-                                        'PermissionsBoundary': {
-                                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                            'PermissionsBoundaryArn': 'string'
+                                        \'Path\': \'string\',
+                                        \'RoleName\': \'string\',
+                                        \'RoleId\': \'string\',
+                                        \'Arn\': \'string\',
+                                        \'CreateDate\': datetime(2015, 1, 1),
+                                        \'AssumeRolePolicyDocument\': \'string\',
+                                        \'Description\': \'string\',
+                                        \'MaxSessionDuration\': 123,
+                                        \'PermissionsBoundary\': {
+                                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                            \'PermissionsBoundaryArn\': \'string\'
                                         }
                                     },
                                 ]
                             },
                         ],
-                        'RolePolicyList': [
+                        \'RolePolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ],
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'Policies': [
+                \'Policies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyId': 'string',
-                        'Arn': 'string',
-                        'Path': 'string',
-                        'DefaultVersionId': 'string',
-                        'AttachmentCount': 123,
-                        'PermissionsBoundaryUsageCount': 123,
-                        'IsAttachable': True|False,
-                        'Description': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'PolicyVersionList': [
+                        \'PolicyName\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Path\': \'string\',
+                        \'DefaultVersionId\': \'string\',
+                        \'AttachmentCount\': 123,
+                        \'PermissionsBoundaryUsageCount\': 123,
+                        \'IsAttachable\': True|False,
+                        \'Description\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'PolicyVersionList\': [
                             {
-                                'Document': 'string',
-                                'VersionId': 'string',
-                                'IsDefaultVersion': True|False,
-                                'CreateDate': datetime(2015, 1, 1)
+                                \'Document\': \'string\',
+                                \'VersionId\': \'string\',
+                                \'IsDefaultVersion\': True|False,
+                                \'CreateDate\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2806,7 +2806,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
+                Contains information about an IAM user, including all the user\'s policies and all the IAM groups the user is in.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -2898,7 +2898,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Contains information about an IAM group, including all of the group's policies.
+                Contains information about an IAM group, including all of the group\'s policies.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -2970,7 +2970,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Contains information about an IAM role, including all of the role's policies.
+                Contains information about an IAM role, including all of the role\'s policies.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -3094,7 +3094,7 @@ class Client(BaseClient):
         
                 - **RolePolicyList** *(list) --* 
         
-                  A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
+                  A list of inline policies embedded in the role. These policies are the role\'s access (permissions) policies.
         
                   - *(dict) --* 
         
@@ -3112,7 +3112,7 @@ class Client(BaseClient):
         
                 - **AttachedManagedPolicies** *(list) --* 
         
-                  A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
+                  A list of managed policies attached to the role. These policies are the role\'s access (permissions) policies.
         
                   - *(dict) --* 
         
@@ -3152,7 +3152,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
+                Contains information about a managed policy, including the policy\'s ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -3242,7 +3242,7 @@ class Client(BaseClient):
         
                     - **IsDefaultVersion** *(boolean) --* 
         
-                      Specifies whether the policy version is set as the policy's default version.
+                      Specifies whether the policy version is set as the policy\'s default version.
         
                     - **CreateDate** *(datetime) --* 
         
@@ -3277,17 +3277,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PasswordPolicy': {
-                    'MinimumPasswordLength': 123,
-                    'RequireSymbols': True|False,
-                    'RequireNumbers': True|False,
-                    'RequireUppercaseCharacters': True|False,
-                    'RequireLowercaseCharacters': True|False,
-                    'AllowUsersToChangePassword': True|False,
-                    'ExpirePasswords': True|False,
-                    'MaxPasswordAge': 123,
-                    'PasswordReusePrevention': 123,
-                    'HardExpiry': True|False
+                \'PasswordPolicy\': {
+                    \'MinimumPasswordLength\': 123,
+                    \'RequireSymbols\': True|False,
+                    \'RequireNumbers\': True|False,
+                    \'RequireUppercaseCharacters\': True|False,
+                    \'RequireLowercaseCharacters\': True|False,
+                    \'AllowUsersToChangePassword\': True|False,
+                    \'ExpirePasswords\': True|False,
+                    \'MaxPasswordAge\': 123,
+                    \'PasswordReusePrevention\': 123,
+                    \'HardExpiry\': True|False
                 }
             }
           **Response Structure** 
@@ -3298,7 +3298,7 @@ class Client(BaseClient):
         
             - **PasswordPolicy** *(dict) --* 
         
-              A structure that contains details about the account's password policy.
+              A structure that contains details about the account\'s password policy.
         
               - **MinimumPasswordLength** *(integer) --* 
         
@@ -3363,8 +3363,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SummaryMap': {
-                    'string': 123
+                \'SummaryMap\': {
+                    \'string\': 123
                 }
             }
           **Response Structure** 
@@ -3396,7 +3396,7 @@ class Client(BaseClient):
         
           response = client.get_context_keys_for_custom_policy(
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PolicyInputList: list
@@ -3422,8 +3422,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ContextKeyNames': [
-                    'string',
+                \'ContextKeyNames\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3446,7 +3446,7 @@ class Client(BaseClient):
         
         You can optionally include a list of one or more additional policies, specified as strings. If you want to include *only* a list of policies by string, use  GetContextKeysForCustomPolicy instead.
         
-         **Note:** This API discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use  GetContextKeysForCustomPolicy instead.
+         **Note:** This API discloses information about the permissions granted to other users. If you do not want users to see other user\'s permissions, then consider allowing them to use  GetContextKeysForCustomPolicy instead.
         
         Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. Context keys can be evaluated by testing against a value in an IAM policy. Use  GetContextKeysForPrincipalPolicy to understand what key names and values you must supply when you call  SimulatePrincipalPolicy .
         
@@ -3456,9 +3456,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_context_keys_for_principal_policy(
-              PolicySourceArn='string',
+              PolicySourceArn=\'string\',
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PolicySourceArn: string
@@ -3491,8 +3491,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ContextKeyNames': [
-                    'string',
+                \'ContextKeyNames\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3528,9 +3528,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Content': b'bytes',
-                'ReportFormat': 'text/csv',
-                'GeneratedTime': datetime(2015, 1, 1)
+                \'Content\': b\'bytes\',
+                \'ReportFormat\': \'text/csv\',
+                \'GeneratedTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3562,8 +3562,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_group(
-              GroupName='string',
-              Marker='string',
+              GroupName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type GroupName: string
@@ -3593,29 +3593,29 @@ class Client(BaseClient):
           ::
         
             {
-                'Group': {
-                    'Path': 'string',
-                    'GroupName': 'string',
-                    'GroupId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'Path\': \'string\',
+                    \'GroupName\': \'string\',
+                    \'GroupId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1)
                 },
-                'Users': [
+                \'Users\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'PasswordLastUsed': datetime(2015, 1, 1),
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'PasswordLastUsed\': datetime(2015, 1, 1),
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -3685,7 +3685,7 @@ class Client(BaseClient):
         
                 - **PasswordLastUsed** *(datetime) --* 
         
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                   * The user never had a password. 
                    
@@ -3727,7 +3727,7 @@ class Client(BaseClient):
         
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         
-        An IAM group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
+        An IAM group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use  GetPolicy to determine the policy\'s default version, then use  GetPolicyVersion to retrieve the policy document.
         
         For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -3737,8 +3737,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_group_policy(
-              GroupName='string',
-              PolicyName='string'
+              GroupName=\'string\',
+              PolicyName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -3762,9 +3762,9 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupName': 'string',
-                'PolicyName': 'string',
-                'PolicyDocument': 'string'
+                \'GroupName\': \'string\',
+                \'PolicyName\': \'string\',
+                \'PolicyDocument\': \'string\'
             }
           **Response Structure** 
         
@@ -3796,7 +3796,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_profile(
-              InstanceProfileName='string'
+              InstanceProfileName=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -3813,25 +3813,25 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceProfile': {
-                    'Path': 'string',
-                    'InstanceProfileName': 'string',
-                    'InstanceProfileId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'Roles': [
+                \'InstanceProfile\': {
+                    \'Path\': \'string\',
+                    \'InstanceProfileName\': \'string\',
+                    \'InstanceProfileId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'Roles\': [
                         {
-                            'Path': 'string',
-                            'RoleName': 'string',
-                            'RoleId': 'string',
-                            'Arn': 'string',
-                            'CreateDate': datetime(2015, 1, 1),
-                            'AssumeRolePolicyDocument': 'string',
-                            'Description': 'string',
-                            'MaxSessionDuration': 123,
-                            'PermissionsBoundary': {
-                                'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                'PermissionsBoundaryArn': 'string'
+                            \'Path\': \'string\',
+                            \'RoleName\': \'string\',
+                            \'RoleId\': \'string\',
+                            \'Arn\': \'string\',
+                            \'CreateDate\': datetime(2015, 1, 1),
+                            \'AssumeRolePolicyDocument\': \'string\',
+                            \'Description\': \'string\',
+                            \'MaxSessionDuration\': 123,
+                            \'PermissionsBoundary\': {
+                                \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                \'PermissionsBoundaryArn\': \'string\'
                             }
                         },
                     ]
@@ -3933,7 +3933,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_login_profile(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -3950,10 +3950,10 @@ class Client(BaseClient):
           ::
         
             {
-                'LoginProfile': {
-                    'UserName': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'PasswordResetRequired': True|False
+                \'LoginProfile\': {
+                    \'UserName\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'PasswordResetRequired\': True|False
                 }
             }
           **Response Structure** 
@@ -3990,7 +3990,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_open_id_connect_provider(
-              OpenIDConnectProviderArn='string'
+              OpenIDConnectProviderArn=\'string\'
           )
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]** 
@@ -4007,14 +4007,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Url': 'string',
-                'ClientIDList': [
-                    'string',
+                \'Url\': \'string\',
+                \'ClientIDList\': [
+                    \'string\',
                 ],
-                'ThumbprintList': [
-                    'string',
+                \'ThumbprintList\': [
+                    \'string\',
                 ],
-                'CreateDate': datetime(2015, 1, 1)
+                \'CreateDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -4038,9 +4038,9 @@ class Client(BaseClient):
         
               - *(string) --* 
         
-                Contains a thumbprint for an identity provider's server certificate.
+                Contains a thumbprint for an identity provider\'s server certificate.
         
-                The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
+                The identity provider\'s server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
         
             - **CreateDate** *(datetime) --* 
         
@@ -4055,10 +4055,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -4082,7 +4082,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -4099,18 +4099,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicyName': 'string',
-                    'PolicyId': 'string',
-                    'Arn': 'string',
-                    'Path': 'string',
-                    'DefaultVersionId': 'string',
-                    'AttachmentCount': 123,
-                    'PermissionsBoundaryUsageCount': 123,
-                    'IsAttachable': True|False,
-                    'Description': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'UpdateDate': datetime(2015, 1, 1)
+                \'Policy\': {
+                    \'PolicyName\': \'string\',
+                    \'PolicyId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Path\': \'string\',
+                    \'DefaultVersionId\': \'string\',
+                    \'AttachmentCount\': 123,
+                    \'PermissionsBoundaryUsageCount\': 123,
+                    \'IsAttachable\': True|False,
+                    \'Description\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'UpdateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4203,8 +4203,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy_version(
-              PolicyArn='string',
-              VersionId='string'
+              PolicyArn=\'string\',
+              VersionId=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -4218,7 +4218,7 @@ class Client(BaseClient):
         
           Identifies the policy version to retrieve.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consists of the lowercase letter \'v\' followed by one or two digits, and optionally followed by a period \'.\' and a string of letters and digits.
         
         :rtype: dict
         :returns: 
@@ -4228,11 +4228,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyVersion': {
-                    'Document': 'string',
-                    'VersionId': 'string',
-                    'IsDefaultVersion': True|False,
-                    'CreateDate': datetime(2015, 1, 1)
+                \'PolicyVersion\': {
+                    \'Document\': \'string\',
+                    \'VersionId\': \'string\',
+                    \'IsDefaultVersion\': True|False,
+                    \'CreateDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4261,7 +4261,7 @@ class Client(BaseClient):
         
               - **IsDefaultVersion** *(boolean) --* 
         
-                Specifies whether the policy version is set as the policy's default version.
+                Specifies whether the policy version is set as the policy\'s default version.
         
               - **CreateDate** *(datetime) --* 
         
@@ -4283,7 +4283,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_role(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -4300,18 +4300,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Role': {
-                    'Path': 'string',
-                    'RoleName': 'string',
-                    'RoleId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'AssumeRolePolicyDocument': 'string',
-                    'Description': 'string',
-                    'MaxSessionDuration': 123,
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'Role\': {
+                    \'Path\': \'string\',
+                    \'RoleName\': \'string\',
+                    \'RoleId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'AssumeRolePolicyDocument\': \'string\',
+                    \'Description\': \'string\',
+                    \'MaxSessionDuration\': 123,
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -4381,7 +4381,7 @@ class Client(BaseClient):
         
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         
-        An IAM role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
+        An IAM role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use  GetPolicy to determine the policy\'s default version, then use  GetPolicyVersion to retrieve the policy document.
         
         For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -4393,8 +4393,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_role_policy(
-              RoleName='string',
-              PolicyName='string'
+              RoleName=\'string\',
+              PolicyName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -4418,9 +4418,9 @@ class Client(BaseClient):
           ::
         
             {
-                'RoleName': 'string',
-                'PolicyName': 'string',
-                'PolicyDocument': 'string'
+                \'RoleName\': \'string\',
+                \'PolicyName\': \'string\',
+                \'PolicyDocument\': \'string\'
             }
           **Response Structure** 
         
@@ -4456,7 +4456,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_saml_provider(
-              SAMLProviderArn='string'
+              SAMLProviderArn=\'string\'
           )
         :type SAMLProviderArn: string
         :param SAMLProviderArn: **[REQUIRED]** 
@@ -4473,9 +4473,9 @@ class Client(BaseClient):
           ::
         
             {
-                'SAMLMetadataDocument': 'string',
-                'CreateDate': datetime(2015, 1, 1),
-                'ValidUntil': datetime(2015, 1, 1)
+                \'SAMLMetadataDocument\': \'string\',
+                \'CreateDate\': datetime(2015, 1, 1),
+                \'ValidUntil\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -4509,7 +4509,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_server_certificate(
-              ServerCertificateName='string'
+              ServerCertificateName=\'string\'
           )
         :type ServerCertificateName: string
         :param ServerCertificateName: **[REQUIRED]** 
@@ -4526,17 +4526,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ServerCertificate': {
-                    'ServerCertificateMetadata': {
-                        'Path': 'string',
-                        'ServerCertificateName': 'string',
-                        'ServerCertificateId': 'string',
-                        'Arn': 'string',
-                        'UploadDate': datetime(2015, 1, 1),
-                        'Expiration': datetime(2015, 1, 1)
+                \'ServerCertificate\': {
+                    \'ServerCertificateMetadata\': {
+                        \'Path\': \'string\',
+                        \'ServerCertificateName\': \'string\',
+                        \'ServerCertificateId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'UploadDate\': datetime(2015, 1, 1),
+                        \'Expiration\': datetime(2015, 1, 1)
                     },
-                    'CertificateBody': 'string',
-                    'CertificateChain': 'string'
+                    \'CertificateBody\': \'string\',
+                    \'CertificateChain\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4597,7 +4597,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_service_linked_role_deletion_status(
-              DeletionTaskId='string'
+              DeletionTaskId=\'string\'
           )
         :type DeletionTaskId: string
         :param DeletionTaskId: **[REQUIRED]** 
@@ -4612,14 +4612,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'SUCCEEDED'|'IN_PROGRESS'|'FAILED'|'NOT_STARTED',
-                'Reason': {
-                    'Reason': 'string',
-                    'RoleUsageList': [
+                \'Status\': \'SUCCEEDED\'|\'IN_PROGRESS\'|\'FAILED\'|\'NOT_STARTED\',
+                \'Reason\': {
+                    \'Reason\': \'string\',
+                    \'RoleUsageList\': [
                         {
-                            'Region': 'string',
-                            'Resources': [
-                                'string',
+                            \'Region\': \'string\',
+                            \'Resources\': [
+                                \'string\',
                             ]
                         },
                     ]
@@ -4643,7 +4643,7 @@ class Client(BaseClient):
         
               - **RoleUsageList** *(list) --* 
         
-                A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the region in which the resources are being used.
+                A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can\'t be deleted. This parameter includes a list of the resources that are associated with the role and the region in which the resources are being used.
         
                 - *(dict) --* 
         
@@ -4679,9 +4679,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_ssh_public_key(
-              UserName='string',
-              SSHPublicKeyId='string',
-              Encoding='SSH'|'PEM'
+              UserName=\'string\',
+              SSHPublicKeyId=\'string\',
+              Encoding=\'SSH\'|\'PEM\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -4710,13 +4710,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SSHPublicKey': {
-                    'UserName': 'string',
-                    'SSHPublicKeyId': 'string',
-                    'Fingerprint': 'string',
-                    'SSHPublicKeyBody': 'string',
-                    'Status': 'Active'|'Inactive',
-                    'UploadDate': datetime(2015, 1, 1)
+                \'SSHPublicKey\': {
+                    \'UserName\': \'string\',
+                    \'SSHPublicKeyId\': \'string\',
+                    \'Fingerprint\': \'string\',
+                    \'SSHPublicKeyBody\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\',
+                    \'UploadDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4767,7 +4767,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_user(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -4784,16 +4784,16 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Path': 'string',
-                    'UserName': 'string',
-                    'UserId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'PasswordLastUsed': datetime(2015, 1, 1),
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'User\': {
+                    \'Path\': \'string\',
+                    \'UserName\': \'string\',
+                    \'UserId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'PasswordLastUsed\': datetime(2015, 1, 1),
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -4835,7 +4835,7 @@ class Client(BaseClient):
         
               - **PasswordLastUsed** *(datetime) --* 
         
-                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                 * The user never had a password. 
                  
@@ -4869,7 +4869,7 @@ class Client(BaseClient):
         
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         
-        An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
+        An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use  GetPolicy to determine the policy\'s default version, then use  GetPolicyVersion to retrieve the policy document.
         
         For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -4879,8 +4879,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_policy(
-              UserName='string',
-              PolicyName='string'
+              UserName=\'string\',
+              PolicyName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -4904,9 +4904,9 @@ class Client(BaseClient):
           ::
         
             {
-                'UserName': 'string',
-                'PolicyName': 'string',
-                'PolicyDocument': 'string'
+                \'UserName\': \'string\',
+                \'PolicyName\': \'string\',
+                \'PolicyDocument\': \'string\'
             }
           **Response Structure** 
         
@@ -4958,8 +4958,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_access_keys(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -4989,16 +4989,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AccessKeyMetadata': [
+                \'AccessKeyMetadata\': [
                     {
-                        'UserName': 'string',
-                        'AccessKeyId': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'AccessKeyId\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5052,7 +5052,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_account_aliases(
-              Marker='string',
+              Marker=\'string\',
               MaxItems=123
           )
         :type Marker: string
@@ -5075,11 +5075,11 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountAliases': [
-                    'string',
+                \'AccountAliases\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5117,9 +5117,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_attached_group_policies(
-              GroupName='string',
-              PathPrefix='string',
-              Marker='string',
+              GroupName=\'string\',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type GroupName: string
@@ -5156,14 +5156,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5217,9 +5217,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_attached_role_policies(
-              RoleName='string',
-              PathPrefix='string',
-              Marker='string',
+              RoleName=\'string\',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type RoleName: string
@@ -5256,14 +5256,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5317,9 +5317,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_attached_user_policies(
-              UserName='string',
-              PathPrefix='string',
-              Marker='string',
+              UserName=\'string\',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -5356,14 +5356,14 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5417,11 +5417,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_entities_for_policy(
-              PolicyArn='string',
-              EntityFilter='User'|'Role'|'Group'|'LocalManagedPolicy'|'AWSManagedPolicy',
-              PathPrefix='string',
-              PolicyUsageFilter='PermissionsPolicy'|'PermissionsBoundary',
-              Marker='string',
+              PolicyArn=\'string\',
+              EntityFilter=\'User\'|\'Role\'|\'Group\'|\'LocalManagedPolicy\'|\'AWSManagedPolicy\',
+              PathPrefix=\'string\',
+              PolicyUsageFilter=\'PermissionsPolicy\'|\'PermissionsBoundary\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PolicyArn: string
@@ -5474,26 +5474,26 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyGroups': [
+                \'PolicyGroups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'PolicyUsers': [
+                \'PolicyUsers\': [
                     {
-                        'UserName': 'string',
-                        'UserId': 'string'
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'PolicyRoles': [
+                \'PolicyRoles\': [
                     {
-                        'RoleName': 'string',
-                        'RoleId': 'string'
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5585,8 +5585,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_group_policies(
-              GroupName='string',
-              Marker='string',
+              GroupName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type GroupName: string
@@ -5616,11 +5616,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5658,8 +5658,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_groups(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -5689,17 +5689,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5765,8 +5765,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_groups_for_user(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -5796,17 +5796,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5872,8 +5872,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_instance_profiles(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -5903,33 +5903,33 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceProfiles': [
+                \'InstanceProfiles\': [
                     {
-                        'Path': 'string',
-                        'InstanceProfileName': 'string',
-                        'InstanceProfileId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'Roles': [
+                        \'Path\': \'string\',
+                        \'InstanceProfileName\': \'string\',
+                        \'InstanceProfileId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'Roles\': [
                             {
-                                'Path': 'string',
-                                'RoleName': 'string',
-                                'RoleId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'AssumeRolePolicyDocument': 'string',
-                                'Description': 'string',
-                                'MaxSessionDuration': 123,
-                                'PermissionsBoundary': {
-                                    'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                    'PermissionsBoundaryArn': 'string'
+                                \'Path\': \'string\',
+                                \'RoleName\': \'string\',
+                                \'RoleId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'AssumeRolePolicyDocument\': \'string\',
+                                \'Description\': \'string\',
+                                \'MaxSessionDuration\': 123,
+                                \'PermissionsBoundary\': {
+                                    \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                    \'PermissionsBoundaryArn\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6051,8 +6051,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_instance_profiles_for_role(
-              RoleName='string',
-              Marker='string',
+              RoleName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type RoleName: string
@@ -6082,33 +6082,33 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceProfiles': [
+                \'InstanceProfiles\': [
                     {
-                        'Path': 'string',
-                        'InstanceProfileName': 'string',
-                        'InstanceProfileId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'Roles': [
+                        \'Path\': \'string\',
+                        \'InstanceProfileName\': \'string\',
+                        \'InstanceProfileId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'Roles\': [
                             {
-                                'Path': 'string',
-                                'RoleName': 'string',
-                                'RoleId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'AssumeRolePolicyDocument': 'string',
-                                'Description': 'string',
-                                'MaxSessionDuration': 123,
-                                'PermissionsBoundary': {
-                                    'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                    'PermissionsBoundaryArn': 'string'
+                                \'Path\': \'string\',
+                                \'RoleName\': \'string\',
+                                \'RoleId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'AssumeRolePolicyDocument\': \'string\',
+                                \'Description\': \'string\',
+                                \'MaxSessionDuration\': 123,
+                                \'PermissionsBoundary\': {
+                                    \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                    \'PermissionsBoundaryArn\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6230,8 +6230,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_mfa_devices(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -6261,15 +6261,15 @@ class Client(BaseClient):
           ::
         
             {
-                'MFADevices': [
+                \'MFADevices\': [
                     {
-                        'UserName': 'string',
-                        'SerialNumber': 'string',
-                        'EnableDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'SerialNumber\': \'string\',
+                        \'EnableDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6328,9 +6328,9 @@ class Client(BaseClient):
           ::
         
             {
-                'OpenIDConnectProviderList': [
+                \'OpenIDConnectProviderList\': [
                     {
-                        'Arn': 'string'
+                        \'Arn\': \'string\'
                     },
                 ]
             }
@@ -6372,11 +6372,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_policies(
-              Scope='All'|'AWS'|'Local',
+              Scope=\'All\'|\'AWS\'|\'Local\',
               OnlyAttached=True|False,
-              PathPrefix='string',
-              PolicyUsageFilter='PermissionsPolicy'|'PermissionsBoundary',
-              Marker='string',
+              PathPrefix=\'string\',
+              PolicyUsageFilter=\'PermissionsPolicy\'|\'PermissionsBoundary\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type Scope: string
@@ -6429,23 +6429,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyId': 'string',
-                        'Arn': 'string',
-                        'Path': 'string',
-                        'DefaultVersionId': 'string',
-                        'AttachmentCount': 123,
-                        'PermissionsBoundaryUsageCount': 123,
-                        'IsAttachable': True|False,
-                        'Description': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'PolicyName\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Path\': \'string\',
+                        \'DefaultVersionId\': \'string\',
+                        \'AttachmentCount\': 123,
+                        \'PermissionsBoundaryUsageCount\': 123,
+                        \'IsAttachable\': True|False,
+                        \'Description\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6543,8 +6543,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_policy_versions(
-              PolicyArn='string',
-              Marker='string',
+              PolicyArn=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PolicyArn: string
@@ -6574,16 +6574,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Versions': [
+                \'Versions\': [
                     {
-                        'Document': 'string',
-                        'VersionId': 'string',
-                        'IsDefaultVersion': True|False,
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Document\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsDefaultVersion\': True|False,
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6621,7 +6621,7 @@ class Client(BaseClient):
         
                 - **IsDefaultVersion** *(boolean) --* 
         
-                  Specifies whether the policy version is set as the policy's default version.
+                  Specifies whether the policy version is set as the policy\'s default version.
         
                 - **CreateDate** *(datetime) --* 
         
@@ -6651,8 +6651,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_role_policies(
-              RoleName='string',
-              Marker='string',
+              RoleName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type RoleName: string
@@ -6682,11 +6682,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6722,8 +6722,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_roles(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -6753,24 +6753,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Roles': [
+                \'Roles\': [
                     {
-                        'Path': 'string',
-                        'RoleName': 'string',
-                        'RoleId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'AssumeRolePolicyDocument': 'string',
-                        'Description': 'string',
-                        'MaxSessionDuration': 123,
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'AssumeRolePolicyDocument\': \'string\',
+                        \'Description\': \'string\',
+                        \'MaxSessionDuration\': 123,
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6865,11 +6865,11 @@ class Client(BaseClient):
           ::
         
             {
-                'SAMLProviderList': [
+                \'SAMLProviderList\': [
                     {
-                        'Arn': 'string',
-                        'ValidUntil': datetime(2015, 1, 1),
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Arn\': \'string\',
+                        \'ValidUntil\': datetime(2015, 1, 1),
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -6915,8 +6915,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_server_certificates(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -6946,18 +6946,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ServerCertificateMetadataList': [
+                \'ServerCertificateMetadataList\': [
                     {
-                        'Path': 'string',
-                        'ServerCertificateName': 'string',
-                        'ServerCertificateId': 'string',
-                        'Arn': 'string',
-                        'UploadDate': datetime(2015, 1, 1),
-                        'Expiration': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'ServerCertificateName\': \'string\',
+                        \'ServerCertificateId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'UploadDate\': datetime(2015, 1, 1),
+                        \'Expiration\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7019,8 +7019,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_service_specific_credentials(
-              UserName='string',
-              ServiceName='string'
+              UserName=\'string\',
+              ServiceName=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -7042,14 +7042,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceSpecificCredentials': [
+                \'ServiceSpecificCredentials\': [
                     {
-                        'UserName': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'ServiceUserName': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'ServiceSpecificCredentialId': 'string',
-                        'ServiceName': 'string'
+                        \'UserName\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'ServiceUserName\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'ServiceSpecificCredentialId\': \'string\',
+                        \'ServiceName\': \'string\'
                     },
                 ]
             }
@@ -7105,8 +7105,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_signing_certificates(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -7136,17 +7136,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificates': [
+                \'Certificates\': [
                     {
-                        'UserName': 'string',
-                        'CertificateId': 'string',
-                        'CertificateBody': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'UploadDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'CertificateId\': \'string\',
+                        \'CertificateBody\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'UploadDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7156,7 +7156,7 @@ class Client(BaseClient):
         
             - **Certificates** *(list) --* 
         
-              A list of the user's signing certificate information.
+              A list of the user\'s signing certificate information.
         
               - *(dict) --* 
         
@@ -7208,8 +7208,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_ssh_public_keys(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -7239,16 +7239,16 @@ class Client(BaseClient):
           ::
         
             {
-                'SSHPublicKeys': [
+                \'SSHPublicKeys\': [
                     {
-                        'UserName': 'string',
-                        'SSHPublicKeyId': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'UploadDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'SSHPublicKeyId\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'UploadDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7262,7 +7262,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Contains information about an SSH public key, without the key's body or fingerprint.
+                Contains information about an SSH public key, without the key\'s body or fingerprint.
         
                 This data type is used as a response element in the  ListSSHPublicKeys operation.
         
@@ -7306,8 +7306,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_policies(
-              UserName='string',
-              Marker='string',
+              UserName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type UserName: string
@@ -7337,11 +7337,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7377,8 +7377,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -7408,22 +7408,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'PasswordLastUsed': datetime(2015, 1, 1),
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'PasswordLastUsed\': datetime(2015, 1, 1),
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7469,7 +7469,7 @@ class Client(BaseClient):
         
                 - **PasswordLastUsed** *(datetime) --* 
         
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                   * The user never had a password. 
                    
@@ -7515,8 +7515,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_virtual_mfa_devices(
-              AssignmentStatus='Assigned'|'Unassigned'|'Any',
-              Marker='string',
+              AssignmentStatus=\'Assigned\'|\'Unassigned\'|\'Any\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type AssignmentStatus: string
@@ -7544,28 +7544,28 @@ class Client(BaseClient):
           ::
         
             {
-                'VirtualMFADevices': [
+                \'VirtualMFADevices\': [
                     {
-                        'SerialNumber': 'string',
-                        'Base32StringSeed': b'bytes',
-                        'QRCodePNG': b'bytes',
-                        'User': {
-                            'Path': 'string',
-                            'UserName': 'string',
-                            'UserId': 'string',
-                            'Arn': 'string',
-                            'CreateDate': datetime(2015, 1, 1),
-                            'PasswordLastUsed': datetime(2015, 1, 1),
-                            'PermissionsBoundary': {
-                                'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                'PermissionsBoundaryArn': 'string'
+                        \'SerialNumber\': \'string\',
+                        \'Base32StringSeed\': b\'bytes\',
+                        \'QRCodePNG\': b\'bytes\',
+                        \'User\': {
+                            \'Path\': \'string\',
+                            \'UserName\': \'string\',
+                            \'UserId\': \'string\',
+                            \'Arn\': \'string\',
+                            \'CreateDate\': datetime(2015, 1, 1),
+                            \'PasswordLastUsed\': datetime(2015, 1, 1),
+                            \'PermissionsBoundary\': {
+                                \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                \'PermissionsBoundaryArn\': \'string\'
                             }
                         },
-                        'EnableDate': datetime(2015, 1, 1)
+                        \'EnableDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7619,7 +7619,7 @@ class Client(BaseClient):
         
                   - **PasswordLastUsed** *(datetime) --* 
         
-                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                     * The user never had a password. 
                      
@@ -7675,9 +7675,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_group_policy(
-              GroupName='string',
-              PolicyName='string',
-              PolicyDocument='string'
+              GroupName=\'string\',
+              PolicyName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -7725,8 +7725,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_role_permissions_boundary(
-              RoleName='string',
-              PermissionsBoundary='string'
+              RoleName=\'string\',
+              PermissionsBoundary=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -7745,7 +7745,7 @@ class Client(BaseClient):
     def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str) -> NoReturn:
         """
         
-        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        When you embed an inline policy in a role, the inline policy is used as part of the role\'s access (permissions) policy. The role\'s trust policy is created at the same time as the role, using  CreateRole . You can update a role\'s trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
         
         A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -7761,9 +7761,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_role_policy(
-              RoleName='string',
-              PolicyName='string',
-              PolicyDocument='string'
+              RoleName=\'string\',
+              PolicyName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -7809,8 +7809,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_user_permissions_boundary(
-              UserName='string',
-              PermissionsBoundary='string'
+              UserName=\'string\',
+              PermissionsBoundary=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -7843,9 +7843,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_user_policy(
-              UserName='string',
-              PolicyName='string',
-              PolicyDocument='string'
+              UserName=\'string\',
+              PolicyName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -7889,8 +7889,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_client_id_from_open_id_connect_provider(
-              OpenIDConnectProviderArn='string',
-              ClientID='string'
+              OpenIDConnectProviderArn=\'string\',
+              ClientID=\'string\'
           )
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]** 
@@ -7923,8 +7923,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_role_from_instance_profile(
-              InstanceProfileName='string',
-              RoleName='string'
+              InstanceProfileName=\'string\',
+              RoleName=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -7953,8 +7953,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_user_from_group(
-              GroupName='string',
-              UserName='string'
+              GroupName=\'string\',
+              UserName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
@@ -7983,8 +7983,8 @@ class Client(BaseClient):
         ::
         
           response = client.reset_service_specific_credential(
-              UserName='string',
-              ServiceSpecificCredentialId='string'
+              UserName=\'string\',
+              ServiceSpecificCredentialId=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -8008,14 +8008,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceSpecificCredential': {
-                    'CreateDate': datetime(2015, 1, 1),
-                    'ServiceName': 'string',
-                    'ServiceUserName': 'string',
-                    'ServicePassword': 'string',
-                    'ServiceSpecificCredentialId': 'string',
-                    'UserName': 'string',
-                    'Status': 'Active'|'Inactive'
+                \'ServiceSpecificCredential\': {
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'ServiceName\': \'string\',
+                    \'ServiceUserName\': \'string\',
+                    \'ServicePassword\': \'string\',
+                    \'ServiceSpecificCredentialId\': \'string\',
+                    \'UserName\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\'
                 }
             }
           **Response Structure** 
@@ -8040,7 +8040,7 @@ class Client(BaseClient):
         
               - **ServiceUserName** *(string) --* 
         
-                The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in ``jane-at-123456789012`` , for example. This value cannot be configured by the user.
+                The generated user name for the service-specific credential. This value is generated by combining the IAM user\'s name combined with the ID number of the AWS account, as in ``jane-at-123456789012`` , for example. This value cannot be configured by the user.
         
               - **ServicePassword** *(string) --* 
         
@@ -8072,10 +8072,10 @@ class Client(BaseClient):
         ::
         
           response = client.resync_mfa_device(
-              UserName='string',
-              SerialNumber='string',
-              AuthenticationCode1='string',
-              AuthenticationCode2='string'
+              UserName=\'string\',
+              SerialNumber=\'string\',
+              AuthenticationCode1=\'string\',
+              AuthenticationCode2=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -8122,8 +8122,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_default_policy_version(
-              PolicyArn='string',
-              VersionId='string'
+              PolicyArn=\'string\',
+              VersionId=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -8161,34 +8161,34 @@ class Client(BaseClient):
         
           response = client.simulate_custom_policy(
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ],
               ActionNames=[
-                  'string',
+                  \'string\',
               ],
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
-              ResourcePolicy='string',
-              ResourceOwner='string',
-              CallerArn='string',
+              ResourcePolicy=\'string\',
+              ResourceOwner=\'string\',
+              CallerArn=\'string\',
               ContextEntries=[
                   {
-                      'ContextKeyName': 'string',
-                      'ContextKeyValues': [
-                          'string',
+                      \'ContextKeyName\': \'string\',
+                      \'ContextKeyValues\': [
+                          \'string\',
                       ],
-                      'ContextKeyType': 'string'|'stringList'|'numeric'|'numericList'|'boolean'|'booleanList'|'ip'|'ipList'|'binary'|'binaryList'|'date'|'dateList'
+                      \'ContextKeyType\': \'string\'|\'stringList\'|\'numeric\'|\'numericList\'|\'boolean\'|\'booleanList\'|\'ip\'|\'ipList\'|\'binary\'|\'binaryList\'|\'date\'|\'dateList\'
                   },
               ],
-              ResourceHandlingOption='string',
+              ResourceHandlingOption=\'string\',
               MaxItems=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type PolicyInputList: list
         :param PolicyInputList: **[REQUIRED]** 
         
-          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be "scope-down" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
+          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ used to validate this parameter is a string of characters consisting of the following:
         
@@ -8243,7 +8243,7 @@ class Client(BaseClient):
         :type CallerArn: string
         :param CallerArn: 
         
-          The ARN of the IAM user that you want to use as the simulated caller of the API operations. ``CallerArn`` is required if you include a ``ResourcePolicy`` so that the policy's ``Principal`` element has a value to use in evaluating the policy.
+          The ARN of the IAM user that you want to use as the simulated caller of the API operations. ``CallerArn`` is required if you include a ``ResourcePolicy`` so that the policy\'s ``Principal`` element has a value to use in evaluating the policy.
         
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         
@@ -8311,64 +8311,64 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvalActionName': 'string',
-                        'EvalResourceName': 'string',
-                        'EvalDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                        'MatchedStatements': [
+                        \'EvalActionName\': \'string\',
+                        \'EvalResourceName\': \'string\',
+                        \'EvalDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                        \'MatchedStatements\': [
                             {
-                                'SourcePolicyId': 'string',
-                                'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                'StartPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'SourcePolicyId\': \'string\',
+                                \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                \'StartPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 },
-                                'EndPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'EndPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 }
                             },
                         ],
-                        'MissingContextValues': [
-                            'string',
+                        \'MissingContextValues\': [
+                            \'string\',
                         ],
-                        'OrganizationsDecisionDetail': {
-                            'AllowedByOrganizations': True|False
+                        \'OrganizationsDecisionDetail\': {
+                            \'AllowedByOrganizations\': True|False
                         },
-                        'EvalDecisionDetails': {
-                            'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                        \'EvalDecisionDetails\': {
+                            \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                         },
-                        'ResourceSpecificResults': [
+                        \'ResourceSpecificResults\': [
                             {
-                                'EvalResourceName': 'string',
-                                'EvalResourceDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                                'MatchedStatements': [
+                                \'EvalResourceName\': \'string\',
+                                \'EvalResourceDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                                \'MatchedStatements\': [
                                     {
-                                        'SourcePolicyId': 'string',
-                                        'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                        'StartPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'SourcePolicyId\': \'string\',
+                                        \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                        \'StartPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         },
-                                        'EndPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'EndPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         }
                                     },
                                 ],
-                                'MissingContextValues': [
-                                    'string',
+                                \'MissingContextValues\': [
+                                    \'string\',
                                 ],
-                                'EvalDecisionDetails': {
-                                    'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                                \'EvalDecisionDetails\': {
+                                    \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -8442,21 +8442,21 @@ class Client(BaseClient):
         
                 - **MissingContextValues** *(list) --* 
         
-                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                   - *(string) --* 
               
                 - **OrganizationsDecisionDetail** *(dict) --* 
         
-                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user\'s account is part of an organization.
         
                   - **AllowedByOrganizations** *(boolean) --* 
         
-                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user\'s account.
         
                 - **EvalDecisionDetails** *(dict) --* 
         
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
         
                   - *(string) --* 
                     
@@ -8524,13 +8524,13 @@ class Client(BaseClient):
         
                     - **MissingContextValues** *(list) --* 
         
-                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of "*". If you do not specify individual resources, by setting ``ResourceArns`` to "*" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of \"*\". If you do not specify individual resources, by setting ``ResourceArns`` to \"*\" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                       - *(string) --* 
                   
                     - **EvalDecisionDetails** *(dict) --* 
         
-                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
+                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access.
         
                       - *(string) --* 
                         
@@ -8556,7 +8556,7 @@ class Client(BaseClient):
         
         The simulation does not perform the API operations, it only checks the authorization to determine if the simulated policies allow or deny the operations.
         
-         **Note:** This API discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use  SimulateCustomPolicy instead.
+         **Note:** This API discloses information about the permissions granted to other users. If you do not want users to see other user\'s permissions, then consider allowing them to use  SimulateCustomPolicy instead.
         
         Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. You can use the ``Condition`` element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use  GetContextKeysForPrincipalPolicy .
         
@@ -8568,31 +8568,31 @@ class Client(BaseClient):
         ::
         
           response = client.simulate_principal_policy(
-              PolicySourceArn='string',
+              PolicySourceArn=\'string\',
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ],
               ActionNames=[
-                  'string',
+                  \'string\',
               ],
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
-              ResourcePolicy='string',
-              ResourceOwner='string',
-              CallerArn='string',
+              ResourcePolicy=\'string\',
+              ResourceOwner=\'string\',
+              CallerArn=\'string\',
               ContextEntries=[
                   {
-                      'ContextKeyName': 'string',
-                      'ContextKeyValues': [
-                          'string',
+                      \'ContextKeyName\': \'string\',
+                      \'ContextKeyValues\': [
+                          \'string\',
                       ],
-                      'ContextKeyType': 'string'|'stringList'|'numeric'|'numericList'|'boolean'|'booleanList'|'ip'|'ipList'|'binary'|'binaryList'|'date'|'dateList'
+                      \'ContextKeyType\': \'string\'|\'stringList\'|\'numeric\'|\'numericList\'|\'boolean\'|\'booleanList\'|\'ip\'|\'ipList\'|\'binary\'|\'binaryList\'|\'date\'|\'dateList\'
                   },
               ],
-              ResourceHandlingOption='string',
+              ResourceHandlingOption=\'string\',
               MaxItems=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type PolicySourceArn: string
         :param PolicySourceArn: **[REQUIRED]** 
@@ -8655,11 +8655,11 @@ class Client(BaseClient):
         :type CallerArn: string
         :param CallerArn: 
         
-          The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.
+          The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David\'s policies.
         
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         
-           ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy's ``Principal`` element has a value to use in evaluating the policy.
+           ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy\'s ``Principal`` element has a value to use in evaluating the policy.
         
           For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         
@@ -8727,64 +8727,64 @@ class Client(BaseClient):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvalActionName': 'string',
-                        'EvalResourceName': 'string',
-                        'EvalDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                        'MatchedStatements': [
+                        \'EvalActionName\': \'string\',
+                        \'EvalResourceName\': \'string\',
+                        \'EvalDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                        \'MatchedStatements\': [
                             {
-                                'SourcePolicyId': 'string',
-                                'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                'StartPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'SourcePolicyId\': \'string\',
+                                \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                \'StartPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 },
-                                'EndPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'EndPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 }
                             },
                         ],
-                        'MissingContextValues': [
-                            'string',
+                        \'MissingContextValues\': [
+                            \'string\',
                         ],
-                        'OrganizationsDecisionDetail': {
-                            'AllowedByOrganizations': True|False
+                        \'OrganizationsDecisionDetail\': {
+                            \'AllowedByOrganizations\': True|False
                         },
-                        'EvalDecisionDetails': {
-                            'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                        \'EvalDecisionDetails\': {
+                            \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                         },
-                        'ResourceSpecificResults': [
+                        \'ResourceSpecificResults\': [
                             {
-                                'EvalResourceName': 'string',
-                                'EvalResourceDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                                'MatchedStatements': [
+                                \'EvalResourceName\': \'string\',
+                                \'EvalResourceDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                                \'MatchedStatements\': [
                                     {
-                                        'SourcePolicyId': 'string',
-                                        'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                        'StartPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'SourcePolicyId\': \'string\',
+                                        \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                        \'StartPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         },
-                                        'EndPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'EndPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         }
                                     },
                                 ],
-                                'MissingContextValues': [
-                                    'string',
+                                \'MissingContextValues\': [
+                                    \'string\',
                                 ],
-                                'EvalDecisionDetails': {
-                                    'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                                \'EvalDecisionDetails\': {
+                                    \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'Marker': 'string'
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -8858,21 +8858,21 @@ class Client(BaseClient):
         
                 - **MissingContextValues** *(list) --* 
         
-                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                   - *(string) --* 
               
                 - **OrganizationsDecisionDetail** *(dict) --* 
         
-                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user\'s account is part of an organization.
         
                   - **AllowedByOrganizations** *(boolean) --* 
         
-                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user\'s account.
         
                 - **EvalDecisionDetails** *(dict) --* 
         
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
         
                   - *(string) --* 
                     
@@ -8940,13 +8940,13 @@ class Client(BaseClient):
         
                     - **MissingContextValues** *(list) --* 
         
-                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of "*". If you do not specify individual resources, by setting ``ResourceArns`` to "*" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of \"*\". If you do not specify individual resources, by setting ``ResourceArns`` to \"*\" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                       - *(string) --* 
                   
                     - **EvalDecisionDetails** *(dict) --* 
         
-                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
+                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access.
         
                       - *(string) --* 
                         
@@ -8976,9 +8976,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_access_key(
-              UserName='string',
-              AccessKeyId='string',
-              Status='Active'|'Inactive'
+              UserName=\'string\',
+              AccessKeyId=\'string\',
+              Status=\'Active\'|\'Inactive\'
           )
         :type UserName: string
         :param UserName: 
@@ -9008,7 +9008,7 @@ class Client(BaseClient):
         
         .. note::
         
-          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
+          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter\'s value reverts to its default value. See the **Request Parameters** section for each parameter\'s default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
            
         For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         
@@ -9040,7 +9040,7 @@ class Client(BaseClient):
         
           Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
         
-          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | '
+          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | \'
         
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one symbol character.
         
@@ -9106,8 +9106,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_assume_role_policy(
-              RoleName='string',
-              PolicyDocument='string'
+              RoleName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -9138,7 +9138,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a group\'s path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -9150,28 +9150,28 @@ class Client(BaseClient):
         ::
         
           response = client.update_group(
-              GroupName='string',
-              NewPath='string',
-              NewGroupName='string'
+              GroupName=\'string\',
+              NewPath=\'string\',
+              NewGroupName=\'string\'
           )
         :type GroupName: string
         :param GroupName: **[REQUIRED]** 
         
-          Name of the IAM group to update. If you're changing the name of the group, this is the original name.
+          Name of the IAM group to update. If you\'re changing the name of the group, this is the original name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
         :type NewPath: string
         :param NewPath: 
         
-          New path for the IAM group. Only include this if changing the group's path.
+          New path for the IAM group. Only include this if changing the group\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewGroupName: string
         :param NewGroupName: 
         
-          New name for the IAM group. Only include this if changing the group's name.
+          New name for the IAM group. Only include this if changing the group\'s name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -9190,8 +9190,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_login_profile(
-              UserName='string',
-              Password='string',
+              UserName=\'string\',
+              Password=\'string\',
               PasswordResetRequired=True|False
           )
         :type UserName: string
@@ -9230,11 +9230,11 @@ class Client(BaseClient):
         
         The list that you pass with this operation completely replaces the existing list of thumbprints. (The lists are not merged.)
         
-        Typically, you need to update a thumbprint only when the identity provider's certificate changes, which occurs rarely. However, if the provider's certificate *does* change, any attempt to assume an IAM role that specifies the OIDC provider as a principal fails until the certificate thumbprint is updated.
+        Typically, you need to update a thumbprint only when the identity provider\'s certificate changes, which occurs rarely. However, if the provider\'s certificate *does* change, any attempt to assume an IAM role that specifies the OIDC provider as a principal fails until the certificate thumbprint is updated.
         
         .. note::
         
-          Because trust for the OIDC provider is derived from the provider's certificate and is validated by the thumbprint, it is best to limit access to the ``UpdateOpenIDConnectProviderThumbprint`` operation to highly privileged users.
+          Because trust for the OIDC provider is derived from the provider\'s certificate and is validated by the thumbprint, it is best to limit access to the ``UpdateOpenIDConnectProviderThumbprint`` operation to highly privileged users.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateOpenIDConnectProviderThumbprint>`_
         
@@ -9242,9 +9242,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_open_id_connect_provider_thumbprint(
-              OpenIDConnectProviderArn='string',
+              OpenIDConnectProviderArn=\'string\',
               ThumbprintList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type OpenIDConnectProviderArn: string
@@ -9261,9 +9261,9 @@ class Client(BaseClient):
         
           - *(string) --* 
         
-            Contains a thumbprint for an identity provider's server certificate.
+            Contains a thumbprint for an identity provider\'s server certificate.
         
-            The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
+            The identity provider\'s server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
         
         :returns: None
         """
@@ -9278,8 +9278,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_role(
-              RoleName='string',
-              Description='string',
+              RoleName=\'string\',
+              Description=\'string\',
               MaxSessionDuration=123
           )
         :type RoleName: string
@@ -9297,7 +9297,7 @@ class Client(BaseClient):
         
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don't specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         
         :rtype: dict
         :returns: 
@@ -9324,8 +9324,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_role_description(
-              RoleName='string',
-              Description='string'
+              RoleName=\'string\',
+              Description=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -9345,18 +9345,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Role': {
-                    'Path': 'string',
-                    'RoleName': 'string',
-                    'RoleId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'AssumeRolePolicyDocument': 'string',
-                    'Description': 'string',
-                    'MaxSessionDuration': 123,
-                    'PermissionsBoundary': {
-                        'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                        'PermissionsBoundaryArn': 'string'
+                \'Role\': {
+                    \'Path\': \'string\',
+                    \'RoleName\': \'string\',
+                    \'RoleId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'AssumeRolePolicyDocument\': \'string\',
+                    \'Description\': \'string\',
+                    \'MaxSessionDuration\': 123,
+                    \'PermissionsBoundary\': {
+                        \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                        \'PermissionsBoundaryArn\': \'string\'
                     }
                 }
             }
@@ -9430,13 +9430,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_saml_provider(
-              SAMLMetadataDocument='string',
-              SAMLProviderArn='string'
+              SAMLMetadataDocument=\'string\',
+              SAMLProviderArn=\'string\'
           )
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]** 
         
-          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
         :type SAMLProviderArn: string
         :param SAMLProviderArn: **[REQUIRED]** 
@@ -9453,7 +9453,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SAMLProviderArn': 'string'
+                \'SAMLProviderArn\': \'string\'
             }
           **Response Structure** 
         
@@ -9475,7 +9475,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a server certificate\'s path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -9487,9 +9487,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_server_certificate(
-              ServerCertificateName='string',
-              NewPath='string',
-              NewServerCertificateName='string'
+              ServerCertificateName=\'string\',
+              NewPath=\'string\',
+              NewServerCertificateName=\'string\'
           )
         :type ServerCertificateName: string
         :param ServerCertificateName: **[REQUIRED]** 
@@ -9501,14 +9501,14 @@ class Client(BaseClient):
         :type NewPath: string
         :param NewPath: 
         
-          The new path for the server certificate. Include this only if you are updating the server certificate's path.
+          The new path for the server certificate. Include this only if you are updating the server certificate\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewServerCertificateName: string
         :param NewServerCertificateName: 
         
-          The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
+          The new name for the server certificate. Include this only if you are updating the server certificate\'s name. The name of the certificate cannot contain any spaces.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -9525,9 +9525,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_service_specific_credential(
-              UserName='string',
-              ServiceSpecificCredentialId='string',
-              Status='Active'|'Inactive'
+              UserName=\'string\',
+              ServiceSpecificCredentialId=\'string\',
+              Status=\'Active\'|\'Inactive\'
           )
         :type UserName: string
         :param UserName: 
@@ -9563,9 +9563,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_signing_certificate(
-              UserName='string',
-              CertificateId='string',
-              Status='Active'|'Inactive'
+              UserName=\'string\',
+              CertificateId=\'string\',
+              Status=\'Active\'|\'Inactive\'
           )
         :type UserName: string
         :param UserName: 
@@ -9601,9 +9601,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_ssh_public_key(
-              UserName='string',
-              SSHPublicKeyId='string',
-              Status='Active'|'Inactive'
+              UserName=\'string\',
+              SSHPublicKeyId=\'string\',
+              Status=\'Active\'|\'Inactive\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -9633,7 +9633,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing an IAM user\'s path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -9645,28 +9645,28 @@ class Client(BaseClient):
         ::
         
           response = client.update_user(
-              UserName='string',
-              NewPath='string',
-              NewUserName='string'
+              UserName=\'string\',
+              NewPath=\'string\',
+              NewUserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
         
-          Name of the user to update. If you're changing the name of the user, this is the original user name.
+          Name of the user to update. If you\'re changing the name of the user, this is the original user name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
         :type NewPath: string
         :param NewPath: 
         
-          New path for the IAM user. Include this parameter only if you're changing the user's path.
+          New path for the IAM user. Include this parameter only if you\'re changing the user\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewUserName: string
         :param NewUserName: 
         
-          New name for the user. Include this parameter only if you're changing the user's name.
+          New name for the user. Include this parameter only if you\'re changing the user\'s name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -9693,11 +9693,11 @@ class Client(BaseClient):
         ::
         
           response = client.upload_server_certificate(
-              Path='string',
-              ServerCertificateName='string',
-              CertificateBody='string',
-              PrivateKey='string',
-              CertificateChain='string'
+              Path=\'string\',
+              ServerCertificateName=\'string\',
+              CertificateBody=\'string\',
+              PrivateKey=\'string\',
+              CertificateChain=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -9764,13 +9764,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ServerCertificateMetadata': {
-                    'Path': 'string',
-                    'ServerCertificateName': 'string',
-                    'ServerCertificateId': 'string',
-                    'Arn': 'string',
-                    'UploadDate': datetime(2015, 1, 1),
-                    'Expiration': datetime(2015, 1, 1)
+                \'ServerCertificateMetadata\': {
+                    \'Path\': \'string\',
+                    \'ServerCertificateName\': \'string\',
+                    \'ServerCertificateId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'UploadDate\': datetime(2015, 1, 1),
+                    \'Expiration\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -9825,8 +9825,8 @@ class Client(BaseClient):
         ::
         
           response = client.upload_signing_certificate(
-              UserName='string',
-              CertificateBody='string'
+              UserName=\'string\',
+              CertificateBody=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -9856,12 +9856,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': {
-                    'UserName': 'string',
-                    'CertificateId': 'string',
-                    'CertificateBody': 'string',
-                    'Status': 'Active'|'Inactive',
-                    'UploadDate': datetime(2015, 1, 1)
+                \'Certificate\': {
+                    \'UserName\': \'string\',
+                    \'CertificateId\': \'string\',
+                    \'CertificateBody\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\',
+                    \'UploadDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -9908,8 +9908,8 @@ class Client(BaseClient):
         ::
         
           response = client.upload_ssh_public_key(
-              UserName='string',
-              SSHPublicKeyBody='string'
+              UserName=\'string\',
+              SSHPublicKeyBody=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -9939,13 +9939,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SSHPublicKey': {
-                    'UserName': 'string',
-                    'SSHPublicKeyId': 'string',
-                    'Fingerprint': 'string',
-                    'SSHPublicKeyBody': 'string',
-                    'Status': 'Active'|'Inactive',
-                    'UploadDate': datetime(2015, 1, 1)
+                \'SSHPublicKey\': {
+                    \'UserName\': \'string\',
+                    \'SSHPublicKeyId\': \'string\',
+                    \'Fingerprint\': \'string\',
+                    \'SSHPublicKeyBody\': \'string\',
+                    \'Status\': \'Active\'|\'Inactive\',
+                    \'UploadDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 

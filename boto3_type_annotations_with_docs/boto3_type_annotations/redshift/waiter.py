@@ -1,6 +1,6 @@
 from datetime import datetime
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -15,18 +15,18 @@ class ClusterAvailable(Waiter):
         ::
         
           waiter.wait(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterIdentifier: string
@@ -94,18 +94,18 @@ class ClusterDeleted(Waiter):
         ::
         
           waiter.wait(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterIdentifier: string
@@ -173,18 +173,18 @@ class ClusterRestored(Waiter):
         ::
         
           waiter.wait(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterIdentifier: string
@@ -252,24 +252,24 @@ class SnapshotAvailable(Waiter):
         ::
         
           waiter.wait(
-              ClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              SnapshotType='string',
+              ClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               MaxRecords=123,
-              Marker='string',
-              OwnerAccount='string',
+              Marker=\'string\',
+              OwnerAccount=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               ClusterExists=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterIdentifier: string

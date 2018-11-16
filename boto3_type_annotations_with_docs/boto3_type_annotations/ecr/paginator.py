@@ -13,21 +13,21 @@ class DescribeImages(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               imageIds=[
                   {
-                      'imageDigest': 'string',
-                      'imageTag': 'string'
+                      \'imageDigest\': \'string\',
+                      \'imageTag\': \'string\'
                   },
               ],
               filter={
-                  'tagStatus': 'TAGGED'|'UNTAGGED'
+                  \'tagStatus\': \'TAGGED\'|\'UNTAGGED\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type registryId: string
@@ -91,19 +91,19 @@ class DescribeImages(Paginator):
           ::
         
             {
-                'imageDetails': [
+                \'imageDetails\': [
                     {
-                        'registryId': 'string',
-                        'repositoryName': 'string',
-                        'imageDigest': 'string',
-                        'imageTags': [
-                            'string',
+                        \'registryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'imageDigest\': \'string\',
+                        \'imageTags\': [
+                            \'string\',
                         ],
-                        'imageSizeInBytes': 123,
-                        'imagePushedAt': datetime(2015, 1, 1)
+                        \'imageSizeInBytes\': 123,
+                        \'imagePushedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -165,14 +165,14 @@ class DescribeRepositories(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              registryId='string',
+              registryId=\'string\',
               repositoryNames=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type registryId: string
@@ -212,16 +212,16 @@ class DescribeRepositories(Paginator):
           ::
         
             {
-                'repositories': [
+                \'repositories\': [
                     {
-                        'repositoryArn': 'string',
-                        'registryId': 'string',
-                        'repositoryName': 'string',
-                        'repositoryUri': 'string',
-                        'createdAt': datetime(2015, 1, 1)
+                        \'repositoryArn\': \'string\',
+                        \'registryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'repositoryUri\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -273,15 +273,15 @@ class ListImages(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               filter={
-                  'tagStatus': 'TAGGED'|'UNTAGGED'
+                  \'tagStatus\': \'TAGGED\'|\'UNTAGGED\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type registryId: string
@@ -328,13 +328,13 @@ class ListImages(Paginator):
           ::
         
             {
-                'imageIds': [
+                \'imageIds\': [
                     {
-                        'imageDigest': 'string',
-                        'imageTag': 'string'
+                        \'imageDigest\': \'string\',
+                        \'imageTag\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

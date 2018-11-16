@@ -13,9 +13,9 @@ class GetOfferingStatus(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,51 +43,51 @@ class GetOfferingStatus(Paginator):
           ::
         
             {
-                'current': {
-                    'string': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'current\': {
+                    \'string\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     }
                 },
-                'nextPeriod': {
-                    'string': {
-                        'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                        'offering': {
-                            'id': 'string',
-                            'description': 'string',
-                            'type': 'RECURRING',
-                            'platform': 'ANDROID'|'IOS',
-                            'recurringCharges': [
+                \'nextPeriod\': {
+                    \'string\': {
+                        \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                        \'offering\': {
+                            \'id\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'RECURRING\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'recurringCharges\': [
                                 {
-                                    'cost': {
-                                        'amount': 123.0,
-                                        'currencyCode': 'USD'
+                                    \'cost\': {
+                                        \'amount\': 123.0,
+                                        \'currencyCode\': \'USD\'
                                     },
-                                    'frequency': 'MONTHLY'
+                                    \'frequency\': \'MONTHLY\'
                                 },
                             ]
                         },
-                        'quantity': 123,
-                        'effectiveOn': datetime(2015, 1, 1)
+                        \'quantity\': 123,
+                        \'effectiveOn\': datetime(2015, 1, 1)
                     }
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -123,7 +123,7 @@ class GetOfferingStatus(Paginator):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -147,7 +147,7 @@ class GetOfferingStatus(Paginator):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -189,7 +189,7 @@ class GetOfferingStatus(Paginator):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -213,7 +213,7 @@ class GetOfferingStatus(Paginator):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -245,12 +245,12 @@ class ListArtifacts(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
-              type='SCREENSHOT'|'FILE'|'LOG',
+              arn=\'string\',
+              type=\'SCREENSHOT\'|\'FILE\'|\'LOG\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -261,7 +261,7 @@ class ListArtifacts(Paginator):
         :type type: string
         :param type: **[REQUIRED]** 
         
-          The artifacts' type.
+          The artifacts\' type.
         
           Allowed values include:
         
@@ -296,16 +296,16 @@ class ListArtifacts(Paginator):
           ::
         
             {
-                'artifacts': [
+                \'artifacts\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'UNKNOWN'|'SCREENSHOT'|'DEVICE_LOG'|'MESSAGE_LOG'|'VIDEO_LOG'|'RESULT_LOG'|'SERVICE_LOG'|'WEBKIT_LOG'|'INSTRUMENTATION_OUTPUT'|'EXERCISER_MONKEY_OUTPUT'|'CALABASH_JSON_OUTPUT'|'CALABASH_PRETTY_OUTPUT'|'CALABASH_STANDARD_OUTPUT'|'CALABASH_JAVA_XML_OUTPUT'|'AUTOMATION_OUTPUT'|'APPIUM_SERVER_OUTPUT'|'APPIUM_JAVA_OUTPUT'|'APPIUM_JAVA_XML_OUTPUT'|'APPIUM_PYTHON_OUTPUT'|'APPIUM_PYTHON_XML_OUTPUT'|'EXPLORER_EVENT_LOG'|'EXPLORER_SUMMARY_LOG'|'APPLICATION_CRASH_REPORT'|'XCTEST_LOG'|'VIDEO'|'CUSTOMER_ARTIFACT'|'CUSTOMER_ARTIFACT_LOG'|'TESTSPEC_OUTPUT',
-                        'extension': 'string',
-                        'url': 'string'
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'UNKNOWN\'|\'SCREENSHOT\'|\'DEVICE_LOG\'|\'MESSAGE_LOG\'|\'VIDEO_LOG\'|\'RESULT_LOG\'|\'SERVICE_LOG\'|\'WEBKIT_LOG\'|\'INSTRUMENTATION_OUTPUT\'|\'EXERCISER_MONKEY_OUTPUT\'|\'CALABASH_JSON_OUTPUT\'|\'CALABASH_PRETTY_OUTPUT\'|\'CALABASH_STANDARD_OUTPUT\'|\'CALABASH_JAVA_XML_OUTPUT\'|\'AUTOMATION_OUTPUT\'|\'APPIUM_SERVER_OUTPUT\'|\'APPIUM_JAVA_OUTPUT\'|\'APPIUM_JAVA_XML_OUTPUT\'|\'APPIUM_PYTHON_OUTPUT\'|\'APPIUM_PYTHON_XML_OUTPUT\'|\'EXPLORER_EVENT_LOG\'|\'EXPLORER_SUMMARY_LOG\'|\'APPLICATION_CRASH_REPORT\'|\'XCTEST_LOG\'|\'VIDEO\'|\'CUSTOMER_ARTIFACT\'|\'CUSTOMER_ARTIFACT_LOG\'|\'TESTSPEC_OUTPUT\',
+                        \'extension\': \'string\',
+                        \'url\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -323,15 +323,15 @@ class ListArtifacts(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The artifact's ARN.
+                  The artifact\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The artifact's name.
+                  The artifact\'s name.
         
                 - **type** *(string) --* 
         
-                  The artifact's type.
+                  The artifact\'s type.
         
                   Allowed values include the following:
         
@@ -383,11 +383,11 @@ class ListArtifacts(Paginator):
                    
                 - **extension** *(string) --* 
         
-                  The artifact's file extension.
+                  The artifact\'s file extension.
         
                 - **url** *(string) --* 
         
-                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the artifact's file.
+                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the artifact\'s file.
         
             - **NextToken** *(string) --* 
         
@@ -407,12 +407,12 @@ class ListDevicePools(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
-              type='CURATED'|'PRIVATE',
+              arn=\'string\',
+              type=\'CURATED\'|\'PRIVATE\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -423,7 +423,7 @@ class ListDevicePools(Paginator):
         :type type: string
         :param type: 
         
-          The device pools' type.
+          The device pools\' type.
         
           Allowed values include:
         
@@ -456,22 +456,22 @@ class ListDevicePools(Paginator):
           ::
         
             {
-                'devicePools': [
+                \'devicePools\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'type': 'CURATED'|'PRIVATE',
-                        'rules': [
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'CURATED\'|\'PRIVATE\',
+                        \'rules\': [
                             {
-                                'attribute': 'ARN'|'PLATFORM'|'FORM_FACTOR'|'MANUFACTURER'|'REMOTE_ACCESS_ENABLED'|'REMOTE_DEBUG_ENABLED'|'APPIUM_VERSION'|'INSTANCE_ARN'|'INSTANCE_LABELS'|'FLEET_TYPE',
-                                'operator': 'EQUALS'|'LESS_THAN'|'GREATER_THAN'|'IN'|'NOT_IN'|'CONTAINS',
-                                'value': 'string'
+                                \'attribute\': \'ARN\'|\'PLATFORM\'|\'FORM_FACTOR\'|\'MANUFACTURER\'|\'REMOTE_ACCESS_ENABLED\'|\'REMOTE_DEBUG_ENABLED\'|\'APPIUM_VERSION\'|\'INSTANCE_ARN\'|\'INSTANCE_LABELS\'|\'FLEET_TYPE\',
+                                \'operator\': \'EQUALS\'|\'LESS_THAN\'|\'GREATER_THAN\'|\'IN\'|\'NOT_IN\'|\'CONTAINS\',
+                                \'value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -489,19 +489,19 @@ class ListDevicePools(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The device pool's ARN.
+                  The device pool\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device pool's name.
+                  The device pool\'s name.
         
                 - **description** *(string) --* 
         
-                  The device pool's description.
+                  The device pool\'s description.
         
                 - **type** *(string) --* 
         
-                  The device pool's type.
+                  The device pool\'s type.
         
                   Allowed values include:
         
@@ -511,7 +511,7 @@ class ListDevicePools(Paginator):
                    
                 - **rules** *(list) --* 
         
-                  Information about the device pool's rules.
+                  Information about the device pool\'s rules.
         
                   - *(dict) --* 
         
@@ -519,7 +519,7 @@ class ListDevicePools(Paginator):
         
                     - **attribute** *(string) --* 
         
-                      The rule's stringified attribute. For example, specify the value as ``"\"abc\""`` .
+                      The rule\'s stringified attribute. For example, specify the value as ``\"\\"abc\\"\"`` .
         
                       Allowed values include:
         
@@ -541,7 +541,7 @@ class ListDevicePools(Paginator):
                        
                     - **operator** *(string) --* 
         
-                      The rule's operator.
+                      The rule\'s operator.
         
                       * EQUALS: The equals operator. 
                        
@@ -557,7 +557,7 @@ class ListDevicePools(Paginator):
                        
                     - **value** *(string) --* 
         
-                      The rule's value.
+                      The rule\'s value.
         
             - **NextToken** *(string) --* 
         
@@ -577,11 +577,11 @@ class ListDevices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -614,58 +614,58 @@ class ListDevices(Paginator):
           ::
         
             {
-                'devices': [
+                \'devices\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'manufacturer': 'string',
-                        'model': 'string',
-                        'modelId': 'string',
-                        'formFactor': 'PHONE'|'TABLET',
-                        'platform': 'ANDROID'|'IOS',
-                        'os': 'string',
-                        'cpu': {
-                            'frequency': 'string',
-                            'architecture': 'string',
-                            'clock': 123.0
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'manufacturer\': \'string\',
+                        \'model\': \'string\',
+                        \'modelId\': \'string\',
+                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'os\': \'string\',
+                        \'cpu\': {
+                            \'frequency\': \'string\',
+                            \'architecture\': \'string\',
+                            \'clock\': 123.0
                         },
-                        'resolution': {
-                            'width': 123,
-                            'height': 123
+                        \'resolution\': {
+                            \'width\': 123,
+                            \'height\': 123
                         },
-                        'heapSize': 123,
-                        'memory': 123,
-                        'image': 'string',
-                        'carrier': 'string',
-                        'radio': 'string',
-                        'remoteAccessEnabled': True|False,
-                        'remoteDebugEnabled': True|False,
-                        'fleetType': 'string',
-                        'fleetName': 'string',
-                        'instances': [
+                        \'heapSize\': 123,
+                        \'memory\': 123,
+                        \'image\': \'string\',
+                        \'carrier\': \'string\',
+                        \'radio\': \'string\',
+                        \'remoteAccessEnabled\': True|False,
+                        \'remoteDebugEnabled\': True|False,
+                        \'fleetType\': \'string\',
+                        \'fleetName\': \'string\',
+                        \'instances\': [
                             {
-                                'arn': 'string',
-                                'deviceArn': 'string',
-                                'labels': [
-                                    'string',
+                                \'arn\': \'string\',
+                                \'deviceArn\': \'string\',
+                                \'labels\': [
+                                    \'string\',
                                 ],
-                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                'udid': 'string',
-                                'instanceProfile': {
-                                    'arn': 'string',
-                                    'packageCleanup': True|False,
-                                    'excludeAppPackagesFromCleanup': [
-                                        'string',
+                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                \'udid\': \'string\',
+                                \'instanceProfile\': {
+                                    \'arn\': \'string\',
+                                    \'packageCleanup\': True|False,
+                                    \'excludeAppPackagesFromCleanup\': [
+                                        \'string\',
                                     ],
-                                    'rebootAfterUse': True|False,
-                                    'name': 'string',
-                                    'description': 'string'
+                                    \'rebootAfterUse\': True|False,
+                                    \'name\': \'string\',
+                                    \'description\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -683,27 +683,27 @@ class ListDevices(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The device's ARN.
+                  The device\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The device's display name.
+                  The device\'s display name.
         
                 - **manufacturer** *(string) --* 
         
-                  The device's manufacturer name.
+                  The device\'s manufacturer name.
         
                 - **model** *(string) --* 
         
-                  The device's model name.
+                  The device\'s model name.
         
                 - **modelId** *(string) --* 
         
-                  The device's model ID.
+                  The device\'s model ID.
         
                 - **formFactor** *(string) --* 
         
-                  The device's form factor.
+                  The device\'s form factor.
         
                   Allowed values include:
         
@@ -713,7 +713,7 @@ class ListDevices(Paginator):
                    
                 - **platform** *(string) --* 
         
-                  The device's platform.
+                  The device\'s platform.
         
                   Allowed values include:
         
@@ -723,23 +723,23 @@ class ListDevices(Paginator):
                    
                 - **os** *(string) --* 
         
-                  The device's operating system type.
+                  The device\'s operating system type.
         
                 - **cpu** *(dict) --* 
         
-                  Information about the device's CPU.
+                  Information about the device\'s CPU.
         
                   - **frequency** *(string) --* 
         
-                    The CPU's frequency.
+                    The CPU\'s frequency.
         
                   - **architecture** *(string) --* 
         
-                    The CPU's architecture, for example x86 or ARM.
+                    The CPU\'s architecture, for example x86 or ARM.
         
                   - **clock** *(float) --* 
         
-                    The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                    The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                 - **resolution** *(dict) --* 
         
@@ -747,31 +747,31 @@ class ListDevices(Paginator):
         
                   - **width** *(integer) --* 
         
-                    The screen resolution's width, expressed in pixels.
+                    The screen resolution\'s width, expressed in pixels.
         
                   - **height** *(integer) --* 
         
-                    The screen resolution's height, expressed in pixels.
+                    The screen resolution\'s height, expressed in pixels.
         
                 - **heapSize** *(integer) --* 
         
-                  The device's heap size, expressed in bytes.
+                  The device\'s heap size, expressed in bytes.
         
                 - **memory** *(integer) --* 
         
-                  The device's total memory size, expressed in bytes.
+                  The device\'s total memory size, expressed in bytes.
         
                 - **image** *(string) --* 
         
-                  The device's image name.
+                  The device\'s image name.
         
                 - **carrier** *(string) --* 
         
-                  The device's carrier.
+                  The device\'s carrier.
         
                 - **radio** *(string) --* 
         
-                  The device's radio.
+                  The device\'s radio.
         
                 - **remoteAccessEnabled** *(boolean) --* 
         
@@ -869,17 +869,17 @@ class ListJobs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The run's Amazon Resource Name (ARN).
+          The run\'s Amazon Resource Name (ARN).
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -906,86 +906,86 @@ class ListJobs(Paginator):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'device': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'manufacturer': 'string',
-                            'model': 'string',
-                            'modelId': 'string',
-                            'formFactor': 'PHONE'|'TABLET',
-                            'platform': 'ANDROID'|'IOS',
-                            'os': 'string',
-                            'cpu': {
-                                'frequency': 'string',
-                                'architecture': 'string',
-                                'clock': 123.0
+                        \'message\': \'string\',
+                        \'device\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'manufacturer\': \'string\',
+                            \'model\': \'string\',
+                            \'modelId\': \'string\',
+                            \'formFactor\': \'PHONE\'|\'TABLET\',
+                            \'platform\': \'ANDROID\'|\'IOS\',
+                            \'os\': \'string\',
+                            \'cpu\': {
+                                \'frequency\': \'string\',
+                                \'architecture\': \'string\',
+                                \'clock\': 123.0
                             },
-                            'resolution': {
-                                'width': 123,
-                                'height': 123
+                            \'resolution\': {
+                                \'width\': 123,
+                                \'height\': 123
                             },
-                            'heapSize': 123,
-                            'memory': 123,
-                            'image': 'string',
-                            'carrier': 'string',
-                            'radio': 'string',
-                            'remoteAccessEnabled': True|False,
-                            'remoteDebugEnabled': True|False,
-                            'fleetType': 'string',
-                            'fleetName': 'string',
-                            'instances': [
+                            \'heapSize\': 123,
+                            \'memory\': 123,
+                            \'image\': \'string\',
+                            \'carrier\': \'string\',
+                            \'radio\': \'string\',
+                            \'remoteAccessEnabled\': True|False,
+                            \'remoteDebugEnabled\': True|False,
+                            \'fleetType\': \'string\',
+                            \'fleetName\': \'string\',
+                            \'instances\': [
                                 {
-                                    'arn': 'string',
-                                    'deviceArn': 'string',
-                                    'labels': [
-                                        'string',
+                                    \'arn\': \'string\',
+                                    \'deviceArn\': \'string\',
+                                    \'labels\': [
+                                        \'string\',
                                     ],
-                                    'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                    'udid': 'string',
-                                    'instanceProfile': {
-                                        'arn': 'string',
-                                        'packageCleanup': True|False,
-                                        'excludeAppPackagesFromCleanup': [
-                                            'string',
+                                    \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                    \'udid\': \'string\',
+                                    \'instanceProfile\': {
+                                        \'arn\': \'string\',
+                                        \'packageCleanup\': True|False,
+                                        \'excludeAppPackagesFromCleanup\': [
+                                            \'string\',
                                         ],
-                                        'rebootAfterUse': True|False,
-                                        'name': 'string',
-                                        'description': 'string'
+                                        \'rebootAfterUse\': True|False,
+                                        \'name\': \'string\',
+                                        \'description\': \'string\'
                                     }
                                 },
                             ]
                         },
-                        'instanceArn': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'instanceArn\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         },
-                        'videoEndpoint': 'string',
-                        'videoCapture': True|False
+                        \'videoEndpoint\': \'string\',
+                        \'videoCapture\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1003,15 +1003,15 @@ class ListJobs(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The job's ARN.
+                  The job\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The job's name.
+                  The job\'s name.
         
                 - **type** *(string) --* 
         
-                  The job's type.
+                  The job\'s type.
         
                   Allowed values include the following:
         
@@ -1049,7 +1049,7 @@ class ListJobs(Paginator):
         
                 - **status** *(string) --* 
         
-                  The job's status.
+                  The job\'s status.
         
                   Allowed values include:
         
@@ -1073,7 +1073,7 @@ class ListJobs(Paginator):
                    
                 - **result** *(string) --* 
         
-                  The job's result.
+                  The job\'s result.
         
                   Allowed values include:
         
@@ -1093,15 +1093,15 @@ class ListJobs(Paginator):
                    
                 - **started** *(datetime) --* 
         
-                  The job's start time.
+                  The job\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The job's stop time.
+                  The job\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The job's result counters.
+                  The job\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -1133,7 +1133,7 @@ class ListJobs(Paginator):
         
                 - **message** *(string) --* 
         
-                  A message about the job's result.
+                  A message about the job\'s result.
         
                 - **device** *(dict) --* 
         
@@ -1141,27 +1141,27 @@ class ListJobs(Paginator):
         
                   - **arn** *(string) --* 
         
-                    The device's ARN.
+                    The device\'s ARN.
         
                   - **name** *(string) --* 
         
-                    The device's display name.
+                    The device\'s display name.
         
                   - **manufacturer** *(string) --* 
         
-                    The device's manufacturer name.
+                    The device\'s manufacturer name.
         
                   - **model** *(string) --* 
         
-                    The device's model name.
+                    The device\'s model name.
         
                   - **modelId** *(string) --* 
         
-                    The device's model ID.
+                    The device\'s model ID.
         
                   - **formFactor** *(string) --* 
         
-                    The device's form factor.
+                    The device\'s form factor.
         
                     Allowed values include:
         
@@ -1171,7 +1171,7 @@ class ListJobs(Paginator):
                      
                   - **platform** *(string) --* 
         
-                    The device's platform.
+                    The device\'s platform.
         
                     Allowed values include:
         
@@ -1181,23 +1181,23 @@ class ListJobs(Paginator):
                      
                   - **os** *(string) --* 
         
-                    The device's operating system type.
+                    The device\'s operating system type.
         
                   - **cpu** *(dict) --* 
         
-                    Information about the device's CPU.
+                    Information about the device\'s CPU.
         
                     - **frequency** *(string) --* 
         
-                      The CPU's frequency.
+                      The CPU\'s frequency.
         
                     - **architecture** *(string) --* 
         
-                      The CPU's architecture, for example x86 or ARM.
+                      The CPU\'s architecture, for example x86 or ARM.
         
                     - **clock** *(float) --* 
         
-                      The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                      The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                   - **resolution** *(dict) --* 
         
@@ -1205,31 +1205,31 @@ class ListJobs(Paginator):
         
                     - **width** *(integer) --* 
         
-                      The screen resolution's width, expressed in pixels.
+                      The screen resolution\'s width, expressed in pixels.
         
                     - **height** *(integer) --* 
         
-                      The screen resolution's height, expressed in pixels.
+                      The screen resolution\'s height, expressed in pixels.
         
                   - **heapSize** *(integer) --* 
         
-                    The device's heap size, expressed in bytes.
+                    The device\'s heap size, expressed in bytes.
         
                   - **memory** *(integer) --* 
         
-                    The device's total memory size, expressed in bytes.
+                    The device\'s total memory size, expressed in bytes.
         
                   - **image** *(string) --* 
         
-                    The device's image name.
+                    The device\'s image name.
         
                   - **carrier** *(string) --* 
         
-                    The device's carrier.
+                    The device\'s carrier.
         
                   - **radio** *(string) --* 
         
-                    The device's radio.
+                    The device\'s radio.
         
                   - **remoteAccessEnabled** *(boolean) --* 
         
@@ -1356,9 +1356,9 @@ class ListOfferingTransactions(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1386,38 +1386,38 @@ class ListOfferingTransactions(Paginator):
           ::
         
             {
-                'offeringTransactions': [
+                \'offeringTransactions\': [
                     {
-                        'offeringStatus': {
-                            'type': 'PURCHASE'|'RENEW'|'SYSTEM',
-                            'offering': {
-                                'id': 'string',
-                                'description': 'string',
-                                'type': 'RECURRING',
-                                'platform': 'ANDROID'|'IOS',
-                                'recurringCharges': [
+                        \'offeringStatus\': {
+                            \'type\': \'PURCHASE\'|\'RENEW\'|\'SYSTEM\',
+                            \'offering\': {
+                                \'id\': \'string\',
+                                \'description\': \'string\',
+                                \'type\': \'RECURRING\',
+                                \'platform\': \'ANDROID\'|\'IOS\',
+                                \'recurringCharges\': [
                                     {
-                                        'cost': {
-                                            'amount': 123.0,
-                                            'currencyCode': 'USD'
+                                        \'cost\': {
+                                            \'amount\': 123.0,
+                                            \'currencyCode\': \'USD\'
                                         },
-                                        'frequency': 'MONTHLY'
+                                        \'frequency\': \'MONTHLY\'
                                     },
                                 ]
                             },
-                            'quantity': 123,
-                            'effectiveOn': datetime(2015, 1, 1)
+                            \'quantity\': 123,
+                            \'effectiveOn\': datetime(2015, 1, 1)
                         },
-                        'transactionId': 'string',
-                        'offeringPromotionId': 'string',
-                        'createdOn': datetime(2015, 1, 1),
-                        'cost': {
-                            'amount': 123.0,
-                            'currencyCode': 'USD'
+                        \'transactionId\': \'string\',
+                        \'offeringPromotionId\': \'string\',
+                        \'createdOn\': datetime(2015, 1, 1),
+                        \'cost\': {
+                            \'amount\': 123.0,
+                            \'currencyCode\': \'USD\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1455,7 +1455,7 @@ class ListOfferingTransactions(Paginator):
         
                     - **type** *(string) --* 
         
-                      The type of offering (e.g., "RECURRING") for a device.
+                      The type of offering (e.g., \"RECURRING\") for a device.
         
                     - **platform** *(string) --* 
         
@@ -1479,7 +1479,7 @@ class ListOfferingTransactions(Paginator):
         
                           - **currencyCode** *(string) --* 
         
-                            The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                            The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                         - **frequency** *(string) --* 
         
@@ -1515,7 +1515,7 @@ class ListOfferingTransactions(Paginator):
         
                   - **currencyCode** *(string) --* 
         
-                    The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                    The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
             - **NextToken** *(string) --* 
         
@@ -1536,9 +1536,9 @@ class ListOfferings(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1566,24 +1566,24 @@ class ListOfferings(Paginator):
           ::
         
             {
-                'offerings': [
+                \'offerings\': [
                     {
-                        'id': 'string',
-                        'description': 'string',
-                        'type': 'RECURRING',
-                        'platform': 'ANDROID'|'IOS',
-                        'recurringCharges': [
+                        \'id\': \'string\',
+                        \'description\': \'string\',
+                        \'type\': \'RECURRING\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'recurringCharges\': [
                             {
-                                'cost': {
-                                    'amount': 123.0,
-                                    'currencyCode': 'USD'
+                                \'cost\': {
+                                    \'amount\': 123.0,
+                                    \'currencyCode\': \'USD\'
                                 },
-                                'frequency': 'MONTHLY'
+                                \'frequency\': \'MONTHLY\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1609,7 +1609,7 @@ class ListOfferings(Paginator):
         
                 - **type** *(string) --* 
         
-                  The type of offering (e.g., "RECURRING") for a device.
+                  The type of offering (e.g., \"RECURRING\") for a device.
         
                 - **platform** *(string) --* 
         
@@ -1633,7 +1633,7 @@ class ListOfferings(Paginator):
         
                       - **currencyCode** *(string) --* 
         
-                        The currency code of a monetary amount. For example, ``USD`` means "U.S. dollars."
+                        The currency code of a monetary amount. For example, ``USD`` means \"U.S. dollars.\"
         
                     - **frequency** *(string) --* 
         
@@ -1657,11 +1657,11 @@ class ListProjects(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -1694,15 +1694,15 @@ class ListProjects(Paginator):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'defaultJobTimeoutMinutes': 123,
-                        'created': datetime(2015, 1, 1)
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'defaultJobTimeoutMinutes\': 123,
+                        \'created\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1720,11 +1720,11 @@ class ListProjects(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The project's ARN.
+                  The project\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The project's name.
+                  The project\'s name.
         
                 - **defaultJobTimeoutMinutes** *(integer) --* 
         
@@ -1752,11 +1752,11 @@ class ListRuns(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -1789,84 +1789,84 @@ class ListRuns(Paginator):
           ::
         
             {
-                'runs': [
+                \'runs\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'platform': 'ANDROID'|'IOS',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'platform\': \'ANDROID\'|\'IOS\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'totalJobs': 123,
-                        'completedJobs': 123,
-                        'billingMethod': 'METERED'|'UNMETERED',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'totalJobs\': 123,
+                        \'completedJobs\': 123,
+                        \'billingMethod\': \'METERED\'|\'UNMETERED\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         },
-                        'networkProfile': {
-                            'arn': 'string',
-                            'name': 'string',
-                            'description': 'string',
-                            'type': 'CURATED'|'PRIVATE',
-                            'uplinkBandwidthBits': 123,
-                            'downlinkBandwidthBits': 123,
-                            'uplinkDelayMs': 123,
-                            'downlinkDelayMs': 123,
-                            'uplinkJitterMs': 123,
-                            'downlinkJitterMs': 123,
-                            'uplinkLossPercent': 123,
-                            'downlinkLossPercent': 123
+                        \'networkProfile\': {
+                            \'arn\': \'string\',
+                            \'name\': \'string\',
+                            \'description\': \'string\',
+                            \'type\': \'CURATED\'|\'PRIVATE\',
+                            \'uplinkBandwidthBits\': 123,
+                            \'downlinkBandwidthBits\': 123,
+                            \'uplinkDelayMs\': 123,
+                            \'downlinkDelayMs\': 123,
+                            \'uplinkJitterMs\': 123,
+                            \'downlinkJitterMs\': 123,
+                            \'uplinkLossPercent\': 123,
+                            \'downlinkLossPercent\': 123
                         },
-                        'parsingResultUrl': 'string',
-                        'resultCode': 'PARSING_FAILED'|'VPC_ENDPOINT_SETUP_FAILED',
-                        'seed': 123,
-                        'appUpload': 'string',
-                        'eventCount': 123,
-                        'jobTimeoutMinutes': 123,
-                        'devicePoolArn': 'string',
-                        'locale': 'string',
-                        'radios': {
-                            'wifi': True|False,
-                            'bluetooth': True|False,
-                            'nfc': True|False,
-                            'gps': True|False
+                        \'parsingResultUrl\': \'string\',
+                        \'resultCode\': \'PARSING_FAILED\'|\'VPC_ENDPOINT_SETUP_FAILED\',
+                        \'seed\': 123,
+                        \'appUpload\': \'string\',
+                        \'eventCount\': 123,
+                        \'jobTimeoutMinutes\': 123,
+                        \'devicePoolArn\': \'string\',
+                        \'locale\': \'string\',
+                        \'radios\': {
+                            \'wifi\': True|False,
+                            \'bluetooth\': True|False,
+                            \'nfc\': True|False,
+                            \'gps\': True|False
                         },
-                        'location': {
-                            'latitude': 123.0,
-                            'longitude': 123.0
+                        \'location\': {
+                            \'latitude\': 123.0,
+                            \'longitude\': 123.0
                         },
-                        'customerArtifactPaths': {
-                            'iosPaths': [
-                                'string',
+                        \'customerArtifactPaths\': {
+                            \'iosPaths\': [
+                                \'string\',
                             ],
-                            'androidPaths': [
-                                'string',
+                            \'androidPaths\': [
+                                \'string\',
                             ],
-                            'deviceHostPaths': [
-                                'string',
+                            \'deviceHostPaths\': [
+                                \'string\',
                             ]
                         },
-                        'webUrl': 'string',
-                        'skipAppResign': True|False,
-                        'testSpecArn': 'string'
+                        \'webUrl\': \'string\',
+                        \'skipAppResign\': True|False,
+                        \'testSpecArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1884,15 +1884,15 @@ class ListRuns(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The run's ARN.
+                  The run\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The run's name.
+                  The run\'s name.
         
                 - **type** *(string) --* 
         
-                  The run's type.
+                  The run\'s type.
         
                   Must be one of the following values:
         
@@ -1926,7 +1926,7 @@ class ListRuns(Paginator):
                    
                 - **platform** *(string) --* 
         
-                  The run's platform.
+                  The run\'s platform.
         
                   Allowed values include:
         
@@ -1940,7 +1940,7 @@ class ListRuns(Paginator):
         
                 - **status** *(string) --* 
         
-                  The run's status.
+                  The run\'s status.
         
                   Allowed values include:
         
@@ -1964,7 +1964,7 @@ class ListRuns(Paginator):
                    
                 - **result** *(string) --* 
         
-                  The run's result.
+                  The run\'s result.
         
                   Allowed values include:
         
@@ -1984,15 +1984,15 @@ class ListRuns(Paginator):
                    
                 - **started** *(datetime) --* 
         
-                  The run's start time.
+                  The run\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The run's stop time.
+                  The run\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The run's result counters.
+                  The run\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -2024,7 +2024,7 @@ class ListRuns(Paginator):
         
                 - **message** *(string) --* 
         
-                  A message about the run's result.
+                  A message about the run\'s result.
         
                 - **totalJobs** *(integer) --* 
         
@@ -2108,7 +2108,7 @@ class ListRuns(Paginator):
         
                 - **parsingResultUrl** *(string) --* 
         
-                  Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+                  Read-only URL for an object in S3 bucket where you can get the parsing results of the test package. If the test package doesn\'t parse, the reason why it doesn\'t parse appears in the file that this URL points to.
         
                 - **resultCode** *(string) --* 
         
@@ -2176,19 +2176,19 @@ class ListRuns(Paginator):
         
                   - **iosPaths** *(list) --* 
         
-                    Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths on the iOS device where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
                   - **androidPaths** *(list) --* 
         
-                    Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths on the Android device where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
                   - **deviceHostPaths** *(list) --* 
         
-                    Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests will be pulled from.
+                    Comma-separated list of paths in the test execution environment where the artifacts generated by the customer\'s tests will be pulled from.
         
                     - *(string) --* 
                 
@@ -2224,11 +2224,11 @@ class ListSamples(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -2261,14 +2261,14 @@ class ListSamples(Paginator):
           ::
         
             {
-                'samples': [
+                \'samples\': [
                     {
-                        'arn': 'string',
-                        'type': 'CPU'|'MEMORY'|'THREADS'|'RX_RATE'|'TX_RATE'|'RX'|'TX'|'NATIVE_FRAMES'|'NATIVE_FPS'|'NATIVE_MIN_DRAWTIME'|'NATIVE_AVG_DRAWTIME'|'NATIVE_MAX_DRAWTIME'|'OPENGL_FRAMES'|'OPENGL_FPS'|'OPENGL_MIN_DRAWTIME'|'OPENGL_AVG_DRAWTIME'|'OPENGL_MAX_DRAWTIME',
-                        'url': 'string'
+                        \'arn\': \'string\',
+                        \'type\': \'CPU\'|\'MEMORY\'|\'THREADS\'|\'RX_RATE\'|\'TX_RATE\'|\'RX\'|\'TX\'|\'NATIVE_FRAMES\'|\'NATIVE_FPS\'|\'NATIVE_MIN_DRAWTIME\'|\'NATIVE_AVG_DRAWTIME\'|\'NATIVE_MAX_DRAWTIME\'|\'OPENGL_FRAMES\'|\'OPENGL_FPS\'|\'OPENGL_MIN_DRAWTIME\'|\'OPENGL_AVG_DRAWTIME\'|\'OPENGL_MAX_DRAWTIME\',
+                        \'url\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2286,11 +2286,11 @@ class ListSamples(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The sample's ARN.
+                  The sample\'s ARN.
         
                 - **type** *(string) --* 
         
-                  The sample's type.
+                  The sample\'s type.
         
                   Must be one of the following values:
         
@@ -2330,7 +2330,7 @@ class ListSamples(Paginator):
                    
                 - **url** *(string) --* 
         
-                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the sample's file.
+                  The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the sample\'s file.
         
             - **NextToken** *(string) --* 
         
@@ -2350,17 +2350,17 @@ class ListSuites(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The job's Amazon Resource Name (ARN).
+          The job\'s Amazon Resource Name (ARN).
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -2387,34 +2387,34 @@ class ListSuites(Paginator):
           ::
         
             {
-                'suites': [
+                \'suites\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2432,15 +2432,15 @@ class ListSuites(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The suite's ARN.
+                  The suite\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The suite's name.
+                  The suite\'s name.
         
                 - **type** *(string) --* 
         
-                  The suite's type.
+                  The suite\'s type.
         
                   Must be one of the following values:
         
@@ -2478,7 +2478,7 @@ class ListSuites(Paginator):
         
                 - **status** *(string) --* 
         
-                  The suite's status.
+                  The suite\'s status.
         
                   Allowed values include:
         
@@ -2502,7 +2502,7 @@ class ListSuites(Paginator):
                    
                 - **result** *(string) --* 
         
-                  The suite's result.
+                  The suite\'s result.
         
                   Allowed values include:
         
@@ -2522,15 +2522,15 @@ class ListSuites(Paginator):
                    
                 - **started** *(datetime) --* 
         
-                  The suite's start time.
+                  The suite\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The suite's stop time.
+                  The suite\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The suite's result counters.
+                  The suite\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -2562,7 +2562,7 @@ class ListSuites(Paginator):
         
                 - **message** *(string) --* 
         
-                  A message about the suite's result.
+                  A message about the suite\'s result.
         
                 - **deviceMinutes** *(dict) --* 
         
@@ -2598,17 +2598,17 @@ class ListTests(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The test suite's Amazon Resource Name (ARN).
+          The test suite\'s Amazon Resource Name (ARN).
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -2635,34 +2635,34 @@ class ListTests(Paginator):
           ::
         
             {
-                'tests': [
+                \'tests\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'type': 'BUILTIN_FUZZ'|'BUILTIN_EXPLORER'|'WEB_PERFORMANCE_PROFILE'|'APPIUM_JAVA_JUNIT'|'APPIUM_JAVA_TESTNG'|'APPIUM_PYTHON'|'APPIUM_WEB_JAVA_JUNIT'|'APPIUM_WEB_JAVA_TESTNG'|'APPIUM_WEB_PYTHON'|'CALABASH'|'INSTRUMENTATION'|'UIAUTOMATION'|'UIAUTOMATOR'|'XCTEST'|'XCTEST_UI'|'REMOTE_ACCESS_RECORD'|'REMOTE_ACCESS_REPLAY',
-                        'created': datetime(2015, 1, 1),
-                        'status': 'PENDING'|'PENDING_CONCURRENCY'|'PENDING_DEVICE'|'PROCESSING'|'SCHEDULING'|'PREPARING'|'RUNNING'|'COMPLETED'|'STOPPING',
-                        'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                        'started': datetime(2015, 1, 1),
-                        'stopped': datetime(2015, 1, 1),
-                        'counters': {
-                            'total': 123,
-                            'passed': 123,
-                            'failed': 123,
-                            'warned': 123,
-                            'errored': 123,
-                            'stopped': 123,
-                            'skipped': 123
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'type\': \'BUILTIN_FUZZ\'|\'BUILTIN_EXPLORER\'|\'WEB_PERFORMANCE_PROFILE\'|\'APPIUM_JAVA_JUNIT\'|\'APPIUM_JAVA_TESTNG\'|\'APPIUM_PYTHON\'|\'APPIUM_WEB_JAVA_JUNIT\'|\'APPIUM_WEB_JAVA_TESTNG\'|\'APPIUM_WEB_PYTHON\'|\'CALABASH\'|\'INSTRUMENTATION\'|\'UIAUTOMATION\'|\'UIAUTOMATOR\'|\'XCTEST\'|\'XCTEST_UI\'|\'REMOTE_ACCESS_RECORD\'|\'REMOTE_ACCESS_REPLAY\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'status\': \'PENDING\'|\'PENDING_CONCURRENCY\'|\'PENDING_DEVICE\'|\'PROCESSING\'|\'SCHEDULING\'|\'PREPARING\'|\'RUNNING\'|\'COMPLETED\'|\'STOPPING\',
+                        \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                        \'started\': datetime(2015, 1, 1),
+                        \'stopped\': datetime(2015, 1, 1),
+                        \'counters\': {
+                            \'total\': 123,
+                            \'passed\': 123,
+                            \'failed\': 123,
+                            \'warned\': 123,
+                            \'errored\': 123,
+                            \'stopped\': 123,
+                            \'skipped\': 123
                         },
-                        'message': 'string',
-                        'deviceMinutes': {
-                            'total': 123.0,
-                            'metered': 123.0,
-                            'unmetered': 123.0
+                        \'message\': \'string\',
+                        \'deviceMinutes\': {
+                            \'total\': 123.0,
+                            \'metered\': 123.0,
+                            \'unmetered\': 123.0
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2680,15 +2680,15 @@ class ListTests(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The test's ARN.
+                  The test\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The test's name.
+                  The test\'s name.
         
                 - **type** *(string) --* 
         
-                  The test's type.
+                  The test\'s type.
         
                   Must be one of the following values:
         
@@ -2726,7 +2726,7 @@ class ListTests(Paginator):
         
                 - **status** *(string) --* 
         
-                  The test's status.
+                  The test\'s status.
         
                   Allowed values include:
         
@@ -2750,7 +2750,7 @@ class ListTests(Paginator):
                    
                 - **result** *(string) --* 
         
-                  The test's result.
+                  The test\'s result.
         
                   Allowed values include:
         
@@ -2770,15 +2770,15 @@ class ListTests(Paginator):
                    
                 - **started** *(datetime) --* 
         
-                  The test's start time.
+                  The test\'s start time.
         
                 - **stopped** *(datetime) --* 
         
-                  The test's stop time.
+                  The test\'s stop time.
         
                 - **counters** *(dict) --* 
         
-                  The test's result counters.
+                  The test\'s result counters.
         
                   - **total** *(integer) --* 
         
@@ -2810,7 +2810,7 @@ class ListTests(Paginator):
         
                 - **message** *(string) --* 
         
-                  A message about the test's result.
+                  A message about the test\'s result.
         
                 - **deviceMinutes** *(dict) --* 
         
@@ -2846,17 +2846,17 @@ class ListUniqueProblems(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
+              arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
         :param arn: **[REQUIRED]** 
         
-          The unique problems' ARNs.
+          The unique problems\' ARNs.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -2883,85 +2883,85 @@ class ListUniqueProblems(Paginator):
           ::
         
             {
-                'uniqueProblems': {
-                    'string': [
+                \'uniqueProblems\': {
+                    \'string\': [
                         {
-                            'message': 'string',
-                            'problems': [
+                            \'message\': \'string\',
+                            \'problems\': [
                                 {
-                                    'run': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'run\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'job': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'job\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'suite': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'suite\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'test': {
-                                        'arn': 'string',
-                                        'name': 'string'
+                                    \'test\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\'
                                     },
-                                    'device': {
-                                        'arn': 'string',
-                                        'name': 'string',
-                                        'manufacturer': 'string',
-                                        'model': 'string',
-                                        'modelId': 'string',
-                                        'formFactor': 'PHONE'|'TABLET',
-                                        'platform': 'ANDROID'|'IOS',
-                                        'os': 'string',
-                                        'cpu': {
-                                            'frequency': 'string',
-                                            'architecture': 'string',
-                                            'clock': 123.0
+                                    \'device\': {
+                                        \'arn\': \'string\',
+                                        \'name\': \'string\',
+                                        \'manufacturer\': \'string\',
+                                        \'model\': \'string\',
+                                        \'modelId\': \'string\',
+                                        \'formFactor\': \'PHONE\'|\'TABLET\',
+                                        \'platform\': \'ANDROID\'|\'IOS\',
+                                        \'os\': \'string\',
+                                        \'cpu\': {
+                                            \'frequency\': \'string\',
+                                            \'architecture\': \'string\',
+                                            \'clock\': 123.0
                                         },
-                                        'resolution': {
-                                            'width': 123,
-                                            'height': 123
+                                        \'resolution\': {
+                                            \'width\': 123,
+                                            \'height\': 123
                                         },
-                                        'heapSize': 123,
-                                        'memory': 123,
-                                        'image': 'string',
-                                        'carrier': 'string',
-                                        'radio': 'string',
-                                        'remoteAccessEnabled': True|False,
-                                        'remoteDebugEnabled': True|False,
-                                        'fleetType': 'string',
-                                        'fleetName': 'string',
-                                        'instances': [
+                                        \'heapSize\': 123,
+                                        \'memory\': 123,
+                                        \'image\': \'string\',
+                                        \'carrier\': \'string\',
+                                        \'radio\': \'string\',
+                                        \'remoteAccessEnabled\': True|False,
+                                        \'remoteDebugEnabled\': True|False,
+                                        \'fleetType\': \'string\',
+                                        \'fleetName\': \'string\',
+                                        \'instances\': [
                                             {
-                                                'arn': 'string',
-                                                'deviceArn': 'string',
-                                                'labels': [
-                                                    'string',
+                                                \'arn\': \'string\',
+                                                \'deviceArn\': \'string\',
+                                                \'labels\': [
+                                                    \'string\',
                                                 ],
-                                                'status': 'IN_USE'|'PREPARING'|'AVAILABLE'|'NOT_AVAILABLE',
-                                                'udid': 'string',
-                                                'instanceProfile': {
-                                                    'arn': 'string',
-                                                    'packageCleanup': True|False,
-                                                    'excludeAppPackagesFromCleanup': [
-                                                        'string',
+                                                \'status\': \'IN_USE\'|\'PREPARING\'|\'AVAILABLE\'|\'NOT_AVAILABLE\',
+                                                \'udid\': \'string\',
+                                                \'instanceProfile\': {
+                                                    \'arn\': \'string\',
+                                                    \'packageCleanup\': True|False,
+                                                    \'excludeAppPackagesFromCleanup\': [
+                                                        \'string\',
                                                     ],
-                                                    'rebootAfterUse': True|False,
-                                                    'name': 'string',
-                                                    'description': 'string'
+                                                    \'rebootAfterUse\': True|False,
+                                                    \'name\': \'string\',
+                                                    \'description\': \'string\'
                                                 }
                                             },
                                         ]
                                     },
-                                    'result': 'PENDING'|'PASSED'|'WARNED'|'FAILED'|'SKIPPED'|'ERRORED'|'STOPPED',
-                                    'message': 'string'
+                                    \'result\': \'PENDING\'|\'PASSED\'|\'WARNED\'|\'FAILED\'|\'SKIPPED\'|\'ERRORED\'|\'STOPPED\',
+                                    \'message\': \'string\'
                                 },
                             ]
                         },
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2999,7 +2999,7 @@ class ListUniqueProblems(Paginator):
         
                     - **message** *(string) --* 
         
-                      A message about the unique problems' result.
+                      A message about the unique problems\' result.
         
                     - **problems** *(list) --* 
         
@@ -3015,11 +3015,11 @@ class ListUniqueProblems(Paginator):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **job** *(dict) --* 
         
@@ -3027,11 +3027,11 @@ class ListUniqueProblems(Paginator):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **suite** *(dict) --* 
         
@@ -3039,11 +3039,11 @@ class ListUniqueProblems(Paginator):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **test** *(dict) --* 
         
@@ -3051,11 +3051,11 @@ class ListUniqueProblems(Paginator):
         
                           - **arn** *(string) --* 
         
-                            The problem detail's ARN.
+                            The problem detail\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The problem detail's name.
+                            The problem detail\'s name.
         
                         - **device** *(dict) --* 
         
@@ -3063,27 +3063,27 @@ class ListUniqueProblems(Paginator):
         
                           - **arn** *(string) --* 
         
-                            The device's ARN.
+                            The device\'s ARN.
         
                           - **name** *(string) --* 
         
-                            The device's display name.
+                            The device\'s display name.
         
                           - **manufacturer** *(string) --* 
         
-                            The device's manufacturer name.
+                            The device\'s manufacturer name.
         
                           - **model** *(string) --* 
         
-                            The device's model name.
+                            The device\'s model name.
         
                           - **modelId** *(string) --* 
         
-                            The device's model ID.
+                            The device\'s model ID.
         
                           - **formFactor** *(string) --* 
         
-                            The device's form factor.
+                            The device\'s form factor.
         
                             Allowed values include:
         
@@ -3093,7 +3093,7 @@ class ListUniqueProblems(Paginator):
                              
                           - **platform** *(string) --* 
         
-                            The device's platform.
+                            The device\'s platform.
         
                             Allowed values include:
         
@@ -3103,23 +3103,23 @@ class ListUniqueProblems(Paginator):
                              
                           - **os** *(string) --* 
         
-                            The device's operating system type.
+                            The device\'s operating system type.
         
                           - **cpu** *(dict) --* 
         
-                            Information about the device's CPU.
+                            Information about the device\'s CPU.
         
                             - **frequency** *(string) --* 
         
-                              The CPU's frequency.
+                              The CPU\'s frequency.
         
                             - **architecture** *(string) --* 
         
-                              The CPU's architecture, for example x86 or ARM.
+                              The CPU\'s architecture, for example x86 or ARM.
         
                             - **clock** *(float) --* 
         
-                              The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+                              The clock speed of the device\'s CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
         
                           - **resolution** *(dict) --* 
         
@@ -3127,31 +3127,31 @@ class ListUniqueProblems(Paginator):
         
                             - **width** *(integer) --* 
         
-                              The screen resolution's width, expressed in pixels.
+                              The screen resolution\'s width, expressed in pixels.
         
                             - **height** *(integer) --* 
         
-                              The screen resolution's height, expressed in pixels.
+                              The screen resolution\'s height, expressed in pixels.
         
                           - **heapSize** *(integer) --* 
         
-                            The device's heap size, expressed in bytes.
+                            The device\'s heap size, expressed in bytes.
         
                           - **memory** *(integer) --* 
         
-                            The device's total memory size, expressed in bytes.
+                            The device\'s total memory size, expressed in bytes.
         
                           - **image** *(string) --* 
         
-                            The device's image name.
+                            The device\'s image name.
         
                           - **carrier** *(string) --* 
         
-                            The device's carrier.
+                            The device\'s carrier.
         
                           - **radio** *(string) --* 
         
-                            The device's radio.
+                            The device\'s radio.
         
                           - **remoteAccessEnabled** *(boolean) --* 
         
@@ -3233,7 +3233,7 @@ class ListUniqueProblems(Paginator):
         
                         - **result** *(string) --* 
         
-                          The problem's result.
+                          The problem\'s result.
         
                           Allowed values include:
         
@@ -3253,7 +3253,7 @@ class ListUniqueProblems(Paginator):
                            
                         - **message** *(string) --* 
         
-                          A message about the problem's result.
+                          A message about the problem\'s result.
         
             - **NextToken** *(string) --* 
         
@@ -3273,12 +3273,12 @@ class ListUploads(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              arn='string',
-              type='ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
+              arn=\'string\',
+              type=\'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type arn: string
@@ -3366,21 +3366,21 @@ class ListUploads(Paginator):
           ::
         
             {
-                'uploads': [
+                \'uploads\': [
                     {
-                        'arn': 'string',
-                        'name': 'string',
-                        'created': datetime(2015, 1, 1),
-                        'type': 'ANDROID_APP'|'IOS_APP'|'WEB_APP'|'EXTERNAL_DATA'|'APPIUM_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_PYTHON_TEST_PACKAGE'|'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE'|'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE'|'APPIUM_WEB_PYTHON_TEST_PACKAGE'|'CALABASH_TEST_PACKAGE'|'INSTRUMENTATION_TEST_PACKAGE'|'UIAUTOMATION_TEST_PACKAGE'|'UIAUTOMATOR_TEST_PACKAGE'|'XCTEST_TEST_PACKAGE'|'XCTEST_UI_TEST_PACKAGE'|'APPIUM_JAVA_JUNIT_TEST_SPEC'|'APPIUM_JAVA_TESTNG_TEST_SPEC'|'APPIUM_PYTHON_TEST_SPEC'|'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC'|'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC'|'APPIUM_WEB_PYTHON_TEST_SPEC'|'INSTRUMENTATION_TEST_SPEC'|'XCTEST_UI_TEST_SPEC',
-                        'status': 'INITIALIZED'|'PROCESSING'|'SUCCEEDED'|'FAILED',
-                        'url': 'string',
-                        'metadata': 'string',
-                        'contentType': 'string',
-                        'message': 'string',
-                        'category': 'CURATED'|'PRIVATE'
+                        \'arn\': \'string\',
+                        \'name\': \'string\',
+                        \'created\': datetime(2015, 1, 1),
+                        \'type\': \'ANDROID_APP\'|\'IOS_APP\'|\'WEB_APP\'|\'EXTERNAL_DATA\'|\'APPIUM_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_PYTHON_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE\'|\'APPIUM_WEB_PYTHON_TEST_PACKAGE\'|\'CALABASH_TEST_PACKAGE\'|\'INSTRUMENTATION_TEST_PACKAGE\'|\'UIAUTOMATION_TEST_PACKAGE\'|\'UIAUTOMATOR_TEST_PACKAGE\'|\'XCTEST_TEST_PACKAGE\'|\'XCTEST_UI_TEST_PACKAGE\'|\'APPIUM_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_PYTHON_TEST_SPEC\'|\'APPIUM_WEB_JAVA_JUNIT_TEST_SPEC\'|\'APPIUM_WEB_JAVA_TESTNG_TEST_SPEC\'|\'APPIUM_WEB_PYTHON_TEST_SPEC\'|\'INSTRUMENTATION_TEST_SPEC\'|\'XCTEST_UI_TEST_SPEC\',
+                        \'status\': \'INITIALIZED\'|\'PROCESSING\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'url\': \'string\',
+                        \'metadata\': \'string\',
+                        \'contentType\': \'string\',
+                        \'message\': \'string\',
+                        \'category\': \'CURATED\'|\'PRIVATE\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3398,11 +3398,11 @@ class ListUploads(Paginator):
         
                 - **arn** *(string) --* 
         
-                  The upload's ARN.
+                  The upload\'s ARN.
         
                 - **name** *(string) --* 
         
-                  The upload's file name.
+                  The upload\'s file name.
         
                 - **created** *(datetime) --* 
         
@@ -3410,7 +3410,7 @@ class ListUploads(Paginator):
         
                 - **type** *(string) --* 
         
-                  The upload's type.
+                  The upload\'s type.
         
                   Must be one of the following values:
         
@@ -3448,7 +3448,7 @@ class ListUploads(Paginator):
                    
                 - **status** *(string) --* 
         
-                  The upload's status.
+                  The upload\'s status.
         
                   Must be one of the following values:
         
@@ -3466,19 +3466,19 @@ class ListUploads(Paginator):
         
                 - **metadata** *(string) --* 
         
-                  The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+                  The upload\'s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
         
                 - **contentType** *(string) --* 
         
-                  The upload's content type (for example, "application/octet-stream").
+                  The upload\'s content type (for example, \"application/octet-stream\").
         
                 - **message** *(string) --* 
         
-                  A message about the upload's result.
+                  A message about the upload\'s result.
         
                 - **category** *(string) --* 
         
-                  The upload's category. Allowed values include:
+                  The upload\'s category. Allowed values include:
         
                   * CURATED: An upload managed by AWS Device Farm. 
                    

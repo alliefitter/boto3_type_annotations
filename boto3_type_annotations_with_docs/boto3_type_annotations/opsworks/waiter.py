@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -14,13 +14,13 @@ class AppExists(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
+              StackId=\'string\',
               AppIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string
@@ -63,14 +63,14 @@ class DeploymentSuccessful(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
-              AppId='string',
+              StackId=\'string\',
+              AppId=\'string\',
               DeploymentIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string
@@ -118,14 +118,14 @@ class InstanceOnline(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
-              LayerId='string',
+              StackId=\'string\',
+              LayerId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string
@@ -173,14 +173,14 @@ class InstanceRegistered(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
-              LayerId='string',
+              StackId=\'string\',
+              LayerId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string
@@ -228,14 +228,14 @@ class InstanceStopped(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
-              LayerId='string',
+              StackId=\'string\',
+              LayerId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string
@@ -283,14 +283,14 @@ class InstanceTerminated(Waiter):
         ::
         
           waiter.wait(
-              StackId='string',
-              LayerId='string',
+              StackId=\'string\',
+              LayerId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StackId: string

@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -19,8 +19,8 @@ class Client(BaseClient):
         ::
         
           response = client.add_role_to_db_cluster(
-              DBClusterIdentifier='string',
-              RoleArn='string'
+              DBClusterIdentifier=\'string\',
+              RoleArn=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
@@ -45,8 +45,8 @@ class Client(BaseClient):
         ::
         
           response = client.add_source_identifier_to_subscription(
-              SubscriptionName='string',
-              SourceIdentifier='string'
+              SubscriptionName=\'string\',
+              SourceIdentifier=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: **[REQUIRED]** 
@@ -76,21 +76,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False,
-                    'EventSubscriptionArn': 'string'
+                    \'Enabled\': True|False,
+                    \'EventSubscriptionArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -121,7 +121,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -163,11 +163,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -187,11 +187,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :returns: None
         """
@@ -206,9 +206,9 @@ class Client(BaseClient):
         ::
         
           response = client.apply_pending_maintenance_action(
-              ResourceIdentifier='string',
-              ApplyAction='string',
-              OptInType='string'
+              ResourceIdentifier=\'string\',
+              ApplyAction=\'string\',
+              OptInType=\'string\'
           )
         :type ResourceIdentifier: string
         :param ResourceIdentifier: **[REQUIRED]** 
@@ -225,7 +225,7 @@ class Client(BaseClient):
         :type OptInType: string
         :param OptInType: **[REQUIRED]** 
         
-          A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type ``immediate`` can't be undone.
+          A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type ``immediate`` can\'t be undone.
         
           Valid values:
         
@@ -243,16 +243,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourcePendingMaintenanceActions': {
-                    'ResourceIdentifier': 'string',
-                    'PendingMaintenanceActionDetails': [
+                \'ResourcePendingMaintenanceActions\': {
+                    \'ResourceIdentifier\': \'string\',
+                    \'PendingMaintenanceActionDetails\': [
                         {
-                            'Action': 'string',
-                            'AutoAppliedAfterDate': datetime(2015, 1, 1),
-                            'ForcedApplyDate': datetime(2015, 1, 1),
-                            'OptInStatus': 'string',
-                            'CurrentApplyDate': datetime(2015, 1, 1),
-                            'Description': 'string'
+                            \'Action\': \'string\',
+                            \'AutoAppliedAfterDate\': datetime(2015, 1, 1),
+                            \'ForcedApplyDate\': datetime(2015, 1, 1),
+                            \'OptInStatus\': \'string\',
+                            \'CurrentApplyDate\': datetime(2015, 1, 1),
+                            \'Description\': \'string\'
                         },
                     ]
                 }
@@ -310,10 +310,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -329,13 +329,13 @@ class Client(BaseClient):
         ::
         
           response = client.copy_db_cluster_parameter_group(
-              SourceDBClusterParameterGroupIdentifier='string',
-              TargetDBClusterParameterGroupIdentifier='string',
-              TargetDBClusterParameterGroupDescription='string',
+              SourceDBClusterParameterGroupIdentifier=\'string\',
+              TargetDBClusterParameterGroupIdentifier=\'string\',
+              TargetDBClusterParameterGroupDescription=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -385,11 +385,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -399,11 +399,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterParameterGroup': {
-                    'DBClusterParameterGroupName': 'string',
-                    'DBParameterGroupFamily': 'string',
-                    'Description': 'string',
-                    'DBClusterParameterGroupArn': 'string'
+                \'DBClusterParameterGroup\': {
+                    \'DBClusterParameterGroupName\': \'string\',
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\',
+                    \'DBClusterParameterGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -458,7 +458,7 @@ class Client(BaseClient):
          
         * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the ``SourceDBClusterSnapshotIdentifier`` in the pre-signed URL.  
          
-        To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by ``TargetDBClusterSnapshotIdentifier`` while that DB cluster snapshot is in "copying" status.
+        To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by ``TargetDBClusterSnapshotIdentifier`` while that DB cluster snapshot is in \"copying\" status.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CopyDBClusterSnapshot>`_
         
@@ -466,28 +466,28 @@ class Client(BaseClient):
         ::
         
           response = client.copy_db_cluster_snapshot(
-              SourceDBClusterSnapshotIdentifier='string',
-              TargetDBClusterSnapshotIdentifier='string',
-              KmsKeyId='string',
+              SourceDBClusterSnapshotIdentifier=\'string\',
+              TargetDBClusterSnapshotIdentifier=\'string\',
+              KmsKeyId=\'string\',
               CopyTags=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              SourceRegion='string'
+              SourceRegion=\'string\'
           )
         :type SourceDBClusterSnapshotIdentifier: string
         :param SourceDBClusterSnapshotIdentifier: **[REQUIRED]** 
         
           The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
         
-          You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.
+          You can\'t copy an encrypted, shared DB cluster snapshot from one AWS Region to another.
         
           Constraints:
         
-          * Must specify a valid system snapshot in the "available" state. 
+          * Must specify a valid system snapshot in the \"available\" state. 
            
           * If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier. 
            
@@ -517,11 +517,11 @@ class Client(BaseClient):
         
           If you copy an unencrypted DB cluster snapshot and specify a value for the ``KmsKeyId`` parameter, Amazon Neptune encrypts the target DB cluster snapshot using the specified KMS encryption key. 
         
-          If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for ``KmsKeyId`` to encrypt the copy with a new KMS encryption key. If you don't specify a value for ``KmsKeyId`` , then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. 
+          If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for ``KmsKeyId`` to encrypt the copy with a new KMS encryption key. If you don\'t specify a value for ``KmsKeyId`` , then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. 
         
           If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for ``KmsKeyId`` . 
         
-          To copy an encrypted DB cluster snapshot to another AWS Region, you must set ``KmsKeyId`` to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region.
+          To copy an encrypted DB cluster snapshot to another AWS Region, you must set ``KmsKeyId`` to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can\'t use encryption keys from one AWS Region in another AWS Region.
         
         :type PreSignedUrl: string
         :param PreSignedUrl: 
@@ -556,11 +556,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type SourceRegion: string
         :param SourceRegion: 
@@ -575,29 +575,29 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterSnapshot': {
-                    'AvailabilityZones': [
-                        'string',
+                \'DBClusterSnapshot\': {
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'DBClusterSnapshotIdentifier': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Engine': 'string',
-                    'AllocatedStorage': 123,
-                    'Status': 'string',
-                    'Port': 123,
-                    'VpcId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'EngineVersion': 'string',
-                    'LicenseModel': 'string',
-                    'SnapshotType': 'string',
-                    'PercentProgress': 123,
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DBClusterSnapshotArn': 'string',
-                    'SourceDBClusterSnapshotArn': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False
+                    \'DBClusterSnapshotIdentifier\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Engine\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'VpcId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LicenseModel\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'PercentProgress\': 123,
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DBClusterSnapshotArn\': \'string\',
+                    \'SourceDBClusterSnapshotArn\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -704,13 +704,13 @@ class Client(BaseClient):
         ::
         
           response = client.copy_db_parameter_group(
-              SourceDBParameterGroupIdentifier='string',
-              TargetDBParameterGroupIdentifier='string',
-              TargetDBParameterGroupDescription='string',
+              SourceDBParameterGroupIdentifier=\'string\',
+              TargetDBParameterGroupIdentifier=\'string\',
+              TargetDBParameterGroupDescription=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -758,11 +758,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -772,11 +772,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DBParameterGroup': {
-                    'DBParameterGroupName': 'string',
-                    'DBParameterGroupFamily': 'string',
-                    'Description': 'string',
-                    'DBParameterGroupArn': 'string'
+                \'DBParameterGroup\': {
+                    \'DBParameterGroupName\': \'string\',
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\',
+                    \'DBParameterGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -820,36 +820,36 @@ class Client(BaseClient):
         
           response = client.create_db_cluster(
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               BackupRetentionPeriod=123,
-              CharacterSetName='string',
-              DatabaseName='string',
-              DBClusterIdentifier='string',
-              DBClusterParameterGroupName='string',
+              CharacterSetName=\'string\',
+              DatabaseName=\'string\',
+              DBClusterIdentifier=\'string\',
+              DBClusterParameterGroupName=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              DBSubnetGroupName='string',
-              Engine='string',
-              EngineVersion='string',
+              DBSubnetGroupName=\'string\',
+              Engine=\'string\',
+              EngineVersion=\'string\',
               Port=123,
-              MasterUsername='string',
-              MasterUserPassword='string',
-              OptionGroupName='string',
-              PreferredBackupWindow='string',
-              PreferredMaintenanceWindow='string',
-              ReplicationSourceIdentifier='string',
+              MasterUsername=\'string\',
+              MasterUserPassword=\'string\',
+              OptionGroupName=\'string\',
+              PreferredBackupWindow=\'string\',
+              PreferredMaintenanceWindow=\'string\',
+              ReplicationSourceIdentifier=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               StorageEncrypted=True|False,
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               EnableIAMDatabaseAuthentication=True|False,
-              SourceRegion='string'
+              SourceRegion=\'string\'
           )
         :type AvailabilityZones: list
         :param AvailabilityZones: 
@@ -956,7 +956,7 @@ class Client(BaseClient):
         :type MasterUserPassword: string
         :param MasterUserPassword: 
         
-          The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".
+          The password for the master database user. This password can contain any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Constraints: Must contain from 8 to 41 characters.
         
@@ -965,7 +965,7 @@ class Client(BaseClient):
         
           A value that indicates that the DB cluster should be associated with the specified option group.
         
-          Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.
+          Permanent options can\'t be removed from an option group. The option group can\'t be removed from a DB cluster once it is associated with a DB cluster.
         
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow: 
@@ -1013,11 +1013,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type StorageEncrypted: boolean
         :param StorageEncrypted: 
@@ -1080,68 +1080,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1370,7 +1370,7 @@ class Client(BaseClient):
         
         Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
         
-        A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using  ModifyDBClusterParameterGroup . Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using  ModifyDBCluster . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect. 
+        A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using  ModifyDBClusterParameterGroup . Once you\'ve created a DB cluster parameter group, you need to associate it with your DB cluster using  ModifyDBCluster . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect. 
         
         .. warning::
         
@@ -1382,13 +1382,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_db_cluster_parameter_group(
-              DBClusterParameterGroupName='string',
-              DBParameterGroupFamily='string',
-              Description='string',
+              DBClusterParameterGroupName=\'string\',
+              DBParameterGroupFamily=\'string\',
+              Description=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1426,11 +1426,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -1440,11 +1440,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterParameterGroup': {
-                    'DBClusterParameterGroupName': 'string',
-                    'DBParameterGroupFamily': 'string',
-                    'Description': 'string',
-                    'DBClusterParameterGroupArn': 'string'
+                \'DBClusterParameterGroup\': {
+                    \'DBClusterParameterGroupName\': \'string\',
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\',
+                    \'DBClusterParameterGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1485,12 +1485,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_db_cluster_snapshot(
-              DBClusterSnapshotIdentifier='string',
-              DBClusterIdentifier='string',
+              DBClusterSnapshotIdentifier=\'string\',
+              DBClusterIdentifier=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1531,11 +1531,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -1545,29 +1545,29 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterSnapshot': {
-                    'AvailabilityZones': [
-                        'string',
+                \'DBClusterSnapshot\': {
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'DBClusterSnapshotIdentifier': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Engine': 'string',
-                    'AllocatedStorage': 123,
-                    'Status': 'string',
-                    'Port': 123,
-                    'VpcId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'EngineVersion': 'string',
-                    'LicenseModel': 'string',
-                    'SnapshotType': 'string',
-                    'PercentProgress': 123,
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DBClusterSnapshotArn': 'string',
-                    'SourceDBClusterSnapshotArn': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False
+                    \'DBClusterSnapshotIdentifier\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Engine\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'VpcId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LicenseModel\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'PercentProgress\': 123,
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DBClusterSnapshotArn\': \'string\',
+                    \'SourceDBClusterSnapshotArn\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -1674,58 +1674,58 @@ class Client(BaseClient):
         ::
         
           response = client.create_db_instance(
-              DBName='string',
-              DBInstanceIdentifier='string',
+              DBName=\'string\',
+              DBInstanceIdentifier=\'string\',
               AllocatedStorage=123,
-              DBInstanceClass='string',
-              Engine='string',
-              MasterUsername='string',
-              MasterUserPassword='string',
+              DBInstanceClass=\'string\',
+              Engine=\'string\',
+              MasterUsername=\'string\',
+              MasterUserPassword=\'string\',
               DBSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              AvailabilityZone='string',
-              DBSubnetGroupName='string',
-              PreferredMaintenanceWindow='string',
-              DBParameterGroupName='string',
+              AvailabilityZone=\'string\',
+              DBSubnetGroupName=\'string\',
+              PreferredMaintenanceWindow=\'string\',
+              DBParameterGroupName=\'string\',
               BackupRetentionPeriod=123,
-              PreferredBackupWindow='string',
+              PreferredBackupWindow=\'string\',
               Port=123,
               MultiAZ=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AutoMinorVersionUpgrade=True|False,
-              LicenseModel='string',
+              LicenseModel=\'string\',
               Iops=123,
-              OptionGroupName='string',
-              CharacterSetName='string',
+              OptionGroupName=\'string\',
+              CharacterSetName=\'string\',
               PubliclyAccessible=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              DBClusterIdentifier='string',
-              StorageType='string',
-              TdeCredentialArn='string',
-              TdeCredentialPassword='string',
+              DBClusterIdentifier=\'string\',
+              StorageType=\'string\',
+              TdeCredentialArn=\'string\',
+              TdeCredentialPassword=\'string\',
               StorageEncrypted=True|False,
-              KmsKeyId='string',
-              Domain='string',
+              KmsKeyId=\'string\',
+              Domain=\'string\',
               CopyTagsToSnapshot=True|False,
               MonitoringInterval=123,
-              MonitoringRoleArn='string',
-              DomainIAMRoleName='string',
+              MonitoringRoleArn=\'string\',
+              DomainIAMRoleName=\'string\',
               PromotionTier=123,
-              Timezone='string',
+              Timezone=\'string\',
               EnableIAMDatabaseAuthentication=True|False,
               EnablePerformanceInsights=True|False,
-              PerformanceInsightsKMSKeyId='string',
+              PerformanceInsightsKMSKeyId=\'string\',
               EnableCloudwatchLogsExports=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DBName: string
@@ -1779,7 +1779,7 @@ class Client(BaseClient):
         :type MasterUserPassword: string
         :param MasterUserPassword: 
         
-          The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
+          The password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Not used. 
         
@@ -1799,7 +1799,7 @@ class Client(BaseClient):
         
           Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see  CreateDBCluster .
         
-          Default: The default EC2 VPC security group for the DB subnet group's VPC.
+          Default: The default EC2 VPC security group for the DB subnet group\'s VPC.
         
           - *(string) --* 
         
@@ -1808,11 +1808,11 @@ class Client(BaseClient):
         
           The EC2 Availability Zone that the DB instance is created in. 
         
-          Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
+          Default: A random, system-chosen Availability Zone in the endpoint\'s AWS Region.
         
           Example: ``us-east-1d``  
         
-          Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter is set to ``true`` . The specified Availability Zone must be in the same AWS Region as the current endpoint. 
+          Constraint: The AvailabilityZone parameter can\'t be specified if the MultiAZ parameter is set to ``true`` . The specified Availability Zone must be in the same AWS Region as the current endpoint. 
         
         :type DBSubnetGroupName: string
         :param DBSubnetGroupName: 
@@ -1883,7 +1883,7 @@ class Client(BaseClient):
         :type MultiAZ: boolean
         :param MultiAZ: 
         
-          Specifies if the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the MultiAZ parameter is set to true.
+          Specifies if the DB instance is a Multi-AZ deployment. You can\'t set the AvailabilityZone parameter if the MultiAZ parameter is set to true.
         
         :type EngineVersion: string
         :param EngineVersion: 
@@ -1914,7 +1914,7 @@ class Client(BaseClient):
         
           Indicates that the DB instance should be associated with the specified option group.
         
-          Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+          Permanent options, such as the TDE option for Oracle Advanced Security TDE, can\'t be removed from an option group, and that option group can\'t be removed from a DB instance once it is associated with a DB instance
         
         :type CharacterSetName: string
         :param CharacterSetName: 
@@ -1939,11 +1939,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: 
@@ -2068,139 +2068,139 @@ class Client(BaseClient):
           ::
         
             {
-                'DBInstance': {
-                    'DBInstanceIdentifier': 'string',
-                    'DBInstanceClass': 'string',
-                    'Engine': 'string',
-                    'DBInstanceStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123,
-                        'HostedZoneId': 'string'
+                \'DBInstance\': {
+                    \'DBInstanceIdentifier\': \'string\',
+                    \'DBInstanceClass\': \'string\',
+                    \'Engine\': \'string\',
+                    \'DBInstanceStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123,
+                        \'HostedZoneId\': \'string\'
                     },
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'PreferredBackupWindow': 'string',
-                    'BackupRetentionPeriod': 123,
-                    'DBSecurityGroups': [
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredBackupWindow\': \'string\',
+                    \'BackupRetentionPeriod\': 123,
+                    \'DBSecurityGroups\': [
                         {
-                            'DBSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'DBSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'DBParameterGroups': [
+                    \'DBParameterGroups\': [
                         {
-                            'DBParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string'
+                            \'DBParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'DBSubnetGroup': {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'DBSubnetGroup\': {
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'DBInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MasterUserPassword': 'string',
-                        'Port': 123,
-                        'BackupRetentionPeriod': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'DBInstanceIdentifier': 'string',
-                        'StorageType': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DBSubnetGroupName': 'string',
-                        'PendingCloudwatchLogsExports': {
-                            'LogTypesToEnable': [
-                                'string',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'DBInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MasterUserPassword\': \'string\',
+                        \'Port\': 123,
+                        \'BackupRetentionPeriod\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DBSubnetGroupName\': \'string\',
+                        \'PendingCloudwatchLogsExports\': {
+                            \'LogTypesToEnable\': [
+                                \'string\',
                             ],
-                            'LogTypesToDisable': [
-                                'string',
+                            \'LogTypesToDisable\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                    'ReadReplicaDBInstanceIdentifiers': [
-                        'string',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                    \'ReadReplicaDBInstanceIdentifiers\': [
+                        \'string\',
                     ],
-                    'ReadReplicaDBClusterIdentifiers': [
-                        'string',
+                    \'ReadReplicaDBClusterIdentifiers\': [
+                        \'string\',
                     ],
-                    'LicenseModel': 'string',
-                    'Iops': 123,
-                    'OptionGroupMemberships': [
+                    \'LicenseModel\': \'string\',
+                    \'Iops\': 123,
+                    \'OptionGroupMemberships\': [
                         {
-                            'OptionGroupName': 'string',
-                            'Status': 'string'
+                            \'OptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CharacterSetName': 'string',
-                    'SecondaryAvailabilityZone': 'string',
-                    'PubliclyAccessible': True|False,
-                    'StatusInfos': [
+                    \'CharacterSetName\': \'string\',
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'PubliclyAccessible\': True|False,
+                    \'StatusInfos\': [
                         {
-                            'StatusType': 'string',
-                            'Normal': True|False,
-                            'Status': 'string',
-                            'Message': 'string'
+                            \'StatusType\': \'string\',
+                            \'Normal\': True|False,
+                            \'Status\': \'string\',
+                            \'Message\': \'string\'
                         },
                     ],
-                    'StorageType': 'string',
-                    'TdeCredentialArn': 'string',
-                    'DbInstancePort': 123,
-                    'DBClusterIdentifier': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbiResourceId': 'string',
-                    'CACertificateIdentifier': 'string',
-                    'DomainMemberships': [
+                    \'StorageType\': \'string\',
+                    \'TdeCredentialArn\': \'string\',
+                    \'DbInstancePort\': 123,
+                    \'DBClusterIdentifier\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbiResourceId\': \'string\',
+                    \'CACertificateIdentifier\': \'string\',
+                    \'DomainMemberships\': [
                         {
-                            'Domain': 'string',
-                            'Status': 'string',
-                            'FQDN': 'string',
-                            'IAMRoleName': 'string'
+                            \'Domain\': \'string\',
+                            \'Status\': \'string\',
+                            \'FQDN\': \'string\',
+                            \'IAMRoleName\': \'string\'
                         },
                     ],
-                    'CopyTagsToSnapshot': True|False,
-                    'MonitoringInterval': 123,
-                    'EnhancedMonitoringResourceArn': 'string',
-                    'MonitoringRoleArn': 'string',
-                    'PromotionTier': 123,
-                    'DBInstanceArn': 'string',
-                    'Timezone': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'PerformanceInsightsEnabled': True|False,
-                    'PerformanceInsightsKMSKeyId': 'string',
-                    'EnabledCloudwatchLogsExports': [
-                        'string',
+                    \'CopyTagsToSnapshot\': True|False,
+                    \'MonitoringInterval\': 123,
+                    \'EnhancedMonitoringResourceArn\': \'string\',
+                    \'MonitoringRoleArn\': \'string\',
+                    \'PromotionTier\': 123,
+                    \'DBInstanceArn\': \'string\',
+                    \'Timezone\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'PerformanceInsightsEnabled\': True|False,
+                    \'PerformanceInsightsKMSKeyId\': \'string\',
+                    \'EnabledCloudwatchLogsExports\': [
+                        \'string\',
                     ]
                 }
             }
@@ -2456,7 +2456,7 @@ class Client(BaseClient):
         
                   - **LogTypesToEnable** *(list) --* 
         
-                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                     - *(string) --* 
                 
@@ -2520,7 +2520,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
               - **CharacterSetName** *(string) --* 
         
@@ -2544,7 +2544,7 @@ class Client(BaseClient):
         
                   - **StatusType** *(string) --* 
         
-                    This value is currently "read replication."
+                    This value is currently \"read replication.\"
         
                   - **Normal** *(boolean) --* 
         
@@ -2604,7 +2604,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                    The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                   - **FQDN** *(string) --* 
         
@@ -2666,7 +2666,7 @@ class Client(BaseClient):
     def create_db_parameter_group(self, DBParameterGroupName: str, DBParameterGroupFamily: str, Description: str, Tags: List = None) -> Dict:
         """
         
-        A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using *ModifyDBParameterGroup* . Once you've created a DB parameter group, you need to associate it with your DB instance using *ModifyDBInstance* . When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. 
+        A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using *ModifyDBParameterGroup* . Once you\'ve created a DB parameter group, you need to associate it with your DB instance using *ModifyDBInstance* . When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. 
         
         .. warning::
         
@@ -2678,13 +2678,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_db_parameter_group(
-              DBParameterGroupName='string',
-              DBParameterGroupFamily='string',
-              Description='string',
+              DBParameterGroupName=\'string\',
+              DBParameterGroupFamily=\'string\',
+              Description=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2726,11 +2726,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -2740,11 +2740,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DBParameterGroup': {
-                    'DBParameterGroupName': 'string',
-                    'DBParameterGroupFamily': 'string',
-                    'Description': 'string',
-                    'DBParameterGroupArn': 'string'
+                \'DBParameterGroup\': {
+                    \'DBParameterGroupName\': \'string\',
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\',
+                    \'DBParameterGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2785,15 +2785,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_db_subnet_group(
-              DBSubnetGroupName='string',
-              DBSubnetGroupDescription='string',
+              DBSubnetGroupName=\'string\',
+              DBSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2829,11 +2829,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -2843,21 +2843,21 @@ class Client(BaseClient):
           ::
         
             {
-                'DBSubnetGroup': {
-                    'DBSubnetGroupName': 'string',
-                    'DBSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'DBSubnetGroup\': {
+                    \'DBSubnetGroupName\': \'string\',
+                    \'DBSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ],
-                    'DBSubnetGroupArn': 'string'
+                    \'DBSubnetGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2934,20 +2934,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               SourceIds=[
-                  'string',
+                  \'string\',
               ],
               Enabled=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2980,7 +2980,7 @@ class Client(BaseClient):
         :type SourceIds: list
         :param SourceIds: 
         
-          The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+          The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can\'t end with a hyphen or contain two consecutive hyphens.
         
           Constraints:
         
@@ -3012,11 +3012,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -3026,21 +3026,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False,
-                    'EventSubscriptionArn': 'string'
+                    \'Enabled\': True|False,
+                    \'EventSubscriptionArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3071,7 +3071,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -3113,14 +3113,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_cluster(
-              DBClusterIdentifier='string',
+              DBClusterIdentifier=\'string\',
               SkipFinalSnapshot=True|False,
-              FinalDBSnapshotIdentifier='string'
+              FinalDBSnapshotIdentifier=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
         
-          The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
+          The DB cluster identifier for the DB cluster to be deleted. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -3162,68 +3162,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3456,7 +3456,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_cluster_parameter_group(
-              DBClusterParameterGroupName='string'
+              DBClusterParameterGroupName=\'string\'
           )
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName: **[REQUIRED]** 
@@ -3467,7 +3467,7 @@ class Client(BaseClient):
         
           * Must be the name of an existing DB cluster parameter group. 
            
-          * You can't delete a default DB cluster parameter group. 
+          * You can\'t delete a default DB cluster parameter group. 
            
           * Cannot be associated with any DB clusters. 
            
@@ -3488,7 +3488,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_cluster_snapshot(
-              DBClusterSnapshotIdentifier='string'
+              DBClusterSnapshotIdentifier=\'string\'
           )
         :type DBClusterSnapshotIdentifier: string
         :param DBClusterSnapshotIdentifier: **[REQUIRED]** 
@@ -3505,29 +3505,29 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterSnapshot': {
-                    'AvailabilityZones': [
-                        'string',
+                \'DBClusterSnapshot\': {
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'DBClusterSnapshotIdentifier': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Engine': 'string',
-                    'AllocatedStorage': 123,
-                    'Status': 'string',
-                    'Port': 123,
-                    'VpcId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'EngineVersion': 'string',
-                    'LicenseModel': 'string',
-                    'SnapshotType': 'string',
-                    'PercentProgress': 123,
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DBClusterSnapshotArn': 'string',
-                    'SourceDBClusterSnapshotArn': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False
+                    \'DBClusterSnapshotIdentifier\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Engine\': \'string\',
+                    \'AllocatedStorage\': 123,
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'VpcId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LicenseModel\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'PercentProgress\': 123,
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DBClusterSnapshotArn\': \'string\',
+                    \'SourceDBClusterSnapshotArn\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -3628,17 +3628,17 @@ class Client(BaseClient):
     def delete_db_instance(self, DBInstanceIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
         """
         
-        If you request a final DB snapshot the status of the Amazon Neptune DB instance is ``deleting`` until the DB snapshot is created. The API action ``DescribeDBInstance`` is used to monitor the status of this operation. The action can't be canceled or reverted once submitted. 
+        If you request a final DB snapshot the status of the Amazon Neptune DB instance is ``deleting`` until the DB snapshot is created. The API action ``DescribeDBInstance`` is used to monitor the status of this operation. The action can\'t be canceled or reverted once submitted. 
         
         Note that when a DB instance is in a failure state and has a status of ``failed`` , ``incompatible-restore`` , or ``incompatible-network`` , you can only delete it when the ``SkipFinalSnapshot`` parameter is set to ``true`` .
         
-        If the specified DB instance is part of a DB cluster, you can't delete the DB instance if both of the following conditions are true:
+        If the specified DB instance is part of a DB cluster, you can\'t delete the DB instance if both of the following conditions are true:
         
         * The DB cluster is a Read Replica of another DB cluster. 
          
         * The DB instance is the only instance in the DB cluster. 
          
-        To delete a DB instance in this case, first call the  PromoteReadReplicaDBCluster API action to promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the ``DeleteDBInstance`` API action to delete the final instance in the DB cluster.
+        To delete a DB instance in this case, first call the  PromoteReadReplicaDBCluster API action to promote the DB cluster so it\'s no longer a Read Replica. After the promotion completes, then call the ``DeleteDBInstance`` API action to delete the final instance in the DB cluster.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DeleteDBInstance>`_
         
@@ -3646,14 +3646,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_instance(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               SkipFinalSnapshot=True|False,
-              FinalDBSnapshotIdentifier='string'
+              FinalDBSnapshotIdentifier=\'string\'
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: **[REQUIRED]** 
         
-          The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.
+          The DB instance identifier for the DB instance to be deleted. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -3664,7 +3664,7 @@ class Client(BaseClient):
         
           Determines whether a final DB snapshot is created before the DB instance is deleted. If ``true`` is specified, no DBSnapshot is created. If ``false`` is specified, a DB snapshot is created before the DB instance is deleted. 
         
-          Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true".
+          Note that when a DB instance is in a failure state and has a status of \'failed\', \'incompatible-restore\', or \'incompatible-network\', it can only be deleted when the SkipFinalSnapshot parameter is set to \"true\".
         
           Specify ``true`` when deleting a Read Replica.
         
@@ -3701,139 +3701,139 @@ class Client(BaseClient):
           ::
         
             {
-                'DBInstance': {
-                    'DBInstanceIdentifier': 'string',
-                    'DBInstanceClass': 'string',
-                    'Engine': 'string',
-                    'DBInstanceStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123,
-                        'HostedZoneId': 'string'
+                \'DBInstance\': {
+                    \'DBInstanceIdentifier\': \'string\',
+                    \'DBInstanceClass\': \'string\',
+                    \'Engine\': \'string\',
+                    \'DBInstanceStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123,
+                        \'HostedZoneId\': \'string\'
                     },
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'PreferredBackupWindow': 'string',
-                    'BackupRetentionPeriod': 123,
-                    'DBSecurityGroups': [
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredBackupWindow\': \'string\',
+                    \'BackupRetentionPeriod\': 123,
+                    \'DBSecurityGroups\': [
                         {
-                            'DBSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'DBSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'DBParameterGroups': [
+                    \'DBParameterGroups\': [
                         {
-                            'DBParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string'
+                            \'DBParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'DBSubnetGroup': {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'DBSubnetGroup\': {
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'DBInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MasterUserPassword': 'string',
-                        'Port': 123,
-                        'BackupRetentionPeriod': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'DBInstanceIdentifier': 'string',
-                        'StorageType': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DBSubnetGroupName': 'string',
-                        'PendingCloudwatchLogsExports': {
-                            'LogTypesToEnable': [
-                                'string',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'DBInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MasterUserPassword\': \'string\',
+                        \'Port\': 123,
+                        \'BackupRetentionPeriod\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DBSubnetGroupName\': \'string\',
+                        \'PendingCloudwatchLogsExports\': {
+                            \'LogTypesToEnable\': [
+                                \'string\',
                             ],
-                            'LogTypesToDisable': [
-                                'string',
+                            \'LogTypesToDisable\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                    'ReadReplicaDBInstanceIdentifiers': [
-                        'string',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                    \'ReadReplicaDBInstanceIdentifiers\': [
+                        \'string\',
                     ],
-                    'ReadReplicaDBClusterIdentifiers': [
-                        'string',
+                    \'ReadReplicaDBClusterIdentifiers\': [
+                        \'string\',
                     ],
-                    'LicenseModel': 'string',
-                    'Iops': 123,
-                    'OptionGroupMemberships': [
+                    \'LicenseModel\': \'string\',
+                    \'Iops\': 123,
+                    \'OptionGroupMemberships\': [
                         {
-                            'OptionGroupName': 'string',
-                            'Status': 'string'
+                            \'OptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CharacterSetName': 'string',
-                    'SecondaryAvailabilityZone': 'string',
-                    'PubliclyAccessible': True|False,
-                    'StatusInfos': [
+                    \'CharacterSetName\': \'string\',
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'PubliclyAccessible\': True|False,
+                    \'StatusInfos\': [
                         {
-                            'StatusType': 'string',
-                            'Normal': True|False,
-                            'Status': 'string',
-                            'Message': 'string'
+                            \'StatusType\': \'string\',
+                            \'Normal\': True|False,
+                            \'Status\': \'string\',
+                            \'Message\': \'string\'
                         },
                     ],
-                    'StorageType': 'string',
-                    'TdeCredentialArn': 'string',
-                    'DbInstancePort': 123,
-                    'DBClusterIdentifier': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbiResourceId': 'string',
-                    'CACertificateIdentifier': 'string',
-                    'DomainMemberships': [
+                    \'StorageType\': \'string\',
+                    \'TdeCredentialArn\': \'string\',
+                    \'DbInstancePort\': 123,
+                    \'DBClusterIdentifier\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbiResourceId\': \'string\',
+                    \'CACertificateIdentifier\': \'string\',
+                    \'DomainMemberships\': [
                         {
-                            'Domain': 'string',
-                            'Status': 'string',
-                            'FQDN': 'string',
-                            'IAMRoleName': 'string'
+                            \'Domain\': \'string\',
+                            \'Status\': \'string\',
+                            \'FQDN\': \'string\',
+                            \'IAMRoleName\': \'string\'
                         },
                     ],
-                    'CopyTagsToSnapshot': True|False,
-                    'MonitoringInterval': 123,
-                    'EnhancedMonitoringResourceArn': 'string',
-                    'MonitoringRoleArn': 'string',
-                    'PromotionTier': 123,
-                    'DBInstanceArn': 'string',
-                    'Timezone': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'PerformanceInsightsEnabled': True|False,
-                    'PerformanceInsightsKMSKeyId': 'string',
-                    'EnabledCloudwatchLogsExports': [
-                        'string',
+                    \'CopyTagsToSnapshot\': True|False,
+                    \'MonitoringInterval\': 123,
+                    \'EnhancedMonitoringResourceArn\': \'string\',
+                    \'MonitoringRoleArn\': \'string\',
+                    \'PromotionTier\': 123,
+                    \'DBInstanceArn\': \'string\',
+                    \'Timezone\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'PerformanceInsightsEnabled\': True|False,
+                    \'PerformanceInsightsKMSKeyId\': \'string\',
+                    \'EnabledCloudwatchLogsExports\': [
+                        \'string\',
                     ]
                 }
             }
@@ -4089,7 +4089,7 @@ class Client(BaseClient):
         
                   - **LogTypesToEnable** *(list) --* 
         
-                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                     - *(string) --* 
                 
@@ -4153,7 +4153,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
               - **CharacterSetName** *(string) --* 
         
@@ -4177,7 +4177,7 @@ class Client(BaseClient):
         
                   - **StatusType** *(string) --* 
         
-                    This value is currently "read replication."
+                    This value is currently \"read replication.\"
         
                   - **Normal** *(boolean) --* 
         
@@ -4237,7 +4237,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                    The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                   - **FQDN** *(string) --* 
         
@@ -4305,7 +4305,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_parameter_group(
-              DBParameterGroupName='string'
+              DBParameterGroupName=\'string\'
           )
         :type DBParameterGroupName: string
         :param DBParameterGroupName: **[REQUIRED]** 
@@ -4316,7 +4316,7 @@ class Client(BaseClient):
         
           * Must be the name of an existing DB parameter group 
            
-          * You can't delete a default DB parameter group 
+          * You can\'t delete a default DB parameter group 
            
           * Cannot be associated with any DB instances 
            
@@ -4337,7 +4337,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_db_subnet_group(
-              DBSubnetGroupName='string'
+              DBSubnetGroupName=\'string\'
           )
         :type DBSubnetGroupName: string
         :param DBSubnetGroupName: **[REQUIRED]** 
@@ -4346,7 +4346,7 @@ class Client(BaseClient):
         
           .. note::
         
-            You can't delete the default subnet group.
+            You can\'t delete the default subnet group.
         
           Constraints:
         
@@ -4367,7 +4367,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_event_subscription(
-              SubscriptionName='string'
+              SubscriptionName=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: **[REQUIRED]** 
@@ -4382,21 +4382,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False,
-                    'EventSubscriptionArn': 'string'
+                    \'Enabled\': True|False,
+                    \'EventSubscriptionArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4427,7 +4427,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -4469,17 +4469,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_cluster_parameter_groups(
-              DBClusterParameterGroupName='string',
+              DBClusterParameterGroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName: 
@@ -4531,13 +4531,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBClusterParameterGroups': [
+                \'Marker\': \'string\',
+                \'DBClusterParameterGroups\': [
                     {
-                        'DBClusterParameterGroupName': 'string',
-                        'DBParameterGroupFamily': 'string',
-                        'Description': 'string',
-                        'DBClusterParameterGroupArn': 'string'
+                        \'DBClusterParameterGroupName\': \'string\',
+                        \'DBParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\',
+                        \'DBClusterParameterGroupArn\': \'string\'
                     },
                 ]
             }
@@ -4587,18 +4587,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_cluster_parameters(
-              DBClusterParameterGroupName='string',
-              Source='string',
+              DBClusterParameterGroupName=\'string\',
+              Source=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName: **[REQUIRED]** 
@@ -4655,21 +4655,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'ApplyType': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'ApplyMethod': 'immediate'|'pending-reboot'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'ApplyType\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -4747,7 +4747,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_cluster_snapshot_attributes(
-              DBClusterSnapshotIdentifier='string'
+              DBClusterSnapshotIdentifier=\'string\'
           )
         :type DBClusterSnapshotIdentifier: string
         :param DBClusterSnapshotIdentifier: **[REQUIRED]** 
@@ -4762,13 +4762,13 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterSnapshotAttributesResult': {
-                    'DBClusterSnapshotIdentifier': 'string',
-                    'DBClusterSnapshotAttributes': [
+                \'DBClusterSnapshotAttributesResult\': {
+                    \'DBClusterSnapshotIdentifier\': \'string\',
+                    \'DBClusterSnapshotAttributes\': [
                         {
-                            'AttributeName': 'string',
-                            'AttributeValues': [
-                                'string',
+                            \'AttributeName\': \'string\',
+                            \'AttributeValues\': [
+                                \'string\',
                             ]
                         },
                     ]
@@ -4824,26 +4824,26 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_cluster_snapshots(
-              DBClusterIdentifier='string',
-              DBClusterSnapshotIdentifier='string',
-              SnapshotType='string',
+              DBClusterIdentifier=\'string\',
+              DBClusterSnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               IncludeShared=True|False,
               IncludePublic=True|False
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: 
         
-          The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the ``DBClusterSnapshotIdentifier`` parameter. This parameter is not case-sensitive. 
+          The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can\'t be used in conjunction with the ``DBClusterSnapshotIdentifier`` parameter. This parameter is not case-sensitive. 
         
           Constraints:
         
@@ -4852,7 +4852,7 @@ class Client(BaseClient):
         :type DBClusterSnapshotIdentifier: string
         :param DBClusterSnapshotIdentifier: 
         
-          A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the ``DBClusterIdentifier`` parameter. This value is stored as a lowercase string. 
+          A specific DB cluster snapshot identifier to describe. This parameter can\'t be used in conjunction with the ``DBClusterIdentifier`` parameter. This value is stored as a lowercase string. 
         
           Constraints:
         
@@ -4873,9 +4873,9 @@ class Client(BaseClient):
            
           * ``public`` - Return all DB cluster snapshots that have been marked as public. 
            
-          If you don't specify a ``SnapshotType`` value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public DB cluster snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
+          If you don\'t specify a ``SnapshotType`` value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public DB cluster snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
         
-          The ``IncludeShared`` and ``IncludePublic`` parameters don't apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn't apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn't apply when ``SnapshotType`` is set to ``public`` .
+          The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         
         :type Filters: list
         :param Filters: 
@@ -4932,31 +4932,31 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBClusterSnapshots': [
+                \'Marker\': \'string\',
+                \'DBClusterSnapshots\': [
                     {
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'DBClusterSnapshotIdentifier': 'string',
-                        'DBClusterIdentifier': 'string',
-                        'SnapshotCreateTime': datetime(2015, 1, 1),
-                        'Engine': 'string',
-                        'AllocatedStorage': 123,
-                        'Status': 'string',
-                        'Port': 123,
-                        'VpcId': 'string',
-                        'ClusterCreateTime': datetime(2015, 1, 1),
-                        'MasterUsername': 'string',
-                        'EngineVersion': 'string',
-                        'LicenseModel': 'string',
-                        'SnapshotType': 'string',
-                        'PercentProgress': 123,
-                        'StorageEncrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'DBClusterSnapshotArn': 'string',
-                        'SourceDBClusterSnapshotArn': 'string',
-                        'IAMDatabaseAuthenticationEnabled': True|False
+                        \'DBClusterSnapshotIdentifier\': \'string\',
+                        \'DBClusterIdentifier\': \'string\',
+                        \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                        \'Engine\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'Status\': \'string\',
+                        \'Port\': 123,
+                        \'VpcId\': \'string\',
+                        \'ClusterCreateTime\': datetime(2015, 1, 1),
+                        \'MasterUsername\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'SnapshotType\': \'string\',
+                        \'PercentProgress\': 123,
+                        \'StorageEncrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'DBClusterSnapshotArn\': \'string\',
+                        \'SourceDBClusterSnapshotArn\': \'string\',
+                        \'IAMDatabaseAuthenticationEnabled\': True|False
                     },
                 ]
             }
@@ -5074,22 +5074,22 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_clusters(
-              DBClusterIdentifier='string',
+              DBClusterIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: 
         
-          The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.
+          The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -5140,70 +5140,70 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBClusters': [
+                \'Marker\': \'string\',
+                \'DBClusters\': [
                     {
-                        'AllocatedStorage': 123,
-                        'AvailabilityZones': [
-                            'string',
+                        \'AllocatedStorage\': 123,
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'BackupRetentionPeriod': 123,
-                        'CharacterSetName': 'string',
-                        'DatabaseName': 'string',
-                        'DBClusterIdentifier': 'string',
-                        'DBClusterParameterGroup': 'string',
-                        'DBSubnetGroup': 'string',
-                        'Status': 'string',
-                        'PercentProgress': 'string',
-                        'EarliestRestorableTime': datetime(2015, 1, 1),
-                        'Endpoint': 'string',
-                        'ReaderEndpoint': 'string',
-                        'MultiAZ': True|False,
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'LatestRestorableTime': datetime(2015, 1, 1),
-                        'Port': 123,
-                        'MasterUsername': 'string',
-                        'DBClusterOptionGroupMemberships': [
+                        \'BackupRetentionPeriod\': 123,
+                        \'CharacterSetName\': \'string\',
+                        \'DatabaseName\': \'string\',
+                        \'DBClusterIdentifier\': \'string\',
+                        \'DBClusterParameterGroup\': \'string\',
+                        \'DBSubnetGroup\': \'string\',
+                        \'Status\': \'string\',
+                        \'PercentProgress\': \'string\',
+                        \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                        \'Endpoint\': \'string\',
+                        \'ReaderEndpoint\': \'string\',
+                        \'MultiAZ\': True|False,
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'LatestRestorableTime\': datetime(2015, 1, 1),
+                        \'Port\': 123,
+                        \'MasterUsername\': \'string\',
+                        \'DBClusterOptionGroupMemberships\': [
                             {
-                                'DBClusterOptionGroupName': 'string',
-                                'Status': 'string'
+                                \'DBClusterOptionGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'PreferredBackupWindow': 'string',
-                        'PreferredMaintenanceWindow': 'string',
-                        'ReplicationSourceIdentifier': 'string',
-                        'ReadReplicaIdentifiers': [
-                            'string',
+                        \'PreferredBackupWindow\': \'string\',
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'ReplicationSourceIdentifier\': \'string\',
+                        \'ReadReplicaIdentifiers\': [
+                            \'string\',
                         ],
-                        'DBClusterMembers': [
+                        \'DBClusterMembers\': [
                             {
-                                'DBInstanceIdentifier': 'string',
-                                'IsClusterWriter': True|False,
-                                'DBClusterParameterGroupStatus': 'string',
-                                'PromotionTier': 123
+                                \'DBInstanceIdentifier\': \'string\',
+                                \'IsClusterWriter\': True|False,
+                                \'DBClusterParameterGroupStatus\': \'string\',
+                                \'PromotionTier\': 123
                             },
                         ],
-                        'VpcSecurityGroups': [
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'HostedZoneId': 'string',
-                        'StorageEncrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'DbClusterResourceId': 'string',
-                        'DBClusterArn': 'string',
-                        'AssociatedRoles': [
+                        \'HostedZoneId\': \'string\',
+                        \'StorageEncrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'DbClusterResourceId\': \'string\',
+                        \'DBClusterArn\': \'string\',
+                        \'AssociatedRoles\': [
                             {
-                                'RoleArn': 'string',
-                                'Status': 'string'
+                                \'RoleArn\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'IAMDatabaseAuthenticationEnabled': True|False,
-                        'CloneGroupId': 'string',
-                        'ClusterCreateTime': datetime(2015, 1, 1)
+                        \'IAMDatabaseAuthenticationEnabled\': True|False,
+                        \'CloneGroupId\': \'string\',
+                        \'ClusterCreateTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -5447,19 +5447,19 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_engine_versions(
-              Engine='string',
-              EngineVersion='string',
-              DBParameterGroupFamily='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              DBParameterGroupFamily=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               DefaultOnly=True|False,
               ListSupportedCharacterSets=True|False,
               ListSupportedTimezones=True|False
@@ -5541,43 +5541,43 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBEngineVersions': [
+                \'Marker\': \'string\',
+                \'DBEngineVersions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'DBParameterGroupFamily': 'string',
-                        'DBEngineDescription': 'string',
-                        'DBEngineVersionDescription': 'string',
-                        'DefaultCharacterSet': {
-                            'CharacterSetName': 'string',
-                            'CharacterSetDescription': 'string'
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'DBParameterGroupFamily\': \'string\',
+                        \'DBEngineDescription\': \'string\',
+                        \'DBEngineVersionDescription\': \'string\',
+                        \'DefaultCharacterSet\': {
+                            \'CharacterSetName\': \'string\',
+                            \'CharacterSetDescription\': \'string\'
                         },
-                        'SupportedCharacterSets': [
+                        \'SupportedCharacterSets\': [
                             {
-                                'CharacterSetName': 'string',
-                                'CharacterSetDescription': 'string'
+                                \'CharacterSetName\': \'string\',
+                                \'CharacterSetDescription\': \'string\'
                             },
                         ],
-                        'ValidUpgradeTarget': [
+                        \'ValidUpgradeTarget\': [
                             {
-                                'Engine': 'string',
-                                'EngineVersion': 'string',
-                                'Description': 'string',
-                                'AutoUpgrade': True|False,
-                                'IsMajorVersionUpgrade': True|False
+                                \'Engine\': \'string\',
+                                \'EngineVersion\': \'string\',
+                                \'Description\': \'string\',
+                                \'AutoUpgrade\': True|False,
+                                \'IsMajorVersionUpgrade\': True|False
                             },
                         ],
-                        'SupportedTimezones': [
+                        \'SupportedTimezones\': [
                             {
-                                'TimezoneName': 'string'
+                                \'TimezoneName\': \'string\'
                             },
                         ],
-                        'ExportableLogTypes': [
-                            'string',
+                        \'ExportableLogTypes\': [
+                            \'string\',
                         ],
-                        'SupportsLogExportsToCloudwatchLogs': True|False,
-                        'SupportsReadReplica': True|False
+                        \'SupportsLogExportsToCloudwatchLogs\': True|False,
+                        \'SupportsReadReplica\': True|False
                     },
                 ]
             }
@@ -5713,22 +5713,22 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_instances(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -5781,141 +5781,141 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBInstances': [
+                \'Marker\': \'string\',
+                \'DBInstances\': [
                     {
-                        'DBInstanceIdentifier': 'string',
-                        'DBInstanceClass': 'string',
-                        'Engine': 'string',
-                        'DBInstanceStatus': 'string',
-                        'MasterUsername': 'string',
-                        'DBName': 'string',
-                        'Endpoint': {
-                            'Address': 'string',
-                            'Port': 123,
-                            'HostedZoneId': 'string'
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'DBInstanceClass\': \'string\',
+                        \'Engine\': \'string\',
+                        \'DBInstanceStatus\': \'string\',
+                        \'MasterUsername\': \'string\',
+                        \'DBName\': \'string\',
+                        \'Endpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123,
+                            \'HostedZoneId\': \'string\'
                         },
-                        'AllocatedStorage': 123,
-                        'InstanceCreateTime': datetime(2015, 1, 1),
-                        'PreferredBackupWindow': 'string',
-                        'BackupRetentionPeriod': 123,
-                        'DBSecurityGroups': [
+                        \'AllocatedStorage\': 123,
+                        \'InstanceCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredBackupWindow\': \'string\',
+                        \'BackupRetentionPeriod\': 123,
+                        \'DBSecurityGroups\': [
                             {
-                                'DBSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'DBSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'VpcSecurityGroups': [
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'DBParameterGroups': [
+                        \'DBParameterGroups\': [
                             {
-                                'DBParameterGroupName': 'string',
-                                'ParameterApplyStatus': 'string'
+                                \'DBParameterGroupName\': \'string\',
+                                \'ParameterApplyStatus\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'DBSubnetGroup': {
-                            'DBSubnetGroupName': 'string',
-                            'DBSubnetGroupDescription': 'string',
-                            'VpcId': 'string',
-                            'SubnetGroupStatus': 'string',
-                            'Subnets': [
+                        \'AvailabilityZone\': \'string\',
+                        \'DBSubnetGroup\': {
+                            \'DBSubnetGroupName\': \'string\',
+                            \'DBSubnetGroupDescription\': \'string\',
+                            \'VpcId\': \'string\',
+                            \'SubnetGroupStatus\': \'string\',
+                            \'Subnets\': [
                                 {
-                                    'SubnetIdentifier': 'string',
-                                    'SubnetAvailabilityZone': {
-                                        'Name': 'string'
+                                    \'SubnetIdentifier\': \'string\',
+                                    \'SubnetAvailabilityZone\': {
+                                        \'Name\': \'string\'
                                     },
-                                    'SubnetStatus': 'string'
+                                    \'SubnetStatus\': \'string\'
                                 },
                             ],
-                            'DBSubnetGroupArn': 'string'
+                            \'DBSubnetGroupArn\': \'string\'
                         },
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'DBInstanceClass': 'string',
-                            'AllocatedStorage': 123,
-                            'MasterUserPassword': 'string',
-                            'Port': 123,
-                            'BackupRetentionPeriod': 123,
-                            'MultiAZ': True|False,
-                            'EngineVersion': 'string',
-                            'LicenseModel': 'string',
-                            'Iops': 123,
-                            'DBInstanceIdentifier': 'string',
-                            'StorageType': 'string',
-                            'CACertificateIdentifier': 'string',
-                            'DBSubnetGroupName': 'string',
-                            'PendingCloudwatchLogsExports': {
-                                'LogTypesToEnable': [
-                                    'string',
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'DBInstanceClass\': \'string\',
+                            \'AllocatedStorage\': 123,
+                            \'MasterUserPassword\': \'string\',
+                            \'Port\': 123,
+                            \'BackupRetentionPeriod\': 123,
+                            \'MultiAZ\': True|False,
+                            \'EngineVersion\': \'string\',
+                            \'LicenseModel\': \'string\',
+                            \'Iops\': 123,
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'StorageType\': \'string\',
+                            \'CACertificateIdentifier\': \'string\',
+                            \'DBSubnetGroupName\': \'string\',
+                            \'PendingCloudwatchLogsExports\': {
+                                \'LogTypesToEnable\': [
+                                    \'string\',
                                 ],
-                                'LogTypesToDisable': [
-                                    'string',
+                                \'LogTypesToDisable\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'LatestRestorableTime': datetime(2015, 1, 1),
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                        'ReadReplicaDBInstanceIdentifiers': [
-                            'string',
+                        \'LatestRestorableTime\': datetime(2015, 1, 1),
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                        \'ReadReplicaDBInstanceIdentifiers\': [
+                            \'string\',
                         ],
-                        'ReadReplicaDBClusterIdentifiers': [
-                            'string',
+                        \'ReadReplicaDBClusterIdentifiers\': [
+                            \'string\',
                         ],
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'OptionGroupMemberships': [
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'OptionGroupMemberships\': [
                             {
-                                'OptionGroupName': 'string',
-                                'Status': 'string'
+                                \'OptionGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'CharacterSetName': 'string',
-                        'SecondaryAvailabilityZone': 'string',
-                        'PubliclyAccessible': True|False,
-                        'StatusInfos': [
+                        \'CharacterSetName\': \'string\',
+                        \'SecondaryAvailabilityZone\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'StatusInfos\': [
                             {
-                                'StatusType': 'string',
-                                'Normal': True|False,
-                                'Status': 'string',
-                                'Message': 'string'
+                                \'StatusType\': \'string\',
+                                \'Normal\': True|False,
+                                \'Status\': \'string\',
+                                \'Message\': \'string\'
                             },
                         ],
-                        'StorageType': 'string',
-                        'TdeCredentialArn': 'string',
-                        'DbInstancePort': 123,
-                        'DBClusterIdentifier': 'string',
-                        'StorageEncrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'DbiResourceId': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DomainMemberships': [
+                        \'StorageType\': \'string\',
+                        \'TdeCredentialArn\': \'string\',
+                        \'DbInstancePort\': 123,
+                        \'DBClusterIdentifier\': \'string\',
+                        \'StorageEncrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'DbiResourceId\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DomainMemberships\': [
                             {
-                                'Domain': 'string',
-                                'Status': 'string',
-                                'FQDN': 'string',
-                                'IAMRoleName': 'string'
+                                \'Domain\': \'string\',
+                                \'Status\': \'string\',
+                                \'FQDN\': \'string\',
+                                \'IAMRoleName\': \'string\'
                             },
                         ],
-                        'CopyTagsToSnapshot': True|False,
-                        'MonitoringInterval': 123,
-                        'EnhancedMonitoringResourceArn': 'string',
-                        'MonitoringRoleArn': 'string',
-                        'PromotionTier': 123,
-                        'DBInstanceArn': 'string',
-                        'Timezone': 'string',
-                        'IAMDatabaseAuthenticationEnabled': True|False,
-                        'PerformanceInsightsEnabled': True|False,
-                        'PerformanceInsightsKMSKeyId': 'string',
-                        'EnabledCloudwatchLogsExports': [
-                            'string',
+                        \'CopyTagsToSnapshot\': True|False,
+                        \'MonitoringInterval\': 123,
+                        \'EnhancedMonitoringResourceArn\': \'string\',
+                        \'MonitoringRoleArn\': \'string\',
+                        \'PromotionTier\': 123,
+                        \'DBInstanceArn\': \'string\',
+                        \'Timezone\': \'string\',
+                        \'IAMDatabaseAuthenticationEnabled\': True|False,
+                        \'PerformanceInsightsEnabled\': True|False,
+                        \'PerformanceInsightsKMSKeyId\': \'string\',
+                        \'EnabledCloudwatchLogsExports\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -6182,7 +6182,7 @@ class Client(BaseClient):
         
                     - **LogTypesToEnable** *(list) --* 
         
-                      Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                      Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                       - *(string) --* 
                   
@@ -6246,7 +6246,7 @@ class Client(BaseClient):
         
                     - **Status** *(string) --* 
         
-                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                      The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
                 - **CharacterSetName** *(string) --* 
         
@@ -6270,7 +6270,7 @@ class Client(BaseClient):
         
                     - **StatusType** *(string) --* 
         
-                      This value is currently "read replication."
+                      This value is currently \"read replication.\"
         
                     - **Normal** *(boolean) --* 
         
@@ -6330,7 +6330,7 @@ class Client(BaseClient):
         
                     - **Status** *(string) --* 
         
-                      The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                      The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                     - **FQDN** *(string) --* 
         
@@ -6398,17 +6398,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_parameter_groups(
-              DBParameterGroupName='string',
+              DBParameterGroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBParameterGroupName: string
         :param DBParameterGroupName: 
@@ -6460,13 +6460,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBParameterGroups': [
+                \'Marker\': \'string\',
+                \'DBParameterGroups\': [
                     {
-                        'DBParameterGroupName': 'string',
-                        'DBParameterGroupFamily': 'string',
-                        'Description': 'string',
-                        'DBParameterGroupArn': 'string'
+                        \'DBParameterGroupName\': \'string\',
+                        \'DBParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\',
+                        \'DBParameterGroupArn\': \'string\'
                     },
                 ]
             }
@@ -6518,18 +6518,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_parameters(
-              DBParameterGroupName='string',
-              Source='string',
+              DBParameterGroupName=\'string\',
+              Source=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBParameterGroupName: string
         :param DBParameterGroupName: **[REQUIRED]** 
@@ -6590,21 +6590,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'ApplyType': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'ApplyMethod': 'immediate'|'pending-reboot'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'ApplyType\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -6680,17 +6680,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_db_subnet_groups(
-              DBSubnetGroupName='string',
+              DBSubnetGroupName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBSubnetGroupName: string
         :param DBSubnetGroupName: 
@@ -6738,23 +6738,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'DBSubnetGroups': [
+                \'Marker\': \'string\',
+                \'DBSubnetGroups\': [
                     {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
                 ]
             }
@@ -6838,17 +6838,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_engine_default_cluster_parameters(
-              DBParameterGroupFamily='string',
+              DBParameterGroupFamily=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBParameterGroupFamily: string
         :param DBParameterGroupFamily: **[REQUIRED]** 
@@ -6896,21 +6896,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EngineDefaults': {
-                    'DBParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'EngineDefaults\': {
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'ApplyType': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'ApplyMethod': 'immediate'|'pending-reboot'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'ApplyType\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                         },
                     ]
                 }
@@ -6993,17 +6993,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_engine_default_parameters(
-              DBParameterGroupFamily='string',
+              DBParameterGroupFamily=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type DBParameterGroupFamily: string
         :param DBParameterGroupFamily: **[REQUIRED]** 
@@ -7051,21 +7051,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EngineDefaults': {
-                    'DBParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'EngineDefaults\': {
+                    \'DBParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'ApplyType': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'ApplyMethod': 'immediate'|'pending-reboot'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'ApplyType\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                         },
                     ]
                 }
@@ -7148,12 +7148,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_categories(
-              SourceType='string',
+              SourceType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -7192,11 +7192,11 @@ class Client(BaseClient):
           ::
         
             {
-                'EventCategoriesMapList': [
+                \'EventCategoriesMapList\': [
                     {
-                        'SourceType': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceType\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -7239,17 +7239,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_subscriptions(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: 
@@ -7297,23 +7297,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'EventSubscriptionsList': [
+                \'Marker\': \'string\',
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': 'string',
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': \'string\',
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Enabled': True|False,
-                        'EventSubscriptionArn': 'string'
+                        \'Enabled\': True|False,
+                        \'EventSubscriptionArn\': \'string\'
                     },
                 ]
             }
@@ -7355,7 +7355,7 @@ class Client(BaseClient):
         
                   Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                  The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                  The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
                 - **SubscriptionCreationTime** *(string) --* 
         
@@ -7397,24 +7397,24 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              SourceIdentifier='string',
-              SourceType='db-instance'|'db-parameter-group'|'db-security-group'|'db-snapshot'|'db-cluster'|'db-cluster-snapshot',
+              SourceIdentifier=\'string\',
+              SourceType=\'db-instance\'|\'db-parameter-group\'|\'db-security-group\'|\'db-snapshot\'|\'db-cluster\'|\'db-cluster-snapshot\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SourceIdentifier: string
         :param SourceIdentifier: 
@@ -7509,17 +7509,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Events': [
+                \'Marker\': \'string\',
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'db-instance'|'db-parameter-group'|'db-security-group'|'db-snapshot'|'db-cluster'|'db-cluster-snapshot',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'db-instance\'|\'db-parameter-group\'|\'db-security-group\'|\'db-snapshot\'|\'db-cluster\'|\'db-cluster-snapshot\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Date': datetime(2015, 1, 1),
-                        'SourceArn': 'string'
+                        \'Date\': datetime(2015, 1, 1),
+                        \'SourceArn\': \'string\'
                     },
                 ]
             }
@@ -7579,21 +7579,21 @@ class Client(BaseClient):
         ::
         
           response = client.describe_orderable_db_instance_options(
-              Engine='string',
-              EngineVersion='string',
-              DBInstanceClass='string',
-              LicenseModel='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              DBInstanceClass=\'string\',
+              LicenseModel=\'string\',
               Vpc=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type Engine: string
         :param Engine: **[REQUIRED]** 
@@ -7661,35 +7661,35 @@ class Client(BaseClient):
           ::
         
             {
-                'OrderableDBInstanceOptions': [
+                \'OrderableDBInstanceOptions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'DBInstanceClass': 'string',
-                        'LicenseModel': 'string',
-                        'AvailabilityZones': [
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'DBInstanceClass\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'AvailabilityZones\': [
                             {
-                                'Name': 'string'
+                                \'Name\': \'string\'
                             },
                         ],
-                        'MultiAZCapable': True|False,
-                        'ReadReplicaCapable': True|False,
-                        'Vpc': True|False,
-                        'SupportsStorageEncryption': True|False,
-                        'StorageType': 'string',
-                        'SupportsIops': True|False,
-                        'SupportsEnhancedMonitoring': True|False,
-                        'SupportsIAMDatabaseAuthentication': True|False,
-                        'SupportsPerformanceInsights': True|False,
-                        'MinStorageSize': 123,
-                        'MaxStorageSize': 123,
-                        'MinIopsPerDbInstance': 123,
-                        'MaxIopsPerDbInstance': 123,
-                        'MinIopsPerGib': 123.0,
-                        'MaxIopsPerGib': 123.0
+                        \'MultiAZCapable\': True|False,
+                        \'ReadReplicaCapable\': True|False,
+                        \'Vpc\': True|False,
+                        \'SupportsStorageEncryption\': True|False,
+                        \'StorageType\': \'string\',
+                        \'SupportsIops\': True|False,
+                        \'SupportsEnhancedMonitoring\': True|False,
+                        \'SupportsIAMDatabaseAuthentication\': True|False,
+                        \'SupportsPerformanceInsights\': True|False,
+                        \'MinStorageSize\': 123,
+                        \'MaxStorageSize\': 123,
+                        \'MinIopsPerDbInstance\': 123,
+                        \'MaxIopsPerDbInstance\': 123,
+                        \'MinIopsPerGib\': 123.0,
+                        \'MaxIopsPerGib\': 123.0
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7815,16 +7815,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_pending_maintenance_actions(
-              ResourceIdentifier='string',
+              ResourceIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              Marker='string',
+              Marker=\'string\',
               MaxRecords=123
           )
         :type ResourceIdentifier: string
@@ -7879,22 +7879,22 @@ class Client(BaseClient):
           ::
         
             {
-                'PendingMaintenanceActions': [
+                \'PendingMaintenanceActions\': [
                     {
-                        'ResourceIdentifier': 'string',
-                        'PendingMaintenanceActionDetails': [
+                        \'ResourceIdentifier\': \'string\',
+                        \'PendingMaintenanceActionDetails\': [
                             {
-                                'Action': 'string',
-                                'AutoAppliedAfterDate': datetime(2015, 1, 1),
-                                'ForcedApplyDate': datetime(2015, 1, 1),
-                                'OptInStatus': 'string',
-                                'CurrentApplyDate': datetime(2015, 1, 1),
-                                'Description': 'string'
+                                \'Action\': \'string\',
+                                \'AutoAppliedAfterDate\': datetime(2015, 1, 1),
+                                \'ForcedApplyDate\': datetime(2015, 1, 1),
+                                \'OptInStatus\': \'string\',
+                                \'CurrentApplyDate\': datetime(2015, 1, 1),
+                                \'Description\': \'string\'
                             },
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7962,7 +7962,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_valid_db_instance_modifications(
-              DBInstanceIdentifier='string'
+              DBInstanceIdentifier=\'string\'
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: **[REQUIRED]** 
@@ -7977,28 +7977,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ValidDBInstanceModificationsMessage': {
-                    'Storage': [
+                \'ValidDBInstanceModificationsMessage\': {
+                    \'Storage\': [
                         {
-                            'StorageType': 'string',
-                            'StorageSize': [
+                            \'StorageType\': \'string\',
+                            \'StorageSize\': [
                                 {
-                                    'From': 123,
-                                    'To': 123,
-                                    'Step': 123
+                                    \'From\': 123,
+                                    \'To\': 123,
+                                    \'Step\': 123
                                 },
                             ],
-                            'ProvisionedIops': [
+                            \'ProvisionedIops\': [
                                 {
-                                    'From': 123,
-                                    'To': 123,
-                                    'Step': 123
+                                    \'From\': 123,
+                                    \'To\': 123,
+                                    \'Step\': 123
                                 },
                             ],
-                            'IopsToStorageRatio': [
+                            \'IopsToStorageRatio\': [
                                 {
-                                    'From': 123.0,
-                                    'To': 123.0
+                                    \'From\': 123.0,
+                                    \'To\': 123.0
                                 },
                             ]
                         },
@@ -8043,7 +8043,7 @@ class Client(BaseClient):
         
                       - **Step** *(integer) --* 
         
-                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
+                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn\'t a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
         
                   - **ProvisionedIops** *(list) --* 
         
@@ -8063,7 +8063,7 @@ class Client(BaseClient):
         
                       - **Step** *(integer) --* 
         
-                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
+                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn\'t a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
         
                   - **IopsToStorageRatio** *(list) --* 
         
@@ -8097,8 +8097,8 @@ class Client(BaseClient):
         ::
         
           response = client.failover_db_cluster(
-              DBClusterIdentifier='string',
-              TargetDBInstanceIdentifier='string'
+              DBClusterIdentifier=\'string\',
+              TargetDBInstanceIdentifier=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: 
@@ -8124,68 +8124,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -8425,7 +8425,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -8437,10 +8437,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -8472,12 +8472,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -8514,10 +8514,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -8535,11 +8535,11 @@ class Client(BaseClient):
         
                 - **Key** *(string) --* 
         
-                  A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
                 - **Value** *(string) --* 
         
-                  A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         """
         pass
@@ -8553,21 +8553,21 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_cluster(
-              DBClusterIdentifier='string',
-              NewDBClusterIdentifier='string',
+              DBClusterIdentifier=\'string\',
+              NewDBClusterIdentifier=\'string\',
               ApplyImmediately=True|False,
               BackupRetentionPeriod=123,
-              DBClusterParameterGroupName='string',
+              DBClusterParameterGroupName=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Port=123,
-              MasterUserPassword='string',
-              OptionGroupName='string',
-              PreferredBackupWindow='string',
-              PreferredMaintenanceWindow='string',
+              MasterUserPassword=\'string\',
+              OptionGroupName=\'string\',
+              PreferredBackupWindow=\'string\',
+              PreferredMaintenanceWindow=\'string\',
               EnableIAMDatabaseAuthentication=True|False,
-              EngineVersion='string'
+              EngineVersion=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
@@ -8637,16 +8637,16 @@ class Client(BaseClient):
         :type MasterUserPassword: string
         :param MasterUserPassword: 
         
-          The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".
+          The new password for the master database user. This password can contain any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Constraints: Must contain from 8 to 41 characters.
         
         :type OptionGroupName: string
         :param OptionGroupName: 
         
-          A value that indicates that the DB cluster should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case, and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. 
+          A value that indicates that the DB cluster should be associated with the specified option group. Changing this parameter doesn\'t result in an outage except in the following case, and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. 
         
-          Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.
+          Permanent options can\'t be removed from an option group. The option group can\'t be removed from a DB cluster once it is associated with a DB cluster.
         
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow: 
@@ -8700,68 +8700,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -9002,19 +9002,19 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_cluster_parameter_group(
-              DBClusterParameterGroupName='string',
+              DBClusterParameterGroupName=\'string\',
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'ApplyType': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string',
-                      'ApplyMethod': 'immediate'|'pending-reboot'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'ApplyType\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\',
+                      \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                   },
               ]
           )
@@ -9082,7 +9082,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterParameterGroupName': 'string'
+                \'DBClusterParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -9110,7 +9110,7 @@ class Client(BaseClient):
     def modify_db_cluster_snapshot_attribute(self, DBClusterSnapshotIdentifier: str, AttributeName: str, ValuesToAdd: List = None, ValuesToRemove: List = None) -> Dict:
         """
         
-        To share a manual DB cluster snapshot with other AWS accounts, specify ``restore`` as the ``AttributeName`` and use the ``ValuesToAdd`` parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value ``all`` to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts. Do not add the ``all`` value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the ``ValuesToAdd`` parameter. You can't use ``all`` as a value for that parameter in this case.
+        To share a manual DB cluster snapshot with other AWS accounts, specify ``restore`` as the ``AttributeName`` and use the ``ValuesToAdd`` parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value ``all`` to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts. Do not add the ``all`` value for any manual DB cluster snapshots that contain private information that you don\'t want available to all AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the ``ValuesToAdd`` parameter. You can\'t use ``all`` as a value for that parameter in this case.
         
         To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster snapshot public or private, use the  DescribeDBClusterSnapshotAttributes API action.
         
@@ -9120,13 +9120,13 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_cluster_snapshot_attribute(
-              DBClusterSnapshotIdentifier='string',
-              AttributeName='string',
+              DBClusterSnapshotIdentifier=\'string\',
+              AttributeName=\'string\',
               ValuesToAdd=[
-                  'string',
+                  \'string\',
               ],
               ValuesToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DBClusterSnapshotIdentifier: string
@@ -9146,7 +9146,7 @@ class Client(BaseClient):
         
           A list of DB cluster snapshot attributes to add to the attribute specified by ``AttributeName`` .
         
-          To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or ``all`` to make the manual DB cluster snapshot restorable by any AWS account. Do not add the ``all`` value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+          To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or ``all`` to make the manual DB cluster snapshot restorable by any AWS account. Do not add the ``all`` value for any manual DB cluster snapshots that contain private information that you don\'t want available to all AWS accounts.
         
           - *(string) --* 
         
@@ -9167,13 +9167,13 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterSnapshotAttributesResult': {
-                    'DBClusterSnapshotIdentifier': 'string',
-                    'DBClusterSnapshotAttributes': [
+                \'DBClusterSnapshotAttributesResult\': {
+                    \'DBClusterSnapshotIdentifier\': \'string\',
+                    \'DBClusterSnapshotAttributes\': [
                         {
-                            'AttributeName': 'string',
-                            'AttributeValues': [
-                                'string',
+                            \'AttributeName\': \'string\',
+                            \'AttributeValues\': [
+                                \'string\',
                             ]
                         },
                     ]
@@ -9229,51 +9229,51 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_instance(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               AllocatedStorage=123,
-              DBInstanceClass='string',
-              DBSubnetGroupName='string',
+              DBInstanceClass=\'string\',
+              DBSubnetGroupName=\'string\',
               DBSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               ApplyImmediately=True|False,
-              MasterUserPassword='string',
-              DBParameterGroupName='string',
+              MasterUserPassword=\'string\',
+              DBParameterGroupName=\'string\',
               BackupRetentionPeriod=123,
-              PreferredBackupWindow='string',
-              PreferredMaintenanceWindow='string',
+              PreferredBackupWindow=\'string\',
+              PreferredMaintenanceWindow=\'string\',
               MultiAZ=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AllowMajorVersionUpgrade=True|False,
               AutoMinorVersionUpgrade=True|False,
-              LicenseModel='string',
+              LicenseModel=\'string\',
               Iops=123,
-              OptionGroupName='string',
-              NewDBInstanceIdentifier='string',
-              StorageType='string',
-              TdeCredentialArn='string',
-              TdeCredentialPassword='string',
-              CACertificateIdentifier='string',
-              Domain='string',
+              OptionGroupName=\'string\',
+              NewDBInstanceIdentifier=\'string\',
+              StorageType=\'string\',
+              TdeCredentialArn=\'string\',
+              TdeCredentialPassword=\'string\',
+              CACertificateIdentifier=\'string\',
+              Domain=\'string\',
               CopyTagsToSnapshot=True|False,
               MonitoringInterval=123,
               DBPortNumber=123,
               PubliclyAccessible=True|False,
-              MonitoringRoleArn='string',
-              DomainIAMRoleName='string',
+              MonitoringRoleArn=\'string\',
+              DomainIAMRoleName=\'string\',
               PromotionTier=123,
               EnableIAMDatabaseAuthentication=True|False,
               EnablePerformanceInsights=True|False,
-              PerformanceInsightsKMSKeyId='string',
+              PerformanceInsightsKMSKeyId=\'string\',
               CloudwatchLogsExportConfiguration={
-                  'EnableLogTypes': [
-                      'string',
+                  \'EnableLogTypes\': [
+                      \'string\',
                   ],
-                  'DisableLogTypes': [
-                      'string',
+                  \'DisableLogTypes\': [
+                      \'string\',
                   ]
               }
           )
@@ -9316,7 +9316,7 @@ class Client(BaseClient):
         :type DBSecurityGroups: list
         :param DBSecurityGroups: 
         
-          A list of DB security groups to authorize on this DB instance. Changing this setting doesn't result in an outage and the change is asynchronously applied as soon as possible.
+          A list of DB security groups to authorize on this DB instance. Changing this setting doesn\'t result in an outage and the change is asynchronously applied as soon as possible.
         
           Constraints:
         
@@ -9349,7 +9349,7 @@ class Client(BaseClient):
         :type MasterUserPassword: string
         :param MasterUserPassword: 
         
-          The new password for the master user. The password can include any printable ASCII character except "/", """, or "@".
+          The new password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".
         
           Not applicable. 
         
@@ -9358,7 +9358,7 @@ class Client(BaseClient):
         :type DBParameterGroupName: string
         :param DBParameterGroupName: 
         
-          The name of the DB parameter group to apply to the DB instance. Changing this setting doesn't result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window.
+          The name of the DB parameter group to apply to the DB instance. Changing this setting doesn\'t result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window.
         
           Default: Uses existing setting
         
@@ -9393,7 +9393,7 @@ class Client(BaseClient):
         :type PreferredMaintenanceWindow: string
         :param PreferredMaintenanceWindow: 
         
-          The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter doesn't result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
+          The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter doesn\'t result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
         
           Default: Uses existing setting
         
@@ -9406,7 +9406,7 @@ class Client(BaseClient):
         :type MultiAZ: boolean
         :param MultiAZ: 
         
-          Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't result in an outage and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. 
+          Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn\'t result in an outage and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. 
         
         :type EngineVersion: string
         :param EngineVersion: 
@@ -9418,14 +9418,14 @@ class Client(BaseClient):
         :type AllowMajorVersionUpgrade: boolean
         :param AllowMajorVersionUpgrade: 
         
-          Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+          Indicates that major version upgrades are allowed. Changing this parameter doesn\'t result in an outage and the change is asynchronously applied as soon as possible.
         
-          Constraints: This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
+          Constraints: This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance\'s current version.
         
         :type AutoMinorVersionUpgrade: boolean
         :param AutoMinorVersionUpgrade: 
         
-          Indicates that minor version upgrades are applied automatically to the DB instance during the maintenance window. Changing this parameter doesn't result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to ``true`` during the maintenance window, and a newer minor version is available, and Neptune has enabled auto patching for that engine version. 
+          Indicates that minor version upgrades are applied automatically to the DB instance during the maintenance window. Changing this parameter doesn\'t result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to ``true`` during the maintenance window, and a newer minor version is available, and Neptune has enabled auto patching for that engine version. 
         
         :type LicenseModel: string
         :param LicenseModel: 
@@ -9439,16 +9439,16 @@ class Client(BaseClient):
         
           The new Provisioned IOPS (I/O operations per second) value for the instance. 
         
-          Changing this setting doesn't result in an outage and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request.
+          Changing this setting doesn\'t result in an outage and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request.
         
           Default: Uses existing setting
         
         :type OptionGroupName: string
         :param OptionGroupName: 
         
-          Indicates that the DB instance should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. 
+          Indicates that the DB instance should be associated with the specified option group. Changing this parameter doesn\'t result in an outage except in the following case and the change is applied during the next maintenance window unless the ``ApplyImmediately`` parameter is set to ``true`` for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. 
         
-          Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+          Permanent options, such as the TDE option for Oracle Advanced Security TDE, can\'t be removed from an option group, and that option group can\'t be removed from a DB instance once it is associated with a DB instance
         
         :type NewDBInstanceIdentifier: string
         :param NewDBInstanceIdentifier: 
@@ -9595,139 +9595,139 @@ class Client(BaseClient):
           ::
         
             {
-                'DBInstance': {
-                    'DBInstanceIdentifier': 'string',
-                    'DBInstanceClass': 'string',
-                    'Engine': 'string',
-                    'DBInstanceStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123,
-                        'HostedZoneId': 'string'
+                \'DBInstance\': {
+                    \'DBInstanceIdentifier\': \'string\',
+                    \'DBInstanceClass\': \'string\',
+                    \'Engine\': \'string\',
+                    \'DBInstanceStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123,
+                        \'HostedZoneId\': \'string\'
                     },
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'PreferredBackupWindow': 'string',
-                    'BackupRetentionPeriod': 123,
-                    'DBSecurityGroups': [
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredBackupWindow\': \'string\',
+                    \'BackupRetentionPeriod\': 123,
+                    \'DBSecurityGroups\': [
                         {
-                            'DBSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'DBSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'DBParameterGroups': [
+                    \'DBParameterGroups\': [
                         {
-                            'DBParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string'
+                            \'DBParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'DBSubnetGroup': {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'DBSubnetGroup\': {
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'DBInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MasterUserPassword': 'string',
-                        'Port': 123,
-                        'BackupRetentionPeriod': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'DBInstanceIdentifier': 'string',
-                        'StorageType': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DBSubnetGroupName': 'string',
-                        'PendingCloudwatchLogsExports': {
-                            'LogTypesToEnable': [
-                                'string',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'DBInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MasterUserPassword\': \'string\',
+                        \'Port\': 123,
+                        \'BackupRetentionPeriod\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DBSubnetGroupName\': \'string\',
+                        \'PendingCloudwatchLogsExports\': {
+                            \'LogTypesToEnable\': [
+                                \'string\',
                             ],
-                            'LogTypesToDisable': [
-                                'string',
+                            \'LogTypesToDisable\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                    'ReadReplicaDBInstanceIdentifiers': [
-                        'string',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                    \'ReadReplicaDBInstanceIdentifiers\': [
+                        \'string\',
                     ],
-                    'ReadReplicaDBClusterIdentifiers': [
-                        'string',
+                    \'ReadReplicaDBClusterIdentifiers\': [
+                        \'string\',
                     ],
-                    'LicenseModel': 'string',
-                    'Iops': 123,
-                    'OptionGroupMemberships': [
+                    \'LicenseModel\': \'string\',
+                    \'Iops\': 123,
+                    \'OptionGroupMemberships\': [
                         {
-                            'OptionGroupName': 'string',
-                            'Status': 'string'
+                            \'OptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CharacterSetName': 'string',
-                    'SecondaryAvailabilityZone': 'string',
-                    'PubliclyAccessible': True|False,
-                    'StatusInfos': [
+                    \'CharacterSetName\': \'string\',
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'PubliclyAccessible\': True|False,
+                    \'StatusInfos\': [
                         {
-                            'StatusType': 'string',
-                            'Normal': True|False,
-                            'Status': 'string',
-                            'Message': 'string'
+                            \'StatusType\': \'string\',
+                            \'Normal\': True|False,
+                            \'Status\': \'string\',
+                            \'Message\': \'string\'
                         },
                     ],
-                    'StorageType': 'string',
-                    'TdeCredentialArn': 'string',
-                    'DbInstancePort': 123,
-                    'DBClusterIdentifier': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbiResourceId': 'string',
-                    'CACertificateIdentifier': 'string',
-                    'DomainMemberships': [
+                    \'StorageType\': \'string\',
+                    \'TdeCredentialArn\': \'string\',
+                    \'DbInstancePort\': 123,
+                    \'DBClusterIdentifier\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbiResourceId\': \'string\',
+                    \'CACertificateIdentifier\': \'string\',
+                    \'DomainMemberships\': [
                         {
-                            'Domain': 'string',
-                            'Status': 'string',
-                            'FQDN': 'string',
-                            'IAMRoleName': 'string'
+                            \'Domain\': \'string\',
+                            \'Status\': \'string\',
+                            \'FQDN\': \'string\',
+                            \'IAMRoleName\': \'string\'
                         },
                     ],
-                    'CopyTagsToSnapshot': True|False,
-                    'MonitoringInterval': 123,
-                    'EnhancedMonitoringResourceArn': 'string',
-                    'MonitoringRoleArn': 'string',
-                    'PromotionTier': 123,
-                    'DBInstanceArn': 'string',
-                    'Timezone': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'PerformanceInsightsEnabled': True|False,
-                    'PerformanceInsightsKMSKeyId': 'string',
-                    'EnabledCloudwatchLogsExports': [
-                        'string',
+                    \'CopyTagsToSnapshot\': True|False,
+                    \'MonitoringInterval\': 123,
+                    \'EnhancedMonitoringResourceArn\': \'string\',
+                    \'MonitoringRoleArn\': \'string\',
+                    \'PromotionTier\': 123,
+                    \'DBInstanceArn\': \'string\',
+                    \'Timezone\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'PerformanceInsightsEnabled\': True|False,
+                    \'PerformanceInsightsKMSKeyId\': \'string\',
+                    \'EnabledCloudwatchLogsExports\': [
+                        \'string\',
                     ]
                 }
             }
@@ -9983,7 +9983,7 @@ class Client(BaseClient):
         
                   - **LogTypesToEnable** *(list) --* 
         
-                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                     - *(string) --* 
                 
@@ -10047,7 +10047,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
               - **CharacterSetName** *(string) --* 
         
@@ -10071,7 +10071,7 @@ class Client(BaseClient):
         
                   - **StatusType** *(string) --* 
         
-                    This value is currently "read replication."
+                    This value is currently \"read replication.\"
         
                   - **Normal** *(boolean) --* 
         
@@ -10131,7 +10131,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                    The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                   - **FQDN** *(string) --* 
         
@@ -10207,19 +10207,19 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_parameter_group(
-              DBParameterGroupName='string',
+              DBParameterGroupName=\'string\',
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'ApplyType': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string',
-                      'ApplyMethod': 'immediate'|'pending-reboot'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'ApplyType\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\',
+                      \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                   },
               ]
           )
@@ -10297,7 +10297,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DBParameterGroupName': 'string'
+                \'DBParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -10321,16 +10321,16 @@ class Client(BaseClient):
         ::
         
           response = client.modify_db_subnet_group(
-              DBSubnetGroupName='string',
-              DBSubnetGroupDescription='string',
+              DBSubnetGroupName=\'string\',
+              DBSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DBSubnetGroupName: string
         :param DBSubnetGroupName: **[REQUIRED]** 
         
-          The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. 
+          The name for the DB subnet group. This value is stored as a lowercase string. You can\'t modify the default subnet group. 
         
           Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
         
@@ -10356,21 +10356,21 @@ class Client(BaseClient):
           ::
         
             {
-                'DBSubnetGroup': {
-                    'DBSubnetGroupName': 'string',
-                    'DBSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'DBSubnetGroup\': {
+                    \'DBSubnetGroupName\': \'string\',
+                    \'DBSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ],
-                    'DBSubnetGroupArn': 'string'
+                    \'DBSubnetGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10445,11 +10445,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Enabled=True|False
           )
@@ -10490,21 +10490,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False,
-                    'EventSubscriptionArn': 'string'
+                    \'Enabled\': True|False,
+                    \'EventSubscriptionArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10535,7 +10535,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -10577,7 +10577,7 @@ class Client(BaseClient):
         ::
         
           response = client.promote_read_replica_db_cluster(
-              DBClusterIdentifier='string'
+              DBClusterIdentifier=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
@@ -10598,68 +10598,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -10894,7 +10894,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_db_instance(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               ForceFailover=True|False
           )
         :type DBInstanceIdentifier: string
@@ -10911,7 +10911,7 @@ class Client(BaseClient):
         
           When ``true`` , the reboot is conducted through a MultiAZ failover. 
         
-          Constraint: You can't specify ``true`` if the instance is not configured for MultiAZ.
+          Constraint: You can\'t specify ``true`` if the instance is not configured for MultiAZ.
         
         :rtype: dict
         :returns: 
@@ -10921,139 +10921,139 @@ class Client(BaseClient):
           ::
         
             {
-                'DBInstance': {
-                    'DBInstanceIdentifier': 'string',
-                    'DBInstanceClass': 'string',
-                    'Engine': 'string',
-                    'DBInstanceStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123,
-                        'HostedZoneId': 'string'
+                \'DBInstance\': {
+                    \'DBInstanceIdentifier\': \'string\',
+                    \'DBInstanceClass\': \'string\',
+                    \'Engine\': \'string\',
+                    \'DBInstanceStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123,
+                        \'HostedZoneId\': \'string\'
                     },
-                    'AllocatedStorage': 123,
-                    'InstanceCreateTime': datetime(2015, 1, 1),
-                    'PreferredBackupWindow': 'string',
-                    'BackupRetentionPeriod': 123,
-                    'DBSecurityGroups': [
+                    \'AllocatedStorage\': 123,
+                    \'InstanceCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredBackupWindow\': \'string\',
+                    \'BackupRetentionPeriod\': 123,
+                    \'DBSecurityGroups\': [
                         {
-                            'DBSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'DBSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'DBParameterGroups': [
+                    \'DBParameterGroups\': [
                         {
-                            'DBParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string'
+                            \'DBParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\'
                         },
                     ],
-                    'AvailabilityZone': 'string',
-                    'DBSubnetGroup': {
-                        'DBSubnetGroupName': 'string',
-                        'DBSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                    \'AvailabilityZone\': \'string\',
+                    \'DBSubnetGroup\': {
+                        \'DBSubnetGroupName\': \'string\',
+                        \'DBSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'DBSubnetGroupArn': 'string'
+                        \'DBSubnetGroupArn\': \'string\'
                     },
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'DBInstanceClass': 'string',
-                        'AllocatedStorage': 123,
-                        'MasterUserPassword': 'string',
-                        'Port': 123,
-                        'BackupRetentionPeriod': 123,
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'LicenseModel': 'string',
-                        'Iops': 123,
-                        'DBInstanceIdentifier': 'string',
-                        'StorageType': 'string',
-                        'CACertificateIdentifier': 'string',
-                        'DBSubnetGroupName': 'string',
-                        'PendingCloudwatchLogsExports': {
-                            'LogTypesToEnable': [
-                                'string',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'DBInstanceClass\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'MasterUserPassword\': \'string\',
+                        \'Port\': 123,
+                        \'BackupRetentionPeriod\': 123,
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'LicenseModel\': \'string\',
+                        \'Iops\': 123,
+                        \'DBInstanceIdentifier\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'CACertificateIdentifier\': \'string\',
+                        \'DBSubnetGroupName\': \'string\',
+                        \'PendingCloudwatchLogsExports\': {
+                            \'LogTypesToEnable\': [
+                                \'string\',
                             ],
-                            'LogTypesToDisable': [
-                                'string',
+                            \'LogTypesToDisable\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'MultiAZ': True|False,
-                    'EngineVersion': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'ReadReplicaSourceDBInstanceIdentifier': 'string',
-                    'ReadReplicaDBInstanceIdentifiers': [
-                        'string',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'MultiAZ\': True|False,
+                    \'EngineVersion\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'ReadReplicaSourceDBInstanceIdentifier\': \'string\',
+                    \'ReadReplicaDBInstanceIdentifiers\': [
+                        \'string\',
                     ],
-                    'ReadReplicaDBClusterIdentifiers': [
-                        'string',
+                    \'ReadReplicaDBClusterIdentifiers\': [
+                        \'string\',
                     ],
-                    'LicenseModel': 'string',
-                    'Iops': 123,
-                    'OptionGroupMemberships': [
+                    \'LicenseModel\': \'string\',
+                    \'Iops\': 123,
+                    \'OptionGroupMemberships\': [
                         {
-                            'OptionGroupName': 'string',
-                            'Status': 'string'
+                            \'OptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CharacterSetName': 'string',
-                    'SecondaryAvailabilityZone': 'string',
-                    'PubliclyAccessible': True|False,
-                    'StatusInfos': [
+                    \'CharacterSetName\': \'string\',
+                    \'SecondaryAvailabilityZone\': \'string\',
+                    \'PubliclyAccessible\': True|False,
+                    \'StatusInfos\': [
                         {
-                            'StatusType': 'string',
-                            'Normal': True|False,
-                            'Status': 'string',
-                            'Message': 'string'
+                            \'StatusType\': \'string\',
+                            \'Normal\': True|False,
+                            \'Status\': \'string\',
+                            \'Message\': \'string\'
                         },
                     ],
-                    'StorageType': 'string',
-                    'TdeCredentialArn': 'string',
-                    'DbInstancePort': 123,
-                    'DBClusterIdentifier': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbiResourceId': 'string',
-                    'CACertificateIdentifier': 'string',
-                    'DomainMemberships': [
+                    \'StorageType\': \'string\',
+                    \'TdeCredentialArn\': \'string\',
+                    \'DbInstancePort\': 123,
+                    \'DBClusterIdentifier\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbiResourceId\': \'string\',
+                    \'CACertificateIdentifier\': \'string\',
+                    \'DomainMemberships\': [
                         {
-                            'Domain': 'string',
-                            'Status': 'string',
-                            'FQDN': 'string',
-                            'IAMRoleName': 'string'
+                            \'Domain\': \'string\',
+                            \'Status\': \'string\',
+                            \'FQDN\': \'string\',
+                            \'IAMRoleName\': \'string\'
                         },
                     ],
-                    'CopyTagsToSnapshot': True|False,
-                    'MonitoringInterval': 123,
-                    'EnhancedMonitoringResourceArn': 'string',
-                    'MonitoringRoleArn': 'string',
-                    'PromotionTier': 123,
-                    'DBInstanceArn': 'string',
-                    'Timezone': 'string',
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'PerformanceInsightsEnabled': True|False,
-                    'PerformanceInsightsKMSKeyId': 'string',
-                    'EnabledCloudwatchLogsExports': [
-                        'string',
+                    \'CopyTagsToSnapshot\': True|False,
+                    \'MonitoringInterval\': 123,
+                    \'EnhancedMonitoringResourceArn\': \'string\',
+                    \'MonitoringRoleArn\': \'string\',
+                    \'PromotionTier\': 123,
+                    \'DBInstanceArn\': \'string\',
+                    \'Timezone\': \'string\',
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'PerformanceInsightsEnabled\': True|False,
+                    \'PerformanceInsightsKMSKeyId\': \'string\',
+                    \'EnabledCloudwatchLogsExports\': [
+                        \'string\',
                     ]
                 }
             }
@@ -11309,7 +11309,7 @@ class Client(BaseClient):
         
                   - **LogTypesToEnable** *(list) --* 
         
-                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+                    Log types that are in the process of being deactivated. After they are deactivated, these log types aren\'t exported to CloudWatch Logs.
         
                     - *(string) --* 
                 
@@ -11373,7 +11373,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance\'s option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
         
               - **CharacterSetName** *(string) --* 
         
@@ -11397,7 +11397,7 @@ class Client(BaseClient):
         
                   - **StatusType** *(string) --* 
         
-                    This value is currently "read replication."
+                    This value is currently \"read replication.\"
         
                   - **Normal** *(boolean) --* 
         
@@ -11457,7 +11457,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
+                    The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
         
                   - **FQDN** *(string) --* 
         
@@ -11525,8 +11525,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_role_from_db_cluster(
-              DBClusterIdentifier='string',
-              RoleArn='string'
+              DBClusterIdentifier=\'string\',
+              RoleArn=\'string\'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
@@ -11551,8 +11551,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_source_identifier_from_subscription(
-              SubscriptionName='string',
-              SourceIdentifier='string'
+              SubscriptionName=\'string\',
+              SourceIdentifier=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: **[REQUIRED]** 
@@ -11572,21 +11572,21 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': 'string',
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': \'string\',
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Enabled': True|False,
-                    'EventSubscriptionArn': 'string'
+                    \'Enabled\': True|False,
+                    \'EventSubscriptionArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11617,7 +11617,7 @@ class Client(BaseClient):
         
                 Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                The status \"no-permission\" indicates that Neptune no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
               - **SubscriptionCreationTime** *(string) --* 
         
@@ -11659,9 +11659,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceName: string
@@ -11691,20 +11691,20 @@ class Client(BaseClient):
         ::
         
           response = client.reset_db_cluster_parameter_group(
-              DBClusterParameterGroupName='string',
+              DBClusterParameterGroupName=\'string\',
               ResetAllParameters=True|False,
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'ApplyType': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string',
-                      'ApplyMethod': 'immediate'|'pending-reboot'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'ApplyType\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\',
+                      \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                   },
               ]
           )
@@ -11716,12 +11716,12 @@ class Client(BaseClient):
         :type ResetAllParameters: boolean
         :param ResetAllParameters: 
         
-          A value that is set to ``true`` to reset all parameters in the DB cluster parameter group to their default values, and ``false`` otherwise. You can't use this parameter if there is a list of parameter names specified for the ``Parameters`` parameter.
+          A value that is set to ``true`` to reset all parameters in the DB cluster parameter group to their default values, and ``false`` otherwise. You can\'t use this parameter if there is a list of parameter names specified for the ``Parameters`` parameter.
         
         :type Parameters: list
         :param Parameters: 
         
-          A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the ``ResetAllParameters`` parameter is set to ``true`` .
+          A list of parameter names in the DB cluster parameter group to reset to the default values. You can\'t use this parameter if the ``ResetAllParameters`` parameter is set to ``true`` .
         
           - *(dict) --* 
         
@@ -11777,7 +11777,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DBClusterParameterGroupName': 'string'
+                \'DBClusterParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -11811,20 +11811,20 @@ class Client(BaseClient):
         ::
         
           response = client.reset_db_parameter_group(
-              DBParameterGroupName='string',
+              DBParameterGroupName=\'string\',
               ResetAllParameters=True|False,
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'ApplyType': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string',
-                      'ApplyMethod': 'immediate'|'pending-reboot'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'ApplyType\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\',
+                      \'ApplyMethod\': \'immediate\'|\'pending-reboot\'
                   },
               ]
           )
@@ -11905,7 +11905,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DBParameterGroupName': 'string'
+                \'DBParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -11934,26 +11934,26 @@ class Client(BaseClient):
         
           response = client.restore_db_cluster_from_snapshot(
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
-              DBClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              Engine='string',
-              EngineVersion='string',
+              DBClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              Engine=\'string\',
+              EngineVersion=\'string\',
               Port=123,
-              DBSubnetGroupName='string',
-              DatabaseName='string',
-              OptionGroupName='string',
+              DBSubnetGroupName=\'string\',
+              DatabaseName=\'string\',
+              OptionGroupName=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               EnableIAMDatabaseAuthentication=True|False
           )
         :type AvailabilityZones: list
@@ -11966,7 +11966,7 @@ class Client(BaseClient):
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]** 
         
-          The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This parameter isn't case-sensitive.
+          The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -12049,11 +12049,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type KmsKeyId: string
         :param KmsKeyId: 
@@ -12083,68 +12083,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -12381,24 +12381,24 @@ class Client(BaseClient):
         ::
         
           response = client.restore_db_cluster_to_point_in_time(
-              DBClusterIdentifier='string',
-              RestoreType='string',
-              SourceDBClusterIdentifier='string',
+              DBClusterIdentifier=\'string\',
+              RestoreType=\'string\',
+              SourceDBClusterIdentifier=\'string\',
               RestoreToTime=datetime(2015, 1, 1),
               UseLatestRestorableTime=True|False,
               Port=123,
-              DBSubnetGroupName='string',
-              OptionGroupName='string',
+              DBSubnetGroupName=\'string\',
+              OptionGroupName=\'string\',
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               EnableIAMDatabaseAuthentication=True|False
           )
         :type DBClusterIdentifier: string
@@ -12423,9 +12423,9 @@ class Client(BaseClient):
            
           * ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster. 
            
-          Constraints: You can't specify ``copy-on-write`` if the engine version of the source DB cluster is earlier than 1.11.
+          Constraints: You can\'t specify ``copy-on-write`` if the engine version of the source DB cluster is earlier than 1.11.
         
-          If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
+          If you don\'t specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
         
         :type SourceDBClusterIdentifier: string
         :param SourceDBClusterIdentifier: **[REQUIRED]** 
@@ -12505,11 +12505,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* 
         
-              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* 
         
-              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can\'t be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :type KmsKeyId: string
         :param KmsKeyId: 
@@ -12543,68 +12543,68 @@ class Client(BaseClient):
           ::
         
             {
-                'DBCluster': {
-                    'AllocatedStorage': 123,
-                    'AvailabilityZones': [
-                        'string',
+                \'DBCluster\': {
+                    \'AllocatedStorage\': 123,
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'BackupRetentionPeriod': 123,
-                    'CharacterSetName': 'string',
-                    'DatabaseName': 'string',
-                    'DBClusterIdentifier': 'string',
-                    'DBClusterParameterGroup': 'string',
-                    'DBSubnetGroup': 'string',
-                    'Status': 'string',
-                    'PercentProgress': 'string',
-                    'EarliestRestorableTime': datetime(2015, 1, 1),
-                    'Endpoint': 'string',
-                    'ReaderEndpoint': 'string',
-                    'MultiAZ': True|False,
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'LatestRestorableTime': datetime(2015, 1, 1),
-                    'Port': 123,
-                    'MasterUsername': 'string',
-                    'DBClusterOptionGroupMemberships': [
+                    \'BackupRetentionPeriod\': 123,
+                    \'CharacterSetName\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'DBClusterIdentifier\': \'string\',
+                    \'DBClusterParameterGroup\': \'string\',
+                    \'DBSubnetGroup\': \'string\',
+                    \'Status\': \'string\',
+                    \'PercentProgress\': \'string\',
+                    \'EarliestRestorableTime\': datetime(2015, 1, 1),
+                    \'Endpoint\': \'string\',
+                    \'ReaderEndpoint\': \'string\',
+                    \'MultiAZ\': True|False,
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'LatestRestorableTime\': datetime(2015, 1, 1),
+                    \'Port\': 123,
+                    \'MasterUsername\': \'string\',
+                    \'DBClusterOptionGroupMemberships\': [
                         {
-                            'DBClusterOptionGroupName': 'string',
-                            'Status': 'string'
+                            \'DBClusterOptionGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'PreferredBackupWindow': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'ReplicationSourceIdentifier': 'string',
-                    'ReadReplicaIdentifiers': [
-                        'string',
+                    \'PreferredBackupWindow\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'ReplicationSourceIdentifier\': \'string\',
+                    \'ReadReplicaIdentifiers\': [
+                        \'string\',
                     ],
-                    'DBClusterMembers': [
+                    \'DBClusterMembers\': [
                         {
-                            'DBInstanceIdentifier': 'string',
-                            'IsClusterWriter': True|False,
-                            'DBClusterParameterGroupStatus': 'string',
-                            'PromotionTier': 123
+                            \'DBInstanceIdentifier\': \'string\',
+                            \'IsClusterWriter\': True|False,
+                            \'DBClusterParameterGroupStatus\': \'string\',
+                            \'PromotionTier\': 123
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'HostedZoneId': 'string',
-                    'StorageEncrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'DbClusterResourceId': 'string',
-                    'DBClusterArn': 'string',
-                    'AssociatedRoles': [
+                    \'HostedZoneId\': \'string\',
+                    \'StorageEncrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'DbClusterResourceId\': \'string\',
+                    \'DBClusterArn\': \'string\',
+                    \'AssociatedRoles\': [
                         {
-                            'RoleArn': 'string',
-                            'Status': 'string'
+                            \'RoleArn\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IAMDatabaseAuthenticationEnabled': True|False,
-                    'CloneGroupId': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1)
+                    \'IAMDatabaseAuthenticationEnabled\': True|False,
+                    \'CloneGroupId\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 

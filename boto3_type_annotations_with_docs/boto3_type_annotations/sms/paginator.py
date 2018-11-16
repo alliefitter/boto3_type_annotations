@@ -13,9 +13,9 @@ class GetConnectors(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,23 +43,23 @@ class GetConnectors(Paginator):
           ::
         
             {
-                'connectorList': [
+                \'connectorList\': [
                     {
-                        'connectorId': 'string',
-                        'version': 'string',
-                        'status': 'HEALTHY'|'UNHEALTHY',
-                        'capabilityList': [
-                            'VSPHERE',
+                        \'connectorId\': \'string\',
+                        \'version\': \'string\',
+                        \'status\': \'HEALTHY\'|\'UNHEALTHY\',
+                        \'capabilityList\': [
+                            \'VSPHERE\',
                         ],
-                        'vmManagerName': 'string',
-                        'vmManagerType': 'VSPHERE',
-                        'vmManagerId': 'string',
-                        'ipAddress': 'string',
-                        'macAddress': 'string',
-                        'associatedOn': datetime(2015, 1, 1)
+                        \'vmManagerName\': \'string\',
+                        \'vmManagerType\': \'VSPHERE\',
+                        \'vmManagerId\': \'string\',
+                        \'ipAddress\': \'string\',
+                        \'macAddress\': \'string\',
+                        \'associatedOn\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -109,11 +109,11 @@ class GetReplicationJobs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              replicationJobId='string',
+              replicationJobId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type replicationJobId: string
@@ -144,45 +144,45 @@ class GetReplicationJobs(Paginator):
           ::
         
             {
-                'replicationJobList': [
+                \'replicationJobList\': [
                     {
-                        'replicationJobId': 'string',
-                        'serverId': 'string',
-                        'serverType': 'VIRTUAL_MACHINE',
-                        'vmServer': {
-                            'vmServerAddress': {
-                                'vmManagerId': 'string',
-                                'vmId': 'string'
+                        \'replicationJobId\': \'string\',
+                        \'serverId\': \'string\',
+                        \'serverType\': \'VIRTUAL_MACHINE\',
+                        \'vmServer\': {
+                            \'vmServerAddress\': {
+                                \'vmManagerId\': \'string\',
+                                \'vmId\': \'string\'
                             },
-                            'vmName': 'string',
-                            'vmManagerName': 'string',
-                            'vmManagerType': 'VSPHERE',
-                            'vmPath': 'string'
+                            \'vmName\': \'string\',
+                            \'vmManagerName\': \'string\',
+                            \'vmManagerType\': \'VSPHERE\',
+                            \'vmPath\': \'string\'
                         },
-                        'seedReplicationTime': datetime(2015, 1, 1),
-                        'frequency': 123,
-                        'nextReplicationRunStartTime': datetime(2015, 1, 1),
-                        'licenseType': 'AWS'|'BYOL',
-                        'roleName': 'string',
-                        'latestAmiId': 'string',
-                        'state': 'PENDING'|'ACTIVE'|'FAILED'|'DELETING'|'DELETED',
-                        'statusMessage': 'string',
-                        'description': 'string',
-                        'replicationRunList': [
+                        \'seedReplicationTime\': datetime(2015, 1, 1),
+                        \'frequency\': 123,
+                        \'nextReplicationRunStartTime\': datetime(2015, 1, 1),
+                        \'licenseType\': \'AWS\'|\'BYOL\',
+                        \'roleName\': \'string\',
+                        \'latestAmiId\': \'string\',
+                        \'state\': \'PENDING\'|\'ACTIVE\'|\'FAILED\'|\'DELETING\'|\'DELETED\',
+                        \'statusMessage\': \'string\',
+                        \'description\': \'string\',
+                        \'replicationRunList\': [
                             {
-                                'replicationRunId': 'string',
-                                'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                                'type': 'ON_DEMAND'|'AUTOMATIC',
-                                'statusMessage': 'string',
-                                'amiId': 'string',
-                                'scheduledStartTime': datetime(2015, 1, 1),
-                                'completedTime': datetime(2015, 1, 1),
-                                'description': 'string'
+                                \'replicationRunId\': \'string\',
+                                \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                                \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                                \'statusMessage\': \'string\',
+                                \'amiId\': \'string\',
+                                \'scheduledStartTime\': datetime(2015, 1, 1),
+                                \'completedTime\': datetime(2015, 1, 1),
+                                \'description\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -200,7 +200,7 @@ class GetReplicationJobs(Paginator):
                 
                 - **vmServer** *(dict) --* Object representing a VM server
                   
-                  - **vmServerAddress** *(dict) --* Object representing a server's location
+                  - **vmServerAddress** *(dict) --* Object representing a server\'s location
                     
                     - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                     
@@ -222,7 +222,7 @@ class GetReplicationJobs(Paginator):
                 
                 - **licenseType** *(string) --* The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
                 
-                - **roleName** *(string) --* Name of service role in customer's account to be used by SMS service.
+                - **roleName** *(string) --* Name of service role in customer\'s account to be used by SMS service.
                 
                 - **latestAmiId** *(string) --* The AMI id for the image resulting from a Replication Run.
                 
@@ -270,11 +270,11 @@ class GetReplicationRuns(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              replicationJobId='string',
+              replicationJobId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type replicationJobId: string
@@ -305,55 +305,55 @@ class GetReplicationRuns(Paginator):
           ::
         
             {
-                'replicationJob': {
-                    'replicationJobId': 'string',
-                    'serverId': 'string',
-                    'serverType': 'VIRTUAL_MACHINE',
-                    'vmServer': {
-                        'vmServerAddress': {
-                            'vmManagerId': 'string',
-                            'vmId': 'string'
+                \'replicationJob\': {
+                    \'replicationJobId\': \'string\',
+                    \'serverId\': \'string\',
+                    \'serverType\': \'VIRTUAL_MACHINE\',
+                    \'vmServer\': {
+                        \'vmServerAddress\': {
+                            \'vmManagerId\': \'string\',
+                            \'vmId\': \'string\'
                         },
-                        'vmName': 'string',
-                        'vmManagerName': 'string',
-                        'vmManagerType': 'VSPHERE',
-                        'vmPath': 'string'
+                        \'vmName\': \'string\',
+                        \'vmManagerName\': \'string\',
+                        \'vmManagerType\': \'VSPHERE\',
+                        \'vmPath\': \'string\'
                     },
-                    'seedReplicationTime': datetime(2015, 1, 1),
-                    'frequency': 123,
-                    'nextReplicationRunStartTime': datetime(2015, 1, 1),
-                    'licenseType': 'AWS'|'BYOL',
-                    'roleName': 'string',
-                    'latestAmiId': 'string',
-                    'state': 'PENDING'|'ACTIVE'|'FAILED'|'DELETING'|'DELETED',
-                    'statusMessage': 'string',
-                    'description': 'string',
-                    'replicationRunList': [
+                    \'seedReplicationTime\': datetime(2015, 1, 1),
+                    \'frequency\': 123,
+                    \'nextReplicationRunStartTime\': datetime(2015, 1, 1),
+                    \'licenseType\': \'AWS\'|\'BYOL\',
+                    \'roleName\': \'string\',
+                    \'latestAmiId\': \'string\',
+                    \'state\': \'PENDING\'|\'ACTIVE\'|\'FAILED\'|\'DELETING\'|\'DELETED\',
+                    \'statusMessage\': \'string\',
+                    \'description\': \'string\',
+                    \'replicationRunList\': [
                         {
-                            'replicationRunId': 'string',
-                            'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                            'type': 'ON_DEMAND'|'AUTOMATIC',
-                            'statusMessage': 'string',
-                            'amiId': 'string',
-                            'scheduledStartTime': datetime(2015, 1, 1),
-                            'completedTime': datetime(2015, 1, 1),
-                            'description': 'string'
+                            \'replicationRunId\': \'string\',
+                            \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                            \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                            \'statusMessage\': \'string\',
+                            \'amiId\': \'string\',
+                            \'scheduledStartTime\': datetime(2015, 1, 1),
+                            \'completedTime\': datetime(2015, 1, 1),
+                            \'description\': \'string\'
                         },
                     ]
                 },
-                'replicationRunList': [
+                \'replicationRunList\': [
                     {
-                        'replicationRunId': 'string',
-                        'state': 'PENDING'|'MISSED'|'ACTIVE'|'FAILED'|'COMPLETED'|'DELETING'|'DELETED',
-                        'type': 'ON_DEMAND'|'AUTOMATIC',
-                        'statusMessage': 'string',
-                        'amiId': 'string',
-                        'scheduledStartTime': datetime(2015, 1, 1),
-                        'completedTime': datetime(2015, 1, 1),
-                        'description': 'string'
+                        \'replicationRunId\': \'string\',
+                        \'state\': \'PENDING\'|\'MISSED\'|\'ACTIVE\'|\'FAILED\'|\'COMPLETED\'|\'DELETING\'|\'DELETED\',
+                        \'type\': \'ON_DEMAND\'|\'AUTOMATIC\',
+                        \'statusMessage\': \'string\',
+                        \'amiId\': \'string\',
+                        \'scheduledStartTime\': datetime(2015, 1, 1),
+                        \'completedTime\': datetime(2015, 1, 1),
+                        \'description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -369,7 +369,7 @@ class GetReplicationRuns(Paginator):
               
               - **vmServer** *(dict) --* Object representing a VM server
                 
-                - **vmServerAddress** *(dict) --* Object representing a server's location
+                - **vmServerAddress** *(dict) --* Object representing a server\'s location
                   
                   - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                   
@@ -391,7 +391,7 @@ class GetReplicationRuns(Paginator):
               
               - **licenseType** *(string) --* The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
               
-              - **roleName** *(string) --* Name of service role in customer's account to be used by SMS service.
+              - **roleName** *(string) --* Name of service role in customer\'s account to be used by SMS service.
               
               - **latestAmiId** *(string) --* The AMI id for the image resulting from a Replication Run.
               
@@ -460,9 +460,9 @@ class GetServers(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -490,27 +490,27 @@ class GetServers(Paginator):
           ::
         
             {
-                'lastModifiedOn': datetime(2015, 1, 1),
-                'serverCatalogStatus': 'NOT_IMPORTED'|'IMPORTING'|'AVAILABLE'|'DELETED'|'EXPIRED',
-                'serverList': [
+                \'lastModifiedOn\': datetime(2015, 1, 1),
+                \'serverCatalogStatus\': \'NOT_IMPORTED\'|\'IMPORTING\'|\'AVAILABLE\'|\'DELETED\'|\'EXPIRED\',
+                \'serverList\': [
                     {
-                        'serverId': 'string',
-                        'serverType': 'VIRTUAL_MACHINE',
-                        'vmServer': {
-                            'vmServerAddress': {
-                                'vmManagerId': 'string',
-                                'vmId': 'string'
+                        \'serverId\': \'string\',
+                        \'serverType\': \'VIRTUAL_MACHINE\',
+                        \'vmServer\': {
+                            \'vmServerAddress\': {
+                                \'vmManagerId\': \'string\',
+                                \'vmId\': \'string\'
                             },
-                            'vmName': 'string',
-                            'vmManagerName': 'string',
-                            'vmManagerType': 'VSPHERE',
-                            'vmPath': 'string'
+                            \'vmName\': \'string\',
+                            \'vmManagerName\': \'string\',
+                            \'vmManagerType\': \'VSPHERE\',
+                            \'vmPath\': \'string\'
                         },
-                        'replicationJobId': 'string',
-                        'replicationJobTerminated': True|False
+                        \'replicationJobId\': \'string\',
+                        \'replicationJobTerminated\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -530,7 +530,7 @@ class GetServers(Paginator):
                 
                 - **vmServer** *(dict) --* Object representing a VM server
                   
-                  - **vmServerAddress** *(dict) --* Object representing a server's location
+                  - **vmServerAddress** *(dict) --* Object representing a server\'s location
                     
                     - **vmManagerId** *(string) --* Unique Identifier for VM Manager
                     

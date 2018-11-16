@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -30,7 +30,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You can update only the ``$LATEST`` version of the bot. You can't update the numbered versions that you create with the ``CreateBotVersion`` operation.
+          You can update only the ``$LATEST`` version of the bot. You can\'t update the numbered versions that you create with the ``CreateBotVersion`` operation.
         
         When you create the first version of a bot, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see  versioning-intro . 
         
@@ -42,8 +42,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_bot_version(
-              name='string',
-              checksum='string'
+              name=\'string\',
+              checksum=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -53,7 +53,7 @@ class Client(BaseClient):
         :type checksum: string
         :param checksum: 
         
-          Identifies a specific revision of the ``$LATEST`` version of the bot. If you specify a checksum and the ``$LATEST`` version of the bot has a different checksum, a ``PreconditionFailedException`` exception is returned and Amazon Lex doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
+          Identifies a specific revision of the ``$LATEST`` version of the bot. If you specify a checksum and the ``$LATEST`` version of the bot has a different checksum, a ``PreconditionFailedException`` exception is returned and Amazon Lex doesn\'t publish a new version. If you don\'t specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
         
         :rtype: dict
         :returns: 
@@ -63,45 +63,45 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'intents': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'intents\': [
                     {
-                        'intentName': 'string',
-                        'intentVersion': 'string'
+                        \'intentName\': \'string\',
+                        \'intentVersion\': \'string\'
                     },
                 ],
-                'clarificationPrompt': {
-                    'messages': [
+                \'clarificationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'abortStatement': {
-                    'messages': [
+                \'abortStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                'failureReason': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'idleSessionTTLInSeconds': 123,
-                'voiceId': 'string',
-                'checksum': 'string',
-                'version': 'string',
-                'locale': 'en-US'|'en-GB'|'de-DE',
-                'childDirected': True|False
+                \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                \'failureReason\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'idleSessionTTLInSeconds\': 123,
+                \'voiceId\': \'string\',
+                \'checksum\': \'string\',
+                \'version\': \'string\',
+                \'locale\': \'en-US\'|\'en-GB\'|\'de-DE\',
+                \'childDirected\': True|False
             }
           **Response Structure** 
         
@@ -133,7 +133,7 @@ class Client(BaseClient):
         
             - **clarificationPrompt** *(dict) --* 
         
-              The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see  PutBot . 
+              The message that Amazon Lex uses when it doesn\'t understand the user\'s request. For more information, see  PutBot . 
         
               - **messages** *(list) --* 
         
@@ -193,7 +193,7 @@ class Client(BaseClient):
         
             - **status** *(string) --* 
         
-              When you send a request to create or update a bot, Amazon Lex sets the ``status`` response element to ``BUILDING`` . After Amazon Lex builds the bot, it sets ``status`` to ``READY`` . If Amazon Lex can't build the bot, it sets ``status`` to ``FAILED`` . Amazon Lex returns the reason for the failure in the ``failureReason`` response element. 
+              When you send a request to create or update a bot, Amazon Lex sets the ``status`` response element to ``BUILDING`` . After Amazon Lex builds the bot, it sets ``status`` to ``READY`` . If Amazon Lex can\'t build the bot, it sets ``status`` to ``FAILED`` . Amazon Lex returns the reason for the failure in the ``failureReason`` response element. 
         
             - **failureReason** *(string) --* 
         
@@ -229,7 +229,7 @@ class Client(BaseClient):
         
             - **childDirected** *(boolean) --* 
         
-              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children\'s Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         
               If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the `Amazon Lex FAQ. <https://aws.amazon.com/lex/faqs#data-security>`__  
         
@@ -241,7 +241,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You can update only the ``$LATEST`` version of the intent. You can't update the numbered versions that you create with the ``CreateIntentVersion`` operation.
+          You can update only the ``$LATEST`` version of the intent. You can\'t update the numbered versions that you create with the ``CreateIntentVersion`` operation.
         
         When you create a version of an intent, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see  versioning-intro . 
         
@@ -253,8 +253,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_intent_version(
-              name='string',
-              checksum='string'
+              name=\'string\',
+              checksum=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -264,7 +264,7 @@ class Client(BaseClient):
         :type checksum: string
         :param checksum: 
         
-          Checksum of the ``$LATEST`` version of the intent that should be used to create the new version. If you specify a checksum and the ``$LATEST`` version of the intent has a different checksum, Amazon Lex returns a ``PreconditionFailedException`` exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
+          Checksum of the ``$LATEST`` version of the intent that should be used to create the new version. If you specify a checksum and the ``$LATEST`` version of the intent has a different checksum, Amazon Lex returns a ``PreconditionFailedException`` exception and doesn\'t publish a new version. If you don\'t specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
         
         :rtype: dict
         :returns: 
@@ -274,106 +274,106 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'slots': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'slots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'slotConstraint': 'Required'|'Optional',
-                        'slotType': 'string',
-                        'slotTypeVersion': 'string',
-                        'valueElicitationPrompt': {
-                            'messages': [
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'slotConstraint\': \'Required\'|\'Optional\',
+                        \'slotType\': \'string\',
+                        \'slotTypeVersion\': \'string\',
+                        \'valueElicitationPrompt\': {
+                            \'messages\': [
                                 {
-                                    'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                    'content': 'string',
-                                    'groupNumber': 123
+                                    \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                    \'content\': \'string\',
+                                    \'groupNumber\': 123
                                 },
                             ],
-                            'maxAttempts': 123,
-                            'responseCard': 'string'
+                            \'maxAttempts\': 123,
+                            \'responseCard\': \'string\'
                         },
-                        'priority': 123,
-                        'sampleUtterances': [
-                            'string',
+                        \'priority\': 123,
+                        \'sampleUtterances\': [
+                            \'string\',
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     },
                 ],
-                'sampleUtterances': [
-                    'string',
+                \'sampleUtterances\': [
+                    \'string\',
                 ],
-                'confirmationPrompt': {
-                    'messages': [
+                \'confirmationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'rejectionStatement': {
-                    'messages': [
+                \'rejectionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'followUpPrompt': {
-                    'prompt': {
-                        'messages': [
+                \'followUpPrompt\': {
+                    \'prompt\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'maxAttempts': 123,
-                        'responseCard': 'string'
+                        \'maxAttempts\': 123,
+                        \'responseCard\': \'string\'
                     },
-                    'rejectionStatement': {
-                        'messages': [
+                    \'rejectionStatement\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     }
                 },
-                'conclusionStatement': {
-                    'messages': [
+                \'conclusionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'dialogCodeHook': {
-                    'uri': 'string',
-                    'messageVersion': 'string'
+                \'dialogCodeHook\': {
+                    \'uri\': \'string\',
+                    \'messageVersion\': \'string\'
                 },
-                'fulfillmentActivity': {
-                    'type': 'ReturnIntent'|'CodeHook',
-                    'codeHook': {
-                        'uri': 'string',
-                        'messageVersion': 'string'
+                \'fulfillmentActivity\': {
+                    \'type\': \'ReturnIntent\'|\'CodeHook\',
+                    \'codeHook\': {
+                        \'uri\': \'string\',
+                        \'messageVersion\': \'string\'
                     }
                 },
-                'parentIntentSignature': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string'
+                \'parentIntentSignature\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         
@@ -471,7 +471,7 @@ class Client(BaseClient):
           
             - **confirmationPrompt** *(dict) --* 
         
-              If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it. 
+              If defined, the prompt that Amazon Lex uses to confirm the user\'s intent before fulfilling it. 
         
               - **messages** *(list) --* 
         
@@ -503,7 +503,7 @@ class Client(BaseClient):
         
             - **rejectionStatement** *(dict) --* 
         
-              If the user answers "no" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+              If the user answers \"no\" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
               - **messages** *(list) --* 
         
@@ -567,7 +567,7 @@ class Client(BaseClient):
         
               - **rejectionStatement** *(dict) --* 
         
-                If the user answers "no" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+                If the user answers \"no\" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
                 - **messages** *(list) --* 
         
@@ -681,7 +681,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You can update only the ``$LATEST`` version of a slot type. You can't update the numbered versions that you create with the ``CreateSlotTypeVersion`` operation.
+          You can update only the ``$LATEST`` version of a slot type. You can\'t update the numbered versions that you create with the ``CreateSlotTypeVersion`` operation.
         
         When you create a version of a slot type, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see  versioning-intro . 
         
@@ -693,8 +693,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_slot_type_version(
-              name='string',
-              checksum='string'
+              name=\'string\',
+              checksum=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -704,7 +704,7 @@ class Client(BaseClient):
         :type checksum: string
         :param checksum: 
         
-          Checksum for the ``$LATEST`` version of the slot type that you want to publish. If you specify a checksum and the ``$LATEST`` version of the slot type has a different checksum, Amazon Lex returns a ``PreconditionFailedException`` exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
+          Checksum for the ``$LATEST`` version of the slot type that you want to publish. If you specify a checksum and the ``$LATEST`` version of the slot type has a different checksum, Amazon Lex returns a ``PreconditionFailedException`` exception and doesn\'t publish the new version. If you don\'t specify a checksum, Amazon Lex publishes the ``$LATEST`` version.
         
         :rtype: dict
         :returns: 
@@ -714,21 +714,21 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'enumerationValues': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'enumerationValues\': [
                     {
-                        'value': 'string',
-                        'synonyms': [
-                            'string',
+                        \'value\': \'string\',
+                        \'synonyms\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string',
-                'valueSelectionStrategy': 'ORIGINAL_VALUE'|'TOP_RESOLUTION'
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\',
+                \'valueSelectionStrategy\': \'ORIGINAL_VALUE\'|\'TOP_RESOLUTION\'
             }
           **Response Structure** 
         
@@ -794,7 +794,7 @@ class Client(BaseClient):
     def delete_bot(self, name: str) -> NoReturn:
         """
         
-        If a bot has an alias, you can't delete it. Instead, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the ``DeleteBot`` operation is successful.
+        If a bot has an alias, you can\'t delete it. Instead, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the ``DeleteBot`` operation is successful.
         
         This operation requires permissions for the ``lex:DeleteBot`` action.
         
@@ -804,7 +804,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bot(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -818,7 +818,7 @@ class Client(BaseClient):
     def delete_bot_alias(self, name: str, botName: str) -> NoReturn:
         """
         
-        You can't delete an alias that is used in the association between a bot and a messaging channel. If an alias is used in a channel association, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the channel association that refers to the bot. You can remove the reference to the alias by deleting the channel association. If you get the same exception again, delete the referring association until the ``DeleteBotAlias`` operation is successful.
+        You can\'t delete an alias that is used in the association between a bot and a messaging channel. If an alias is used in a channel association, the ``DeleteBot`` operation returns a ``ResourceInUseException`` exception that includes a reference to the channel association that refers to the bot. You can remove the reference to the alias by deleting the channel association. If you get the same exception again, delete the referring association until the ``DeleteBotAlias`` operation is successful.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/DeleteBotAlias>`_
         
@@ -826,8 +826,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bot_alias(
-              name='string',
-              botName='string'
+              name=\'string\',
+              botName=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -854,9 +854,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bot_channel_association(
-              name='string',
-              botName='string',
-              botAlias='string'
+              name=\'string\',
+              botName=\'string\',
+              botAlias=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -888,8 +888,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_bot_version(
-              name='string',
-              version='string'
+              name=\'string\',
+              version=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -922,7 +922,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_intent(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -944,8 +944,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_intent_version(
-              name='string',
-              version='string'
+              name=\'string\',
+              version=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -978,7 +978,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_slot_type(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1000,8 +1000,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_slot_type_version(
-              name='string',
-              version='string'
+              name=\'string\',
+              version=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1032,8 +1032,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_utterances(
-              botName='string',
-              userId='string'
+              botName=\'string\',
+              userId=\'string\'
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -1065,7 +1065,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1082,8 +1082,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot(
-              name='string',
-              versionOrAlias='string'
+              name=\'string\',
+              versionOrAlias=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1103,45 +1103,45 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'intents': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'intents\': [
                     {
-                        'intentName': 'string',
-                        'intentVersion': 'string'
+                        \'intentName\': \'string\',
+                        \'intentVersion\': \'string\'
                     },
                 ],
-                'clarificationPrompt': {
-                    'messages': [
+                \'clarificationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'abortStatement': {
-                    'messages': [
+                \'abortStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                'failureReason': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'idleSessionTTLInSeconds': 123,
-                'voiceId': 'string',
-                'checksum': 'string',
-                'version': 'string',
-                'locale': 'en-US'|'en-GB'|'de-DE',
-                'childDirected': True|False
+                \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                \'failureReason\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'idleSessionTTLInSeconds\': 123,
+                \'voiceId\': \'string\',
+                \'checksum\': \'string\',
+                \'version\': \'string\',
+                \'locale\': \'en-US\'|\'en-GB\'|\'de-DE\',
+                \'childDirected\': True|False
             }
           **Response Structure** 
         
@@ -1173,7 +1173,7 @@ class Client(BaseClient):
         
             - **clarificationPrompt** *(dict) --* 
         
-              The message Amazon Lex uses when it doesn't understand the user's request. For more information, see  PutBot . 
+              The message Amazon Lex uses when it doesn\'t understand the user\'s request. For more information, see  PutBot . 
         
               - **messages** *(list) --* 
         
@@ -1257,7 +1257,7 @@ class Client(BaseClient):
         
             - **checksum** *(string) --* 
         
-              Checksum of the bot used to identify a specific revision of the bot's ``$LATEST`` version.
+              Checksum of the bot used to identify a specific revision of the bot\'s ``$LATEST`` version.
         
             - **version** *(string) --* 
         
@@ -1269,7 +1269,7 @@ class Client(BaseClient):
         
             - **childDirected** *(boolean) --* 
         
-              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children\'s Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         
               If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the `Amazon Lex FAQ. <https://aws.amazon.com/lex/faqs#data-security>`__  
         
@@ -1287,8 +1287,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot_alias(
-              name='string',
-              botName='string'
+              name=\'string\',
+              botName=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1308,13 +1308,13 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'botVersion': 'string',
-                'botName': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'checksum': 'string'
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'botVersion\': \'string\',
+                \'botName\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         
@@ -1362,10 +1362,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot_aliases(
-              botName='string',
-              nextToken='string',
+              botName=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              nameContains='string'
+              nameContains=\'string\'
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -1385,7 +1385,7 @@ class Client(BaseClient):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :rtype: dict
         :returns: 
@@ -1395,18 +1395,18 @@ class Client(BaseClient):
           ::
         
             {
-                'BotAliases': [
+                \'BotAliases\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'botVersion': 'string',
-                        'botName': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'checksum': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'botVersion\': \'string\',
+                        \'botName\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'checksum\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1466,9 +1466,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot_channel_association(
-              name='string',
-              botName='string',
-              botAlias='string'
+              name=\'string\',
+              botName=\'string\',
+              botAlias=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1493,17 +1493,17 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'botAlias': 'string',
-                'botName': 'string',
-                'createdDate': datetime(2015, 1, 1),
-                'type': 'Facebook'|'Slack'|'Twilio-Sms'|'Kik',
-                'botConfiguration': {
-                    'string': 'string'
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'botAlias\': \'string\',
+                \'botName\': \'string\',
+                \'createdDate\': datetime(2015, 1, 1),
+                \'type\': \'Facebook\'|\'Slack\'|\'Twilio-Sms\'|\'Kik\',
+                \'botConfiguration\': {
+                    \'string\': \'string\'
                 },
-                'status': 'IN_PROGRESS'|'CREATED'|'FAILED',
-                'failureReason': 'string'
+                \'status\': \'IN_PROGRESS\'|\'CREATED\'|\'FAILED\',
+                \'failureReason\': \'string\'
             }
           **Response Structure** 
         
@@ -1569,11 +1569,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot_channel_associations(
-              botName='string',
-              botAlias='string',
-              nextToken='string',
+              botName=\'string\',
+              botAlias=\'string\',
+              nextToken=\'string\',
               maxResults=123,
-              nameContains='string'
+              nameContains=\'string\'
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -1598,7 +1598,7 @@ class Client(BaseClient):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the ``nameContains`` parameter.
+          Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot channel associations, use a hyphen (\"-\") as the ``nameContains`` parameter.
         
         :rtype: dict
         :returns: 
@@ -1608,22 +1608,22 @@ class Client(BaseClient):
           ::
         
             {
-                'botChannelAssociations': [
+                \'botChannelAssociations\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'botAlias': 'string',
-                        'botName': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'type': 'Facebook'|'Slack'|'Twilio-Sms'|'Kik',
-                        'botConfiguration': {
-                            'string': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'botAlias\': \'string\',
+                        \'botName\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'type\': \'Facebook\'|\'Slack\'|\'Twilio-Sms\'|\'Kik\',
+                        \'botConfiguration\': {
+                            \'string\': \'string\'
                         },
-                        'status': 'IN_PROGRESS'|'CREATED'|'FAILED',
-                        'failureReason': 'string'
+                        \'status\': \'IN_PROGRESS\'|\'CREATED\'|\'FAILED\',
+                        \'failureReason\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1709,8 +1709,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_bot_versions(
-              name='string',
-              nextToken='string',
+              name=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type name: string
@@ -1736,17 +1736,17 @@ class Client(BaseClient):
           ::
         
             {
-                'bots': [
+                \'bots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1796,7 +1796,7 @@ class Client(BaseClient):
         
         * If you provide the ``nameContains`` field, the response includes information for the ``$LATEST`` version of all bots whose name contains the specified string. 
          
-        * If you don't specify the ``nameContains`` field, the operation returns information about the ``$LATEST`` version of all of your bots. 
+        * If you don\'t specify the ``nameContains`` field, the operation returns information about the ``$LATEST`` version of all of your bots. 
          
         This operation requires permission for the ``lex:GetBots`` action.
         
@@ -1806,9 +1806,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_bots(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              nameContains='string'
+              nameContains=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -1823,7 +1823,7 @@ class Client(BaseClient):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :rtype: dict
         :returns: 
@@ -1833,17 +1833,17 @@ class Client(BaseClient):
           ::
         
             {
-                'bots': [
+                \'bots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1899,7 +1899,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_builtin_intent(
-              signature='string'
+              signature=\'string\'
           )
         :type signature: string
         :param signature: **[REQUIRED]** 
@@ -1914,13 +1914,13 @@ class Client(BaseClient):
           ::
         
             {
-                'signature': 'string',
-                'supportedLocales': [
-                    'en-US'|'en-GB'|'de-DE',
+                \'signature\': \'string\',
+                \'supportedLocales\': [
+                    \'en-US\'|\'en-GB\'|\'de-DE\',
                 ],
-                'slots': [
+                \'slots\': [
                     {
-                        'name': 'string'
+                        \'name\': \'string\'
                     },
                 ]
             }
@@ -1964,9 +1964,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_builtin_intents(
-              locale='en-US'|'en-GB'|'de-DE',
-              signatureContains='string',
-              nextToken='string',
+              locale=\'en-US\'|\'en-GB\'|\'de-DE\',
+              signatureContains=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type locale: string
@@ -1977,7 +1977,7 @@ class Client(BaseClient):
         :type signatureContains: string
         :param signatureContains: 
         
-          Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see `Standard Built-in Intents <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents>`__ in the *Alexa Skills Kit* .
+          Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To find the signature for an intent, see `Standard Built-in Intents <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents>`__ in the *Alexa Skills Kit* .
         
         :type nextToken: string
         :param nextToken: 
@@ -1997,15 +1997,15 @@ class Client(BaseClient):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'signature': 'string',
-                        'supportedLocales': [
-                            'en-US'|'en-GB'|'de-DE',
+                        \'signature\': \'string\',
+                        \'supportedLocales\': [
+                            \'en-US\'|\'en-GB\'|\'de-DE\',
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2049,9 +2049,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_builtin_slot_types(
-              locale='en-US'|'en-GB'|'de-DE',
-              signatureContains='string',
-              nextToken='string',
+              locale=\'en-US\'|\'en-GB\'|\'de-DE\',
+              signatureContains=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type locale: string
@@ -2062,7 +2062,7 @@ class Client(BaseClient):
         :type signatureContains: string
         :param signatureContains: 
         
-          Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :type nextToken: string
         :param nextToken: 
@@ -2082,15 +2082,15 @@ class Client(BaseClient):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'signature': 'string',
-                        'supportedLocales': [
-                            'en-US'|'en-GB'|'de-DE',
+                        \'signature\': \'string\',
+                        \'supportedLocales\': [
+                            \'en-US\'|\'en-GB\'|\'de-DE\',
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2130,10 +2130,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_export(
-              name='string',
-              version='string',
-              resourceType='BOT'|'INTENT'|'SLOT_TYPE',
-              exportType='ALEXA_SKILLS_KIT'|'LEX'
+              name=\'string\',
+              version=\'string\',
+              resourceType=\'BOT\'|\'INTENT\'|\'SLOT_TYPE\',
+              exportType=\'ALEXA_SKILLS_KIT\'|\'LEX\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -2163,13 +2163,13 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'version': 'string',
-                'resourceType': 'BOT'|'INTENT'|'SLOT_TYPE',
-                'exportType': 'ALEXA_SKILLS_KIT'|'LEX',
-                'exportStatus': 'IN_PROGRESS'|'READY'|'FAILED',
-                'failureReason': 'string',
-                'url': 'string'
+                \'name\': \'string\',
+                \'version\': \'string\',
+                \'resourceType\': \'BOT\'|\'INTENT\'|\'SLOT_TYPE\',
+                \'exportType\': \'ALEXA_SKILLS_KIT\'|\'LEX\',
+                \'exportStatus\': \'IN_PROGRESS\'|\'READY\'|\'FAILED\',
+                \'failureReason\': \'string\',
+                \'url\': \'string\'
             }
           **Response Structure** 
         
@@ -2221,7 +2221,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_import(
-              importId='string'
+              importId=\'string\'
           )
         :type importId: string
         :param importId: **[REQUIRED]** 
@@ -2236,15 +2236,15 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'resourceType': 'BOT'|'INTENT'|'SLOT_TYPE',
-                'mergeStrategy': 'OVERWRITE_LATEST'|'FAIL_ON_CONFLICT',
-                'importId': 'string',
-                'importStatus': 'IN_PROGRESS'|'COMPLETE'|'FAILED',
-                'failureReason': [
-                    'string',
+                \'name\': \'string\',
+                \'resourceType\': \'BOT\'|\'INTENT\'|\'SLOT_TYPE\',
+                \'mergeStrategy\': \'OVERWRITE_LATEST\'|\'FAIL_ON_CONFLICT\',
+                \'importId\': \'string\',
+                \'importStatus\': \'IN_PROGRESS\'|\'COMPLETE\'|\'FAILED\',
+                \'failureReason\': [
+                    \'string\',
                 ],
-                'createdDate': datetime(2015, 1, 1)
+                \'createdDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2294,8 +2294,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_intent(
-              name='string',
-              version='string'
+              name=\'string\',
+              version=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -2315,106 +2315,106 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'slots': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'slots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'slotConstraint': 'Required'|'Optional',
-                        'slotType': 'string',
-                        'slotTypeVersion': 'string',
-                        'valueElicitationPrompt': {
-                            'messages': [
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'slotConstraint\': \'Required\'|\'Optional\',
+                        \'slotType\': \'string\',
+                        \'slotTypeVersion\': \'string\',
+                        \'valueElicitationPrompt\': {
+                            \'messages\': [
                                 {
-                                    'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                    'content': 'string',
-                                    'groupNumber': 123
+                                    \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                    \'content\': \'string\',
+                                    \'groupNumber\': 123
                                 },
                             ],
-                            'maxAttempts': 123,
-                            'responseCard': 'string'
+                            \'maxAttempts\': 123,
+                            \'responseCard\': \'string\'
                         },
-                        'priority': 123,
-                        'sampleUtterances': [
-                            'string',
+                        \'priority\': 123,
+                        \'sampleUtterances\': [
+                            \'string\',
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     },
                 ],
-                'sampleUtterances': [
-                    'string',
+                \'sampleUtterances\': [
+                    \'string\',
                 ],
-                'confirmationPrompt': {
-                    'messages': [
+                \'confirmationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'rejectionStatement': {
-                    'messages': [
+                \'rejectionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'followUpPrompt': {
-                    'prompt': {
-                        'messages': [
+                \'followUpPrompt\': {
+                    \'prompt\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'maxAttempts': 123,
-                        'responseCard': 'string'
+                        \'maxAttempts\': 123,
+                        \'responseCard\': \'string\'
                     },
-                    'rejectionStatement': {
-                        'messages': [
+                    \'rejectionStatement\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     }
                 },
-                'conclusionStatement': {
-                    'messages': [
+                \'conclusionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'dialogCodeHook': {
-                    'uri': 'string',
-                    'messageVersion': 'string'
+                \'dialogCodeHook\': {
+                    \'uri\': \'string\',
+                    \'messageVersion\': \'string\'
                 },
-                'fulfillmentActivity': {
-                    'type': 'ReturnIntent'|'CodeHook',
-                    'codeHook': {
-                        'uri': 'string',
-                        'messageVersion': 'string'
+                \'fulfillmentActivity\': {
+                    \'type\': \'ReturnIntent\'|\'CodeHook\',
+                    \'codeHook\': {
+                        \'uri\': \'string\',
+                        \'messageVersion\': \'string\'
                     }
                 },
-                'parentIntentSignature': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string'
+                \'parentIntentSignature\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         
@@ -2512,7 +2512,7 @@ class Client(BaseClient):
           
             - **confirmationPrompt** *(dict) --* 
         
-              If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see  PutIntent . 
+              If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user\'s request. For more information, see  PutIntent . 
         
               - **messages** *(list) --* 
         
@@ -2544,7 +2544,7 @@ class Client(BaseClient):
         
             - **rejectionStatement** *(dict) --* 
         
-              If the user answers "no" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+              If the user answers \"no\" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
               - **messages** *(list) --* 
         
@@ -2608,7 +2608,7 @@ class Client(BaseClient):
         
               - **rejectionStatement** *(dict) --* 
         
-                If the user answers "no" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+                If the user answers \"no\" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
                 - **messages** *(list) --* 
         
@@ -2732,8 +2732,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_intent_versions(
-              name='string',
-              nextToken='string',
+              name=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type name: string
@@ -2759,16 +2759,16 @@ class Client(BaseClient):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2814,7 +2814,7 @@ class Client(BaseClient):
         
         * If you specify the ``nameContains`` field, returns the ``$LATEST`` version of all intents that contain the specified string. 
          
-        * If you don't specify the ``nameContains`` field, returns information about the ``$LATEST`` version of all intents.  
+        * If you don\'t specify the ``nameContains`` field, returns information about the ``$LATEST`` version of all intents.  
          
         The operation requires permission for the ``lex:GetIntents`` action. 
         
@@ -2824,9 +2824,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_intents(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              nameContains='string'
+              nameContains=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -2841,7 +2841,7 @@ class Client(BaseClient):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :rtype: dict
         :returns: 
@@ -2851,16 +2851,16 @@ class Client(BaseClient):
           ::
         
             {
-                'intents': [
+                \'intents\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2907,10 +2907,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2932,8 +2932,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_slot_type(
-              name='string',
-              version='string'
+              name=\'string\',
+              version=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -2953,21 +2953,21 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'enumerationValues': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'enumerationValues\': [
                     {
-                        'value': 'string',
-                        'synonyms': [
-                            'string',
+                        \'value\': \'string\',
+                        \'synonyms\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string',
-                'valueSelectionStrategy': 'ORIGINAL_VALUE'|'TOP_RESOLUTION'
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\',
+                \'valueSelectionStrategy\': \'ORIGINAL_VALUE\'|\'TOP_RESOLUTION\'
             }
           **Response Structure** 
         
@@ -3045,8 +3045,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_slot_type_versions(
-              name='string',
-              nextToken='string',
+              name=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type name: string
@@ -3072,16 +3072,16 @@ class Client(BaseClient):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3127,7 +3127,7 @@ class Client(BaseClient):
         
         * If you specify the ``nameContains`` field, returns the ``$LATEST`` version of all slot types that contain the specified string. 
          
-        * If you don't specify the ``nameContains`` field, returns information about the ``$LATEST`` version of all slot types.  
+        * If you don\'t specify the ``nameContains`` field, returns information about the ``$LATEST`` version of all slot types.  
          
         The operation requires permission for the ``lex:GetSlotTypes`` action. 
         
@@ -3137,9 +3137,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_slot_types(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              nameContains='string'
+              nameContains=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -3154,7 +3154,7 @@ class Client(BaseClient):
         :type nameContains: string
         :param nameContains: 
         
-          Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+          Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
         
         :rtype: dict
         :returns: 
@@ -3164,16 +3164,16 @@ class Client(BaseClient):
           ::
         
             {
-                'slotTypes': [
+                \'slotTypes\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string'
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3217,7 +3217,7 @@ class Client(BaseClient):
     def get_utterances_view(self, botName: str, botVersions: List, statusType: str) -> Dict:
         """
         
-        For example, say that you have created a bot to order flowers. After your users have used your bot for a while, use the ``GetUtterancesView`` operation to see the requests that they have made and whether they have been successful. You might find that the utterance "I want flowers" is not being recognized. You could add this utterance to the ``OrderFlowers`` intent so that your bot recognizes that utterance.
+        For example, say that you have created a bot to order flowers. After your users have used your bot for a while, use the ``GetUtterancesView`` operation to see the requests that they have made and whether they have been successful. You might find that the utterance \"I want flowers\" is not being recognized. You could add this utterance to the ``OrderFlowers`` intent so that your bot recognizes that utterance.
         
         After you publish a new version of a bot, you can get information about the old version and the new so that you can compare the performance across the two versions. 
         
@@ -3233,11 +3233,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_utterances_view(
-              botName='string',
+              botName=\'string\',
               botVersions=[
-                  'string',
+                  \'string\',
               ],
-              statusType='Detected'|'Missed'
+              statusType=\'Detected\'|\'Missed\'
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -3264,17 +3264,17 @@ class Client(BaseClient):
           ::
         
             {
-                'botName': 'string',
-                'utterances': [
+                \'botName\': \'string\',
+                \'utterances\': [
                     {
-                        'botVersion': 'string',
-                        'utterances': [
+                        \'botVersion\': \'string\',
+                        \'utterances\': [
                             {
-                                'utteranceString': 'string',
-                                'count': 123,
-                                'distinctUsers': 123,
-                                'firstUtteredDate': datetime(2015, 1, 1),
-                                'lastUtteredDate': datetime(2015, 1, 1)
+                                \'utteranceString\': \'string\',
+                                \'count\': 123,
+                                \'distinctUsers\': 123,
+                                \'firstUtteredDate\': datetime(2015, 1, 1),
+                                \'lastUtteredDate\': datetime(2015, 1, 1)
                             },
                         ]
                     },
@@ -3346,7 +3346,7 @@ class Client(BaseClient):
     def put_bot(self, name: str, locale: str, childDirected: bool, description: str = None, intents: List = None, clarificationPrompt: Dict = None, abortStatement: Dict = None, idleSessionTTLInSeconds: int = None, voiceId: str = None, checksum: str = None, processBehavior: str = None, createVersion: bool = None) -> Dict:
         """
         
-        If you specify the name of an existing bot, the fields in the request replace the existing values in the ``$LATEST`` version of the bot. Amazon Lex removes any fields that you don't provide values for in the request, except for the ``idleTTLInSeconds`` and ``privacySettings`` fields, which are set to their default values. If you don't specify values for required fields, Amazon Lex throws an exception.
+        If you specify the name of an existing bot, the fields in the request replace the existing values in the ``$LATEST`` version of the bot. Amazon Lex removes any fields that you don\'t provide values for in the request, except for the ``idleTTLInSeconds`` and ``privacySettings`` fields, which are set to their default values. If you don\'t specify values for required fields, Amazon Lex throws an exception.
         
         This operation requires permissions for the ``lex:PutBot`` action. For more information, see  auth-and-access-control .
         
@@ -3356,40 +3356,40 @@ class Client(BaseClient):
         ::
         
           response = client.put_bot(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               intents=[
                   {
-                      'intentName': 'string',
-                      'intentVersion': 'string'
+                      \'intentName\': \'string\',
+                      \'intentVersion\': \'string\'
                   },
               ],
               clarificationPrompt={
-                  'messages': [
+                  \'messages\': [
                       {
-                          'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                          'content': 'string',
-                          'groupNumber': 123
+                          \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                          \'content\': \'string\',
+                          \'groupNumber\': 123
                       },
                   ],
-                  'maxAttempts': 123,
-                  'responseCard': 'string'
+                  \'maxAttempts\': 123,
+                  \'responseCard\': \'string\'
               },
               abortStatement={
-                  'messages': [
+                  \'messages\': [
                       {
-                          'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                          'content': 'string',
-                          'groupNumber': 123
+                          \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                          \'content\': \'string\',
+                          \'groupNumber\': 123
                       },
                   ],
-                  'responseCard': 'string'
+                  \'responseCard\': \'string\'
               },
               idleSessionTTLInSeconds=123,
-              voiceId='string',
-              checksum='string',
-              processBehavior='SAVE'|'BUILD',
-              locale='en-US'|'en-GB'|'de-DE',
+              voiceId=\'string\',
+              checksum=\'string\',
+              processBehavior=\'SAVE\'|\'BUILD\',
+              locale=\'en-US\'|\'en-GB\'|\'de-DE\',
               childDirected=True|False,
               createVersion=True|False
           )
@@ -3423,9 +3423,9 @@ class Client(BaseClient):
         :type clarificationPrompt: dict
         :param clarificationPrompt: 
         
-          When Amazon Lex doesn't understand the user's intent, it uses this message to get clarification. To specify how many times Amazon Lex should repeate the clarification prompt, use the ``maxAttempts`` field. If Amazon Lex still doesn't understand, it sends the message in the ``abortStatement`` field. 
+          When Amazon Lex doesn\'t understand the user\'s intent, it uses this message to get clarification. To specify how many times Amazon Lex should repeate the clarification prompt, use the ``maxAttempts`` field. If Amazon Lex still doesn\'t understand, it sends the message in the ``abortStatement`` field. 
         
-          When you create a clarification prompt, make sure that it suggests the correct response from the user. for example, for a bot that orders pizza and drinks, you might create this clarification prompt: "What would you like to do? You can say 'Order a pizza' or 'Order a drink.'"
+          When you create a clarification prompt, make sure that it suggests the correct response from the user. for example, for a bot that orders pizza and drinks, you might create this clarification prompt: \"What would you like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
         
           - **messages** *(list) --* **[REQUIRED]** 
         
@@ -3458,9 +3458,9 @@ class Client(BaseClient):
         :type abortStatement: dict
         :param abortStatement: 
         
-          When Amazon Lex can't understand the user's input in context, it tries to elicit the information a few times. After that, Amazon Lex sends the message defined in ``abortStatement`` to the user, and then aborts the conversation. To set the number of retries, use the ``valueElicitationPrompt`` field for the slot type. 
+          When Amazon Lex can\'t understand the user\'s input in context, it tries to elicit the information a few times. After that, Amazon Lex sends the message defined in ``abortStatement`` to the user, and then aborts the conversation. To set the number of retries, use the ``valueElicitationPrompt`` field for the slot type. 
         
-          For example, in a pizza ordering bot, Amazon Lex might ask a user "What type of crust would you like?" If the user's response is not one of the expected responses (for example, "thin crust, "deep dish," etc.), Amazon Lex tries to elicit a correct response a few more times. 
+          For example, in a pizza ordering bot, Amazon Lex might ask a user \"What type of crust would you like?\" If the user\'s response is not one of the expected responses (for example, \"thin crust, \"deep dish,\" etc.), Amazon Lex tries to elicit a correct response a few more times. 
         
           For example, in a pizza ordering application, ``OrderPizza`` might be one of the intents. This intent might require the ``CrustType`` slot. You specify the ``valueElicitationPrompt`` field when you create the ``CrustType`` slot.
         
@@ -3495,9 +3495,9 @@ class Client(BaseClient):
         
           A user interaction session remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
         
-          For example, suppose that a user chooses the OrderPizza intent, but gets sidetracked halfway through placing an order. If the user doesn't complete the order within the specified time, Amazon Lex discards the slot information that it gathered, and the user must start over.
+          For example, suppose that a user chooses the OrderPizza intent, but gets sidetracked halfway through placing an order. If the user doesn\'t complete the order within the specified time, Amazon Lex discards the slot information that it gathered, and the user must start over.
         
-          If you don't include the ``idleSessionTTLInSeconds`` element in a ``PutBot`` operation request, Amazon Lex uses the default value. This is also true if the request replaces an existing bot.
+          If you don\'t include the ``idleSessionTTLInSeconds`` element in a ``PutBot`` operation request, Amazon Lex uses the default value. This is also true if the request replaces an existing bot.
         
           The default is 300 seconds (5 minutes).
         
@@ -3513,14 +3513,14 @@ class Client(BaseClient):
         
           When you create a new bot, leave the ``checksum`` field blank. If you specify a checksum you get a ``BadRequestException`` exception.
         
-          When you want to update a bot, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don't specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
+          When you want to update a bot, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don\'t specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
         
         :type processBehavior: string
         :param processBehavior: 
         
-          If you set the ``processBehavior`` element to ``BUILD`` , Amazon Lex builds the bot so that it can be run. If you set the element to ``SAVE`` Amazon Lex saves the bot, but doesn't build it. 
+          If you set the ``processBehavior`` element to ``BUILD`` , Amazon Lex builds the bot so that it can be run. If you set the element to ``SAVE`` Amazon Lex saves the bot, but doesn\'t build it. 
         
-          If you don't specify this value, the default value is ``BUILD`` .
+          If you don\'t specify this value, the default value is ``BUILD`` .
         
         :type locale: string
         :param locale: **[REQUIRED]** 
@@ -3532,7 +3532,7 @@ class Client(BaseClient):
         :type childDirected: boolean
         :param childDirected: **[REQUIRED]** 
         
-          For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+          For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children\'s Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         
           If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the `Amazon Lex FAQ. <https://aws.amazon.com/lex/faqs#data-security>`__  
         
@@ -3547,46 +3547,46 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'intents': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'intents\': [
                     {
-                        'intentName': 'string',
-                        'intentVersion': 'string'
+                        \'intentName\': \'string\',
+                        \'intentVersion\': \'string\'
                     },
                 ],
-                'clarificationPrompt': {
-                    'messages': [
+                \'clarificationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'abortStatement': {
-                    'messages': [
+                \'abortStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'status': 'BUILDING'|'READY'|'READY_BASIC_TESTING'|'FAILED'|'NOT_BUILT',
-                'failureReason': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'idleSessionTTLInSeconds': 123,
-                'voiceId': 'string',
-                'checksum': 'string',
-                'version': 'string',
-                'locale': 'en-US'|'en-GB'|'de-DE',
-                'childDirected': True|False,
-                'createVersion': True|False
+                \'status\': \'BUILDING\'|\'READY\'|\'READY_BASIC_TESTING\'|\'FAILED\'|\'NOT_BUILT\',
+                \'failureReason\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'idleSessionTTLInSeconds\': 123,
+                \'voiceId\': \'string\',
+                \'checksum\': \'string\',
+                \'version\': \'string\',
+                \'locale\': \'en-US\'|\'en-GB\'|\'de-DE\',
+                \'childDirected\': True|False,
+                \'createVersion\': True|False
             }
           **Response Structure** 
         
@@ -3618,7 +3618,7 @@ class Client(BaseClient):
         
             - **clarificationPrompt** *(dict) --* 
         
-              The prompts that Amazon Lex uses when it doesn't understand the user's intent. For more information, see  PutBot . 
+              The prompts that Amazon Lex uses when it doesn\'t understand the user\'s intent. For more information, see  PutBot . 
         
               - **messages** *(list) --* 
         
@@ -3678,7 +3678,7 @@ class Client(BaseClient):
         
             - **status** *(string) --* 
         
-              When you send a request to create a bot with ``processBehavior`` set to ``BUILD`` , Amazon Lex sets the ``status`` response element to ``BUILDING`` . After Amazon Lex builds the bot, it sets ``status`` to ``READY`` . If Amazon Lex can't build the bot, Amazon Lex sets ``status`` to ``FAILED`` . Amazon Lex returns the reason for the failure in the ``failureReason`` response element. 
+              When you send a request to create a bot with ``processBehavior`` set to ``BUILD`` , Amazon Lex sets the ``status`` response element to ``BUILDING`` . After Amazon Lex builds the bot, it sets ``status`` to ``READY`` . If Amazon Lex can\'t build the bot, Amazon Lex sets ``status`` to ``FAILED`` . Amazon Lex returns the reason for the failure in the ``failureReason`` response element. 
         
               When you set ``processBehavior`` to ``SAVE`` , Amazon Lex sets the status code to ``NOT BUILT`` .
         
@@ -3716,7 +3716,7 @@ class Client(BaseClient):
         
             - **childDirected** *(boolean) --* 
         
-              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+              For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children\'s Online Privacy Protection Act (COPPA) by specifying ``true`` or ``false`` in the ``childDirected`` field. By specifying ``true`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying ``false`` in the ``childDirected`` field, you confirm that your use of Amazon Lex **is not** related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the ``childDirected`` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         
               If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the `Amazon Lex FAQ. <https://aws.amazon.com/lex/faqs#data-security>`__  
         
@@ -3735,11 +3735,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_bot_alias(
-              name='string',
-              description='string',
-              botVersion='string',
-              botName='string',
-              checksum='string'
+              name=\'string\',
+              description=\'string\',
+              botVersion=\'string\',
+              botName=\'string\',
+              checksum=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -3768,7 +3768,7 @@ class Client(BaseClient):
         
           When you create a new bot alias, leave the ``checksum`` field blank. If you specify a checksum you get a ``BadRequestException`` exception.
         
-          When you want to update a bot alias, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don't specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
+          When you want to update a bot alias, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don\'t specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
         
         :rtype: dict
         :returns: 
@@ -3778,13 +3778,13 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'botVersion': 'string',
-                'botName': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'checksum': 'string'
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'botVersion\': \'string\',
+                \'botName\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         
@@ -3830,7 +3830,7 @@ class Client(BaseClient):
         
         * Intent name. For example, ``OrderPizza`` . 
          
-        * Sample utterances. For example, "Can I order a pizza, please." and "I want to order a pizza." 
+        * Sample utterances. For example, \"Can I order a pizza, please.\" and \"I want to order a pizza.\" 
          
         * Information to be gathered. You specify slot types for the information that your bot will request from the user. You can specify standard slot types, such as a date or a time, or custom slot types such as the size and crust of a pizza. 
          
@@ -3838,13 +3838,13 @@ class Client(BaseClient):
          
         You can specify other optional information in the request, such as:
         
-        * A confirmation prompt to ask the user to confirm an intent. For example, "Shall I order your pizza?" 
+        * A confirmation prompt to ask the user to confirm an intent. For example, \"Shall I order your pizza?\" 
          
-        * A conclusion statement to send to the user after the intent has been fulfilled. For example, "I placed your pizza order." 
+        * A conclusion statement to send to the user after the intent has been fulfilled. For example, \"I placed your pizza order.\" 
          
-        * A follow-up prompt that asks the user for additional activity. For example, asking "Do you want to order a drink with your pizza?" 
+        * A follow-up prompt that asks the user for additional activity. For example, asking \"Do you want to order a drink with your pizza?\" 
          
-        If you specify an existing intent name to update the intent, Amazon Lex replaces the values in the ``$LATEST`` version of the intent with the values in the request. Amazon Lex removes fields that you don't provide in the request. If you don't specify the required fields, Amazon Lex throws an exception. When you update the ``$LATEST`` version of an intent, the ``status`` field of any bot that uses the ``$LATEST`` version of the intent is set to ``NOT_BUILT`` .
+        If you specify an existing intent name to update the intent, Amazon Lex replaces the values in the ``$LATEST`` version of the intent with the values in the request. Amazon Lex removes fields that you don\'t provide in the request. If you don\'t specify the required fields, Amazon Lex throws an exception. When you update the ``$LATEST`` version of an intent, the ``status`` field of any bot that uses the ``$LATEST`` version of the intent is set to ``NOT_BUILT`` .
         
         For more information, see  how-it-works .
         
@@ -3856,103 +3856,103 @@ class Client(BaseClient):
         ::
         
           response = client.put_intent(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               slots=[
                   {
-                      'name': 'string',
-                      'description': 'string',
-                      'slotConstraint': 'Required'|'Optional',
-                      'slotType': 'string',
-                      'slotTypeVersion': 'string',
-                      'valueElicitationPrompt': {
-                          'messages': [
+                      \'name\': \'string\',
+                      \'description\': \'string\',
+                      \'slotConstraint\': \'Required\'|\'Optional\',
+                      \'slotType\': \'string\',
+                      \'slotTypeVersion\': \'string\',
+                      \'valueElicitationPrompt\': {
+                          \'messages\': [
                               {
-                                  'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                  'content': 'string',
-                                  'groupNumber': 123
+                                  \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                  \'content\': \'string\',
+                                  \'groupNumber\': 123
                               },
                           ],
-                          'maxAttempts': 123,
-                          'responseCard': 'string'
+                          \'maxAttempts\': 123,
+                          \'responseCard\': \'string\'
                       },
-                      'priority': 123,
-                      'sampleUtterances': [
-                          'string',
+                      \'priority\': 123,
+                      \'sampleUtterances\': [
+                          \'string\',
                       ],
-                      'responseCard': 'string'
+                      \'responseCard\': \'string\'
                   },
               ],
               sampleUtterances=[
-                  'string',
+                  \'string\',
               ],
               confirmationPrompt={
-                  'messages': [
+                  \'messages\': [
                       {
-                          'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                          'content': 'string',
-                          'groupNumber': 123
+                          \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                          \'content\': \'string\',
+                          \'groupNumber\': 123
                       },
                   ],
-                  'maxAttempts': 123,
-                  'responseCard': 'string'
+                  \'maxAttempts\': 123,
+                  \'responseCard\': \'string\'
               },
               rejectionStatement={
-                  'messages': [
+                  \'messages\': [
                       {
-                          'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                          'content': 'string',
-                          'groupNumber': 123
+                          \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                          \'content\': \'string\',
+                          \'groupNumber\': 123
                       },
                   ],
-                  'responseCard': 'string'
+                  \'responseCard\': \'string\'
               },
               followUpPrompt={
-                  'prompt': {
-                      'messages': [
+                  \'prompt\': {
+                      \'messages\': [
                           {
-                              'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                              'content': 'string',
-                              'groupNumber': 123
+                              \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                              \'content\': \'string\',
+                              \'groupNumber\': 123
                           },
                       ],
-                      'maxAttempts': 123,
-                      'responseCard': 'string'
+                      \'maxAttempts\': 123,
+                      \'responseCard\': \'string\'
                   },
-                  'rejectionStatement': {
-                      'messages': [
+                  \'rejectionStatement\': {
+                      \'messages\': [
                           {
-                              'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                              'content': 'string',
-                              'groupNumber': 123
+                              \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                              \'content\': \'string\',
+                              \'groupNumber\': 123
                           },
                       ],
-                      'responseCard': 'string'
+                      \'responseCard\': \'string\'
                   }
               },
               conclusionStatement={
-                  'messages': [
+                  \'messages\': [
                       {
-                          'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                          'content': 'string',
-                          'groupNumber': 123
+                          \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                          \'content\': \'string\',
+                          \'groupNumber\': 123
                       },
                   ],
-                  'responseCard': 'string'
+                  \'responseCard\': \'string\'
               },
               dialogCodeHook={
-                  'uri': 'string',
-                  'messageVersion': 'string'
+                  \'uri\': \'string\',
+                  \'messageVersion\': \'string\'
               },
               fulfillmentActivity={
-                  'type': 'ReturnIntent'|'CodeHook',
-                  'codeHook': {
-                      'uri': 'string',
-                      'messageVersion': 'string'
+                  \'type\': \'ReturnIntent\'|\'CodeHook\',
+                  \'codeHook\': {
+                      \'uri\': \'string\',
+                      \'messageVersion\': \'string\'
                   }
               },
-              parentIntentSignature='string',
-              checksum='string',
+              parentIntentSignature=\'string\',
+              checksum=\'string\',
               createVersion=True|False
           )
         :type name: string
@@ -3960,7 +3960,7 @@ class Client(BaseClient):
         
           The name of the intent. The name is *not* case sensitive. 
         
-          The name can't match a built-in intent name, or a built-in intent name with "AMAZON." removed. For example, because there is a built-in intent called ``AMAZON.HelpIntent`` , you can't create a custom intent called ``HelpIntent`` .
+          The name can\'t match a built-in intent name, or a built-in intent name with \"AMAZON.\" removed. For example, because there is a built-in intent called ``AMAZON.HelpIntent`` , you can\'t create a custom intent called ``HelpIntent`` .
         
           For a list of built-in intents, see `Standard Built-in Intents <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents>`__ in the *Alexa Skills Kit* .
         
@@ -4049,7 +4049,7 @@ class Client(BaseClient):
         :type sampleUtterances: list
         :param sampleUtterances: 
         
-          An array of utterances (strings) that a user might say to signal the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas". 
+          An array of utterances (strings) that a user might say to signal the intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\". 
         
           In each utterance, a slot name is enclosed in curly braces. 
         
@@ -4097,7 +4097,7 @@ class Client(BaseClient):
         :type rejectionStatement: dict
         :param rejectionStatement: 
         
-          When the user answers "no" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+          When the user answers \"no\" to the question defined in ``confirmationPrompt`` , Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
           .. note::
         
@@ -4132,15 +4132,15 @@ class Client(BaseClient):
         
           Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the ``OrderPizza`` intent is fulfilled, you might prompt the user to order a drink.
         
-          The action that Amazon Lex takes depends on the user's response, as follows:
+          The action that Amazon Lex takes depends on the user\'s response, as follows:
         
-          * If the user says "Yes" it responds with the clarification prompt that is configured for the bot. 
+          * If the user says \"Yes\" it responds with the clarification prompt that is configured for the bot. 
            
-          * if the user says "Yes" and continues with an utterance that triggers an intent it starts a conversation for the intent. 
+          * if the user says \"Yes\" and continues with an utterance that triggers an intent it starts a conversation for the intent. 
            
-          * If the user says "No" it responds with the rejection statement configured for the the follow-up prompt. 
+          * If the user says \"No\" it responds with the rejection statement configured for the the follow-up prompt. 
            
-          * If it doesn't recognize the utterance it repeats the follow-up prompt again. 
+          * If it doesn\'t recognize the utterance it repeats the follow-up prompt again. 
            
           The ``followUpPrompt`` field and the ``conclusionStatement`` field are mutually exclusive. You can specify only one. 
         
@@ -4178,7 +4178,7 @@ class Client(BaseClient):
         
           - **rejectionStatement** *(dict) --* **[REQUIRED]** 
         
-            If the user answers "no" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+            If the user answers \"no\" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
             - **messages** *(list) --* **[REQUIRED]** 
         
@@ -4209,7 +4209,7 @@ class Client(BaseClient):
         
           The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function. 
         
-          This element is relevant only if you provide a Lambda function in the ``fulfillmentActivity`` . If you return the intent to the client application, you can't specify this element.
+          This element is relevant only if you provide a Lambda function in the ``fulfillmentActivity`` . If you return the intent to the client application, you can\'t specify this element.
         
           .. note::
         
@@ -4244,7 +4244,7 @@ class Client(BaseClient):
         
           Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction. 
         
-          For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, ``GlutenIntolerant`` , to true. You might find John's phone number and set the corresponding session attribute. 
+          For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John\'s information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, ``GlutenIntolerant`` , to true. You might find John\'s phone number and set the corresponding session attribute. 
         
           - **uri** *(string) --* **[REQUIRED]** 
         
@@ -4289,7 +4289,7 @@ class Client(BaseClient):
         
           When you create a new intent, leave the ``checksum`` field blank. If you specify a checksum you get a ``BadRequestException`` exception.
         
-          When you want to update a intent, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don't specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
+          When you want to update a intent, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don\'t specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
         
         :type createVersion: boolean
         :param createVersion: 
@@ -4302,107 +4302,107 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'slots': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'slots\': [
                     {
-                        'name': 'string',
-                        'description': 'string',
-                        'slotConstraint': 'Required'|'Optional',
-                        'slotType': 'string',
-                        'slotTypeVersion': 'string',
-                        'valueElicitationPrompt': {
-                            'messages': [
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'slotConstraint\': \'Required\'|\'Optional\',
+                        \'slotType\': \'string\',
+                        \'slotTypeVersion\': \'string\',
+                        \'valueElicitationPrompt\': {
+                            \'messages\': [
                                 {
-                                    'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                    'content': 'string',
-                                    'groupNumber': 123
+                                    \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                    \'content\': \'string\',
+                                    \'groupNumber\': 123
                                 },
                             ],
-                            'maxAttempts': 123,
-                            'responseCard': 'string'
+                            \'maxAttempts\': 123,
+                            \'responseCard\': \'string\'
                         },
-                        'priority': 123,
-                        'sampleUtterances': [
-                            'string',
+                        \'priority\': 123,
+                        \'sampleUtterances\': [
+                            \'string\',
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     },
                 ],
-                'sampleUtterances': [
-                    'string',
+                \'sampleUtterances\': [
+                    \'string\',
                 ],
-                'confirmationPrompt': {
-                    'messages': [
+                \'confirmationPrompt\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'maxAttempts': 123,
-                    'responseCard': 'string'
+                    \'maxAttempts\': 123,
+                    \'responseCard\': \'string\'
                 },
-                'rejectionStatement': {
-                    'messages': [
+                \'rejectionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'followUpPrompt': {
-                    'prompt': {
-                        'messages': [
+                \'followUpPrompt\': {
+                    \'prompt\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'maxAttempts': 123,
-                        'responseCard': 'string'
+                        \'maxAttempts\': 123,
+                        \'responseCard\': \'string\'
                     },
-                    'rejectionStatement': {
-                        'messages': [
+                    \'rejectionStatement\': {
+                        \'messages\': [
                             {
-                                'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                                'content': 'string',
-                                'groupNumber': 123
+                                \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                                \'content\': \'string\',
+                                \'groupNumber\': 123
                             },
                         ],
-                        'responseCard': 'string'
+                        \'responseCard\': \'string\'
                     }
                 },
-                'conclusionStatement': {
-                    'messages': [
+                \'conclusionStatement\': {
+                    \'messages\': [
                         {
-                            'contentType': 'PlainText'|'SSML'|'CustomPayload',
-                            'content': 'string',
-                            'groupNumber': 123
+                            \'contentType\': \'PlainText\'|\'SSML\'|\'CustomPayload\',
+                            \'content\': \'string\',
+                            \'groupNumber\': 123
                         },
                     ],
-                    'responseCard': 'string'
+                    \'responseCard\': \'string\'
                 },
-                'dialogCodeHook': {
-                    'uri': 'string',
-                    'messageVersion': 'string'
+                \'dialogCodeHook\': {
+                    \'uri\': \'string\',
+                    \'messageVersion\': \'string\'
                 },
-                'fulfillmentActivity': {
-                    'type': 'ReturnIntent'|'CodeHook',
-                    'codeHook': {
-                        'uri': 'string',
-                        'messageVersion': 'string'
+                \'fulfillmentActivity\': {
+                    \'type\': \'ReturnIntent\'|\'CodeHook\',
+                    \'codeHook\': {
+                        \'uri\': \'string\',
+                        \'messageVersion\': \'string\'
                     }
                 },
-                'parentIntentSignature': 'string',
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string',
-                'createVersion': True|False
+                \'parentIntentSignature\': \'string\',
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\',
+                \'createVersion\': True|False
             }
           **Response Structure** 
         
@@ -4532,7 +4532,7 @@ class Client(BaseClient):
         
             - **rejectionStatement** *(dict) --* 
         
-              If the user answers "no" to the question defined in ``confirmationPrompt`` Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+              If the user answers \"no\" to the question defined in ``confirmationPrompt`` Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
               - **messages** *(list) --* 
         
@@ -4596,7 +4596,7 @@ class Client(BaseClient):
         
               - **rejectionStatement** *(dict) --* 
         
-                If the user answers "no" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
+                If the user answers \"no\" to the question defined in the ``prompt`` field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. 
         
                 - **messages** *(list) --* 
         
@@ -4711,7 +4711,7 @@ class Client(BaseClient):
         
         To create a custom slot type, specify a name for the slot type and a set of enumeration values, which are the values that a slot of this type can assume. For more information, see  how-it-works .
         
-        If you specify the name of an existing slot type, the fields in the request replace the existing values in the ``$LATEST`` version of the slot type. Amazon Lex removes the fields that you don't provide in the request. If you don't specify required fields, Amazon Lex throws an exception. When you update the ``$LATEST`` version of a slot type, if a bot uses the ``$LATEST`` version of an intent that contains the slot type, the bot's ``status`` field is set to ``NOT_BUILT`` .
+        If you specify the name of an existing slot type, the fields in the request replace the existing values in the ``$LATEST`` version of the slot type. Amazon Lex removes the fields that you don\'t provide in the request. If you don\'t specify required fields, Amazon Lex throws an exception. When you update the ``$LATEST`` version of a slot type, if a bot uses the ``$LATEST`` version of an intent that contains the slot type, the bot\'s ``status`` field is set to ``NOT_BUILT`` .
         
         This operation requires permissions for the ``lex:PutSlotType`` action.
         
@@ -4721,18 +4721,18 @@ class Client(BaseClient):
         ::
         
           response = client.put_slot_type(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               enumerationValues=[
                   {
-                      'value': 'string',
-                      'synonyms': [
-                          'string',
+                      \'value\': \'string\',
+                      \'synonyms\': [
+                          \'string\',
                       ]
                   },
               ],
-              checksum='string',
-              valueSelectionStrategy='ORIGINAL_VALUE'|'TOP_RESOLUTION',
+              checksum=\'string\',
+              valueSelectionStrategy=\'ORIGINAL_VALUE\'|\'TOP_RESOLUTION\',
               createVersion=True|False
           )
         :type name: string
@@ -4740,7 +4740,7 @@ class Client(BaseClient):
         
           The name of the slot type. The name is *not* case sensitive. 
         
-          The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called ``AMAZON.DATE`` , you can't create a custom slot type called ``DATE`` .
+          The name can\'t match a built-in slot type name, or a built-in slot type name with \"AMAZON.\" removed. For example, because there is a built-in slot type called ``AMAZON.DATE`` , you can\'t create a custom slot type called ``DATE`` .
         
           For a list of built-in slot types, see `Slot Type Reference <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference>`__ in the *Alexa Skills Kit* .
         
@@ -4785,7 +4785,7 @@ class Client(BaseClient):
         
           When you create a new slot type, leave the ``checksum`` field blank. If you specify a checksum you get a ``BadRequestException`` exception.
         
-          When you want to update a slot type, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don't specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
+          When you want to update a slot type, set the ``checksum`` field to the checksum of the most recent revision of the ``$LATEST`` version. If you don\'t specify the ``checksum`` field, or if the checksum does not match the ``$LATEST`` version, you get a ``PreconditionFailedException`` exception.
         
         :type valueSelectionStrategy: string
         :param valueSelectionStrategy: 
@@ -4796,7 +4796,7 @@ class Client(BaseClient):
            
           * ``TOP_RESOLUTION`` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. 
            
-          If you don't specify the ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
+          If you don\'t specify the ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
         
         :type createVersion: boolean
         :param createVersion: 
@@ -4809,22 +4809,22 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'description': 'string',
-                'enumerationValues': [
+                \'name\': \'string\',
+                \'description\': \'string\',
+                \'enumerationValues\': [
                     {
-                        'value': 'string',
-                        'synonyms': [
-                            'string',
+                        \'value\': \'string\',
+                        \'synonyms\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'lastUpdatedDate': datetime(2015, 1, 1),
-                'createdDate': datetime(2015, 1, 1),
-                'version': 'string',
-                'checksum': 'string',
-                'valueSelectionStrategy': 'ORIGINAL_VALUE'|'TOP_RESOLUTION',
-                'createVersion': True|False
+                \'lastUpdatedDate\': datetime(2015, 1, 1),
+                \'createdDate\': datetime(2015, 1, 1),
+                \'version\': \'string\',
+                \'checksum\': \'string\',
+                \'valueSelectionStrategy\': \'ORIGINAL_VALUE\'|\'TOP_RESOLUTION\',
+                \'createVersion\': True|False
             }
           **Response Structure** 
         
@@ -4897,9 +4897,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_import(
-              payload=b'bytes',
-              resourceType='BOT'|'INTENT'|'SLOT_TYPE',
-              mergeStrategy='OVERWRITE_LATEST'|'FAIL_ON_CONFLICT'
+              payload=b\'bytes\',
+              resourceType=\'BOT\'|\'INTENT\'|\'SLOT_TYPE\',
+              mergeStrategy=\'OVERWRITE_LATEST\'|\'FAIL_ON_CONFLICT\'
           )
         :type payload: bytes
         :param payload: **[REQUIRED]** 
@@ -4930,12 +4930,12 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'resourceType': 'BOT'|'INTENT'|'SLOT_TYPE',
-                'mergeStrategy': 'OVERWRITE_LATEST'|'FAIL_ON_CONFLICT',
-                'importId': 'string',
-                'importStatus': 'IN_PROGRESS'|'COMPLETE'|'FAILED',
-                'createdDate': datetime(2015, 1, 1)
+                \'name\': \'string\',
+                \'resourceType\': \'BOT\'|\'INTENT\'|\'SLOT_TYPE\',
+                \'mergeStrategy\': \'OVERWRITE_LATEST\'|\'FAIL_ON_CONFLICT\',
+                \'importId\': \'string\',
+                \'importStatus\': \'IN_PROGRESS\'|\'COMPLETE\'|\'FAILED\',
+                \'createdDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         

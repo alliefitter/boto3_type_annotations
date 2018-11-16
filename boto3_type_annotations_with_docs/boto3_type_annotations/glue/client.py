@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,64 +18,64 @@ class Client(BaseClient):
         ::
         
           response = client.batch_create_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionInputList=[
                   {
-                      'Values': [
-                          'string',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'LastAccessTime': datetime(2015, 1, 1),
-                      'StorageDescriptor': {
-                          'Columns': [
+                      \'LastAccessTime\': datetime(2015, 1, 1),
+                      \'StorageDescriptor\': {
+                          \'Columns\': [
                               {
-                                  'Name': 'string',
-                                  'Type': 'string',
-                                  'Comment': 'string'
+                                  \'Name\': \'string\',
+                                  \'Type\': \'string\',
+                                  \'Comment\': \'string\'
                               },
                           ],
-                          'Location': 'string',
-                          'InputFormat': 'string',
-                          'OutputFormat': 'string',
-                          'Compressed': True|False,
-                          'NumberOfBuckets': 123,
-                          'SerdeInfo': {
-                              'Name': 'string',
-                              'SerializationLibrary': 'string',
-                              'Parameters': {
-                                  'string': 'string'
+                          \'Location\': \'string\',
+                          \'InputFormat\': \'string\',
+                          \'OutputFormat\': \'string\',
+                          \'Compressed\': True|False,
+                          \'NumberOfBuckets\': 123,
+                          \'SerdeInfo\': {
+                              \'Name\': \'string\',
+                              \'SerializationLibrary\': \'string\',
+                              \'Parameters\': {
+                                  \'string\': \'string\'
                               }
                           },
-                          'BucketColumns': [
-                              'string',
+                          \'BucketColumns\': [
+                              \'string\',
                           ],
-                          'SortColumns': [
+                          \'SortColumns\': [
                               {
-                                  'Column': 'string',
-                                  'SortOrder': 123
+                                  \'Column\': \'string\',
+                                  \'SortOrder\': 123
                               },
                           ],
-                          'Parameters': {
-                              'string': 'string'
+                          \'Parameters\': {
+                              \'string\': \'string\'
                           },
-                          'SkewedInfo': {
-                              'SkewedColumnNames': [
-                                  'string',
+                          \'SkewedInfo\': {
+                              \'SkewedColumnNames\': [
+                                  \'string\',
                               ],
-                              'SkewedColumnValues': [
-                                  'string',
+                              \'SkewedColumnValues\': [
+                                  \'string\',
                               ],
-                              'SkewedColumnValueLocationMaps': {
-                                  'string': 'string'
+                              \'SkewedColumnValueLocationMaps\': {
+                                  \'string\': \'string\'
                               }
                           },
-                          'StoredAsSubDirectories': True|False
+                          \'StoredAsSubDirectories\': True|False
                       },
-                      'Parameters': {
-                          'string': 'string'
+                      \'Parameters\': {
+                          \'string\': \'string\'
                       },
-                      'LastAnalyzedTime': datetime(2015, 1, 1)
+                      \'LastAnalyzedTime\': datetime(2015, 1, 1)
                   },
               ]
           )
@@ -255,14 +255,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Errors': [
+                \'Errors\': [
                     {
-                        'PartitionValues': [
-                            'string',
+                        \'PartitionValues\': [
+                            \'string\',
                         ],
-                        'ErrorDetail': {
-                            'ErrorCode': 'string',
-                            'ErrorMessage': 'string'
+                        \'ErrorDetail\': {
+                            \'ErrorCode\': \'string\',
+                            \'ErrorMessage\': \'string\'
                         }
                     },
                 ]
@@ -309,9 +309,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_connection(
-              CatalogId='string',
+              CatalogId=\'string\',
               ConnectionNameList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CatalogId: string
@@ -334,13 +334,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Succeeded': [
-                    'string',
+                \'Succeeded\': [
+                    \'string\',
                 ],
-                'Errors': {
-                    'string': {
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                \'Errors\': {
+                    \'string\': {
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     }
                 }
             }
@@ -384,13 +384,13 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionsToDelete=[
                   {
-                      'Values': [
-                          'string',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -433,14 +433,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Errors': [
+                \'Errors\': [
                     {
-                        'PartitionValues': [
-                            'string',
+                        \'PartitionValues\': [
+                            \'string\',
                         ],
-                        'ErrorDetail': {
-                            'ErrorCode': 'string',
-                            'ErrorMessage': 'string'
+                        \'ErrorDetail\': {
+                            \'ErrorCode\': \'string\',
+                            \'ErrorMessage\': \'string\'
                         }
                     },
                 ]
@@ -483,7 +483,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
+          After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.
         
           To ensure immediate deletion of all related resources, before calling ``BatchDeleteTable`` , use ``DeleteTableVersion`` or ``BatchDeleteTableVersion`` , and ``DeletePartition`` or ``BatchDeletePartition`` , to delete any resources that belong to the table.
         
@@ -493,10 +493,10 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_table(
-              CatalogId='string',
-              DatabaseName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
               TablesToDelete=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CatalogId: string
@@ -524,12 +524,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Errors': [
+                \'Errors\': [
                     {
-                        'TableName': 'string',
-                        'ErrorDetail': {
-                            'ErrorCode': 'string',
-                            'ErrorMessage': 'string'
+                        \'TableName\': \'string\',
+                        \'ErrorDetail\': {
+                            \'ErrorCode\': \'string\',
+                            \'ErrorMessage\': \'string\'
                         }
                     },
                 ]
@@ -574,11 +574,11 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_table_version(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               VersionIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CatalogId: string
@@ -611,13 +611,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Errors': [
+                \'Errors\': [
                     {
-                        'TableName': 'string',
-                        'VersionId': 'string',
-                        'ErrorDetail': {
-                            'ErrorCode': 'string',
-                            'ErrorMessage': 'string'
+                        \'TableName\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'ErrorDetail\': {
+                            \'ErrorCode\': \'string\',
+                            \'ErrorMessage\': \'string\'
                         }
                     },
                 ]
@@ -666,13 +666,13 @@ class Client(BaseClient):
         ::
         
           response = client.batch_get_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionsToGet=[
                   {
-                      'Values': [
-                          'string',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -690,7 +690,7 @@ class Client(BaseClient):
         :type TableName: string
         :param TableName: **[REQUIRED]** 
         
-          The name of the partitions' table.
+          The name of the partitions\' table.
         
         :type PartitionsToGet: list
         :param PartitionsToGet: **[REQUIRED]** 
@@ -715,70 +715,70 @@ class Client(BaseClient):
           ::
         
             {
-                'Partitions': [
+                \'Partitions\': [
                     {
-                        'Values': [
-                            'string',
+                        \'Values\': [
+                            \'string\',
                         ],
-                        'DatabaseName': 'string',
-                        'TableName': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'StorageDescriptor': {
-                            'Columns': [
+                        \'DatabaseName\': \'string\',
+                        \'TableName\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'Parameters': {
-                            'string': 'string'
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'LastAnalyzedTime': datetime(2015, 1, 1)
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'UnprocessedKeys': [
+                \'UnprocessedKeys\': [
                     {
-                        'Values': [
-                            'string',
+                        \'Values\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -977,9 +977,9 @@ class Client(BaseClient):
         ::
         
           response = client.batch_stop_job_run(
-              JobName='string',
+              JobName=\'string\',
               JobRunIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type JobName: string
@@ -1002,19 +1002,19 @@ class Client(BaseClient):
           ::
         
             {
-                'SuccessfulSubmissions': [
+                \'SuccessfulSubmissions\': [
                     {
-                        'JobName': 'string',
-                        'JobRunId': 'string'
+                        \'JobName\': \'string\',
+                        \'JobRunId\': \'string\'
                     },
                 ],
-                'Errors': [
+                \'Errors\': [
                     {
-                        'JobName': 'string',
-                        'JobRunId': 'string',
-                        'ErrorDetail': {
-                            'ErrorCode': 'string',
-                            'ErrorMessage': 'string'
+                        \'JobName\': \'string\',
+                        \'JobRunId\': \'string\',
+                        \'ErrorDetail\': {
+                            \'ErrorCode\': \'string\',
+                            \'ErrorMessage\': \'string\'
                         }
                     },
                 ]
@@ -1076,10 +1076,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -1096,19 +1096,19 @@ class Client(BaseClient):
         
           response = client.create_classifier(
               GrokClassifier={
-                  'Classification': 'string',
-                  'Name': 'string',
-                  'GrokPattern': 'string',
-                  'CustomPatterns': 'string'
+                  \'Classification\': \'string\',
+                  \'Name\': \'string\',
+                  \'GrokPattern\': \'string\',
+                  \'CustomPatterns\': \'string\'
               },
               XMLClassifier={
-                  'Classification': 'string',
-                  'Name': 'string',
-                  'RowTag': 'string'
+                  \'Classification\': \'string\',
+                  \'Name\': \'string\',
+                  \'RowTag\': \'string\'
               },
               JsonClassifier={
-                  'Name': 'string',
-                  'JsonPath': 'string'
+                  \'Name\': \'string\',
+                  \'JsonPath\': \'string\'
               }
           )
         :type GrokClassifier: dict
@@ -1147,7 +1147,7 @@ class Client(BaseClient):
         
           - **RowTag** *(string) --* 
         
-            The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a="A" item_b="B"></row>`` is okay, but ``<row item_a="A" item_b="B" />`` is not).
+            The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a=\"A\" item_b=\"B\"></row>`` is okay, but ``<row item_a=\"A\" item_b=\"B\" />`` is not).
         
         :type JsonClassifier: dict
         :param JsonClassifier: 
@@ -1185,23 +1185,23 @@ class Client(BaseClient):
         ::
         
           response = client.create_connection(
-              CatalogId='string',
+              CatalogId=\'string\',
               ConnectionInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'ConnectionType': 'JDBC'|'SFTP',
-                  'MatchCriteria': [
-                      'string',
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'ConnectionType\': \'JDBC\'|\'SFTP\',
+                  \'MatchCriteria\': [
+                      \'string\',
                   ],
-                  'ConnectionProperties': {
-                      'string': 'string'
+                  \'ConnectionProperties\': {
+                      \'string\': \'string\'
                   },
-                  'PhysicalConnectionRequirements': {
-                      'SubnetId': 'string',
-                      'SecurityGroupIdList': [
-                          'string',
+                  \'PhysicalConnectionRequirements\': {
+                      \'SubnetId\': \'string\',
+                      \'SecurityGroupIdList\': [
+                          \'string\',
                       ],
-                      'AvailabilityZone': 'string'
+                      \'AvailabilityZone\': \'string\'
                   }
               }
           )
@@ -1257,7 +1257,7 @@ class Client(BaseClient):
         
             - **AvailabilityZone** *(string) --* 
         
-              The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
+              The connection\'s availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
         
         :rtype: dict
         :returns: 
@@ -1282,45 +1282,45 @@ class Client(BaseClient):
         ::
         
           response = client.create_crawler(
-              Name='string',
-              Role='string',
-              DatabaseName='string',
-              Description='string',
+              Name=\'string\',
+              Role=\'string\',
+              DatabaseName=\'string\',
+              Description=\'string\',
               Targets={
-                  'S3Targets': [
+                  \'S3Targets\': [
                       {
-                          'Path': 'string',
-                          'Exclusions': [
-                              'string',
+                          \'Path\': \'string\',
+                          \'Exclusions\': [
+                              \'string\',
                           ]
                       },
                   ],
-                  'JdbcTargets': [
+                  \'JdbcTargets\': [
                       {
-                          'ConnectionName': 'string',
-                          'Path': 'string',
-                          'Exclusions': [
-                              'string',
+                          \'ConnectionName\': \'string\',
+                          \'Path\': \'string\',
+                          \'Exclusions\': [
+                              \'string\',
                           ]
                       },
                   ],
-                  'DynamoDBTargets': [
+                  \'DynamoDBTargets\': [
                       {
-                          'Path': 'string'
+                          \'Path\': \'string\'
                       },
                   ]
               },
-              Schedule='string',
+              Schedule=\'string\',
               Classifiers=[
-                  'string',
+                  \'string\',
               ],
-              TablePrefix='string',
+              TablePrefix=\'string\',
               SchemaChangePolicy={
-                  'UpdateBehavior': 'LOG'|'UPDATE_IN_DATABASE',
-                  'DeleteBehavior': 'LOG'|'DELETE_FROM_DATABASE'|'DEPRECATE_IN_DATABASE'
+                  \'UpdateBehavior\': \'LOG\'|\'UPDATE_IN_DATABASE\',
+                  \'DeleteBehavior\': \'LOG\'|\'DELETE_FROM_DATABASE\'|\'DEPRECATE_IN_DATABASE\'
               },
-              Configuration='string',
-              CrawlerSecurityConfiguration='string'
+              Configuration=\'string\',
+              CrawlerSecurityConfiguration=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1419,7 +1419,7 @@ class Client(BaseClient):
         :type SchemaChangePolicy: dict
         :param SchemaChangePolicy: 
         
-          Policy for the crawler's update and deletion behavior.
+          Policy for the crawler\'s update and deletion behavior.
         
           - **UpdateBehavior** *(string) --* 
         
@@ -1432,7 +1432,7 @@ class Client(BaseClient):
         :type Configuration: string
         :param Configuration: 
         
-          Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
+          Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler\'s behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
         
         :type CrawlerSecurityConfiguration: string
         :param CrawlerSecurityConfiguration: 
@@ -1462,13 +1462,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_database(
-              CatalogId='string',
+              CatalogId=\'string\',
               DatabaseInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'LocationUri': 'string',
-                  'Parameters': {
-                      'string': 'string'
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'LocationUri\': \'string\',
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -1525,20 +1525,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_dev_endpoint(
-              EndpointName='string',
-              RoleArn='string',
+              EndpointName=\'string\',
+              RoleArn=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              SubnetId='string',
-              PublicKey='string',
+              SubnetId=\'string\',
+              PublicKey=\'string\',
               PublicKeys=[
-                  'string',
+                  \'string\',
               ],
               NumberOfNodes=123,
-              ExtraPythonLibsS3Path='string',
-              ExtraJarsS3Path='string',
-              SecurityConfiguration='string'
+              ExtraPythonLibsS3Path=\'string\',
+              ExtraJarsS3Path=\'string\',
+              SecurityConfiguration=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -1608,23 +1608,23 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointName': 'string',
-                'Status': 'string',
-                'SecurityGroupIds': [
-                    'string',
+                \'EndpointName\': \'string\',
+                \'Status\': \'string\',
+                \'SecurityGroupIds\': [
+                    \'string\',
                 ],
-                'SubnetId': 'string',
-                'RoleArn': 'string',
-                'YarnEndpointAddress': 'string',
-                'ZeppelinRemoteSparkInterpreterPort': 123,
-                'NumberOfNodes': 123,
-                'AvailabilityZone': 'string',
-                'VpcId': 'string',
-                'ExtraPythonLibsS3Path': 'string',
-                'ExtraJarsS3Path': 'string',
-                'FailureReason': 'string',
-                'SecurityConfiguration': 'string',
-                'CreatedTimestamp': datetime(2015, 1, 1)
+                \'SubnetId\': \'string\',
+                \'RoleArn\': \'string\',
+                \'YarnEndpointAddress\': \'string\',
+                \'ZeppelinRemoteSparkInterpreterPort\': 123,
+                \'NumberOfNodes\': 123,
+                \'AvailabilityZone\': \'string\',
+                \'VpcId\': \'string\',
+                \'ExtraPythonLibsS3Path\': \'string\',
+                \'ExtraJarsS3Path\': \'string\',
+                \'FailureReason\': \'string\',
+                \'SecurityConfiguration\': \'string\',
+                \'CreatedTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1704,32 +1704,32 @@ class Client(BaseClient):
         ::
         
           response = client.create_job(
-              Name='string',
-              Description='string',
-              LogUri='string',
-              Role='string',
+              Name=\'string\',
+              Description=\'string\',
+              LogUri=\'string\',
+              Role=\'string\',
               ExecutionProperty={
-                  'MaxConcurrentRuns': 123
+                  \'MaxConcurrentRuns\': 123
               },
               Command={
-                  'Name': 'string',
-                  'ScriptLocation': 'string'
+                  \'Name\': \'string\',
+                  \'ScriptLocation\': \'string\'
               },
               DefaultArguments={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               Connections={
-                  'Connections': [
-                      'string',
+                  \'Connections\': [
+                      \'string\',
                   ]
               },
               MaxRetries=123,
               AllocatedCapacity=123,
               Timeout=123,
               NotificationProperty={
-                  'NotifyDelayAfter': 123
+                  \'NotifyDelayAfter\': 123
               },
-              SecurityConfiguration='string'
+              SecurityConfiguration=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1836,7 +1836,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1858,63 +1858,63 @@ class Client(BaseClient):
         ::
         
           response = client.create_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionInput={
-                  'Values': [
-                      'string',
+                  \'Values\': [
+                      \'string\',
                   ],
-                  'LastAccessTime': datetime(2015, 1, 1),
-                  'StorageDescriptor': {
-                      'Columns': [
+                  \'LastAccessTime\': datetime(2015, 1, 1),
+                  \'StorageDescriptor\': {
+                      \'Columns\': [
                           {
-                              'Name': 'string',
-                              'Type': 'string',
-                              'Comment': 'string'
+                              \'Name\': \'string\',
+                              \'Type\': \'string\',
+                              \'Comment\': \'string\'
                           },
                       ],
-                      'Location': 'string',
-                      'InputFormat': 'string',
-                      'OutputFormat': 'string',
-                      'Compressed': True|False,
-                      'NumberOfBuckets': 123,
-                      'SerdeInfo': {
-                          'Name': 'string',
-                          'SerializationLibrary': 'string',
-                          'Parameters': {
-                              'string': 'string'
+                      \'Location\': \'string\',
+                      \'InputFormat\': \'string\',
+                      \'OutputFormat\': \'string\',
+                      \'Compressed\': True|False,
+                      \'NumberOfBuckets\': 123,
+                      \'SerdeInfo\': {
+                          \'Name\': \'string\',
+                          \'SerializationLibrary\': \'string\',
+                          \'Parameters\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'BucketColumns': [
-                          'string',
+                      \'BucketColumns\': [
+                          \'string\',
                       ],
-                      'SortColumns': [
+                      \'SortColumns\': [
                           {
-                              'Column': 'string',
-                              'SortOrder': 123
+                              \'Column\': \'string\',
+                              \'SortOrder\': 123
                           },
                       ],
-                      'Parameters': {
-                          'string': 'string'
+                      \'Parameters\': {
+                          \'string\': \'string\'
                       },
-                      'SkewedInfo': {
-                          'SkewedColumnNames': [
-                              'string',
+                      \'SkewedInfo\': {
+                          \'SkewedColumnNames\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValues': [
-                              'string',
+                          \'SkewedColumnValues\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValueLocationMaps': {
-                              'string': 'string'
+                          \'SkewedColumnValueLocationMaps\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'StoredAsSubDirectories': True|False
+                      \'StoredAsSubDirectories\': True|False
                   },
-                  'Parameters': {
-                      'string': 'string'
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   },
-                  'LastAnalyzedTime': datetime(2015, 1, 1)
+                  \'LastAnalyzedTime\': datetime(2015, 1, 1)
               }
           )
         :type CatalogId: string
@@ -2106,26 +2106,26 @@ class Client(BaseClient):
           response = client.create_script(
               DagNodes=[
                   {
-                      'Id': 'string',
-                      'NodeType': 'string',
-                      'Args': [
+                      \'Id\': \'string\',
+                      \'NodeType\': \'string\',
+                      \'Args\': [
                           {
-                              'Name': 'string',
-                              'Value': 'string',
-                              'Param': True|False
+                              \'Name\': \'string\',
+                              \'Value\': \'string\',
+                              \'Param\': True|False
                           },
                       ],
-                      'LineNumber': 123
+                      \'LineNumber\': 123
                   },
               ],
               DagEdges=[
                   {
-                      'Source': 'string',
-                      'Target': 'string',
-                      'TargetParameter': 'string'
+                      \'Source\': \'string\',
+                      \'Target\': \'string\',
+                      \'TargetParameter\': \'string\'
                   },
               ],
-              Language='PYTHON'|'SCALA'
+              Language=\'PYTHON\'|\'SCALA\'
           )
         :type DagNodes: list
         :param DagNodes: 
@@ -2138,7 +2138,7 @@ class Client(BaseClient):
         
             - **Id** *(string) --* **[REQUIRED]** 
         
-              A node identifier that is unique within the node's graph.
+              A node identifier that is unique within the node\'s graph.
         
             - **NodeType** *(string) --* **[REQUIRED]** 
         
@@ -2202,8 +2202,8 @@ class Client(BaseClient):
           ::
         
             {
-                'PythonScript': 'string',
-                'ScalaCode': 'string'
+                \'PythonScript\': \'string\',
+                \'ScalaCode\': \'string\'
             }
           **Response Structure** 
         
@@ -2229,21 +2229,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_security_configuration(
-              Name='string',
+              Name=\'string\',
               EncryptionConfiguration={
-                  'S3Encryption': [
+                  \'S3Encryption\': [
                       {
-                          'S3EncryptionMode': 'DISABLED'|'SSE-KMS'|'SSE-S3',
-                          'KmsKeyArn': 'string'
+                          \'S3EncryptionMode\': \'DISABLED\'|\'SSE-KMS\'|\'SSE-S3\',
+                          \'KmsKeyArn\': \'string\'
                       },
                   ],
-                  'CloudWatchEncryption': {
-                      'CloudWatchEncryptionMode': 'DISABLED'|'SSE-KMS',
-                      'KmsKeyArn': 'string'
+                  \'CloudWatchEncryption\': {
+                      \'CloudWatchEncryptionMode\': \'DISABLED\'|\'SSE-KMS\',
+                      \'KmsKeyArn\': \'string\'
                   },
-                  'JobBookmarksEncryption': {
-                      'JobBookmarksEncryptionMode': 'DISABLED'|'CSE-KMS',
-                      'KmsKeyArn': 'string'
+                  \'JobBookmarksEncryption\': {
+                      \'JobBookmarksEncryptionMode\': \'DISABLED\'|\'CSE-KMS\',
+                      \'KmsKeyArn\': \'string\'
                   }
               }
           )
@@ -2305,8 +2305,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'CreatedTimestamp': datetime(2015, 1, 1)
+                \'Name\': \'string\',
+                \'CreatedTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2332,72 +2332,72 @@ class Client(BaseClient):
         ::
         
           response = client.create_table(
-              CatalogId='string',
-              DatabaseName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
               TableInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'Owner': 'string',
-                  'LastAccessTime': datetime(2015, 1, 1),
-                  'LastAnalyzedTime': datetime(2015, 1, 1),
-                  'Retention': 123,
-                  'StorageDescriptor': {
-                      'Columns': [
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'Owner\': \'string\',
+                  \'LastAccessTime\': datetime(2015, 1, 1),
+                  \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                  \'Retention\': 123,
+                  \'StorageDescriptor\': {
+                      \'Columns\': [
                           {
-                              'Name': 'string',
-                              'Type': 'string',
-                              'Comment': 'string'
+                              \'Name\': \'string\',
+                              \'Type\': \'string\',
+                              \'Comment\': \'string\'
                           },
                       ],
-                      'Location': 'string',
-                      'InputFormat': 'string',
-                      'OutputFormat': 'string',
-                      'Compressed': True|False,
-                      'NumberOfBuckets': 123,
-                      'SerdeInfo': {
-                          'Name': 'string',
-                          'SerializationLibrary': 'string',
-                          'Parameters': {
-                              'string': 'string'
+                      \'Location\': \'string\',
+                      \'InputFormat\': \'string\',
+                      \'OutputFormat\': \'string\',
+                      \'Compressed\': True|False,
+                      \'NumberOfBuckets\': 123,
+                      \'SerdeInfo\': {
+                          \'Name\': \'string\',
+                          \'SerializationLibrary\': \'string\',
+                          \'Parameters\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'BucketColumns': [
-                          'string',
+                      \'BucketColumns\': [
+                          \'string\',
                       ],
-                      'SortColumns': [
+                      \'SortColumns\': [
                           {
-                              'Column': 'string',
-                              'SortOrder': 123
+                              \'Column\': \'string\',
+                              \'SortOrder\': 123
                           },
                       ],
-                      'Parameters': {
-                          'string': 'string'
+                      \'Parameters\': {
+                          \'string\': \'string\'
                       },
-                      'SkewedInfo': {
-                          'SkewedColumnNames': [
-                              'string',
+                      \'SkewedInfo\': {
+                          \'SkewedColumnNames\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValues': [
-                              'string',
+                          \'SkewedColumnValues\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValueLocationMaps': {
-                              'string': 'string'
+                          \'SkewedColumnValueLocationMaps\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'StoredAsSubDirectories': True|False
+                      \'StoredAsSubDirectories\': True|False
                   },
-                  'PartitionKeys': [
+                  \'PartitionKeys\': [
                       {
-                          'Name': 'string',
-                          'Type': 'string',
-                          'Comment': 'string'
+                          \'Name\': \'string\',
+                          \'Type\': \'string\',
+                          \'Comment\': \'string\'
                       },
                   ],
-                  'ViewOriginalText': 'string',
-                  'ViewExpandedText': 'string',
-                  'TableType': 'string',
-                  'Parameters': {
-                      'string': 'string'
+                  \'ViewOriginalText\': \'string\',
+                  \'ViewExpandedText\': \'string\',
+                  \'TableType\': \'string\',
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -2625,33 +2625,33 @@ class Client(BaseClient):
         ::
         
           response = client.create_trigger(
-              Name='string',
-              Type='SCHEDULED'|'CONDITIONAL'|'ON_DEMAND',
-              Schedule='string',
+              Name=\'string\',
+              Type=\'SCHEDULED\'|\'CONDITIONAL\'|\'ON_DEMAND\',
+              Schedule=\'string\',
               Predicate={
-                  'Logical': 'AND'|'ANY',
-                  'Conditions': [
+                  \'Logical\': \'AND\'|\'ANY\',
+                  \'Conditions\': [
                       {
-                          'LogicalOperator': 'EQUALS',
-                          'JobName': 'string',
-                          'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                          \'LogicalOperator\': \'EQUALS\',
+                          \'JobName\': \'string\',
+                          \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                       },
                   ]
               },
               Actions=[
                   {
-                      'JobName': 'string',
-                      'Arguments': {
-                          'string': 'string'
+                      \'JobName\': \'string\',
+                      \'Arguments\': {
+                          \'string\': \'string\'
                       },
-                      'Timeout': 123,
-                      'NotificationProperty': {
-                          'NotifyDelayAfter': 123
+                      \'Timeout\': 123,
+                      \'NotificationProperty\': {
+                          \'NotifyDelayAfter\': 123
                       },
-                      'SecurityConfiguration': 'string'
+                      \'SecurityConfiguration\': \'string\'
                   },
               ],
-              Description='string',
+              Description=\'string\',
               StartOnCreation=True|False
           )
         :type Name: string
@@ -2763,7 +2763,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2785,17 +2785,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_defined_function(
-              CatalogId='string',
-              DatabaseName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
               FunctionInput={
-                  'FunctionName': 'string',
-                  'ClassName': 'string',
-                  'OwnerName': 'string',
-                  'OwnerType': 'USER'|'ROLE'|'GROUP',
-                  'ResourceUris': [
+                  \'FunctionName\': \'string\',
+                  \'ClassName\': \'string\',
+                  \'OwnerName\': \'string\',
+                  \'OwnerType\': \'USER\'|\'ROLE\'|\'GROUP\',
+                  \'ResourceUris\': [
                       {
-                          'ResourceType': 'JAR'|'FILE'|'ARCHIVE',
-                          'Uri': 'string'
+                          \'ResourceType\': \'JAR\'|\'FILE\'|\'ARCHIVE\',
+                          \'Uri\': \'string\'
                       },
                   ]
               }
@@ -2870,7 +2870,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_classifier(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2900,8 +2900,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_connection(
-              CatalogId='string',
-              ConnectionName='string'
+              CatalogId=\'string\',
+              ConnectionName=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -2936,7 +2936,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_crawler(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2962,7 +2962,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After completing this operation, you will no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
+          After completing this operation, you will no longer have access to the tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.
         
           To ensure immediate deletion of all related resources, before calling ``DeleteDatabase`` , use ``DeleteTableVersion`` or ``BatchDeleteTableVersion`` , ``DeletePartition`` or ``BatchDeletePartition`` , ``DeleteUserDefinedFunction`` , and ``DeleteTable`` or ``BatchDeleteTable`` , to delete any resources that belong to the database.
         
@@ -2972,8 +2972,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_database(
-              CatalogId='string',
-              Name='string'
+              CatalogId=\'string\',
+              Name=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3008,7 +3008,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dev_endpoint(
-              EndpointName='string'
+              EndpointName=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -3038,7 +3038,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_job(
-              JobName='string'
+              JobName=\'string\'
           )
         :type JobName: string
         :param JobName: **[REQUIRED]** 
@@ -3053,7 +3053,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobName': 'string'
+                \'JobName\': \'string\'
             }
           **Response Structure** 
         
@@ -3075,11 +3075,11 @@ class Client(BaseClient):
         ::
         
           response = client.delete_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CatalogId: string
@@ -3127,7 +3127,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_policy(
-              PolicyHashCondition='string'
+              PolicyHashCondition=\'string\'
           )
         :type PolicyHashCondition: string
         :param PolicyHashCondition: 
@@ -3157,7 +3157,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_security_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3183,7 +3183,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
+          After completing this operation, you will no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these \"orphaned\" resources asynchronously in a timely manner, at the discretion of the service.
         
           To ensure immediate deletion of all related resources, before calling ``DeleteTable`` , use ``DeleteTableVersion`` or ``BatchDeleteTableVersion`` , and ``DeletePartition`` or ``BatchDeletePartition`` , to delete any resources that belong to the table.
         
@@ -3193,9 +3193,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_table(
-              CatalogId='string',
-              DatabaseName='string',
-              Name='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Name=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3235,10 +3235,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_table_version(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
-              VersionId='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
+              VersionId=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3283,7 +3283,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_trigger(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3298,7 +3298,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -3320,9 +3320,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_defined_function(
-              CatalogId='string',
-              DatabaseName='string',
-              FunctionName='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              FunctionName=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3369,7 +3369,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3384,7 +3384,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_catalog_import_status(
-              CatalogId='string'
+              CatalogId=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3399,10 +3399,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportStatus': {
-                    'ImportCompleted': True|False,
-                    'ImportTime': datetime(2015, 1, 1),
-                    'ImportedBy': 'string'
+                \'ImportStatus\': {
+                    \'ImportCompleted\': True|False,
+                    \'ImportTime\': datetime(2015, 1, 1),
+                    \'ImportedBy\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3437,7 +3437,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_classifier(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3452,30 +3452,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Classifier': {
-                    'GrokClassifier': {
-                        'Name': 'string',
-                        'Classification': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Version': 123,
-                        'GrokPattern': 'string',
-                        'CustomPatterns': 'string'
+                \'Classifier\': {
+                    \'GrokClassifier\': {
+                        \'Name\': \'string\',
+                        \'Classification\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Version\': 123,
+                        \'GrokPattern\': \'string\',
+                        \'CustomPatterns\': \'string\'
                     },
-                    'XMLClassifier': {
-                        'Name': 'string',
-                        'Classification': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Version': 123,
-                        'RowTag': 'string'
+                    \'XMLClassifier\': {
+                        \'Name\': \'string\',
+                        \'Classification\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Version\': 123,
+                        \'RowTag\': \'string\'
                     },
-                    'JsonClassifier': {
-                        'Name': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'Version': 123,
-                        'JsonPath': 'string'
+                    \'JsonClassifier\': {
+                        \'Name\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'Version\': 123,
+                        \'JsonPath\': \'string\'
                     }
                 }
             }
@@ -3545,7 +3545,7 @@ class Client(BaseClient):
         
                 - **RowTag** *(string) --* 
         
-                  The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a="A" item_b="B"></row>`` is okay, but ``<row item_a="A" item_b="B" />`` is not).
+                  The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a=\"A\" item_b=\"B\"></row>`` is okay, but ``<row item_a=\"A\" item_b=\"B\" />`` is not).
         
               - **JsonClassifier** *(dict) --* 
         
@@ -3584,7 +3584,7 @@ class Client(BaseClient):
         
           response = client.get_classifiers(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -3604,35 +3604,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Classifiers': [
+                \'Classifiers\': [
                     {
-                        'GrokClassifier': {
-                            'Name': 'string',
-                            'Classification': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'GrokPattern': 'string',
-                            'CustomPatterns': 'string'
+                        \'GrokClassifier\': {
+                            \'Name\': \'string\',
+                            \'Classification\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'GrokPattern\': \'string\',
+                            \'CustomPatterns\': \'string\'
                         },
-                        'XMLClassifier': {
-                            'Name': 'string',
-                            'Classification': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'RowTag': 'string'
+                        \'XMLClassifier\': {
+                            \'Name\': \'string\',
+                            \'Classification\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'RowTag\': \'string\'
                         },
-                        'JsonClassifier': {
-                            'Name': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'JsonPath': 'string'
+                        \'JsonClassifier\': {
+                            \'Name\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'JsonPath\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3706,7 +3706,7 @@ class Client(BaseClient):
         
                   - **RowTag** *(string) --* 
         
-                    The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a="A" item_b="B"></row>`` is okay, but ``<row item_a="A" item_b="B" />`` is not).
+                    The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a=\"A\" item_b=\"B\"></row>`` is okay, but ``<row item_a=\"A\" item_b=\"B\" />`` is not).
         
                 - **JsonClassifier** *(dict) --* 
         
@@ -3748,8 +3748,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_connection(
-              CatalogId='string',
-              Name='string'
+              CatalogId=\'string\',
+              Name=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -3769,26 +3769,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Connection': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'ConnectionType': 'JDBC'|'SFTP',
-                    'MatchCriteria': [
-                        'string',
+                \'Connection\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'ConnectionType\': \'JDBC\'|\'SFTP\',
+                    \'MatchCriteria\': [
+                        \'string\',
                     ],
-                    'ConnectionProperties': {
-                        'string': 'string'
+                    \'ConnectionProperties\': {
+                        \'string\': \'string\'
                     },
-                    'PhysicalConnectionRequirements': {
-                        'SubnetId': 'string',
-                        'SecurityGroupIdList': [
-                            'string',
+                    \'PhysicalConnectionRequirements\': {
+                        \'SubnetId\': \'string\',
+                        \'SecurityGroupIdList\': [
+                            \'string\',
                         ],
-                        'AvailabilityZone': 'string'
+                        \'AvailabilityZone\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdatedTime': datetime(2015, 1, 1),
-                    'LastUpdatedBy': 'string'
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedBy\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3825,7 +3825,7 @@ class Client(BaseClient):
                  
                 * ``PORT`` - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections. 
                  
-                * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is "``USERNAME`` ". 
+                * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is \"``USERNAME`` \". 
                  
                 * ``PASSWORD`` - A password, if one is used, for the user name. 
                  
@@ -3865,7 +3865,7 @@ class Client(BaseClient):
               
                 - **AvailabilityZone** *(string) --* 
         
-                  The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
+                  The connection\'s availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
         
               - **CreationTime** *(datetime) --* 
         
@@ -3891,14 +3891,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_connections(
-              CatalogId='string',
+              CatalogId=\'string\',
               Filter={
-                  'MatchCriteria': [
-                      'string',
+                  \'MatchCriteria\': [
+                      \'string\',
                   ],
-                  'ConnectionType': 'JDBC'|'SFTP'
+                  \'ConnectionType\': \'JDBC\'|\'SFTP\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CatalogId: string
@@ -3939,30 +3939,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ConnectionList': [
+                \'ConnectionList\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'ConnectionType': 'JDBC'|'SFTP',
-                        'MatchCriteria': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'ConnectionType\': \'JDBC\'|\'SFTP\',
+                        \'MatchCriteria\': [
+                            \'string\',
                         ],
-                        'ConnectionProperties': {
-                            'string': 'string'
+                        \'ConnectionProperties\': {
+                            \'string\': \'string\'
                         },
-                        'PhysicalConnectionRequirements': {
-                            'SubnetId': 'string',
-                            'SecurityGroupIdList': [
-                                'string',
+                        \'PhysicalConnectionRequirements\': {
+                            \'SubnetId\': \'string\',
+                            \'SecurityGroupIdList\': [
+                                \'string\',
                             ],
-                            'AvailabilityZone': 'string'
+                            \'AvailabilityZone\': \'string\'
                         },
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'LastUpdatedBy': 'string'
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedBy\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4002,7 +4002,7 @@ class Client(BaseClient):
                    
                   * ``PORT`` - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections. 
                    
-                  * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is "``USERNAME`` ". 
+                  * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is \"``USERNAME`` \". 
                    
                   * ``PASSWORD`` - A password, if one is used, for the user name. 
                    
@@ -4042,7 +4042,7 @@ class Client(BaseClient):
                 
                   - **AvailabilityZone** *(string) --* 
         
-                    The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
+                    The connection\'s availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
         
                 - **CreationTime** *(datetime) --* 
         
@@ -4072,7 +4072,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_crawler(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -4087,62 +4087,62 @@ class Client(BaseClient):
           ::
         
             {
-                'Crawler': {
-                    'Name': 'string',
-                    'Role': 'string',
-                    'Targets': {
-                        'S3Targets': [
+                \'Crawler\': {
+                    \'Name\': \'string\',
+                    \'Role\': \'string\',
+                    \'Targets\': {
+                        \'S3Targets\': [
                             {
-                                'Path': 'string',
-                                'Exclusions': [
-                                    'string',
+                                \'Path\': \'string\',
+                                \'Exclusions\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'JdbcTargets': [
+                        \'JdbcTargets\': [
                             {
-                                'ConnectionName': 'string',
-                                'Path': 'string',
-                                'Exclusions': [
-                                    'string',
+                                \'ConnectionName\': \'string\',
+                                \'Path\': \'string\',
+                                \'Exclusions\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'DynamoDBTargets': [
+                        \'DynamoDBTargets\': [
                             {
-                                'Path': 'string'
+                                \'Path\': \'string\'
                             },
                         ]
                     },
-                    'DatabaseName': 'string',
-                    'Description': 'string',
-                    'Classifiers': [
-                        'string',
+                    \'DatabaseName\': \'string\',
+                    \'Description\': \'string\',
+                    \'Classifiers\': [
+                        \'string\',
                     ],
-                    'SchemaChangePolicy': {
-                        'UpdateBehavior': 'LOG'|'UPDATE_IN_DATABASE',
-                        'DeleteBehavior': 'LOG'|'DELETE_FROM_DATABASE'|'DEPRECATE_IN_DATABASE'
+                    \'SchemaChangePolicy\': {
+                        \'UpdateBehavior\': \'LOG\'|\'UPDATE_IN_DATABASE\',
+                        \'DeleteBehavior\': \'LOG\'|\'DELETE_FROM_DATABASE\'|\'DEPRECATE_IN_DATABASE\'
                     },
-                    'State': 'READY'|'RUNNING'|'STOPPING',
-                    'TablePrefix': 'string',
-                    'Schedule': {
-                        'ScheduleExpression': 'string',
-                        'State': 'SCHEDULED'|'NOT_SCHEDULED'|'TRANSITIONING'
+                    \'State\': \'READY\'|\'RUNNING\'|\'STOPPING\',
+                    \'TablePrefix\': \'string\',
+                    \'Schedule\': {
+                        \'ScheduleExpression\': \'string\',
+                        \'State\': \'SCHEDULED\'|\'NOT_SCHEDULED\'|\'TRANSITIONING\'
                     },
-                    'CrawlElapsedTime': 123,
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdated': datetime(2015, 1, 1),
-                    'LastCrawl': {
-                        'Status': 'SUCCEEDED'|'CANCELLED'|'FAILED',
-                        'ErrorMessage': 'string',
-                        'LogGroup': 'string',
-                        'LogStream': 'string',
-                        'MessagePrefix': 'string',
-                        'StartTime': datetime(2015, 1, 1)
+                    \'CrawlElapsedTime\': 123,
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdated\': datetime(2015, 1, 1),
+                    \'LastCrawl\': {
+                        \'Status\': \'SUCCEEDED\'|\'CANCELLED\'|\'FAILED\',
+                        \'ErrorMessage\': \'string\',
+                        \'LogGroup\': \'string\',
+                        \'LogStream\': \'string\',
+                        \'MessagePrefix\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1)
                     },
-                    'Version': 123,
-                    'Configuration': 'string',
-                    'CrawlerSecurityConfiguration': 'string'
+                    \'Version\': 123,
+                    \'Configuration\': \'string\',
+                    \'CrawlerSecurityConfiguration\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4309,7 +4309,7 @@ class Client(BaseClient):
         
               - **Configuration** *(string) --* 
         
-                Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
+                Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler\'s behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
         
               - **CrawlerSecurityConfiguration** *(string) --* 
         
@@ -4328,10 +4328,10 @@ class Client(BaseClient):
         
           response = client.get_crawler_metrics(
               CrawlerNameList=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type CrawlerNameList: list
         :param CrawlerNameList: 
@@ -4358,19 +4358,19 @@ class Client(BaseClient):
           ::
         
             {
-                'CrawlerMetricsList': [
+                \'CrawlerMetricsList\': [
                     {
-                        'CrawlerName': 'string',
-                        'TimeLeftSeconds': 123.0,
-                        'StillEstimating': True|False,
-                        'LastRuntimeSeconds': 123.0,
-                        'MedianRuntimeSeconds': 123.0,
-                        'TablesCreated': 123,
-                        'TablesUpdated': 123,
-                        'TablesDeleted': 123
+                        \'CrawlerName\': \'string\',
+                        \'TimeLeftSeconds\': 123.0,
+                        \'StillEstimating\': True|False,
+                        \'LastRuntimeSeconds\': 123.0,
+                        \'MedianRuntimeSeconds\': 123.0,
+                        \'TablesCreated\': 123,
+                        \'TablesUpdated\': 123,
+                        \'TablesDeleted\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4398,11 +4398,11 @@ class Client(BaseClient):
         
                 - **LastRuntimeSeconds** *(float) --* 
         
-                  The duration of the crawler's most recent run, in seconds.
+                  The duration of the crawler\'s most recent run, in seconds.
         
                 - **MedianRuntimeSeconds** *(float) --* 
         
-                  The median duration of this crawler's runs, in seconds.
+                  The median duration of this crawler\'s runs, in seconds.
         
                 - **TablesCreated** *(integer) --* 
         
@@ -4433,7 +4433,7 @@ class Client(BaseClient):
         
           response = client.get_crawlers(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -4453,66 +4453,66 @@ class Client(BaseClient):
           ::
         
             {
-                'Crawlers': [
+                \'Crawlers\': [
                     {
-                        'Name': 'string',
-                        'Role': 'string',
-                        'Targets': {
-                            'S3Targets': [
+                        \'Name\': \'string\',
+                        \'Role\': \'string\',
+                        \'Targets\': {
+                            \'S3Targets\': [
                                 {
-                                    'Path': 'string',
-                                    'Exclusions': [
-                                        'string',
+                                    \'Path\': \'string\',
+                                    \'Exclusions\': [
+                                        \'string\',
                                     ]
                                 },
                             ],
-                            'JdbcTargets': [
+                            \'JdbcTargets\': [
                                 {
-                                    'ConnectionName': 'string',
-                                    'Path': 'string',
-                                    'Exclusions': [
-                                        'string',
+                                    \'ConnectionName\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Exclusions\': [
+                                        \'string\',
                                     ]
                                 },
                             ],
-                            'DynamoDBTargets': [
+                            \'DynamoDBTargets\': [
                                 {
-                                    'Path': 'string'
+                                    \'Path\': \'string\'
                                 },
                             ]
                         },
-                        'DatabaseName': 'string',
-                        'Description': 'string',
-                        'Classifiers': [
-                            'string',
+                        \'DatabaseName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Classifiers\': [
+                            \'string\',
                         ],
-                        'SchemaChangePolicy': {
-                            'UpdateBehavior': 'LOG'|'UPDATE_IN_DATABASE',
-                            'DeleteBehavior': 'LOG'|'DELETE_FROM_DATABASE'|'DEPRECATE_IN_DATABASE'
+                        \'SchemaChangePolicy\': {
+                            \'UpdateBehavior\': \'LOG\'|\'UPDATE_IN_DATABASE\',
+                            \'DeleteBehavior\': \'LOG\'|\'DELETE_FROM_DATABASE\'|\'DEPRECATE_IN_DATABASE\'
                         },
-                        'State': 'READY'|'RUNNING'|'STOPPING',
-                        'TablePrefix': 'string',
-                        'Schedule': {
-                            'ScheduleExpression': 'string',
-                            'State': 'SCHEDULED'|'NOT_SCHEDULED'|'TRANSITIONING'
+                        \'State\': \'READY\'|\'RUNNING\'|\'STOPPING\',
+                        \'TablePrefix\': \'string\',
+                        \'Schedule\': {
+                            \'ScheduleExpression\': \'string\',
+                            \'State\': \'SCHEDULED\'|\'NOT_SCHEDULED\'|\'TRANSITIONING\'
                         },
-                        'CrawlElapsedTime': 123,
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'LastCrawl': {
-                            'Status': 'SUCCEEDED'|'CANCELLED'|'FAILED',
-                            'ErrorMessage': 'string',
-                            'LogGroup': 'string',
-                            'LogStream': 'string',
-                            'MessagePrefix': 'string',
-                            'StartTime': datetime(2015, 1, 1)
+                        \'CrawlElapsedTime\': 123,
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'LastCrawl\': {
+                            \'Status\': \'SUCCEEDED\'|\'CANCELLED\'|\'FAILED\',
+                            \'ErrorMessage\': \'string\',
+                            \'LogGroup\': \'string\',
+                            \'LogStream\': \'string\',
+                            \'MessagePrefix\': \'string\',
+                            \'StartTime\': datetime(2015, 1, 1)
                         },
-                        'Version': 123,
-                        'Configuration': 'string',
-                        'CrawlerSecurityConfiguration': 'string'
+                        \'Version\': 123,
+                        \'Configuration\': \'string\',
+                        \'CrawlerSecurityConfiguration\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4682,7 +4682,7 @@ class Client(BaseClient):
         
                 - **Configuration** *(string) --* 
         
-                  Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
+                  Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler\'s behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
         
                 - **CrawlerSecurityConfiguration** *(string) --* 
         
@@ -4704,7 +4704,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_data_catalog_encryption_settings(
-              CatalogId='string'
+              CatalogId=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -4719,10 +4719,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DataCatalogEncryptionSettings': {
-                    'EncryptionAtRest': {
-                        'CatalogEncryptionMode': 'DISABLED'|'SSE-KMS',
-                        'SseAwsKmsKeyId': 'string'
+                \'DataCatalogEncryptionSettings\': {
+                    \'EncryptionAtRest\': {
+                        \'CatalogEncryptionMode\': \'DISABLED\'|\'SSE-KMS\',
+                        \'SseAwsKmsKeyId\': \'string\'
                     }
                 }
             }
@@ -4758,8 +4758,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_database(
-              CatalogId='string',
-              Name='string'
+              CatalogId=\'string\',
+              Name=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -4779,14 +4779,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Database': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'LocationUri': 'string',
-                    'Parameters': {
-                        'string': 'string'
+                \'Database\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'LocationUri\': \'string\',
+                    \'Parameters\': {
+                        \'string\': \'string\'
                     },
-                    'CreateTime': datetime(2015, 1, 1)
+                    \'CreateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -4833,8 +4833,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_databases(
-              CatalogId='string',
-              NextToken='string',
+              CatalogId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CatalogId: string
@@ -4860,18 +4860,18 @@ class Client(BaseClient):
           ::
         
             {
-                'DatabaseList': [
+                \'DatabaseList\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'LocationUri': 'string',
-                        'Parameters': {
-                            'string': 'string'
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'LocationUri\': \'string\',
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'CreateTime': datetime(2015, 1, 1)
+                        \'CreateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4925,7 +4925,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_dataflow_graph(
-              PythonScript='string'
+              PythonScript=\'string\'
           )
         :type PythonScript: string
         :param PythonScript: 
@@ -4940,25 +4940,25 @@ class Client(BaseClient):
           ::
         
             {
-                'DagNodes': [
+                \'DagNodes\': [
                     {
-                        'Id': 'string',
-                        'NodeType': 'string',
-                        'Args': [
+                        \'Id\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'Args\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string',
-                                'Param': True|False
+                                \'Name\': \'string\',
+                                \'Value\': \'string\',
+                                \'Param\': True|False
                             },
                         ],
-                        'LineNumber': 123
+                        \'LineNumber\': 123
                     },
                 ],
-                'DagEdges': [
+                \'DagEdges\': [
                     {
-                        'Source': 'string',
-                        'Target': 'string',
-                        'TargetParameter': 'string'
+                        \'Source\': \'string\',
+                        \'Target\': \'string\',
+                        \'TargetParameter\': \'string\'
                     },
                 ]
             }
@@ -4976,7 +4976,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  A node identifier that is unique within the node's graph.
+                  A node identifier that is unique within the node\'s graph.
         
                 - **NodeType** *(string) --* 
         
@@ -5042,7 +5042,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_dev_endpoint(
-              EndpointName='string'
+              EndpointName=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -5057,32 +5057,32 @@ class Client(BaseClient):
           ::
         
             {
-                'DevEndpoint': {
-                    'EndpointName': 'string',
-                    'RoleArn': 'string',
-                    'SecurityGroupIds': [
-                        'string',
+                \'DevEndpoint\': {
+                    \'EndpointName\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'SubnetId': 'string',
-                    'YarnEndpointAddress': 'string',
-                    'PrivateAddress': 'string',
-                    'ZeppelinRemoteSparkInterpreterPort': 123,
-                    'PublicAddress': 'string',
-                    'Status': 'string',
-                    'NumberOfNodes': 123,
-                    'AvailabilityZone': 'string',
-                    'VpcId': 'string',
-                    'ExtraPythonLibsS3Path': 'string',
-                    'ExtraJarsS3Path': 'string',
-                    'FailureReason': 'string',
-                    'LastUpdateStatus': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1),
-                    'LastModifiedTimestamp': datetime(2015, 1, 1),
-                    'PublicKey': 'string',
-                    'PublicKeys': [
-                        'string',
+                    \'SubnetId\': \'string\',
+                    \'YarnEndpointAddress\': \'string\',
+                    \'PrivateAddress\': \'string\',
+                    \'ZeppelinRemoteSparkInterpreterPort\': 123,
+                    \'PublicAddress\': \'string\',
+                    \'Status\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'ExtraPythonLibsS3Path\': \'string\',
+                    \'ExtraJarsS3Path\': \'string\',
+                    \'FailureReason\': \'string\',
+                    \'LastUpdateStatus\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1),
+                    \'LastModifiedTimestamp\': datetime(2015, 1, 1),
+                    \'PublicKey\': \'string\',
+                    \'PublicKeys\': [
+                        \'string\',
                     ],
-                    'SecurityConfiguration': 'string'
+                    \'SecurityConfiguration\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5206,7 +5206,7 @@ class Client(BaseClient):
         
           response = client.get_dev_endpoints(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -5226,36 +5226,36 @@ class Client(BaseClient):
           ::
         
             {
-                'DevEndpoints': [
+                \'DevEndpoints\': [
                     {
-                        'EndpointName': 'string',
-                        'RoleArn': 'string',
-                        'SecurityGroupIds': [
-                            'string',
+                        \'EndpointName\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'SubnetId': 'string',
-                        'YarnEndpointAddress': 'string',
-                        'PrivateAddress': 'string',
-                        'ZeppelinRemoteSparkInterpreterPort': 123,
-                        'PublicAddress': 'string',
-                        'Status': 'string',
-                        'NumberOfNodes': 123,
-                        'AvailabilityZone': 'string',
-                        'VpcId': 'string',
-                        'ExtraPythonLibsS3Path': 'string',
-                        'ExtraJarsS3Path': 'string',
-                        'FailureReason': 'string',
-                        'LastUpdateStatus': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'LastModifiedTimestamp': datetime(2015, 1, 1),
-                        'PublicKey': 'string',
-                        'PublicKeys': [
-                            'string',
+                        \'SubnetId\': \'string\',
+                        \'YarnEndpointAddress\': \'string\',
+                        \'PrivateAddress\': \'string\',
+                        \'ZeppelinRemoteSparkInterpreterPort\': 123,
+                        \'PublicAddress\': \'string\',
+                        \'Status\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'AvailabilityZone\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'ExtraPythonLibsS3Path\': \'string\',
+                        \'ExtraJarsS3Path\': \'string\',
+                        \'FailureReason\': \'string\',
+                        \'LastUpdateStatus\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'LastModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'PublicKey\': \'string\',
+                        \'PublicKeys\': [
+                            \'string\',
                         ],
-                        'SecurityConfiguration': 'string'
+                        \'SecurityConfiguration\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5381,7 +5381,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_job(
-              JobName='string'
+              JobName=\'string\'
           )
         :type JobName: string
         :param JobName: **[REQUIRED]** 
@@ -5396,35 +5396,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Job': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'LogUri': 'string',
-                    'Role': 'string',
-                    'CreatedOn': datetime(2015, 1, 1),
-                    'LastModifiedOn': datetime(2015, 1, 1),
-                    'ExecutionProperty': {
-                        'MaxConcurrentRuns': 123
+                \'Job\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'LogUri\': \'string\',
+                    \'Role\': \'string\',
+                    \'CreatedOn\': datetime(2015, 1, 1),
+                    \'LastModifiedOn\': datetime(2015, 1, 1),
+                    \'ExecutionProperty\': {
+                        \'MaxConcurrentRuns\': 123
                     },
-                    'Command': {
-                        'Name': 'string',
-                        'ScriptLocation': 'string'
+                    \'Command\': {
+                        \'Name\': \'string\',
+                        \'ScriptLocation\': \'string\'
                     },
-                    'DefaultArguments': {
-                        'string': 'string'
+                    \'DefaultArguments\': {
+                        \'string\': \'string\'
                     },
-                    'Connections': {
-                        'Connections': [
-                            'string',
+                    \'Connections\': {
+                        \'Connections\': [
+                            \'string\',
                         ]
                     },
-                    'MaxRetries': 123,
-                    'AllocatedCapacity': 123,
-                    'Timeout': 123,
-                    'NotificationProperty': {
-                        'NotifyDelayAfter': 123
+                    \'MaxRetries\': 123,
+                    \'AllocatedCapacity\': 123,
+                    \'Timeout\': 123,
+                    \'NotificationProperty\': {
+                        \'NotifyDelayAfter\': 123
                     },
-                    'SecurityConfiguration': 'string'
+                    \'SecurityConfiguration\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5539,8 +5539,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_run(
-              JobName='string',
-              RunId='string',
+              JobName=\'string\',
+              RunId=\'string\',
               PredecessorsIncluded=True|False
           )
         :type JobName: string
@@ -5566,34 +5566,34 @@ class Client(BaseClient):
           ::
         
             {
-                'JobRun': {
-                    'Id': 'string',
-                    'Attempt': 123,
-                    'PreviousRunId': 'string',
-                    'TriggerName': 'string',
-                    'JobName': 'string',
-                    'StartedOn': datetime(2015, 1, 1),
-                    'LastModifiedOn': datetime(2015, 1, 1),
-                    'CompletedOn': datetime(2015, 1, 1),
-                    'JobRunState': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT',
-                    'Arguments': {
-                        'string': 'string'
+                \'JobRun\': {
+                    \'Id\': \'string\',
+                    \'Attempt\': 123,
+                    \'PreviousRunId\': \'string\',
+                    \'TriggerName\': \'string\',
+                    \'JobName\': \'string\',
+                    \'StartedOn\': datetime(2015, 1, 1),
+                    \'LastModifiedOn\': datetime(2015, 1, 1),
+                    \'CompletedOn\': datetime(2015, 1, 1),
+                    \'JobRunState\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\',
+                    \'Arguments\': {
+                        \'string\': \'string\'
                     },
-                    'ErrorMessage': 'string',
-                    'PredecessorRuns': [
+                    \'ErrorMessage\': \'string\',
+                    \'PredecessorRuns\': [
                         {
-                            'JobName': 'string',
-                            'RunId': 'string'
+                            \'JobName\': \'string\',
+                            \'RunId\': \'string\'
                         },
                     ],
-                    'AllocatedCapacity': 123,
-                    'ExecutionTime': 123,
-                    'Timeout': 123,
-                    'NotificationProperty': {
-                        'NotifyDelayAfter': 123
+                    \'AllocatedCapacity\': 123,
+                    \'ExecutionTime\': 123,
+                    \'Timeout\': 123,
+                    \'NotificationProperty\': {
+                        \'NotifyDelayAfter\': 123
                     },
-                    'SecurityConfiguration': 'string',
-                    'LogGroupName': 'string'
+                    \'SecurityConfiguration\': \'string\',
+                    \'LogGroupName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5714,8 +5714,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_runs(
-              JobName='string',
-              NextToken='string',
+              JobName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type JobName: string
@@ -5741,38 +5741,38 @@ class Client(BaseClient):
           ::
         
             {
-                'JobRuns': [
+                \'JobRuns\': [
                     {
-                        'Id': 'string',
-                        'Attempt': 123,
-                        'PreviousRunId': 'string',
-                        'TriggerName': 'string',
-                        'JobName': 'string',
-                        'StartedOn': datetime(2015, 1, 1),
-                        'LastModifiedOn': datetime(2015, 1, 1),
-                        'CompletedOn': datetime(2015, 1, 1),
-                        'JobRunState': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT',
-                        'Arguments': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Attempt\': 123,
+                        \'PreviousRunId\': \'string\',
+                        \'TriggerName\': \'string\',
+                        \'JobName\': \'string\',
+                        \'StartedOn\': datetime(2015, 1, 1),
+                        \'LastModifiedOn\': datetime(2015, 1, 1),
+                        \'CompletedOn\': datetime(2015, 1, 1),
+                        \'JobRunState\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\',
+                        \'Arguments\': {
+                            \'string\': \'string\'
                         },
-                        'ErrorMessage': 'string',
-                        'PredecessorRuns': [
+                        \'ErrorMessage\': \'string\',
+                        \'PredecessorRuns\': [
                             {
-                                'JobName': 'string',
-                                'RunId': 'string'
+                                \'JobName\': \'string\',
+                                \'RunId\': \'string\'
                             },
                         ],
-                        'AllocatedCapacity': 123,
-                        'ExecutionTime': 123,
-                        'Timeout': 123,
-                        'NotificationProperty': {
-                            'NotifyDelayAfter': 123
+                        \'AllocatedCapacity\': 123,
+                        \'ExecutionTime\': 123,
+                        \'Timeout\': 123,
+                        \'NotificationProperty\': {
+                            \'NotifyDelayAfter\': 123
                         },
-                        'SecurityConfiguration': 'string',
-                        'LogGroupName': 'string'
+                        \'SecurityConfiguration\': \'string\',
+                        \'LogGroupName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5900,7 +5900,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_jobs(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -5921,39 +5921,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'LogUri': 'string',
-                        'Role': 'string',
-                        'CreatedOn': datetime(2015, 1, 1),
-                        'LastModifiedOn': datetime(2015, 1, 1),
-                        'ExecutionProperty': {
-                            'MaxConcurrentRuns': 123
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'LogUri\': \'string\',
+                        \'Role\': \'string\',
+                        \'CreatedOn\': datetime(2015, 1, 1),
+                        \'LastModifiedOn\': datetime(2015, 1, 1),
+                        \'ExecutionProperty\': {
+                            \'MaxConcurrentRuns\': 123
                         },
-                        'Command': {
-                            'Name': 'string',
-                            'ScriptLocation': 'string'
+                        \'Command\': {
+                            \'Name\': \'string\',
+                            \'ScriptLocation\': \'string\'
                         },
-                        'DefaultArguments': {
-                            'string': 'string'
+                        \'DefaultArguments\': {
+                            \'string\': \'string\'
                         },
-                        'Connections': {
-                            'Connections': [
-                                'string',
+                        \'Connections\': {
+                            \'Connections\': [
+                                \'string\',
                             ]
                         },
-                        'MaxRetries': 123,
-                        'AllocatedCapacity': 123,
-                        'Timeout': 123,
-                        'NotificationProperty': {
-                            'NotifyDelayAfter': 123
+                        \'MaxRetries\': 123,
+                        \'AllocatedCapacity\': 123,
+                        \'Timeout\': 123,
+                        \'NotificationProperty\': {
+                            \'NotifyDelayAfter\': 123
                         },
-                        'SecurityConfiguration': 'string'
+                        \'SecurityConfiguration\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6076,35 +6076,35 @@ class Client(BaseClient):
         
           response = client.get_mapping(
               Source={
-                  'DatabaseName': 'string',
-                  'TableName': 'string'
+                  \'DatabaseName\': \'string\',
+                  \'TableName\': \'string\'
               },
               Sinks=[
                   {
-                      'DatabaseName': 'string',
-                      'TableName': 'string'
+                      \'DatabaseName\': \'string\',
+                      \'TableName\': \'string\'
                   },
               ],
               Location={
-                  'Jdbc': [
+                  \'Jdbc\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ],
-                  'S3': [
+                  \'S3\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ],
-                  'DynamoDB': [
+                  \'DynamoDB\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ]
               }
@@ -6212,14 +6212,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Mapping': [
+                \'Mapping\': [
                     {
-                        'SourceTable': 'string',
-                        'SourcePath': 'string',
-                        'SourceType': 'string',
-                        'TargetTable': 'string',
-                        'TargetPath': 'string',
-                        'TargetType': 'string'
+                        \'SourceTable\': \'string\',
+                        \'SourcePath\': \'string\',
+                        \'SourceType\': \'string\',
+                        \'TargetTable\': \'string\',
+                        \'TargetPath\': \'string\',
+                        \'TargetType\': \'string\'
                     },
                 ]
             }
@@ -6268,10 +6268,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -6291,11 +6291,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CatalogId: string
@@ -6311,7 +6311,7 @@ class Client(BaseClient):
         :type TableName: string
         :param TableName: **[REQUIRED]** 
         
-          The name of the partition's table.
+          The name of the partition\'s table.
         
         :type PartitionValues: list
         :param PartitionValues: **[REQUIRED]** 
@@ -6328,63 +6328,63 @@ class Client(BaseClient):
           ::
         
             {
-                'Partition': {
-                    'Values': [
-                        'string',
+                \'Partition\': {
+                    \'Values\': [
+                        \'string\',
                     ],
-                    'DatabaseName': 'string',
-                    'TableName': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastAccessTime': datetime(2015, 1, 1),
-                    'StorageDescriptor': {
-                        'Columns': [
+                    \'DatabaseName\': \'string\',
+                    \'TableName\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastAccessTime\': datetime(2015, 1, 1),
+                    \'StorageDescriptor\': {
+                        \'Columns\': [
                             {
-                                'Name': 'string',
-                                'Type': 'string',
-                                'Comment': 'string'
+                                \'Name\': \'string\',
+                                \'Type\': \'string\',
+                                \'Comment\': \'string\'
                             },
                         ],
-                        'Location': 'string',
-                        'InputFormat': 'string',
-                        'OutputFormat': 'string',
-                        'Compressed': True|False,
-                        'NumberOfBuckets': 123,
-                        'SerdeInfo': {
-                            'Name': 'string',
-                            'SerializationLibrary': 'string',
-                            'Parameters': {
-                                'string': 'string'
+                        \'Location\': \'string\',
+                        \'InputFormat\': \'string\',
+                        \'OutputFormat\': \'string\',
+                        \'Compressed\': True|False,
+                        \'NumberOfBuckets\': 123,
+                        \'SerdeInfo\': {
+                            \'Name\': \'string\',
+                            \'SerializationLibrary\': \'string\',
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'BucketColumns': [
-                            'string',
+                        \'BucketColumns\': [
+                            \'string\',
                         ],
-                        'SortColumns': [
+                        \'SortColumns\': [
                             {
-                                'Column': 'string',
-                                'SortOrder': 123
+                                \'Column\': \'string\',
+                                \'SortOrder\': 123
                             },
                         ],
-                        'Parameters': {
-                            'string': 'string'
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'SkewedInfo': {
-                            'SkewedColumnNames': [
-                                'string',
+                        \'SkewedInfo\': {
+                            \'SkewedColumnNames\': [
+                                \'string\',
                             ],
-                            'SkewedColumnValues': [
-                                'string',
+                            \'SkewedColumnValues\': [
+                                \'string\',
                             ],
-                            'SkewedColumnValueLocationMaps': {
-                                'string': 'string'
+                            \'SkewedColumnValueLocationMaps\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'StoredAsSubDirectories': True|False
+                        \'StoredAsSubDirectories\': True|False
                     },
-                    'Parameters': {
-                        'string': 'string'
+                    \'Parameters\': {
+                        \'string\': \'string\'
                     },
-                    'LastAnalyzedTime': datetime(2015, 1, 1)
+                    \'LastAnalyzedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -6563,14 +6563,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_partitions(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
-              Expression='string',
-              NextToken='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
+              Expression=\'string\',
+              NextToken=\'string\',
               Segment={
-                  'SegmentNumber': 123,
-                  'TotalSegments': 123
+                  \'SegmentNumber\': 123,
+                  \'TotalSegments\': 123
               },
               MaxResults=123
           )
@@ -6587,7 +6587,7 @@ class Client(BaseClient):
         :type TableName: string
         :param TableName: **[REQUIRED]** 
         
-          The name of the partitions' table.
+          The name of the partitions\' table.
         
         :type Expression: string
         :param Expression: 
@@ -6602,7 +6602,7 @@ class Client(BaseClient):
         
           Checks if the values of the two operands are equal or not; if yes, then the condition becomes true.
         
-          Example: Assume 'variable a' holds 10 and 'variable b' holds 20. 
+          Example: Assume \'variable a\' holds 10 and \'variable b\' holds 20. 
         
           (a = b) is not true.
         
@@ -6674,7 +6674,7 @@ class Client(BaseClient):
         :type Segment: dict
         :param Segment: 
         
-          The segment of the table's partitions to scan in this request.
+          The segment of the table\'s partitions to scan in this request.
         
           - **SegmentNumber** *(integer) --* **[REQUIRED]** 
         
@@ -6697,67 +6697,67 @@ class Client(BaseClient):
           ::
         
             {
-                'Partitions': [
+                \'Partitions\': [
                     {
-                        'Values': [
-                            'string',
+                        \'Values\': [
+                            \'string\',
                         ],
-                        'DatabaseName': 'string',
-                        'TableName': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'StorageDescriptor': {
-                            'Columns': [
+                        \'DatabaseName\': \'string\',
+                        \'TableName\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'Parameters': {
-                            'string': 'string'
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'LastAnalyzedTime': datetime(2015, 1, 1)
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6945,48 +6945,48 @@ class Client(BaseClient):
           response = client.get_plan(
               Mapping=[
                   {
-                      'SourceTable': 'string',
-                      'SourcePath': 'string',
-                      'SourceType': 'string',
-                      'TargetTable': 'string',
-                      'TargetPath': 'string',
-                      'TargetType': 'string'
+                      \'SourceTable\': \'string\',
+                      \'SourcePath\': \'string\',
+                      \'SourceType\': \'string\',
+                      \'TargetTable\': \'string\',
+                      \'TargetPath\': \'string\',
+                      \'TargetType\': \'string\'
                   },
               ],
               Source={
-                  'DatabaseName': 'string',
-                  'TableName': 'string'
+                  \'DatabaseName\': \'string\',
+                  \'TableName\': \'string\'
               },
               Sinks=[
                   {
-                      'DatabaseName': 'string',
-                      'TableName': 'string'
+                      \'DatabaseName\': \'string\',
+                      \'TableName\': \'string\'
                   },
               ],
               Location={
-                  'Jdbc': [
+                  \'Jdbc\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ],
-                  'S3': [
+                  \'S3\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ],
-                  'DynamoDB': [
+                  \'DynamoDB\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string',
-                          'Param': True|False
+                          \'Name\': \'string\',
+                          \'Value\': \'string\',
+                          \'Param\': True|False
                       },
                   ]
               },
-              Language='PYTHON'|'SCALA'
+              Language=\'PYTHON\'|\'SCALA\'
           )
         :type Mapping: list
         :param Mapping: **[REQUIRED]** 
@@ -7129,8 +7129,8 @@ class Client(BaseClient):
           ::
         
             {
-                'PythonScript': 'string',
-                'ScalaCode': 'string'
+                \'PythonScript\': \'string\',
+                \'ScalaCode\': \'string\'
             }
           **Response Structure** 
         
@@ -7165,10 +7165,10 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyInJson': 'string',
-                'PolicyHash': 'string',
-                'CreateTime': datetime(2015, 1, 1),
-                'UpdateTime': datetime(2015, 1, 1)
+                \'PolicyInJson\': \'string\',
+                \'PolicyHash\': \'string\',
+                \'CreateTime\': datetime(2015, 1, 1),
+                \'UpdateTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -7202,7 +7202,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_security_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -7217,23 +7217,23 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityConfiguration': {
-                    'Name': 'string',
-                    'CreatedTimeStamp': datetime(2015, 1, 1),
-                    'EncryptionConfiguration': {
-                        'S3Encryption': [
+                \'SecurityConfiguration\': {
+                    \'Name\': \'string\',
+                    \'CreatedTimeStamp\': datetime(2015, 1, 1),
+                    \'EncryptionConfiguration\': {
+                        \'S3Encryption\': [
                             {
-                                'S3EncryptionMode': 'DISABLED'|'SSE-KMS'|'SSE-S3',
-                                'KmsKeyArn': 'string'
+                                \'S3EncryptionMode\': \'DISABLED\'|\'SSE-KMS\'|\'SSE-S3\',
+                                \'KmsKeyArn\': \'string\'
                             },
                         ],
-                        'CloudWatchEncryption': {
-                            'CloudWatchEncryptionMode': 'DISABLED'|'SSE-KMS',
-                            'KmsKeyArn': 'string'
+                        \'CloudWatchEncryption\': {
+                            \'CloudWatchEncryptionMode\': \'DISABLED\'|\'SSE-KMS\',
+                            \'KmsKeyArn\': \'string\'
                         },
-                        'JobBookmarksEncryption': {
-                            'JobBookmarksEncryptionMode': 'DISABLED'|'CSE-KMS',
-                            'KmsKeyArn': 'string'
+                        \'JobBookmarksEncryption\': {
+                            \'JobBookmarksEncryptionMode\': \'DISABLED\'|\'CSE-KMS\',
+                            \'KmsKeyArn\': \'string\'
                         }
                     }
                 }
@@ -7311,7 +7311,7 @@ class Client(BaseClient):
         
           response = client.get_security_configurations(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -7331,29 +7331,29 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityConfigurations': [
+                \'SecurityConfigurations\': [
                     {
-                        'Name': 'string',
-                        'CreatedTimeStamp': datetime(2015, 1, 1),
-                        'EncryptionConfiguration': {
-                            'S3Encryption': [
+                        \'Name\': \'string\',
+                        \'CreatedTimeStamp\': datetime(2015, 1, 1),
+                        \'EncryptionConfiguration\': {
+                            \'S3Encryption\': [
                                 {
-                                    'S3EncryptionMode': 'DISABLED'|'SSE-KMS'|'SSE-S3',
-                                    'KmsKeyArn': 'string'
+                                    \'S3EncryptionMode\': \'DISABLED\'|\'SSE-KMS\'|\'SSE-S3\',
+                                    \'KmsKeyArn\': \'string\'
                                 },
                             ],
-                            'CloudWatchEncryption': {
-                                'CloudWatchEncryptionMode': 'DISABLED'|'SSE-KMS',
-                                'KmsKeyArn': 'string'
+                            \'CloudWatchEncryption\': {
+                                \'CloudWatchEncryptionMode\': \'DISABLED\'|\'SSE-KMS\',
+                                \'KmsKeyArn\': \'string\'
                             },
-                            'JobBookmarksEncryption': {
-                                'JobBookmarksEncryptionMode': 'DISABLED'|'CSE-KMS',
-                                'KmsKeyArn': 'string'
+                            \'JobBookmarksEncryption\': {
+                                \'JobBookmarksEncryptionMode\': \'DISABLED\'|\'CSE-KMS\',
+                                \'KmsKeyArn\': \'string\'
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7435,9 +7435,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_table(
-              CatalogId='string',
-              DatabaseName='string',
-              Name='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Name=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -7462,75 +7462,75 @@ class Client(BaseClient):
           ::
         
             {
-                'Table': {
-                    'Name': 'string',
-                    'DatabaseName': 'string',
-                    'Description': 'string',
-                    'Owner': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'UpdateTime': datetime(2015, 1, 1),
-                    'LastAccessTime': datetime(2015, 1, 1),
-                    'LastAnalyzedTime': datetime(2015, 1, 1),
-                    'Retention': 123,
-                    'StorageDescriptor': {
-                        'Columns': [
+                \'Table\': {
+                    \'Name\': \'string\',
+                    \'DatabaseName\': \'string\',
+                    \'Description\': \'string\',
+                    \'Owner\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'UpdateTime\': datetime(2015, 1, 1),
+                    \'LastAccessTime\': datetime(2015, 1, 1),
+                    \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                    \'Retention\': 123,
+                    \'StorageDescriptor\': {
+                        \'Columns\': [
                             {
-                                'Name': 'string',
-                                'Type': 'string',
-                                'Comment': 'string'
+                                \'Name\': \'string\',
+                                \'Type\': \'string\',
+                                \'Comment\': \'string\'
                             },
                         ],
-                        'Location': 'string',
-                        'InputFormat': 'string',
-                        'OutputFormat': 'string',
-                        'Compressed': True|False,
-                        'NumberOfBuckets': 123,
-                        'SerdeInfo': {
-                            'Name': 'string',
-                            'SerializationLibrary': 'string',
-                            'Parameters': {
-                                'string': 'string'
+                        \'Location\': \'string\',
+                        \'InputFormat\': \'string\',
+                        \'OutputFormat\': \'string\',
+                        \'Compressed\': True|False,
+                        \'NumberOfBuckets\': 123,
+                        \'SerdeInfo\': {
+                            \'Name\': \'string\',
+                            \'SerializationLibrary\': \'string\',
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'BucketColumns': [
-                            'string',
+                        \'BucketColumns\': [
+                            \'string\',
                         ],
-                        'SortColumns': [
+                        \'SortColumns\': [
                             {
-                                'Column': 'string',
-                                'SortOrder': 123
+                                \'Column\': \'string\',
+                                \'SortOrder\': 123
                             },
                         ],
-                        'Parameters': {
-                            'string': 'string'
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'SkewedInfo': {
-                            'SkewedColumnNames': [
-                                'string',
+                        \'SkewedInfo\': {
+                            \'SkewedColumnNames\': [
+                                \'string\',
                             ],
-                            'SkewedColumnValues': [
-                                'string',
+                            \'SkewedColumnValues\': [
+                                \'string\',
                             ],
-                            'SkewedColumnValueLocationMaps': {
-                                'string': 'string'
+                            \'SkewedColumnValueLocationMaps\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'StoredAsSubDirectories': True|False
+                        \'StoredAsSubDirectories\': True|False
                     },
-                    'PartitionKeys': [
+                    \'PartitionKeys\': [
                         {
-                            'Name': 'string',
-                            'Type': 'string',
-                            'Comment': 'string'
+                            \'Name\': \'string\',
+                            \'Type\': \'string\',
+                            \'Comment\': \'string\'
                         },
                     ],
-                    'ViewOriginalText': 'string',
-                    'ViewExpandedText': 'string',
-                    'TableType': 'string',
-                    'Parameters': {
-                        'string': 'string'
+                    \'ViewOriginalText\': \'string\',
+                    \'ViewExpandedText\': \'string\',
+                    \'TableType\': \'string\',
+                    \'Parameters\': {
+                        \'string\': \'string\'
                     },
-                    'CreatedBy': 'string'
+                    \'CreatedBy\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7755,10 +7755,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_table_version(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
-              VersionId='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
+              VersionId=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -7788,78 +7788,78 @@ class Client(BaseClient):
           ::
         
             {
-                'TableVersion': {
-                    'Table': {
-                        'Name': 'string',
-                        'DatabaseName': 'string',
-                        'Description': 'string',
-                        'Owner': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'UpdateTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'LastAnalyzedTime': datetime(2015, 1, 1),
-                        'Retention': 123,
-                        'StorageDescriptor': {
-                            'Columns': [
+                \'TableVersion\': {
+                    \'Table\': {
+                        \'Name\': \'string\',
+                        \'DatabaseName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Owner\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'UpdateTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                        \'Retention\': 123,
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'PartitionKeys': [
+                        \'PartitionKeys\': [
                             {
-                                'Name': 'string',
-                                'Type': 'string',
-                                'Comment': 'string'
+                                \'Name\': \'string\',
+                                \'Type\': \'string\',
+                                \'Comment\': \'string\'
                             },
                         ],
-                        'ViewOriginalText': 'string',
-                        'ViewExpandedText': 'string',
-                        'TableType': 'string',
-                        'Parameters': {
-                            'string': 'string'
+                        \'ViewOriginalText\': \'string\',
+                        \'ViewExpandedText\': \'string\',
+                        \'TableType\': \'string\',
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'CreatedBy': 'string'
+                        \'CreatedBy\': \'string\'
                     },
-                    'VersionId': 'string'
+                    \'VersionId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8092,10 +8092,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_table_versions(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
-              NextToken='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CatalogId: string
@@ -8131,82 +8131,82 @@ class Client(BaseClient):
           ::
         
             {
-                'TableVersions': [
+                \'TableVersions\': [
                     {
-                        'Table': {
-                            'Name': 'string',
-                            'DatabaseName': 'string',
-                            'Description': 'string',
-                            'Owner': 'string',
-                            'CreateTime': datetime(2015, 1, 1),
-                            'UpdateTime': datetime(2015, 1, 1),
-                            'LastAccessTime': datetime(2015, 1, 1),
-                            'LastAnalyzedTime': datetime(2015, 1, 1),
-                            'Retention': 123,
-                            'StorageDescriptor': {
-                                'Columns': [
+                        \'Table\': {
+                            \'Name\': \'string\',
+                            \'DatabaseName\': \'string\',
+                            \'Description\': \'string\',
+                            \'Owner\': \'string\',
+                            \'CreateTime\': datetime(2015, 1, 1),
+                            \'UpdateTime\': datetime(2015, 1, 1),
+                            \'LastAccessTime\': datetime(2015, 1, 1),
+                            \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                            \'Retention\': 123,
+                            \'StorageDescriptor\': {
+                                \'Columns\': [
                                     {
-                                        'Name': 'string',
-                                        'Type': 'string',
-                                        'Comment': 'string'
+                                        \'Name\': \'string\',
+                                        \'Type\': \'string\',
+                                        \'Comment\': \'string\'
                                     },
                                 ],
-                                'Location': 'string',
-                                'InputFormat': 'string',
-                                'OutputFormat': 'string',
-                                'Compressed': True|False,
-                                'NumberOfBuckets': 123,
-                                'SerdeInfo': {
-                                    'Name': 'string',
-                                    'SerializationLibrary': 'string',
-                                    'Parameters': {
-                                        'string': 'string'
+                                \'Location\': \'string\',
+                                \'InputFormat\': \'string\',
+                                \'OutputFormat\': \'string\',
+                                \'Compressed\': True|False,
+                                \'NumberOfBuckets\': 123,
+                                \'SerdeInfo\': {
+                                    \'Name\': \'string\',
+                                    \'SerializationLibrary\': \'string\',
+                                    \'Parameters\': {
+                                        \'string\': \'string\'
                                     }
                                 },
-                                'BucketColumns': [
-                                    'string',
+                                \'BucketColumns\': [
+                                    \'string\',
                                 ],
-                                'SortColumns': [
+                                \'SortColumns\': [
                                     {
-                                        'Column': 'string',
-                                        'SortOrder': 123
+                                        \'Column\': \'string\',
+                                        \'SortOrder\': 123
                                     },
                                 ],
-                                'Parameters': {
-                                    'string': 'string'
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 },
-                                'SkewedInfo': {
-                                    'SkewedColumnNames': [
-                                        'string',
+                                \'SkewedInfo\': {
+                                    \'SkewedColumnNames\': [
+                                        \'string\',
                                     ],
-                                    'SkewedColumnValues': [
-                                        'string',
+                                    \'SkewedColumnValues\': [
+                                        \'string\',
                                     ],
-                                    'SkewedColumnValueLocationMaps': {
-                                        'string': 'string'
+                                    \'SkewedColumnValueLocationMaps\': {
+                                        \'string\': \'string\'
                                     }
                                 },
-                                'StoredAsSubDirectories': True|False
+                                \'StoredAsSubDirectories\': True|False
                             },
-                            'PartitionKeys': [
+                            \'PartitionKeys\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'ViewOriginalText': 'string',
-                            'ViewExpandedText': 'string',
-                            'TableType': 'string',
-                            'Parameters': {
-                                'string': 'string'
+                            \'ViewOriginalText\': \'string\',
+                            \'ViewExpandedText\': \'string\',
+                            \'TableType\': \'string\',
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'CreatedBy': 'string'
+                            \'CreatedBy\': \'string\'
                         },
-                        'VersionId': 'string'
+                        \'VersionId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8446,10 +8446,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_tables(
-              CatalogId='string',
-              DatabaseName='string',
-              Expression='string',
-              NextToken='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Expression=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CatalogId: string
@@ -8485,79 +8485,79 @@ class Client(BaseClient):
           ::
         
             {
-                'TableList': [
+                \'TableList\': [
                     {
-                        'Name': 'string',
-                        'DatabaseName': 'string',
-                        'Description': 'string',
-                        'Owner': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'UpdateTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'LastAnalyzedTime': datetime(2015, 1, 1),
-                        'Retention': 123,
-                        'StorageDescriptor': {
-                            'Columns': [
+                        \'Name\': \'string\',
+                        \'DatabaseName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Owner\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'UpdateTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                        \'Retention\': 123,
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'PartitionKeys': [
+                        \'PartitionKeys\': [
                             {
-                                'Name': 'string',
-                                'Type': 'string',
-                                'Comment': 'string'
+                                \'Name\': \'string\',
+                                \'Type\': \'string\',
+                                \'Comment\': \'string\'
                             },
                         ],
-                        'ViewOriginalText': 'string',
-                        'ViewExpandedText': 'string',
-                        'TableType': 'string',
-                        'Parameters': {
-                            'string': 'string'
+                        \'ViewOriginalText\': \'string\',
+                        \'ViewExpandedText\': \'string\',
+                        \'TableType\': \'string\',
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'CreatedBy': 'string'
+                        \'CreatedBy\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8789,7 +8789,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_trigger(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -8804,33 +8804,33 @@ class Client(BaseClient):
           ::
         
             {
-                'Trigger': {
-                    'Name': 'string',
-                    'Id': 'string',
-                    'Type': 'SCHEDULED'|'CONDITIONAL'|'ON_DEMAND',
-                    'State': 'CREATING'|'CREATED'|'ACTIVATING'|'ACTIVATED'|'DEACTIVATING'|'DEACTIVATED'|'DELETING'|'UPDATING',
-                    'Description': 'string',
-                    'Schedule': 'string',
-                    'Actions': [
+                \'Trigger\': {
+                    \'Name\': \'string\',
+                    \'Id\': \'string\',
+                    \'Type\': \'SCHEDULED\'|\'CONDITIONAL\'|\'ON_DEMAND\',
+                    \'State\': \'CREATING\'|\'CREATED\'|\'ACTIVATING\'|\'ACTIVATED\'|\'DEACTIVATING\'|\'DEACTIVATED\'|\'DELETING\'|\'UPDATING\',
+                    \'Description\': \'string\',
+                    \'Schedule\': \'string\',
+                    \'Actions\': [
                         {
-                            'JobName': 'string',
-                            'Arguments': {
-                                'string': 'string'
+                            \'JobName\': \'string\',
+                            \'Arguments\': {
+                                \'string\': \'string\'
                             },
-                            'Timeout': 123,
-                            'NotificationProperty': {
-                                'NotifyDelayAfter': 123
+                            \'Timeout\': 123,
+                            \'NotificationProperty\': {
+                                \'NotifyDelayAfter\': 123
                             },
-                            'SecurityConfiguration': 'string'
+                            \'SecurityConfiguration\': \'string\'
                         },
                     ],
-                    'Predicate': {
-                        'Logical': 'AND'|'ANY',
-                        'Conditions': [
+                    \'Predicate\': {
+                        \'Logical\': \'AND\'|\'ANY\',
+                        \'Conditions\': [
                             {
-                                'LogicalOperator': 'EQUALS',
-                                'JobName': 'string',
-                                'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                                \'LogicalOperator\': \'EQUALS\',
+                                \'JobName\': \'string\',
+                                \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                             },
                         ]
                     }
@@ -8950,8 +8950,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_triggers(
-              NextToken='string',
-              DependentJobName='string',
+              NextToken=\'string\',
+              DependentJobName=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -8977,40 +8977,40 @@ class Client(BaseClient):
           ::
         
             {
-                'Triggers': [
+                \'Triggers\': [
                     {
-                        'Name': 'string',
-                        'Id': 'string',
-                        'Type': 'SCHEDULED'|'CONDITIONAL'|'ON_DEMAND',
-                        'State': 'CREATING'|'CREATED'|'ACTIVATING'|'ACTIVATED'|'DEACTIVATING'|'DEACTIVATED'|'DELETING'|'UPDATING',
-                        'Description': 'string',
-                        'Schedule': 'string',
-                        'Actions': [
+                        \'Name\': \'string\',
+                        \'Id\': \'string\',
+                        \'Type\': \'SCHEDULED\'|\'CONDITIONAL\'|\'ON_DEMAND\',
+                        \'State\': \'CREATING\'|\'CREATED\'|\'ACTIVATING\'|\'ACTIVATED\'|\'DEACTIVATING\'|\'DEACTIVATED\'|\'DELETING\'|\'UPDATING\',
+                        \'Description\': \'string\',
+                        \'Schedule\': \'string\',
+                        \'Actions\': [
                             {
-                                'JobName': 'string',
-                                'Arguments': {
-                                    'string': 'string'
+                                \'JobName\': \'string\',
+                                \'Arguments\': {
+                                    \'string\': \'string\'
                                 },
-                                'Timeout': 123,
-                                'NotificationProperty': {
-                                    'NotifyDelayAfter': 123
+                                \'Timeout\': 123,
+                                \'NotificationProperty\': {
+                                    \'NotifyDelayAfter\': 123
                                 },
-                                'SecurityConfiguration': 'string'
+                                \'SecurityConfiguration\': \'string\'
                             },
                         ],
-                        'Predicate': {
-                            'Logical': 'AND'|'ANY',
-                            'Conditions': [
+                        \'Predicate\': {
+                            \'Logical\': \'AND\'|\'ANY\',
+                            \'Conditions\': [
                                 {
-                                    'LogicalOperator': 'EQUALS',
-                                    'JobName': 'string',
-                                    'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                                    \'LogicalOperator\': \'EQUALS\',
+                                    \'JobName\': \'string\',
+                                    \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                                 },
                             ]
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9134,9 +9134,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_defined_function(
-              CatalogId='string',
-              DatabaseName='string',
-              FunctionName='string'
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              FunctionName=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -9161,16 +9161,16 @@ class Client(BaseClient):
           ::
         
             {
-                'UserDefinedFunction': {
-                    'FunctionName': 'string',
-                    'ClassName': 'string',
-                    'OwnerName': 'string',
-                    'OwnerType': 'USER'|'ROLE'|'GROUP',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'ResourceUris': [
+                \'UserDefinedFunction\': {
+                    \'FunctionName\': \'string\',
+                    \'ClassName\': \'string\',
+                    \'OwnerName\': \'string\',
+                    \'OwnerType\': \'USER\'|\'ROLE\'|\'GROUP\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'ResourceUris\': [
                         {
-                            'ResourceType': 'JAR'|'FILE'|'ARCHIVE',
-                            'Uri': 'string'
+                            \'ResourceType\': \'JAR\'|\'FILE\'|\'ARCHIVE\',
+                            \'Uri\': \'string\'
                         },
                     ]
                 }
@@ -9231,10 +9231,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_user_defined_functions(
-              CatalogId='string',
-              DatabaseName='string',
-              Pattern='string',
-              NextToken='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Pattern=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CatalogId: string
@@ -9270,22 +9270,22 @@ class Client(BaseClient):
           ::
         
             {
-                'UserDefinedFunctions': [
+                \'UserDefinedFunctions\': [
                     {
-                        'FunctionName': 'string',
-                        'ClassName': 'string',
-                        'OwnerName': 'string',
-                        'OwnerType': 'USER'|'ROLE'|'GROUP',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'ResourceUris': [
+                        \'FunctionName\': \'string\',
+                        \'ClassName\': \'string\',
+                        \'OwnerName\': \'string\',
+                        \'OwnerType\': \'USER\'|\'ROLE\'|\'GROUP\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'ResourceUris\': [
                             {
-                                'ResourceType': 'JAR'|'FILE'|'ARCHIVE',
-                                'Uri': 'string'
+                                \'ResourceType\': \'JAR\'|\'FILE\'|\'ARCHIVE\',
+                                \'Uri\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9363,7 +9363,7 @@ class Client(BaseClient):
         ::
         
           response = client.import_catalog_to_glue(
-              CatalogId='string'
+              CatalogId=\'string\'
           )
         :type CatalogId: string
         :param CatalogId: 
@@ -9393,11 +9393,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_data_catalog_encryption_settings(
-              CatalogId='string',
+              CatalogId=\'string\',
               DataCatalogEncryptionSettings={
-                  'EncryptionAtRest': {
-                      'CatalogEncryptionMode': 'DISABLED'|'SSE-KMS',
-                      'SseAwsKmsKeyId': 'string'
+                  \'EncryptionAtRest\': {
+                      \'CatalogEncryptionMode\': \'DISABLED\'|\'SSE-KMS\',
+                      \'SseAwsKmsKeyId\': \'string\'
                   }
               }
           )
@@ -9446,9 +9446,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_resource_policy(
-              PolicyInJson='string',
-              PolicyHashCondition='string',
-              PolicyExistsCondition='MUST_EXIST'|'NOT_EXIST'|'NONE'
+              PolicyInJson=\'string\',
+              PolicyHashCondition=\'string\',
+              PolicyExistsCondition=\'MUST_EXIST\'|\'NOT_EXIST\'|\'NONE\'
           )
         :type PolicyInJson: string
         :param PolicyInJson: **[REQUIRED]** 
@@ -9473,7 +9473,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyHash': 'string'
+                \'PolicyHash\': \'string\'
             }
           **Response Structure** 
         
@@ -9495,7 +9495,7 @@ class Client(BaseClient):
         ::
         
           response = client.reset_job_bookmark(
-              JobName='string'
+              JobName=\'string\'
           )
         :type JobName: string
         :param JobName: **[REQUIRED]** 
@@ -9510,12 +9510,12 @@ class Client(BaseClient):
           ::
         
             {
-                'JobBookmarkEntry': {
-                    'JobName': 'string',
-                    'Version': 123,
-                    'Run': 123,
-                    'Attempt': 123,
-                    'JobBookmark': 'string'
+                \'JobBookmarkEntry\': {
+                    \'JobName\': \'string\',
+                    \'Version\': 123,
+                    \'Run\': 123,
+                    \'Attempt\': 123,
+                    \'JobBookmark\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9558,7 +9558,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_crawler(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9588,7 +9588,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_crawler_schedule(
-              CrawlerName='string'
+              CrawlerName=\'string\'
           )
         :type CrawlerName: string
         :param CrawlerName: **[REQUIRED]** 
@@ -9618,17 +9618,17 @@ class Client(BaseClient):
         ::
         
           response = client.start_job_run(
-              JobName='string',
-              JobRunId='string',
+              JobName=\'string\',
+              JobRunId=\'string\',
               Arguments={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AllocatedCapacity=123,
               Timeout=123,
               NotificationProperty={
-                  'NotifyDelayAfter': 123
+                  \'NotifyDelayAfter\': 123
               },
-              SecurityConfiguration='string'
+              SecurityConfiguration=\'string\'
           )
         :type JobName: string
         :param JobName: **[REQUIRED]** 
@@ -9687,7 +9687,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobRunId': 'string'
+                \'JobRunId\': \'string\'
             }
           **Response Structure** 
         
@@ -9709,7 +9709,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_trigger(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9724,7 +9724,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -9746,7 +9746,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_crawler(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9776,7 +9776,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_crawler_schedule(
-              CrawlerName='string'
+              CrawlerName=\'string\'
           )
         :type CrawlerName: string
         :param CrawlerName: **[REQUIRED]** 
@@ -9806,7 +9806,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_trigger(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9821,7 +9821,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -9844,19 +9844,19 @@ class Client(BaseClient):
         
           response = client.update_classifier(
               GrokClassifier={
-                  'Name': 'string',
-                  'Classification': 'string',
-                  'GrokPattern': 'string',
-                  'CustomPatterns': 'string'
+                  \'Name\': \'string\',
+                  \'Classification\': \'string\',
+                  \'GrokPattern\': \'string\',
+                  \'CustomPatterns\': \'string\'
               },
               XMLClassifier={
-                  'Name': 'string',
-                  'Classification': 'string',
-                  'RowTag': 'string'
+                  \'Name\': \'string\',
+                  \'Classification\': \'string\',
+                  \'RowTag\': \'string\'
               },
               JsonClassifier={
-                  'Name': 'string',
-                  'JsonPath': 'string'
+                  \'Name\': \'string\',
+                  \'JsonPath\': \'string\'
               }
           )
         :type GrokClassifier: dict
@@ -9895,7 +9895,7 @@ class Client(BaseClient):
         
           - **RowTag** *(string) --* 
         
-            The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a="A" item_b="B"></row>`` is okay, but ``<row item_a="A" item_b="B" />`` is not).
+            The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a=\"A\" item_b=\"B\"></row>`` is okay, but ``<row item_a=\"A\" item_b=\"B\" />`` is not).
         
         :type JsonClassifier: dict
         :param JsonClassifier: 
@@ -9933,24 +9933,24 @@ class Client(BaseClient):
         ::
         
           response = client.update_connection(
-              CatalogId='string',
-              Name='string',
+              CatalogId=\'string\',
+              Name=\'string\',
               ConnectionInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'ConnectionType': 'JDBC'|'SFTP',
-                  'MatchCriteria': [
-                      'string',
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'ConnectionType\': \'JDBC\'|\'SFTP\',
+                  \'MatchCriteria\': [
+                      \'string\',
                   ],
-                  'ConnectionProperties': {
-                      'string': 'string'
+                  \'ConnectionProperties\': {
+                      \'string\': \'string\'
                   },
-                  'PhysicalConnectionRequirements': {
-                      'SubnetId': 'string',
-                      'SecurityGroupIdList': [
-                          'string',
+                  \'PhysicalConnectionRequirements\': {
+                      \'SubnetId\': \'string\',
+                      \'SecurityGroupIdList\': [
+                          \'string\',
                       ],
-                      'AvailabilityZone': 'string'
+                      \'AvailabilityZone\': \'string\'
                   }
               }
           )
@@ -10011,7 +10011,7 @@ class Client(BaseClient):
         
             - **AvailabilityZone** *(string) --* 
         
-              The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
+              The connection\'s availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
         
         :rtype: dict
         :returns: 
@@ -10036,45 +10036,45 @@ class Client(BaseClient):
         ::
         
           response = client.update_crawler(
-              Name='string',
-              Role='string',
-              DatabaseName='string',
-              Description='string',
+              Name=\'string\',
+              Role=\'string\',
+              DatabaseName=\'string\',
+              Description=\'string\',
               Targets={
-                  'S3Targets': [
+                  \'S3Targets\': [
                       {
-                          'Path': 'string',
-                          'Exclusions': [
-                              'string',
+                          \'Path\': \'string\',
+                          \'Exclusions\': [
+                              \'string\',
                           ]
                       },
                   ],
-                  'JdbcTargets': [
+                  \'JdbcTargets\': [
                       {
-                          'ConnectionName': 'string',
-                          'Path': 'string',
-                          'Exclusions': [
-                              'string',
+                          \'ConnectionName\': \'string\',
+                          \'Path\': \'string\',
+                          \'Exclusions\': [
+                              \'string\',
                           ]
                       },
                   ],
-                  'DynamoDBTargets': [
+                  \'DynamoDBTargets\': [
                       {
-                          'Path': 'string'
+                          \'Path\': \'string\'
                       },
                   ]
               },
-              Schedule='string',
+              Schedule=\'string\',
               Classifiers=[
-                  'string',
+                  \'string\',
               ],
-              TablePrefix='string',
+              TablePrefix=\'string\',
               SchemaChangePolicy={
-                  'UpdateBehavior': 'LOG'|'UPDATE_IN_DATABASE',
-                  'DeleteBehavior': 'LOG'|'DELETE_FROM_DATABASE'|'DEPRECATE_IN_DATABASE'
+                  \'UpdateBehavior\': \'LOG\'|\'UPDATE_IN_DATABASE\',
+                  \'DeleteBehavior\': \'LOG\'|\'DELETE_FROM_DATABASE\'|\'DEPRECATE_IN_DATABASE\'
               },
-              Configuration='string',
-              CrawlerSecurityConfiguration='string'
+              Configuration=\'string\',
+              CrawlerSecurityConfiguration=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -10173,7 +10173,7 @@ class Client(BaseClient):
         :type SchemaChangePolicy: dict
         :param SchemaChangePolicy: 
         
-          Policy for the crawler's update and deletion behavior.
+          Policy for the crawler\'s update and deletion behavior.
         
           - **UpdateBehavior** *(string) --* 
         
@@ -10186,7 +10186,7 @@ class Client(BaseClient):
         :type Configuration: string
         :param Configuration: 
         
-          Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
+          Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler\'s behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
         
         :type CrawlerSecurityConfiguration: string
         :param CrawlerSecurityConfiguration: 
@@ -10216,8 +10216,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_crawler_schedule(
-              CrawlerName='string',
-              Schedule='string'
+              CrawlerName=\'string\',
+              Schedule=\'string\'
           )
         :type CrawlerName: string
         :param CrawlerName: **[REQUIRED]** 
@@ -10252,14 +10252,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_database(
-              CatalogId='string',
-              Name='string',
+              CatalogId=\'string\',
+              Name=\'string\',
               DatabaseInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'LocationUri': 'string',
-                  'Parameters': {
-                      'string': 'string'
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'LocationUri\': \'string\',
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -10321,17 +10321,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_dev_endpoint(
-              EndpointName='string',
-              PublicKey='string',
+              EndpointName=\'string\',
+              PublicKey=\'string\',
               AddPublicKeys=[
-                  'string',
+                  \'string\',
               ],
               DeletePublicKeys=[
-                  'string',
+                  \'string\',
               ],
               CustomLibraries={
-                  'ExtraPythonLibsS3Path': 'string',
-                  'ExtraJarsS3Path': 'string'
+                  \'ExtraPythonLibsS3Path\': \'string\',
+                  \'ExtraJarsS3Path\': \'string\'
               },
               UpdateEtlLibraries=True|False
           )
@@ -10404,33 +10404,33 @@ class Client(BaseClient):
         ::
         
           response = client.update_job(
-              JobName='string',
+              JobName=\'string\',
               JobUpdate={
-                  'Description': 'string',
-                  'LogUri': 'string',
-                  'Role': 'string',
-                  'ExecutionProperty': {
-                      'MaxConcurrentRuns': 123
+                  \'Description\': \'string\',
+                  \'LogUri\': \'string\',
+                  \'Role\': \'string\',
+                  \'ExecutionProperty\': {
+                      \'MaxConcurrentRuns\': 123
                   },
-                  'Command': {
-                      'Name': 'string',
-                      'ScriptLocation': 'string'
+                  \'Command\': {
+                      \'Name\': \'string\',
+                      \'ScriptLocation\': \'string\'
                   },
-                  'DefaultArguments': {
-                      'string': 'string'
+                  \'DefaultArguments\': {
+                      \'string\': \'string\'
                   },
-                  'Connections': {
-                      'Connections': [
-                          'string',
+                  \'Connections\': {
+                      \'Connections\': [
+                          \'string\',
                       ]
                   },
-                  'MaxRetries': 123,
-                  'AllocatedCapacity': 123,
-                  'Timeout': 123,
-                  'NotificationProperty': {
-                      'NotifyDelayAfter': 123
+                  \'MaxRetries\': 123,
+                  \'AllocatedCapacity\': 123,
+                  \'Timeout\': 123,
+                  \'NotificationProperty\': {
+                      \'NotifyDelayAfter\': 123
                   },
-                  'SecurityConfiguration': 'string'
+                  \'SecurityConfiguration\': \'string\'
               }
           )
         :type JobName: string
@@ -10531,7 +10531,7 @@ class Client(BaseClient):
           ::
         
             {
-                'JobName': 'string'
+                \'JobName\': \'string\'
             }
           **Response Structure** 
         
@@ -10553,66 +10553,66 @@ class Client(BaseClient):
         ::
         
           response = client.update_partition(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PartitionValueList=[
-                  'string',
+                  \'string\',
               ],
               PartitionInput={
-                  'Values': [
-                      'string',
+                  \'Values\': [
+                      \'string\',
                   ],
-                  'LastAccessTime': datetime(2015, 1, 1),
-                  'StorageDescriptor': {
-                      'Columns': [
+                  \'LastAccessTime\': datetime(2015, 1, 1),
+                  \'StorageDescriptor\': {
+                      \'Columns\': [
                           {
-                              'Name': 'string',
-                              'Type': 'string',
-                              'Comment': 'string'
+                              \'Name\': \'string\',
+                              \'Type\': \'string\',
+                              \'Comment\': \'string\'
                           },
                       ],
-                      'Location': 'string',
-                      'InputFormat': 'string',
-                      'OutputFormat': 'string',
-                      'Compressed': True|False,
-                      'NumberOfBuckets': 123,
-                      'SerdeInfo': {
-                          'Name': 'string',
-                          'SerializationLibrary': 'string',
-                          'Parameters': {
-                              'string': 'string'
+                      \'Location\': \'string\',
+                      \'InputFormat\': \'string\',
+                      \'OutputFormat\': \'string\',
+                      \'Compressed\': True|False,
+                      \'NumberOfBuckets\': 123,
+                      \'SerdeInfo\': {
+                          \'Name\': \'string\',
+                          \'SerializationLibrary\': \'string\',
+                          \'Parameters\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'BucketColumns': [
-                          'string',
+                      \'BucketColumns\': [
+                          \'string\',
                       ],
-                      'SortColumns': [
+                      \'SortColumns\': [
                           {
-                              'Column': 'string',
-                              'SortOrder': 123
+                              \'Column\': \'string\',
+                              \'SortOrder\': 123
                           },
                       ],
-                      'Parameters': {
-                          'string': 'string'
+                      \'Parameters\': {
+                          \'string\': \'string\'
                       },
-                      'SkewedInfo': {
-                          'SkewedColumnNames': [
-                              'string',
+                      \'SkewedInfo\': {
+                          \'SkewedColumnNames\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValues': [
-                              'string',
+                          \'SkewedColumnValues\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValueLocationMaps': {
-                              'string': 'string'
+                          \'SkewedColumnValueLocationMaps\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'StoredAsSubDirectories': True|False
+                      \'StoredAsSubDirectories\': True|False
                   },
-                  'Parameters': {
-                      'string': 'string'
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   },
-                  'LastAnalyzedTime': datetime(2015, 1, 1)
+                  \'LastAnalyzedTime\': datetime(2015, 1, 1)
               }
           )
         :type CatalogId: string
@@ -10809,72 +10809,72 @@ class Client(BaseClient):
         ::
         
           response = client.update_table(
-              CatalogId='string',
-              DatabaseName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
               TableInput={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'Owner': 'string',
-                  'LastAccessTime': datetime(2015, 1, 1),
-                  'LastAnalyzedTime': datetime(2015, 1, 1),
-                  'Retention': 123,
-                  'StorageDescriptor': {
-                      'Columns': [
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'Owner\': \'string\',
+                  \'LastAccessTime\': datetime(2015, 1, 1),
+                  \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                  \'Retention\': 123,
+                  \'StorageDescriptor\': {
+                      \'Columns\': [
                           {
-                              'Name': 'string',
-                              'Type': 'string',
-                              'Comment': 'string'
+                              \'Name\': \'string\',
+                              \'Type\': \'string\',
+                              \'Comment\': \'string\'
                           },
                       ],
-                      'Location': 'string',
-                      'InputFormat': 'string',
-                      'OutputFormat': 'string',
-                      'Compressed': True|False,
-                      'NumberOfBuckets': 123,
-                      'SerdeInfo': {
-                          'Name': 'string',
-                          'SerializationLibrary': 'string',
-                          'Parameters': {
-                              'string': 'string'
+                      \'Location\': \'string\',
+                      \'InputFormat\': \'string\',
+                      \'OutputFormat\': \'string\',
+                      \'Compressed\': True|False,
+                      \'NumberOfBuckets\': 123,
+                      \'SerdeInfo\': {
+                          \'Name\': \'string\',
+                          \'SerializationLibrary\': \'string\',
+                          \'Parameters\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'BucketColumns': [
-                          'string',
+                      \'BucketColumns\': [
+                          \'string\',
                       ],
-                      'SortColumns': [
+                      \'SortColumns\': [
                           {
-                              'Column': 'string',
-                              'SortOrder': 123
+                              \'Column\': \'string\',
+                              \'SortOrder\': 123
                           },
                       ],
-                      'Parameters': {
-                          'string': 'string'
+                      \'Parameters\': {
+                          \'string\': \'string\'
                       },
-                      'SkewedInfo': {
-                          'SkewedColumnNames': [
-                              'string',
+                      \'SkewedInfo\': {
+                          \'SkewedColumnNames\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValues': [
-                              'string',
+                          \'SkewedColumnValues\': [
+                              \'string\',
                           ],
-                          'SkewedColumnValueLocationMaps': {
-                              'string': 'string'
+                          \'SkewedColumnValueLocationMaps\': {
+                              \'string\': \'string\'
                           }
                       },
-                      'StoredAsSubDirectories': True|False
+                      \'StoredAsSubDirectories\': True|False
                   },
-                  'PartitionKeys': [
+                  \'PartitionKeys\': [
                       {
-                          'Name': 'string',
-                          'Type': 'string',
-                          'Comment': 'string'
+                          \'Name\': \'string\',
+                          \'Type\': \'string\',
+                          \'Comment\': \'string\'
                       },
                   ],
-                  'ViewOriginalText': 'string',
-                  'ViewExpandedText': 'string',
-                  'TableType': 'string',
-                  'Parameters': {
-                      'string': 'string'
+                  \'ViewOriginalText\': \'string\',
+                  \'ViewExpandedText\': \'string\',
+                  \'TableType\': \'string\',
+                  \'Parameters\': {
+                      \'string\': \'string\'
                   }
               },
               SkipArchive=True|False
@@ -11108,31 +11108,31 @@ class Client(BaseClient):
         ::
         
           response = client.update_trigger(
-              Name='string',
+              Name=\'string\',
               TriggerUpdate={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'Schedule': 'string',
-                  'Actions': [
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'Schedule\': \'string\',
+                  \'Actions\': [
                       {
-                          'JobName': 'string',
-                          'Arguments': {
-                              'string': 'string'
+                          \'JobName\': \'string\',
+                          \'Arguments\': {
+                              \'string\': \'string\'
                           },
-                          'Timeout': 123,
-                          'NotificationProperty': {
-                              'NotifyDelayAfter': 123
+                          \'Timeout\': 123,
+                          \'NotificationProperty\': {
+                              \'NotifyDelayAfter\': 123
                           },
-                          'SecurityConfiguration': 'string'
+                          \'SecurityConfiguration\': \'string\'
                       },
                   ],
-                  'Predicate': {
-                      'Logical': 'AND'|'ANY',
-                      'Conditions': [
+                  \'Predicate\': {
+                      \'Logical\': \'AND\'|\'ANY\',
+                      \'Conditions\': [
                           {
-                              'LogicalOperator': 'EQUALS',
-                              'JobName': 'string',
-                              'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                              \'LogicalOperator\': \'EQUALS\',
+                              \'JobName\': \'string\',
+                              \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                           },
                       ]
                   }
@@ -11238,33 +11238,33 @@ class Client(BaseClient):
           ::
         
             {
-                'Trigger': {
-                    'Name': 'string',
-                    'Id': 'string',
-                    'Type': 'SCHEDULED'|'CONDITIONAL'|'ON_DEMAND',
-                    'State': 'CREATING'|'CREATED'|'ACTIVATING'|'ACTIVATED'|'DEACTIVATING'|'DEACTIVATED'|'DELETING'|'UPDATING',
-                    'Description': 'string',
-                    'Schedule': 'string',
-                    'Actions': [
+                \'Trigger\': {
+                    \'Name\': \'string\',
+                    \'Id\': \'string\',
+                    \'Type\': \'SCHEDULED\'|\'CONDITIONAL\'|\'ON_DEMAND\',
+                    \'State\': \'CREATING\'|\'CREATED\'|\'ACTIVATING\'|\'ACTIVATED\'|\'DEACTIVATING\'|\'DEACTIVATED\'|\'DELETING\'|\'UPDATING\',
+                    \'Description\': \'string\',
+                    \'Schedule\': \'string\',
+                    \'Actions\': [
                         {
-                            'JobName': 'string',
-                            'Arguments': {
-                                'string': 'string'
+                            \'JobName\': \'string\',
+                            \'Arguments\': {
+                                \'string\': \'string\'
                             },
-                            'Timeout': 123,
-                            'NotificationProperty': {
-                                'NotifyDelayAfter': 123
+                            \'Timeout\': 123,
+                            \'NotificationProperty\': {
+                                \'NotifyDelayAfter\': 123
                             },
-                            'SecurityConfiguration': 'string'
+                            \'SecurityConfiguration\': \'string\'
                         },
                     ],
-                    'Predicate': {
-                        'Logical': 'AND'|'ANY',
-                        'Conditions': [
+                    \'Predicate\': {
+                        \'Logical\': \'AND\'|\'ANY\',
+                        \'Conditions\': [
                             {
-                                'LogicalOperator': 'EQUALS',
-                                'JobName': 'string',
-                                'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                                \'LogicalOperator\': \'EQUALS\',
+                                \'JobName\': \'string\',
+                                \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                             },
                         ]
                     }
@@ -11384,18 +11384,18 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_defined_function(
-              CatalogId='string',
-              DatabaseName='string',
-              FunctionName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              FunctionName=\'string\',
               FunctionInput={
-                  'FunctionName': 'string',
-                  'ClassName': 'string',
-                  'OwnerName': 'string',
-                  'OwnerType': 'USER'|'ROLE'|'GROUP',
-                  'ResourceUris': [
+                  \'FunctionName\': \'string\',
+                  \'ClassName\': \'string\',
+                  \'OwnerName\': \'string\',
+                  \'OwnerType\': \'USER\'|\'ROLE\'|\'GROUP\',
+                  \'ResourceUris\': [
                       {
-                          'ResourceType': 'JAR'|'FILE'|'ARCHIVE',
-                          'Uri': 'string'
+                          \'ResourceType\': \'JAR\'|\'FILE\'|\'ARCHIVE\',
+                          \'Uri\': \'string\'
                       },
                   ]
               }

@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -19,9 +19,9 @@ class Client(BaseClient):
         ::
         
           response = client.associate_configuration_items_to_application(
-              applicationConfigurationId='string',
+              applicationConfigurationId=\'string\',
               configurationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type applicationConfigurationId: string
@@ -56,10 +56,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -75,8 +75,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_application(
-              name='string',
-              description='string'
+              name=\'string\',
+              description=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -96,7 +96,7 @@ class Client(BaseClient):
           ::
         
             {
-                'configurationId': 'string'
+                \'configurationId\': \'string\'
             }
           **Response Structure** 
         
@@ -119,12 +119,12 @@ class Client(BaseClient):
         
           response = client.create_tags(
               configurationIds=[
-                  'string',
+                  \'string\',
               ],
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -140,7 +140,7 @@ class Client(BaseClient):
         
           Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a *key* -*value* format. For example:
         
-           ``{"key": "serverType", "value": "webServer"}``  
+           ``{\"key\": \"serverType\", \"value\": \"webServer\"}``  
         
           - *(dict) --* 
         
@@ -178,7 +178,7 @@ class Client(BaseClient):
         
           response = client.delete_applications(
               configurationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type configurationIds: list
@@ -212,12 +212,12 @@ class Client(BaseClient):
         
           response = client.delete_tags(
               configurationIds=[
-                  'string',
+                  \'string\',
               ],
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -233,7 +233,7 @@ class Client(BaseClient):
         
           Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a *key* -*value* format. For example:
         
-           ``{"key": "serverType", "value": "webServer"}``  
+           ``{\"key\": \"serverType\", \"value\": \"webServer\"}``  
         
           - *(dict) --* 
         
@@ -271,19 +271,19 @@ class Client(BaseClient):
         
           response = client.describe_agents(
               agentIds=[
-                  'string',
+                  \'string\',
               ],
               filters=[
                   {
-                      'name': 'string',
-                      'values': [
-                          'string',
+                      \'name\': \'string\',
+                      \'values\': [
+                          \'string\',
                       ],
-                      'condition': 'string'
+                      \'condition\': \'string\'
                   },
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type agentIds: list
         :param agentIds: 
@@ -297,7 +297,7 @@ class Client(BaseClient):
         
           You can filter the request using various logical operators and a *key* -*value* format. For example: 
         
-           ``{"key": "collectionStatus", "value": "STARTED"}``  
+           ``{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}``  
         
           - *(dict) --* 
         
@@ -337,26 +337,26 @@ class Client(BaseClient):
           ::
         
             {
-                'agentsInfo': [
+                \'agentsInfo\': [
                     {
-                        'agentId': 'string',
-                        'hostName': 'string',
-                        'agentNetworkInfoList': [
+                        \'agentId\': \'string\',
+                        \'hostName\': \'string\',
+                        \'agentNetworkInfoList\': [
                             {
-                                'ipAddress': 'string',
-                                'macAddress': 'string'
+                                \'ipAddress\': \'string\',
+                                \'macAddress\': \'string\'
                             },
                         ],
-                        'connectorId': 'string',
-                        'version': 'string',
-                        'health': 'HEALTHY'|'UNHEALTHY'|'RUNNING'|'UNKNOWN'|'BLACKLISTED'|'SHUTDOWN',
-                        'lastHealthPingTime': 'string',
-                        'collectionStatus': 'string',
-                        'agentType': 'string',
-                        'registeredTime': 'string'
+                        \'connectorId\': \'string\',
+                        \'version\': \'string\',
+                        \'health\': \'HEALTHY\'|\'UNHEALTHY\'|\'RUNNING\'|\'UNKNOWN\'|\'BLACKLISTED\'|\'SHUTDOWN\',
+                        \'lastHealthPingTime\': \'string\',
+                        \'collectionStatus\': \'string\',
+                        \'agentType\': \'string\',
+                        \'registeredTime\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -420,7 +420,7 @@ class Client(BaseClient):
         
                 - **registeredTime** *(string) --* 
         
-                  Agent's first registration timestamp in UTC.
+                  Agent\'s first registration timestamp in UTC.
         
             - **nextToken** *(string) --* 
         
@@ -455,7 +455,7 @@ class Client(BaseClient):
         
           response = client.describe_configurations(
               configurationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type configurationIds: list
@@ -473,9 +473,9 @@ class Client(BaseClient):
           ::
         
             {
-                'configurations': [
+                \'configurations\': [
                     {
-                        'string': 'string'
+                        \'string\': \'string\'
                     },
                 ]
             }
@@ -506,10 +506,10 @@ class Client(BaseClient):
         
           response = client.describe_continuous_exports(
               exportIds=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type exportIds: list
         :param exportIds: 
@@ -536,21 +536,21 @@ class Client(BaseClient):
           ::
         
             {
-                'descriptions': [
+                \'descriptions\': [
                     {
-                        'exportId': 'string',
-                        'status': 'START_IN_PROGRESS'|'START_FAILED'|'ACTIVE'|'ERROR'|'STOP_IN_PROGRESS'|'STOP_FAILED'|'INACTIVE',
-                        'statusDetail': 'string',
-                        's3Bucket': 'string',
-                        'startTime': datetime(2015, 1, 1),
-                        'stopTime': datetime(2015, 1, 1),
-                        'dataSource': 'AGENT',
-                        'schemaStorageConfig': {
-                            'string': 'string'
+                        \'exportId\': \'string\',
+                        \'status\': \'START_IN_PROGRESS\'|\'START_FAILED\'|\'ACTIVE\'|\'ERROR\'|\'STOP_IN_PROGRESS\'|\'STOP_FAILED\'|\'INACTIVE\',
+                        \'statusDetail\': \'string\',
+                        \'s3Bucket\': \'string\',
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'stopTime\': datetime(2015, 1, 1),
+                        \'dataSource\': \'AGENT\',
+                        \'schemaStorageConfig\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -641,10 +641,10 @@ class Client(BaseClient):
         
           response = client.describe_export_configurations(
               exportIds=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type exportIds: list
         :param exportIds: 
@@ -671,19 +671,19 @@ class Client(BaseClient):
           ::
         
             {
-                'exportsInfo': [
+                \'exportsInfo\': [
                     {
-                        'exportId': 'string',
-                        'exportStatus': 'FAILED'|'SUCCEEDED'|'IN_PROGRESS',
-                        'statusMessage': 'string',
-                        'configurationsDownloadUrl': 'string',
-                        'exportRequestTime': datetime(2015, 1, 1),
-                        'isTruncated': True|False,
-                        'requestedStartTime': datetime(2015, 1, 1),
-                        'requestedEndTime': datetime(2015, 1, 1)
+                        \'exportId\': \'string\',
+                        \'exportStatus\': \'FAILED\'|\'SUCCEEDED\'|\'IN_PROGRESS\',
+                        \'statusMessage\': \'string\',
+                        \'configurationsDownloadUrl\': \'string\',
+                        \'exportRequestTime\': datetime(2015, 1, 1),
+                        \'isTruncated\': True|False,
+                        \'requestedStartTime\': datetime(2015, 1, 1),
+                        \'requestedEndTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -744,19 +744,19 @@ class Client(BaseClient):
         
           response = client.describe_export_tasks(
               exportIds=[
-                  'string',
+                  \'string\',
               ],
               filters=[
                   {
-                      'name': 'string',
-                      'values': [
-                          'string',
+                      \'name\': \'string\',
+                      \'values\': [
+                          \'string\',
                       ],
-                      'condition': 'string'
+                      \'condition\': \'string\'
                   },
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type exportIds: list
         :param exportIds: 
@@ -774,7 +774,7 @@ class Client(BaseClient):
            
           - *(dict) --* 
         
-            Used to select which agent's data is to be exported. A single agent ID may be selected for export using the `StartExportTask <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html>`__ action.
+            Used to select which agent\'s data is to be exported. A single agent ID may be selected for export using the `StartExportTask <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html>`__ action.
         
             - **name** *(string) --* **[REQUIRED]** 
         
@@ -808,19 +808,19 @@ class Client(BaseClient):
           ::
         
             {
-                'exportsInfo': [
+                \'exportsInfo\': [
                     {
-                        'exportId': 'string',
-                        'exportStatus': 'FAILED'|'SUCCEEDED'|'IN_PROGRESS',
-                        'statusMessage': 'string',
-                        'configurationsDownloadUrl': 'string',
-                        'exportRequestTime': datetime(2015, 1, 1),
-                        'isTruncated': True|False,
-                        'requestedStartTime': datetime(2015, 1, 1),
-                        'requestedEndTime': datetime(2015, 1, 1)
+                        \'exportId\': \'string\',
+                        \'exportStatus\': \'FAILED\'|\'SUCCEEDED\'|\'IN_PROGRESS\',
+                        \'statusMessage\': \'string\',
+                        \'configurationsDownloadUrl\': \'string\',
+                        \'exportRequestTime\': datetime(2015, 1, 1),
+                        \'isTruncated\': True|False,
+                        \'requestedStartTime\': datetime(2015, 1, 1),
+                        \'requestedEndTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -894,14 +894,14 @@ class Client(BaseClient):
           response = client.describe_tags(
               filters=[
                   {
-                      'name': 'string',
-                      'values': [
-                          'string',
+                      \'name\': \'string\',
+                      \'values\': [
+                          \'string\',
                       ]
                   },
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type filters: list
         :param filters: 
@@ -940,16 +940,16 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': [
+                \'tags\': [
                     {
-                        'configurationType': 'SERVER'|'PROCESS'|'CONNECTION'|'APPLICATION',
-                        'configurationId': 'string',
-                        'key': 'string',
-                        'value': 'string',
-                        'timeOfCreation': datetime(2015, 1, 1)
+                        \'configurationType\': \'SERVER\'|\'PROCESS\'|\'CONNECTION\'|\'APPLICATION\',
+                        \'configurationId\': \'string\',
+                        \'key\': \'string\',
+                        \'value\': \'string\',
+                        \'timeOfCreation\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -999,9 +999,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_configuration_items_from_application(
-              applicationConfigurationId='string',
+              applicationConfigurationId=\'string\',
               configurationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type applicationConfigurationId: string
@@ -1054,7 +1054,7 @@ class Client(BaseClient):
           ::
         
             {
-                'exportId': 'string'
+                \'exportId\': \'string\'
             }
           **Response Structure** 
         
@@ -1083,7 +1083,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1109,27 +1109,27 @@ class Client(BaseClient):
           ::
         
             {
-                'servers': 123,
-                'applications': 123,
-                'serversMappedToApplications': 123,
-                'serversMappedtoTags': 123,
-                'agentSummary': {
-                    'activeAgents': 123,
-                    'healthyAgents': 123,
-                    'blackListedAgents': 123,
-                    'shutdownAgents': 123,
-                    'unhealthyAgents': 123,
-                    'totalAgents': 123,
-                    'unknownAgents': 123
+                \'servers\': 123,
+                \'applications\': 123,
+                \'serversMappedToApplications\': 123,
+                \'serversMappedtoTags\': 123,
+                \'agentSummary\': {
+                    \'activeAgents\': 123,
+                    \'healthyAgents\': 123,
+                    \'blackListedAgents\': 123,
+                    \'shutdownAgents\': 123,
+                    \'unhealthyAgents\': 123,
+                    \'totalAgents\': 123,
+                    \'unknownAgents\': 123
                 },
-                'connectorSummary': {
-                    'activeConnectors': 123,
-                    'healthyConnectors': 123,
-                    'blackListedConnectors': 123,
-                    'shutdownConnectors': 123,
-                    'unhealthyConnectors': 123,
-                    'totalConnectors': 123,
-                    'unknownConnectors': 123
+                \'connectorSummary\': {
+                    \'activeConnectors\': 123,
+                    \'healthyConnectors\': 123,
+                    \'blackListedConnectors\': 123,
+                    \'shutdownConnectors\': 123,
+                    \'unhealthyConnectors\': 123,
+                    \'totalConnectors\': 123,
+                    \'unknownConnectors\': 123
                 }
             }
           **Response Structure** 
@@ -1225,10 +1225,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1260,22 +1260,22 @@ class Client(BaseClient):
         ::
         
           response = client.list_configurations(
-              configurationType='SERVER'|'PROCESS'|'CONNECTION'|'APPLICATION',
+              configurationType=\'SERVER\'|\'PROCESS\'|\'CONNECTION\'|\'APPLICATION\',
               filters=[
                   {
-                      'name': 'string',
-                      'values': [
-                          'string',
+                      \'name\': \'string\',
+                      \'values\': [
+                          \'string\',
                       ],
-                      'condition': 'string'
+                      \'condition\': \'string\'
                   },
               ],
               maxResults=123,
-              nextToken='string',
+              nextToken=\'string\',
               orderBy=[
                   {
-                      'fieldName': 'string',
-                      'sortOrder': 'ASC'|'DESC'
+                      \'fieldName\': \'string\',
+                      \'sortOrder\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -1289,7 +1289,7 @@ class Client(BaseClient):
         
           You can filter the request using various logical operators and a *key* -*value* format. For example: 
         
-           ``{"key": "serverType", "value": "webServer"}``  
+           ``{\"key\": \"serverType\", \"value\": \"webServer\"}``  
         
           For a complete list of filter options and guidance about using them with this action, see `Querying Discovered Configuration Items <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations>`__ . 
         
@@ -1348,12 +1348,12 @@ class Client(BaseClient):
           ::
         
             {
-                'configurations': [
+                \'configurations\': [
                     {
-                        'string': 'string'
+                        \'string\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1385,13 +1385,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_server_neighbors(
-              configurationId='string',
+              configurationId=\'string\',
               portInformationNeeded=True|False,
               neighborConfigurationIds=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type configurationId: string
         :param configurationId: **[REQUIRED]** 
@@ -1428,17 +1428,17 @@ class Client(BaseClient):
           ::
         
             {
-                'neighbors': [
+                \'neighbors\': [
                     {
-                        'sourceServerId': 'string',
-                        'destinationServerId': 'string',
-                        'destinationPort': 123,
-                        'transportProtocol': 'string',
-                        'connectionsCount': 123
+                        \'sourceServerId\': \'string\',
+                        \'destinationServerId\': \'string\',
+                        \'destinationPort\': 123,
+                        \'transportProtocol\': \'string\',
+                        \'connectionsCount\': 123
                     },
                 ],
-                'nextToken': 'string',
-                'knownDependencyCount': 123
+                \'nextToken\': \'string\',
+                \'knownDependencyCount\': 123
             }
           **Response Structure** 
         
@@ -1501,12 +1501,12 @@ class Client(BaseClient):
           ::
         
             {
-                'exportId': 'string',
-                's3Bucket': 'string',
-                'startTime': datetime(2015, 1, 1),
-                'dataSource': 'AGENT',
-                'schemaStorageConfig': {
-                    'string': 'string'
+                \'exportId\': \'string\',
+                \'s3Bucket\': \'string\',
+                \'startTime\': datetime(2015, 1, 1),
+                \'dataSource\': \'AGENT\',
+                \'schemaStorageConfig\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1552,7 +1552,7 @@ class Client(BaseClient):
         
           response = client.start_data_collection_by_agent_ids(
               agentIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type agentIds: list
@@ -1570,11 +1570,11 @@ class Client(BaseClient):
           ::
         
             {
-                'agentsConfigurationStatus': [
+                \'agentsConfigurationStatus\': [
                     {
-                        'agentId': 'string',
-                        'operationSucceeded': True|False,
-                        'description': 'string'
+                        \'agentId\': \'string\',
+                        \'operationSucceeded\': True|False,
+                        \'description\': \'string\'
                     },
                 ]
             }
@@ -1619,15 +1619,15 @@ class Client(BaseClient):
         
           response = client.start_export_task(
               exportDataFormat=[
-                  'CSV'|'GRAPHML',
+                  \'CSV\'|\'GRAPHML\',
               ],
               filters=[
                   {
-                      'name': 'string',
-                      'values': [
-                          'string',
+                      \'name\': \'string\',
+                      \'values\': [
+                          \'string\',
                       ],
-                      'condition': 'string'
+                      \'condition\': \'string\'
                   },
               ],
               startTime=datetime(2015, 1, 1),
@@ -1647,7 +1647,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            Used to select which agent's data is to be exported. A single agent ID may be selected for export using the `StartExportTask <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html>`__ action.
+            Used to select which agent\'s data is to be exported. A single agent ID may be selected for export using the `StartExportTask <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html>`__ action.
         
             - **name** *(string) --* **[REQUIRED]** 
         
@@ -1681,7 +1681,7 @@ class Client(BaseClient):
           ::
         
             {
-                'exportId': 'string'
+                \'exportId\': \'string\'
             }
           **Response Structure** 
         
@@ -1703,7 +1703,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_continuous_export(
-              exportId='string'
+              exportId=\'string\'
           )
         :type exportId: string
         :param exportId: **[REQUIRED]** 
@@ -1718,8 +1718,8 @@ class Client(BaseClient):
           ::
         
             {
-                'startTime': datetime(2015, 1, 1),
-                'stopTime': datetime(2015, 1, 1)
+                \'startTime\': datetime(2015, 1, 1),
+                \'stopTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1746,7 +1746,7 @@ class Client(BaseClient):
         
           response = client.stop_data_collection_by_agent_ids(
               agentIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type agentIds: list
@@ -1764,11 +1764,11 @@ class Client(BaseClient):
           ::
         
             {
-                'agentsConfigurationStatus': [
+                \'agentsConfigurationStatus\': [
                     {
-                        'agentId': 'string',
-                        'operationSucceeded': True|False,
-                        'description': 'string'
+                        \'agentId\': \'string\',
+                        \'operationSucceeded\': True|False,
+                        \'description\': \'string\'
                     },
                 ]
             }
@@ -1808,9 +1808,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_application(
-              configurationId='string',
-              name='string',
-              description='string'
+              configurationId=\'string\',
+              name=\'string\',
+              description=\'string\'
           )
         :type configurationId: string
         :param configurationId: **[REQUIRED]** 

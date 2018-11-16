@@ -13,13 +13,13 @@ class GetApiKeys(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              nameQuery='string',
-              customerId='string',
+              nameQuery=\'string\',
+              customerId=\'string\',
               includeValues=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type nameQuery: string
@@ -62,25 +62,25 @@ class GetApiKeys(Paginator):
           ::
         
             {
-                'warnings': [
-                    'string',
+                \'warnings\': [
+                    \'string\',
                 ],
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'value': 'string',
-                        'name': 'string',
-                        'customerId': 'string',
-                        'description': 'string',
-                        'enabled': True|False,
-                        'createdDate': datetime(2015, 1, 1),
-                        'lastUpdatedDate': datetime(2015, 1, 1),
-                        'stageKeys': [
-                            'string',
+                        \'id\': \'string\',
+                        \'value\': \'string\',
+                        \'name\': \'string\',
+                        \'customerId\': \'string\',
+                        \'description\': \'string\',
+                        \'enabled\': True|False,
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'lastUpdatedDate\': datetime(2015, 1, 1),
+                        \'stageKeys\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -162,11 +162,11 @@ class GetBasePathMappings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domainName='string',
+              domainName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domainName: string
@@ -199,14 +199,14 @@ class GetBasePathMappings(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'basePath': 'string',
-                        'restApiId': 'string',
-                        'stage': 'string'
+                        \'basePath\': \'string\',
+                        \'restApiId\': \'string\',
+                        \'stage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -257,9 +257,9 @@ class GetClientCertificates(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -287,16 +287,16 @@ class GetClientCertificates(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'clientCertificateId': 'string',
-                        'description': 'string',
-                        'pemEncodedCertificate': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'expirationDate': datetime(2015, 1, 1)
+                        \'clientCertificateId\': \'string\',
+                        \'description\': \'string\',
+                        \'pemEncodedCertificate\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'expirationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -354,11 +354,11 @@ class GetDeployments(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              restApiId='string',
+              restApiId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type restApiId: string
@@ -391,22 +391,22 @@ class GetDeployments(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'description': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'apiSummary': {
-                            'string': {
-                                'string': {
-                                    'authorizationType': 'string',
-                                    'apiKeyRequired': True|False
+                        \'id\': \'string\',
+                        \'description\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'apiSummary\': {
+                            \'string\': {
+                                \'string\': {
+                                    \'authorizationType\': \'string\',
+                                    \'apiKeyRequired\': True|False
                                 }
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -454,7 +454,7 @@ class GetDeployments(Paginator):
         
                           - **authorizationType** *(string) --* 
         
-                            The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                            The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                           - **apiKeyRequired** *(boolean) --* 
         
@@ -479,9 +479,9 @@ class GetDomainNames(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -509,26 +509,26 @@ class GetDomainNames(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'domainName': 'string',
-                        'certificateName': 'string',
-                        'certificateArn': 'string',
-                        'certificateUploadDate': datetime(2015, 1, 1),
-                        'regionalDomainName': 'string',
-                        'regionalHostedZoneId': 'string',
-                        'regionalCertificateName': 'string',
-                        'regionalCertificateArn': 'string',
-                        'distributionDomainName': 'string',
-                        'distributionHostedZoneId': 'string',
-                        'endpointConfiguration': {
-                            'types': [
-                                'REGIONAL'|'EDGE'|'PRIVATE',
+                        \'domainName\': \'string\',
+                        \'certificateName\': \'string\',
+                        \'certificateArn\': \'string\',
+                        \'certificateUploadDate\': datetime(2015, 1, 1),
+                        \'regionalDomainName\': \'string\',
+                        \'regionalHostedZoneId\': \'string\',
+                        \'regionalCertificateName\': \'string\',
+                        \'regionalCertificateArn\': \'string\',
+                        \'distributionDomainName\': \'string\',
+                        \'distributionHostedZoneId\': \'string\',
+                        \'endpointConfiguration\': {
+                            \'types\': [
+                                \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                             ]
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -546,7 +546,7 @@ class GetDomainNames(Paginator):
         
                 Represents a custom domain name as a user-friendly host name of an API ( RestApi ).
         
-                When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API's root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
+                When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the ``{restapi-id}.execute-api.{region}.amazonaws.com`` format. With the default host name, you can access the API\'s root resource with the URL of ``https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/`` . When you set up a custom domain name of ``apis.example.com`` for this API, you can then access the same resource using the URL of the ``https://apis.examples.com/myApi`` , where ``myApi`` is the base path mapping ( BasePathMapping ) of your API under the custom domain name. 
         
                    `Set a Custom Host Name for an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html>`__  
                 
@@ -596,7 +596,7 @@ class GetDomainNames(Paginator):
         
                   - **types** *(list) --* 
         
-                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                     - *(string) --* 
         
@@ -620,11 +620,11 @@ class GetModels(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              restApiId='string',
+              restApiId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type restApiId: string
@@ -657,16 +657,16 @@ class GetModels(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'schema': 'string',
-                        'contentType': 'string'
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'schema\': \'string\',
+                        \'contentType\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -682,11 +682,11 @@ class GetModels(Paginator):
         
               - *(dict) --* 
         
-                Represents the data structure of a method's request or response payload.
+                Represents the data structure of a method\'s request or response payload.
         
                 A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
         
-                A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.
+                A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
         
                     Method ,  MethodResponse , `Models and Mappings <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html>`__  
                 
@@ -704,7 +704,7 @@ class GetModels(Paginator):
         
                 - **schema** *(string) --* 
         
-                  The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
+                  The schema for the model. For ``application/json`` models, this should be `JSON schema draft 4 <https://tools.ietf.org/html/draft-zyp-json-schema-04>`__ model. Do not include \"\*/\" characters in the description of any properties because such \"\*/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
         
                 - **contentType** *(string) --* 
         
@@ -728,14 +728,14 @@ class GetResources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              restApiId='string',
+              restApiId=\'string\',
               embed=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type restApiId: string
@@ -746,7 +746,7 @@ class GetResources(Paginator):
         :type embed: list
         :param embed: 
         
-          A query parameter used to retrieve the specified resources embedded in the returned  Resources resource in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``"methods"`` string. For example, ``GET /restapis/{restapi_id}/resources?embed=methods`` .
+          A query parameter used to retrieve the specified resources embedded in the returned  Resources resource in the response. This ``embed`` parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded  Method resources this way. The query parameter value must be a single-valued list and contain the ``\"methods\"`` string. For example, ``GET /restapis/{restapi_id}/resources?embed=methods`` .
         
           - *(string) --* 
         
@@ -775,79 +775,79 @@ class GetResources(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'parentId': 'string',
-                        'pathPart': 'string',
-                        'path': 'string',
-                        'resourceMethods': {
-                            'string': {
-                                'httpMethod': 'string',
-                                'authorizationType': 'string',
-                                'authorizerId': 'string',
-                                'apiKeyRequired': True|False,
-                                'requestValidatorId': 'string',
-                                'operationName': 'string',
-                                'requestParameters': {
-                                    'string': True|False
+                        \'id\': \'string\',
+                        \'parentId\': \'string\',
+                        \'pathPart\': \'string\',
+                        \'path\': \'string\',
+                        \'resourceMethods\': {
+                            \'string\': {
+                                \'httpMethod\': \'string\',
+                                \'authorizationType\': \'string\',
+                                \'authorizerId\': \'string\',
+                                \'apiKeyRequired\': True|False,
+                                \'requestValidatorId\': \'string\',
+                                \'operationName\': \'string\',
+                                \'requestParameters\': {
+                                    \'string\': True|False
                                 },
-                                'requestModels': {
-                                    'string': 'string'
+                                \'requestModels\': {
+                                    \'string\': \'string\'
                                 },
-                                'methodResponses': {
-                                    'string': {
-                                        'statusCode': 'string',
-                                        'responseParameters': {
-                                            'string': True|False
+                                \'methodResponses\': {
+                                    \'string\': {
+                                        \'statusCode\': \'string\',
+                                        \'responseParameters\': {
+                                            \'string\': True|False
                                         },
-                                        'responseModels': {
-                                            'string': 'string'
+                                        \'responseModels\': {
+                                            \'string\': \'string\'
                                         }
                                     }
                                 },
-                                'methodIntegration': {
-                                    'type': 'HTTP'|'AWS'|'MOCK'|'HTTP_PROXY'|'AWS_PROXY',
-                                    'httpMethod': 'string',
-                                    'uri': 'string',
-                                    'connectionType': 'INTERNET'|'VPC_LINK',
-                                    'connectionId': 'string',
-                                    'credentials': 'string',
-                                    'requestParameters': {
-                                        'string': 'string'
+                                \'methodIntegration\': {
+                                    \'type\': \'HTTP\'|\'AWS\'|\'MOCK\'|\'HTTP_PROXY\'|\'AWS_PROXY\',
+                                    \'httpMethod\': \'string\',
+                                    \'uri\': \'string\',
+                                    \'connectionType\': \'INTERNET\'|\'VPC_LINK\',
+                                    \'connectionId\': \'string\',
+                                    \'credentials\': \'string\',
+                                    \'requestParameters\': {
+                                        \'string\': \'string\'
                                     },
-                                    'requestTemplates': {
-                                        'string': 'string'
+                                    \'requestTemplates\': {
+                                        \'string\': \'string\'
                                     },
-                                    'passthroughBehavior': 'string',
-                                    'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT',
-                                    'timeoutInMillis': 123,
-                                    'cacheNamespace': 'string',
-                                    'cacheKeyParameters': [
-                                        'string',
+                                    \'passthroughBehavior\': \'string\',
+                                    \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\',
+                                    \'timeoutInMillis\': 123,
+                                    \'cacheNamespace\': \'string\',
+                                    \'cacheKeyParameters\': [
+                                        \'string\',
                                     ],
-                                    'integrationResponses': {
-                                        'string': {
-                                            'statusCode': 'string',
-                                            'selectionPattern': 'string',
-                                            'responseParameters': {
-                                                'string': 'string'
+                                    \'integrationResponses\': {
+                                        \'string\': {
+                                            \'statusCode\': \'string\',
+                                            \'selectionPattern\': \'string\',
+                                            \'responseParameters\': {
+                                                \'string\': \'string\'
                                             },
-                                            'responseTemplates': {
-                                                'string': 'string'
+                                            \'responseTemplates\': {
+                                                \'string\': \'string\'
                                             },
-                                            'contentHandling': 'CONVERT_TO_BINARY'|'CONVERT_TO_TEXT'
+                                            \'contentHandling\': \'CONVERT_TO_BINARY\'|\'CONVERT_TO_TEXT\'
                                         }
                                     }
                                 },
-                                'authorizationScopes': [
-                                    'string',
+                                \'authorizationScopes\': [
+                                    \'string\',
                                 ]
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -869,11 +869,11 @@ class GetResources(Paginator):
                 
                 - **id** *(string) --* 
         
-                  The resource's identifier.
+                  The resource\'s identifier.
         
                 - **parentId** *(string) --* 
         
-                  The parent resource's identifier.
+                  The parent resource\'s identifier.
         
                 - **pathPart** *(string) --* 
         
@@ -885,11 +885,11 @@ class GetResources(Paginator):
         
                 - **resourceMethods** *(dict) --* 
         
-                  Gets an API resource's method of a given HTTP verb.
+                  Gets an API resource\'s method of a given HTTP verb.
         
-                  The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
+                  The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the ``200 OK`` response of the ``GET /restapis/{restapi_id}/resources/{resource_id}`` or ``GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods`` request.
         
-                   Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                   Example: Get the GET method of an API resource Request ``GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20170223T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20170223/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}``  Response ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": false, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                   If the ``OPTIONS`` is enabled on the resource, you can follow the example here to get that method. Just replace the ``GET`` of the last path segment in the request URL with ``OPTIONS`` .
         
@@ -907,19 +907,19 @@ class GetResources(Paginator):
         
                       The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                       ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }``  
+                       ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html\", \"name\": \"method\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\", \"name\": \"GET\", \"title\": \"GET\" }, \"integration:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"method:integration\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"method:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"method:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET\" }, \"methodresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}\", \"templated\": true } }, \"apiKeyRequired\": true, \"authorizationType\": \"NONE\", \"httpMethod\": \"GET\", \"_embedded\": { \"method:integration\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"3kzxbg5sa2\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestParameters\": { \"integration.request.header.Content-Type\": \"\'application/x-amz-json-1.1\'\" }, \"requestTemplates\": { \"application/json\": \"{\n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-east-1:kinesis:action/ListStreams\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\\")\" }, \"statusCode\": \"200\" } } }, \"method:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" } } }``  
         
                       In the example above, the response template for the ``200 OK`` response maps the JSON output from the ``ListStreams`` action in the back end to an XML output. The mapping template is URL-encoded as ``%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E`` and the output is decoded using the `$util.urlDecode() <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference>`__ helper function.
         
-                          MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API's method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
+                          MethodResponse ,  Integration ,  IntegrationResponse ,  Resource , `Set up an API\'s method <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html>`__  
                       
                       - **httpMethod** *(string) --* 
         
-                        The method's HTTP verb.
+                        The method\'s HTTP verb.
         
                       - **authorizationType** *(string) --* 
         
-                        The method's authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
+                        The method\'s authorization type. Valid values are ``NONE`` for open access, ``AWS_IAM`` for using AWS IAM permissions, ``CUSTOM`` for using a custom authorizer, or ``COGNITO_USER_POOLS`` for using a Cognito user pool.
         
                       - **authorizerId** *(string) --* 
         
@@ -957,7 +957,7 @@ class GetResources(Paginator):
         
                         Gets a method response associated with a given HTTP status code. 
         
-                        The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
+                        The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a  MethodResponse resource that specifies the response returned to the caller from the back end through the integration response.
         
                          Example: Get a 200 OK response of a GET method Request 
         
@@ -965,7 +965,7 @@ class GetResources(Paginator):
         
                         The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                         ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }``  
+                         ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.operator\": false, \"method.response.header.operand_2\": false, \"method.response.header.operand_1\": false }, \"statusCode\": \"200\" }``  
         
                            `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html>`__  
                         
@@ -983,17 +983,17 @@ class GetResources(Paginator):
         
                             The successful response returns ``200 OK`` status and a payload as follows:
         
-                             ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }``  
+                             ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html\", \"name\": \"methodresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\", \"title\": \"200\" }, \"methodresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" }, \"methodresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200\" } }, \"responseModels\": { \"application/json\": \"Empty\" }, \"responseParameters\": { \"method.response.header.Content-Type\": false }, \"statusCode\": \"200\" }``  
         
                                 Method ,  IntegrationResponse ,  Integration  `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                             
                             - **statusCode** *(string) --* 
         
-                              The method response's status code.
+                              The method response\'s status code.
         
                             - **responseParameters** *(dict) --* 
         
-                              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``'application/json'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+                              A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}`` , where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s  IntegrationResponse . The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}`` , a static value enclosed within a pair of single quotes (e.g., ``\'application/json\'`` ), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}`` , where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         
                               - *(string) --* 
                                 
@@ -1001,7 +1001,7 @@ class GetResources(Paginator):
                           
                             - **responseModels** *(dict) --* 
         
-                              Specifies the  Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
+                              Specifies the  Model resources used for the response\'s content-type. Response models are represented as a key/value map, with a content-type as the key and a  Model name as the value.
         
                               - *(string) --* 
                                 
@@ -1009,7 +1009,7 @@ class GetResources(Paginator):
                           
                       - **methodIntegration** *(dict) --* 
         
-                        Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+                        Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
         
                          Example:  Request 
         
@@ -1017,7 +1017,7 @@ class GetResources(Paginator):
         
                         The successful response returns a ``200 OK`` status code and a payload similar to the following:
         
-                         ``{ "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }``  
+                         ``{ \"_links\": { \"curies\": [ { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html\", \"name\": \"integration\", \"templated\": true }, { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true } ], \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integration:responses\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integration:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration\" }, \"integrationresponse:put\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}\", \"templated\": true } }, \"cacheKeyParameters\": [], \"cacheNamespace\": \"0cjtch\", \"credentials\": \"arn:aws:iam::123456789012:role/apigAwsProxyRole\", \"httpMethod\": \"POST\", \"passthroughBehavior\": \"WHEN_NO_MATCH\", \"requestTemplates\": { \"application/json\": \"{\n \\"a\\": \\"$input.params(\'operand1\')\\",\n \\"b\\": \\"$input.params(\'operand2\')\\", \n \\"op\\": \\"$input.params(\'operator\')\\" \n}\" }, \"type\": \"AWS\", \"uri\": \"arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations\", \"_embedded\": { \"integration:responses\": { \"_links\": { \"self\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\", \"name\": \"200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.operator\": \"integration.response.body.op\", \"method.response.header.operand_2\": \"integration.response.body.b\", \"method.response.header.operand_1\": \"integration.response.body.a\" }, \"responseTemplates\": { \"application/json\": \"#set($res = $input.path(\'$\'))\n{\n \\"result\\": \\"$res.a, $res.b, $res.op => $res.c\\",\n \\"a\\" : \\"$res.a\\",\n \\"b\\" : \\"$res.b\\",\n \\"op\\" : \\"$res.op\\",\n \\"c\\" : \\"$res.c\\"\n}\" }, \"selectionPattern\": \"\", \"statusCode\": \"200\" } } }``  
         
                            `AWS CLI <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html>`__  
                         
@@ -1033,13 +1033,13 @@ class GetResources(Paginator):
                            
                           * ``HTTP_PROXY`` : for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.
                            
-                          * ``MOCK`` : for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.
+                          * ``MOCK`` : for integrating the API method request with API Gateway as a \"loop-back\" endpoint without invoking any backend.
                            
                           For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https`` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a  VpcLink to connect API Gateway to a network load balancer of a VPC.
         
                         - **httpMethod** *(string) --* 
         
-                          Specifies the integration's HTTP method type.
+                          Specifies the integration\'s HTTP method type.
         
                         - **uri** *(string) --* 
         
@@ -1059,7 +1059,7 @@ class GetResources(Paginator):
         
                         - **credentials** *(string) --* 
         
-                          Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
+                          Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*`` . To use resource-based permissions on supported AWS services, specify null.
         
                         - **requestParameters** *(dict) --* 
         
@@ -1103,17 +1103,17 @@ class GetResources(Paginator):
         
                         - **cacheNamespace** *(string) --* 
         
-                          Specifies the integration's cache namespace.
+                          Specifies the integration\'s cache namespace.
         
                         - **cacheKeyParameters** *(list) --* 
         
-                          Specifies the integration's cache key parameters.
+                          Specifies the integration\'s cache key parameters.
         
                           - *(string) --* 
                       
                         - **integrationResponses** *(dict) --* 
         
-                          Specifies the integration's responses.
+                          Specifies the integration\'s responses.
         
                            Example: Get integration responses of a method Request 
         
@@ -1121,7 +1121,7 @@ class GetResources(Paginator):
         
                           The successful response returns ``200 OK`` status and a payload as follows:
         
-                           ``{ "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }``  
+                           ``{ \"_links\": { \"curies\": { \"href\": \"https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html\", \"name\": \"integrationresponse\", \"templated\": true }, \"self\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\", \"title\": \"200\" }, \"integrationresponse:delete\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" }, \"integrationresponse:update\": { \"href\": \"/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200\" } }, \"responseParameters\": { \"method.response.header.Content-Type\": \"\'application/xml\'\" }, \"responseTemplates\": { \"application/json\": \"$util.urlDecode(\\"%3CkinesisStreams%3E#foreach($stream in $input.path(\'$.StreamNames\'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\\")\n\" }, \"statusCode\": \"200\" }``  
         
                              `Creating an API <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html>`__  
                           
@@ -1192,9 +1192,9 @@ class GetRestApis(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1222,30 +1222,30 @@ class GetRestApis(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'version': 'string',
-                        'warnings': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'version\': \'string\',
+                        \'warnings\': [
+                            \'string\',
                         ],
-                        'binaryMediaTypes': [
-                            'string',
+                        \'binaryMediaTypes\': [
+                            \'string\',
                         ],
-                        'minimumCompressionSize': 123,
-                        'apiKeySource': 'HEADER'|'AUTHORIZER',
-                        'endpointConfiguration': {
-                            'types': [
-                                'REGIONAL'|'EDGE'|'PRIVATE',
+                        \'minimumCompressionSize\': 123,
+                        \'apiKeySource\': \'HEADER\'|\'AUTHORIZER\',
+                        \'endpointConfiguration\': {
+                            \'types\': [
+                                \'REGIONAL\'|\'EDGE\'|\'PRIVATE\',
                             ]
                         },
-                        'policy': 'string'
+                        \'policy\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1267,15 +1267,15 @@ class GetRestApis(Paginator):
                 
                 - **id** *(string) --* 
         
-                  The API's identifier. This identifier is unique across all of your APIs in API Gateway.
+                  The API\'s identifier. This identifier is unique across all of your APIs in API Gateway.
         
                 - **name** *(string) --* 
         
-                  The API's name.
+                  The API\'s name.
         
                 - **description** *(string) --* 
         
-                  The API's description.
+                  The API\'s description.
         
                 - **createdDate** *(datetime) --* 
         
@@ -1315,7 +1315,7 @@ class GetRestApis(Paginator):
         
                   - **types** *(list) --* 
         
-                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
+                    A list of endpoint types of an API ( RestApi ) or its custom domain name ( DomainName ). For an edge-optimized API and its custom domain name, the endpoint type is ``\"EDGE\"`` . For a regional API and its custom domain name, the endpoint type is ``REGIONAL`` . For a private API, the endpoint type is ``PRIVATE`` .
         
                     - *(string) --* 
         
@@ -1341,14 +1341,14 @@ class GetUsage(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              usagePlanId='string',
-              keyId='string',
-              startDate='string',
-              endDate='string',
+              usagePlanId=\'string\',
+              keyId=\'string\',
+              startDate=\'string\',
+              endDate=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type usagePlanId: string
@@ -1396,17 +1396,17 @@ class GetUsage(Paginator):
           ::
         
             {
-                'usagePlanId': 'string',
-                'startDate': 'string',
-                'endDate': 'string',
-                'items': {
-                    'string': [
+                \'usagePlanId\': \'string\',
+                \'startDate\': \'string\',
+                \'endDate\': \'string\',
+                \'items\': {
+                    \'string\': [
                         [
                             123,
                         ],
                     ]
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1430,7 +1430,7 @@ class GetUsage(Paginator):
         
             - **items** *(dict) --* 
         
-              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
+              The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, ``{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}`` , where ``{api_key}`` stands for an API key value and the daily log entry is of the format ``[used quota, remaining quota]`` .
         
               - *(string) --* 
                 
@@ -1458,12 +1458,12 @@ class GetUsagePlanKeys(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              usagePlanId='string',
-              nameQuery='string',
+              usagePlanId=\'string\',
+              nameQuery=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type usagePlanId: string
@@ -1501,15 +1501,15 @@ class GetUsagePlanKeys(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'type': 'string',
-                        'value': 'string',
-                        'name': 'string'
+                        \'id\': \'string\',
+                        \'type\': \'string\',
+                        \'value\': \'string\',
+                        \'name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1529,7 +1529,7 @@ class GetUsagePlanKeys(Paginator):
         
                 To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected  ApiKey .
         
-                 "  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
+                 \"  `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
                 
                 - **id** *(string) --* 
         
@@ -1565,11 +1565,11 @@ class GetUsagePlans(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              keyId='string',
+              keyId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type keyId: string
@@ -1602,36 +1602,36 @@ class GetUsagePlans(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'apiStages': [
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'apiStages\': [
                             {
-                                'apiId': 'string',
-                                'stage': 'string',
-                                'throttle': {
-                                    'string': {
-                                        'burstLimit': 123,
-                                        'rateLimit': 123.0
+                                \'apiId\': \'string\',
+                                \'stage\': \'string\',
+                                \'throttle\': {
+                                    \'string\': {
+                                        \'burstLimit\': 123,
+                                        \'rateLimit\': 123.0
                                     }
                                 }
                             },
                         ],
-                        'throttle': {
-                            'burstLimit': 123,
-                            'rateLimit': 123.0
+                        \'throttle\': {
+                            \'burstLimit\': 123,
+                            \'rateLimit\': 123.0
                         },
-                        'quota': {
-                            'limit': 123,
-                            'offset': 123,
-                            'period': 'DAY'|'WEEK'|'MONTH'
+                        \'quota\': {
+                            \'limit\': 123,
+                            \'offset\': 123,
+                            \'period\': \'DAY\'|\'WEEK\'|\'MONTH\'
                         },
-                        'productCode': 'string'
+                        \'productCode\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1649,7 +1649,7 @@ class GetUsagePlans(Paginator):
         
                 Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
         
-                In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
+                In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. 
         
                    `Create and Use Usage Plans <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html>`__  
                 
@@ -1725,7 +1725,7 @@ class GetUsagePlans(Paginator):
         
                   - **period** *(string) --* 
         
-                    The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+                    The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
         
                 - **productCode** *(string) --* 
         
@@ -1750,9 +1750,9 @@ class GetVpcLinks(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1780,25 +1780,25 @@ class GetVpcLinks(Paginator):
           ::
         
             {
-                'items': [
+                \'items\': [
                     {
-                        'id': 'string',
-                        'name': 'string',
-                        'description': 'string',
-                        'targetArns': [
-                            'string',
+                        \'id\': \'string\',
+                        \'name\': \'string\',
+                        \'description\': \'string\',
+                        \'targetArns\': [
+                            \'string\',
                         ],
-                        'status': 'AVAILABLE'|'PENDING'|'DELETING'|'FAILED',
-                        'statusMessage': 'string'
+                        \'status\': \'AVAILABLE\'|\'PENDING\'|\'DELETING\'|\'FAILED\',
+                        \'statusMessage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            The collection of VPC links under the caller's account in a region.
+            The collection of VPC links under the caller\'s account in a region.
         
               `Getting Started with Private Integrations <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html>`__ , `Set up Private Integrations <https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html>`__  
             

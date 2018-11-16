@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
+from typing import IO
 from typing import NoReturn
 from botocore.client import BaseClient
-from typing import IO
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,7 +34,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_object(
-              Path='string'
+              Path=\'string\'
           )
         :type Path: string
         :param Path: **[REQUIRED]** 
@@ -64,7 +64,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_object(
-              Path='string'
+              Path=\'string\'
           )
         :type Path: string
         :param Path: **[REQUIRED]** 
@@ -79,11 +79,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ETag': 'string',
-                'ContentType': 'string',
-                'ContentLength': 123,
-                'CacheControl': 'string',
-                'LastModified': datetime(2015, 1, 1)
+                \'ETag\': \'string\',
+                \'ContentType\': \'string\',
+                \'ContentLength\': 123,
+                \'CacheControl\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -103,7 +103,7 @@ class Client(BaseClient):
         
             - **CacheControl** *(string) --* 
         
-              An optional ``CacheControl`` header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
+              An optional ``CacheControl`` header that allows the caller to control the object\'s cache behavior. Headers can be passed in as specified in the HTTP at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
         
               Headers with a custom user-defined value are also accepted.
         
@@ -130,7 +130,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -145,8 +145,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_object(
-              Path='string',
-              Range='string'
+              Path=\'string\',
+              Range=\'string\'
           )
         :type Path: string
         :param Path: **[REQUIRED]** 
@@ -157,7 +157,7 @@ class Client(BaseClient):
         
           Do not include the container name in this path.
         
-          If the path includes any folders that don't exist yet, the service creates them. For example, suppose you have an existing ``premium/usa`` subfolder. If you specify ``premium/canada`` , the service creates a ``canada`` subfolder in the ``premium`` folder. You then have two subfolders, ``usa`` and ``canada`` , in the ``premium`` folder. 
+          If the path includes any folders that don\'t exist yet, the service creates them. For example, suppose you have an existing ``premium/usa`` subfolder. If you specify ``premium/canada`` , the service creates a ``canada`` subfolder in the ``premium`` folder. You then have two subfolders, ``usa`` and ``canada`` , in the ``premium`` folder. 
         
           There is no correlation between the path to the source and the path (folders) in the container in AWS Elemental MediaStore.
         
@@ -178,14 +178,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Body': StreamingBody(),
-                'CacheControl': 'string',
-                'ContentRange': 'string',
-                'ContentLength': 123,
-                'ContentType': 'string',
-                'ETag': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'StatusCode': 123
+                \'Body\': StreamingBody(),
+                \'CacheControl\': \'string\',
+                \'ContentRange\': \'string\',
+                \'ContentLength\': 123,
+                \'ContentType\': \'string\',
+                \'ETag\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'StatusCode\': 123
             }
           **Response Structure** 
         
@@ -197,7 +197,7 @@ class Client(BaseClient):
         
             - **CacheControl** *(string) --* 
         
-              An optional ``CacheControl`` header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP spec at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
+              An optional ``CacheControl`` header that allows the caller to control the object\'s cache behavior. Headers can be passed in as specified in the HTTP spec at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
         
               Headers with a custom user-defined value are also accepted.
         
@@ -234,10 +234,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -269,9 +269,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_items(
-              Path='string',
+              Path=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -300,17 +300,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Items': [
+                \'Items\': [
                     {
-                        'Name': 'string',
-                        'Type': 'OBJECT'|'FOLDER',
-                        'ETag': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'ContentType': 'string',
-                        'ContentLength': 123
+                        \'Name\': \'string\',
+                        \'Type\': \'OBJECT\'|\'FOLDER\',
+                        \'ETag\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ContentType\': \'string\',
+                        \'ContentLength\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -364,11 +364,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_object(
-              Body=b'bytes'|file,
-              Path='string',
-              ContentType='string',
-              CacheControl='string',
-              StorageClass='TEMPORAL'
+              Body=b\'bytes\'|file,
+              Path=\'string\',
+              ContentType=\'string\',
+              CacheControl=\'string\',
+              StorageClass=\'TEMPORAL\'
           )
         :type Body: bytes or seekable file-like object
         :param Body: **[REQUIRED]** 
@@ -384,7 +384,7 @@ class Client(BaseClient):
         
           Do not include the container name in this path.
         
-          If the path includes any folders that don't exist yet, the service creates them. For example, suppose you have an existing ``premium/usa`` subfolder. If you specify ``premium/canada`` , the service creates a ``canada`` subfolder in the ``premium`` folder. You then have two subfolders, ``usa`` and ``canada`` , in the ``premium`` folder. 
+          If the path includes any folders that don\'t exist yet, the service creates them. For example, suppose you have an existing ``premium/usa`` subfolder. If you specify ``premium/canada`` , the service creates a ``canada`` subfolder in the ``premium`` folder. You then have two subfolders, ``usa`` and ``canada`` , in the ``premium`` folder. 
         
           There is no correlation between the path to the source and the path (folders) in the container in AWS Elemental MediaStore.
         
@@ -400,7 +400,7 @@ class Client(BaseClient):
         :type CacheControl: string
         :param CacheControl: 
         
-          An optional ``CacheControl`` header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
+          An optional ``CacheControl`` header that allows the caller to control the object\'s cache behavior. Headers can be passed in as specified in the HTTP at `https\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__ .
         
           Headers with a custom user-defined value are also accepted.
         
@@ -417,9 +417,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ContentSHA256': 'string',
-                'ETag': 'string',
-                'StorageClass': 'TEMPORAL'
+                \'ContentSHA256\': \'string\',
+                \'ETag\': \'string\',
+                \'StorageClass\': \'TEMPORAL\'
             }
           **Response Structure** 
         

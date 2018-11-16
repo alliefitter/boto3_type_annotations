@@ -14,13 +14,13 @@ class DescribeWorkspaceBundles(Paginator):
         
           response_iterator = paginator.paginate(
               BundleIds=[
-                  'string',
+                  \'string\',
               ],
-              Owner='string',
+              Owner=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type BundleIds: list
@@ -62,20 +62,20 @@ class DescribeWorkspaceBundles(Paginator):
           ::
         
             {
-                'Bundles': [
+                \'Bundles\': [
                     {
-                        'BundleId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'Description': 'string',
-                        'RootStorage': {
-                            'Capacity': 'string'
+                        \'BundleId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Description\': \'string\',
+                        \'RootStorage\': {
+                            \'Capacity\': \'string\'
                         },
-                        'UserStorage': {
-                            'Capacity': 'string'
+                        \'UserStorage\': {
+                            \'Capacity\': \'string\'
                         },
-                        'ComputeType': {
-                            'Name': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'ComputeType\': {
+                            \'Name\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                         }
                     },
                 ],
@@ -148,12 +148,12 @@ class DescribeWorkspaceDirectories(Paginator):
         
           response_iterator = paginator.paginate(
               DirectoryIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryIds: list
@@ -188,32 +188,32 @@ class DescribeWorkspaceDirectories(Paginator):
           ::
         
             {
-                'Directories': [
+                \'Directories\': [
                     {
-                        'DirectoryId': 'string',
-                        'Alias': 'string',
-                        'DirectoryName': 'string',
-                        'RegistrationCode': 'string',
-                        'SubnetIds': [
-                            'string',
+                        \'DirectoryId\': \'string\',
+                        \'Alias\': \'string\',
+                        \'DirectoryName\': \'string\',
+                        \'RegistrationCode\': \'string\',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'DnsIpAddresses': [
-                            'string',
+                        \'DnsIpAddresses\': [
+                            \'string\',
                         ],
-                        'CustomerUserName': 'string',
-                        'IamRoleId': 'string',
-                        'DirectoryType': 'SIMPLE_AD'|'AD_CONNECTOR',
-                        'WorkspaceSecurityGroupId': 'string',
-                        'State': 'REGISTERING'|'REGISTERED'|'DEREGISTERING'|'DEREGISTERED'|'ERROR',
-                        'WorkspaceCreationProperties': {
-                            'EnableWorkDocs': True|False,
-                            'EnableInternetAccess': True|False,
-                            'DefaultOu': 'string',
-                            'CustomSecurityGroupId': 'string',
-                            'UserEnabledAsLocalAdministrator': True|False
+                        \'CustomerUserName\': \'string\',
+                        \'IamRoleId\': \'string\',
+                        \'DirectoryType\': \'SIMPLE_AD\'|\'AD_CONNECTOR\',
+                        \'WorkspaceSecurityGroupId\': \'string\',
+                        \'State\': \'REGISTERING\'|\'REGISTERED\'|\'DEREGISTERING\'|\'DEREGISTERED\'|\'ERROR\',
+                        \'WorkspaceCreationProperties\': {
+                            \'EnableWorkDocs\': True|False,
+                            \'EnableInternetAccess\': True|False,
+                            \'DefaultOu\': \'string\',
+                            \'CustomSecurityGroupId\': \'string\',
+                            \'UserEnabledAsLocalAdministrator\': True|False
                         },
-                        'ipGroupIds': [
-                            'string',
+                        \'ipGroupIds\': [
+                            \'string\',
                         ]
                     },
                 ],
@@ -277,7 +277,7 @@ class DescribeWorkspaceDirectories(Paginator):
         
                 - **State** *(string) --* 
         
-                  The state of the directory's registration with Amazon WorkSpaces
+                  The state of the directory\'s registration with Amazon WorkSpaces
         
                 - **WorkspaceCreationProperties** *(dict) --* 
         
@@ -324,15 +324,15 @@ class DescribeWorkspaces(Paginator):
         
           response_iterator = paginator.paginate(
               WorkspaceIds=[
-                  'string',
+                  \'string\',
               ],
-              DirectoryId='string',
-              UserName='string',
-              BundleId='string',
+              DirectoryId=\'string\',
+              UserName=\'string\',
+              BundleId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type WorkspaceIds: list
@@ -384,32 +384,32 @@ class DescribeWorkspaces(Paginator):
           ::
         
             {
-                'Workspaces': [
+                \'Workspaces\': [
                     {
-                        'WorkspaceId': 'string',
-                        'DirectoryId': 'string',
-                        'UserName': 'string',
-                        'IpAddress': 'string',
-                        'State': 'PENDING'|'AVAILABLE'|'IMPAIRED'|'UNHEALTHY'|'REBOOTING'|'STARTING'|'REBUILDING'|'MAINTENANCE'|'ADMIN_MAINTENANCE'|'TERMINATING'|'TERMINATED'|'SUSPENDED'|'UPDATING'|'STOPPING'|'STOPPED'|'ERROR',
-                        'BundleId': 'string',
-                        'SubnetId': 'string',
-                        'ErrorMessage': 'string',
-                        'ErrorCode': 'string',
-                        'ComputerName': 'string',
-                        'VolumeEncryptionKey': 'string',
-                        'UserVolumeEncryptionEnabled': True|False,
-                        'RootVolumeEncryptionEnabled': True|False,
-                        'WorkspaceProperties': {
-                            'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                            'RunningModeAutoStopTimeoutInMinutes': 123,
-                            'RootVolumeSizeGib': 123,
-                            'UserVolumeSizeGib': 123,
-                            'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'WorkspaceId\': \'string\',
+                        \'DirectoryId\': \'string\',
+                        \'UserName\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'State\': \'PENDING\'|\'AVAILABLE\'|\'IMPAIRED\'|\'UNHEALTHY\'|\'REBOOTING\'|\'STARTING\'|\'REBUILDING\'|\'MAINTENANCE\'|\'ADMIN_MAINTENANCE\'|\'TERMINATING\'|\'TERMINATED\'|\'SUSPENDED\'|\'UPDATING\'|\'STOPPING\'|\'STOPPED\'|\'ERROR\',
+                        \'BundleId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'ErrorMessage\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ComputerName\': \'string\',
+                        \'VolumeEncryptionKey\': \'string\',
+                        \'UserVolumeEncryptionEnabled\': True|False,
+                        \'RootVolumeEncryptionEnabled\': True|False,
+                        \'WorkspaceProperties\': {
+                            \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                            \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                            \'RootVolumeSizeGib\': 123,
+                            \'UserVolumeSizeGib\': 123,
+                            \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                         },
-                        'ModificationStates': [
+                        \'ModificationStates\': [
                             {
-                                'Resource': 'ROOT_VOLUME'|'USER_VOLUME'|'COMPUTE_TYPE',
-                                'State': 'UPDATE_INITIATED'|'UPDATE_IN_PROGRESS'
+                                \'Resource\': \'ROOT_VOLUME\'|\'USER_VOLUME\'|\'COMPUTE_TYPE\',
+                                \'State\': \'UPDATE_INITIATED\'|\'UPDATE_IN_PROGRESS\'
                             },
                         ]
                     },

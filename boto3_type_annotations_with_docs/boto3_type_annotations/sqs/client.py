@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -28,7 +28,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/AddPermission>`_
         
@@ -36,13 +36,13 @@ class Client(BaseClient):
         ::
         
           response = client.add_permission(
-              QueueUrl='string',
-              Label='string',
+              QueueUrl=\'string\',
+              Label=\'string\',
               AWSAccountIds=[
-                  'string',
+                  \'string\',
               ],
               Actions=[
-                  'string',
+                  \'string\',
               ]
           )
         :type QueueUrl: string
@@ -55,7 +55,7 @@ class Client(BaseClient):
         :type Label: string
         :param Label: **[REQUIRED]** 
         
-          The unique identification of the permission you're setting (for example, ``AliceSendMessage`` ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (``-`` ), and underscores (``_`` ).
+          The unique identification of the permission you\'re setting (for example, ``AliceSendMessage`` ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (``-`` ), and underscores (``_`` ).
         
         :type AWSAccountIds: list
         :param AWSAccountIds: **[REQUIRED]** 
@@ -85,10 +85,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -100,17 +100,17 @@ class Client(BaseClient):
         
         For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes, you call ``ChangeMessageVisibility`` with a timeout of 10 minutes. You can continue to call ``ChangeMessageVisibility`` to extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility timeout beyond 12 hours, your request is rejected.
         
-        A message is considered to be *in flight* after it's received from a queue by a consumer, but not yet deleted from the queue.
+        A message is considered to be *in flight* after it\'s received from a queue by a consumer, but not yet deleted from the queue.
         
-        For standard queues, there can be a maximum of 120,000 inflight messages per queue. If you reach this limit, Amazon SQS returns the ``OverLimit`` error message. To avoid reaching the limit, you should delete messages from the queue after they're processed. You can also increase the number of queues you use to process your messages.
+        For standard queues, there can be a maximum of 120,000 inflight messages per queue. If you reach this limit, Amazon SQS returns the ``OverLimit`` error message. To avoid reaching the limit, you should delete messages from the queue after they\'re processed. You can also increase the number of queues you use to process your messages.
         
         For FIFO queues, there can be a maximum of 20,000 inflight messages per queue. If you reach this limit, Amazon SQS returns no error messages.
         
         .. warning::
         
-          If you attempt to set the ``VisibilityTimeout`` to a value greater than the maximum time left, Amazon SQS returns an error. Amazon SQS doesn't automatically recalculate and increase the timeout to the maximum remaining time.
+          If you attempt to set the ``VisibilityTimeout`` to a value greater than the maximum time left, Amazon SQS returns an error. Amazon SQS doesn\'t automatically recalculate and increase the timeout to the maximum remaining time.
         
-          Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value (not to the value you set using the ``ChangeMessageVisibility`` action) the next time the message is received.
+          Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn\'t saved in memory for that message. If you don\'t delete a message after it is received, the visibility timeout for the message reverts to the original timeout value (not to the value you set using the ``ChangeMessageVisibility`` action) the next time the message is received.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/ChangeMessageVisibility>`_
         
@@ -118,14 +118,14 @@ class Client(BaseClient):
         ::
         
           response = client.change_message_visibility(
-              QueueUrl='string',
-              ReceiptHandle='string',
+              QueueUrl=\'string\',
+              ReceiptHandle=\'string\',
               VisibilityTimeout=123
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
         
-          The URL of the Amazon SQS queue whose message's visibility is changed.
+          The URL of the Amazon SQS queue whose message\'s visibility is changed.
         
           Queue URLs and names are case-sensitive.
         
@@ -137,7 +137,7 @@ class Client(BaseClient):
         :type VisibilityTimeout: integer
         :param VisibilityTimeout: **[REQUIRED]** 
         
-          The new value for the message's visibility timeout (in seconds). Values values: ``0`` to ``43200`` . Maximum: 12 hours.
+          The new value for the message\'s visibility timeout (in seconds). Values values: ``0`` to ``43200`` . Maximum: 12 hours.
         
         :returns: None
         """
@@ -162,19 +162,19 @@ class Client(BaseClient):
         ::
         
           response = client.change_message_visibility_batch(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               Entries=[
                   {
-                      'Id': 'string',
-                      'ReceiptHandle': 'string',
-                      'VisibilityTimeout': 123
+                      \'Id\': \'string\',
+                      \'ReceiptHandle\': \'string\',
+                      \'VisibilityTimeout\': 123
                   },
               ]
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
         
-          The URL of the Amazon SQS queue whose messages' visibility is changed.
+          The URL of the Amazon SQS queue whose messages\' visibility is changed.
         
           Queue URLs and names are case-sensitive.
         
@@ -211,7 +211,7 @@ class Client(BaseClient):
         
             - **VisibilityTimeout** *(integer) --* 
         
-              The new value (in seconds) for the message's visibility timeout.
+              The new value (in seconds) for the message\'s visibility timeout.
         
         :rtype: dict
         :returns: 
@@ -221,17 +221,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
+                \'Successful\': [
                     {
-                        'Id': 'string'
+                        \'Id\': \'string\'
                     },
                 ],
-                'Failed': [
+                \'Failed\': [
                     {
-                        'Id': 'string',
-                        'SenderFault': True|False,
-                        'Code': 'string',
-                        'Message': 'string'
+                        \'Id\': \'string\',
+                        \'SenderFault\': True|False,
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -284,13 +284,13 @@ class Client(BaseClient):
         """
         Creates a new standard or FIFO queue. You can pass one or more attributes in the request. Keep the following caveats in mind:
         
-        * If you don't specify the ``FifoQueue`` attribute, Amazon SQS creates a standard queue. 
+        * If you don\'t specify the ``FifoQueue`` attribute, Amazon SQS creates a standard queue. 
         
         .. note::
         
-           You can't change the queue type after you create it and you can't convert an existing standard queue into a FIFO queue. You must either create a new FIFO queue for your application or delete your existing standard queue and recreate it as a FIFO queue. For more information, see `Moving From a Standard Queue to a FIFO Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving>`__ in the *Amazon Simple Queue Service Developer Guide* .  
+           You can\'t change the queue type after you create it and you can\'t convert an existing standard queue into a FIFO queue. You must either create a new FIFO queue for your application or delete your existing standard queue and recreate it as a FIFO queue. For more information, see `Moving From a Standard Queue to a FIFO Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving>`__ in the *Amazon Simple Queue Service Developer Guide* .  
         
-        * If you don't provide a value for an attribute, the queue is created with the default value for the attribute. 
+        * If you don\'t provide a value for an attribute, the queue is created with the default value for the attribute. 
          
         * If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name. 
          
@@ -298,9 +298,9 @@ class Client(BaseClient):
         
         To get the queue URL, use the ``  GetQueueUrl `` action. ``  GetQueueUrl `` requires only the ``QueueName`` parameter. be aware of existing queue names:
         
-        * If you provide the name of an existing queue along with the exact names and values of all the queue's attributes, ``CreateQueue`` returns the queue URL for the existing queue. 
+        * If you provide the name of an existing queue along with the exact names and values of all the queue\'s attributes, ``CreateQueue`` returns the queue URL for the existing queue. 
          
-        * If the queue name, attribute names, or attribute values don't match an existing queue, ``CreateQueue`` returns an error. 
+        * If the queue name, attribute names, or attribute values don\'t match an existing queue, ``CreateQueue`` returns an error. 
          
         Some actions take lists of parameters. These lists are specified using the ``param.n`` notation. Values of ``n`` are integers starting from 1. For example, a parameter list with two elements looks like this:
         
@@ -310,7 +310,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/CreateQueue>`_
         
@@ -318,9 +318,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_queue(
-              QueueName='string',
+              QueueName=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type QueueName: string
@@ -349,7 +349,7 @@ class Client(BaseClient):
            
           * ``MessageRetentionPeriod`` - The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer from 60 seconds (1 minute) to 1,209,600 seconds (14 days). Default: 345,600 (4 days).  
            
-          * ``Policy`` - The queue's policy. A valid AWS policy. For more information about policy structure, see `Overview of AWS IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html>`__ in the *Amazon IAM User Guide* .  
+          * ``Policy`` - The queue\'s policy. A valid AWS policy. For more information about policy structure, see `Overview of AWS IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html>`__ in the *Amazon IAM User Guide* .  
            
           * ``ReceiveMessageWaitTimeSeconds`` - The length of time, in seconds, for which a ``  ReceiveMessage `` action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.  
            
@@ -373,7 +373,7 @@ class Client(BaseClient):
            
           The following attributes apply only to `FIFO (first-in-first-out) queues <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html>`__ :
         
-          * ``FifoQueue`` - Designates a queue as FIFO. Valid values: ``true`` , ``false`` . You can provide this attribute only during queue creation. You can't change it for an existing queue. When you set this attribute, you must also provide the ``MessageGroupId`` for your messages explicitly. For more information, see `FIFO Queue Logic <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic>`__ in the *Amazon Simple Queue Service Developer Guide* . 
+          * ``FifoQueue`` - Designates a queue as FIFO. Valid values: ``true`` , ``false`` . You can provide this attribute only during queue creation. You can\'t change it for an existing queue. When you set this attribute, you must also provide the ``MessageGroupId`` for your messages explicitly. For more information, see `FIFO Queue Logic <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic>`__ in the *Amazon Simple Queue Service Developer Guide* . 
            
           * ``ContentBasedDeduplication`` - Enables content-based deduplication. Valid values: ``true`` , ``false`` . For more information, see `Exactly-Once Processing <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing>`__ in the *Amazon Simple Queue Service Developer Guide* .  
         
@@ -381,9 +381,9 @@ class Client(BaseClient):
         
               * You may provide a ``MessageDeduplicationId`` explicitly. 
                
-              * If you aren't able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
+              * If you aren\'t able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
                
-              * If you don't provide a ``MessageDeduplicationId`` and the queue doesn't have ``ContentBasedDeduplication`` set, the action fails with an error. 
+              * If you don\'t provide a ``MessageDeduplicationId`` and the queue doesn\'t have ``ContentBasedDeduplication`` set, the action fails with an error. 
                
               * If the queue has ``ContentBasedDeduplication`` set, your ``MessageDeduplicationId`` overrides the generated one. 
                
@@ -403,7 +403,7 @@ class Client(BaseClient):
           ::
         
             {
-                'QueueUrl': 'string'
+                \'QueueUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -433,8 +433,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_message(
-              QueueUrl='string',
-              ReceiptHandle='string'
+              QueueUrl=\'string\',
+              ReceiptHandle=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -471,11 +471,11 @@ class Client(BaseClient):
         ::
         
           response = client.delete_message_batch(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               Entries=[
                   {
-                      'Id': 'string',
-                      'ReceiptHandle': 'string'
+                      \'Id\': \'string\',
+                      \'ReceiptHandle\': \'string\'
                   },
               ]
           )
@@ -515,17 +515,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
+                \'Successful\': [
                     {
-                        'Id': 'string'
+                        \'Id\': \'string\'
                     },
                 ],
-                'Failed': [
+                \'Failed\': [
                     {
-                        'Id': 'string',
-                        'SenderFault': True|False,
-                        'Code': 'string',
-                        'Message': 'string'
+                        \'Id\': \'string\',
+                        \'SenderFault\': True|False,
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -533,7 +533,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            For each message in the batch, the response contains a ``  DeleteMessageBatchResultEntry `` tag if the message is deleted or a ``  BatchResultErrorEntry `` tag if the message can't be deleted.
+            For each message in the batch, the response contains a ``  DeleteMessageBatchResultEntry `` tag if the message is deleted or a ``  BatchResultErrorEntry `` tag if the message can\'t be deleted.
         
             - **Successful** *(list) --* 
         
@@ -587,7 +587,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/DeleteQueue>`_
         
@@ -595,7 +595,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_queue(
-              QueueUrl='string'
+              QueueUrl=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -624,7 +624,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -636,10 +636,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -669,9 +669,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_queue_attributes(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               AttributeNames=[
-                  'All'|'Policy'|'VisibilityTimeout'|'MaximumMessageSize'|'MessageRetentionPeriod'|'ApproximateNumberOfMessages'|'ApproximateNumberOfMessagesNotVisible'|'CreatedTimestamp'|'LastModifiedTimestamp'|'QueueArn'|'ApproximateNumberOfMessagesDelayed'|'DelaySeconds'|'ReceiveMessageWaitTimeSeconds'|'RedrivePolicy'|'FifoQueue'|'ContentBasedDeduplication'|'KmsMasterKeyId'|'KmsDataKeyReusePeriodSeconds',
+                  \'All\'|\'Policy\'|\'VisibilityTimeout\'|\'MaximumMessageSize\'|\'MessageRetentionPeriod\'|\'ApproximateNumberOfMessages\'|\'ApproximateNumberOfMessagesNotVisible\'|\'CreatedTimestamp\'|\'LastModifiedTimestamp\'|\'QueueArn\'|\'ApproximateNumberOfMessagesDelayed\'|\'DelaySeconds\'|\'ReceiveMessageWaitTimeSeconds\'|\'RedrivePolicy\'|\'FifoQueue\'|\'ContentBasedDeduplication\'|\'KmsMasterKeyId\'|\'KmsDataKeyReusePeriodSeconds\',
               ]
           )
         :type QueueUrl: string
@@ -750,8 +750,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': {
-                    'string': 'string'
+                \'Attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -774,7 +774,7 @@ class Client(BaseClient):
     def get_queue_url(self, QueueName: str, QueueOwnerAWSAccountId: str = None) -> Dict:
         """
         
-        To access a queue that belongs to another AWS account, use the ``QueueOwnerAWSAccountId`` parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see ``  AddPermission `` or see `Allow Developers to Write Messages to a Shared Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue>`__ in the *Amazon Simple Queue Service Developer Guide* . 
+        To access a queue that belongs to another AWS account, use the ``QueueOwnerAWSAccountId`` parameter to specify the account ID of the queue\'s owner. The queue\'s owner must grant you permission to access the queue. For more information about shared queue access, see ``  AddPermission `` or see `Allow Developers to Write Messages to a Shared Queue <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue>`__ in the *Amazon Simple Queue Service Developer Guide* . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/GetQueueUrl>`_
         
@@ -782,8 +782,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_queue_url(
-              QueueName='string',
-              QueueOwnerAWSAccountId='string'
+              QueueName=\'string\',
+              QueueOwnerAWSAccountId=\'string\'
           )
         :type QueueName: string
         :param QueueName: **[REQUIRED]** 
@@ -805,7 +805,7 @@ class Client(BaseClient):
           ::
         
             {
-                'QueueUrl': 'string'
+                \'QueueUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -843,7 +843,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_dead_letter_source_queues(
-              QueueUrl='string'
+              QueueUrl=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -860,8 +860,8 @@ class Client(BaseClient):
           ::
         
             {
-                'queueUrls': [
-                    'string',
+                \'queueUrls\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -884,9 +884,9 @@ class Client(BaseClient):
         
         When you use queue tags, keep the following guidelines in mind:
         
-        * Adding more than 50 tags to a queue isn't recommended. 
+        * Adding more than 50 tags to a queue isn\'t recommended. 
          
-        * Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings. 
+        * Tags don\'t have any semantic meaning. Amazon SQS interprets tags as character strings. 
          
         * Tags are case-sensitive. 
          
@@ -898,7 +898,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/ListQueueTags>`_
         
@@ -906,7 +906,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_queue_tags(
-              QueueUrl='string'
+              QueueUrl=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -921,8 +921,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -945,7 +945,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/ListQueues>`_
         
@@ -953,7 +953,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_queues(
-              QueueNamePrefix='string'
+              QueueNamePrefix=\'string\'
           )
         :type QueueNamePrefix: string
         :param QueueNamePrefix: 
@@ -970,8 +970,8 @@ class Client(BaseClient):
           ::
         
             {
-                'QueueUrls': [
-                    'string',
+                \'QueueUrls\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -994,9 +994,9 @@ class Client(BaseClient):
         
         .. warning::
         
-          When you use the ``PurgeQueue`` action, you can't retrieve any messages deleted from a queue.
+          When you use the ``PurgeQueue`` action, you can\'t retrieve any messages deleted from a queue.
         
-          The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size. 
+          The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue\'s size. 
         
         Messages sent to the queue *before* you call ``PurgeQueue`` might be received but are deleted within the next minute.
         
@@ -1008,7 +1008,7 @@ class Client(BaseClient):
         ::
         
           response = client.purge_queue(
-              QueueUrl='string'
+              QueueUrl=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -1042,9 +1042,9 @@ class Client(BaseClient):
          
         The receipt handle is the identifier you must provide when deleting the message. For more information, see `Queue and Message Identifiers <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
-        You can provide the ``VisibilityTimeout`` parameter in your request. The parameter is applied to the messages that Amazon SQS returns in the response. If you don't include the parameter, the overall visibility timeout for the queue is used for the returned messages. For more information, see `Visibility Timeout <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
+        You can provide the ``VisibilityTimeout`` parameter in your request. The parameter is applied to the messages that Amazon SQS returns in the response. If you don\'t include the parameter, the overall visibility timeout for the queue is used for the returned messages. For more information, see `Visibility Timeout <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
-        A message that isn't deleted or a message whose visibility isn't extended before the visibility timeout expires counts as a failed receive. Depending on the configuration of the queue, the message might be sent to the dead-letter queue.
+        A message that isn\'t deleted or a message whose visibility isn\'t extended before the visibility timeout expires counts as a failed receive. Depending on the configuration of the queue, the message might be sent to the dead-letter queue.
         
         .. note::
         
@@ -1056,17 +1056,17 @@ class Client(BaseClient):
         ::
         
           response = client.receive_message(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               AttributeNames=[
-                  'All'|'Policy'|'VisibilityTimeout'|'MaximumMessageSize'|'MessageRetentionPeriod'|'ApproximateNumberOfMessages'|'ApproximateNumberOfMessagesNotVisible'|'CreatedTimestamp'|'LastModifiedTimestamp'|'QueueArn'|'ApproximateNumberOfMessagesDelayed'|'DelaySeconds'|'ReceiveMessageWaitTimeSeconds'|'RedrivePolicy'|'FifoQueue'|'ContentBasedDeduplication'|'KmsMasterKeyId'|'KmsDataKeyReusePeriodSeconds',
+                  \'All\'|\'Policy\'|\'VisibilityTimeout\'|\'MaximumMessageSize\'|\'MessageRetentionPeriod\'|\'ApproximateNumberOfMessages\'|\'ApproximateNumberOfMessagesNotVisible\'|\'CreatedTimestamp\'|\'LastModifiedTimestamp\'|\'QueueArn\'|\'ApproximateNumberOfMessagesDelayed\'|\'DelaySeconds\'|\'ReceiveMessageWaitTimeSeconds\'|\'RedrivePolicy\'|\'FifoQueue\'|\'ContentBasedDeduplication\'|\'KmsMasterKeyId\'|\'KmsDataKeyReusePeriodSeconds\',
               ],
               MessageAttributeNames=[
-                  'string',
+                  \'string\',
               ],
               MaxNumberOfMessages=123,
               VisibilityTimeout=123,
               WaitTimeSeconds=123,
-              ReceiveRequestAttemptId='string'
+              ReceiveRequestAttemptId=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -1147,7 +1147,7 @@ class Client(BaseClient):
            
           * When you set ``FifoQueue`` , a caller of the ``ReceiveMessage`` action can provide a ``ReceiveRequestAttemptId`` explicitly. 
            
-          * If a caller of the ``ReceiveMessage`` action doesn't provide a ``ReceiveRequestAttemptId`` , Amazon SQS generates a ``ReceiveRequestAttemptId`` . 
+          * If a caller of the ``ReceiveMessage`` action doesn\'t provide a ``ReceiveRequestAttemptId`` , Amazon SQS generates a ``ReceiveRequestAttemptId`` . 
            
           * You can retry the ``ReceiveMessage`` action with the same ``ReceiveRequestAttemptId`` if none of the messages have been modified (deleted or had their visibility changes). 
            
@@ -1159,9 +1159,9 @@ class Client(BaseClient):
         
           * While messages with a particular ``MessageGroupId`` are invisible, no more messages belonging to the same ``MessageGroupId`` are returned until the visibility timeout expires. You can still receive messages with another ``MessageGroupId`` as long as it is also visible. 
            
-          * If a caller of ``ReceiveMessage`` can't track the ``ReceiveRequestAttemptId`` , no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order. 
+          * If a caller of ``ReceiveMessage`` can\'t track the ``ReceiveRequestAttemptId`` , no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order. 
            
-          The length of ``ReceiveRequestAttemptId`` is 128 characters. ``ReceiveRequestAttemptId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` ).
+          The length of ``ReceiveRequestAttemptId`` is 128 characters. ``ReceiveRequestAttemptId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~`` ).
         
           For best practices of using ``ReceiveRequestAttemptId`` , see `Using the ReceiveRequestAttemptId Request Parameter <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
@@ -1173,27 +1173,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Messages': [
+                \'Messages\': [
                     {
-                        'MessageId': 'string',
-                        'ReceiptHandle': 'string',
-                        'MD5OfBody': 'string',
-                        'Body': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'MessageId\': \'string\',
+                        \'ReceiptHandle\': \'string\',
+                        \'MD5OfBody\': \'string\',
+                        \'Body\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         },
-                        'MD5OfMessageAttributes': 'string',
-                        'MessageAttributes': {
-                            'string': {
-                                'StringValue': 'string',
-                                'BinaryValue': b'bytes',
-                                'StringListValues': [
-                                    'string',
+                        \'MD5OfMessageAttributes\': \'string\',
+                        \'MessageAttributes\': {
+                            \'string\': {
+                                \'StringValue\': \'string\',
+                                \'BinaryValue\': b\'bytes\',
+                                \'StringListValues\': [
+                                    \'string\',
                                 ],
-                                'BinaryListValues': [
-                                    b'bytes',
+                                \'BinaryListValues\': [
+                                    b\'bytes\',
                                 ],
-                                'DataType': 'string'
+                                \'DataType\': \'string\'
                             }
                         }
                     },
@@ -1227,7 +1227,7 @@ class Client(BaseClient):
         
                 - **Body** *(string) --* 
         
-                  The message's contents (not URL-encoded).
+                  The message\'s contents (not URL-encoded).
         
                 - **Attributes** *(dict) --* 
         
@@ -1305,7 +1305,7 @@ class Client(BaseClient):
         
           Only the owner of a queue can remove permissions from it.
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/RemovePermission>`_
         
@@ -1313,8 +1313,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_permission(
-              QueueUrl='string',
-              Label='string'
+              QueueUrl=\'string\',
+              Label=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -1349,24 +1349,24 @@ class Client(BaseClient):
         ::
         
           response = client.send_message(
-              QueueUrl='string',
-              MessageBody='string',
+              QueueUrl=\'string\',
+              MessageBody=\'string\',
               DelaySeconds=123,
               MessageAttributes={
-                  'string': {
-                      'StringValue': 'string',
-                      'BinaryValue': b'bytes',
-                      'StringListValues': [
-                          'string',
+                  \'string\': {
+                      \'StringValue\': \'string\',
+                      \'BinaryValue\': b\'bytes\',
+                      \'StringListValues\': [
+                          \'string\',
                       ],
-                      'BinaryListValues': [
-                          b'bytes',
+                      \'BinaryListValues\': [
+                          b\'bytes\',
                       ],
-                      'DataType': 'string'
+                      \'DataType\': \'string\'
                   }
               },
-              MessageDeduplicationId='string',
-              MessageGroupId='string'
+              MessageDeduplicationId=\'string\',
+              MessageGroupId=\'string\'
           )
         :type QueueUrl: string
         :param QueueUrl: **[REQUIRED]** 
@@ -1391,11 +1391,11 @@ class Client(BaseClient):
         :type DelaySeconds: integer
         :param DelaySeconds: 
         
-          The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive ``DelaySeconds`` value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue applies. 
+          The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive ``DelaySeconds`` value become available for processing after the delay period is finished. If you don\'t specify a value, the default value for the queue applies. 
         
           .. note::
         
-            When you set ``FifoQueue`` , you can't set ``DelaySeconds`` per message. You can set this parameter only on a queue level.
+            When you set ``FifoQueue`` , you can\'t set ``DelaySeconds`` per message. You can set this parameter only on a queue level.
         
         :type MessageAttributes: dict
         :param MessageAttributes: 
@@ -1441,15 +1441,15 @@ class Client(BaseClient):
         
           This parameter applies only to FIFO (first-in-first-out) queues.
         
-          The token used for deduplication of sent messages. If a message with a particular ``MessageDeduplicationId`` is sent successfully, any messages sent with the same ``MessageDeduplicationId`` are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see `Exactly-Once Processing <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          The token used for deduplication of sent messages. If a message with a particular ``MessageDeduplicationId`` is sent successfully, any messages sent with the same ``MessageDeduplicationId`` are accepted successfully but aren\'t delivered during the 5-minute deduplication interval. For more information, see `Exactly-Once Processing <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
           * Every message must have a unique ``MessageDeduplicationId`` , 
         
             * You may provide a ``MessageDeduplicationId`` explicitly. 
              
-            * If you aren't able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
+            * If you aren\'t able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
              
-            * If you don't provide a ``MessageDeduplicationId`` and the queue doesn't have ``ContentBasedDeduplication`` set, the action fails with an error. 
+            * If you don\'t provide a ``MessageDeduplicationId`` and the queue doesn\'t have ``ContentBasedDeduplication`` set, the action fails with an error. 
              
             * If the queue has ``ContentBasedDeduplication`` set, your ``MessageDeduplicationId`` overrides the generated one. 
              
@@ -1461,11 +1461,11 @@ class Client(BaseClient):
         
             The ``MessageDeduplicationId`` is available to the consumer of the message (this can be useful for troubleshooting delivery issues).
         
-            If a message is sent successfully but the acknowledgement is lost and the message is resent with the same ``MessageDeduplicationId`` after the deduplication interval, Amazon SQS can't detect duplicate messages.
+            If a message is sent successfully but the acknowledgement is lost and the message is resent with the same ``MessageDeduplicationId`` after the deduplication interval, Amazon SQS can\'t detect duplicate messages.
         
             Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.
         
-          The length of ``MessageDeduplicationId`` is 128 characters. ``MessageDeduplicationId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` ).
+          The length of ``MessageDeduplicationId`` is 128 characters. ``MessageDeduplicationId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~`` ).
         
           For best practices of using ``MessageDeduplicationId`` , see `Using the MessageDeduplicationId Property <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
@@ -1476,17 +1476,17 @@ class Client(BaseClient):
         
           The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use ``MessageGroupId`` values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.
         
-          * You must associate a non-empty ``MessageGroupId`` with a message. If you don't provide a ``MessageGroupId`` , the action fails. 
+          * You must associate a non-empty ``MessageGroupId`` with a message. If you don\'t provide a ``MessageGroupId`` , the action fails. 
            
-          * ``ReceiveMessage`` might return messages with multiple ``MessageGroupId`` values. For each ``MessageGroupId`` , the messages are sorted by time sent. The caller can't specify a ``MessageGroupId`` . 
+          * ``ReceiveMessage`` might return messages with multiple ``MessageGroupId`` values. For each ``MessageGroupId`` , the messages are sorted by time sent. The caller can\'t specify a ``MessageGroupId`` . 
            
-          The length of ``MessageGroupId`` is 128 characters. Valid values: alphanumeric characters and punctuation ``(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)`` .
+          The length of ``MessageGroupId`` is 128 characters. Valid values: alphanumeric characters and punctuation ``(!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~)`` .
         
           For best practices of using ``MessageGroupId`` , see `Using the MessageGroupId Property <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
           .. warning::
         
-             ``MessageGroupId`` is required for FIFO queues. You can't use it for Standard queues.
+             ``MessageGroupId`` is required for FIFO queues. You can\'t use it for Standard queues.
         
         :rtype: dict
         :returns: 
@@ -1496,10 +1496,10 @@ class Client(BaseClient):
           ::
         
             {
-                'MD5OfMessageBody': 'string',
-                'MD5OfMessageAttributes': 'string',
-                'MessageId': 'string',
-                'SequenceNumber': 'string'
+                \'MD5OfMessageBody\': \'string\',
+                \'MD5OfMessageAttributes\': \'string\',
+                \'MessageId\': \'string\',
+                \'SequenceNumber\': \'string\'
             }
           **Response Structure** 
         
@@ -1545,7 +1545,7 @@ class Client(BaseClient):
         
           Any characters not included in this list will be rejected. For more information, see the `W3C specification for characters <http://www.w3.org/TR/REC-xml/#charsets>`__ .
         
-        If you don't specify the ``DelaySeconds`` parameter for an entry, Amazon SQS uses the default value for the queue.
+        If you don\'t specify the ``DelaySeconds`` parameter for an entry, Amazon SQS uses the default value for the queue.
         
         Some actions take lists of parameters. These lists are specified using the ``param.n`` notation. Values of ``n`` are integers starting from 1. For example, a parameter list with two elements looks like this:
         
@@ -1559,27 +1559,27 @@ class Client(BaseClient):
         ::
         
           response = client.send_message_batch(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               Entries=[
                   {
-                      'Id': 'string',
-                      'MessageBody': 'string',
-                      'DelaySeconds': 123,
-                      'MessageAttributes': {
-                          'string': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'StringListValues': [
-                                  'string',
+                      \'Id\': \'string\',
+                      \'MessageBody\': \'string\',
+                      \'DelaySeconds\': 123,
+                      \'MessageAttributes\': {
+                          \'string\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'StringListValues\': [
+                                  \'string\',
                               ],
-                              'BinaryListValues': [
-                                  b'bytes',
+                              \'BinaryListValues\': [
+                                  b\'bytes\',
                               ],
-                              'DataType': 'string'
+                              \'DataType\': \'string\'
                           }
                       },
-                      'MessageDeduplicationId': 'string',
-                      'MessageGroupId': 'string'
+                      \'MessageDeduplicationId\': \'string\',
+                      \'MessageGroupId\': \'string\'
                   },
               ]
           )
@@ -1615,11 +1615,11 @@ class Client(BaseClient):
         
             - **DelaySeconds** *(integer) --* 
         
-              The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive ``DelaySeconds`` value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied. 
+              The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive ``DelaySeconds`` value become available for processing after the delay period is finished. If you don\'t specify a value, the default value for the queue is applied. 
         
               .. note::
         
-                When you set ``FifoQueue`` , you can't set ``DelaySeconds`` per message. You can set this parameter only on a queue level.
+                When you set ``FifoQueue`` , you can\'t set ``DelaySeconds`` per message. You can set this parameter only on a queue level.
         
             - **MessageAttributes** *(dict) --* 
         
@@ -1663,15 +1663,15 @@ class Client(BaseClient):
         
               This parameter applies only to FIFO (first-in-first-out) queues.
         
-              The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular ``MessageDeduplicationId`` is sent successfully, subsequent messages with the same ``MessageDeduplicationId`` are accepted successfully but aren't delivered. For more information, see `Exactly-Once Processing <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing>`__ in the *Amazon Simple Queue Service Developer Guide* .
+              The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular ``MessageDeduplicationId`` is sent successfully, subsequent messages with the same ``MessageDeduplicationId`` are accepted successfully but aren\'t delivered. For more information, see `Exactly-Once Processing <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
               * Every message must have a unique ``MessageDeduplicationId`` , 
         
                 * You may provide a ``MessageDeduplicationId`` explicitly. 
                  
-                * If you aren't able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
+                * If you aren\'t able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
                  
-                * If you don't provide a ``MessageDeduplicationId`` and the queue doesn't have ``ContentBasedDeduplication`` set, the action fails with an error. 
+                * If you don\'t provide a ``MessageDeduplicationId`` and the queue doesn\'t have ``ContentBasedDeduplication`` set, the action fails with an error. 
                  
                 * If the queue has ``ContentBasedDeduplication`` set, your ``MessageDeduplicationId`` overrides the generated one. 
                  
@@ -1683,11 +1683,11 @@ class Client(BaseClient):
         
                 The ``MessageDeduplicationId`` is available to the consumer of the message (this can be useful for troubleshooting delivery issues).
         
-                If a message is sent successfully but the acknowledgement is lost and the message is resent with the same ``MessageDeduplicationId`` after the deduplication interval, Amazon SQS can't detect duplicate messages.
+                If a message is sent successfully but the acknowledgement is lost and the message is resent with the same ``MessageDeduplicationId`` after the deduplication interval, Amazon SQS can\'t detect duplicate messages.
         
                 Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.
         
-              The length of ``MessageDeduplicationId`` is 128 characters. ``MessageDeduplicationId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`` ).
+              The length of ``MessageDeduplicationId`` is 128 characters. ``MessageDeduplicationId`` can contain alphanumeric characters (``a-z`` , ``A-Z`` , ``0-9`` ) and punctuation (``!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~`` ).
         
               For best practices of using ``MessageDeduplicationId`` , see `Using the MessageDeduplicationId Property <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
@@ -1697,17 +1697,17 @@ class Client(BaseClient):
         
               The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use ``MessageGroupId`` values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.
         
-              * You must associate a non-empty ``MessageGroupId`` with a message. If you don't provide a ``MessageGroupId`` , the action fails. 
+              * You must associate a non-empty ``MessageGroupId`` with a message. If you don\'t provide a ``MessageGroupId`` , the action fails. 
                
-              * ``ReceiveMessage`` might return messages with multiple ``MessageGroupId`` values. For each ``MessageGroupId`` , the messages are sorted by time sent. The caller can't specify a ``MessageGroupId`` . 
+              * ``ReceiveMessage`` might return messages with multiple ``MessageGroupId`` values. For each ``MessageGroupId`` , the messages are sorted by time sent. The caller can\'t specify a ``MessageGroupId`` . 
                
-              The length of ``MessageGroupId`` is 128 characters. Valid values: alphanumeric characters and punctuation ``(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)`` .
+              The length of ``MessageGroupId`` is 128 characters. Valid values: alphanumeric characters and punctuation ``(!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~)`` .
         
               For best practices of using ``MessageGroupId`` , see `Using the MessageGroupId Property <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
               .. warning::
         
-                 ``MessageGroupId`` is required for FIFO queues. You can't use it for Standard queues.
+                 ``MessageGroupId`` is required for FIFO queues. You can\'t use it for Standard queues.
         
         :rtype: dict
         :returns: 
@@ -1717,21 +1717,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
+                \'Successful\': [
                     {
-                        'Id': 'string',
-                        'MessageId': 'string',
-                        'MD5OfMessageBody': 'string',
-                        'MD5OfMessageAttributes': 'string',
-                        'SequenceNumber': 'string'
+                        \'Id\': \'string\',
+                        \'MessageId\': \'string\',
+                        \'MD5OfMessageBody\': \'string\',
+                        \'MD5OfMessageAttributes\': \'string\',
+                        \'SequenceNumber\': \'string\'
                     },
                 ],
-                'Failed': [
+                \'Failed\': [
                     {
-                        'Id': 'string',
-                        'SenderFault': True|False,
-                        'Code': 'string',
-                        'Message': 'string'
+                        \'Id\': \'string\',
+                        \'SenderFault\': True|False,
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -1775,7 +1775,7 @@ class Client(BaseClient):
         
             - **Failed** *(list) --* 
         
-              A list of ``  BatchResultErrorEntry `` items with error details about each message that can't be enqueued.
+              A list of ``  BatchResultErrorEntry `` items with error details about each message that can\'t be enqueued.
         
               - *(dict) --* 
         
@@ -1807,7 +1807,7 @@ class Client(BaseClient):
         
           In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/SetQueueAttributes>`_
         
@@ -1815,9 +1815,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_queue_attributes(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type QueueUrl: string
@@ -1840,7 +1840,7 @@ class Client(BaseClient):
            
           * ``MessageRetentionPeriod`` - The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days).  
            
-          * ``Policy`` - The queue's policy. A valid AWS policy. For more information about policy structure, see `Overview of AWS IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html>`__ in the *Amazon IAM User Guide* .  
+          * ``Policy`` - The queue\'s policy. A valid AWS policy. For more information about policy structure, see `Overview of AWS IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html>`__ in the *Amazon IAM User Guide* .  
            
           * ``ReceiveMessageWaitTimeSeconds`` - The length of time, in seconds, for which a ``  ReceiveMessage `` action waits for a message to arrive. Valid values: an integer from 0 to 20 (seconds). Default: 0.  
            
@@ -1870,9 +1870,9 @@ class Client(BaseClient):
         
               * You may provide a ``MessageDeduplicationId`` explicitly. 
                
-              * If you aren't able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
+              * If you aren\'t able to provide a ``MessageDeduplicationId`` and you enable ``ContentBasedDeduplication`` for your queue, Amazon SQS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).  
                
-              * If you don't provide a ``MessageDeduplicationId`` and the queue doesn't have ``ContentBasedDeduplication`` set, the action fails with an error. 
+              * If you don\'t provide a ``MessageDeduplicationId`` and the queue doesn\'t have ``ContentBasedDeduplication`` set, the action fails with an error. 
                
               * If the queue has ``ContentBasedDeduplication`` set, your ``MessageDeduplicationId`` overrides the generated one. 
                
@@ -1893,9 +1893,9 @@ class Client(BaseClient):
         
         When you use queue tags, keep the following guidelines in mind:
         
-        * Adding more than 50 tags to a queue isn't recommended. 
+        * Adding more than 50 tags to a queue isn\'t recommended. 
          
-        * Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings. 
+        * Tags don\'t have any semantic meaning. Amazon SQS interprets tags as character strings. 
          
         * Tags are case-sensitive. 
          
@@ -1907,7 +1907,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/TagQueue>`_
         
@@ -1915,9 +1915,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_queue(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type QueueUrl: string
@@ -1943,9 +1943,9 @@ class Client(BaseClient):
         
         When you use queue tags, keep the following guidelines in mind:
         
-        * Adding more than 50 tags to a queue isn't recommended. 
+        * Adding more than 50 tags to a queue isn\'t recommended. 
          
-        * Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings. 
+        * Tags don\'t have any semantic meaning. Amazon SQS interprets tags as character strings. 
          
         * Tags are case-sensitive. 
          
@@ -1957,7 +1957,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Cross-account permissions don't apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
+          Cross-account permissions don\'t apply to this action. For more information, see see `Grant Cross-Account Permissions to a Role and a User Name <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name>`__ in the *Amazon Simple Queue Service Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/UntagQueue>`_
         
@@ -1965,9 +1965,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_queue(
-              QueueUrl='string',
+              QueueUrl=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type QueueUrl: string

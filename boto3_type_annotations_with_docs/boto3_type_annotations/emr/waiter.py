@@ -13,10 +13,10 @@ class ClusterRunning(Waiter):
         ::
         
           waiter.wait(
-              ClusterId='string',
+              ClusterId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterId: string
@@ -52,10 +52,10 @@ class ClusterTerminated(Waiter):
         ::
         
           waiter.wait(
-              ClusterId='string',
+              ClusterId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterId: string
@@ -91,11 +91,11 @@ class StepComplete(Waiter):
         ::
         
           waiter.wait(
-              ClusterId='string',
-              StepId='string',
+              ClusterId=\'string\',
+              StepId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ClusterId: string

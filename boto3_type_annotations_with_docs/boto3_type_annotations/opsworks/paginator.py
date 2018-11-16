@@ -14,13 +14,13 @@ class DescribeEcsClusters(Paginator):
         
           response_iterator = paginator.paginate(
               EcsClusterArns=[
-                  'string',
+                  \'string\',
               ],
-              StackId='string',
+              StackId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type EcsClusterArns: list
@@ -60,12 +60,12 @@ class DescribeEcsClusters(Paginator):
           ::
         
             {
-                'EcsClusters': [
+                \'EcsClusters\': [
                     {
-                        'EcsClusterArn': 'string',
-                        'EcsClusterName': 'string',
-                        'StackId': 'string',
-                        'RegisteredAt': 'string'
+                        \'EcsClusterArn\': \'string\',
+                        \'EcsClusterName\': \'string\',
+                        \'StackId\': \'string\',
+                        \'RegisteredAt\': \'string\'
                     },
                 ],
                 
@@ -86,7 +86,7 @@ class DescribeEcsClusters(Paginator):
         
                 - **EcsClusterArn** *(string) --* 
         
-                  The cluster's ARN.
+                  The cluster\'s ARN.
         
                 - **EcsClusterName** *(string) --* 
         

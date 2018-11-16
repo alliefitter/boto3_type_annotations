@@ -13,20 +13,20 @@ class BatchPredictionAvailable(Waiter):
         ::
         
           waiter.wait(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type FilterVariable: string
@@ -140,20 +140,20 @@ class DataSourceAvailable(Waiter):
         ::
         
           waiter.wait(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'DataLocationS3'|'IAMUser',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'DataLocationS3\'|\'IAMUser\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type FilterVariable: string
@@ -263,20 +263,20 @@ class EvaluationAvailable(Waiter):
         ::
         
           waiter.wait(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'MLModelId'|'DataSourceId'|'DataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'MLModelId\'|\'DataSourceId\'|\'DataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type FilterVariable: string
@@ -390,20 +390,20 @@ class MLModelAvailable(Waiter):
         ::
         
           waiter.wait(
-              FilterVariable='CreatedAt'|'LastUpdatedAt'|'Status'|'Name'|'IAMUser'|'TrainingDataSourceId'|'RealtimeEndpointStatus'|'MLModelType'|'Algorithm'|'TrainingDataURI',
-              EQ='string',
-              GT='string',
-              LT='string',
-              GE='string',
-              LE='string',
-              NE='string',
-              Prefix='string',
-              SortOrder='asc'|'dsc',
-              NextToken='string',
+              FilterVariable=\'CreatedAt\'|\'LastUpdatedAt\'|\'Status\'|\'Name\'|\'IAMUser\'|\'TrainingDataSourceId\'|\'RealtimeEndpointStatus\'|\'MLModelType\'|\'Algorithm\'|\'TrainingDataURI\',
+              EQ=\'string\',
+              GT=\'string\',
+              LT=\'string\',
+              GE=\'string\',
+              LE=\'string\',
+              NE=\'string\',
+              Prefix=\'string\',
+              SortOrder=\'asc\'|\'dsc\',
+              NextToken=\'string\',
               Limit=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type FilterVariable: string

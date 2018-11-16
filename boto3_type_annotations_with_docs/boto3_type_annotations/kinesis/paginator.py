@@ -12,11 +12,11 @@ class DescribeStream(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              StreamName='string',
+              StreamName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StreamName: string
@@ -49,39 +49,39 @@ class DescribeStream(Paginator):
           ::
         
             {
-                'StreamDescription': {
-                    'StreamName': 'string',
-                    'StreamARN': 'string',
-                    'StreamStatus': 'CREATING'|'DELETING'|'ACTIVE'|'UPDATING',
-                    'Shards': [
+                \'StreamDescription\': {
+                    \'StreamName\': \'string\',
+                    \'StreamARN\': \'string\',
+                    \'StreamStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\'|\'UPDATING\',
+                    \'Shards\': [
                         {
-                            'ShardId': 'string',
-                            'ParentShardId': 'string',
-                            'AdjacentParentShardId': 'string',
-                            'HashKeyRange': {
-                                'StartingHashKey': 'string',
-                                'EndingHashKey': 'string'
+                            \'ShardId\': \'string\',
+                            \'ParentShardId\': \'string\',
+                            \'AdjacentParentShardId\': \'string\',
+                            \'HashKeyRange\': {
+                                \'StartingHashKey\': \'string\',
+                                \'EndingHashKey\': \'string\'
                             },
-                            'SequenceNumberRange': {
-                                'StartingSequenceNumber': 'string',
-                                'EndingSequenceNumber': 'string'
+                            \'SequenceNumberRange\': {
+                                \'StartingSequenceNumber\': \'string\',
+                                \'EndingSequenceNumber\': \'string\'
                             }
                         },
                     ],
-                    'HasMoreShards': True|False,
-                    'RetentionPeriodHours': 123,
-                    'StreamCreationTimestamp': datetime(2015, 1, 1),
-                    'EnhancedMonitoring': [
+                    \'HasMoreShards\': True|False,
+                    \'RetentionPeriodHours\': 123,
+                    \'StreamCreationTimestamp\': datetime(2015, 1, 1),
+                    \'EnhancedMonitoring\': [
                         {
-                            'ShardLevelMetrics': [
-                                'IncomingBytes'|'IncomingRecords'|'OutgoingBytes'|'OutgoingRecords'|'WriteProvisionedThroughputExceeded'|'ReadProvisionedThroughputExceeded'|'IteratorAgeMilliseconds'|'ALL',
+                            \'ShardLevelMetrics\': [
+                                \'IncomingBytes\'|\'IncomingRecords\'|\'OutgoingBytes\'|\'OutgoingRecords\'|\'WriteProvisionedThroughputExceeded\'|\'ReadProvisionedThroughputExceeded\'|\'IteratorAgeMilliseconds\'|\'ALL\',
                             ]
                         },
                     ],
-                    'EncryptionType': 'NONE'|'KMS',
-                    'KeyId': 'string'
+                    \'EncryptionType\': \'NONE\'|\'KMS\',
+                    \'KeyId\': \'string\'
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -127,11 +127,11 @@ class DescribeStream(Paginator):
         
                   - **ParentShardId** *(string) --* 
         
-                    The shard ID of the shard's parent.
+                    The shard ID of the shard\'s parent.
         
                   - **AdjacentParentShardId** *(string) --* 
         
-                    The shard ID of the shard adjacent to the shard's parent.
+                    The shard ID of the shard adjacent to the shard\'s parent.
         
                   - **HashKeyRange** *(dict) --* 
         
@@ -181,7 +181,7 @@ class DescribeStream(Paginator):
         
                     List of shard-level metrics.
         
-                    The following are the valid shard-level metrics. The value "``ALL`` " enhances every metric.
+                    The following are the valid shard-level metrics. The value \"``ALL`` \" enhances every metric.
         
                     * ``IncomingBytes``   
                      
@@ -213,7 +213,7 @@ class DescribeStream(Paginator):
                  
               - **KeyId** *(string) --* 
         
-                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
+                The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias ``aws/kinesis`` .
         
                 * Key ARN example: ``arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012``   
                  
@@ -244,9 +244,9 @@ class ListStreams(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -274,11 +274,11 @@ class ListStreams(Paginator):
           ::
         
             {
-                'StreamNames': [
-                    'string',
+                \'StreamNames\': [
+                    \'string\',
                 ],
-                'HasMoreStreams': True|False,
-                'NextToken': 'string'
+                \'HasMoreStreams\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

@@ -14,10 +14,10 @@ class BucketExists(Waiter):
         ::
         
           waiter.wait(
-              Bucket='string',
+              Bucket=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Bucket: string
@@ -51,10 +51,10 @@ class BucketNotExists(Waiter):
         ::
         
           waiter.wait(
-              Bucket='string',
+              Bucket=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Bucket: string
@@ -88,21 +88,21 @@ class ObjectExists(Waiter):
         ::
         
           waiter.wait(
-              Bucket='string',
-              IfMatch='string',
+              Bucket=\'string\',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Key='string',
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Key=\'string\',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Bucket: string
@@ -166,7 +166,7 @@ class ObjectExists(Waiter):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :type WaiterConfig: dict
         :param WaiterConfig: 
@@ -196,21 +196,21 @@ class ObjectNotExists(Waiter):
         ::
         
           waiter.wait(
-              Bucket='string',
-              IfMatch='string',
+              Bucket=\'string\',
+              IfMatch=\'string\',
               IfModifiedSince=datetime(2015, 1, 1),
-              IfNoneMatch='string',
+              IfNoneMatch=\'string\',
               IfUnmodifiedSince=datetime(2015, 1, 1),
-              Key='string',
-              Range='string',
-              VersionId='string',
-              SSECustomerAlgorithm='string',
-              SSECustomerKey='string',
-              RequestPayer='requester',
+              Key=\'string\',
+              Range=\'string\',
+              VersionId=\'string\',
+              SSECustomerAlgorithm=\'string\',
+              SSECustomerKey=\'string\',
+              RequestPayer=\'requester\',
               PartNumber=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Bucket: string
@@ -274,7 +274,7 @@ class ObjectNotExists(Waiter):
         :type PartNumber: integer
         :param PartNumber: 
         
-          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+          Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
         
         :type WaiterConfig: dict
         :param WaiterConfig: 

@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -16,17 +16,17 @@ class EndpointDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -92,17 +92,17 @@ class ReplicationInstanceAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -168,17 +168,17 @@ class ReplicationInstanceDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -244,17 +244,17 @@ class ReplicationTaskDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -320,17 +320,17 @@ class ReplicationTaskReady(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -396,17 +396,17 @@ class ReplicationTaskRunning(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -472,17 +472,17 @@ class ReplicationTaskStopped(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -548,17 +548,17 @@ class TestConnectionSucceeds(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list

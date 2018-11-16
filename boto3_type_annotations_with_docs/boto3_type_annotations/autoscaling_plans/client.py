@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -36,48 +36,48 @@ class Client(BaseClient):
         ::
         
           response = client.create_scaling_plan(
-              ScalingPlanName='string',
+              ScalingPlanName=\'string\',
               ApplicationSource={
-                  'CloudFormationStackARN': 'string',
-                  'TagFilters': [
+                  \'CloudFormationStackARN\': \'string\',
+                  \'TagFilters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ]
                       },
                   ]
               },
               ScalingInstructions=[
                   {
-                      'ServiceNamespace': 'autoscaling'|'ecs'|'ec2'|'rds'|'dynamodb',
-                      'ResourceId': 'string',
-                      'ScalableDimension': 'autoscaling:autoScalingGroup:DesiredCapacity'|'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'rds:cluster:ReadReplicaCount'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits',
-                      'MinCapacity': 123,
-                      'MaxCapacity': 123,
-                      'TargetTrackingConfigurations': [
+                      \'ServiceNamespace\': \'autoscaling\'|\'ecs\'|\'ec2\'|\'rds\'|\'dynamodb\',
+                      \'ResourceId\': \'string\',
+                      \'ScalableDimension\': \'autoscaling:autoScalingGroup:DesiredCapacity\'|\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'rds:cluster:ReadReplicaCount\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\',
+                      \'MinCapacity\': 123,
+                      \'MaxCapacity\': 123,
+                      \'TargetTrackingConfigurations\': [
                           {
-                              'PredefinedScalingMetricSpecification': {
-                                  'PredefinedScalingMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'DynamoDBReadCapacityUtilization'|'DynamoDBWriteCapacityUtilization'|'ECSServiceAverageCPUUtilization'|'ECSServiceAverageMemoryUtilization'|'ALBRequestCountPerTarget'|'RDSReaderAverageCPUUtilization'|'RDSReaderAverageDatabaseConnections'|'EC2SpotFleetRequestAverageCPUUtilization'|'EC2SpotFleetRequestAverageNetworkIn'|'EC2SpotFleetRequestAverageNetworkOut',
-                                  'ResourceLabel': 'string'
+                              \'PredefinedScalingMetricSpecification\': {
+                                  \'PredefinedScalingMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'DynamoDBReadCapacityUtilization\'|\'DynamoDBWriteCapacityUtilization\'|\'ECSServiceAverageCPUUtilization\'|\'ECSServiceAverageMemoryUtilization\'|\'ALBRequestCountPerTarget\'|\'RDSReaderAverageCPUUtilization\'|\'RDSReaderAverageDatabaseConnections\'|\'EC2SpotFleetRequestAverageCPUUtilization\'|\'EC2SpotFleetRequestAverageNetworkIn\'|\'EC2SpotFleetRequestAverageNetworkOut\',
+                                  \'ResourceLabel\': \'string\'
                               },
-                              'CustomizedScalingMetricSpecification': {
-                                  'MetricName': 'string',
-                                  'Namespace': 'string',
-                                  'Dimensions': [
+                              \'CustomizedScalingMetricSpecification\': {
+                                  \'MetricName\': \'string\',
+                                  \'Namespace\': \'string\',
+                                  \'Dimensions\': [
                                       {
-                                          'Name': 'string',
-                                          'Value': 'string'
+                                          \'Name\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ],
-                                  'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                  'Unit': 'string'
+                                  \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                  \'Unit\': \'string\'
                               },
-                              'TargetValue': 123.0,
-                              'DisableScaleIn': True|False,
-                              'ScaleOutCooldown': 123,
-                              'ScaleInCooldown': 123,
-                              'EstimatedInstanceWarmup': 123
+                              \'TargetValue\': 123.0,
+                              \'DisableScaleIn\': True|False,
+                              \'ScaleOutCooldown\': 123,
+                              \'ScaleInCooldown\': 123,
+                              \'EstimatedInstanceWarmup\': 123
                           },
                       ]
                   },
@@ -190,7 +190,7 @@ class Client(BaseClient):
         
                   - **ResourceLabel** *(string) --* 
         
-                    Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+                    Identifies the resource associated with the metric type. You can\'t specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
         
                     The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
         
@@ -240,7 +240,7 @@ class Client(BaseClient):
         
                 - **DisableScaleIn** *(boolean) --* 
         
-                  Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
+                  Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won\'t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
         
                 - **ScaleOutCooldown** *(integer) --* 
         
@@ -252,7 +252,7 @@ class Client(BaseClient):
         
                   The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
         
-                  The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+                  The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
         
                 - **EstimatedInstanceWarmup** *(integer) --* 
         
@@ -266,7 +266,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingPlanVersion': 123
+                \'ScalingPlanVersion\': 123
             }
           **Response Structure** 
         
@@ -288,7 +288,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_scaling_plan(
-              ScalingPlanName='string',
+              ScalingPlanName=\'string\',
               ScalingPlanVersion=123
           )
         :type ScalingPlanName: string
@@ -324,10 +324,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_scaling_plan_resources(
-              ScalingPlanName='string',
+              ScalingPlanName=\'string\',
               ScalingPlanVersion=123,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ScalingPlanName: string
         :param ScalingPlanName: **[REQUIRED]** 
@@ -357,47 +357,47 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingPlanResources': [
+                \'ScalingPlanResources\': [
                     {
-                        'ScalingPlanName': 'string',
-                        'ScalingPlanVersion': 123,
-                        'ServiceNamespace': 'autoscaling'|'ecs'|'ec2'|'rds'|'dynamodb',
-                        'ResourceId': 'string',
-                        'ScalableDimension': 'autoscaling:autoScalingGroup:DesiredCapacity'|'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'rds:cluster:ReadReplicaCount'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits',
-                        'ScalingPolicies': [
+                        \'ScalingPlanName\': \'string\',
+                        \'ScalingPlanVersion\': 123,
+                        \'ServiceNamespace\': \'autoscaling\'|\'ecs\'|\'ec2\'|\'rds\'|\'dynamodb\',
+                        \'ResourceId\': \'string\',
+                        \'ScalableDimension\': \'autoscaling:autoScalingGroup:DesiredCapacity\'|\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'rds:cluster:ReadReplicaCount\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\',
+                        \'ScalingPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyType': 'TargetTrackingScaling',
-                                'TargetTrackingConfiguration': {
-                                    'PredefinedScalingMetricSpecification': {
-                                        'PredefinedScalingMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'DynamoDBReadCapacityUtilization'|'DynamoDBWriteCapacityUtilization'|'ECSServiceAverageCPUUtilization'|'ECSServiceAverageMemoryUtilization'|'ALBRequestCountPerTarget'|'RDSReaderAverageCPUUtilization'|'RDSReaderAverageDatabaseConnections'|'EC2SpotFleetRequestAverageCPUUtilization'|'EC2SpotFleetRequestAverageNetworkIn'|'EC2SpotFleetRequestAverageNetworkOut',
-                                        'ResourceLabel': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyType\': \'TargetTrackingScaling\',
+                                \'TargetTrackingConfiguration\': {
+                                    \'PredefinedScalingMetricSpecification\': {
+                                        \'PredefinedScalingMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'DynamoDBReadCapacityUtilization\'|\'DynamoDBWriteCapacityUtilization\'|\'ECSServiceAverageCPUUtilization\'|\'ECSServiceAverageMemoryUtilization\'|\'ALBRequestCountPerTarget\'|\'RDSReaderAverageCPUUtilization\'|\'RDSReaderAverageDatabaseConnections\'|\'EC2SpotFleetRequestAverageCPUUtilization\'|\'EC2SpotFleetRequestAverageNetworkIn\'|\'EC2SpotFleetRequestAverageNetworkOut\',
+                                        \'ResourceLabel\': \'string\'
                                     },
-                                    'CustomizedScalingMetricSpecification': {
-                                        'MetricName': 'string',
-                                        'Namespace': 'string',
-                                        'Dimensions': [
+                                    \'CustomizedScalingMetricSpecification\': {
+                                        \'MetricName\': \'string\',
+                                        \'Namespace\': \'string\',
+                                        \'Dimensions\': [
                                             {
-                                                'Name': 'string',
-                                                'Value': 'string'
+                                                \'Name\': \'string\',
+                                                \'Value\': \'string\'
                                             },
                                         ],
-                                        'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                        'Unit': 'string'
+                                        \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                        \'Unit\': \'string\'
                                     },
-                                    'TargetValue': 123.0,
-                                    'DisableScaleIn': True|False,
-                                    'ScaleOutCooldown': 123,
-                                    'ScaleInCooldown': 123,
-                                    'EstimatedInstanceWarmup': 123
+                                    \'TargetValue\': 123.0,
+                                    \'DisableScaleIn\': True|False,
+                                    \'ScaleOutCooldown\': 123,
+                                    \'ScaleInCooldown\': 123,
+                                    \'EstimatedInstanceWarmup\': 123
                                 }
                             },
                         ],
-                        'ScalingStatusCode': 'Inactive'|'PartiallyActive'|'Active',
-                        'ScalingStatusMessage': 'string'
+                        \'ScalingStatusCode\': \'Inactive\'|\'PartiallyActive\'|\'Active\',
+                        \'ScalingStatusMessage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -489,7 +489,7 @@ class Client(BaseClient):
         
                         - **ResourceLabel** *(string) --* 
         
-                          Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+                          Identifies the resource associated with the metric type. You can\'t specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
         
                           The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
         
@@ -539,7 +539,7 @@ class Client(BaseClient):
         
                       - **DisableScaleIn** *(boolean) --* 
         
-                        Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
+                        Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won\'t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
         
                       - **ScaleOutCooldown** *(integer) --* 
         
@@ -551,7 +551,7 @@ class Client(BaseClient):
         
                         The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
         
-                        The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+                        The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
         
                       - **EstimatedInstanceWarmup** *(integer) --* 
         
@@ -588,24 +588,24 @@ class Client(BaseClient):
         
           response = client.describe_scaling_plans(
               ScalingPlanNames=[
-                  'string',
+                  \'string\',
               ],
               ScalingPlanVersion=123,
               ApplicationSources=[
                   {
-                      'CloudFormationStackARN': 'string',
-                      'TagFilters': [
+                      \'CloudFormationStackARN\': \'string\',
+                      \'TagFilters\': [
                           {
-                              'Key': 'string',
-                              'Values': [
-                                  'string',
+                              \'Key\': \'string\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ScalingPlanNames: list
         :param ScalingPlanNames: 
@@ -668,62 +668,62 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingPlans': [
+                \'ScalingPlans\': [
                     {
-                        'ScalingPlanName': 'string',
-                        'ScalingPlanVersion': 123,
-                        'ApplicationSource': {
-                            'CloudFormationStackARN': 'string',
-                            'TagFilters': [
+                        \'ScalingPlanName\': \'string\',
+                        \'ScalingPlanVersion\': 123,
+                        \'ApplicationSource\': {
+                            \'CloudFormationStackARN\': \'string\',
+                            \'TagFilters\': [
                                 {
-                                    'Key': 'string',
-                                    'Values': [
-                                        'string',
+                                    \'Key\': \'string\',
+                                    \'Values\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         },
-                        'ScalingInstructions': [
+                        \'ScalingInstructions\': [
                             {
-                                'ServiceNamespace': 'autoscaling'|'ecs'|'ec2'|'rds'|'dynamodb',
-                                'ResourceId': 'string',
-                                'ScalableDimension': 'autoscaling:autoScalingGroup:DesiredCapacity'|'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'rds:cluster:ReadReplicaCount'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits',
-                                'MinCapacity': 123,
-                                'MaxCapacity': 123,
-                                'TargetTrackingConfigurations': [
+                                \'ServiceNamespace\': \'autoscaling\'|\'ecs\'|\'ec2\'|\'rds\'|\'dynamodb\',
+                                \'ResourceId\': \'string\',
+                                \'ScalableDimension\': \'autoscaling:autoScalingGroup:DesiredCapacity\'|\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'rds:cluster:ReadReplicaCount\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\',
+                                \'MinCapacity\': 123,
+                                \'MaxCapacity\': 123,
+                                \'TargetTrackingConfigurations\': [
                                     {
-                                        'PredefinedScalingMetricSpecification': {
-                                            'PredefinedScalingMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'DynamoDBReadCapacityUtilization'|'DynamoDBWriteCapacityUtilization'|'ECSServiceAverageCPUUtilization'|'ECSServiceAverageMemoryUtilization'|'ALBRequestCountPerTarget'|'RDSReaderAverageCPUUtilization'|'RDSReaderAverageDatabaseConnections'|'EC2SpotFleetRequestAverageCPUUtilization'|'EC2SpotFleetRequestAverageNetworkIn'|'EC2SpotFleetRequestAverageNetworkOut',
-                                            'ResourceLabel': 'string'
+                                        \'PredefinedScalingMetricSpecification\': {
+                                            \'PredefinedScalingMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'DynamoDBReadCapacityUtilization\'|\'DynamoDBWriteCapacityUtilization\'|\'ECSServiceAverageCPUUtilization\'|\'ECSServiceAverageMemoryUtilization\'|\'ALBRequestCountPerTarget\'|\'RDSReaderAverageCPUUtilization\'|\'RDSReaderAverageDatabaseConnections\'|\'EC2SpotFleetRequestAverageCPUUtilization\'|\'EC2SpotFleetRequestAverageNetworkIn\'|\'EC2SpotFleetRequestAverageNetworkOut\',
+                                            \'ResourceLabel\': \'string\'
                                         },
-                                        'CustomizedScalingMetricSpecification': {
-                                            'MetricName': 'string',
-                                            'Namespace': 'string',
-                                            'Dimensions': [
+                                        \'CustomizedScalingMetricSpecification\': {
+                                            \'MetricName\': \'string\',
+                                            \'Namespace\': \'string\',
+                                            \'Dimensions\': [
                                                 {
-                                                    'Name': 'string',
-                                                    'Value': 'string'
+                                                    \'Name\': \'string\',
+                                                    \'Value\': \'string\'
                                                 },
                                             ],
-                                            'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                            'Unit': 'string'
+                                            \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                            \'Unit\': \'string\'
                                         },
-                                        'TargetValue': 123.0,
-                                        'DisableScaleIn': True|False,
-                                        'ScaleOutCooldown': 123,
-                                        'ScaleInCooldown': 123,
-                                        'EstimatedInstanceWarmup': 123
+                                        \'TargetValue\': 123.0,
+                                        \'DisableScaleIn\': True|False,
+                                        \'ScaleOutCooldown\': 123,
+                                        \'ScaleInCooldown\': 123,
+                                        \'EstimatedInstanceWarmup\': 123
                                     },
                                 ]
                             },
                         ],
-                        'StatusCode': 'Active'|'ActiveWithProblems'|'CreationInProgress'|'CreationFailed'|'DeletionInProgress'|'DeletionFailed'|'UpdateInProgress'|'UpdateFailed',
-                        'StatusMessage': 'string',
-                        'StatusStartTime': datetime(2015, 1, 1),
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'StatusCode\': \'Active\'|\'ActiveWithProblems\'|\'CreationInProgress\'|\'CreationFailed\'|\'DeletionInProgress\'|\'DeletionFailed\'|\'UpdateInProgress\'|\'UpdateFailed\',
+                        \'StatusMessage\': \'string\',
+                        \'StatusStartTime\': datetime(2015, 1, 1),
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -845,7 +845,7 @@ class Client(BaseClient):
         
                           - **ResourceLabel** *(string) --* 
         
-                            Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+                            Identifies the resource associated with the metric type. You can\'t specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
         
                             The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
         
@@ -895,7 +895,7 @@ class Client(BaseClient):
         
                         - **DisableScaleIn** *(boolean) --* 
         
-                          Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
+                          Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won\'t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
         
                         - **ScaleOutCooldown** *(integer) --* 
         
@@ -907,7 +907,7 @@ class Client(BaseClient):
         
                           The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
         
-                          The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+                          The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
         
                         - **EstimatedInstanceWarmup** *(integer) --* 
         
@@ -964,7 +964,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -976,10 +976,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1014,47 +1014,47 @@ class Client(BaseClient):
         
           response = client.update_scaling_plan(
               ApplicationSource={
-                  'CloudFormationStackARN': 'string',
-                  'TagFilters': [
+                  \'CloudFormationStackARN\': \'string\',
+                  \'TagFilters\': [
                       {
-                          'Key': 'string',
-                          'Values': [
-                              'string',
+                          \'Key\': \'string\',
+                          \'Values\': [
+                              \'string\',
                           ]
                       },
                   ]
               },
-              ScalingPlanName='string',
+              ScalingPlanName=\'string\',
               ScalingInstructions=[
                   {
-                      'ServiceNamespace': 'autoscaling'|'ecs'|'ec2'|'rds'|'dynamodb',
-                      'ResourceId': 'string',
-                      'ScalableDimension': 'autoscaling:autoScalingGroup:DesiredCapacity'|'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'rds:cluster:ReadReplicaCount'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits',
-                      'MinCapacity': 123,
-                      'MaxCapacity': 123,
-                      'TargetTrackingConfigurations': [
+                      \'ServiceNamespace\': \'autoscaling\'|\'ecs\'|\'ec2\'|\'rds\'|\'dynamodb\',
+                      \'ResourceId\': \'string\',
+                      \'ScalableDimension\': \'autoscaling:autoScalingGroup:DesiredCapacity\'|\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'rds:cluster:ReadReplicaCount\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\',
+                      \'MinCapacity\': 123,
+                      \'MaxCapacity\': 123,
+                      \'TargetTrackingConfigurations\': [
                           {
-                              'PredefinedScalingMetricSpecification': {
-                                  'PredefinedScalingMetricType': 'ASGAverageCPUUtilization'|'ASGAverageNetworkIn'|'ASGAverageNetworkOut'|'DynamoDBReadCapacityUtilization'|'DynamoDBWriteCapacityUtilization'|'ECSServiceAverageCPUUtilization'|'ECSServiceAverageMemoryUtilization'|'ALBRequestCountPerTarget'|'RDSReaderAverageCPUUtilization'|'RDSReaderAverageDatabaseConnections'|'EC2SpotFleetRequestAverageCPUUtilization'|'EC2SpotFleetRequestAverageNetworkIn'|'EC2SpotFleetRequestAverageNetworkOut',
-                                  'ResourceLabel': 'string'
+                              \'PredefinedScalingMetricSpecification\': {
+                                  \'PredefinedScalingMetricType\': \'ASGAverageCPUUtilization\'|\'ASGAverageNetworkIn\'|\'ASGAverageNetworkOut\'|\'DynamoDBReadCapacityUtilization\'|\'DynamoDBWriteCapacityUtilization\'|\'ECSServiceAverageCPUUtilization\'|\'ECSServiceAverageMemoryUtilization\'|\'ALBRequestCountPerTarget\'|\'RDSReaderAverageCPUUtilization\'|\'RDSReaderAverageDatabaseConnections\'|\'EC2SpotFleetRequestAverageCPUUtilization\'|\'EC2SpotFleetRequestAverageNetworkIn\'|\'EC2SpotFleetRequestAverageNetworkOut\',
+                                  \'ResourceLabel\': \'string\'
                               },
-                              'CustomizedScalingMetricSpecification': {
-                                  'MetricName': 'string',
-                                  'Namespace': 'string',
-                                  'Dimensions': [
+                              \'CustomizedScalingMetricSpecification\': {
+                                  \'MetricName\': \'string\',
+                                  \'Namespace\': \'string\',
+                                  \'Dimensions\': [
                                       {
-                                          'Name': 'string',
-                                          'Value': 'string'
+                                          \'Name\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ],
-                                  'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                  'Unit': 'string'
+                                  \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                  \'Unit\': \'string\'
                               },
-                              'TargetValue': 123.0,
-                              'DisableScaleIn': True|False,
-                              'ScaleOutCooldown': 123,
-                              'ScaleInCooldown': 123,
-                              'EstimatedInstanceWarmup': 123
+                              \'TargetValue\': 123.0,
+                              \'DisableScaleIn\': True|False,
+                              \'ScaleOutCooldown\': 123,
+                              \'ScaleInCooldown\': 123,
+                              \'EstimatedInstanceWarmup\': 123
                           },
                       ]
                   },
@@ -1168,7 +1168,7 @@ class Client(BaseClient):
         
                   - **ResourceLabel** *(string) --* 
         
-                    Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+                    Identifies the resource associated with the metric type. You can\'t specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
         
                     The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
         
@@ -1218,7 +1218,7 @@ class Client(BaseClient):
         
                 - **DisableScaleIn** *(boolean) --* 
         
-                  Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
+                  Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won\'t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
         
                 - **ScaleOutCooldown** *(integer) --* 
         
@@ -1230,7 +1230,7 @@ class Client(BaseClient):
         
                   The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
         
-                  The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+                  The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
         
                 - **EstimatedInstanceWarmup** *(integer) --* 
         

@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,7 +33,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_report_definition(
-              ReportName='string'
+              ReportName=\'string\'
           )
         :type ReportName: string
         :param ReportName: Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.
@@ -46,7 +46,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ResponseMessage': 'string'
+                \'ResponseMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -66,7 +66,7 @@ class Client(BaseClient):
         
           response = client.describe_report_definitions(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: The max number of results returned by the operation.
@@ -82,24 +82,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ReportDefinitions': [
+                \'ReportDefinitions\': [
                     {
-                        'ReportName': 'string',
-                        'TimeUnit': 'HOURLY'|'DAILY',
-                        'Format': 'textORcsv',
-                        'Compression': 'ZIP'|'GZIP',
-                        'AdditionalSchemaElements': [
-                            'RESOURCES',
+                        \'ReportName\': \'string\',
+                        \'TimeUnit\': \'HOURLY\'|\'DAILY\',
+                        \'Format\': \'textORcsv\',
+                        \'Compression\': \'ZIP\'|\'GZIP\',
+                        \'AdditionalSchemaElements\': [
+                            \'RESOURCES\',
                         ],
-                        'S3Bucket': 'string',
-                        'S3Prefix': 'string',
-                        'S3Region': 'us-east-1'|'us-west-1'|'us-west-2'|'eu-central-1'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1',
-                        'AdditionalArtifacts': [
-                            'REDSHIFT'|'QUICKSIGHT',
+                        \'S3Bucket\': \'string\',
+                        \'S3Prefix\': \'string\',
+                        \'S3Region\': \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-central-1\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\',
+                        \'AdditionalArtifacts\': [
+                            \'REDSHIFT\'|\'QUICKSIGHT\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -151,7 +151,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -163,10 +163,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -199,18 +199,18 @@ class Client(BaseClient):
         
           response = client.put_report_definition(
               ReportDefinition={
-                  'ReportName': 'string',
-                  'TimeUnit': 'HOURLY'|'DAILY',
-                  'Format': 'textORcsv',
-                  'Compression': 'ZIP'|'GZIP',
-                  'AdditionalSchemaElements': [
-                      'RESOURCES',
+                  \'ReportName\': \'string\',
+                  \'TimeUnit\': \'HOURLY\'|\'DAILY\',
+                  \'Format\': \'textORcsv\',
+                  \'Compression\': \'ZIP\'|\'GZIP\',
+                  \'AdditionalSchemaElements\': [
+                      \'RESOURCES\',
                   ],
-                  'S3Bucket': 'string',
-                  'S3Prefix': 'string',
-                  'S3Region': 'us-east-1'|'us-west-1'|'us-west-2'|'eu-central-1'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1',
-                  'AdditionalArtifacts': [
-                      'REDSHIFT'|'QUICKSIGHT',
+                  \'S3Bucket\': \'string\',
+                  \'S3Prefix\': \'string\',
+                  \'S3Region\': \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-central-1\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\',
+                  \'AdditionalArtifacts\': [
+                      \'REDSHIFT\'|\'QUICKSIGHT\',
                   ]
               }
           )

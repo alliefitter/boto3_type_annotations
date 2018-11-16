@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,7 +15,7 @@ class Client(BaseClient):
         
         Each resource can have a maximum of 50 tags. 
         
-        We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. 
+        We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don\'t have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. 
         
         For more information about tags, see `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon EC2 User Guide* .
         
@@ -25,12 +25,12 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceType='Document'|'ManagedInstance'|'MaintenanceWindow'|'Parameter'|'PatchBaseline',
-              ResourceId='string',
+              ResourceType=\'Document\'|\'ManagedInstance\'|\'MaintenanceWindow\'|\'Parameter\'|\'PatchBaseline\',
+              ResourceId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -65,7 +65,7 @@ class Client(BaseClient):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The value parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           .. warning::
         
@@ -103,10 +103,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -122,9 +122,9 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_command(
-              CommandId='string',
+              CommandId=\'string\',
               InstanceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CommandId: string
@@ -165,7 +165,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_maintenance_window_execution(
-              WindowExecutionId='string'
+              WindowExecutionId=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -180,7 +180,7 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionId': 'string'
+                \'WindowExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -202,9 +202,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_activation(
-              Description='string',
-              DefaultInstanceName='string',
-              IamRole='string',
+              Description=\'string\',
+              DefaultInstanceName=\'string\',
+              IamRole=\'string\',
               RegistrationLimit=123,
               ExpirationDate=datetime(2015, 1, 1)
           )
@@ -249,8 +249,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ActivationId': 'string',
-                'ActivationCode': 'string'
+                \'ActivationId\': \'string\',
+                \'ActivationCode\': \'string\'
             }
           **Response Structure** 
         
@@ -280,34 +280,34 @@ class Client(BaseClient):
         ::
         
           response = client.create_association(
-              Name='string',
-              DocumentVersion='string',
-              InstanceId='string',
+              Name=\'string\',
+              DocumentVersion=\'string\',
+              InstanceId=\'string\',
               Parameters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              ScheduleExpression='string',
+              ScheduleExpression=\'string\',
               OutputLocation={
-                  'S3Location': {
-                      'OutputS3Region': 'string',
-                      'OutputS3BucketName': 'string',
-                      'OutputS3KeyPrefix': 'string'
+                  \'S3Location\': {
+                      \'OutputS3Region\': \'string\',
+                      \'OutputS3BucketName\': \'string\',
+                      \'OutputS3KeyPrefix\': \'string\'
                   }
               },
-              AssociationName='string',
-              MaxErrors='string',
-              MaxConcurrency='string',
-              ComplianceSeverity='CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+              AssociationName=\'string\',
+              MaxErrors=\'string\',
+              MaxConcurrency=\'string\',
+              ComplianceSeverity=\'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -342,7 +342,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -390,7 +390,7 @@ class Client(BaseClient):
         
           The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-          Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+          Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
         :type MaxConcurrency: string
         :param MaxConcurrency: 
@@ -412,54 +412,54 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationDescription': {
-                    'Name': 'string',
-                    'InstanceId': 'string',
-                    'AssociationVersion': 'string',
-                    'Date': datetime(2015, 1, 1),
-                    'LastUpdateAssociationDate': datetime(2015, 1, 1),
-                    'Status': {
-                        'Date': datetime(2015, 1, 1),
-                        'Name': 'Pending'|'Success'|'Failed',
-                        'Message': 'string',
-                        'AdditionalInfo': 'string'
+                \'AssociationDescription\': {
+                    \'Name\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'AssociationVersion\': \'string\',
+                    \'Date\': datetime(2015, 1, 1),
+                    \'LastUpdateAssociationDate\': datetime(2015, 1, 1),
+                    \'Status\': {
+                        \'Date\': datetime(2015, 1, 1),
+                        \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                        \'Message\': \'string\',
+                        \'AdditionalInfo\': \'string\'
                     },
-                    'Overview': {
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'AssociationStatusAggregatedCount': {
-                            'string': 123
+                    \'Overview\': {
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'AssociationStatusAggregatedCount\': {
+                            \'string\': 123
                         }
                     },
-                    'DocumentVersion': 'string',
-                    'Parameters': {
-                        'string': [
-                            'string',
+                    \'DocumentVersion\': \'string\',
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'AssociationId': 'string',
-                    'Targets': [
+                    \'AssociationId\': \'string\',
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'ScheduleExpression': 'string',
-                    'OutputLocation': {
-                        'S3Location': {
-                            'OutputS3Region': 'string',
-                            'OutputS3BucketName': 'string',
-                            'OutputS3KeyPrefix': 'string'
+                    \'ScheduleExpression\': \'string\',
+                    \'OutputLocation\': {
+                        \'S3Location\': {
+                            \'OutputS3Region\': \'string\',
+                            \'OutputS3BucketName\': \'string\',
+                            \'OutputS3KeyPrefix\': \'string\'
                         }
                     },
-                    'LastExecutionDate': datetime(2015, 1, 1),
-                    'LastSuccessfulExecutionDate': datetime(2015, 1, 1),
-                    'AssociationName': 'string',
-                    'MaxErrors': 'string',
-                    'MaxConcurrency': 'string',
-                    'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                    \'LastExecutionDate\': datetime(2015, 1, 1),
+                    \'LastSuccessfulExecutionDate\': datetime(2015, 1, 1),
+                    \'AssociationName\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'MaxConcurrency\': \'string\',
+                    \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                 }
             }
           **Response Structure** 
@@ -554,7 +554,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -606,7 +606,7 @@ class Client(BaseClient):
         
                 The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
               - **MaxConcurrency** *(string) --* 
         
@@ -636,34 +636,34 @@ class Client(BaseClient):
           response = client.create_association_batch(
               Entries=[
                   {
-                      'Name': 'string',
-                      'InstanceId': 'string',
-                      'Parameters': {
-                          'string': [
-                              'string',
+                      \'Name\': \'string\',
+                      \'InstanceId\': \'string\',
+                      \'Parameters\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       },
-                      'DocumentVersion': 'string',
-                      'Targets': [
+                      \'DocumentVersion\': \'string\',
+                      \'Targets\': [
                           {
-                              'Key': 'string',
-                              'Values': [
-                                  'string',
+                              \'Key\': \'string\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
                       ],
-                      'ScheduleExpression': 'string',
-                      'OutputLocation': {
-                          'S3Location': {
-                              'OutputS3Region': 'string',
-                              'OutputS3BucketName': 'string',
-                              'OutputS3KeyPrefix': 'string'
+                      \'ScheduleExpression\': \'string\',
+                      \'OutputLocation\': {
+                          \'S3Location\': {
+                              \'OutputS3Region\': \'string\',
+                              \'OutputS3BucketName\': \'string\',
+                              \'OutputS3KeyPrefix\': \'string\'
                           }
                       },
-                      'AssociationName': 'string',
-                      'MaxErrors': 'string',
-                      'MaxConcurrency': 'string',
-                      'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                      \'AssociationName\': \'string\',
+                      \'MaxErrors\': \'string\',
+                      \'MaxConcurrency\': \'string\',
+                      \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                   },
               ]
           )
@@ -704,7 +704,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                 - **Key** *(string) --* 
         
@@ -748,7 +748,7 @@ class Client(BaseClient):
         
               The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-              Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+              Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
             - **MaxConcurrency** *(string) --* 
         
@@ -768,91 +768,91 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
+                \'Successful\': [
                     {
-                        'Name': 'string',
-                        'InstanceId': 'string',
-                        'AssociationVersion': 'string',
-                        'Date': datetime(2015, 1, 1),
-                        'LastUpdateAssociationDate': datetime(2015, 1, 1),
-                        'Status': {
-                            'Date': datetime(2015, 1, 1),
-                            'Name': 'Pending'|'Success'|'Failed',
-                            'Message': 'string',
-                            'AdditionalInfo': 'string'
+                        \'Name\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'Date\': datetime(2015, 1, 1),
+                        \'LastUpdateAssociationDate\': datetime(2015, 1, 1),
+                        \'Status\': {
+                            \'Date\': datetime(2015, 1, 1),
+                            \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                            \'Message\': \'string\',
+                            \'AdditionalInfo\': \'string\'
                         },
-                        'Overview': {
-                            'Status': 'string',
-                            'DetailedStatus': 'string',
-                            'AssociationStatusAggregatedCount': {
-                                'string': 123
+                        \'Overview\': {
+                            \'Status\': \'string\',
+                            \'DetailedStatus\': \'string\',
+                            \'AssociationStatusAggregatedCount\': {
+                                \'string\': 123
                             }
                         },
-                        'DocumentVersion': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'DocumentVersion\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'AssociationId': 'string',
-                        'Targets': [
+                        \'AssociationId\': \'string\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'ScheduleExpression': 'string',
-                        'OutputLocation': {
-                            'S3Location': {
-                                'OutputS3Region': 'string',
-                                'OutputS3BucketName': 'string',
-                                'OutputS3KeyPrefix': 'string'
+                        \'ScheduleExpression\': \'string\',
+                        \'OutputLocation\': {
+                            \'S3Location\': {
+                                \'OutputS3Region\': \'string\',
+                                \'OutputS3BucketName\': \'string\',
+                                \'OutputS3KeyPrefix\': \'string\'
                             }
                         },
-                        'LastExecutionDate': datetime(2015, 1, 1),
-                        'LastSuccessfulExecutionDate': datetime(2015, 1, 1),
-                        'AssociationName': 'string',
-                        'MaxErrors': 'string',
-                        'MaxConcurrency': 'string',
-                        'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                        \'LastExecutionDate\': datetime(2015, 1, 1),
+                        \'LastSuccessfulExecutionDate\': datetime(2015, 1, 1),
+                        \'AssociationName\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'MaxConcurrency\': \'string\',
+                        \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                     },
                 ],
-                'Failed': [
+                \'Failed\': [
                     {
-                        'Entry': {
-                            'Name': 'string',
-                            'InstanceId': 'string',
-                            'Parameters': {
-                                'string': [
-                                    'string',
+                        \'Entry\': {
+                            \'Name\': \'string\',
+                            \'InstanceId\': \'string\',
+                            \'Parameters\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'DocumentVersion': 'string',
-                            'Targets': [
+                            \'DocumentVersion\': \'string\',
+                            \'Targets\': [
                                 {
-                                    'Key': 'string',
-                                    'Values': [
-                                        'string',
+                                    \'Key\': \'string\',
+                                    \'Values\': [
+                                        \'string\',
                                     ]
                                 },
                             ],
-                            'ScheduleExpression': 'string',
-                            'OutputLocation': {
-                                'S3Location': {
-                                    'OutputS3Region': 'string',
-                                    'OutputS3BucketName': 'string',
-                                    'OutputS3KeyPrefix': 'string'
+                            \'ScheduleExpression\': \'string\',
+                            \'OutputLocation\': {
+                                \'S3Location\': {
+                                    \'OutputS3Region\': \'string\',
+                                    \'OutputS3BucketName\': \'string\',
+                                    \'OutputS3KeyPrefix\': \'string\'
                                 }
                             },
-                            'AssociationName': 'string',
-                            'MaxErrors': 'string',
-                            'MaxConcurrency': 'string',
-                            'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                            \'AssociationName\': \'string\',
+                            \'MaxErrors\': \'string\',
+                            \'MaxConcurrency\': \'string\',
+                            \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                         },
-                        'Message': 'string',
-                        'Fault': 'Client'|'Server'|'Unknown'
+                        \'Message\': \'string\',
+                        \'Fault\': \'Client\'|\'Server\'|\'Unknown\'
                     },
                 ]
             }
@@ -952,7 +952,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -1004,7 +1004,7 @@ class Client(BaseClient):
         
                   The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                  Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                  Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
                 - **MaxConcurrency** *(string) --* 
         
@@ -1056,7 +1056,7 @@ class Client(BaseClient):
         
                     - *(dict) --* 
         
-                      An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                      An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                       - **Key** *(string) --* 
         
@@ -1100,7 +1100,7 @@ class Client(BaseClient):
         
                     The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                    Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                    Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
                   - **MaxConcurrency** *(string) --* 
         
@@ -1134,11 +1134,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_document(
-              Content='string',
-              Name='string',
-              DocumentType='Command'|'Policy'|'Automation'|'Session',
-              DocumentFormat='YAML'|'JSON',
-              TargetType='string'
+              Content=\'string\',
+              Name=\'string\',
+              DocumentType=\'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+              DocumentFormat=\'YAML\'|\'JSON\',
+              TargetType=\'string\'
           )
         :type Content: string
         :param Content: **[REQUIRED]** 
@@ -1173,7 +1173,7 @@ class Client(BaseClient):
         :type TargetType: string
         :param TargetType: 
         
-          Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the *AWS CloudFormation User Guide* . 
+          Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of \'/\' the document can run on all types of resources. If you don\'t specify a value, the document can\'t run on any resources. For a list of valid resource types, see `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the *AWS CloudFormation User Guide* . 
         
         :rtype: dict
         :returns: 
@@ -1183,37 +1183,37 @@ class Client(BaseClient):
           ::
         
             {
-                'DocumentDescription': {
-                    'Sha1': 'string',
-                    'Hash': 'string',
-                    'HashType': 'Sha256'|'Sha1',
-                    'Name': 'string',
-                    'Owner': 'string',
-                    'CreatedDate': datetime(2015, 1, 1),
-                    'Status': 'Creating'|'Active'|'Updating'|'Deleting',
-                    'DocumentVersion': 'string',
-                    'Description': 'string',
-                    'Parameters': [
+                \'DocumentDescription\': {
+                    \'Sha1\': \'string\',
+                    \'Hash\': \'string\',
+                    \'HashType\': \'Sha256\'|\'Sha1\',
+                    \'Name\': \'string\',
+                    \'Owner\': \'string\',
+                    \'CreatedDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Creating\'|\'Active\'|\'Updating\'|\'Deleting\',
+                    \'DocumentVersion\': \'string\',
+                    \'Description\': \'string\',
+                    \'Parameters\': [
                         {
-                            'Name': 'string',
-                            'Type': 'String'|'StringList',
-                            'Description': 'string',
-                            'DefaultValue': 'string'
+                            \'Name\': \'string\',
+                            \'Type\': \'String\'|\'StringList\',
+                            \'Description\': \'string\',
+                            \'DefaultValue\': \'string\'
                         },
                     ],
-                    'PlatformTypes': [
-                        'Windows'|'Linux',
+                    \'PlatformTypes\': [
+                        \'Windows\'|\'Linux\',
                     ],
-                    'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                    'SchemaVersion': 'string',
-                    'LatestVersion': 'string',
-                    'DefaultVersion': 'string',
-                    'DocumentFormat': 'YAML'|'JSON',
-                    'TargetType': 'string',
-                    'Tags': [
+                    \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                    \'SchemaVersion\': \'string\',
+                    \'LatestVersion\': \'string\',
+                    \'DefaultVersion\': \'string\',
+                    \'DocumentFormat\': \'YAML\'|\'JSON\',
+                    \'TargetType\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -1352,16 +1352,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_maintenance_window(
-              Name='string',
-              Description='string',
-              StartDate='string',
-              EndDate='string',
-              Schedule='string',
-              ScheduleTimezone='string',
+              Name=\'string\',
+              Description=\'string\',
+              StartDate=\'string\',
+              EndDate=\'string\',
+              Schedule=\'string\',
+              ScheduleTimezone=\'string\',
               Duration=123,
               Cutoff=123,
               AllowUnassociatedTargets=True|False,
-              ClientToken='string'
+              ClientToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1391,7 +1391,7 @@ class Client(BaseClient):
         :type ScheduleTimezone: string
         :param ScheduleTimezone: 
         
-          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
+          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
         
         :type Duration: integer
         :param Duration: **[REQUIRED]** 
@@ -1408,7 +1408,7 @@ class Client(BaseClient):
         
           Enables a Maintenance Window task to execute on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the Maintenance Window 
         
-          If you don't enable this option, then you must specify previously-registered targets when you register a task with the Maintenance Window. 
+          If you don\'t enable this option, then you must specify previously-registered targets when you register a task with the Maintenance Window. 
         
         :type ClientToken: string
         :param ClientToken: 
@@ -1425,7 +1425,7 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string'
+                \'WindowId\': \'string\'
             }
           **Response Structure** 
         
@@ -1451,57 +1451,57 @@ class Client(BaseClient):
         ::
         
           response = client.create_patch_baseline(
-              OperatingSystem='WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS',
-              Name='string',
+              OperatingSystem=\'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\',
+              Name=\'string\',
               GlobalFilters={
-                  'PatchFilters': [
+                  \'PatchFilters\': [
                       {
-                          'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                          'Values': [
-                              'string',
+                          \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                          \'Values\': [
+                              \'string\',
                           ]
                       },
                   ]
               },
               ApprovalRules={
-                  'PatchRules': [
+                  \'PatchRules\': [
                       {
-                          'PatchFilterGroup': {
-                              'PatchFilters': [
+                          \'PatchFilterGroup\': {
+                              \'PatchFilters\': [
                                   {
-                                      'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                                      'Values': [
-                                          'string',
+                                      \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                                      \'Values\': [
+                                          \'string\',
                                       ]
                                   },
                               ]
                           },
-                          'ComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                          'ApproveAfterDays': 123,
-                          'EnableNonSecurity': True|False
+                          \'ComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                          \'ApproveAfterDays\': 123,
+                          \'EnableNonSecurity\': True|False
                       },
                   ]
               },
               ApprovedPatches=[
-                  'string',
+                  \'string\',
               ],
-              ApprovedPatchesComplianceLevel='CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
+              ApprovedPatchesComplianceLevel=\'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
               ApprovedPatchesEnableNonSecurity=True|False,
               RejectedPatches=[
-                  'string',
+                  \'string\',
               ],
-              RejectedPatchesAction='ALLOW_AS_DEPENDENCY'|'BLOCK',
-              Description='string',
+              RejectedPatchesAction=\'ALLOW_AS_DEPENDENCY\'|\'BLOCK\',
+              Description=\'string\',
               Sources=[
                   {
-                      'Name': 'string',
-                      'Products': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Products\': [
+                          \'string\',
                       ],
-                      'Configuration': 'string'
+                      \'Configuration\': \'string\'
                   },
               ],
-              ClientToken='string'
+              ClientToken=\'string\'
           )
         :type OperatingSystem: string
         :param OperatingSystem: 
@@ -2341,7 +2341,7 @@ class Client(BaseClient):
         
               - **EnableNonSecurity** *(boolean) --* 
         
-                For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
+                For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is \'false\'. Applies to Linux instances only.
         
         :type ApprovedPatches: list
         :param ApprovedPatches: 
@@ -2360,7 +2360,7 @@ class Client(BaseClient):
         :type ApprovedPatchesEnableNonSecurity: boolean
         :param ApprovedPatchesEnableNonSecurity: 
         
-          Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+          Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is \'false\'. Applies to Linux instances only.
         
         :type RejectedPatches: list
         :param RejectedPatches: 
@@ -2400,7 +2400,7 @@ class Client(BaseClient):
         
             - **Products** *(list) --* **[REQUIRED]** 
         
-              The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see  PatchFilter .
+              The specific operating system versions a patch repository applies to, such as \"Ubuntu16.04\", \"AmazonLinux2016.09\", \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported product values, see  PatchFilter .
         
               - *(string) --* 
         
@@ -2431,7 +2431,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string'
+                \'BaselineId\': \'string\'
             }
           **Response Structure** 
         
@@ -2455,13 +2455,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource_data_sync(
-              SyncName='string',
+              SyncName=\'string\',
               S3Destination={
-                  'BucketName': 'string',
-                  'Prefix': 'string',
-                  'SyncFormat': 'JsonSerDe',
-                  'Region': 'string',
-                  'AWSKMSKeyARN': 'string'
+                  \'BucketName\': \'string\',
+                  \'Prefix\': \'string\',
+                  \'SyncFormat\': \'JsonSerDe\',
+                  \'Region\': \'string\',
+                  \'AWSKMSKeyARN\': \'string\'
               }
           )
         :type SyncName: string
@@ -2517,7 +2517,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_activation(
-              ActivationId='string'
+              ActivationId=\'string\'
           )
         :type ActivationId: string
         :param ActivationId: **[REQUIRED]** 
@@ -2549,9 +2549,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_association(
-              Name='string',
-              InstanceId='string',
-              AssociationId='string'
+              Name=\'string\',
+              InstanceId=\'string\',
+              AssociationId=\'string\'
           )
         :type Name: string
         :param Name: 
@@ -2593,7 +2593,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_document(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2623,10 +2623,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_inventory(
-              TypeName='string',
-              SchemaDeleteOption='DisableSchema'|'DeleteSchema',
+              TypeName=\'string\',
+              SchemaDeleteOption=\'DisableSchema\'|\'DeleteSchema\',
               DryRun=True|False,
-              ClientToken='string'
+              ClientToken=\'string\'
           )
         :type TypeName: string
         :param TypeName: **[REQUIRED]** 
@@ -2636,7 +2636,7 @@ class Client(BaseClient):
         :type SchemaDeleteOption: string
         :param SchemaDeleteOption: 
         
-          Use the ``SchemaDeleteOption`` to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options:
+          Use the ``SchemaDeleteOption`` to delete a custom inventory type (schema). If you don\'t choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options:
         
           DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the ``PutInventory`` action for a version greater than the disbled version.
         
@@ -2662,16 +2662,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletionId': 'string',
-                'TypeName': 'string',
-                'DeletionSummary': {
-                    'TotalCount': 123,
-                    'RemainingCount': 123,
-                    'SummaryItems': [
+                \'DeletionId\': \'string\',
+                \'TypeName\': \'string\',
+                \'DeletionSummary\': {
+                    \'TotalCount\': 123,
+                    \'RemainingCount\': 123,
+                    \'SummaryItems\': [
                         {
-                            'Version': 'string',
-                            'Count': 123,
-                            'RemainingCount': 123
+                            \'Version\': \'string\',
+                            \'Count\': 123,
+                            \'RemainingCount\': 123
                         },
                     ]
                 }
@@ -2732,7 +2732,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_maintenance_window(
-              WindowId='string'
+              WindowId=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -2747,7 +2747,7 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string'
+                \'WindowId\': \'string\'
             }
           **Response Structure** 
         
@@ -2769,7 +2769,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_parameter(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2800,7 +2800,7 @@ class Client(BaseClient):
         
           response = client.delete_parameters(
               Names=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Names: list
@@ -2818,11 +2818,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletedParameters': [
-                    'string',
+                \'DeletedParameters\': [
+                    \'string\',
                 ],
-                'InvalidParameters': [
-                    'string',
+                \'InvalidParameters\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2837,7 +2837,7 @@ class Client(BaseClient):
           
             - **InvalidParameters** *(list) --* 
         
-              The names of parameters that weren't deleted because the parameters are not valid.
+              The names of parameters that weren\'t deleted because the parameters are not valid.
         
               - *(string) --* 
           
@@ -2853,7 +2853,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_patch_baseline(
-              BaselineId='string'
+              BaselineId=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -2868,7 +2868,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string'
+                \'BaselineId\': \'string\'
             }
           **Response Structure** 
         
@@ -2890,7 +2890,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_data_sync(
-              SyncName='string'
+              SyncName=\'string\'
           )
         :type SyncName: string
         :param SyncName: **[REQUIRED]** 
@@ -2920,7 +2920,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_managed_instance(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -2950,8 +2950,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_patch_baseline_for_patch_group(
-              BaselineId='string',
-              PatchGroup='string'
+              BaselineId=\'string\',
+              PatchGroup=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -2971,8 +2971,8 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'PatchGroup': 'string'
+                \'BaselineId\': \'string\',
+                \'PatchGroup\': \'string\'
             }
           **Response Structure** 
         
@@ -2998,8 +2998,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_target_from_maintenance_window(
-              WindowId='string',
-              WindowTargetId='string',
+              WindowId=\'string\',
+              WindowTargetId=\'string\',
               Safe=True|False
           )
         :type WindowId: string
@@ -3025,8 +3025,8 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'WindowTargetId': 'string'
+                \'WindowId\': \'string\',
+                \'WindowTargetId\': \'string\'
             }
           **Response Structure** 
         
@@ -3052,8 +3052,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_task_from_maintenance_window(
-              WindowId='string',
-              WindowTaskId='string'
+              WindowId=\'string\',
+              WindowTaskId=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -3073,8 +3073,8 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'WindowTaskId': 'string'
+                \'WindowId\': \'string\',
+                \'WindowTaskId\': \'string\'
             }
           **Response Structure** 
         
@@ -3102,14 +3102,14 @@ class Client(BaseClient):
           response = client.describe_activations(
               Filters=[
                   {
-                      'FilterKey': 'ActivationIds'|'DefaultInstanceName'|'IamRole',
-                      'FilterValues': [
-                          'string',
+                      \'FilterKey\': \'ActivationIds\'|\'DefaultInstanceName\'|\'IamRole\',
+                      \'FilterValues\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -3148,20 +3148,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ActivationList': [
+                \'ActivationList\': [
                     {
-                        'ActivationId': 'string',
-                        'Description': 'string',
-                        'DefaultInstanceName': 'string',
-                        'IamRole': 'string',
-                        'RegistrationLimit': 123,
-                        'RegistrationsCount': 123,
-                        'ExpirationDate': datetime(2015, 1, 1),
-                        'Expired': True|False,
-                        'CreatedDate': datetime(2015, 1, 1)
+                        \'ActivationId\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefaultInstanceName\': \'string\',
+                        \'IamRole\': \'string\',
+                        \'RegistrationLimit\': 123,
+                        \'RegistrationsCount\': 123,
+                        \'ExpirationDate\': datetime(2015, 1, 1),
+                        \'Expired\': True|False,
+                        \'CreatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3227,10 +3227,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_association(
-              Name='string',
-              InstanceId='string',
-              AssociationId='string',
-              AssociationVersion='string'
+              Name=\'string\',
+              InstanceId=\'string\',
+              AssociationId=\'string\',
+              AssociationVersion=\'string\'
           )
         :type Name: string
         :param Name: 
@@ -3260,54 +3260,54 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationDescription': {
-                    'Name': 'string',
-                    'InstanceId': 'string',
-                    'AssociationVersion': 'string',
-                    'Date': datetime(2015, 1, 1),
-                    'LastUpdateAssociationDate': datetime(2015, 1, 1),
-                    'Status': {
-                        'Date': datetime(2015, 1, 1),
-                        'Name': 'Pending'|'Success'|'Failed',
-                        'Message': 'string',
-                        'AdditionalInfo': 'string'
+                \'AssociationDescription\': {
+                    \'Name\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'AssociationVersion\': \'string\',
+                    \'Date\': datetime(2015, 1, 1),
+                    \'LastUpdateAssociationDate\': datetime(2015, 1, 1),
+                    \'Status\': {
+                        \'Date\': datetime(2015, 1, 1),
+                        \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                        \'Message\': \'string\',
+                        \'AdditionalInfo\': \'string\'
                     },
-                    'Overview': {
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'AssociationStatusAggregatedCount': {
-                            'string': 123
+                    \'Overview\': {
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'AssociationStatusAggregatedCount\': {
+                            \'string\': 123
                         }
                     },
-                    'DocumentVersion': 'string',
-                    'Parameters': {
-                        'string': [
-                            'string',
+                    \'DocumentVersion\': \'string\',
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'AssociationId': 'string',
-                    'Targets': [
+                    \'AssociationId\': \'string\',
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'ScheduleExpression': 'string',
-                    'OutputLocation': {
-                        'S3Location': {
-                            'OutputS3Region': 'string',
-                            'OutputS3BucketName': 'string',
-                            'OutputS3KeyPrefix': 'string'
+                    \'ScheduleExpression\': \'string\',
+                    \'OutputLocation\': {
+                        \'S3Location\': {
+                            \'OutputS3Region\': \'string\',
+                            \'OutputS3BucketName\': \'string\',
+                            \'OutputS3KeyPrefix\': \'string\'
                         }
                     },
-                    'LastExecutionDate': datetime(2015, 1, 1),
-                    'LastSuccessfulExecutionDate': datetime(2015, 1, 1),
-                    'AssociationName': 'string',
-                    'MaxErrors': 'string',
-                    'MaxConcurrency': 'string',
-                    'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                    \'LastExecutionDate\': datetime(2015, 1, 1),
+                    \'LastSuccessfulExecutionDate\': datetime(2015, 1, 1),
+                    \'AssociationName\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'MaxConcurrency\': \'string\',
+                    \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                 }
             }
           **Response Structure** 
@@ -3402,7 +3402,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -3454,7 +3454,7 @@ class Client(BaseClient):
         
                 The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
               - **MaxConcurrency** *(string) --* 
         
@@ -3478,16 +3478,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_association_execution_targets(
-              AssociationId='string',
-              ExecutionId='string',
+              AssociationId=\'string\',
+              ExecutionId=\'string\',
               Filters=[
                   {
-                      'Key': 'Status'|'ResourceId'|'ResourceType',
-                      'Value': 'string'
+                      \'Key\': \'Status\'|\'ResourceId\'|\'ResourceType\',
+                      \'Value\': \'string\'
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -3540,23 +3540,23 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationExecutionTargets': [
+                \'AssociationExecutionTargets\': [
                     {
-                        'AssociationId': 'string',
-                        'AssociationVersion': 'string',
-                        'ExecutionId': 'string',
-                        'ResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'LastExecutionDate': datetime(2015, 1, 1),
-                        'OutputSource': {
-                            'OutputSourceId': 'string',
-                            'OutputSourceType': 'string'
+                        \'AssociationId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'ExecutionId\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'LastExecutionDate\': datetime(2015, 1, 1),
+                        \'OutputSource\': {
+                            \'OutputSourceId\': \'string\',
+                            \'OutputSourceType\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3630,16 +3630,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_association_executions(
-              AssociationId='string',
+              AssociationId=\'string\',
               Filters=[
                   {
-                      'Key': 'ExecutionId'|'Status'|'CreatedTime',
-                      'Value': 'string',
-                      'Type': 'EQUAL'|'LESS_THAN'|'GREATER_THAN'
+                      \'Key\': \'ExecutionId\'|\'Status\'|\'CreatedTime\',
+                      \'Value\': \'string\',
+                      \'Type\': \'EQUAL\'|\'LESS_THAN\'|\'GREATER_THAN\'
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -3691,19 +3691,19 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationExecutions': [
+                \'AssociationExecutions\': [
                     {
-                        'AssociationId': 'string',
-                        'AssociationVersion': 'string',
-                        'ExecutionId': 'string',
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'LastExecutionDate': datetime(2015, 1, 1),
-                        'ResourceCountByStatus': 'string'
+                        \'AssociationId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'ExecutionId\': \'string\',
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'LastExecutionDate\': datetime(2015, 1, 1),
+                        \'ResourceCountByStatus\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3767,14 +3767,14 @@ class Client(BaseClient):
           response = client.describe_automation_executions(
               Filters=[
                   {
-                      'Key': 'DocumentNamePrefix'|'ExecutionStatus'|'ExecutionId'|'ParentExecutionId'|'CurrentAction'|'StartTimeBefore'|'StartTimeAfter',
-                      'Values': [
-                          'string',
+                      \'Key\': \'DocumentNamePrefix\'|\'ExecutionStatus\'|\'ExecutionId\'|\'ParentExecutionId\'|\'CurrentAction\'|\'StartTimeBefore\'|\'StartTimeAfter\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -3791,7 +3791,7 @@ class Client(BaseClient):
         
             - **Values** *(list) --* **[REQUIRED]** 
         
-              The values used to limit the execution information associated with the filter's key.
+              The values used to limit the execution information associated with the filter\'s key.
         
               - *(string) --* 
         
@@ -3813,54 +3813,54 @@ class Client(BaseClient):
           ::
         
             {
-                'AutomationExecutionMetadataList': [
+                \'AutomationExecutionMetadataList\': [
                     {
-                        'AutomationExecutionId': 'string',
-                        'DocumentName': 'string',
-                        'DocumentVersion': 'string',
-                        'AutomationExecutionStatus': 'Pending'|'InProgress'|'Waiting'|'Success'|'TimedOut'|'Cancelling'|'Cancelled'|'Failed',
-                        'ExecutionStartTime': datetime(2015, 1, 1),
-                        'ExecutionEndTime': datetime(2015, 1, 1),
-                        'ExecutedBy': 'string',
-                        'LogFile': 'string',
-                        'Outputs': {
-                            'string': [
-                                'string',
+                        \'AutomationExecutionId\': \'string\',
+                        \'DocumentName\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'AutomationExecutionStatus\': \'Pending\'|\'InProgress\'|\'Waiting\'|\'Success\'|\'TimedOut\'|\'Cancelling\'|\'Cancelled\'|\'Failed\',
+                        \'ExecutionStartTime\': datetime(2015, 1, 1),
+                        \'ExecutionEndTime\': datetime(2015, 1, 1),
+                        \'ExecutedBy\': \'string\',
+                        \'LogFile\': \'string\',
+                        \'Outputs\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'Mode': 'Auto'|'Interactive',
-                        'ParentAutomationExecutionId': 'string',
-                        'CurrentStepName': 'string',
-                        'CurrentAction': 'string',
-                        'FailureMessage': 'string',
-                        'TargetParameterName': 'string',
-                        'Targets': [
+                        \'Mode\': \'Auto\'|\'Interactive\',
+                        \'ParentAutomationExecutionId\': \'string\',
+                        \'CurrentStepName\': \'string\',
+                        \'CurrentAction\': \'string\',
+                        \'FailureMessage\': \'string\',
+                        \'TargetParameterName\': \'string\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'TargetMaps': [
+                        \'TargetMaps\': [
                             {
-                                'string': [
-                                    'string',
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'ResolvedTargets': {
-                            'ParameterValues': [
-                                'string',
+                        \'ResolvedTargets\': {
+                            \'ParameterValues\': [
+                                \'string\',
                             ],
-                            'Truncated': True|False
+                            \'Truncated\': True|False
                         },
-                        'MaxConcurrency': 'string',
-                        'MaxErrors': 'string',
-                        'Target': 'string'
+                        \'MaxConcurrency\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'Target\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3946,7 +3946,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -4012,16 +4012,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_automation_step_executions(
-              AutomationExecutionId='string',
+              AutomationExecutionId=\'string\',
               Filters=[
                   {
-                      'Key': 'StartTimeBefore'|'StartTimeAfter'|'StepExecutionStatus'|'StepExecutionId'|'StepName'|'Action',
-                      'Values': [
-                          'string',
+                      \'Key\': \'StartTimeBefore\'|\'StartTimeAfter\'|\'StepExecutionStatus\'|\'StepExecutionId\'|\'StepName\'|\'Action\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               ReverseOrder=True|False
           )
@@ -4072,51 +4072,51 @@ class Client(BaseClient):
           ::
         
             {
-                'StepExecutions': [
+                \'StepExecutions\': [
                     {
-                        'StepName': 'string',
-                        'Action': 'string',
-                        'TimeoutSeconds': 123,
-                        'OnFailure': 'string',
-                        'MaxAttempts': 123,
-                        'ExecutionStartTime': datetime(2015, 1, 1),
-                        'ExecutionEndTime': datetime(2015, 1, 1),
-                        'StepStatus': 'Pending'|'InProgress'|'Waiting'|'Success'|'TimedOut'|'Cancelling'|'Cancelled'|'Failed',
-                        'ResponseCode': 'string',
-                        'Inputs': {
-                            'string': 'string'
+                        \'StepName\': \'string\',
+                        \'Action\': \'string\',
+                        \'TimeoutSeconds\': 123,
+                        \'OnFailure\': \'string\',
+                        \'MaxAttempts\': 123,
+                        \'ExecutionStartTime\': datetime(2015, 1, 1),
+                        \'ExecutionEndTime\': datetime(2015, 1, 1),
+                        \'StepStatus\': \'Pending\'|\'InProgress\'|\'Waiting\'|\'Success\'|\'TimedOut\'|\'Cancelling\'|\'Cancelled\'|\'Failed\',
+                        \'ResponseCode\': \'string\',
+                        \'Inputs\': {
+                            \'string\': \'string\'
                         },
-                        'Outputs': {
-                            'string': [
-                                'string',
+                        \'Outputs\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'Response': 'string',
-                        'FailureMessage': 'string',
-                        'FailureDetails': {
-                            'FailureStage': 'string',
-                            'FailureType': 'string',
-                            'Details': {
-                                'string': [
-                                    'string',
+                        \'Response\': \'string\',
+                        \'FailureMessage\': \'string\',
+                        \'FailureDetails\': {
+                            \'FailureStage\': \'string\',
+                            \'FailureType\': \'string\',
+                            \'Details\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'StepExecutionId': 'string',
-                        'OverriddenParameters': {
-                            'string': [
-                                'string',
+                        \'StepExecutionId\': \'string\',
+                        \'OverriddenParameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'IsEnd': True|False,
-                        'NextStep': 'string',
-                        'IsCritical': True|False,
-                        'ValidNextSteps': [
-                            'string',
+                        \'IsEnd\': True|False,
+                        \'NextStep\': \'string\',
+                        \'IsCritical\': True|False,
+                        \'ValidNextSteps\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4264,14 +4264,14 @@ class Client(BaseClient):
           response = client.describe_available_patches(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -4310,24 +4310,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Patches': [
+                \'Patches\': [
                     {
-                        'Id': 'string',
-                        'ReleaseDate': datetime(2015, 1, 1),
-                        'Title': 'string',
-                        'Description': 'string',
-                        'ContentUrl': 'string',
-                        'Vendor': 'string',
-                        'ProductFamily': 'string',
-                        'Product': 'string',
-                        'Classification': 'string',
-                        'MsrcSeverity': 'string',
-                        'KbNumber': 'string',
-                        'MsrcNumber': 'string',
-                        'Language': 'string'
+                        \'Id\': \'string\',
+                        \'ReleaseDate\': datetime(2015, 1, 1),
+                        \'Title\': \'string\',
+                        \'Description\': \'string\',
+                        \'ContentUrl\': \'string\',
+                        \'Vendor\': \'string\',
+                        \'ProductFamily\': \'string\',
+                        \'Product\': \'string\',
+                        \'Classification\': \'string\',
+                        \'MsrcSeverity\': \'string\',
+                        \'KbNumber\': \'string\',
+                        \'MsrcNumber\': \'string\',
+                        \'Language\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4391,7 +4391,7 @@ class Client(BaseClient):
         
                 - **Language** *(string) --* 
         
-                  The language of the patch if it's language-specific.
+                  The language of the patch if it\'s language-specific.
         
             - **NextToken** *(string) --* 
         
@@ -4409,8 +4409,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_document(
-              Name='string',
-              DocumentVersion='string'
+              Name=\'string\',
+              DocumentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -4430,37 +4430,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Document': {
-                    'Sha1': 'string',
-                    'Hash': 'string',
-                    'HashType': 'Sha256'|'Sha1',
-                    'Name': 'string',
-                    'Owner': 'string',
-                    'CreatedDate': datetime(2015, 1, 1),
-                    'Status': 'Creating'|'Active'|'Updating'|'Deleting',
-                    'DocumentVersion': 'string',
-                    'Description': 'string',
-                    'Parameters': [
+                \'Document\': {
+                    \'Sha1\': \'string\',
+                    \'Hash\': \'string\',
+                    \'HashType\': \'Sha256\'|\'Sha1\',
+                    \'Name\': \'string\',
+                    \'Owner\': \'string\',
+                    \'CreatedDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Creating\'|\'Active\'|\'Updating\'|\'Deleting\',
+                    \'DocumentVersion\': \'string\',
+                    \'Description\': \'string\',
+                    \'Parameters\': [
                         {
-                            'Name': 'string',
-                            'Type': 'String'|'StringList',
-                            'Description': 'string',
-                            'DefaultValue': 'string'
+                            \'Name\': \'string\',
+                            \'Type\': \'String\'|\'StringList\',
+                            \'Description\': \'string\',
+                            \'DefaultValue\': \'string\'
                         },
                     ],
-                    'PlatformTypes': [
-                        'Windows'|'Linux',
+                    \'PlatformTypes\': [
+                        \'Windows\'|\'Linux\',
                     ],
-                    'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                    'SchemaVersion': 'string',
-                    'LatestVersion': 'string',
-                    'DefaultVersion': 'string',
-                    'DocumentFormat': 'YAML'|'JSON',
-                    'TargetType': 'string',
-                    'Tags': [
+                    \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                    \'SchemaVersion\': \'string\',
+                    \'LatestVersion\': \'string\',
+                    \'DefaultVersion\': \'string\',
+                    \'DocumentFormat\': \'YAML\'|\'JSON\',
+                    \'TargetType\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -4599,8 +4599,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_document_permission(
-              Name='string',
-              PermissionType='Share'
+              Name=\'string\',
+              PermissionType=\'Share\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -4620,8 +4620,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountIds': [
-                    'string',
+                \'AccountIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -4646,9 +4646,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_effective_instance_associations(
-              InstanceId='string',
+              InstanceId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -4673,15 +4673,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Associations': [
+                \'Associations\': [
                     {
-                        'AssociationId': 'string',
-                        'InstanceId': 'string',
-                        'Content': 'string',
-                        'AssociationVersion': 'string'
+                        \'AssociationId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Content\': \'string\',
+                        \'AssociationVersion\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4727,9 +4727,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_effective_patches_for_patch_baseline(
-              BaselineId='string',
+              BaselineId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -4754,31 +4754,31 @@ class Client(BaseClient):
           ::
         
             {
-                'EffectivePatches': [
+                \'EffectivePatches\': [
                     {
-                        'Patch': {
-                            'Id': 'string',
-                            'ReleaseDate': datetime(2015, 1, 1),
-                            'Title': 'string',
-                            'Description': 'string',
-                            'ContentUrl': 'string',
-                            'Vendor': 'string',
-                            'ProductFamily': 'string',
-                            'Product': 'string',
-                            'Classification': 'string',
-                            'MsrcSeverity': 'string',
-                            'KbNumber': 'string',
-                            'MsrcNumber': 'string',
-                            'Language': 'string'
+                        \'Patch\': {
+                            \'Id\': \'string\',
+                            \'ReleaseDate\': datetime(2015, 1, 1),
+                            \'Title\': \'string\',
+                            \'Description\': \'string\',
+                            \'ContentUrl\': \'string\',
+                            \'Vendor\': \'string\',
+                            \'ProductFamily\': \'string\',
+                            \'Product\': \'string\',
+                            \'Classification\': \'string\',
+                            \'MsrcSeverity\': \'string\',
+                            \'KbNumber\': \'string\',
+                            \'MsrcNumber\': \'string\',
+                            \'Language\': \'string\'
                         },
-                        'PatchStatus': {
-                            'DeploymentStatus': 'APPROVED'|'PENDING_APPROVAL'|'EXPLICIT_APPROVED'|'EXPLICIT_REJECTED',
-                            'ComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                            'ApprovalDate': datetime(2015, 1, 1)
+                        \'PatchStatus\': {
+                            \'DeploymentStatus\': \'APPROVED\'|\'PENDING_APPROVAL\'|\'EXPLICIT_APPROVED\'|\'EXPLICIT_REJECTED\',
+                            \'ComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                            \'ApprovalDate\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4846,7 +4846,7 @@ class Client(BaseClient):
         
                   - **Language** *(string) --* 
         
-                    The language of the patch if it's language-specific.
+                    The language of the patch if it\'s language-specific.
         
                 - **PatchStatus** *(dict) --* 
         
@@ -4880,9 +4880,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instance_associations_status(
-              InstanceId='string',
+              InstanceId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -4907,27 +4907,27 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceAssociationStatusInfos': [
+                \'InstanceAssociationStatusInfos\': [
                     {
-                        'AssociationId': 'string',
-                        'Name': 'string',
-                        'DocumentVersion': 'string',
-                        'AssociationVersion': 'string',
-                        'InstanceId': 'string',
-                        'ExecutionDate': datetime(2015, 1, 1),
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'ExecutionSummary': 'string',
-                        'ErrorCode': 'string',
-                        'OutputUrl': {
-                            'S3OutputUrl': {
-                                'OutputUrl': 'string'
+                        \'AssociationId\': \'string\',
+                        \'Name\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'ExecutionDate\': datetime(2015, 1, 1),
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'ExecutionSummary\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'OutputUrl\': {
+                            \'S3OutputUrl\': {
+                                \'OutputUrl\': \'string\'
                             }
                         },
-                        'AssociationName': 'string'
+                        \'AssociationName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5019,29 +5019,29 @@ class Client(BaseClient):
           response = client.describe_instance_information(
               InstanceInformationFilterList=[
                   {
-                      'key': 'InstanceIds'|'AgentVersion'|'PingStatus'|'PlatformTypes'|'ActivationIds'|'IamRole'|'ResourceType'|'AssociationStatus',
-                      'valueSet': [
-                          'string',
+                      \'key\': \'InstanceIds\'|\'AgentVersion\'|\'PingStatus\'|\'PlatformTypes\'|\'ActivationIds\'|\'IamRole\'|\'ResourceType\'|\'AssociationStatus\',
+                      \'valueSet\': [
+                          \'string\',
                       ]
                   },
               ],
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type InstanceInformationFilterList: list
         :param InstanceInformationFilterList: 
         
-          This is a legacy method. We recommend that you don't use this method. Instead, use the  InstanceInformationFilter action. The ``InstanceInformationFilter`` action enables you to return instance information by using tags that are specified as a key-value mapping. 
+          This is a legacy method. We recommend that you don\'t use this method. Instead, use the  InstanceInformationFilter action. The ``InstanceInformationFilter`` action enables you to return instance information by using tags that are specified as a key-value mapping. 
         
-          If you do use this method, then you can't use the ``InstanceInformationFilter`` action. Using this method and the ``InstanceInformationFilter`` action causes an exception error. 
+          If you do use this method, then you can\'t use the ``InstanceInformationFilter`` action. Using this method and the ``InstanceInformationFilter`` action causes an exception error. 
         
           - *(dict) --* 
         
@@ -5072,7 +5072,7 @@ class Client(BaseClient):
         
               The filter key name to describe your instances. For example:
         
-              "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
+              \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag Key\"
         
             - **Values** *(list) --* **[REQUIRED]** 
         
@@ -5098,35 +5098,35 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceInformationList': [
+                \'InstanceInformationList\': [
                     {
-                        'InstanceId': 'string',
-                        'PingStatus': 'Online'|'ConnectionLost'|'Inactive',
-                        'LastPingDateTime': datetime(2015, 1, 1),
-                        'AgentVersion': 'string',
-                        'IsLatestVersion': True|False,
-                        'PlatformType': 'Windows'|'Linux',
-                        'PlatformName': 'string',
-                        'PlatformVersion': 'string',
-                        'ActivationId': 'string',
-                        'IamRole': 'string',
-                        'RegistrationDate': datetime(2015, 1, 1),
-                        'ResourceType': 'ManagedInstance'|'Document'|'EC2Instance',
-                        'Name': 'string',
-                        'IPAddress': 'string',
-                        'ComputerName': 'string',
-                        'AssociationStatus': 'string',
-                        'LastAssociationExecutionDate': datetime(2015, 1, 1),
-                        'LastSuccessfulAssociationExecutionDate': datetime(2015, 1, 1),
-                        'AssociationOverview': {
-                            'DetailedStatus': 'string',
-                            'InstanceAssociationStatusAggregatedCount': {
-                                'string': 123
+                        \'InstanceId\': \'string\',
+                        \'PingStatus\': \'Online\'|\'ConnectionLost\'|\'Inactive\',
+                        \'LastPingDateTime\': datetime(2015, 1, 1),
+                        \'AgentVersion\': \'string\',
+                        \'IsLatestVersion\': True|False,
+                        \'PlatformType\': \'Windows\'|\'Linux\',
+                        \'PlatformName\': \'string\',
+                        \'PlatformVersion\': \'string\',
+                        \'ActivationId\': \'string\',
+                        \'IamRole\': \'string\',
+                        \'RegistrationDate\': datetime(2015, 1, 1),
+                        \'ResourceType\': \'ManagedInstance\'|\'Document\'|\'EC2Instance\',
+                        \'Name\': \'string\',
+                        \'IPAddress\': \'string\',
+                        \'ComputerName\': \'string\',
+                        \'AssociationStatus\': \'string\',
+                        \'LastAssociationExecutionDate\': datetime(2015, 1, 1),
+                        \'LastSuccessfulAssociationExecutionDate\': datetime(2015, 1, 1),
+                        \'AssociationOverview\': {
+                            \'DetailedStatus\': \'string\',
+                            \'InstanceAssociationStatusAggregatedCount\': {
+                                \'string\': 123
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5245,9 +5245,9 @@ class Client(BaseClient):
         
           response = client.describe_instance_patch_states(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceIds: list
@@ -5275,26 +5275,26 @@ class Client(BaseClient):
           ::
         
             {
-                'InstancePatchStates': [
+                \'InstancePatchStates\': [
                     {
-                        'InstanceId': 'string',
-                        'PatchGroup': 'string',
-                        'BaselineId': 'string',
-                        'SnapshotId': 'string',
-                        'InstallOverrideList': 'string',
-                        'OwnerInformation': 'string',
-                        'InstalledCount': 123,
-                        'InstalledOtherCount': 123,
-                        'InstalledRejectedCount': 123,
-                        'MissingCount': 123,
-                        'FailedCount': 123,
-                        'NotApplicableCount': 123,
-                        'OperationStartTime': datetime(2015, 1, 1),
-                        'OperationEndTime': datetime(2015, 1, 1),
-                        'Operation': 'Scan'|'Install'
+                        \'InstanceId\': \'string\',
+                        \'PatchGroup\': \'string\',
+                        \'BaselineId\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'InstallOverrideList\': \'string\',
+                        \'OwnerInformation\': \'string\',
+                        \'InstalledCount\': 123,
+                        \'InstalledOtherCount\': 123,
+                        \'InstalledRejectedCount\': 123,
+                        \'MissingCount\': 123,
+                        \'FailedCount\': 123,
+                        \'NotApplicableCount\': 123,
+                        \'OperationStartTime\': datetime(2015, 1, 1),
+                        \'OperationEndTime\': datetime(2015, 1, 1),
+                        \'Operation\': \'Scan\'|\'Install\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5352,7 +5352,7 @@ class Client(BaseClient):
         
                 - **MissingCount** *(integer) --* 
         
-                  The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
+                  The number of patches from the patch baseline that are applicable for the instance but aren\'t currently installed.
         
                 - **FailedCount** *(integer) --* 
         
@@ -5360,7 +5360,7 @@ class Client(BaseClient):
         
                 - **NotApplicableCount** *(integer) --* 
         
-                  The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
+                  The number of patches from the patch baseline that aren\'t applicable for the instance and hence aren\'t installed on the instance.
         
                 - **OperationStartTime** *(datetime) --* 
         
@@ -5390,17 +5390,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instance_patch_states_for_patch_group(
-              PatchGroup='string',
+              PatchGroup=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'Equal'|'NotEqual'|'LessThan'|'GreaterThan'
+                      \'Type\': \'Equal\'|\'NotEqual\'|\'LessThan\'|\'GreaterThan\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type PatchGroup: string
@@ -5417,7 +5417,7 @@ class Client(BaseClient):
         
           Values (array containing a single string)
         
-          Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
+          Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
         
           - *(dict) --* 
         
@@ -5455,26 +5455,26 @@ class Client(BaseClient):
           ::
         
             {
-                'InstancePatchStates': [
+                \'InstancePatchStates\': [
                     {
-                        'InstanceId': 'string',
-                        'PatchGroup': 'string',
-                        'BaselineId': 'string',
-                        'SnapshotId': 'string',
-                        'InstallOverrideList': 'string',
-                        'OwnerInformation': 'string',
-                        'InstalledCount': 123,
-                        'InstalledOtherCount': 123,
-                        'InstalledRejectedCount': 123,
-                        'MissingCount': 123,
-                        'FailedCount': 123,
-                        'NotApplicableCount': 123,
-                        'OperationStartTime': datetime(2015, 1, 1),
-                        'OperationEndTime': datetime(2015, 1, 1),
-                        'Operation': 'Scan'|'Install'
+                        \'InstanceId\': \'string\',
+                        \'PatchGroup\': \'string\',
+                        \'BaselineId\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'InstallOverrideList\': \'string\',
+                        \'OwnerInformation\': \'string\',
+                        \'InstalledCount\': 123,
+                        \'InstalledOtherCount\': 123,
+                        \'InstalledRejectedCount\': 123,
+                        \'MissingCount\': 123,
+                        \'FailedCount\': 123,
+                        \'NotApplicableCount\': 123,
+                        \'OperationStartTime\': datetime(2015, 1, 1),
+                        \'OperationEndTime\': datetime(2015, 1, 1),
+                        \'Operation\': \'Scan\'|\'Install\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5532,7 +5532,7 @@ class Client(BaseClient):
         
                 - **MissingCount** *(integer) --* 
         
-                  The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
+                  The number of patches from the patch baseline that are applicable for the instance but aren\'t currently installed.
         
                 - **FailedCount** *(integer) --* 
         
@@ -5540,7 +5540,7 @@ class Client(BaseClient):
         
                 - **NotApplicableCount** *(integer) --* 
         
-                  The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
+                  The number of patches from the patch baseline that aren\'t applicable for the instance and hence aren\'t installed on the instance.
         
                 - **OperationStartTime** *(datetime) --* 
         
@@ -5570,16 +5570,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instance_patches(
-              InstanceId='string',
+              InstanceId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -5628,17 +5628,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Patches': [
+                \'Patches\': [
                     {
-                        'Title': 'string',
-                        'KBId': 'string',
-                        'Classification': 'string',
-                        'Severity': 'string',
-                        'State': 'INSTALLED'|'INSTALLED_OTHER'|'INSTALLED_REJECTED'|'MISSING'|'NOT_APPLICABLE'|'FAILED',
-                        'InstalledTime': datetime(2015, 1, 1)
+                        \'Title\': \'string\',
+                        \'KBId\': \'string\',
+                        \'Classification\': \'string\',
+                        \'Severity\': \'string\',
+                        \'State\': \'INSTALLED\'|\'INSTALLED_OTHER\'|\'INSTALLED_REJECTED\'|\'MISSING\'|\'NOT_APPLICABLE\'|\'FAILED\',
+                        \'InstalledTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5656,7 +5656,7 @@ class Client(BaseClient):
         
               Severity (string)
         
-              State (string, such as "INSTALLED" or "FAILED")
+              State (string, such as \"INSTALLED\" or \"FAILED\")
         
               InstalledTime (DateTime)
         
@@ -5708,8 +5708,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_inventory_deletions(
-              DeletionId='string',
-              NextToken='string',
+              DeletionId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DeletionId: string
@@ -5735,28 +5735,28 @@ class Client(BaseClient):
           ::
         
             {
-                'InventoryDeletions': [
+                \'InventoryDeletions\': [
                     {
-                        'DeletionId': 'string',
-                        'TypeName': 'string',
-                        'DeletionStartTime': datetime(2015, 1, 1),
-                        'LastStatus': 'InProgress'|'Complete',
-                        'LastStatusMessage': 'string',
-                        'DeletionSummary': {
-                            'TotalCount': 123,
-                            'RemainingCount': 123,
-                            'SummaryItems': [
+                        \'DeletionId\': \'string\',
+                        \'TypeName\': \'string\',
+                        \'DeletionStartTime\': datetime(2015, 1, 1),
+                        \'LastStatus\': \'InProgress\'|\'Complete\',
+                        \'LastStatusMessage\': \'string\',
+                        \'DeletionSummary\': {
+                            \'TotalCount\': 123,
+                            \'RemainingCount\': 123,
+                            \'SummaryItems\': [
                                 {
-                                    'Version': 'string',
-                                    'Count': 123,
-                                    'RemainingCount': 123
+                                    \'Version\': \'string\',
+                                    \'Count\': 123,
+                                    \'RemainingCount\': 123
                                 },
                             ]
                         },
-                        'LastStatusUpdateTime': datetime(2015, 1, 1)
+                        \'LastStatusUpdateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5842,18 +5842,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_execution_task_invocations(
-              WindowExecutionId='string',
-              TaskId='string',
+              WindowExecutionId=\'string\',
+              TaskId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -5902,23 +5902,23 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionTaskInvocationIdentities': [
+                \'WindowExecutionTaskInvocationIdentities\': [
                     {
-                        'WindowExecutionId': 'string',
-                        'TaskExecutionId': 'string',
-                        'InvocationId': 'string',
-                        'ExecutionId': 'string',
-                        'TaskType': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
-                        'Parameters': 'string',
-                        'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                        'StatusDetails': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'OwnerInformation': 'string',
-                        'WindowTargetId': 'string'
+                        \'WindowExecutionId\': \'string\',
+                        \'TaskExecutionId\': \'string\',
+                        \'InvocationId\': \'string\',
+                        \'ExecutionId\': \'string\',
+                        \'TaskType\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
+                        \'Parameters\': \'string\',
+                        \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                        \'StatusDetails\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'OwnerInformation\': \'string\',
+                        \'WindowTargetId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5996,17 +5996,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_execution_tasks(
-              WindowExecutionId='string',
+              WindowExecutionId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -6050,19 +6050,19 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionTaskIdentities': [
+                \'WindowExecutionTaskIdentities\': [
                     {
-                        'WindowExecutionId': 'string',
-                        'TaskExecutionId': 'string',
-                        'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                        'StatusDetails': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'TaskArn': 'string',
-                        'TaskType': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA'
+                        \'WindowExecutionId\': \'string\',
+                        \'TaskExecutionId\': \'string\',
+                        \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                        \'StatusDetails\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'TaskArn\': \'string\',
+                        \'TaskType\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6124,17 +6124,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_executions(
-              WindowId='string',
+              WindowId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -6184,17 +6184,17 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutions': [
+                \'WindowExecutions\': [
                     {
-                        'WindowId': 'string',
-                        'WindowExecutionId': 'string',
-                        'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                        'StatusDetails': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1)
+                        \'WindowId\': \'string\',
+                        \'WindowExecutionId\': \'string\',
+                        \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                        \'StatusDetails\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6248,26 +6248,26 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_schedule(
-              WindowId='string',
+              WindowId=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              ResourceType='INSTANCE',
+              ResourceType=\'INSTANCE\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: 
@@ -6281,7 +6281,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -6296,7 +6296,7 @@ class Client(BaseClient):
         :type ResourceType: string
         :param ResourceType: 
         
-          The type of resource you want to retrieve information about. For example, "INSTANCE".
+          The type of resource you want to retrieve information about. For example, \"INSTANCE\".
         
         :type Filters: list
         :param Filters: 
@@ -6335,14 +6335,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ScheduledWindowExecutions': [
+                \'ScheduledWindowExecutions\': [
                     {
-                        'WindowId': 'string',
-                        'Name': 'string',
-                        'ExecutionTime': 'string'
+                        \'WindowId\': \'string\',
+                        \'Name\': \'string\',
+                        \'ExecutionTime\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6384,17 +6384,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_targets(
-              WindowId='string',
+              WindowId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -6438,25 +6438,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Targets': [
+                \'Targets\': [
                     {
-                        'WindowId': 'string',
-                        'WindowTargetId': 'string',
-                        'ResourceType': 'INSTANCE',
-                        'Targets': [
+                        \'WindowId\': \'string\',
+                        \'WindowTargetId\': \'string\',
+                        \'ResourceType\': \'INSTANCE\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'OwnerInformation': 'string',
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'OwnerInformation\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6488,7 +6488,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -6528,17 +6528,17 @@ class Client(BaseClient):
         ::
         
           response = client.describe_maintenance_window_tasks(
-              WindowId='string',
+              WindowId=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -6582,41 +6582,41 @@ class Client(BaseClient):
           ::
         
             {
-                'Tasks': [
+                \'Tasks\': [
                     {
-                        'WindowId': 'string',
-                        'WindowTaskId': 'string',
-                        'TaskArn': 'string',
-                        'Type': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
-                        'Targets': [
+                        \'WindowId\': \'string\',
+                        \'WindowTaskId\': \'string\',
+                        \'TaskArn\': \'string\',
+                        \'Type\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'TaskParameters': {
-                            'string': {
-                                'Values': [
-                                    'string',
+                        \'TaskParameters\': {
+                            \'string\': {
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'Priority': 123,
-                        'LoggingInfo': {
-                            'S3BucketName': 'string',
-                            'S3KeyPrefix': 'string',
-                            'S3Region': 'string'
+                        \'Priority\': 123,
+                        \'LoggingInfo\': {
+                            \'S3BucketName\': \'string\',
+                            \'S3KeyPrefix\': \'string\',
+                            \'S3Region\': \'string\'
                         },
-                        'ServiceRoleArn': 'string',
-                        'MaxConcurrency': 'string',
-                        'MaxErrors': 'string',
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'ServiceRoleArn\': \'string\',
+                        \'MaxConcurrency\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6640,7 +6640,7 @@ class Client(BaseClient):
         
                 - **TaskArn** *(string) --* 
         
-                  The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, ``TaskArn`` is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTION tasks, it's the state machine ARN.
+                  The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, ``TaskArn`` is the Systems Manager document name or ARN. For LAMBDA tasks, it\'s the function name or ARN. For STEP_FUNCTION tasks, it\'s the state machine ARN.
         
                 - **Type** *(string) --* 
         
@@ -6652,7 +6652,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -6746,14 +6746,14 @@ class Client(BaseClient):
           response = client.describe_maintenance_windows(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -6792,22 +6792,22 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowIdentities': [
+                \'WindowIdentities\': [
                     {
-                        'WindowId': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Enabled': True|False,
-                        'Duration': 123,
-                        'Cutoff': 123,
-                        'Schedule': 'string',
-                        'ScheduleTimezone': 'string',
-                        'EndDate': 'string',
-                        'StartDate': 'string',
-                        'NextExecutionTime': 'string'
+                        \'WindowId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Enabled\': True|False,
+                        \'Duration\': 123,
+                        \'Cutoff\': 123,
+                        \'Schedule\': \'string\',
+                        \'ScheduleTimezone\': \'string\',
+                        \'EndDate\': \'string\',
+                        \'StartDate\': \'string\',
+                        \'NextExecutionTime\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6883,15 +6883,15 @@ class Client(BaseClient):
           response = client.describe_maintenance_windows_for_target(
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              ResourceType='INSTANCE',
+              ResourceType=\'INSTANCE\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Targets: list
         :param Targets: **[REQUIRED]** 
@@ -6900,7 +6900,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -6915,7 +6915,7 @@ class Client(BaseClient):
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]** 
         
-          The type of resource you want to retrieve information about. For example, "INSTANCE".
+          The type of resource you want to retrieve information about. For example, \"INSTANCE\".
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -6935,13 +6935,13 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowIdentities': [
+                \'WindowIdentities\': [
                     {
-                        'WindowId': 'string',
-                        'Name': 'string'
+                        \'WindowId\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6983,23 +6983,23 @@ class Client(BaseClient):
           response = client.describe_parameters(
               Filters=[
                   {
-                      'Key': 'Name'|'Type'|'KeyId',
-                      'Values': [
-                          'string',
+                      \'Key\': \'Name\'|\'Type\'|\'KeyId\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ParameterFilters=[
                   {
-                      'Key': 'string',
-                      'Option': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Option\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -7031,7 +7031,7 @@ class Client(BaseClient):
         
             .. note::
         
-              The ``Name`` field can't be used with the  GetParametersByPath API action.
+              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
@@ -7065,19 +7065,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'KeyId': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedUser': 'string',
-                        'Description': 'string',
-                        'AllowedPattern': 'string',
-                        'Version': 123
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'KeyId\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedUser\': \'string\',
+                        \'Description\': \'string\',
+                        \'AllowedPattern\': \'string\',
+                        \'Version\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7143,21 +7143,21 @@ class Client(BaseClient):
           response = client.describe_patch_baselines(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
         
           Each element in the array is a structure containing: 
         
-          Key: (string, "NAME_PREFIX" or "OWNER")
+          Key: (string, \"NAME_PREFIX\" or \"OWNER\")
         
           Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
         
@@ -7193,16 +7193,16 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineIdentities': [
+                \'BaselineIdentities\': [
                     {
-                        'BaselineId': 'string',
-                        'BaselineName': 'string',
-                        'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS',
-                        'BaselineDescription': 'string',
-                        'DefaultBaseline': True|False
+                        \'BaselineId\': \'string\',
+                        \'BaselineName\': \'string\',
+                        \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\',
+                        \'BaselineDescription\': \'string\',
+                        \'DefaultBaseline\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7252,7 +7252,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_patch_group_state(
-              PatchGroup='string'
+              PatchGroup=\'string\'
           )
         :type PatchGroup: string
         :param PatchGroup: **[REQUIRED]** 
@@ -7267,13 +7267,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': 123,
-                'InstancesWithInstalledPatches': 123,
-                'InstancesWithInstalledOtherPatches': 123,
-                'InstancesWithInstalledRejectedPatches': 123,
-                'InstancesWithMissingPatches': 123,
-                'InstancesWithFailedPatches': 123,
-                'InstancesWithNotApplicablePatches': 123
+                \'Instances\': 123,
+                \'InstancesWithInstalledPatches\': 123,
+                \'InstancesWithInstalledOtherPatches\': 123,
+                \'InstancesWithInstalledRejectedPatches\': 123,
+                \'InstancesWithMissingPatches\': 123,
+                \'InstancesWithFailedPatches\': 123,
+                \'InstancesWithNotApplicablePatches\': 123
             }
           **Response Structure** 
         
@@ -7289,7 +7289,7 @@ class Client(BaseClient):
         
             - **InstancesWithInstalledOtherPatches** *(integer) --* 
         
-              The number of instances with patches installed that aren't defined in the patch baseline.
+              The number of instances with patches installed that aren\'t defined in the patch baseline.
         
             - **InstancesWithInstalledRejectedPatches** *(integer) --* 
         
@@ -7309,7 +7309,7 @@ class Client(BaseClient):
         
             - **InstancesWithNotApplicablePatches** *(integer) --* 
         
-              The number of instances with patches that aren't applicable.
+              The number of instances with patches that aren\'t applicable.
         
         """
         pass
@@ -7326,13 +7326,13 @@ class Client(BaseClient):
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -7371,19 +7371,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Mappings': [
+                \'Mappings\': [
                     {
-                        'PatchGroup': 'string',
-                        'BaselineIdentity': {
-                            'BaselineId': 'string',
-                            'BaselineName': 'string',
-                            'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS',
-                            'BaselineDescription': 'string',
-                            'DefaultBaseline': True|False
+                        \'PatchGroup\': \'string\',
+                        \'BaselineIdentity\': {
+                            \'BaselineId\': \'string\',
+                            \'BaselineName\': \'string\',
+                            \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\',
+                            \'BaselineDescription\': \'string\',
+                            \'DefaultBaseline\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7445,20 +7445,20 @@ class Client(BaseClient):
         ::
         
           response = client.describe_sessions(
-              State='Active'|'History',
+              State=\'Active\'|\'History\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               Filters=[
                   {
-                      'key': 'InvokedAfter'|'InvokedBefore'|'Target'|'Owner'|'Status',
-                      'value': 'string'
+                      \'key\': \'InvokedAfter\'|\'InvokedBefore\'|\'Target\'|\'Owner\'|\'Status\',
+                      \'value\': \'string\'
                   },
               ]
           )
         :type State: string
         :param State: **[REQUIRED]** 
         
-          The session status to retrieve a list of sessions for. For example, "Active".
+          The session status to retrieve a list of sessions for. For example, \"Active\".
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -7517,23 +7517,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Sessions': [
+                \'Sessions\': [
                     {
-                        'SessionId': 'string',
-                        'Target': 'string',
-                        'Status': 'Connected'|'Connecting'|'Disconnected'|'Terminated'|'Terminating'|'Failed',
-                        'StartDate': datetime(2015, 1, 1),
-                        'EndDate': datetime(2015, 1, 1),
-                        'DocumentName': 'string',
-                        'Owner': 'string',
-                        'Details': 'string',
-                        'OutputUrl': {
-                            'S3OutputUrl': 'string',
-                            'CloudWatchOutputUrl': 'string'
+                        \'SessionId\': \'string\',
+                        \'Target\': \'string\',
+                        \'Status\': \'Connected\'|\'Connecting\'|\'Disconnected\'|\'Terminated\'|\'Terminating\'|\'Failed\',
+                        \'StartDate\': datetime(2015, 1, 1),
+                        \'EndDate\': datetime(2015, 1, 1),
+                        \'DocumentName\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Details\': \'string\',
+                        \'OutputUrl\': {
+                            \'S3OutputUrl\': \'string\',
+                            \'CloudWatchOutputUrl\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7557,7 +7557,7 @@ class Client(BaseClient):
         
                 - **Status** *(string) --* 
         
-                  The status of the session. For example, "Connected" or "Terminated".
+                  The status of the session. For example, \"Connected\" or \"Terminated\".
         
                 - **StartDate** *(datetime) --* 
         
@@ -7614,7 +7614,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -7629,7 +7629,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_automation_execution(
-              AutomationExecutionId='string'
+              AutomationExecutionId=\'string\'
           )
         :type AutomationExecutionId: string
         :param AutomationExecutionId: **[REQUIRED]** 
@@ -7644,99 +7644,99 @@ class Client(BaseClient):
           ::
         
             {
-                'AutomationExecution': {
-                    'AutomationExecutionId': 'string',
-                    'DocumentName': 'string',
-                    'DocumentVersion': 'string',
-                    'ExecutionStartTime': datetime(2015, 1, 1),
-                    'ExecutionEndTime': datetime(2015, 1, 1),
-                    'AutomationExecutionStatus': 'Pending'|'InProgress'|'Waiting'|'Success'|'TimedOut'|'Cancelling'|'Cancelled'|'Failed',
-                    'StepExecutions': [
+                \'AutomationExecution\': {
+                    \'AutomationExecutionId\': \'string\',
+                    \'DocumentName\': \'string\',
+                    \'DocumentVersion\': \'string\',
+                    \'ExecutionStartTime\': datetime(2015, 1, 1),
+                    \'ExecutionEndTime\': datetime(2015, 1, 1),
+                    \'AutomationExecutionStatus\': \'Pending\'|\'InProgress\'|\'Waiting\'|\'Success\'|\'TimedOut\'|\'Cancelling\'|\'Cancelled\'|\'Failed\',
+                    \'StepExecutions\': [
                         {
-                            'StepName': 'string',
-                            'Action': 'string',
-                            'TimeoutSeconds': 123,
-                            'OnFailure': 'string',
-                            'MaxAttempts': 123,
-                            'ExecutionStartTime': datetime(2015, 1, 1),
-                            'ExecutionEndTime': datetime(2015, 1, 1),
-                            'StepStatus': 'Pending'|'InProgress'|'Waiting'|'Success'|'TimedOut'|'Cancelling'|'Cancelled'|'Failed',
-                            'ResponseCode': 'string',
-                            'Inputs': {
-                                'string': 'string'
+                            \'StepName\': \'string\',
+                            \'Action\': \'string\',
+                            \'TimeoutSeconds\': 123,
+                            \'OnFailure\': \'string\',
+                            \'MaxAttempts\': 123,
+                            \'ExecutionStartTime\': datetime(2015, 1, 1),
+                            \'ExecutionEndTime\': datetime(2015, 1, 1),
+                            \'StepStatus\': \'Pending\'|\'InProgress\'|\'Waiting\'|\'Success\'|\'TimedOut\'|\'Cancelling\'|\'Cancelled\'|\'Failed\',
+                            \'ResponseCode\': \'string\',
+                            \'Inputs\': {
+                                \'string\': \'string\'
                             },
-                            'Outputs': {
-                                'string': [
-                                    'string',
+                            \'Outputs\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'Response': 'string',
-                            'FailureMessage': 'string',
-                            'FailureDetails': {
-                                'FailureStage': 'string',
-                                'FailureType': 'string',
-                                'Details': {
-                                    'string': [
-                                        'string',
+                            \'Response\': \'string\',
+                            \'FailureMessage\': \'string\',
+                            \'FailureDetails\': {
+                                \'FailureStage\': \'string\',
+                                \'FailureType\': \'string\',
+                                \'Details\': {
+                                    \'string\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'StepExecutionId': 'string',
-                            'OverriddenParameters': {
-                                'string': [
-                                    'string',
+                            \'StepExecutionId\': \'string\',
+                            \'OverriddenParameters\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'IsEnd': True|False,
-                            'NextStep': 'string',
-                            'IsCritical': True|False,
-                            'ValidNextSteps': [
-                                'string',
+                            \'IsEnd\': True|False,
+                            \'NextStep\': \'string\',
+                            \'IsCritical\': True|False,
+                            \'ValidNextSteps\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'StepExecutionsTruncated': True|False,
-                    'Parameters': {
-                        'string': [
-                            'string',
+                    \'StepExecutionsTruncated\': True|False,
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'Outputs': {
-                        'string': [
-                            'string',
+                    \'Outputs\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'FailureMessage': 'string',
-                    'Mode': 'Auto'|'Interactive',
-                    'ParentAutomationExecutionId': 'string',
-                    'ExecutedBy': 'string',
-                    'CurrentStepName': 'string',
-                    'CurrentAction': 'string',
-                    'TargetParameterName': 'string',
-                    'Targets': [
+                    \'FailureMessage\': \'string\',
+                    \'Mode\': \'Auto\'|\'Interactive\',
+                    \'ParentAutomationExecutionId\': \'string\',
+                    \'ExecutedBy\': \'string\',
+                    \'CurrentStepName\': \'string\',
+                    \'CurrentAction\': \'string\',
+                    \'TargetParameterName\': \'string\',
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'TargetMaps': [
+                    \'TargetMaps\': [
                         {
-                            'string': [
-                                'string',
+                            \'string\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'ResolvedTargets': {
-                        'ParameterValues': [
-                            'string',
+                    \'ResolvedTargets\': {
+                        \'ParameterValues\': [
+                            \'string\',
                         ],
-                        'Truncated': True|False
+                        \'Truncated\': True|False
                     },
-                    'MaxConcurrency': 'string',
-                    'MaxErrors': 'string',
-                    'Target': 'string'
+                    \'MaxConcurrency\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'Target\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7953,7 +7953,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -8015,9 +8015,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_command_invocation(
-              CommandId='string',
-              InstanceId='string',
-              PluginName='string'
+              CommandId=\'string\',
+              InstanceId=\'string\',
+              PluginName=\'string\'
           )
         :type CommandId: string
         :param CommandId: **[REQUIRED]** 
@@ -8042,25 +8042,25 @@ class Client(BaseClient):
           ::
         
             {
-                'CommandId': 'string',
-                'InstanceId': 'string',
-                'Comment': 'string',
-                'DocumentName': 'string',
-                'DocumentVersion': 'string',
-                'PluginName': 'string',
-                'ResponseCode': 123,
-                'ExecutionStartDateTime': 'string',
-                'ExecutionElapsedTime': 'string',
-                'ExecutionEndDateTime': 'string',
-                'Status': 'Pending'|'InProgress'|'Delayed'|'Success'|'Cancelled'|'TimedOut'|'Failed'|'Cancelling',
-                'StatusDetails': 'string',
-                'StandardOutputContent': 'string',
-                'StandardOutputUrl': 'string',
-                'StandardErrorContent': 'string',
-                'StandardErrorUrl': 'string',
-                'CloudWatchOutputConfig': {
-                    'CloudWatchLogGroupName': 'string',
-                    'CloudWatchOutputEnabled': True|False
+                \'CommandId\': \'string\',
+                \'InstanceId\': \'string\',
+                \'Comment\': \'string\',
+                \'DocumentName\': \'string\',
+                \'DocumentVersion\': \'string\',
+                \'PluginName\': \'string\',
+                \'ResponseCode\': 123,
+                \'ExecutionStartDateTime\': \'string\',
+                \'ExecutionElapsedTime\': \'string\',
+                \'ExecutionEndDateTime\': \'string\',
+                \'Status\': \'Pending\'|\'InProgress\'|\'Delayed\'|\'Success\'|\'Cancelled\'|\'TimedOut\'|\'Failed\'|\'Cancelling\',
+                \'StatusDetails\': \'string\',
+                \'StandardOutputContent\': \'string\',
+                \'StandardOutputUrl\': \'string\',
+                \'StandardErrorContent\': \'string\',
+                \'StandardErrorUrl\': \'string\',
+                \'CloudWatchOutputConfig\': {
+                    \'CloudWatchLogGroupName\': \'string\',
+                    \'CloudWatchOutputEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -8131,15 +8131,15 @@ class Client(BaseClient):
                
               * Success: The command or plugin was executed successfully. This is a terminal state. 
                
-              * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+              * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command\'s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                
               * Execution Timed Out: The command started to execute on the instance, but the execution was not complete before the timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state. 
                
-              * Failed: The command wasn't executed successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state. 
+              * Failed: The command wasn\'t executed successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state. 
                
               * Canceled: The command was terminated before it was completed. This is a terminal state. 
                
-              * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+              * Undeliverable: The command can\'t be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don\'t count against the parent command\'s MaxErrors limit and don\'t contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                
               * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                
@@ -8165,7 +8165,7 @@ class Client(BaseClient):
         
               - **CloudWatchLogGroupName** *(string) --* 
         
-                The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
               - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -8183,7 +8183,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_connection_status(
-              Target='string'
+              Target=\'string\'
           )
         :type Target: string
         :param Target: **[REQUIRED]** 
@@ -8198,8 +8198,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Target': 'string',
-                'Status': 'Connected'|'NotConnected'
+                \'Target\': \'string\',
+                \'Status\': \'Connected\'|\'NotConnected\'
             }
           **Response Structure** 
         
@@ -8211,7 +8211,7 @@ class Client(BaseClient):
         
             - **Status** *(string) --* 
         
-              The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
+              The status of the connection to the instance. For example, \'Connected\' or \'Not Connected\'.
         
         """
         pass
@@ -8227,7 +8227,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_default_patch_baseline(
-              OperatingSystem='WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS'
+              OperatingSystem=\'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\'
           )
         :type OperatingSystem: string
         :param OperatingSystem: 
@@ -8242,8 +8242,8 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS'
+                \'BaselineId\': \'string\',
+                \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\'
             }
           **Response Structure** 
         
@@ -8269,8 +8269,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployable_patch_snapshot_for_instance(
-              InstanceId='string',
-              SnapshotId='string'
+              InstanceId=\'string\',
+              SnapshotId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -8290,10 +8290,10 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceId': 'string',
-                'SnapshotId': 'string',
-                'SnapshotDownloadUrl': 'string',
-                'Product': 'string'
+                \'InstanceId\': \'string\',
+                \'SnapshotId\': \'string\',
+                \'SnapshotDownloadUrl\': \'string\',
+                \'Product\': \'string\'
             }
           **Response Structure** 
         
@@ -8327,9 +8327,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_document(
-              Name='string',
-              DocumentVersion='string',
-              DocumentFormat='YAML'|'JSON'
+              Name=\'string\',
+              DocumentVersion=\'string\',
+              DocumentFormat=\'YAML\'|\'JSON\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -8354,11 +8354,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'DocumentVersion': 'string',
-                'Content': 'string',
-                'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                'DocumentFormat': 'YAML'|'JSON'
+                \'Name\': \'string\',
+                \'DocumentVersion\': \'string\',
+                \'Content\': \'string\',
+                \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                \'DocumentFormat\': \'YAML\'|\'JSON\'
             }
           **Response Structure** 
         
@@ -8398,27 +8398,27 @@ class Client(BaseClient):
           response = client.get_inventory(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'Equal'|'NotEqual'|'BeginWith'|'LessThan'|'GreaterThan'|'Exists'
+                      \'Type\': \'Equal\'|\'NotEqual\'|\'BeginWith\'|\'LessThan\'|\'GreaterThan\'|\'Exists\'
                   },
               ],
               Aggregators=[
                   {
-                      'Expression': 'string',
-                      'Aggregators': {'... recursive ...'},
-                      'Groups': [
+                      \'Expression\': \'string\',
+                      \'Aggregators\': {\'... recursive ...\'},
+                      \'Groups\': [
                           {
-                              'Name': 'string',
-                              'Filters': [
+                              \'Name\': \'string\',
+                              \'Filters\': [
                                   {
-                                      'Key': 'string',
-                                      'Values': [
-                                          'string',
+                                      \'Key\': \'string\',
+                                      \'Values\': [
+                                          \'string\',
                                       ],
-                                      'Type': 'Equal'|'NotEqual'|'BeginWith'|'LessThan'|'GreaterThan'|'Exists'
+                                      \'Type\': \'Equal\'|\'NotEqual\'|\'BeginWith\'|\'LessThan\'|\'GreaterThan\'|\'Exists\'
                                   },
                               ]
                           },
@@ -8427,10 +8427,10 @@ class Client(BaseClient):
               ],
               ResultAttributes=[
                   {
-                      'TypeName': 'string'
+                      \'TypeName\': \'string\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -8454,7 +8454,7 @@ class Client(BaseClient):
         
             - **Type** *(string) --* 
         
-              The type of filter. Valid values include the following: "Equal"|"NotEqual"|"BeginWith"|"LessThan"|"GreaterThan"
+              The type of filter. Valid values include the following: \"Equal\"|\"NotEqual\"|\"BeginWith\"|\"LessThan\"|\"GreaterThan\"
         
         :type Aggregators: list
         :param Aggregators: 
@@ -8475,11 +8475,11 @@ class Client(BaseClient):
         
             - **Groups** *(list) --* 
         
-              A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+              A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don\'t match the specified criteria.
         
               - *(dict) --* 
         
-                A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+                A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don\'t match the specified criteria.
         
                 - **Name** *(string) --* **[REQUIRED]** 
         
@@ -8487,7 +8487,7 @@ class Client(BaseClient):
         
                 - **Filters** *(list) --* **[REQUIRED]** 
         
-                  Filters define the criteria for the group. The ``matchingCount`` field displays the number of resources that match the criteria. The ``notMatchingCount`` field displays the number of resources that don't match the criteria. 
+                  Filters define the criteria for the group. The ``matchingCount`` field displays the number of resources that match the criteria. The ``notMatchingCount`` field displays the number of resources that don\'t match the criteria. 
         
                   - *(dict) --* 
         
@@ -8505,7 +8505,7 @@ class Client(BaseClient):
         
                     - **Type** *(string) --* 
         
-                      The type of filter. Valid values include the following: "Equal"|"NotEqual"|"BeginWith"|"LessThan"|"GreaterThan"
+                      The type of filter. Valid values include the following: \"Equal\"|\"NotEqual\"|\"BeginWith\"|\"LessThan\"|\"GreaterThan\"
         
         :type ResultAttributes: list
         :param ResultAttributes: 
@@ -8538,25 +8538,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Entities': [
+                \'Entities\': [
                     {
-                        'Id': 'string',
-                        'Data': {
-                            'string': {
-                                'TypeName': 'string',
-                                'SchemaVersion': 'string',
-                                'CaptureTime': 'string',
-                                'ContentHash': 'string',
-                                'Content': [
+                        \'Id\': \'string\',
+                        \'Data\': {
+                            \'string\': {
+                                \'TypeName\': \'string\',
+                                \'SchemaVersion\': \'string\',
+                                \'CaptureTime\': \'string\',
+                                \'ContentHash\': \'string\',
+                                \'Content\': [
                                     {
-                                        'string': 'string'
+                                        \'string\': \'string\'
                                     },
                                 ]
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8626,8 +8626,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_inventory_schema(
-              TypeName='string',
-              NextToken='string',
+              TypeName=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
               Aggregator=True|False,
               SubType=True|False
@@ -8665,20 +8665,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Schemas': [
+                \'Schemas\': [
                     {
-                        'TypeName': 'string',
-                        'Version': 'string',
-                        'Attributes': [
+                        \'TypeName\': \'string\',
+                        \'Version\': \'string\',
+                        \'Attributes\': [
                             {
-                                'Name': 'string',
-                                'DataType': 'string'|'number'
+                                \'Name\': \'string\',
+                                \'DataType\': \'string\'|\'number\'
                             },
                         ],
-                        'DisplayName': 'string'
+                        \'DisplayName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8736,7 +8736,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_maintenance_window(
-              WindowId='string'
+              WindowId=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -8751,20 +8751,20 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'Name': 'string',
-                'Description': 'string',
-                'StartDate': 'string',
-                'EndDate': 'string',
-                'Schedule': 'string',
-                'ScheduleTimezone': 'string',
-                'NextExecutionTime': 'string',
-                'Duration': 123,
-                'Cutoff': 123,
-                'AllowUnassociatedTargets': True|False,
-                'Enabled': True|False,
-                'CreatedDate': datetime(2015, 1, 1),
-                'ModifiedDate': datetime(2015, 1, 1)
+                \'WindowId\': \'string\',
+                \'Name\': \'string\',
+                \'Description\': \'string\',
+                \'StartDate\': \'string\',
+                \'EndDate\': \'string\',
+                \'Schedule\': \'string\',
+                \'ScheduleTimezone\': \'string\',
+                \'NextExecutionTime\': \'string\',
+                \'Duration\': 123,
+                \'Cutoff\': 123,
+                \'AllowUnassociatedTargets\': True|False,
+                \'Enabled\': True|False,
+                \'CreatedDate\': datetime(2015, 1, 1),
+                \'ModifiedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -8796,7 +8796,7 @@ class Client(BaseClient):
         
             - **ScheduleTimezone** *(string) --* 
         
-              The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
+              The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
         
             - **NextExecutionTime** *(string) --* 
         
@@ -8838,7 +8838,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_maintenance_window_execution(
-              WindowExecutionId='string'
+              WindowExecutionId=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -8853,14 +8853,14 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionId': 'string',
-                'TaskIds': [
-                    'string',
+                \'WindowExecutionId\': \'string\',
+                \'TaskIds\': [
+                    \'string\',
                 ],
-                'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                'StatusDetails': 'string',
-                'StartTime': datetime(2015, 1, 1),
-                'EndTime': datetime(2015, 1, 1)
+                \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                \'StatusDetails\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1),
+                \'EndTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -8904,8 +8904,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_maintenance_window_execution_task(
-              WindowExecutionId='string',
-              TaskId='string'
+              WindowExecutionId=\'string\',
+              TaskId=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -8925,27 +8925,27 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionId': 'string',
-                'TaskExecutionId': 'string',
-                'TaskArn': 'string',
-                'ServiceRole': 'string',
-                'Type': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
-                'TaskParameters': [
+                \'WindowExecutionId\': \'string\',
+                \'TaskExecutionId\': \'string\',
+                \'TaskArn\': \'string\',
+                \'ServiceRole\': \'string\',
+                \'Type\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
+                \'TaskParameters\': [
                     {
-                        'string': {
-                            'Values': [
-                                'string',
+                        \'string\': {
+                            \'Values\': [
+                                \'string\',
                             ]
                         }
                     },
                 ],
-                'Priority': 123,
-                'MaxConcurrency': 'string',
-                'MaxErrors': 'string',
-                'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                'StatusDetails': 'string',
-                'StartTime': datetime(2015, 1, 1),
-                'EndTime': datetime(2015, 1, 1)
+                \'Priority\': 123,
+                \'MaxConcurrency\': \'string\',
+                \'MaxErrors\': \'string\',
+                \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                \'StatusDetails\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1),
+                \'EndTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -9039,9 +9039,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_maintenance_window_execution_task_invocation(
-              WindowExecutionId='string',
-              TaskId='string',
-              InvocationId='string'
+              WindowExecutionId=\'string\',
+              TaskId=\'string\',
+              InvocationId=\'string\'
           )
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]** 
@@ -9066,18 +9066,18 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowExecutionId': 'string',
-                'TaskExecutionId': 'string',
-                'InvocationId': 'string',
-                'ExecutionId': 'string',
-                'TaskType': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
-                'Parameters': 'string',
-                'Status': 'PENDING'|'IN_PROGRESS'|'SUCCESS'|'FAILED'|'TIMED_OUT'|'CANCELLING'|'CANCELLED'|'SKIPPED_OVERLAPPING',
-                'StatusDetails': 'string',
-                'StartTime': datetime(2015, 1, 1),
-                'EndTime': datetime(2015, 1, 1),
-                'OwnerInformation': 'string',
-                'WindowTargetId': 'string'
+                \'WindowExecutionId\': \'string\',
+                \'TaskExecutionId\': \'string\',
+                \'InvocationId\': \'string\',
+                \'ExecutionId\': \'string\',
+                \'TaskType\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
+                \'Parameters\': \'string\',
+                \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCESS\'|\'FAILED\'|\'TIMED_OUT\'|\'CANCELLING\'|\'CANCELLED\'|\'SKIPPED_OVERLAPPING\',
+                \'StatusDetails\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1),
+                \'EndTime\': datetime(2015, 1, 1),
+                \'OwnerInformation\': \'string\',
+                \'WindowTargetId\': \'string\'
             }
           **Response Structure** 
         
@@ -9143,8 +9143,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_maintenance_window_task(
-              WindowId='string',
-              WindowTaskId='string'
+              WindowId=\'string\',
+              WindowTaskId=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -9164,76 +9164,76 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'WindowTaskId': 'string',
-                'Targets': [
+                \'WindowId\': \'string\',
+                \'WindowTaskId\': \'string\',
+                \'Targets\': [
                     {
-                        'Key': 'string',
-                        'Values': [
-                            'string',
+                        \'Key\': \'string\',
+                        \'Values\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'TaskArn': 'string',
-                'ServiceRoleArn': 'string',
-                'TaskType': 'RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
-                'TaskParameters': {
-                    'string': {
-                        'Values': [
-                            'string',
+                \'TaskArn\': \'string\',
+                \'ServiceRoleArn\': \'string\',
+                \'TaskType\': \'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
+                \'TaskParameters\': {
+                    \'string\': {
+                        \'Values\': [
+                            \'string\',
                         ]
                     }
                 },
-                'TaskInvocationParameters': {
-                    'RunCommand': {
-                        'Comment': 'string',
-                        'DocumentHash': 'string',
-                        'DocumentHashType': 'Sha256'|'Sha1',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                \'TaskInvocationParameters\': {
+                    \'RunCommand\': {
+                        \'Comment\': \'string\',
+                        \'DocumentHash\': \'string\',
+                        \'DocumentHashType\': \'Sha256\'|\'Sha1\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'OutputS3BucketName': 'string',
-                        'OutputS3KeyPrefix': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'OutputS3BucketName\': \'string\',
+                        \'OutputS3KeyPrefix\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'ServiceRoleArn': 'string',
-                        'TimeoutSeconds': 123
+                        \'ServiceRoleArn\': \'string\',
+                        \'TimeoutSeconds\': 123
                     },
-                    'Automation': {
-                        'DocumentVersion': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                    \'Automation\': {
+                        \'DocumentVersion\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'StepFunctions': {
-                        'Input': 'string',
-                        'Name': 'string'
+                    \'StepFunctions\': {
+                        \'Input\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'Lambda': {
-                        'ClientContext': 'string',
-                        'Qualifier': 'string',
-                        'Payload': b'bytes'
+                    \'Lambda\': {
+                        \'ClientContext\': \'string\',
+                        \'Qualifier\': \'string\',
+                        \'Payload\': b\'bytes\'
                     }
                 },
-                'Priority': 123,
-                'MaxConcurrency': 'string',
-                'MaxErrors': 'string',
-                'LoggingInfo': {
-                    'S3BucketName': 'string',
-                    'S3KeyPrefix': 'string',
-                    'S3Region': 'string'
+                \'Priority\': 123,
+                \'MaxConcurrency\': \'string\',
+                \'MaxErrors\': \'string\',
+                \'LoggingInfo\': {
+                    \'S3BucketName\': \'string\',
+                    \'S3KeyPrefix\': \'string\',
+                    \'S3Region\': \'string\'
                 },
-                'Name': 'string',
-                'Description': 'string'
+                \'Name\': \'string\',
+                \'Description\': \'string\'
             }
           **Response Structure** 
         
@@ -9253,7 +9253,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                 - **Key** *(string) --* 
         
@@ -9466,10 +9466,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -9489,7 +9489,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_parameter(
-              Name='string',
+              Name=\'string\',
               WithDecryption=True|False
           )
         :type Name: string
@@ -9510,15 +9510,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameter': {
-                    'Name': 'string',
-                    'Type': 'String'|'StringList'|'SecureString',
-                    'Value': 'string',
-                    'Version': 123,
-                    'Selector': 'string',
-                    'SourceResult': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'ARN': 'string'
+                \'Parameter\': {
+                    \'Name\': \'string\',
+                    \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                    \'Value\': \'string\',
+                    \'Version\': 123,
+                    \'Selector\': \'string\',
+                    \'SourceResult\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'ARN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9577,10 +9577,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_parameter_history(
-              Name='string',
+              Name=\'string\',
               WithDecryption=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9610,23 +9610,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'KeyId': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedUser': 'string',
-                        'Description': 'string',
-                        'Value': 'string',
-                        'AllowedPattern': 'string',
-                        'Version': 123,
-                        'Labels': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'KeyId\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedUser\': \'string\',
+                        \'Description\': \'string\',
+                        \'Value\': \'string\',
+                        \'AllowedPattern\': \'string\',
+                        \'Version\': 123,
+                        \'Labels\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9701,7 +9701,7 @@ class Client(BaseClient):
         
           response = client.get_parameters(
               Names=[
-                  'string',
+                  \'string\',
               ],
               WithDecryption=True|False
           )
@@ -9725,20 +9725,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'Value': 'string',
-                        'Version': 123,
-                        'Selector': 'string',
-                        'SourceResult': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'ARN': 'string'
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'Value\': \'string\',
+                        \'Version\': 123,
+                        \'Selector\': \'string\',
+                        \'SourceResult\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'ARN\': \'string\'
                     },
                 ],
-                'InvalidParameters': [
-                    'string',
+                \'InvalidParameters\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -9805,7 +9805,7 @@ class Client(BaseClient):
         
         .. note::
         
-          This API action doesn't support filtering by tags. 
+          This API action doesn\'t support filtering by tags. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParametersByPath>`_
         
@@ -9813,20 +9813,20 @@ class Client(BaseClient):
         ::
         
           response = client.get_parameters_by_path(
-              Path='string',
+              Path=\'string\',
               Recursive=True|False,
               ParameterFilters=[
                   {
-                      'Key': 'string',
-                      'Option': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Option\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               WithDecryption=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Path: string
         :param Path: **[REQUIRED]** 
@@ -9849,7 +9849,7 @@ class Client(BaseClient):
         
           .. note::
         
-            You can't filter using the parameter name.
+            You can\'t filter using the parameter name.
         
           - *(dict) --* 
         
@@ -9857,7 +9857,7 @@ class Client(BaseClient):
         
             .. note::
         
-              The ``Name`` field can't be used with the  GetParametersByPath API action.
+              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
@@ -9896,19 +9896,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'Value': 'string',
-                        'Version': 123,
-                        'Selector': 'string',
-                        'SourceResult': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'ARN': 'string'
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'Value\': \'string\',
+                        \'Version\': 123,
+                        \'Selector\': \'string\',
+                        \'SourceResult\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'ARN\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9974,7 +9974,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_patch_baseline(
-              BaselineId='string'
+              BaselineId=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -9989,60 +9989,60 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'Name': 'string',
-                'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS',
-                'GlobalFilters': {
-                    'PatchFilters': [
+                \'BaselineId\': \'string\',
+                \'Name\': \'string\',
+                \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\',
+                \'GlobalFilters\': {
+                    \'PatchFilters\': [
                         {
-                            'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                            'Values': [
-                                'string',
+                            \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ]
                 },
-                'ApprovalRules': {
-                    'PatchRules': [
+                \'ApprovalRules\': {
+                    \'PatchRules\': [
                         {
-                            'PatchFilterGroup': {
-                                'PatchFilters': [
+                            \'PatchFilterGroup\': {
+                                \'PatchFilters\': [
                                     {
-                                        'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                                        'Values': [
-                                            'string',
+                                        \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
-                            'ComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                            'ApproveAfterDays': 123,
-                            'EnableNonSecurity': True|False
+                            \'ComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                            \'ApproveAfterDays\': 123,
+                            \'EnableNonSecurity\': True|False
                         },
                     ]
                 },
-                'ApprovedPatches': [
-                    'string',
+                \'ApprovedPatches\': [
+                    \'string\',
                 ],
-                'ApprovedPatchesComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                'ApprovedPatchesEnableNonSecurity': True|False,
-                'RejectedPatches': [
-                    'string',
+                \'ApprovedPatchesComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                \'ApprovedPatchesEnableNonSecurity\': True|False,
+                \'RejectedPatches\': [
+                    \'string\',
                 ],
-                'RejectedPatchesAction': 'ALLOW_AS_DEPENDENCY'|'BLOCK',
-                'PatchGroups': [
-                    'string',
+                \'RejectedPatchesAction\': \'ALLOW_AS_DEPENDENCY\'|\'BLOCK\',
+                \'PatchGroups\': [
+                    \'string\',
                 ],
-                'CreatedDate': datetime(2015, 1, 1),
-                'ModifiedDate': datetime(2015, 1, 1),
-                'Description': 'string',
-                'Sources': [
+                \'CreatedDate\': datetime(2015, 1, 1),
+                \'ModifiedDate\': datetime(2015, 1, 1),
+                \'Description\': \'string\',
+                \'Sources\': [
                     {
-                        'Name': 'string',
-                        'Products': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Products\': [
+                            \'string\',
                         ],
-                        'Configuration': 'string'
+                        \'Configuration\': \'string\'
                     },
                 ]
             }
@@ -10888,7 +10888,7 @@ class Client(BaseClient):
         
                   - **EnableNonSecurity** *(boolean) --* 
         
-                    For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
+                    For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is \'false\'. Applies to Linux instances only.
         
             - **ApprovedPatches** *(list) --* 
         
@@ -10902,7 +10902,7 @@ class Client(BaseClient):
         
             - **ApprovedPatchesEnableNonSecurity** *(boolean) --* 
         
-              Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+              Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is \'false\'. Applies to Linux instances only.
         
             - **RejectedPatches** *(list) --* 
         
@@ -10946,7 +10946,7 @@ class Client(BaseClient):
         
                 - **Products** *(list) --* 
         
-                  The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see  PatchFilter .
+                  The specific operating system versions a patch repository applies to, such as \"Ubuntu16.04\", \"AmazonLinux2016.09\", \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported product values, see  PatchFilter .
         
                   - *(string) --* 
               
@@ -10974,8 +10974,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_patch_baseline_for_patch_group(
-              PatchGroup='string',
-              OperatingSystem='WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS'
+              PatchGroup=\'string\',
+              OperatingSystem=\'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\'
           )
         :type PatchGroup: string
         :param PatchGroup: **[REQUIRED]** 
@@ -10995,9 +10995,9 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'PatchGroup': 'string',
-                'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS'
+                \'BaselineId\': \'string\',
+                \'PatchGroup\': \'string\',
+                \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\'
             }
           **Response Structure** 
         
@@ -11037,19 +11037,19 @@ class Client(BaseClient):
         
         * A version of a parameter can have a maximum of 10 labels. 
          
-        * You can't attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can't attach Production to version 2. 
+        * You can\'t attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can\'t attach Production to version 2. 
          
         * You can move a label from one version of a parameter to another. 
          
-        * You can't create a label when you create a new parameter. You must attach a label to a specific version of a parameter. 
+        * You can\'t create a label when you create a new parameter. You must attach a label to a specific version of a parameter. 
          
-        * You can't delete a parameter label. If you no longer want to use a parameter label, then you must move it to a different version of a parameter. 
+        * You can\'t delete a parameter label. If you no longer want to use a parameter label, then you must move it to a different version of a parameter. 
          
         * A label can have a maximum of 100 characters. 
          
         * Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_). 
          
-        * Labels can't begin with a number, "aws," or "ssm" (not case sensitive). If a label fails to meet these requirements, then the label is not associated with a parameter and the system displays it in the list of InvalidLabels. 
+        * Labels can\'t begin with a number, \"aws,\" or \"ssm\" (not case sensitive). If a label fails to meet these requirements, then the label is not associated with a parameter and the system displays it in the list of InvalidLabels. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/LabelParameterVersion>`_
         
@@ -11057,10 +11057,10 @@ class Client(BaseClient):
         ::
         
           response = client.label_parameter_version(
-              Name='string',
+              Name=\'string\',
               ParameterVersion=123,
               Labels=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Name: string
@@ -11088,8 +11088,8 @@ class Client(BaseClient):
           ::
         
             {
-                'InvalidLabels': [
-                    'string',
+                \'InvalidLabels\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -11114,9 +11114,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_association_versions(
-              AssociationId='string',
+              AssociationId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -11141,41 +11141,41 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationVersions': [
+                \'AssociationVersions\': [
                     {
-                        'AssociationId': 'string',
-                        'AssociationVersion': 'string',
-                        'CreatedDate': datetime(2015, 1, 1),
-                        'Name': 'string',
-                        'DocumentVersion': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'AssociationId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'CreatedDate\': datetime(2015, 1, 1),
+                        \'Name\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'Targets': [
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'ScheduleExpression': 'string',
-                        'OutputLocation': {
-                            'S3Location': {
-                                'OutputS3Region': 'string',
-                                'OutputS3BucketName': 'string',
-                                'OutputS3KeyPrefix': 'string'
+                        \'ScheduleExpression\': \'string\',
+                        \'OutputLocation\': {
+                            \'S3Location\': {
+                                \'OutputS3Region\': \'string\',
+                                \'OutputS3BucketName\': \'string\',
+                                \'OutputS3KeyPrefix\': \'string\'
                             }
                         },
-                        'AssociationName': 'string',
-                        'MaxErrors': 'string',
-                        'MaxConcurrency': 'string',
-                        'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                        \'AssociationName\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'MaxConcurrency\': \'string\',
+                        \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -11225,7 +11225,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -11269,7 +11269,7 @@ class Client(BaseClient):
         
                   The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                  Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                  Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
                 - **MaxConcurrency** *(string) --* 
         
@@ -11299,12 +11299,12 @@ class Client(BaseClient):
           response = client.list_associations(
               AssociationFilterList=[
                   {
-                      'key': 'InstanceId'|'Name'|'AssociationId'|'AssociationStatusName'|'LastExecutedBefore'|'LastExecutedAfter'|'AssociationName',
-                      'value': 'string'
+                      \'key\': \'InstanceId\'|\'Name\'|\'AssociationId\'|\'AssociationStatusName\'|\'LastExecutedBefore\'|\'LastExecutedAfter\'|\'AssociationName\',
+                      \'value\': \'string\'
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AssociationFilterList: list
         :param AssociationFilterList: 
@@ -11341,34 +11341,34 @@ class Client(BaseClient):
           ::
         
             {
-                'Associations': [
+                \'Associations\': [
                     {
-                        'Name': 'string',
-                        'InstanceId': 'string',
-                        'AssociationId': 'string',
-                        'AssociationVersion': 'string',
-                        'DocumentVersion': 'string',
-                        'Targets': [
+                        \'Name\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'AssociationId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'LastExecutionDate': datetime(2015, 1, 1),
-                        'Overview': {
-                            'Status': 'string',
-                            'DetailedStatus': 'string',
-                            'AssociationStatusAggregatedCount': {
-                                'string': 123
+                        \'LastExecutionDate\': datetime(2015, 1, 1),
+                        \'Overview\': {
+                            \'Status\': \'string\',
+                            \'DetailedStatus\': \'string\',
+                            \'AssociationStatusAggregatedCount\': {
+                                \'string\': 123
                             }
                         },
-                        'ScheduleExpression': 'string',
-                        'AssociationName': 'string'
+                        \'ScheduleExpression\': \'string\',
+                        \'AssociationName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -11408,7 +11408,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -11468,14 +11468,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_command_invocations(
-              CommandId='string',
-              InstanceId='string',
+              CommandId=\'string\',
+              InstanceId=\'string\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               Filters=[
                   {
-                      'key': 'InvokedAfter'|'InvokedBefore'|'Status'|'ExecutionStage'|'DocumentName',
-                      'value': 'string'
+                      \'key\': \'InvokedAfter\'|\'InvokedBefore\'|\'Status\'|\'ExecutionStage\'|\'DocumentName\',
+                      \'value\': \'string\'
                   },
               ],
               Details=True|False
@@ -11558,51 +11558,51 @@ class Client(BaseClient):
           ::
         
             {
-                'CommandInvocations': [
+                \'CommandInvocations\': [
                     {
-                        'CommandId': 'string',
-                        'InstanceId': 'string',
-                        'InstanceName': 'string',
-                        'Comment': 'string',
-                        'DocumentName': 'string',
-                        'DocumentVersion': 'string',
-                        'RequestedDateTime': datetime(2015, 1, 1),
-                        'Status': 'Pending'|'InProgress'|'Delayed'|'Success'|'Cancelled'|'TimedOut'|'Failed'|'Cancelling',
-                        'StatusDetails': 'string',
-                        'TraceOutput': 'string',
-                        'StandardOutputUrl': 'string',
-                        'StandardErrorUrl': 'string',
-                        'CommandPlugins': [
+                        \'CommandId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'InstanceName\': \'string\',
+                        \'Comment\': \'string\',
+                        \'DocumentName\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'RequestedDateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'Pending\'|\'InProgress\'|\'Delayed\'|\'Success\'|\'Cancelled\'|\'TimedOut\'|\'Failed\'|\'Cancelling\',
+                        \'StatusDetails\': \'string\',
+                        \'TraceOutput\': \'string\',
+                        \'StandardOutputUrl\': \'string\',
+                        \'StandardErrorUrl\': \'string\',
+                        \'CommandPlugins\': [
                             {
-                                'Name': 'string',
-                                'Status': 'Pending'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
-                                'StatusDetails': 'string',
-                                'ResponseCode': 123,
-                                'ResponseStartDateTime': datetime(2015, 1, 1),
-                                'ResponseFinishDateTime': datetime(2015, 1, 1),
-                                'Output': 'string',
-                                'StandardOutputUrl': 'string',
-                                'StandardErrorUrl': 'string',
-                                'OutputS3Region': 'string',
-                                'OutputS3BucketName': 'string',
-                                'OutputS3KeyPrefix': 'string'
+                                \'Name\': \'string\',
+                                \'Status\': \'Pending\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
+                                \'StatusDetails\': \'string\',
+                                \'ResponseCode\': 123,
+                                \'ResponseStartDateTime\': datetime(2015, 1, 1),
+                                \'ResponseFinishDateTime\': datetime(2015, 1, 1),
+                                \'Output\': \'string\',
+                                \'StandardOutputUrl\': \'string\',
+                                \'StandardErrorUrl\': \'string\',
+                                \'OutputS3Region\': \'string\',
+                                \'OutputS3BucketName\': \'string\',
+                                \'OutputS3KeyPrefix\': \'string\'
                             },
                         ],
-                        'ServiceRole': 'string',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                        \'ServiceRole\': \'string\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'CloudWatchOutputConfig': {
-                            'CloudWatchLogGroupName': 'string',
-                            'CloudWatchOutputEnabled': True|False
+                        \'CloudWatchOutputConfig\': {
+                            \'CloudWatchLogGroupName\': \'string\',
+                            \'CloudWatchOutputEnabled\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -11658,7 +11658,7 @@ class Client(BaseClient):
                    
                   * Success: The execution of the command or plugin was successfully completed. This is a terminal state. 
                    
-                  * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                  * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command\'s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                    
                   * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state. 
                    
@@ -11666,7 +11666,7 @@ class Client(BaseClient):
                    
                   * Canceled: The command was terminated before it was completed. This is a terminal state. 
                    
-                  * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                  * Undeliverable: The command can\'t be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don\'t count against the parent command\'s MaxErrors limit and don\'t contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                    
                   * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                    
@@ -11676,11 +11676,11 @@ class Client(BaseClient):
         
                 - **StandardOutputUrl** *(string) --* 
         
-                  The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+                  The URL to the plugin\'s StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
         
                 - **StandardErrorUrl** *(string) --* 
         
-                  The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+                  The URL to the plugin\'s StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
         
                 - **CommandPlugins** *(list) --* 
                   
@@ -11706,7 +11706,7 @@ class Client(BaseClient):
                        
                       * Success: The execution of the command or plugin was successfully completed. This is a terminal state. 
                        
-                      * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                      * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command\'s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                        
                       * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state. 
                        
@@ -11714,7 +11714,7 @@ class Client(BaseClient):
                        
                       * Canceled: The command was terminated before it was completed. This is a terminal state. 
                        
-                      * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                      * Undeliverable: The command can\'t be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don\'t count against the parent command\'s MaxErrors limit, and they don\'t contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                        
                       * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                        
@@ -11802,7 +11802,7 @@ class Client(BaseClient):
         
                   - **CloudWatchLogGroupName** *(string) --* 
         
-                    The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                    The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
                   - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -11824,14 +11824,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_commands(
-              CommandId='string',
-              InstanceId='string',
+              CommandId=\'string\',
+              InstanceId=\'string\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               Filters=[
                   {
-                      'key': 'InvokedAfter'|'InvokedBefore'|'Status'|'ExecutionStage'|'DocumentName',
-                      'value': 'string'
+                      \'key\': \'InvokedAfter\'|\'InvokedBefore\'|\'Status\'|\'ExecutionStage\'|\'DocumentName\',
+                      \'value\': \'string\'
                   },
               ]
           )
@@ -11908,56 +11908,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Commands': [
+                \'Commands\': [
                     {
-                        'CommandId': 'string',
-                        'DocumentName': 'string',
-                        'DocumentVersion': 'string',
-                        'Comment': 'string',
-                        'ExpiresAfter': datetime(2015, 1, 1),
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'CommandId\': \'string\',
+                        \'DocumentName\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'Comment\': \'string\',
+                        \'ExpiresAfter\': datetime(2015, 1, 1),
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'InstanceIds': [
-                            'string',
+                        \'InstanceIds\': [
+                            \'string\',
                         ],
-                        'Targets': [
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'RequestedDateTime': datetime(2015, 1, 1),
-                        'Status': 'Pending'|'InProgress'|'Success'|'Cancelled'|'Failed'|'TimedOut'|'Cancelling',
-                        'StatusDetails': 'string',
-                        'OutputS3Region': 'string',
-                        'OutputS3BucketName': 'string',
-                        'OutputS3KeyPrefix': 'string',
-                        'MaxConcurrency': 'string',
-                        'MaxErrors': 'string',
-                        'TargetCount': 123,
-                        'CompletedCount': 123,
-                        'ErrorCount': 123,
-                        'DeliveryTimedOutCount': 123,
-                        'ServiceRole': 'string',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                        \'RequestedDateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'Pending\'|\'InProgress\'|\'Success\'|\'Cancelled\'|\'Failed\'|\'TimedOut\'|\'Cancelling\',
+                        \'StatusDetails\': \'string\',
+                        \'OutputS3Region\': \'string\',
+                        \'OutputS3BucketName\': \'string\',
+                        \'OutputS3KeyPrefix\': \'string\',
+                        \'MaxConcurrency\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'TargetCount\': 123,
+                        \'CompletedCount\': 123,
+                        \'ErrorCount\': 123,
+                        \'DeliveryTimedOutCount\': 123,
+                        \'ServiceRole\': \'string\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'CloudWatchOutputConfig': {
-                            'CloudWatchLogGroupName': 'string',
-                            'CloudWatchOutputEnabled': True|False
+                        \'CloudWatchOutputConfig\': {
+                            \'CloudWatchLogGroupName\': \'string\',
+                            \'CloudWatchOutputEnabled\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12009,11 +12009,11 @@ class Client(BaseClient):
               
                 - **Targets** *(list) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don\'t provide one or more instance IDs in the call.
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -12119,7 +12119,7 @@ class Client(BaseClient):
         
                   - **CloudWatchLogGroupName** *(string) --* 
         
-                    The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                    The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
                   - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -12143,20 +12143,20 @@ class Client(BaseClient):
           response = client.list_compliance_items(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'EQUAL'|'NOT_EQUAL'|'BEGIN_WITH'|'LESS_THAN'|'GREATER_THAN'
+                      \'Type\': \'EQUAL\'|\'NOT_EQUAL\'|\'BEGIN_WITH\'|\'LESS_THAN\'|\'GREATER_THAN\'
                   },
               ],
               ResourceIds=[
-                  'string',
+                  \'string\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -12214,26 +12214,26 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceItems': [
+                \'ComplianceItems\': [
                     {
-                        'ComplianceType': 'string',
-                        'ResourceType': 'string',
-                        'ResourceId': 'string',
-                        'Id': 'string',
-                        'Title': 'string',
-                        'Status': 'COMPLIANT'|'NON_COMPLIANT',
-                        'Severity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                        'ExecutionSummary': {
-                            'ExecutionTime': datetime(2015, 1, 1),
-                            'ExecutionId': 'string',
-                            'ExecutionType': 'string'
+                        \'ComplianceType\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'Id\': \'string\',
+                        \'Title\': \'string\',
+                        \'Status\': \'COMPLIANT\'|\'NON_COMPLIANT\',
+                        \'Severity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                        \'ExecutionSummary\': {
+                            \'ExecutionTime\': datetime(2015, 1, 1),
+                            \'ExecutionId\': \'string\',
+                            \'ExecutionType\': \'string\'
                         },
-                        'Details': {
-                            'string': 'string'
+                        \'Details\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12281,7 +12281,7 @@ class Client(BaseClient):
         
                   - **ExecutionTime** *(datetime) --* 
         
-                    The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+                    The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
         
                   - **ExecutionId** *(string) --* 
         
@@ -12293,7 +12293,7 @@ class Client(BaseClient):
         
                 - **Details** *(dict) --* 
         
-                  A "Key": "Value" tag combination for the compliance item.
+                  A \"Key\": \"Value\" tag combination for the compliance item.
         
                   - *(string) --* 
                     
@@ -12317,14 +12317,14 @@ class Client(BaseClient):
           response = client.list_compliance_summaries(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'EQUAL'|'NOT_EQUAL'|'BEGIN_WITH'|'LESS_THAN'|'GREATER_THAN'
+                      \'Type\': \'EQUAL\'|\'NOT_EQUAL\'|\'BEGIN_WITH\'|\'LESS_THAN\'|\'GREATER_THAN\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -12368,34 +12368,34 @@ class Client(BaseClient):
           ::
         
             {
-                'ComplianceSummaryItems': [
+                \'ComplianceSummaryItems\': [
                     {
-                        'ComplianceType': 'string',
-                        'CompliantSummary': {
-                            'CompliantCount': 123,
-                            'SeveritySummary': {
-                                'CriticalCount': 123,
-                                'HighCount': 123,
-                                'MediumCount': 123,
-                                'LowCount': 123,
-                                'InformationalCount': 123,
-                                'UnspecifiedCount': 123
+                        \'ComplianceType\': \'string\',
+                        \'CompliantSummary\': {
+                            \'CompliantCount\': 123,
+                            \'SeveritySummary\': {
+                                \'CriticalCount\': 123,
+                                \'HighCount\': 123,
+                                \'MediumCount\': 123,
+                                \'LowCount\': 123,
+                                \'InformationalCount\': 123,
+                                \'UnspecifiedCount\': 123
                             }
                         },
-                        'NonCompliantSummary': {
-                            'NonCompliantCount': 123,
-                            'SeveritySummary': {
-                                'CriticalCount': 123,
-                                'HighCount': 123,
-                                'MediumCount': 123,
-                                'LowCount': 123,
-                                'InformationalCount': 123,
-                                'UnspecifiedCount': 123
+                        \'NonCompliantSummary\': {
+                            \'NonCompliantCount\': 123,
+                            \'SeveritySummary\': {
+                                \'CriticalCount\': 123,
+                                \'HighCount\': 123,
+                                \'MediumCount\': 123,
+                                \'LowCount\': 123,
+                                \'InformationalCount\': 123,
+                                \'UnspecifiedCount\': 123
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12501,9 +12501,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_document_versions(
-              Name='string',
+              Name=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -12528,16 +12528,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DocumentVersions': [
+                \'DocumentVersions\': [
                     {
-                        'Name': 'string',
-                        'DocumentVersion': 'string',
-                        'CreatedDate': datetime(2015, 1, 1),
-                        'IsDefaultVersion': True|False,
-                        'DocumentFormat': 'YAML'|'JSON'
+                        \'Name\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'CreatedDate\': datetime(2015, 1, 1),
+                        \'IsDefaultVersion\': True|False,
+                        \'DocumentFormat\': \'YAML\'|\'JSON\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12589,20 +12589,20 @@ class Client(BaseClient):
           response = client.list_documents(
               DocumentFilterList=[
                   {
-                      'key': 'Name'|'Owner'|'PlatformTypes'|'DocumentType',
-                      'value': 'string'
+                      \'key\': \'Name\'|\'Owner\'|\'PlatformTypes\'|\'DocumentType\',
+                      \'value\': \'string\'
                   },
               ],
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DocumentFilterList: list
         :param DocumentFilterList: 
@@ -12676,27 +12676,27 @@ class Client(BaseClient):
           ::
         
             {
-                'DocumentIdentifiers': [
+                \'DocumentIdentifiers\': [
                     {
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'PlatformTypes': [
-                            'Windows'|'Linux',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'PlatformTypes\': [
+                            \'Windows\'|\'Linux\',
                         ],
-                        'DocumentVersion': 'string',
-                        'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                        'SchemaVersion': 'string',
-                        'DocumentFormat': 'YAML'|'JSON',
-                        'TargetType': 'string',
-                        'Tags': [
+                        \'DocumentVersion\': \'string\',
+                        \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                        \'SchemaVersion\': \'string\',
+                        \'DocumentFormat\': \'YAML\'|\'JSON\',
+                        \'TargetType\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12776,18 +12776,18 @@ class Client(BaseClient):
         ::
         
           response = client.list_inventory_entries(
-              InstanceId='string',
-              TypeName='string',
+              InstanceId=\'string\',
+              TypeName=\'string\',
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'Equal'|'NotEqual'|'BeginWith'|'LessThan'|'GreaterThan'|'Exists'
+                      \'Type\': \'Equal\'|\'NotEqual\'|\'BeginWith\'|\'LessThan\'|\'GreaterThan\'|\'Exists\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -12821,7 +12821,7 @@ class Client(BaseClient):
         
             - **Type** *(string) --* 
         
-              The type of filter. Valid values include the following: "Equal"|"NotEqual"|"BeginWith"|"LessThan"|"GreaterThan"
+              The type of filter. Valid values include the following: \"Equal\"|\"NotEqual\"|\"BeginWith\"|\"LessThan\"|\"GreaterThan\"
         
         :type NextToken: string
         :param NextToken: 
@@ -12841,16 +12841,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TypeName': 'string',
-                'InstanceId': 'string',
-                'SchemaVersion': 'string',
-                'CaptureTime': 'string',
-                'Entries': [
+                \'TypeName\': \'string\',
+                \'InstanceId\': \'string\',
+                \'SchemaVersion\': \'string\',
+                \'CaptureTime\': \'string\',
+                \'Entries\': [
                     {
-                        'string': 'string'
+                        \'string\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12900,14 +12900,14 @@ class Client(BaseClient):
           response = client.list_resource_compliance_summaries(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Type': 'EQUAL'|'NOT_EQUAL'|'BEGIN_WITH'|'LESS_THAN'|'GREATER_THAN'
+                      \'Type\': \'EQUAL\'|\'NOT_EQUAL\'|\'BEGIN_WITH\'|\'LESS_THAN\'|\'GREATER_THAN\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -12951,43 +12951,43 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceComplianceSummaryItems': [
+                \'ResourceComplianceSummaryItems\': [
                     {
-                        'ComplianceType': 'string',
-                        'ResourceType': 'string',
-                        'ResourceId': 'string',
-                        'Status': 'COMPLIANT'|'NON_COMPLIANT',
-                        'OverallSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                        'ExecutionSummary': {
-                            'ExecutionTime': datetime(2015, 1, 1),
-                            'ExecutionId': 'string',
-                            'ExecutionType': 'string'
+                        \'ComplianceType\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'Status\': \'COMPLIANT\'|\'NON_COMPLIANT\',
+                        \'OverallSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                        \'ExecutionSummary\': {
+                            \'ExecutionTime\': datetime(2015, 1, 1),
+                            \'ExecutionId\': \'string\',
+                            \'ExecutionType\': \'string\'
                         },
-                        'CompliantSummary': {
-                            'CompliantCount': 123,
-                            'SeveritySummary': {
-                                'CriticalCount': 123,
-                                'HighCount': 123,
-                                'MediumCount': 123,
-                                'LowCount': 123,
-                                'InformationalCount': 123,
-                                'UnspecifiedCount': 123
+                        \'CompliantSummary\': {
+                            \'CompliantCount\': 123,
+                            \'SeveritySummary\': {
+                                \'CriticalCount\': 123,
+                                \'HighCount\': 123,
+                                \'MediumCount\': 123,
+                                \'LowCount\': 123,
+                                \'InformationalCount\': 123,
+                                \'UnspecifiedCount\': 123
                             }
                         },
-                        'NonCompliantSummary': {
-                            'NonCompliantCount': 123,
-                            'SeveritySummary': {
-                                'CriticalCount': 123,
-                                'HighCount': 123,
-                                'MediumCount': 123,
-                                'LowCount': 123,
-                                'InformationalCount': 123,
-                                'UnspecifiedCount': 123
+                        \'NonCompliantSummary\': {
+                            \'NonCompliantCount\': 123,
+                            \'SeveritySummary\': {
+                                \'CriticalCount\': 123,
+                                \'HighCount\': 123,
+                                \'MediumCount\': 123,
+                                \'LowCount\': 123,
+                                \'InformationalCount\': 123,
+                                \'UnspecifiedCount\': 123
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -13027,7 +13027,7 @@ class Client(BaseClient):
         
                   - **ExecutionTime** *(datetime) --* 
         
-                    The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+                    The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
         
                   - **ExecutionId** *(string) --* 
         
@@ -13075,7 +13075,7 @@ class Client(BaseClient):
         
                 - **NonCompliantSummary** *(dict) --* 
         
-                  A list of items that aren't compliant for the resource.
+                  A list of items that aren\'t compliant for the resource.
         
                   - **NonCompliantCount** *(integer) --* 
         
@@ -13127,7 +13127,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_data_sync(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -13148,24 +13148,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceDataSyncItems': [
+                \'ResourceDataSyncItems\': [
                     {
-                        'SyncName': 'string',
-                        'S3Destination': {
-                            'BucketName': 'string',
-                            'Prefix': 'string',
-                            'SyncFormat': 'JsonSerDe',
-                            'Region': 'string',
-                            'AWSKMSKeyARN': 'string'
+                        \'SyncName\': \'string\',
+                        \'S3Destination\': {
+                            \'BucketName\': \'string\',
+                            \'Prefix\': \'string\',
+                            \'SyncFormat\': \'JsonSerDe\',
+                            \'Region\': \'string\',
+                            \'AWSKMSKeyARN\': \'string\'
                         },
-                        'LastSyncTime': datetime(2015, 1, 1),
-                        'LastSuccessfulSyncTime': datetime(2015, 1, 1),
-                        'LastStatus': 'Successful'|'Failed'|'InProgress',
-                        'SyncCreatedTime': datetime(2015, 1, 1),
-                        'LastSyncStatusMessage': 'string'
+                        \'LastSyncTime\': datetime(2015, 1, 1),
+                        \'LastSuccessfulSyncTime\': datetime(2015, 1, 1),
+                        \'LastStatus\': \'Successful\'|\'Failed\'|\'InProgress\',
+                        \'SyncCreatedTime\': datetime(2015, 1, 1),
+                        \'LastSyncStatusMessage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -13243,8 +13243,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceType='Document'|'ManagedInstance'|'MaintenanceWindow'|'Parameter'|'PatchBaseline',
-              ResourceId='string'
+              ResourceType=\'Document\'|\'ManagedInstance\'|\'MaintenanceWindow\'|\'Parameter\'|\'PatchBaseline\',
+              ResourceId=\'string\'
           )
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]** 
@@ -13264,10 +13264,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -13303,13 +13303,13 @@ class Client(BaseClient):
         ::
         
           response = client.modify_document_permission(
-              Name='string',
-              PermissionType='Share',
+              Name=\'string\',
+              PermissionType=\'Share\',
               AccountIdsToAdd=[
-                  'string',
+                  \'string\',
               ],
               AccountIdsToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Name: string
@@ -13383,7 +13383,7 @@ class Client(BaseClient):
          
         * PatchGroup: The name of a patch group. 
          
-        * InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z' 
+        * InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\' 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutComplianceItems>`_
         
@@ -13391,26 +13391,26 @@ class Client(BaseClient):
         ::
         
           response = client.put_compliance_items(
-              ResourceId='string',
-              ResourceType='string',
-              ComplianceType='string',
+              ResourceId=\'string\',
+              ResourceType=\'string\',
+              ComplianceType=\'string\',
               ExecutionSummary={
-                  'ExecutionTime': datetime(2015, 1, 1),
-                  'ExecutionId': 'string',
-                  'ExecutionType': 'string'
+                  \'ExecutionTime\': datetime(2015, 1, 1),
+                  \'ExecutionId\': \'string\',
+                  \'ExecutionType\': \'string\'
               },
               Items=[
                   {
-                      'Id': 'string',
-                      'Title': 'string',
-                      'Severity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                      'Status': 'COMPLIANT'|'NON_COMPLIANT',
-                      'Details': {
-                          'string': 'string'
+                      \'Id\': \'string\',
+                      \'Title\': \'string\',
+                      \'Severity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                      \'Status\': \'COMPLIANT\'|\'NON_COMPLIANT\',
+                      \'Details\': {
+                          \'string\': \'string\'
                       }
                   },
               ],
-              ItemContentHash='string'
+              ItemContentHash=\'string\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -13430,11 +13430,11 @@ class Client(BaseClient):
         :type ExecutionSummary: dict
         :param ExecutionSummary: **[REQUIRED]** 
         
-          A summary of the call execution that includes an execution ID, the type of execution (for example, ``Command`` ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+          A summary of the call execution that includes an execution ID, the type of execution (for example, ``Command`` ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
         
           - **ExecutionTime** *(datetime) --* **[REQUIRED]** 
         
-            The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+            The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'.
         
           - **ExecutionId** *(string) --* 
         
@@ -13471,7 +13471,7 @@ class Client(BaseClient):
         
             - **Details** *(dict) --* 
         
-              A "Key": "Value" tag combination for the compliance item.
+              A \"Key\": \"Value\" tag combination for the compliance item.
         
               - *(string) --* 
         
@@ -13505,20 +13505,20 @@ class Client(BaseClient):
         ::
         
           response = client.put_inventory(
-              InstanceId='string',
+              InstanceId=\'string\',
               Items=[
                   {
-                      'TypeName': 'string',
-                      'SchemaVersion': 'string',
-                      'CaptureTime': 'string',
-                      'ContentHash': 'string',
-                      'Content': [
+                      \'TypeName\': \'string\',
+                      \'SchemaVersion\': \'string\',
+                      \'CaptureTime\': \'string\',
+                      \'ContentHash\': \'string\',
+                      \'Content\': [
                           {
-                              'string': 'string'
+                              \'string\': \'string\'
                           },
                       ],
-                      'Context': {
-                          'string': 'string'
+                      \'Context\': {
+                          \'string\': \'string\'
                       }
                   },
               ]
@@ -13579,7 +13579,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Message': 'string'
+                \'Message\': \'string\'
             }
           **Response Structure** 
         
@@ -13601,13 +13601,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_parameter(
-              Name='string',
-              Description='string',
-              Value='string',
-              Type='String'|'StringList'|'SecureString',
-              KeyId='string',
+              Name=\'string\',
+              Description=\'string\',
+              Value=\'string\',
+              Type=\'String\'|\'StringList\'|\'SecureString\',
+              KeyId=\'string\',
               Overwrite=True|False,
-              AllowedPattern='string'
+              AllowedPattern=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -13620,11 +13620,11 @@ class Client(BaseClient):
            
           * A parameter name must be unique within an AWS Region 
            
-          * A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive). 
+          * A parameter name can\'t be prefixed with \"aws\" or \"ssm\" (case-insensitive). 
            
           * Parameter names can include only the following symbols and letters: ``a-zA-Z0-9_.-/``   
            
-          * A parameter name can't include spaces. 
+          * A parameter name can\'t include spaces. 
            
           * Parameter hierarchies are limited to a maximum depth of fifteen levels. 
            
@@ -13653,7 +13653,7 @@ class Client(BaseClient):
         
           The type of parameter that you want to add to the system.
         
-          Items in a ``StringList`` must be separated by a comma (,). You can't use other punctuation or special character to escape items in the list. If you have a parameter value that requires a comma, then use the ``String`` data type.
+          Items in a ``StringList`` must be separated by a comma (,). You can\'t use other punctuation or special character to escape items in the list. If you have a parameter value that requires a comma, then use the ``String`` data type.
         
           .. note::
         
@@ -13664,7 +13664,7 @@ class Client(BaseClient):
         
           The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service (AWS KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use the ``SecureString`` data type.
         
-          If you don't specify a key ID, the system uses the default key associated with your AWS account.
+          If you don\'t specify a key ID, the system uses the default key associated with your AWS account.
         
           * To use your default AWS KMS key, choose the ``SecureString`` data type, and do *not* specify the ``Key ID`` when you create the parameter. The system automatically populates ``Key ID`` with your default KMS key. 
            
@@ -13673,7 +13673,7 @@ class Client(BaseClient):
         :type Overwrite: boolean
         :param Overwrite: 
         
-          Overwrite an existing parameter. If not specified, will default to "false".
+          Overwrite an existing parameter. If not specified, will default to \"false\".
         
         :type AllowedPattern: string
         :param AllowedPattern: 
@@ -13688,7 +13688,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Version': 123
+                \'Version\': 123
             }
           **Response Structure** 
         
@@ -13696,7 +13696,7 @@ class Client(BaseClient):
             
             - **Version** *(integer) --* 
         
-              The new version number of a parameter. If you edit a parameter value, Parameter Store automatically creates a new version and assigns this new version a unique ID. You can reference a parameter version ID in API actions or in Systems Manager documents (SSM documents). By default, if you don't specify a specific version, the system returns the latest parameter value when a parameter is called.
+              The new version number of a parameter. If you edit a parameter value, Parameter Store automatically creates a new version and assigns this new version a unique ID. You can reference a parameter version ID in API actions or in Systems Manager documents (SSM documents). By default, if you don\'t specify a specific version, the system returns the latest parameter value when a parameter is called.
         
         """
         pass
@@ -13710,7 +13710,7 @@ class Client(BaseClient):
         ::
         
           response = client.register_default_patch_baseline(
-              BaselineId='string'
+              BaselineId=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -13725,7 +13725,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string'
+                \'BaselineId\': \'string\'
             }
           **Response Structure** 
         
@@ -13747,8 +13747,8 @@ class Client(BaseClient):
         ::
         
           response = client.register_patch_baseline_for_patch_group(
-              BaselineId='string',
-              PatchGroup='string'
+              BaselineId=\'string\',
+              PatchGroup=\'string\'
           )
         :type BaselineId: string
         :param BaselineId: **[REQUIRED]** 
@@ -13768,8 +13768,8 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'PatchGroup': 'string'
+                \'BaselineId\': \'string\',
+                \'PatchGroup\': \'string\'
             }
           **Response Structure** 
         
@@ -13795,20 +13795,20 @@ class Client(BaseClient):
         ::
         
           response = client.register_target_with_maintenance_window(
-              WindowId='string',
-              ResourceType='INSTANCE',
+              WindowId=\'string\',
+              ResourceType=\'INSTANCE\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              OwnerInformation='string',
-              Name='string',
-              Description='string',
-              ClientToken='string'
+              OwnerInformation=\'string\',
+              Name=\'string\',
+              Description=\'string\',
+              ClientToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -13837,7 +13837,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -13879,7 +13879,7 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowTargetId': 'string'
+                \'WindowTargetId\': \'string\'
             }
           **Response Structure** 
         
@@ -13901,76 +13901,76 @@ class Client(BaseClient):
         ::
         
           response = client.register_task_with_maintenance_window(
-              WindowId='string',
+              WindowId=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              TaskArn='string',
-              ServiceRoleArn='string',
-              TaskType='RUN_COMMAND'|'AUTOMATION'|'STEP_FUNCTIONS'|'LAMBDA',
+              TaskArn=\'string\',
+              ServiceRoleArn=\'string\',
+              TaskType=\'RUN_COMMAND\'|\'AUTOMATION\'|\'STEP_FUNCTIONS\'|\'LAMBDA\',
               TaskParameters={
-                  'string': {
-                      'Values': [
-                          'string',
+                  \'string\': {
+                      \'Values\': [
+                          \'string\',
                       ]
                   }
               },
               TaskInvocationParameters={
-                  'RunCommand': {
-                      'Comment': 'string',
-                      'DocumentHash': 'string',
-                      'DocumentHashType': 'Sha256'|'Sha1',
-                      'NotificationConfig': {
-                          'NotificationArn': 'string',
-                          'NotificationEvents': [
-                              'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                  \'RunCommand\': {
+                      \'Comment\': \'string\',
+                      \'DocumentHash\': \'string\',
+                      \'DocumentHashType\': \'Sha256\'|\'Sha1\',
+                      \'NotificationConfig\': {
+                          \'NotificationArn\': \'string\',
+                          \'NotificationEvents\': [
+                              \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                           ],
-                          'NotificationType': 'Command'|'Invocation'
+                          \'NotificationType\': \'Command\'|\'Invocation\'
                       },
-                      'OutputS3BucketName': 'string',
-                      'OutputS3KeyPrefix': 'string',
-                      'Parameters': {
-                          'string': [
-                              'string',
+                      \'OutputS3BucketName\': \'string\',
+                      \'OutputS3KeyPrefix\': \'string\',
+                      \'Parameters\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       },
-                      'ServiceRoleArn': 'string',
-                      'TimeoutSeconds': 123
+                      \'ServiceRoleArn\': \'string\',
+                      \'TimeoutSeconds\': 123
                   },
-                  'Automation': {
-                      'DocumentVersion': 'string',
-                      'Parameters': {
-                          'string': [
-                              'string',
+                  \'Automation\': {
+                      \'DocumentVersion\': \'string\',
+                      \'Parameters\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       }
                   },
-                  'StepFunctions': {
-                      'Input': 'string',
-                      'Name': 'string'
+                  \'StepFunctions\': {
+                      \'Input\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'Lambda': {
-                      'ClientContext': 'string',
-                      'Qualifier': 'string',
-                      'Payload': b'bytes'
+                  \'Lambda\': {
+                      \'ClientContext\': \'string\',
+                      \'Qualifier\': \'string\',
+                      \'Payload\': b\'bytes\'
                   }
               },
               Priority=123,
-              MaxConcurrency='string',
-              MaxErrors='string',
+              MaxConcurrency=\'string\',
+              MaxErrors=\'string\',
               LoggingInfo={
-                  'S3BucketName': 'string',
-                  'S3KeyPrefix': 'string',
-                  'S3Region': 'string'
+                  \'S3BucketName\': \'string\',
+                  \'S3KeyPrefix\': \'string\',
+                  \'S3Region\': \'string\'
               },
-              Name='string',
-              Description='string',
-              ClientToken='string'
+              Name=\'string\',
+              Description=\'string\',
+              ClientToken=\'string\'
           )
         :type WindowId: string
         :param WindowId: **[REQUIRED]** 
@@ -13992,7 +13992,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -14014,7 +14014,7 @@ class Client(BaseClient):
         
           The role to assume when running the Maintenance Window task.
         
-          If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run ``RegisterTaskWithMaintenanceWindow`` without specifying a service role ARN.
+          If you do not specify a service role ARN, Systems Manager will use your account\'s service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run ``RegisterTaskWithMaintenanceWindow`` without specifying a service role ARN.
         
           For more information, see `Service-Linked Role Permissions for Systems Manager <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions>`__ and `Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role>`__ in the *AWS Systems Manager User Guide* .
         
@@ -14226,7 +14226,7 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowTaskId': 'string'
+                \'WindowTaskId\': \'string\'
             }
           **Response Structure** 
         
@@ -14248,10 +14248,10 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceType='Document'|'ManagedInstance'|'MaintenanceWindow'|'Parameter'|'PatchBaseline',
-              ResourceId='string',
+              ResourceType=\'Document\'|\'ManagedInstance\'|\'MaintenanceWindow\'|\'Parameter\'|\'PatchBaseline\',
+              ResourceId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceType: string
@@ -14314,7 +14314,7 @@ class Client(BaseClient):
         ::
         
           response = client.resume_session(
-              SessionId='string'
+              SessionId=\'string\'
           )
         :type SessionId: string
         :param SessionId: **[REQUIRED]** 
@@ -14329,9 +14329,9 @@ class Client(BaseClient):
           ::
         
             {
-                'SessionId': 'string',
-                'TokenValue': 'string',
-                'StreamUrl': 'string'
+                \'SessionId\': \'string\',
+                \'TokenValue\': \'string\',
+                \'StreamUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -14365,11 +14365,11 @@ class Client(BaseClient):
         ::
         
           response = client.send_automation_signal(
-              AutomationExecutionId='string',
-              SignalType='Approve'|'Reject'|'StartStep'|'StopStep'|'Resume',
+              AutomationExecutionId=\'string\',
+              SignalType=\'Approve\'|\'Reject\'|\'StartStep\'|\'StopStep\'|\'Resume\',
               Payload={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               }
           )
@@ -14418,43 +14418,43 @@ class Client(BaseClient):
         
           response = client.send_command(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              DocumentName='string',
-              DocumentVersion='string',
-              DocumentHash='string',
-              DocumentHashType='Sha256'|'Sha1',
+              DocumentName=\'string\',
+              DocumentVersion=\'string\',
+              DocumentHash=\'string\',
+              DocumentHashType=\'Sha256\'|\'Sha1\',
               TimeoutSeconds=123,
-              Comment='string',
+              Comment=\'string\',
               Parameters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              OutputS3Region='string',
-              OutputS3BucketName='string',
-              OutputS3KeyPrefix='string',
-              MaxConcurrency='string',
-              MaxErrors='string',
-              ServiceRoleArn='string',
+              OutputS3Region=\'string\',
+              OutputS3BucketName=\'string\',
+              OutputS3KeyPrefix=\'string\',
+              MaxConcurrency=\'string\',
+              MaxErrors=\'string\',
+              ServiceRoleArn=\'string\',
               NotificationConfig={
-                  'NotificationArn': 'string',
-                  'NotificationEvents': [
-                      'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                  \'NotificationArn\': \'string\',
+                  \'NotificationEvents\': [
+                      \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                   ],
-                  'NotificationType': 'Command'|'Invocation'
+                  \'NotificationType\': \'Command\'|\'Invocation\'
               },
               CloudWatchOutputConfig={
-                  'CloudWatchLogGroupName': 'string',
-                  'CloudWatchOutputEnabled': True|False
+                  \'CloudWatchLogGroupName\': \'string\',
+                  \'CloudWatchOutputEnabled\': True|False
               }
           )
         :type InstanceIds: list
@@ -14467,11 +14467,11 @@ class Client(BaseClient):
         :type Targets: list
         :param Targets: 
         
-          (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use targets, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+          (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don\'t provide one or more instance IDs in the call. For more information about how to use targets, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -14491,13 +14491,13 @@ class Client(BaseClient):
         :type DocumentVersion: string
         :param DocumentVersion: 
         
-          The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you execute commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+          The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you execute commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don\'t need to use the backslash. For example:
         
-          --document-version "\$DEFAULT"
+          --document-version \"\$DEFAULT\"
         
-          --document-version "\$LATEST"
+          --document-version \"\$LATEST\"
         
-          --document-version "3"
+          --document-version \"3\"
         
         :type DocumentHash: string
         :param DocumentHash: 
@@ -14594,7 +14594,7 @@ class Client(BaseClient):
         
           - **CloudWatchLogGroupName** *(string) --* 
         
-            The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+            The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
           - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -14608,51 +14608,51 @@ class Client(BaseClient):
           ::
         
             {
-                'Command': {
-                    'CommandId': 'string',
-                    'DocumentName': 'string',
-                    'DocumentVersion': 'string',
-                    'Comment': 'string',
-                    'ExpiresAfter': datetime(2015, 1, 1),
-                    'Parameters': {
-                        'string': [
-                            'string',
+                \'Command\': {
+                    \'CommandId\': \'string\',
+                    \'DocumentName\': \'string\',
+                    \'DocumentVersion\': \'string\',
+                    \'Comment\': \'string\',
+                    \'ExpiresAfter\': datetime(2015, 1, 1),
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'InstanceIds': [
-                        'string',
+                    \'InstanceIds\': [
+                        \'string\',
                     ],
-                    'Targets': [
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'RequestedDateTime': datetime(2015, 1, 1),
-                    'Status': 'Pending'|'InProgress'|'Success'|'Cancelled'|'Failed'|'TimedOut'|'Cancelling',
-                    'StatusDetails': 'string',
-                    'OutputS3Region': 'string',
-                    'OutputS3BucketName': 'string',
-                    'OutputS3KeyPrefix': 'string',
-                    'MaxConcurrency': 'string',
-                    'MaxErrors': 'string',
-                    'TargetCount': 123,
-                    'CompletedCount': 123,
-                    'ErrorCount': 123,
-                    'DeliveryTimedOutCount': 123,
-                    'ServiceRole': 'string',
-                    'NotificationConfig': {
-                        'NotificationArn': 'string',
-                        'NotificationEvents': [
-                            'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                    \'RequestedDateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'Pending\'|\'InProgress\'|\'Success\'|\'Cancelled\'|\'Failed\'|\'TimedOut\'|\'Cancelling\',
+                    \'StatusDetails\': \'string\',
+                    \'OutputS3Region\': \'string\',
+                    \'OutputS3BucketName\': \'string\',
+                    \'OutputS3KeyPrefix\': \'string\',
+                    \'MaxConcurrency\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'TargetCount\': 123,
+                    \'CompletedCount\': 123,
+                    \'ErrorCount\': 123,
+                    \'DeliveryTimedOutCount\': 123,
+                    \'ServiceRole\': \'string\',
+                    \'NotificationConfig\': {
+                        \'NotificationArn\': \'string\',
+                        \'NotificationEvents\': [
+                            \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                         ],
-                        'NotificationType': 'Command'|'Invocation'
+                        \'NotificationType\': \'Command\'|\'Invocation\'
                     },
-                    'CloudWatchOutputConfig': {
-                        'CloudWatchLogGroupName': 'string',
-                        'CloudWatchOutputEnabled': True|False
+                    \'CloudWatchOutputConfig\': {
+                        \'CloudWatchLogGroupName\': \'string\',
+                        \'CloudWatchOutputEnabled\': True|False
                     }
                 }
             }
@@ -14702,11 +14702,11 @@ class Client(BaseClient):
             
               - **Targets** *(list) --* 
         
-                An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
+                An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don\'t provide one or more instance IDs in the call.
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -14812,7 +14812,7 @@ class Client(BaseClient):
         
                 - **CloudWatchLogGroupName** *(string) --* 
         
-                  The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                  The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
                 - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -14831,7 +14831,7 @@ class Client(BaseClient):
         
           response = client.start_associations_once(
               AssociationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AssociationIds: list
@@ -14864,33 +14864,33 @@ class Client(BaseClient):
         ::
         
           response = client.start_automation_execution(
-              DocumentName='string',
-              DocumentVersion='string',
+              DocumentName=\'string\',
+              DocumentVersion=\'string\',
               Parameters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              ClientToken='string',
-              Mode='Auto'|'Interactive',
-              TargetParameterName='string',
+              ClientToken=\'string\',
+              Mode=\'Auto\'|\'Interactive\',
+              TargetParameterName=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               TargetMaps=[
                   {
-                      'string': [
-                          'string',
+                      \'string\': [
+                          \'string\',
                       ]
                   },
               ],
-              MaxConcurrency='string',
-              MaxErrors='string'
+              MaxConcurrency=\'string\',
+              MaxErrors=\'string\'
           )
         :type DocumentName: string
         :param DocumentName: **[REQUIRED]** 
@@ -14916,7 +14916,7 @@ class Client(BaseClient):
         :type ClientToken: string
         :param ClientToken: 
         
-          User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.
+          User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can\'t be reused.
         
         :type Mode: string
         :param Mode: 
@@ -14935,7 +14935,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -14970,7 +14970,7 @@ class Client(BaseClient):
         
           The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set max-errors to 10%, then the system stops running the automation on additional targets when the sixth error is received.
         
-          Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.
+          Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.
         
         :rtype: dict
         :returns: 
@@ -14980,7 +14980,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AutomationExecutionId': 'string'
+                \'AutomationExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -15006,11 +15006,11 @@ class Client(BaseClient):
         ::
         
           response = client.start_session(
-              Target='string',
-              DocumentName='string',
+              Target=\'string\',
+              DocumentName=\'string\',
               Parameters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               }
           )
@@ -15043,9 +15043,9 @@ class Client(BaseClient):
           ::
         
             {
-                'SessionId': 'string',
-                'TokenValue': 'string',
-                'StreamUrl': 'string'
+                \'SessionId\': \'string\',
+                \'TokenValue\': \'string\',
+                \'StreamUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -15079,8 +15079,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_automation_execution(
-              AutomationExecutionId='string',
-              Type='Complete'|'Cancel'
+              AutomationExecutionId=\'string\',
+              Type=\'Complete\'|\'Cancel\'
           )
         :type AutomationExecutionId: string
         :param AutomationExecutionId: **[REQUIRED]** 
@@ -15115,7 +15115,7 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_session(
-              SessionId='string'
+              SessionId=\'string\'
           )
         :type SessionId: string
         :param SessionId: **[REQUIRED]** 
@@ -15130,7 +15130,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SessionId': 'string'
+                \'SessionId\': \'string\'
             }
           **Response Structure** 
         
@@ -15152,35 +15152,35 @@ class Client(BaseClient):
         ::
         
           response = client.update_association(
-              AssociationId='string',
+              AssociationId=\'string\',
               Parameters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              DocumentVersion='string',
-              ScheduleExpression='string',
+              DocumentVersion=\'string\',
+              ScheduleExpression=\'string\',
               OutputLocation={
-                  'S3Location': {
-                      'OutputS3Region': 'string',
-                      'OutputS3BucketName': 'string',
-                      'OutputS3KeyPrefix': 'string'
+                  \'S3Location\': {
+                      \'OutputS3Region\': \'string\',
+                      \'OutputS3BucketName\': \'string\',
+                      \'OutputS3KeyPrefix\': \'string\'
                   }
               },
-              Name='string',
+              Name=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              AssociationName='string',
-              AssociationVersion='string',
-              MaxErrors='string',
-              MaxConcurrency='string',
-              ComplianceSeverity='CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+              AssociationName=\'string\',
+              AssociationVersion=\'string\',
+              MaxErrors=\'string\',
+              MaxConcurrency=\'string\',
+              ComplianceSeverity=\'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -15241,7 +15241,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -15268,7 +15268,7 @@ class Client(BaseClient):
         
           The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-          Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+          Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
         :type MaxConcurrency: string
         :param MaxConcurrency: 
@@ -15290,54 +15290,54 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationDescription': {
-                    'Name': 'string',
-                    'InstanceId': 'string',
-                    'AssociationVersion': 'string',
-                    'Date': datetime(2015, 1, 1),
-                    'LastUpdateAssociationDate': datetime(2015, 1, 1),
-                    'Status': {
-                        'Date': datetime(2015, 1, 1),
-                        'Name': 'Pending'|'Success'|'Failed',
-                        'Message': 'string',
-                        'AdditionalInfo': 'string'
+                \'AssociationDescription\': {
+                    \'Name\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'AssociationVersion\': \'string\',
+                    \'Date\': datetime(2015, 1, 1),
+                    \'LastUpdateAssociationDate\': datetime(2015, 1, 1),
+                    \'Status\': {
+                        \'Date\': datetime(2015, 1, 1),
+                        \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                        \'Message\': \'string\',
+                        \'AdditionalInfo\': \'string\'
                     },
-                    'Overview': {
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'AssociationStatusAggregatedCount': {
-                            'string': 123
+                    \'Overview\': {
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'AssociationStatusAggregatedCount\': {
+                            \'string\': 123
                         }
                     },
-                    'DocumentVersion': 'string',
-                    'Parameters': {
-                        'string': [
-                            'string',
+                    \'DocumentVersion\': \'string\',
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'AssociationId': 'string',
-                    'Targets': [
+                    \'AssociationId\': \'string\',
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'ScheduleExpression': 'string',
-                    'OutputLocation': {
-                        'S3Location': {
-                            'OutputS3Region': 'string',
-                            'OutputS3BucketName': 'string',
-                            'OutputS3KeyPrefix': 'string'
+                    \'ScheduleExpression\': \'string\',
+                    \'OutputLocation\': {
+                        \'S3Location\': {
+                            \'OutputS3Region\': \'string\',
+                            \'OutputS3BucketName\': \'string\',
+                            \'OutputS3KeyPrefix\': \'string\'
                         }
                     },
-                    'LastExecutionDate': datetime(2015, 1, 1),
-                    'LastSuccessfulExecutionDate': datetime(2015, 1, 1),
-                    'AssociationName': 'string',
-                    'MaxErrors': 'string',
-                    'MaxConcurrency': 'string',
-                    'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                    \'LastExecutionDate\': datetime(2015, 1, 1),
+                    \'LastSuccessfulExecutionDate\': datetime(2015, 1, 1),
+                    \'AssociationName\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'MaxConcurrency\': \'string\',
+                    \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                 }
             }
           **Response Structure** 
@@ -15432,7 +15432,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -15484,7 +15484,7 @@ class Client(BaseClient):
         
                 The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
               - **MaxConcurrency** *(string) --* 
         
@@ -15508,13 +15508,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_association_status(
-              Name='string',
-              InstanceId='string',
+              Name=\'string\',
+              InstanceId=\'string\',
               AssociationStatus={
-                  'Date': datetime(2015, 1, 1),
-                  'Name': 'Pending'|'Success'|'Failed',
-                  'Message': 'string',
-                  'AdditionalInfo': 'string'
+                  \'Date\': datetime(2015, 1, 1),
+                  \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                  \'Message\': \'string\',
+                  \'AdditionalInfo\': \'string\'
               }
           )
         :type Name: string
@@ -15556,54 +15556,54 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationDescription': {
-                    'Name': 'string',
-                    'InstanceId': 'string',
-                    'AssociationVersion': 'string',
-                    'Date': datetime(2015, 1, 1),
-                    'LastUpdateAssociationDate': datetime(2015, 1, 1),
-                    'Status': {
-                        'Date': datetime(2015, 1, 1),
-                        'Name': 'Pending'|'Success'|'Failed',
-                        'Message': 'string',
-                        'AdditionalInfo': 'string'
+                \'AssociationDescription\': {
+                    \'Name\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'AssociationVersion\': \'string\',
+                    \'Date\': datetime(2015, 1, 1),
+                    \'LastUpdateAssociationDate\': datetime(2015, 1, 1),
+                    \'Status\': {
+                        \'Date\': datetime(2015, 1, 1),
+                        \'Name\': \'Pending\'|\'Success\'|\'Failed\',
+                        \'Message\': \'string\',
+                        \'AdditionalInfo\': \'string\'
                     },
-                    'Overview': {
-                        'Status': 'string',
-                        'DetailedStatus': 'string',
-                        'AssociationStatusAggregatedCount': {
-                            'string': 123
+                    \'Overview\': {
+                        \'Status\': \'string\',
+                        \'DetailedStatus\': \'string\',
+                        \'AssociationStatusAggregatedCount\': {
+                            \'string\': 123
                         }
                     },
-                    'DocumentVersion': 'string',
-                    'Parameters': {
-                        'string': [
-                            'string',
+                    \'DocumentVersion\': \'string\',
+                    \'Parameters\': {
+                        \'string\': [
+                            \'string\',
                         ]
                     },
-                    'AssociationId': 'string',
-                    'Targets': [
+                    \'AssociationId\': \'string\',
+                    \'Targets\': [
                         {
-                            'Key': 'string',
-                            'Values': [
-                                'string',
+                            \'Key\': \'string\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ],
-                    'ScheduleExpression': 'string',
-                    'OutputLocation': {
-                        'S3Location': {
-                            'OutputS3Region': 'string',
-                            'OutputS3BucketName': 'string',
-                            'OutputS3KeyPrefix': 'string'
+                    \'ScheduleExpression\': \'string\',
+                    \'OutputLocation\': {
+                        \'S3Location\': {
+                            \'OutputS3Region\': \'string\',
+                            \'OutputS3BucketName\': \'string\',
+                            \'OutputS3KeyPrefix\': \'string\'
                         }
                     },
-                    'LastExecutionDate': datetime(2015, 1, 1),
-                    'LastSuccessfulExecutionDate': datetime(2015, 1, 1),
-                    'AssociationName': 'string',
-                    'MaxErrors': 'string',
-                    'MaxConcurrency': 'string',
-                    'ComplianceSeverity': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'UNSPECIFIED'
+                    \'LastExecutionDate\': datetime(2015, 1, 1),
+                    \'LastSuccessfulExecutionDate\': datetime(2015, 1, 1),
+                    \'AssociationName\': \'string\',
+                    \'MaxErrors\': \'string\',
+                    \'MaxConcurrency\': \'string\',
+                    \'ComplianceSeverity\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'UNSPECIFIED\'
                 }
             }
           **Response Structure** 
@@ -15698,7 +15698,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                   - **Key** *(string) --* 
         
@@ -15750,7 +15750,7 @@ class Client(BaseClient):
         
                 The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
         
-                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+                Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won\'t be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
         
               - **MaxConcurrency** *(string) --* 
         
@@ -15774,11 +15774,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_document(
-              Content='string',
-              Name='string',
-              DocumentVersion='string',
-              DocumentFormat='YAML'|'JSON',
-              TargetType='string'
+              Content=\'string\',
+              Name=\'string\',
+              DocumentVersion=\'string\',
+              DocumentFormat=\'YAML\'|\'JSON\',
+              TargetType=\'string\'
           )
         :type Content: string
         :param Content: **[REQUIRED]** 
@@ -15813,37 +15813,37 @@ class Client(BaseClient):
           ::
         
             {
-                'DocumentDescription': {
-                    'Sha1': 'string',
-                    'Hash': 'string',
-                    'HashType': 'Sha256'|'Sha1',
-                    'Name': 'string',
-                    'Owner': 'string',
-                    'CreatedDate': datetime(2015, 1, 1),
-                    'Status': 'Creating'|'Active'|'Updating'|'Deleting',
-                    'DocumentVersion': 'string',
-                    'Description': 'string',
-                    'Parameters': [
+                \'DocumentDescription\': {
+                    \'Sha1\': \'string\',
+                    \'Hash\': \'string\',
+                    \'HashType\': \'Sha256\'|\'Sha1\',
+                    \'Name\': \'string\',
+                    \'Owner\': \'string\',
+                    \'CreatedDate\': datetime(2015, 1, 1),
+                    \'Status\': \'Creating\'|\'Active\'|\'Updating\'|\'Deleting\',
+                    \'DocumentVersion\': \'string\',
+                    \'Description\': \'string\',
+                    \'Parameters\': [
                         {
-                            'Name': 'string',
-                            'Type': 'String'|'StringList',
-                            'Description': 'string',
-                            'DefaultValue': 'string'
+                            \'Name\': \'string\',
+                            \'Type\': \'String\'|\'StringList\',
+                            \'Description\': \'string\',
+                            \'DefaultValue\': \'string\'
                         },
                     ],
-                    'PlatformTypes': [
-                        'Windows'|'Linux',
+                    \'PlatformTypes\': [
+                        \'Windows\'|\'Linux\',
                     ],
-                    'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                    'SchemaVersion': 'string',
-                    'LatestVersion': 'string',
-                    'DefaultVersion': 'string',
-                    'DocumentFormat': 'YAML'|'JSON',
-                    'TargetType': 'string',
-                    'Tags': [
+                    \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                    \'SchemaVersion\': \'string\',
+                    \'LatestVersion\': \'string\',
+                    \'DefaultVersion\': \'string\',
+                    \'DocumentFormat\': \'YAML\'|\'JSON\',
+                    \'TargetType\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -15982,8 +15982,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_document_default_version(
-              Name='string',
-              DocumentVersion='string'
+              Name=\'string\',
+              DocumentVersion=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -16003,9 +16003,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Description': {
-                    'Name': 'string',
-                    'DefaultVersion': 'string'
+                \'Description\': {
+                    \'Name\': \'string\',
+                    \'DefaultVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -16036,13 +16036,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_maintenance_window(
-              WindowId='string',
-              Name='string',
-              Description='string',
-              StartDate='string',
-              EndDate='string',
-              Schedule='string',
-              ScheduleTimezone='string',
+              WindowId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
+              StartDate=\'string\',
+              EndDate=\'string\',
+              Schedule=\'string\',
+              ScheduleTimezone=\'string\',
               Duration=123,
               Cutoff=123,
               AllowUnassociatedTargets=True|False,
@@ -16067,7 +16067,7 @@ class Client(BaseClient):
         :type StartDate: string
         :param StartDate: 
         
-          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
+          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
         
         :type EndDate: string
         :param EndDate: 
@@ -16082,7 +16082,7 @@ class Client(BaseClient):
         :type ScheduleTimezone: string
         :param ScheduleTimezone: 
         
-          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
+          The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
         
         :type Duration: integer
         :param Duration: 
@@ -16117,17 +16117,17 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'Name': 'string',
-                'Description': 'string',
-                'StartDate': 'string',
-                'EndDate': 'string',
-                'Schedule': 'string',
-                'ScheduleTimezone': 'string',
-                'Duration': 123,
-                'Cutoff': 123,
-                'AllowUnassociatedTargets': True|False,
-                'Enabled': True|False
+                \'WindowId\': \'string\',
+                \'Name\': \'string\',
+                \'Description\': \'string\',
+                \'StartDate\': \'string\',
+                \'EndDate\': \'string\',
+                \'Schedule\': \'string\',
+                \'ScheduleTimezone\': \'string\',
+                \'Duration\': 123,
+                \'Cutoff\': 123,
+                \'AllowUnassociatedTargets\': True|False,
+                \'Enabled\': True|False
             }
           **Response Structure** 
         
@@ -16159,7 +16159,7 @@ class Client(BaseClient):
         
             - **ScheduleTimezone** *(string) --* 
         
-              The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
+              The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the `Time Zone Database <https://www.iana.org/time-zones>`__ on the IANA website.
         
             - **Duration** *(integer) --* 
         
@@ -16182,7 +16182,7 @@ class Client(BaseClient):
 
     def update_maintenance_window_target(self, WindowId: str, WindowTargetId: str, Targets: List = None, OwnerInformation: str = None, Name: str = None, Description: str = None, Replace: bool = None) -> Dict:
         """
-        Modifies the target of an existing Maintenance Window. You can't change the target type, but you can change the following:
+        Modifies the target of an existing Maintenance Window. You can\'t change the target type, but you can change the following:
         
         The target from being an ID target to a Tag target, or a Tag target to an ID target.
         
@@ -16204,19 +16204,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_maintenance_window_target(
-              WindowId='string',
-              WindowTargetId='string',
+              WindowId=\'string\',
+              WindowTargetId=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              OwnerInformation='string',
-              Name='string',
-              Description='string',
+              OwnerInformation=\'string\',
+              Name=\'string\',
+              Description=\'string\',
               Replace=True|False
           )
         :type WindowId: string
@@ -16236,7 +16236,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -16276,19 +16276,19 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'WindowTargetId': 'string',
-                'Targets': [
+                \'WindowId\': \'string\',
+                \'WindowTargetId\': \'string\',
+                \'Targets\': [
                     {
-                        'Key': 'string',
-                        'Values': [
-                            'string',
+                        \'Key\': \'string\',
+                        \'Values\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'OwnerInformation': 'string',
-                'Name': 'string',
-                'Description': 'string'
+                \'OwnerInformation\': \'string\',
+                \'Name\': \'string\',
+                \'Description\': \'string\'
             }
           **Response Structure** 
         
@@ -16308,7 +16308,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                 - **Key** *(string) --* 
         
@@ -16337,7 +16337,7 @@ class Client(BaseClient):
 
     def update_maintenance_window_task(self, WindowId: str, WindowTaskId: str, Targets: List = None, TaskArn: str = None, ServiceRoleArn: str = None, TaskParameters: Dict = None, TaskInvocationParameters: Dict = None, Priority: int = None, MaxConcurrency: str = None, MaxErrors: str = None, LoggingInfo: Dict = None, Name: str = None, Description: str = None, Replace: bool = None) -> Dict:
         """
-        Modifies a task assigned to a Maintenance Window. You can't change the task type, but you can change the following values:
+        Modifies a task assigned to a Maintenance Window. You can\'t change the task type, but you can change the following values:
         
         * TaskARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript. 
          
@@ -16351,7 +16351,7 @@ class Client(BaseClient):
          
         * MaxErrors 
          
-        If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the  RegisterTaskWithMaintenanceWindow action are required for this request. Optional fields that aren't specified are set to null.
+        If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the  RegisterTaskWithMaintenanceWindow action are required for this request. Optional fields that aren\'t specified are set to null.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindowTask>`_
         
@@ -16359,75 +16359,75 @@ class Client(BaseClient):
         ::
         
           response = client.update_maintenance_window_task(
-              WindowId='string',
-              WindowTaskId='string',
+              WindowId=\'string\',
+              WindowTaskId=\'string\',
               Targets=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              TaskArn='string',
-              ServiceRoleArn='string',
+              TaskArn=\'string\',
+              ServiceRoleArn=\'string\',
               TaskParameters={
-                  'string': {
-                      'Values': [
-                          'string',
+                  \'string\': {
+                      \'Values\': [
+                          \'string\',
                       ]
                   }
               },
               TaskInvocationParameters={
-                  'RunCommand': {
-                      'Comment': 'string',
-                      'DocumentHash': 'string',
-                      'DocumentHashType': 'Sha256'|'Sha1',
-                      'NotificationConfig': {
-                          'NotificationArn': 'string',
-                          'NotificationEvents': [
-                              'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                  \'RunCommand\': {
+                      \'Comment\': \'string\',
+                      \'DocumentHash\': \'string\',
+                      \'DocumentHashType\': \'Sha256\'|\'Sha1\',
+                      \'NotificationConfig\': {
+                          \'NotificationArn\': \'string\',
+                          \'NotificationEvents\': [
+                              \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                           ],
-                          'NotificationType': 'Command'|'Invocation'
+                          \'NotificationType\': \'Command\'|\'Invocation\'
                       },
-                      'OutputS3BucketName': 'string',
-                      'OutputS3KeyPrefix': 'string',
-                      'Parameters': {
-                          'string': [
-                              'string',
+                      \'OutputS3BucketName\': \'string\',
+                      \'OutputS3KeyPrefix\': \'string\',
+                      \'Parameters\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       },
-                      'ServiceRoleArn': 'string',
-                      'TimeoutSeconds': 123
+                      \'ServiceRoleArn\': \'string\',
+                      \'TimeoutSeconds\': 123
                   },
-                  'Automation': {
-                      'DocumentVersion': 'string',
-                      'Parameters': {
-                          'string': [
-                              'string',
+                  \'Automation\': {
+                      \'DocumentVersion\': \'string\',
+                      \'Parameters\': {
+                          \'string\': [
+                              \'string\',
                           ]
                       }
                   },
-                  'StepFunctions': {
-                      'Input': 'string',
-                      'Name': 'string'
+                  \'StepFunctions\': {
+                      \'Input\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'Lambda': {
-                      'ClientContext': 'string',
-                      'Qualifier': 'string',
-                      'Payload': b'bytes'
+                  \'Lambda\': {
+                      \'ClientContext\': \'string\',
+                      \'Qualifier\': \'string\',
+                      \'Payload\': b\'bytes\'
                   }
               },
               Priority=123,
-              MaxConcurrency='string',
-              MaxErrors='string',
+              MaxConcurrency=\'string\',
+              MaxErrors=\'string\',
               LoggingInfo={
-                  'S3BucketName': 'string',
-                  'S3KeyPrefix': 'string',
-                  'S3Region': 'string'
+                  \'S3BucketName\': \'string\',
+                  \'S3KeyPrefix\': \'string\',
+                  \'S3Region\': \'string\'
               },
-              Name='string',
-              Description='string',
+              Name=\'string\',
+              Description=\'string\',
               Replace=True|False
           )
         :type WindowId: string
@@ -16447,7 +16447,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+            An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
             - **Key** *(string) --* 
         
@@ -16469,7 +16469,7 @@ class Client(BaseClient):
         
           The IAM service role ARN to modify. The system assumes this role during task execution.
         
-          If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run ``RegisterTaskWithMaintenanceWindow`` without specifying a service role ARN.
+          If you do not specify a service role ARN, Systems Manager will use your account\'s service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run ``RegisterTaskWithMaintenanceWindow`` without specifying a service role ARN.
         
           For more information, see `Service-Linked Role Permissions for Systems Manager <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions>`__ and `Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role>`__ in the *AWS Systems Manager User Guide* .
         
@@ -16680,75 +16680,75 @@ class Client(BaseClient):
           ::
         
             {
-                'WindowId': 'string',
-                'WindowTaskId': 'string',
-                'Targets': [
+                \'WindowId\': \'string\',
+                \'WindowTaskId\': \'string\',
+                \'Targets\': [
                     {
-                        'Key': 'string',
-                        'Values': [
-                            'string',
+                        \'Key\': \'string\',
+                        \'Values\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'TaskArn': 'string',
-                'ServiceRoleArn': 'string',
-                'TaskParameters': {
-                    'string': {
-                        'Values': [
-                            'string',
+                \'TaskArn\': \'string\',
+                \'ServiceRoleArn\': \'string\',
+                \'TaskParameters\': {
+                    \'string\': {
+                        \'Values\': [
+                            \'string\',
                         ]
                     }
                 },
-                'TaskInvocationParameters': {
-                    'RunCommand': {
-                        'Comment': 'string',
-                        'DocumentHash': 'string',
-                        'DocumentHashType': 'Sha256'|'Sha1',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                \'TaskInvocationParameters\': {
+                    \'RunCommand\': {
+                        \'Comment\': \'string\',
+                        \'DocumentHash\': \'string\',
+                        \'DocumentHashType\': \'Sha256\'|\'Sha1\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'OutputS3BucketName': 'string',
-                        'OutputS3KeyPrefix': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'OutputS3BucketName\': \'string\',
+                        \'OutputS3KeyPrefix\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'ServiceRoleArn': 'string',
-                        'TimeoutSeconds': 123
+                        \'ServiceRoleArn\': \'string\',
+                        \'TimeoutSeconds\': 123
                     },
-                    'Automation': {
-                        'DocumentVersion': 'string',
-                        'Parameters': {
-                            'string': [
-                                'string',
+                    \'Automation\': {
+                        \'DocumentVersion\': \'string\',
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'StepFunctions': {
-                        'Input': 'string',
-                        'Name': 'string'
+                    \'StepFunctions\': {
+                        \'Input\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'Lambda': {
-                        'ClientContext': 'string',
-                        'Qualifier': 'string',
-                        'Payload': b'bytes'
+                    \'Lambda\': {
+                        \'ClientContext\': \'string\',
+                        \'Qualifier\': \'string\',
+                        \'Payload\': b\'bytes\'
                     }
                 },
-                'Priority': 123,
-                'MaxConcurrency': 'string',
-                'MaxErrors': 'string',
-                'LoggingInfo': {
-                    'S3BucketName': 'string',
-                    'S3KeyPrefix': 'string',
-                    'S3Region': 'string'
+                \'Priority\': 123,
+                \'MaxConcurrency\': \'string\',
+                \'MaxErrors\': \'string\',
+                \'LoggingInfo\': {
+                    \'S3BucketName\': \'string\',
+                    \'S3KeyPrefix\': \'string\',
+                    \'S3Region\': \'string\'
                 },
-                'Name': 'string',
-                'Description': 'string'
+                \'Name\': \'string\',
+                \'Description\': \'string\'
             }
           **Response Structure** 
         
@@ -16768,7 +16768,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                 - **Key** *(string) --* 
         
@@ -16980,8 +16980,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_managed_instance_role(
-              InstanceId='string',
-              IamRole='string'
+              InstanceId=\'string\',
+              IamRole=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -17020,54 +17020,54 @@ class Client(BaseClient):
         ::
         
           response = client.update_patch_baseline(
-              BaselineId='string',
-              Name='string',
+              BaselineId=\'string\',
+              Name=\'string\',
               GlobalFilters={
-                  'PatchFilters': [
+                  \'PatchFilters\': [
                       {
-                          'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                          'Values': [
-                              'string',
+                          \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                          \'Values\': [
+                              \'string\',
                           ]
                       },
                   ]
               },
               ApprovalRules={
-                  'PatchRules': [
+                  \'PatchRules\': [
                       {
-                          'PatchFilterGroup': {
-                              'PatchFilters': [
+                          \'PatchFilterGroup\': {
+                              \'PatchFilters\': [
                                   {
-                                      'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                                      'Values': [
-                                          'string',
+                                      \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                                      \'Values\': [
+                                          \'string\',
                                       ]
                                   },
                               ]
                           },
-                          'ComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                          'ApproveAfterDays': 123,
-                          'EnableNonSecurity': True|False
+                          \'ComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                          \'ApproveAfterDays\': 123,
+                          \'EnableNonSecurity\': True|False
                       },
                   ]
               },
               ApprovedPatches=[
-                  'string',
+                  \'string\',
               ],
-              ApprovedPatchesComplianceLevel='CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
+              ApprovedPatchesComplianceLevel=\'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
               ApprovedPatchesEnableNonSecurity=True|False,
               RejectedPatches=[
-                  'string',
+                  \'string\',
               ],
-              RejectedPatchesAction='ALLOW_AS_DEPENDENCY'|'BLOCK',
-              Description='string',
+              RejectedPatchesAction=\'ALLOW_AS_DEPENDENCY\'|\'BLOCK\',
+              Description=\'string\',
               Sources=[
                   {
-                      'Name': 'string',
-                      'Products': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Products\': [
+                          \'string\',
                       ],
-                      'Configuration': 'string'
+                      \'Configuration\': \'string\'
                   },
               ],
               Replace=True|False
@@ -17910,7 +17910,7 @@ class Client(BaseClient):
         
               - **EnableNonSecurity** *(boolean) --* 
         
-                For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
+                For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is \'false\'. Applies to Linux instances only.
         
         :type ApprovedPatches: list
         :param ApprovedPatches: 
@@ -17929,7 +17929,7 @@ class Client(BaseClient):
         :type ApprovedPatchesEnableNonSecurity: boolean
         :param ApprovedPatchesEnableNonSecurity: 
         
-          Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+          Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is \'false\'. Applies to Linux instances only.
         
         :type RejectedPatches: list
         :param RejectedPatches: 
@@ -17969,7 +17969,7 @@ class Client(BaseClient):
         
             - **Products** *(list) --* **[REQUIRED]** 
         
-              The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see  PatchFilter .
+              The specific operating system versions a patch repository applies to, such as \"Ubuntu16.04\", \"AmazonLinux2016.09\", \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported product values, see  PatchFilter .
         
               - *(string) --* 
         
@@ -17998,57 +17998,57 @@ class Client(BaseClient):
           ::
         
             {
-                'BaselineId': 'string',
-                'Name': 'string',
-                'OperatingSystem': 'WINDOWS'|'AMAZON_LINUX'|'AMAZON_LINUX_2'|'UBUNTU'|'REDHAT_ENTERPRISE_LINUX'|'SUSE'|'CENTOS',
-                'GlobalFilters': {
-                    'PatchFilters': [
+                \'BaselineId\': \'string\',
+                \'Name\': \'string\',
+                \'OperatingSystem\': \'WINDOWS\'|\'AMAZON_LINUX\'|\'AMAZON_LINUX_2\'|\'UBUNTU\'|\'REDHAT_ENTERPRISE_LINUX\'|\'SUSE\'|\'CENTOS\',
+                \'GlobalFilters\': {
+                    \'PatchFilters\': [
                         {
-                            'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                            'Values': [
-                                'string',
+                            \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                            \'Values\': [
+                                \'string\',
                             ]
                         },
                     ]
                 },
-                'ApprovalRules': {
-                    'PatchRules': [
+                \'ApprovalRules\': {
+                    \'PatchRules\': [
                         {
-                            'PatchFilterGroup': {
-                                'PatchFilters': [
+                            \'PatchFilterGroup\': {
+                                \'PatchFilters\': [
                                     {
-                                        'Key': 'PRODUCT'|'CLASSIFICATION'|'MSRC_SEVERITY'|'PATCH_ID'|'SECTION'|'PRIORITY'|'SEVERITY',
-                                        'Values': [
-                                            'string',
+                                        \'Key\': \'PRODUCT\'|\'CLASSIFICATION\'|\'MSRC_SEVERITY\'|\'PATCH_ID\'|\'SECTION\'|\'PRIORITY\'|\'SEVERITY\',
+                                        \'Values\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
                             },
-                            'ComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                            'ApproveAfterDays': 123,
-                            'EnableNonSecurity': True|False
+                            \'ComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                            \'ApproveAfterDays\': 123,
+                            \'EnableNonSecurity\': True|False
                         },
                     ]
                 },
-                'ApprovedPatches': [
-                    'string',
+                \'ApprovedPatches\': [
+                    \'string\',
                 ],
-                'ApprovedPatchesComplianceLevel': 'CRITICAL'|'HIGH'|'MEDIUM'|'LOW'|'INFORMATIONAL'|'UNSPECIFIED',
-                'ApprovedPatchesEnableNonSecurity': True|False,
-                'RejectedPatches': [
-                    'string',
+                \'ApprovedPatchesComplianceLevel\': \'CRITICAL\'|\'HIGH\'|\'MEDIUM\'|\'LOW\'|\'INFORMATIONAL\'|\'UNSPECIFIED\',
+                \'ApprovedPatchesEnableNonSecurity\': True|False,
+                \'RejectedPatches\': [
+                    \'string\',
                 ],
-                'RejectedPatchesAction': 'ALLOW_AS_DEPENDENCY'|'BLOCK',
-                'CreatedDate': datetime(2015, 1, 1),
-                'ModifiedDate': datetime(2015, 1, 1),
-                'Description': 'string',
-                'Sources': [
+                \'RejectedPatchesAction\': \'ALLOW_AS_DEPENDENCY\'|\'BLOCK\',
+                \'CreatedDate\': datetime(2015, 1, 1),
+                \'ModifiedDate\': datetime(2015, 1, 1),
+                \'Description\': \'string\',
+                \'Sources\': [
                     {
-                        'Name': 'string',
-                        'Products': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Products\': [
+                            \'string\',
                         ],
-                        'Configuration': 'string'
+                        \'Configuration\': \'string\'
                     },
                 ]
             }
@@ -18894,7 +18894,7 @@ class Client(BaseClient):
         
                   - **EnableNonSecurity** *(boolean) --* 
         
-                    For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
+                    For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is \'false\'. Applies to Linux instances only.
         
             - **ApprovedPatches** *(list) --* 
         
@@ -18908,7 +18908,7 @@ class Client(BaseClient):
         
             - **ApprovedPatchesEnableNonSecurity** *(boolean) --* 
         
-              Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+              Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is \'false\'. Applies to Linux instances only.
         
             - **RejectedPatches** *(list) --* 
         
@@ -18946,7 +18946,7 @@ class Client(BaseClient):
         
                 - **Products** *(list) --* 
         
-                  The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see  PatchFilter .
+                  The specific operating system versions a patch repository applies to, such as \"Ubuntu16.04\", \"AmazonLinux2016.09\", \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported product values, see  PatchFilter .
         
                   - *(string) --* 
               

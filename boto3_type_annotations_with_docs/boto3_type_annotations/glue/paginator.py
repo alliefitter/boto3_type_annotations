@@ -14,9 +14,9 @@ class GetClassifiers(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -44,31 +44,31 @@ class GetClassifiers(Paginator):
           ::
         
             {
-                'Classifiers': [
+                \'Classifiers\': [
                     {
-                        'GrokClassifier': {
-                            'Name': 'string',
-                            'Classification': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'GrokPattern': 'string',
-                            'CustomPatterns': 'string'
+                        \'GrokClassifier\': {
+                            \'Name\': \'string\',
+                            \'Classification\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'GrokPattern\': \'string\',
+                            \'CustomPatterns\': \'string\'
                         },
-                        'XMLClassifier': {
-                            'Name': 'string',
-                            'Classification': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'RowTag': 'string'
+                        \'XMLClassifier\': {
+                            \'Name\': \'string\',
+                            \'Classification\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'RowTag\': \'string\'
                         },
-                        'JsonClassifier': {
-                            'Name': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'LastUpdated': datetime(2015, 1, 1),
-                            'Version': 123,
-                            'JsonPath': 'string'
+                        \'JsonClassifier\': {
+                            \'Name\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'LastUpdated\': datetime(2015, 1, 1),
+                            \'Version\': 123,
+                            \'JsonPath\': \'string\'
                         }
                     },
                 ],
@@ -146,7 +146,7 @@ class GetClassifiers(Paginator):
         
                   - **RowTag** *(string) --* 
         
-                    The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a="A" item_b="B"></row>`` is okay, but ``<row item_a="A" item_b="B" />`` is not).
+                    The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by ``/>`` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, ``<row item_a=\"A\" item_b=\"B\"></row>`` is okay, but ``<row item_a=\"A\" item_b=\"B\" />`` is not).
         
                 - **JsonClassifier** *(dict) --* 
         
@@ -186,17 +186,17 @@ class GetConnections(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
+              CatalogId=\'string\',
               Filter={
-                  'MatchCriteria': [
-                      'string',
+                  \'MatchCriteria\': [
+                      \'string\',
                   ],
-                  'ConnectionType': 'JDBC'|'SFTP'
+                  \'ConnectionType\': \'JDBC\'|\'SFTP\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -244,27 +244,27 @@ class GetConnections(Paginator):
           ::
         
             {
-                'ConnectionList': [
+                \'ConnectionList\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'ConnectionType': 'JDBC'|'SFTP',
-                        'MatchCriteria': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'ConnectionType\': \'JDBC\'|\'SFTP\',
+                        \'MatchCriteria\': [
+                            \'string\',
                         ],
-                        'ConnectionProperties': {
-                            'string': 'string'
+                        \'ConnectionProperties\': {
+                            \'string\': \'string\'
                         },
-                        'PhysicalConnectionRequirements': {
-                            'SubnetId': 'string',
-                            'SecurityGroupIdList': [
-                                'string',
+                        \'PhysicalConnectionRequirements\': {
+                            \'SubnetId\': \'string\',
+                            \'SecurityGroupIdList\': [
+                                \'string\',
                             ],
-                            'AvailabilityZone': 'string'
+                            \'AvailabilityZone\': \'string\'
                         },
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'LastUpdatedBy': 'string'
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedBy\': \'string\'
                     },
                 ],
                 
@@ -307,7 +307,7 @@ class GetConnections(Paginator):
                    
                   * ``PORT`` - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections. 
                    
-                  * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is "``USERNAME`` ". 
+                  * ``USER_NAME`` - The name under which to log in to the database. The value string for ``USER_NAME`` is \"``USERNAME`` \". 
                    
                   * ``PASSWORD`` - A password, if one is used, for the user name. 
                    
@@ -347,7 +347,7 @@ class GetConnections(Paginator):
                 
                   - **AvailabilityZone** *(string) --* 
         
-                    The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
+                    The connection\'s availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.
         
                 - **CreationTime** *(datetime) --* 
         
@@ -376,12 +376,12 @@ class GetCrawlerMetrics(Paginator):
         
           response_iterator = paginator.paginate(
               CrawlerNameList=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CrawlerNameList: list
@@ -416,16 +416,16 @@ class GetCrawlerMetrics(Paginator):
           ::
         
             {
-                'CrawlerMetricsList': [
+                \'CrawlerMetricsList\': [
                     {
-                        'CrawlerName': 'string',
-                        'TimeLeftSeconds': 123.0,
-                        'StillEstimating': True|False,
-                        'LastRuntimeSeconds': 123.0,
-                        'MedianRuntimeSeconds': 123.0,
-                        'TablesCreated': 123,
-                        'TablesUpdated': 123,
-                        'TablesDeleted': 123
+                        \'CrawlerName\': \'string\',
+                        \'TimeLeftSeconds\': 123.0,
+                        \'StillEstimating\': True|False,
+                        \'LastRuntimeSeconds\': 123.0,
+                        \'MedianRuntimeSeconds\': 123.0,
+                        \'TablesCreated\': 123,
+                        \'TablesUpdated\': 123,
+                        \'TablesDeleted\': 123
                     },
                 ],
                 
@@ -456,11 +456,11 @@ class GetCrawlerMetrics(Paginator):
         
                 - **LastRuntimeSeconds** *(float) --* 
         
-                  The duration of the crawler's most recent run, in seconds.
+                  The duration of the crawler\'s most recent run, in seconds.
         
                 - **MedianRuntimeSeconds** *(float) --* 
         
-                  The median duration of this crawler's runs, in seconds.
+                  The median duration of this crawler\'s runs, in seconds.
         
                 - **TablesCreated** *(integer) --* 
         
@@ -489,9 +489,9 @@ class GetCrawlers(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -519,63 +519,63 @@ class GetCrawlers(Paginator):
           ::
         
             {
-                'Crawlers': [
+                \'Crawlers\': [
                     {
-                        'Name': 'string',
-                        'Role': 'string',
-                        'Targets': {
-                            'S3Targets': [
+                        \'Name\': \'string\',
+                        \'Role\': \'string\',
+                        \'Targets\': {
+                            \'S3Targets\': [
                                 {
-                                    'Path': 'string',
-                                    'Exclusions': [
-                                        'string',
+                                    \'Path\': \'string\',
+                                    \'Exclusions\': [
+                                        \'string\',
                                     ]
                                 },
                             ],
-                            'JdbcTargets': [
+                            \'JdbcTargets\': [
                                 {
-                                    'ConnectionName': 'string',
-                                    'Path': 'string',
-                                    'Exclusions': [
-                                        'string',
+                                    \'ConnectionName\': \'string\',
+                                    \'Path\': \'string\',
+                                    \'Exclusions\': [
+                                        \'string\',
                                     ]
                                 },
                             ],
-                            'DynamoDBTargets': [
+                            \'DynamoDBTargets\': [
                                 {
-                                    'Path': 'string'
+                                    \'Path\': \'string\'
                                 },
                             ]
                         },
-                        'DatabaseName': 'string',
-                        'Description': 'string',
-                        'Classifiers': [
-                            'string',
+                        \'DatabaseName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Classifiers\': [
+                            \'string\',
                         ],
-                        'SchemaChangePolicy': {
-                            'UpdateBehavior': 'LOG'|'UPDATE_IN_DATABASE',
-                            'DeleteBehavior': 'LOG'|'DELETE_FROM_DATABASE'|'DEPRECATE_IN_DATABASE'
+                        \'SchemaChangePolicy\': {
+                            \'UpdateBehavior\': \'LOG\'|\'UPDATE_IN_DATABASE\',
+                            \'DeleteBehavior\': \'LOG\'|\'DELETE_FROM_DATABASE\'|\'DEPRECATE_IN_DATABASE\'
                         },
-                        'State': 'READY'|'RUNNING'|'STOPPING',
-                        'TablePrefix': 'string',
-                        'Schedule': {
-                            'ScheduleExpression': 'string',
-                            'State': 'SCHEDULED'|'NOT_SCHEDULED'|'TRANSITIONING'
+                        \'State\': \'READY\'|\'RUNNING\'|\'STOPPING\',
+                        \'TablePrefix\': \'string\',
+                        \'Schedule\': {
+                            \'ScheduleExpression\': \'string\',
+                            \'State\': \'SCHEDULED\'|\'NOT_SCHEDULED\'|\'TRANSITIONING\'
                         },
-                        'CrawlElapsedTime': 123,
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdated': datetime(2015, 1, 1),
-                        'LastCrawl': {
-                            'Status': 'SUCCEEDED'|'CANCELLED'|'FAILED',
-                            'ErrorMessage': 'string',
-                            'LogGroup': 'string',
-                            'LogStream': 'string',
-                            'MessagePrefix': 'string',
-                            'StartTime': datetime(2015, 1, 1)
+                        \'CrawlElapsedTime\': 123,
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdated\': datetime(2015, 1, 1),
+                        \'LastCrawl\': {
+                            \'Status\': \'SUCCEEDED\'|\'CANCELLED\'|\'FAILED\',
+                            \'ErrorMessage\': \'string\',
+                            \'LogGroup\': \'string\',
+                            \'LogStream\': \'string\',
+                            \'MessagePrefix\': \'string\',
+                            \'StartTime\': datetime(2015, 1, 1)
                         },
-                        'Version': 123,
-                        'Configuration': 'string',
-                        'CrawlerSecurityConfiguration': 'string'
+                        \'Version\': 123,
+                        \'Configuration\': \'string\',
+                        \'CrawlerSecurityConfiguration\': \'string\'
                     },
                 ],
                 
@@ -748,7 +748,7 @@ class GetCrawlers(Paginator):
         
                 - **Configuration** *(string) --* 
         
-                  Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
+                  Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler\'s behavior. For more information, see `Configuring a Crawler <http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html>`__ .
         
                 - **CrawlerSecurityConfiguration** *(string) --* 
         
@@ -768,11 +768,11 @@ class GetDatabases(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
+              CatalogId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -805,15 +805,15 @@ class GetDatabases(Paginator):
           ::
         
             {
-                'DatabaseList': [
+                \'DatabaseList\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'LocationUri': 'string',
-                        'Parameters': {
-                            'string': 'string'
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'LocationUri\': \'string\',
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'CreateTime': datetime(2015, 1, 1)
+                        \'CreateTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -869,9 +869,9 @@ class GetDevEndpoints(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -899,33 +899,33 @@ class GetDevEndpoints(Paginator):
           ::
         
             {
-                'DevEndpoints': [
+                \'DevEndpoints\': [
                     {
-                        'EndpointName': 'string',
-                        'RoleArn': 'string',
-                        'SecurityGroupIds': [
-                            'string',
+                        \'EndpointName\': \'string\',
+                        \'RoleArn\': \'string\',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'SubnetId': 'string',
-                        'YarnEndpointAddress': 'string',
-                        'PrivateAddress': 'string',
-                        'ZeppelinRemoteSparkInterpreterPort': 123,
-                        'PublicAddress': 'string',
-                        'Status': 'string',
-                        'NumberOfNodes': 123,
-                        'AvailabilityZone': 'string',
-                        'VpcId': 'string',
-                        'ExtraPythonLibsS3Path': 'string',
-                        'ExtraJarsS3Path': 'string',
-                        'FailureReason': 'string',
-                        'LastUpdateStatus': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1),
-                        'LastModifiedTimestamp': datetime(2015, 1, 1),
-                        'PublicKey': 'string',
-                        'PublicKeys': [
-                            'string',
+                        \'SubnetId\': \'string\',
+                        \'YarnEndpointAddress\': \'string\',
+                        \'PrivateAddress\': \'string\',
+                        \'ZeppelinRemoteSparkInterpreterPort\': 123,
+                        \'PublicAddress\': \'string\',
+                        \'Status\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'AvailabilityZone\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'ExtraPythonLibsS3Path\': \'string\',
+                        \'ExtraJarsS3Path\': \'string\',
+                        \'FailureReason\': \'string\',
+                        \'LastUpdateStatus\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1),
+                        \'LastModifiedTimestamp\': datetime(2015, 1, 1),
+                        \'PublicKey\': \'string\',
+                        \'PublicKeys\': [
+                            \'string\',
                         ],
-                        'SecurityConfiguration': 'string'
+                        \'SecurityConfiguration\': \'string\'
                     },
                 ],
                 
@@ -1052,11 +1052,11 @@ class GetJobRuns(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              JobName='string',
+              JobName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type JobName: string
@@ -1089,35 +1089,35 @@ class GetJobRuns(Paginator):
           ::
         
             {
-                'JobRuns': [
+                \'JobRuns\': [
                     {
-                        'Id': 'string',
-                        'Attempt': 123,
-                        'PreviousRunId': 'string',
-                        'TriggerName': 'string',
-                        'JobName': 'string',
-                        'StartedOn': datetime(2015, 1, 1),
-                        'LastModifiedOn': datetime(2015, 1, 1),
-                        'CompletedOn': datetime(2015, 1, 1),
-                        'JobRunState': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT',
-                        'Arguments': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Attempt\': 123,
+                        \'PreviousRunId\': \'string\',
+                        \'TriggerName\': \'string\',
+                        \'JobName\': \'string\',
+                        \'StartedOn\': datetime(2015, 1, 1),
+                        \'LastModifiedOn\': datetime(2015, 1, 1),
+                        \'CompletedOn\': datetime(2015, 1, 1),
+                        \'JobRunState\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\',
+                        \'Arguments\': {
+                            \'string\': \'string\'
                         },
-                        'ErrorMessage': 'string',
-                        'PredecessorRuns': [
+                        \'ErrorMessage\': \'string\',
+                        \'PredecessorRuns\': [
                             {
-                                'JobName': 'string',
-                                'RunId': 'string'
+                                \'JobName\': \'string\',
+                                \'RunId\': \'string\'
                             },
                         ],
-                        'AllocatedCapacity': 123,
-                        'ExecutionTime': 123,
-                        'Timeout': 123,
-                        'NotificationProperty': {
-                            'NotifyDelayAfter': 123
+                        \'AllocatedCapacity\': 123,
+                        \'ExecutionTime\': 123,
+                        \'Timeout\': 123,
+                        \'NotificationProperty\': {
+                            \'NotifyDelayAfter\': 123
                         },
-                        'SecurityConfiguration': 'string',
-                        'LogGroupName': 'string'
+                        \'SecurityConfiguration\': \'string\',
+                        \'LogGroupName\': \'string\'
                     },
                 ],
                 
@@ -1247,9 +1247,9 @@ class GetJobs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1277,36 +1277,36 @@ class GetJobs(Paginator):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'LogUri': 'string',
-                        'Role': 'string',
-                        'CreatedOn': datetime(2015, 1, 1),
-                        'LastModifiedOn': datetime(2015, 1, 1),
-                        'ExecutionProperty': {
-                            'MaxConcurrentRuns': 123
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'LogUri\': \'string\',
+                        \'Role\': \'string\',
+                        \'CreatedOn\': datetime(2015, 1, 1),
+                        \'LastModifiedOn\': datetime(2015, 1, 1),
+                        \'ExecutionProperty\': {
+                            \'MaxConcurrentRuns\': 123
                         },
-                        'Command': {
-                            'Name': 'string',
-                            'ScriptLocation': 'string'
+                        \'Command\': {
+                            \'Name\': \'string\',
+                            \'ScriptLocation\': \'string\'
                         },
-                        'DefaultArguments': {
-                            'string': 'string'
+                        \'DefaultArguments\': {
+                            \'string\': \'string\'
                         },
-                        'Connections': {
-                            'Connections': [
-                                'string',
+                        \'Connections\': {
+                            \'Connections\': [
+                                \'string\',
                             ]
                         },
-                        'MaxRetries': 123,
-                        'AllocatedCapacity': 123,
-                        'Timeout': 123,
-                        'NotificationProperty': {
-                            'NotifyDelayAfter': 123
+                        \'MaxRetries\': 123,
+                        \'AllocatedCapacity\': 123,
+                        \'Timeout\': 123,
+                        \'NotificationProperty\': {
+                            \'NotifyDelayAfter\': 123
                         },
-                        'SecurityConfiguration': 'string'
+                        \'SecurityConfiguration\': \'string\'
                     },
                 ],
                 
@@ -1429,18 +1429,18 @@ class GetPartitions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
-              Expression='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
+              Expression=\'string\',
               Segment={
-                  'SegmentNumber': 123,
-                  'TotalSegments': 123
+                  \'SegmentNumber\': 123,
+                  \'TotalSegments\': 123
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -1456,7 +1456,7 @@ class GetPartitions(Paginator):
         :type TableName: string
         :param TableName: **[REQUIRED]** 
         
-          The name of the partitions' table.
+          The name of the partitions\' table.
         
         :type Expression: string
         :param Expression: 
@@ -1471,7 +1471,7 @@ class GetPartitions(Paginator):
         
           Checks if the values of the two operands are equal or not; if yes, then the condition becomes true.
         
-          Example: Assume 'variable a' holds 10 and 'variable b' holds 20. 
+          Example: Assume \'variable a\' holds 10 and \'variable b\' holds 20. 
         
           (a = b) is not true.
         
@@ -1538,7 +1538,7 @@ class GetPartitions(Paginator):
         :type Segment: dict
         :param Segment: 
         
-          The segment of the table's partitions to scan in this request.
+          The segment of the table\'s partitions to scan in this request.
         
           - **SegmentNumber** *(integer) --* **[REQUIRED]** 
         
@@ -1573,64 +1573,64 @@ class GetPartitions(Paginator):
           ::
         
             {
-                'Partitions': [
+                \'Partitions\': [
                     {
-                        'Values': [
-                            'string',
+                        \'Values\': [
+                            \'string\',
                         ],
-                        'DatabaseName': 'string',
-                        'TableName': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'StorageDescriptor': {
-                            'Columns': [
+                        \'DatabaseName\': \'string\',
+                        \'TableName\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'Parameters': {
-                            'string': 'string'
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'LastAnalyzedTime': datetime(2015, 1, 1)
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -1817,13 +1817,13 @@ class GetTableVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
-              DatabaseName='string',
-              TableName='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              TableName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -1866,79 +1866,79 @@ class GetTableVersions(Paginator):
           ::
         
             {
-                'TableVersions': [
+                \'TableVersions\': [
                     {
-                        'Table': {
-                            'Name': 'string',
-                            'DatabaseName': 'string',
-                            'Description': 'string',
-                            'Owner': 'string',
-                            'CreateTime': datetime(2015, 1, 1),
-                            'UpdateTime': datetime(2015, 1, 1),
-                            'LastAccessTime': datetime(2015, 1, 1),
-                            'LastAnalyzedTime': datetime(2015, 1, 1),
-                            'Retention': 123,
-                            'StorageDescriptor': {
-                                'Columns': [
+                        \'Table\': {
+                            \'Name\': \'string\',
+                            \'DatabaseName\': \'string\',
+                            \'Description\': \'string\',
+                            \'Owner\': \'string\',
+                            \'CreateTime\': datetime(2015, 1, 1),
+                            \'UpdateTime\': datetime(2015, 1, 1),
+                            \'LastAccessTime\': datetime(2015, 1, 1),
+                            \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                            \'Retention\': 123,
+                            \'StorageDescriptor\': {
+                                \'Columns\': [
                                     {
-                                        'Name': 'string',
-                                        'Type': 'string',
-                                        'Comment': 'string'
+                                        \'Name\': \'string\',
+                                        \'Type\': \'string\',
+                                        \'Comment\': \'string\'
                                     },
                                 ],
-                                'Location': 'string',
-                                'InputFormat': 'string',
-                                'OutputFormat': 'string',
-                                'Compressed': True|False,
-                                'NumberOfBuckets': 123,
-                                'SerdeInfo': {
-                                    'Name': 'string',
-                                    'SerializationLibrary': 'string',
-                                    'Parameters': {
-                                        'string': 'string'
+                                \'Location\': \'string\',
+                                \'InputFormat\': \'string\',
+                                \'OutputFormat\': \'string\',
+                                \'Compressed\': True|False,
+                                \'NumberOfBuckets\': 123,
+                                \'SerdeInfo\': {
+                                    \'Name\': \'string\',
+                                    \'SerializationLibrary\': \'string\',
+                                    \'Parameters\': {
+                                        \'string\': \'string\'
                                     }
                                 },
-                                'BucketColumns': [
-                                    'string',
+                                \'BucketColumns\': [
+                                    \'string\',
                                 ],
-                                'SortColumns': [
+                                \'SortColumns\': [
                                     {
-                                        'Column': 'string',
-                                        'SortOrder': 123
+                                        \'Column\': \'string\',
+                                        \'SortOrder\': 123
                                     },
                                 ],
-                                'Parameters': {
-                                    'string': 'string'
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 },
-                                'SkewedInfo': {
-                                    'SkewedColumnNames': [
-                                        'string',
+                                \'SkewedInfo\': {
+                                    \'SkewedColumnNames\': [
+                                        \'string\',
                                     ],
-                                    'SkewedColumnValues': [
-                                        'string',
+                                    \'SkewedColumnValues\': [
+                                        \'string\',
                                     ],
-                                    'SkewedColumnValueLocationMaps': {
-                                        'string': 'string'
+                                    \'SkewedColumnValueLocationMaps\': {
+                                        \'string\': \'string\'
                                     }
                                 },
-                                'StoredAsSubDirectories': True|False
+                                \'StoredAsSubDirectories\': True|False
                             },
-                            'PartitionKeys': [
+                            \'PartitionKeys\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'ViewOriginalText': 'string',
-                            'ViewExpandedText': 'string',
-                            'TableType': 'string',
-                            'Parameters': {
-                                'string': 'string'
+                            \'ViewOriginalText\': \'string\',
+                            \'ViewExpandedText\': \'string\',
+                            \'TableType\': \'string\',
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'CreatedBy': 'string'
+                            \'CreatedBy\': \'string\'
                         },
-                        'VersionId': 'string'
+                        \'VersionId\': \'string\'
                     },
                 ],
                 
@@ -2179,13 +2179,13 @@ class GetTables(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
-              DatabaseName='string',
-              Expression='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Expression=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -2228,76 +2228,76 @@ class GetTables(Paginator):
           ::
         
             {
-                'TableList': [
+                \'TableList\': [
                     {
-                        'Name': 'string',
-                        'DatabaseName': 'string',
-                        'Description': 'string',
-                        'Owner': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'UpdateTime': datetime(2015, 1, 1),
-                        'LastAccessTime': datetime(2015, 1, 1),
-                        'LastAnalyzedTime': datetime(2015, 1, 1),
-                        'Retention': 123,
-                        'StorageDescriptor': {
-                            'Columns': [
+                        \'Name\': \'string\',
+                        \'DatabaseName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Owner\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'UpdateTime\': datetime(2015, 1, 1),
+                        \'LastAccessTime\': datetime(2015, 1, 1),
+                        \'LastAnalyzedTime\': datetime(2015, 1, 1),
+                        \'Retention\': 123,
+                        \'StorageDescriptor\': {
+                            \'Columns\': [
                                 {
-                                    'Name': 'string',
-                                    'Type': 'string',
-                                    'Comment': 'string'
+                                    \'Name\': \'string\',
+                                    \'Type\': \'string\',
+                                    \'Comment\': \'string\'
                                 },
                             ],
-                            'Location': 'string',
-                            'InputFormat': 'string',
-                            'OutputFormat': 'string',
-                            'Compressed': True|False,
-                            'NumberOfBuckets': 123,
-                            'SerdeInfo': {
-                                'Name': 'string',
-                                'SerializationLibrary': 'string',
-                                'Parameters': {
-                                    'string': 'string'
+                            \'Location\': \'string\',
+                            \'InputFormat\': \'string\',
+                            \'OutputFormat\': \'string\',
+                            \'Compressed\': True|False,
+                            \'NumberOfBuckets\': 123,
+                            \'SerdeInfo\': {
+                                \'Name\': \'string\',
+                                \'SerializationLibrary\': \'string\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'BucketColumns': [
-                                'string',
+                            \'BucketColumns\': [
+                                \'string\',
                             ],
-                            'SortColumns': [
+                            \'SortColumns\': [
                                 {
-                                    'Column': 'string',
-                                    'SortOrder': 123
+                                    \'Column\': \'string\',
+                                    \'SortOrder\': 123
                                 },
                             ],
-                            'Parameters': {
-                                'string': 'string'
+                            \'Parameters\': {
+                                \'string\': \'string\'
                             },
-                            'SkewedInfo': {
-                                'SkewedColumnNames': [
-                                    'string',
+                            \'SkewedInfo\': {
+                                \'SkewedColumnNames\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValues': [
-                                    'string',
+                                \'SkewedColumnValues\': [
+                                    \'string\',
                                 ],
-                                'SkewedColumnValueLocationMaps': {
-                                    'string': 'string'
+                                \'SkewedColumnValueLocationMaps\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'StoredAsSubDirectories': True|False
+                            \'StoredAsSubDirectories\': True|False
                         },
-                        'PartitionKeys': [
+                        \'PartitionKeys\': [
                             {
-                                'Name': 'string',
-                                'Type': 'string',
-                                'Comment': 'string'
+                                \'Name\': \'string\',
+                                \'Type\': \'string\',
+                                \'Comment\': \'string\'
                             },
                         ],
-                        'ViewOriginalText': 'string',
-                        'ViewExpandedText': 'string',
-                        'TableType': 'string',
-                        'Parameters': {
-                            'string': 'string'
+                        \'ViewOriginalText\': \'string\',
+                        \'ViewExpandedText\': \'string\',
+                        \'TableType\': \'string\',
+                        \'Parameters\': {
+                            \'string\': \'string\'
                         },
-                        'CreatedBy': 'string'
+                        \'CreatedBy\': \'string\'
                     },
                 ],
                 
@@ -2530,11 +2530,11 @@ class GetTriggers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DependentJobName='string',
+              DependentJobName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DependentJobName: string
@@ -2567,34 +2567,34 @@ class GetTriggers(Paginator):
           ::
         
             {
-                'Triggers': [
+                \'Triggers\': [
                     {
-                        'Name': 'string',
-                        'Id': 'string',
-                        'Type': 'SCHEDULED'|'CONDITIONAL'|'ON_DEMAND',
-                        'State': 'CREATING'|'CREATED'|'ACTIVATING'|'ACTIVATED'|'DEACTIVATING'|'DEACTIVATED'|'DELETING'|'UPDATING',
-                        'Description': 'string',
-                        'Schedule': 'string',
-                        'Actions': [
+                        \'Name\': \'string\',
+                        \'Id\': \'string\',
+                        \'Type\': \'SCHEDULED\'|\'CONDITIONAL\'|\'ON_DEMAND\',
+                        \'State\': \'CREATING\'|\'CREATED\'|\'ACTIVATING\'|\'ACTIVATED\'|\'DEACTIVATING\'|\'DEACTIVATED\'|\'DELETING\'|\'UPDATING\',
+                        \'Description\': \'string\',
+                        \'Schedule\': \'string\',
+                        \'Actions\': [
                             {
-                                'JobName': 'string',
-                                'Arguments': {
-                                    'string': 'string'
+                                \'JobName\': \'string\',
+                                \'Arguments\': {
+                                    \'string\': \'string\'
                                 },
-                                'Timeout': 123,
-                                'NotificationProperty': {
-                                    'NotifyDelayAfter': 123
+                                \'Timeout\': 123,
+                                \'NotificationProperty\': {
+                                    \'NotifyDelayAfter\': 123
                                 },
-                                'SecurityConfiguration': 'string'
+                                \'SecurityConfiguration\': \'string\'
                             },
                         ],
-                        'Predicate': {
-                            'Logical': 'AND'|'ANY',
-                            'Conditions': [
+                        \'Predicate\': {
+                            \'Logical\': \'AND\'|\'ANY\',
+                            \'Conditions\': [
                                 {
-                                    'LogicalOperator': 'EQUALS',
-                                    'JobName': 'string',
-                                    'State': 'STARTING'|'RUNNING'|'STOPPING'|'STOPPED'|'SUCCEEDED'|'FAILED'|'TIMEOUT'
+                                    \'LogicalOperator\': \'EQUALS\',
+                                    \'JobName\': \'string\',
+                                    \'State\': \'STARTING\'|\'RUNNING\'|\'STOPPING\'|\'STOPPED\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMEOUT\'
                                 },
                             ]
                         }
@@ -2722,13 +2722,13 @@ class GetUserDefinedFunctions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CatalogId='string',
-              DatabaseName='string',
-              Pattern='string',
+              CatalogId=\'string\',
+              DatabaseName=\'string\',
+              Pattern=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CatalogId: string
@@ -2771,17 +2771,17 @@ class GetUserDefinedFunctions(Paginator):
           ::
         
             {
-                'UserDefinedFunctions': [
+                \'UserDefinedFunctions\': [
                     {
-                        'FunctionName': 'string',
-                        'ClassName': 'string',
-                        'OwnerName': 'string',
-                        'OwnerType': 'USER'|'ROLE'|'GROUP',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'ResourceUris': [
+                        \'FunctionName\': \'string\',
+                        \'ClassName\': \'string\',
+                        \'OwnerName\': \'string\',
+                        \'OwnerType\': \'USER\'|\'ROLE\'|\'GROUP\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'ResourceUris\': [
                             {
-                                'ResourceType': 'JAR'|'FILE'|'ARCHIVE',
-                                'Uri': 'string'
+                                \'ResourceType\': \'JAR\'|\'FILE\'|\'ARCHIVE\',
+                                \'Uri\': \'string\'
                             },
                         ]
                     },

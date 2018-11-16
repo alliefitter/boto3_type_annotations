@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -24,11 +24,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagList=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -62,7 +62,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'string'
+                \'Status\': \'string\'
             }
           **Response Structure** 
         
@@ -81,10 +81,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -104,7 +104,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_hapg(
-              Label='string'
+              Label=\'string\'
           )
         :type Label: string
         :param Label: **[REQUIRED]** 
@@ -119,7 +119,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HapgArn': 'string'
+                \'HapgArn\': \'string\'
             }
           **Response Structure** 
         
@@ -153,14 +153,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_hsm(
-              SubnetId='string',
-              SshKey='string',
-              EniIp='string',
-              IamRoleArn='string',
-              ExternalId='string',
-              SubscriptionType='PRODUCTION',
-              ClientToken='string',
-              SyslogIp='string'
+              SubnetId=\'string\',
+              SshKey=\'string\',
+              EniIp=\'string\',
+              IamRoleArn=\'string\',
+              ExternalId=\'string\',
+              SubscriptionType=\'PRODUCTION\',
+              ClientToken=\'string\',
+              SyslogIp=\'string\'
           )
         :type SubnetId: string
         :param SubnetId: **[REQUIRED]** 
@@ -175,7 +175,7 @@ class Client(BaseClient):
         :type EniIp: string
         :param EniIp: 
         
-          The IP address to assign to the HSM's ENI.
+          The IP address to assign to the HSM\'s ENI.
         
           If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
         
@@ -216,7 +216,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmArn': 'string'
+                \'HsmArn\': \'string\'
             }
           **Response Structure** 
         
@@ -244,8 +244,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_luna_client(
-              Label='string',
-              Certificate='string'
+              Label=\'string\',
+              Certificate=\'string\'
           )
         :type Label: string
         :param Label: 
@@ -265,7 +265,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientArn': 'string'
+                \'ClientArn\': \'string\'
             }
           **Response Structure** 
         
@@ -293,7 +293,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hapg(
-              HapgArn='string'
+              HapgArn=\'string\'
           )
         :type HapgArn: string
         :param HapgArn: **[REQUIRED]** 
@@ -308,7 +308,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'string'
+                \'Status\': \'string\'
             }
           **Response Structure** 
         
@@ -336,7 +336,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hsm(
-              HsmArn='string'
+              HsmArn=\'string\'
           )
         :type HsmArn: string
         :param HsmArn: **[REQUIRED]** 
@@ -351,7 +351,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'string'
+                \'Status\': \'string\'
             }
           **Response Structure** 
         
@@ -379,7 +379,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_luna_client(
-              ClientArn='string'
+              ClientArn=\'string\'
           )
         :type ClientArn: string
         :param ClientArn: **[REQUIRED]** 
@@ -394,7 +394,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'string'
+                \'Status\': \'string\'
             }
           **Response Structure** 
         
@@ -420,7 +420,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hapg(
-              HapgArn='string'
+              HapgArn=\'string\'
           )
         :type HapgArn: string
         :param HapgArn: **[REQUIRED]** 
@@ -435,23 +435,23 @@ class Client(BaseClient):
           ::
         
             {
-                'HapgArn': 'string',
-                'HapgSerial': 'string',
-                'HsmsLastActionFailed': [
-                    'string',
+                \'HapgArn\': \'string\',
+                \'HapgSerial\': \'string\',
+                \'HsmsLastActionFailed\': [
+                    \'string\',
                 ],
-                'HsmsPendingDeletion': [
-                    'string',
+                \'HsmsPendingDeletion\': [
+                    \'string\',
                 ],
-                'HsmsPendingRegistration': [
-                    'string',
+                \'HsmsPendingRegistration\': [
+                    \'string\',
                 ],
-                'Label': 'string',
-                'LastModifiedTimestamp': 'string',
-                'PartitionSerialList': [
-                    'string',
+                \'Label\': \'string\',
+                \'LastModifiedTimestamp\': \'string\',
+                \'PartitionSerialList\': [
+                    \'string\',
                 ],
-                'State': 'READY'|'UPDATING'|'DEGRADED'
+                \'State\': \'READY\'|\'UPDATING\'|\'DEGRADED\'
             }
           **Response Structure** 
         
@@ -519,8 +519,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hsm(
-              HsmArn='string',
-              HsmSerialNumber='string'
+              HsmArn=\'string\',
+              HsmSerialNumber=\'string\'
           )
         :type HsmArn: string
         :param HsmArn: 
@@ -540,28 +540,28 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmArn': 'string',
-                'Status': 'PENDING'|'RUNNING'|'UPDATING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'DEGRADED',
-                'StatusDetails': 'string',
-                'AvailabilityZone': 'string',
-                'EniId': 'string',
-                'EniIp': 'string',
-                'SubscriptionType': 'PRODUCTION',
-                'SubscriptionStartDate': 'string',
-                'SubscriptionEndDate': 'string',
-                'VpcId': 'string',
-                'SubnetId': 'string',
-                'IamRoleArn': 'string',
-                'SerialNumber': 'string',
-                'VendorName': 'string',
-                'HsmType': 'string',
-                'SoftwareVersion': 'string',
-                'SshPublicKey': 'string',
-                'SshKeyLastUpdated': 'string',
-                'ServerCertUri': 'string',
-                'ServerCertLastUpdated': 'string',
-                'Partitions': [
-                    'string',
+                \'HsmArn\': \'string\',
+                \'Status\': \'PENDING\'|\'RUNNING\'|\'UPDATING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\'|\'DEGRADED\',
+                \'StatusDetails\': \'string\',
+                \'AvailabilityZone\': \'string\',
+                \'EniId\': \'string\',
+                \'EniIp\': \'string\',
+                \'SubscriptionType\': \'PRODUCTION\',
+                \'SubscriptionStartDate\': \'string\',
+                \'SubscriptionEndDate\': \'string\',
+                \'VpcId\': \'string\',
+                \'SubnetId\': \'string\',
+                \'IamRoleArn\': \'string\',
+                \'SerialNumber\': \'string\',
+                \'VendorName\': \'string\',
+                \'HsmType\': \'string\',
+                \'SoftwareVersion\': \'string\',
+                \'SshPublicKey\': \'string\',
+                \'SshKeyLastUpdated\': \'string\',
+                \'ServerCertUri\': \'string\',
+                \'ServerCertLastUpdated\': \'string\',
+                \'Partitions\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -592,7 +592,7 @@ class Client(BaseClient):
         
             - **EniIp** *(string) --* 
         
-              The IP address assigned to the HSM's ENI.
+              The IP address assigned to the HSM\'s ENI.
         
             - **SubscriptionType** *(string) --* 
         
@@ -676,8 +676,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_luna_client(
-              ClientArn='string',
-              CertificateFingerprint='string'
+              ClientArn=\'string\',
+              CertificateFingerprint=\'string\'
           )
         :type ClientArn: string
         :param ClientArn: 
@@ -697,11 +697,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientArn': 'string',
-                'Certificate': 'string',
-                'CertificateFingerprint': 'string',
-                'LastModifiedTimestamp': 'string',
-                'Label': 'string'
+                \'ClientArn\': \'string\',
+                \'Certificate\': \'string\',
+                \'CertificateFingerprint\': \'string\',
+                \'LastModifiedTimestamp\': \'string\',
+                \'Label\': \'string\'
             }
           **Response Structure** 
         
@@ -746,7 +746,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -765,10 +765,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_config(
-              ClientArn='string',
-              ClientVersion='5.1'|'5.3',
+              ClientArn=\'string\',
+              ClientVersion=\'5.1\'|\'5.3\',
               HapgList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClientArn: string
@@ -796,9 +796,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigType': 'string',
-                'ConfigFile': 'string',
-                'ConfigCred': 'string'
+                \'ConfigType\': \'string\',
+                \'ConfigFile\': \'string\',
+                \'ConfigCred\': \'string\'
             }
           **Response Structure** 
         
@@ -825,10 +825,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -873,8 +873,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AZList': [
-                    'string',
+                \'AZList\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -905,7 +905,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_hapgs(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -920,10 +920,10 @@ class Client(BaseClient):
           ::
         
             {
-                'HapgList': [
-                    'string',
+                \'HapgList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -957,7 +957,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_hsms(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -972,10 +972,10 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmList': [
-                    'string',
+                \'HsmList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1013,7 +1013,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_luna_clients(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1028,10 +1028,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientList': [
-                    'string',
+                \'ClientList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1063,7 +1063,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceArn='string'
+              ResourceArn=\'string\'
           )
         :type ResourceArn: string
         :param ResourceArn: **[REQUIRED]** 
@@ -1078,10 +1078,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -1121,10 +1121,10 @@ class Client(BaseClient):
         ::
         
           response = client.modify_hapg(
-              HapgArn='string',
-              Label='string',
+              HapgArn=\'string\',
+              Label=\'string\',
               PartitionSerialList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type HapgArn: string
@@ -1152,7 +1152,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HapgArn': 'string'
+                \'HapgArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1182,12 +1182,12 @@ class Client(BaseClient):
         ::
         
           response = client.modify_hsm(
-              HsmArn='string',
-              SubnetId='string',
-              EniIp='string',
-              IamRoleArn='string',
-              ExternalId='string',
-              SyslogIp='string'
+              HsmArn=\'string\',
+              SubnetId=\'string\',
+              EniIp=\'string\',
+              IamRoleArn=\'string\',
+              ExternalId=\'string\',
+              SyslogIp=\'string\'
           )
         :type HsmArn: string
         :param HsmArn: **[REQUIRED]** 
@@ -1229,7 +1229,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmArn': 'string'
+                \'HsmArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1251,7 +1251,7 @@ class Client(BaseClient):
         
         Modifies the certificate used by the client.
         
-        This action can potentially start a workflow to install the new certificate on the client's HSMs.
+        This action can potentially start a workflow to install the new certificate on the client\'s HSMs.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyLunaClient>`_
         
@@ -1259,8 +1259,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_luna_client(
-              ClientArn='string',
-              Certificate='string'
+              ClientArn=\'string\',
+              Certificate=\'string\'
           )
         :type ClientArn: string
         :param ClientArn: **[REQUIRED]** 
@@ -1280,7 +1280,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientArn': 'string'
+                \'ClientArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1308,9 +1308,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeyList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -1335,7 +1335,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'string'
+                \'Status\': \'string\'
             }
           **Response Structure** 
         

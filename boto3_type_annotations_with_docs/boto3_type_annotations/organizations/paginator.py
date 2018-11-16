@@ -14,9 +14,9 @@ class ListAWSServiceAccessForOrganization(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -44,10 +44,10 @@ class ListAWSServiceAccessForOrganization(Paginator):
           ::
         
             {
-                'EnabledServicePrincipals': [
+                \'EnabledServicePrincipals\': [
                     {
-                        'ServicePrincipal': 'string',
-                        'DateEnabled': datetime(2015, 1, 1)
+                        \'ServicePrincipal\': \'string\',
+                        \'DateEnabled\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -87,9 +87,9 @@ class ListAccounts(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -117,15 +117,15 @@ class ListAccounts(Paginator):
           ::
         
             {
-                'Accounts': [
+                \'Accounts\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'SUSPENDED',
-                        'JoinedMethod': 'INVITED'|'CREATED',
-                        'JoinedTimestamp': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'SUSPENDED\',
+                        \'JoinedMethod\': \'INVITED\'|\'CREATED\',
+                        \'JoinedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -192,11 +192,11 @@ class ListAccountsForParent(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParentId='string',
+              ParentId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParentId: string
@@ -229,15 +229,15 @@ class ListAccountsForParent(Paginator):
           ::
         
             {
-                'Accounts': [
+                \'Accounts\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'SUSPENDED',
-                        'JoinedMethod': 'INVITED'|'CREATED',
-                        'JoinedTimestamp': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'SUSPENDED\',
+                        \'JoinedMethod\': \'INVITED\'|\'CREATED\',
+                        \'JoinedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -304,12 +304,12 @@ class ListChildren(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParentId='string',
-              ChildType='ACCOUNT'|'ORGANIZATIONAL_UNIT',
+              ParentId=\'string\',
+              ChildType=\'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParentId: string
@@ -319,9 +319,9 @@ class ListChildren(Paginator):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type ChildType: string
         :param ChildType: **[REQUIRED]** 
@@ -353,10 +353,10 @@ class ListChildren(Paginator):
           ::
         
             {
-                'Children': [
+                \'Children\': [
                     {
-                        'Id': 'string',
-                        'Type': 'ACCOUNT'|'ORGANIZATIONAL_UNIT'
+                        \'Id\': \'string\',
+                        \'Type\': \'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\'
                     },
                 ],
                 
@@ -381,7 +381,7 @@ class ListChildren(Paginator):
         
                   * Account: a string that consists of exactly 12 digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Type** *(string) --* 
         
@@ -402,12 +402,12 @@ class ListCreateAccountStatus(Paginator):
         
           response_iterator = paginator.paginate(
               States=[
-                  'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
+                  \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type States: list
@@ -442,15 +442,15 @@ class ListCreateAccountStatus(Paginator):
           ::
         
             {
-                'CreateAccountStatuses': [
+                \'CreateAccountStatuses\': [
                     {
-                        'Id': 'string',
-                        'AccountName': 'string',
-                        'State': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'CompletedTimestamp': datetime(2015, 1, 1),
-                        'AccountId': 'string',
-                        'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
+                        \'Id\': \'string\',
+                        \'AccountName\': \'string\',
+                        \'State\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'CompletedTimestamp\': datetime(2015, 1, 1),
+                        \'AccountId\': \'string\',
+                        \'FailureReason\': \'ACCOUNT_LIMIT_EXCEEDED\'|\'EMAIL_ALREADY_EXISTS\'|\'INVALID_ADDRESS\'|\'INVALID_EMAIL\'|\'CONCURRENT_ACCOUNT_MODIFICATION\'|\'INTERNAL_FAILURE\'
                     },
                 ],
                 
@@ -471,7 +471,7 @@ class ListCreateAccountStatus(Paginator):
         
                   The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires \"car-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **AccountName** *(string) --* 
         
@@ -524,13 +524,13 @@ class ListHandshakesForAccount(Paginator):
         
           response_iterator = paginator.paginate(
               Filter={
-                  'ActionType': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                  'ParentHandshakeId': 'string'
+                  \'ActionType\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                  \'ParentHandshakeId\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filter: dict
@@ -550,7 +550,7 @@ class ListHandshakesForAccount(Paginator):
         
             If you specify ``ParentHandshakeId`` , you cannot also specify ``ActionType`` .
         
-            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -577,25 +577,25 @@ class ListHandshakesForAccount(Paginator):
           ::
         
             {
-                'Handshakes': [
+                \'Handshakes\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Parties': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Parties\': [
                             {
-                                'Id': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                                \'Id\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                             },
                         ],
-                        'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'ExpirationTimestamp': datetime(2015, 1, 1),
-                        'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                        'Resources': [
+                        \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                        \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                        \'Resources\': [
                             {
-                                'Value': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                                'Resources': {'... recursive ...'}
+                                \'Value\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                                \'Resources\': {\'... recursive ...\'}
                             },
                         ]
                     },
@@ -620,7 +620,7 @@ class ListHandshakesForAccount(Paginator):
         
                   The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -640,7 +640,7 @@ class ListHandshakesForAccount(Paginator):
         
                       The unique identifier (ID) for the party.
         
-                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                     - **Type** *(string) --* 
         
@@ -676,7 +676,7 @@ class ListHandshakesForAccount(Paginator):
         
                   * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                    
-                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                    
                   * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                    
@@ -727,13 +727,13 @@ class ListHandshakesForOrganization(Paginator):
         
           response_iterator = paginator.paginate(
               Filter={
-                  'ActionType': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                  'ParentHandshakeId': 'string'
+                  \'ActionType\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                  \'ParentHandshakeId\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filter: dict
@@ -753,7 +753,7 @@ class ListHandshakesForOrganization(Paginator):
         
             If you specify ``ParentHandshakeId`` , you cannot also specify ``ActionType`` .
         
-            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -780,25 +780,25 @@ class ListHandshakesForOrganization(Paginator):
           ::
         
             {
-                'Handshakes': [
+                \'Handshakes\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Parties': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Parties\': [
                             {
-                                'Id': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                                \'Id\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                             },
                         ],
-                        'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'ExpirationTimestamp': datetime(2015, 1, 1),
-                        'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                        'Resources': [
+                        \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                        \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                        \'Resources\': [
                             {
-                                'Value': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                                'Resources': {'... recursive ...'}
+                                \'Value\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                                \'Resources\': {\'... recursive ...\'}
                             },
                         ]
                     },
@@ -823,7 +823,7 @@ class ListHandshakesForOrganization(Paginator):
         
                   The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -843,7 +843,7 @@ class ListHandshakesForOrganization(Paginator):
         
                       The unique identifier (ID) for the party.
         
-                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                     - **Type** *(string) --* 
         
@@ -879,7 +879,7 @@ class ListHandshakesForOrganization(Paginator):
         
                   * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                    
-                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                    
                   * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                    
@@ -929,11 +929,11 @@ class ListOrganizationalUnitsForParent(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ParentId='string',
+              ParentId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ParentId: string
@@ -943,9 +943,9 @@ class ListOrganizationalUnitsForParent(Paginator):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -972,11 +972,11 @@ class ListOrganizationalUnitsForParent(Paginator):
           ::
         
             {
-                'OrganizationalUnits': [
+                \'OrganizationalUnits\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
                 
@@ -997,7 +997,7 @@ class ListOrganizationalUnitsForParent(Paginator):
         
                   The unique identifier (ID) associated with this OU.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -1025,11 +1025,11 @@ class ListParents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ChildId='string',
+              ChildId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ChildId: string
@@ -1041,7 +1041,7 @@ class ListParents(Paginator):
         
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -1068,10 +1068,10 @@ class ListParents(Paginator):
           ::
         
             {
-                'Parents': [
+                \'Parents\': [
                     {
-                        'Id': 'string',
-                        'Type': 'ROOT'|'ORGANIZATIONAL_UNIT'
+                        \'Id\': \'string\',
+                        \'Type\': \'ROOT\'|\'ORGANIZATIONAL_UNIT\'
                     },
                 ],
                 
@@ -1094,9 +1094,9 @@ class ListParents(Paginator):
         
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-                  * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+                  * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Type** *(string) --* 
         
@@ -1116,11 +1116,11 @@ class ListPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Filter='SERVICE_CONTROL_POLICY',
+              Filter=\'SERVICE_CONTROL_POLICY\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filter: string
@@ -1153,14 +1153,14 @@ class ListPolicies(Paginator):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
                 ],
                 
@@ -1181,7 +1181,7 @@ class ListPolicies(Paginator):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -1221,12 +1221,12 @@ class ListPoliciesForTarget(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TargetId='string',
-              Filter='SERVICE_CONTROL_POLICY',
+              TargetId=\'string\',
+              Filter=\'SERVICE_CONTROL_POLICY\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TargetId: string
@@ -1236,11 +1236,11 @@ class ListPoliciesForTarget(Paginator):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type Filter: string
         :param Filter: **[REQUIRED]** 
@@ -1272,14 +1272,14 @@ class ListPoliciesForTarget(Paginator):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
                 ],
                 
@@ -1300,7 +1300,7 @@ class ListPoliciesForTarget(Paginator):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -1341,9 +1341,9 @@ class ListRoots(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1371,15 +1371,15 @@ class ListRoots(Paginator):
           ::
         
             {
-                'Roots': [
+                \'Roots\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'PolicyTypes': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'PolicyTypes\': [
                             {
-                                'Type': 'SERVICE_CONTROL_POLICY',
-                                'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                                \'Type\': \'SERVICE_CONTROL_POLICY\',
+                                \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                             },
                         ]
                     },
@@ -1402,7 +1402,7 @@ class ListRoots(Paginator):
         
                   The unique identifier (ID) for the root.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -1450,11 +1450,11 @@ class ListTargetsForPolicy(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PolicyId='string',
+              PolicyId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicyId: string
@@ -1462,7 +1462,7 @@ class ListTargetsForPolicy(Paginator):
         
           The unique identifier (ID) of the policy for which you want to know its attachments.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -1489,12 +1489,12 @@ class ListTargetsForPolicy(Paginator):
           ::
         
             {
-                'Targets': [
+                \'Targets\': [
                     {
-                        'TargetId': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Type': 'ACCOUNT'|'ORGANIZATIONAL_UNIT'|'ROOT'
+                        \'TargetId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\'|\'ROOT\'
                     },
                 ],
                 
@@ -1517,11 +1517,11 @@ class ListTargetsForPolicy(Paginator):
         
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-                  * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+                  * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
                    
                   * Account: a string that consists of exactly 12 digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Arn** *(string) --* 
         

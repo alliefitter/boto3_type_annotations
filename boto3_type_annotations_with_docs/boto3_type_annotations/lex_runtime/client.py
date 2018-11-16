@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
+from typing import IO
 from typing import NoReturn
 from botocore.client import BaseClient
-from typing import IO
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -41,7 +41,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -53,10 +53,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -86,11 +86,11 @@ class Client(BaseClient):
         
         In response, Amazon Lex returns the next message to convey to the user. Consider the following example messages: 
         
-        * For a user input "I would like a pizza," Amazon Lex might return a response with a message eliciting slot data (for example, ``PizzaSize`` ): "What size pizza would you like?".  
+        * For a user input \"I would like a pizza,\" Amazon Lex might return a response with a message eliciting slot data (for example, ``PizzaSize`` ): \"What size pizza would you like?\".  
          
-        * After the user provides all of the pizza order information, Amazon Lex might return a response with a message to get user confirmation: "Order the pizza?".  
+        * After the user provides all of the pizza order information, Amazon Lex might return a response with a message to get user confirmation: \"Order the pizza?\".  
          
-        * After the user replies "Yes" to the confirmation prompt, Amazon Lex might return a conclusion statement: "Thank you, your cheese pizza has been ordered.".  
+        * After the user replies \"Yes\" to the confirmation prompt, Amazon Lex might return a conclusion statement: \"Thank you, your cheese pizza has been ordered.\".  
          
         Not all Amazon Lex messages require a response from the user. For example, conclusion statements do not require a response. Some messages require only a yes or no response. In addition to the ``message`` , Amazon Lex provides additional context about the message in the response that you can use to enhance client behavior, such as displaying the appropriate client user interface. Consider the following examples: 
         
@@ -116,14 +116,14 @@ class Client(BaseClient):
         ::
         
           response = client.post_content(
-              botName='string',
-              botAlias='string',
-              userId='string',
-              sessionAttributes={...}|[...]|123|123.4|'string'|True|None,
-              requestAttributes={...}|[...]|123|123.4|'string'|True|None,
-              contentType='string',
-              accept='string',
-              inputStream=b'bytes'|file
+              botName=\'string\',
+              botAlias=\'string\',
+              userId=\'string\',
+              sessionAttributes={...}|[...]|123|123.4|\'string\'|True|None,
+              requestAttributes={...}|[...]|123|123.4|\'string\'|True|None,
+              contentType=\'string\',
+              accept=\'string\',
+              inputStream=b\'bytes\'|file
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -138,7 +138,7 @@ class Client(BaseClient):
         :type userId: string
         :param userId: **[REQUIRED]** 
         
-          The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the ``userID`` field.
+          The ID of the client application user. Amazon Lex uses this to identify a user\'s conversation with your bot. At runtime, each request must contain the ``userID`` field.
         
           To decide the user ID to use for your application, consider the following factors.
         
@@ -148,7 +148,7 @@ class Client(BaseClient):
            
           * If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier. 
            
-          * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations. 
+          * A user can\'t have two independent conversations with two different versions of the same bot. For example, a user can\'t have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations. 
            
         :type sessionAttributes: JSON serializable
         :param sessionAttributes: 
@@ -166,7 +166,7 @@ class Client(BaseClient):
         
           Request-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the ``requestAttributes`` and ``sessionAttributes`` headers is limited to 12 KB.
         
-          The namespace ``x-amz-lex:`` is reserved for special attributes. Don't create any request attributes with the prefix ``x-amz-lex:`` .
+          The namespace ``x-amz-lex:`` is reserved for special attributes. Don\'t create any request attributes with the prefix ``x-amz-lex:`` .
         
           For more information, see `Setting Request Attributes <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs>`__ .
         
@@ -229,16 +229,16 @@ class Client(BaseClient):
           ::
         
             {
-                'contentType': 'string',
-                'intentName': 'string',
-                'slots': {...}|[...]|123|123.4|'string'|True|None,
-                'sessionAttributes': {...}|[...]|123|123.4|'string'|True|None,
-                'message': 'string',
-                'messageFormat': 'PlainText'|'CustomPayload'|'SSML'|'Composite',
-                'dialogState': 'ElicitIntent'|'ConfirmIntent'|'ElicitSlot'|'Fulfilled'|'ReadyForFulfillment'|'Failed',
-                'slotToElicit': 'string',
-                'inputTranscript': 'string',
-                'audioStream': StreamingBody()
+                \'contentType\': \'string\',
+                \'intentName\': \'string\',
+                \'slots\': {...}|[...]|123|123.4|\'string\'|True|None,
+                \'sessionAttributes\': {...}|[...]|123|123.4|\'string\'|True|None,
+                \'message\': \'string\',
+                \'messageFormat\': \'PlainText\'|\'CustomPayload\'|\'SSML\'|\'Composite\',
+                \'dialogState\': \'ElicitIntent\'|\'ConfirmIntent\'|\'ElicitSlot\'|\'Fulfilled\'|\'ReadyForFulfillment\'|\'Failed\',
+                \'slotToElicit\': \'string\',
+                \'inputTranscript\': \'string\',
+                \'audioStream\': StreamingBody()
             }
           **Response Structure** 
         
@@ -256,7 +256,7 @@ class Client(BaseClient):
         
               Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation.
         
-              Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the ``valueSelectionStrategy`` selected when the slot type was created or updated. If ``valueSelectionStrategy`` is set to ``ORIGINAL_VALUE`` , the value provided by the user is returned, if the user value is similar to the slot values. If ``valueSelectionStrategy`` is set to ``TOP_RESOLUTION`` Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
+              Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the ``valueSelectionStrategy`` selected when the slot type was created or updated. If ``valueSelectionStrategy`` is set to ``ORIGINAL_VALUE`` , the value provided by the user is returned, if the user value is similar to the slot values. If ``valueSelectionStrategy`` is set to ``TOP_RESOLUTION`` Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don\'t specify a ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
         
             - **sessionAttributes** (JSON serializable) -- 
         
@@ -264,9 +264,9 @@ class Client(BaseClient):
         
             - **message** *(string) --* 
         
-              The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.
+              The message to convey to the user. The message can come from the bot\'s configuration or from a Lambda function.
         
-              If the intent is not configured with a Lambda function, or if the Lambda function returned ``Delegate`` as the ``dialogAction.type`` its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.
+              If the intent is not configured with a Lambda function, or if the Lambda function returned ``Delegate`` as the ``dialogAction.type`` its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot\'s configuration based on the current interaction context. For example, if Amazon Lex isn\'t able to understand user input, it uses a clarification prompt message.
         
               When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see  msg-prompts-formats .
         
@@ -288,11 +288,11 @@ class Client(BaseClient):
         
               Identifies the current state of the user interaction. Amazon Lex returns one of the following values as ``dialogState`` . The client can optionally use this information to customize the user interface. 
         
-              * ``ElicitIntent`` - Amazon Lex wants to elicit the user's intent. Consider the following examples:  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.  
+              * ``ElicitIntent`` - Amazon Lex wants to elicit the user\'s intent. Consider the following examples:  For example, a user might utter an intent (\"I want to order a pizza\"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.  
                
-              * ``ConfirmIntent`` - Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple "yes" or "no" response, a user might respond with additional information. For example, "yes, but make it a thick crust pizza" or "no, I want to order a drink." Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).  
+              * ``ConfirmIntent`` - Amazon Lex is expecting a \"yes\" or \"no\" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple \"yes\" or \"no\" response, a user might respond with additional information. For example, \"yes, but make it a thick crust pizza\" or \"no, I want to order a drink.\" Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).  
                
-              * ``ElicitSlot`` - Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.  
+              * ``ElicitSlot`` - Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: \"What size pizza would you like?\". A user might reply with the slot value (e.g., \"medium\"). The user might also provide additional information in the response (e.g., \"medium thick crust pizza\"). Amazon Lex can process such additional information appropriately.  
                
               * ``Fulfilled`` - Conveys that the Lambda function has successfully fulfilled the intent.  
                
@@ -322,13 +322,13 @@ class Client(BaseClient):
         
         In response, Amazon Lex returns the next ``message`` to convey to the user an optional ``responseCard`` to display. Consider the following example messages: 
         
-        * For a user input "I would like a pizza", Amazon Lex might return a response with a message eliciting slot data (for example, PizzaSize): "What size pizza would you like?"  
+        * For a user input \"I would like a pizza\", Amazon Lex might return a response with a message eliciting slot data (for example, PizzaSize): \"What size pizza would you like?\"  
          
-        * After the user provides all of the pizza order information, Amazon Lex might return a response with a message to obtain user confirmation "Proceed with the pizza order?".  
+        * After the user provides all of the pizza order information, Amazon Lex might return a response with a message to obtain user confirmation \"Proceed with the pizza order?\".  
          
-        * After the user replies to a confirmation prompt with a "yes", Amazon Lex might return a conclusion statement: "Thank you, your cheese pizza has been ordered.".  
+        * After the user replies to a confirmation prompt with a \"yes\", Amazon Lex might return a conclusion statement: \"Thank you, your cheese pizza has been ordered.\".  
          
-        Not all Amazon Lex messages require a user response. For example, a conclusion statement does not require a response. Some messages require only a "yes" or "no" user response. In addition to the ``message`` , Amazon Lex provides additional context about the message in the response that you might use to enhance client behavior, for example, to display the appropriate client user interface. These are the ``slotToElicit`` , ``dialogState`` , ``intentName`` , and ``slots`` fields in the response. Consider the following examples: 
+        Not all Amazon Lex messages require a user response. For example, a conclusion statement does not require a response. Some messages require only a \"yes\" or \"no\" user response. In addition to the ``message`` , Amazon Lex provides additional context about the message in the response that you might use to enhance client behavior, for example, to display the appropriate client user interface. These are the ``slotToElicit`` , ``dialogState`` , ``intentName`` , and ``slots`` fields in the response. Consider the following examples: 
         
         * If the message is to elicit slot data, Amazon Lex returns the following context information: 
         
@@ -352,16 +352,16 @@ class Client(BaseClient):
         ::
         
           response = client.post_text(
-              botName='string',
-              botAlias='string',
-              userId='string',
+              botName=\'string\',
+              botAlias=\'string\',
+              userId=\'string\',
               sessionAttributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               requestAttributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              inputText='string'
+              inputText=\'string\'
           )
         :type botName: string
         :param botName: **[REQUIRED]** 
@@ -376,7 +376,7 @@ class Client(BaseClient):
         :type userId: string
         :param userId: **[REQUIRED]** 
         
-          The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the ``userID`` field.
+          The ID of the client application user. Amazon Lex uses this to identify a user\'s conversation with your bot. At runtime, each request must contain the ``userID`` field.
         
           To decide the user ID to use for your application, consider the following factors.
         
@@ -386,7 +386,7 @@ class Client(BaseClient):
            
           * If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier. 
            
-          * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations. 
+          * A user can\'t have two independent conversations with two different versions of the same bot. For example, a user can\'t have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations. 
            
         :type sessionAttributes: dict
         :param sessionAttributes: 
@@ -404,7 +404,7 @@ class Client(BaseClient):
         
           Request-specific information passed between Amazon Lex and a client application.
         
-          The namespace ``x-amz-lex:`` is reserved for special attributes. Don't create any request attributes with the prefix ``x-amz-lex:`` .
+          The namespace ``x-amz-lex:`` is reserved for special attributes. Don\'t create any request attributes with the prefix ``x-amz-lex:`` .
         
           For more information, see `Setting Request Attributes <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs>`__ .
         
@@ -425,30 +425,30 @@ class Client(BaseClient):
           ::
         
             {
-                'intentName': 'string',
-                'slots': {
-                    'string': 'string'
+                \'intentName\': \'string\',
+                \'slots\': {
+                    \'string\': \'string\'
                 },
-                'sessionAttributes': {
-                    'string': 'string'
+                \'sessionAttributes\': {
+                    \'string\': \'string\'
                 },
-                'message': 'string',
-                'messageFormat': 'PlainText'|'CustomPayload'|'SSML'|'Composite',
-                'dialogState': 'ElicitIntent'|'ConfirmIntent'|'ElicitSlot'|'Fulfilled'|'ReadyForFulfillment'|'Failed',
-                'slotToElicit': 'string',
-                'responseCard': {
-                    'version': 'string',
-                    'contentType': 'application/vnd.amazonaws.card.generic',
-                    'genericAttachments': [
+                \'message\': \'string\',
+                \'messageFormat\': \'PlainText\'|\'CustomPayload\'|\'SSML\'|\'Composite\',
+                \'dialogState\': \'ElicitIntent\'|\'ConfirmIntent\'|\'ElicitSlot\'|\'Fulfilled\'|\'ReadyForFulfillment\'|\'Failed\',
+                \'slotToElicit\': \'string\',
+                \'responseCard\': {
+                    \'version\': \'string\',
+                    \'contentType\': \'application/vnd.amazonaws.card.generic\',
+                    \'genericAttachments\': [
                         {
-                            'title': 'string',
-                            'subTitle': 'string',
-                            'attachmentLinkUrl': 'string',
-                            'imageUrl': 'string',
-                            'buttons': [
+                            \'title\': \'string\',
+                            \'subTitle\': \'string\',
+                            \'attachmentLinkUrl\': \'string\',
+                            \'imageUrl\': \'string\',
+                            \'buttons\': [
                                 {
-                                    'text': 'string',
-                                    'value': 'string'
+                                    \'text\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ]
                         },
@@ -467,7 +467,7 @@ class Client(BaseClient):
         
               The intent slots that Amazon Lex detected from the user input in the conversation. 
         
-              Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the ``valueSelectionStrategy`` selected when the slot type was created or updated. If ``valueSelectionStrategy`` is set to ``ORIGINAL_VALUE`` , the value provided by the user is returned, if the user value is similar to the slot values. If ``valueSelectionStrategy`` is set to ``TOP_RESOLUTION`` Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
+              Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the ``valueSelectionStrategy`` selected when the slot type was created or updated. If ``valueSelectionStrategy`` is set to ``ORIGINAL_VALUE`` , the value provided by the user is returned, if the user value is similar to the slot values. If ``valueSelectionStrategy`` is set to ``TOP_RESOLUTION`` Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don\'t specify a ``valueSelectionStrategy`` , the default is ``ORIGINAL_VALUE`` .
         
               - *(string) --* 
                 
@@ -483,9 +483,9 @@ class Client(BaseClient):
           
             - **message** *(string) --* 
         
-              The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.
+              The message to convey to the user. The message can come from the bot\'s configuration or from a Lambda function.
         
-              If the intent is not configured with a Lambda function, or if the Lambda function returned ``Delegate`` as the ``dialogAction.type`` its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.
+              If the intent is not configured with a Lambda function, or if the Lambda function returned ``Delegate`` as the ``dialogAction.type`` its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot\'s configuration based on the current interaction context. For example, if Amazon Lex isn\'t able to understand user input, it uses a clarification prompt message.
         
               When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see  msg-prompts-formats .
         
@@ -507,11 +507,11 @@ class Client(BaseClient):
         
               Identifies the current state of the user interaction. Amazon Lex returns one of the following values as ``dialogState`` . The client can optionally use this information to customize the user interface. 
         
-              * ``ElicitIntent`` - Amazon Lex wants to elicit user intent.  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState. 
+              * ``ElicitIntent`` - Amazon Lex wants to elicit user intent.  For example, a user might utter an intent (\"I want to order a pizza\"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState. 
                
-              * ``ConfirmIntent`` - Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent.  Instead of a simple "yes" or "no," a user might respond with additional information. For example, "yes, but make it thick crust pizza" or "no, I want to order a drink". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink). 
+              * ``ConfirmIntent`` - Amazon Lex is expecting a \"yes\" or \"no\" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent.  Instead of a simple \"yes\" or \"no,\" a user might respond with additional information. For example, \"yes, but make it thick crust pizza\" or \"no, I want to order a drink\". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink). 
                
-              * ``ElicitSlot`` - Amazon Lex is expecting a slot value for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.  
+              * ``ElicitSlot`` - Amazon Lex is expecting a slot value for the current intent.  For example, suppose that in the response Amazon Lex sends this message: \"What size pizza would you like?\". A user might reply with the slot value (e.g., \"medium\"). The user might also provide additional information in the response (e.g., \"medium thick crust pizza\"). Amazon Lex can process such additional information appropriately.  
                
               * ``Fulfilled`` - Conveys that the Lambda function configured for the intent has successfully fulfilled the intent.  
                
@@ -573,7 +573,7 @@ class Client(BaseClient):
         
                       - **value** *(string) --* 
         
-                        The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
+                        The value sent to Amazon Lex when a user chooses the button. For example, consider button text \"NYC.\" When the user chooses the button, the value sent can be \"New York City.\"
         
         """
         pass

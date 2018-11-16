@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -37,11 +37,11 @@ class Client(BaseClient):
         ::
         
           response = client.accept_match(
-              TicketId='string',
+              TicketId=\'string\',
               PlayerIds=[
-                  'string',
+                  \'string\',
               ],
-              AcceptanceType='ACCEPT'|'REJECT'
+              AcceptanceType=\'ACCEPT\'|\'REJECT\'
           )
         :type TicketId: string
         :param TicketId: **[REQUIRED]** 
@@ -80,10 +80,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -117,12 +117,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_alias(
-              Name='string',
-              Description='string',
+              Name=\'string\',
+              Description=\'string\',
               RoutingStrategy={
-                  'Type': 'SIMPLE'|'TERMINAL',
-                  'FleetId': 'string',
-                  'Message': 'string'
+                  \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                  \'FleetId\': \'string\',
+                  \'Message\': \'string\'
               }
           )
         :type Name: string
@@ -166,18 +166,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Alias': {
-                    'AliasId': 'string',
-                    'Name': 'string',
-                    'AliasArn': 'string',
-                    'Description': 'string',
-                    'RoutingStrategy': {
-                        'Type': 'SIMPLE'|'TERMINAL',
-                        'FleetId': 'string',
-                        'Message': 'string'
+                \'Alias\': {
+                    \'AliasId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AliasArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoutingStrategy\': {
+                        \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                        \'FleetId\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdatedTime': datetime(2015, 1, 1)
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -230,11 +230,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **LastUpdatedTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -252,7 +252,7 @@ class Client(BaseClient):
         
         * Store a build file in an Amazon S3 bucket under your own AWS account. To use this option, you must first give Amazon GameLift access to that Amazon S3 bucket. See `Create a Build with Files in Amazon S3 <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build>`__ for detailed help. To create a new build record using files in your Amazon S3 bucket, call ``CreateBuild`` and specify a build name, operating system, and the storage location of your game build. 
          
-        * Upload a build file directly to Amazon GameLift's Amazon S3 account. To use this option, you first call ``CreateBuild`` with a build name and operating system. This action creates a new build record and returns an Amazon S3 storage location (bucket and key only) and temporary access credentials. Use the credentials to manually upload your build file to the storage location (see the Amazon S3 topic `Uploading Objects <http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html>`__ ). You can upload files to a location only once.  
+        * Upload a build file directly to Amazon GameLift\'s Amazon S3 account. To use this option, you first call ``CreateBuild`` with a build name and operating system. This action creates a new build record and returns an Amazon S3 storage location (bucket and key only) and temporary access credentials. Use the credentials to manually upload your build file to the storage location (see the Amazon S3 topic `Uploading Objects <http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html>`__ ). You can upload files to a location only once.  
          
         If successful, this operation creates a new build record with a unique build ID and places it in ``INITIALIZED`` status. You can use  DescribeBuild to check the status of your build. A build must be in ``READY`` status before it can be used to create fleets.
         
@@ -274,14 +274,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_build(
-              Name='string',
-              Version='string',
+              Name=\'string\',
+              Version=\'string\',
               StorageLocation={
-                  'Bucket': 'string',
-                  'Key': 'string',
-                  'RoleArn': 'string'
+                  \'Bucket\': \'string\',
+                  \'Key\': \'string\',
+                  \'RoleArn\': \'string\'
               },
-              OperatingSystem='WINDOWS_2012'|'AMAZON_LINUX'
+              OperatingSystem=\'WINDOWS_2012\'|\'AMAZON_LINUX\'
           )
         :type Name: string
         :param Name: 
@@ -323,24 +323,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Build': {
-                    'BuildId': 'string',
-                    'Name': 'string',
-                    'Version': 'string',
-                    'Status': 'INITIALIZED'|'READY'|'FAILED',
-                    'SizeOnDisk': 123,
-                    'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                    'CreationTime': datetime(2015, 1, 1)
+                \'Build\': {
+                    \'BuildId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Version\': \'string\',
+                    \'Status\': \'INITIALIZED\'|\'READY\'|\'FAILED\',
+                    \'SizeOnDisk\': 123,
+                    \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                    \'CreationTime\': datetime(2015, 1, 1)
                 },
-                'UploadCredentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string'
+                \'UploadCredentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\'
                 },
-                'StorageLocation': {
-                    'Bucket': 'string',
-                    'Key': 'string',
-                    'RoleArn': 'string'
+                \'StorageLocation\': {
+                    \'Bucket\': \'string\',
+                    \'Key\': \'string\',
+                    \'RoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -387,7 +387,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
             - **UploadCredentials** *(dict) --* 
         
@@ -427,7 +427,7 @@ class Client(BaseClient):
     def create_fleet(self, Name: str, BuildId: str, EC2InstanceType: str, Description: str = None, ServerLaunchPath: str = None, ServerLaunchParameters: str = None, LogPaths: List = None, EC2InboundPermissions: List = None, NewGameSessionProtectionPolicy: str = None, RuntimeConfiguration: Dict = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None, PeerVpcAwsAccountId: str = None, PeerVpcId: str = None, FleetType: str = None) -> Dict:
         """
         
-        To create a new fleet, you must specify the following: (1) a fleet name, (2) the build ID of a successfully uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration, which describes the server processes to run on each instance in the fleet. If you don't specify a fleet type (on-demand or spot), the new fleet uses on-demand instances by default.
+        To create a new fleet, you must specify the following: (1) a fleet name, (2) the build ID of a successfully uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration, which describes the server processes to run on each instance in the fleet. If you don\'t specify a fleet type (on-demand or spot), the new fleet uses on-demand instances by default.
         
         You can also configure the new fleet with the following settings:
         
@@ -447,13 +447,13 @@ class Client(BaseClient):
         
         * Creates a fleet record. Status: ``NEW`` . 
          
-        * Begins writing events to the fleet event log, which can be accessed in the Amazon GameLift console. Sets the fleet's target capacity to 1 (desired instances), which triggers Amazon GameLift to start one new EC2 instance. 
+        * Begins writing events to the fleet event log, which can be accessed in the Amazon GameLift console. Sets the fleet\'s target capacity to 1 (desired instances), which triggers Amazon GameLift to start one new EC2 instance. 
          
         * Downloads the game build to the new instance and installs it. Statuses: ``DOWNLOADING`` , ``VALIDATING`` , ``BUILDING`` .  
          
         * Starts launching server processes on the instance. If the fleet is configured to run multiple server processes per instance, Amazon GameLift staggers each launch by a few seconds. Status: ``ACTIVATING`` . 
          
-        * Sets the fleet's status to ``ACTIVE`` as soon as one server process is ready to host a game session. 
+        * Sets the fleet\'s status to ``ACTIVE`` as soon as one server process is ready to host a game session. 
          
         Fleet-related operations include:
         
@@ -501,45 +501,45 @@ class Client(BaseClient):
         ::
         
           response = client.create_fleet(
-              Name='string',
-              Description='string',
-              BuildId='string',
-              ServerLaunchPath='string',
-              ServerLaunchParameters='string',
+              Name=\'string\',
+              Description=\'string\',
+              BuildId=\'string\',
+              ServerLaunchPath=\'string\',
+              ServerLaunchParameters=\'string\',
               LogPaths=[
-                  'string',
+                  \'string\',
               ],
-              EC2InstanceType='t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
+              EC2InstanceType=\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
               EC2InboundPermissions=[
                   {
-                      'FromPort': 123,
-                      'ToPort': 123,
-                      'IpRange': 'string',
-                      'Protocol': 'TCP'|'UDP'
+                      \'FromPort\': 123,
+                      \'ToPort\': 123,
+                      \'IpRange\': \'string\',
+                      \'Protocol\': \'TCP\'|\'UDP\'
                   },
               ],
-              NewGameSessionProtectionPolicy='NoProtection'|'FullProtection',
+              NewGameSessionProtectionPolicy=\'NoProtection\'|\'FullProtection\',
               RuntimeConfiguration={
-                  'ServerProcesses': [
+                  \'ServerProcesses\': [
                       {
-                          'LaunchPath': 'string',
-                          'Parameters': 'string',
-                          'ConcurrentExecutions': 123
+                          \'LaunchPath\': \'string\',
+                          \'Parameters\': \'string\',
+                          \'ConcurrentExecutions\': 123
                       },
                   ],
-                  'MaxConcurrentGameSessionActivations': 123,
-                  'GameSessionActivationTimeoutSeconds': 123
+                  \'MaxConcurrentGameSessionActivations\': 123,
+                  \'GameSessionActivationTimeoutSeconds\': 123
               },
               ResourceCreationLimitPolicy={
-                  'NewGameSessionsPerCreator': 123,
-                  'PolicyPeriodInMinutes': 123
+                  \'NewGameSessionsPerCreator\': 123,
+                  \'PolicyPeriodInMinutes\': 123
               },
               MetricGroups=[
-                  'string',
+                  \'string\',
               ],
-              PeerVpcAwsAccountId='string',
-              PeerVpcId='string',
-              FleetType='ON_DEMAND'|'SPOT'
+              PeerVpcAwsAccountId=\'string\',
+              PeerVpcId=\'string\',
+              FleetType=\'ON_DEMAND\'|\'SPOT\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -585,7 +585,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the  GameSession object. 
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object. 
         
             - **FromPort** *(integer) --* **[REQUIRED]** 
         
@@ -597,7 +597,7 @@ class Client(BaseClient):
         
             - **IpRange** *(string) --* **[REQUIRED]** 
         
-              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "``000.000.000.000/[subnet mask]`` " or optionally the shortened version "``0.0.0.0/[subnet mask]`` ".
+              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: \"``000.000.000.000/[subnet mask]`` \" or optionally the shortened version \"``0.0.0.0/[subnet mask]`` \".
         
             - **Protocol** *(string) --* **[REQUIRED]** 
         
@@ -606,7 +606,7 @@ class Client(BaseClient):
         :type NewGameSessionProtectionPolicy: string
         :param NewGameSessionProtectionPolicy: 
         
-          Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using  UpdateFleetAttributes , but this change will only affect sessions created after the policy change. You can also set protection for individual instances using  UpdateGameSession .
+          Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet\'s protection policy using  UpdateFleetAttributes , but this change will only affect sessions created after the policy change. You can also set protection for individual instances using  UpdateGameSession .
         
           * **NoProtection** -- The game session can be terminated during a scale-down event. 
            
@@ -623,11 +623,11 @@ class Client(BaseClient):
         
             - *(dict) --* 
         
-              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
         
               - **LaunchPath** *(string) --* **[REQUIRED]** 
         
-                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \". 
         
               - **Parameters** *(string) --* 
         
@@ -688,33 +688,33 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetAttributes': {
-                    'FleetId': 'string',
-                    'FleetArn': 'string',
-                    'FleetType': 'ON_DEMAND'|'SPOT',
-                    'InstanceType': 't2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
-                    'Description': 'string',
-                    'Name': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'TerminationTime': datetime(2015, 1, 1),
-                    'Status': 'NEW'|'DOWNLOADING'|'VALIDATING'|'BUILDING'|'ACTIVATING'|'ACTIVE'|'DELETING'|'ERROR'|'TERMINATED',
-                    'BuildId': 'string',
-                    'ServerLaunchPath': 'string',
-                    'ServerLaunchParameters': 'string',
-                    'LogPaths': [
-                        'string',
+                \'FleetAttributes\': {
+                    \'FleetId\': \'string\',
+                    \'FleetArn\': \'string\',
+                    \'FleetType\': \'ON_DEMAND\'|\'SPOT\',
+                    \'InstanceType\': \'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
+                    \'Description\': \'string\',
+                    \'Name\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'TerminationTime\': datetime(2015, 1, 1),
+                    \'Status\': \'NEW\'|\'DOWNLOADING\'|\'VALIDATING\'|\'BUILDING\'|\'ACTIVATING\'|\'ACTIVE\'|\'DELETING\'|\'ERROR\'|\'TERMINATED\',
+                    \'BuildId\': \'string\',
+                    \'ServerLaunchPath\': \'string\',
+                    \'ServerLaunchParameters\': \'string\',
+                    \'LogPaths\': [
+                        \'string\',
                     ],
-                    'NewGameSessionProtectionPolicy': 'NoProtection'|'FullProtection',
-                    'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                    'ResourceCreationLimitPolicy': {
-                        'NewGameSessionsPerCreator': 123,
-                        'PolicyPeriodInMinutes': 123
+                    \'NewGameSessionProtectionPolicy\': \'NoProtection\'|\'FullProtection\',
+                    \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                    \'ResourceCreationLimitPolicy\': {
+                        \'NewGameSessionsPerCreator\': 123,
+                        \'PolicyPeriodInMinutes\': 123
                     },
-                    'MetricGroups': [
-                        'string',
+                    \'MetricGroups\': [
+                        \'string\',
                     ],
-                    'StoppedActions': [
-                        'AUTO_SCALING',
+                    \'StoppedActions\': [
+                        \'AUTO_SCALING\',
                     ]
                 }
             }
@@ -754,11 +754,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **TerminationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **Status** *(string) --* 
         
@@ -784,11 +784,11 @@ class Client(BaseClient):
         
               - **ServerLaunchPath** *(string) --* 
         
-                Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
+                Path to a game server executable in the fleet\'s build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet\'s  RuntimeConfiguration .
         
               - **ServerLaunchParameters** *(string) --* 
         
-                Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
+                Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet\'s  RuntimeConfiguration .
         
               - **LogPaths** *(list) --* 
         
@@ -806,7 +806,7 @@ class Client(BaseClient):
                  
               - **OperatingSystem** *(string) --* 
         
-                Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
+                Operating system of the fleet\'s computing resources. A fleet\'s operating system depends on the OS specified for the build that is deployed on this fleet.
         
               - **ResourceCreationLimitPolicy** *(dict) --* 
         
@@ -844,7 +844,7 @@ class Client(BaseClient):
         
          **Resource creation limits.** If you are creating a game session on a fleet with a resource creation limit policy in force, then you must specify a creator ID. Without this ID, Amazon GameLift has no way to evaluate the policy for this new game session request.
         
-         **Player acceptance policy.** By default, newly created game sessions are open to new players. You can restrict new player access by using  UpdateGameSession to change the game session's player session creation policy.
+         **Player acceptance policy.** By default, newly created game sessions are open to new players. You can restrict new player access by using  UpdateGameSession to change the game session\'s player session creation policy.
         
          **Game session logs.** Logs are retained for all active game sessions for 14 days. To access the logs, call  GetGameSessionLogUrl to download the log files.
         
@@ -878,20 +878,20 @@ class Client(BaseClient):
         ::
         
           response = client.create_game_session(
-              FleetId='string',
-              AliasId='string',
+              FleetId=\'string\',
+              AliasId=\'string\',
               MaximumPlayerSessionCount=123,
-              Name='string',
+              Name=\'string\',
               GameProperties=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              CreatorId='string',
-              GameSessionId='string',
-              IdempotencyToken='string',
-              GameSessionData='string'
+              CreatorId=\'string\',
+              GameSessionId=\'string\',
+              IdempotencyToken=\'string\',
+              GameSessionData=\'string\'
           )
         :type FleetId: string
         :param FleetId: 
@@ -938,12 +938,12 @@ class Client(BaseClient):
         :type GameSessionId: string
         :param GameSessionId: 
         
-           *This parameter is no longer preferred. Please use ``IdempotencyToken`` instead.* Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: ``arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>`` .) 
+           *This parameter is no longer preferred. Please use ``IdempotencyToken`` instead.* Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session\'s ID. (A game session ARN has the following format: ``arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>`` .) 
         
         :type IdempotencyToken: string
         :param IdempotencyToken: 
         
-          Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: ``arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>`` .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
+          Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session\'s ID. (A game session ARN has the following format: ``arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>`` .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
         
         :type GameSessionData: string
         :param GameSessionData: 
@@ -958,28 +958,28 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSession': {
-                    'GameSessionId': 'string',
-                    'Name': 'string',
-                    'FleetId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'TerminationTime': datetime(2015, 1, 1),
-                    'CurrentPlayerSessionCount': 123,
-                    'MaximumPlayerSessionCount': 123,
-                    'Status': 'ACTIVE'|'ACTIVATING'|'TERMINATED'|'TERMINATING'|'ERROR',
-                    'StatusReason': 'INTERRUPTED',
-                    'GameProperties': [
+                \'GameSession\': {
+                    \'GameSessionId\': \'string\',
+                    \'Name\': \'string\',
+                    \'FleetId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'TerminationTime\': datetime(2015, 1, 1),
+                    \'CurrentPlayerSessionCount\': 123,
+                    \'MaximumPlayerSessionCount\': 123,
+                    \'Status\': \'ACTIVE\'|\'ACTIVATING\'|\'TERMINATED\'|\'TERMINATING\'|\'ERROR\',
+                    \'StatusReason\': \'INTERRUPTED\',
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlayerSessionCreationPolicy': 'ACCEPT_ALL'|'DENY_ALL',
-                    'CreatorId': 'string',
-                    'GameSessionData': 'string',
-                    'MatchmakerData': 'string'
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlayerSessionCreationPolicy\': \'ACCEPT_ALL\'|\'DENY_ALL\',
+                    \'CreatorId\': \'string\',
+                    \'GameSessionData\': \'string\',
+                    \'MatchmakerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1006,11 +1006,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **TerminationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **CurrentPlayerSessionCount** *(integer) --* 
         
@@ -1074,9 +1074,9 @@ class Client(BaseClient):
     def create_game_session_queue(self, Name: str, TimeoutInSeconds: int = None, PlayerLatencyPolicies: List = None, Destinations: List = None) -> Dict:
         """
         
-         **Destination order.** When processing a request for a game session, Amazon GameLift tries each destination in order until it finds one with available resources to host the new game session. A queue's default order is determined by how destinations are listed. The default order is overridden when a game session placement request provides player latency information. Player latency information enables Amazon GameLift to prioritize destinations where players report the lowest average latency, as a result placing the new game session where the majority of players will have the best possible gameplay experience.
+         **Destination order.** When processing a request for a game session, Amazon GameLift tries each destination in order until it finds one with available resources to host the new game session. A queue\'s default order is determined by how destinations are listed. The default order is overridden when a game session placement request provides player latency information. Player latency information enables Amazon GameLift to prioritize destinations where players report the lowest average latency, as a result placing the new game session where the majority of players will have the best possible gameplay experience.
         
-         **Player latency policies.** For placement requests containing player latency information, use player latency policies to protect individual players from very high latencies. With a latency cap, even when a destination can deliver a low latency for most players, the game is not placed where any individual player is reporting latency higher than a policy's maximum. A queue can have multiple latency policies, which are enforced consecutively starting with the policy with the lowest latency cap. Use multiple policies to gradually relax latency controls; for example, you might set a policy with a low latency cap for the first 60 seconds, a second policy with a higher cap for the next 60 seconds, etc. 
+         **Player latency policies.** For placement requests containing player latency information, use player latency policies to protect individual players from very high latencies. With a latency cap, even when a destination can deliver a low latency for most players, the game is not placed where any individual player is reporting latency higher than a policy\'s maximum. A queue can have multiple latency policies, which are enforced consecutively starting with the policy with the lowest latency cap. Use multiple policies to gradually relax latency controls; for example, you might set a policy with a low latency cap for the first 60 seconds, a second policy with a higher cap for the next 60 seconds, etc. 
         
         To create a new queue, provide a name, timeout value, a list of destinations and, if desired, a set of latency policies. If successful, a new queue object is returned.
         
@@ -1096,17 +1096,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_game_session_queue(
-              Name='string',
+              Name=\'string\',
               TimeoutInSeconds=123,
               PlayerLatencyPolicies=[
                   {
-                      'MaximumIndividualPlayerLatencyMilliseconds': 123,
-                      'PolicyDurationSeconds': 123
+                      \'MaximumIndividualPlayerLatencyMilliseconds\': 123,
+                      \'PolicyDurationSeconds\': 123
                   },
               ],
               Destinations=[
                   {
-                      'DestinationArn': 'string'
+                      \'DestinationArn\': \'string\'
                   },
               ]
           )
@@ -1178,19 +1178,19 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionQueue': {
-                    'Name': 'string',
-                    'GameSessionQueueArn': 'string',
-                    'TimeoutInSeconds': 123,
-                    'PlayerLatencyPolicies': [
+                \'GameSessionQueue\': {
+                    \'Name\': \'string\',
+                    \'GameSessionQueueArn\': \'string\',
+                    \'TimeoutInSeconds\': 123,
+                    \'PlayerLatencyPolicies\': [
                         {
-                            'MaximumIndividualPlayerLatencyMilliseconds': 123,
-                            'PolicyDurationSeconds': 123
+                            \'MaximumIndividualPlayerLatencyMilliseconds\': 123,
+                            \'PolicyDurationSeconds\': 123
                         },
                     ],
-                    'Destinations': [
+                    \'Destinations\': [
                         {
-                            'DestinationArn': 'string'
+                            \'DestinationArn\': \'string\'
                         },
                     ]
                 }
@@ -1275,7 +1275,7 @@ class Client(BaseClient):
         
          **Player acceptance** -- In each configuration, you have the option to require that all players accept participation in a proposed match. To enable this feature, set *AcceptanceRequired* to true and specify a time limit for player acceptance. Players have the option to accept or reject a proposed match, and a match does not move ahead to game session placement unless all matched players accept. 
         
-         **Matchmaking status notification** -- There are two ways to track the progress of matchmaking tickets: (1) polling ticket status with  DescribeMatchmaking ; or (2) receiving notifications with Amazon Simple Notification Service (SNS). To use notifications, you first need to set up an SNS topic to receive the notifications, and provide the topic ARN in the matchmaking configuration (see `Setting up Notifications for Matchmaking <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html>`__ ). Since notifications promise only "best effort" delivery, we recommend calling ``DescribeMatchmaking`` if no notifications are received within 30 seconds.
+         **Matchmaking status notification** -- There are two ways to track the progress of matchmaking tickets: (1) polling ticket status with  DescribeMatchmaking ; or (2) receiving notifications with Amazon Simple Notification Service (SNS). To use notifications, you first need to set up an SNS topic to receive the notifications, and provide the topic ARN in the matchmaking configuration (see `Setting up Notifications for Matchmaking <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html>`__ ). Since notifications promise only \"best effort\" delivery, we recommend calling ``DescribeMatchmaking`` if no notifications are received within 30 seconds.
         
         Operations related to match configurations and rule sets include:
         
@@ -1299,25 +1299,25 @@ class Client(BaseClient):
         ::
         
           response = client.create_matchmaking_configuration(
-              Name='string',
-              Description='string',
+              Name=\'string\',
+              Description=\'string\',
               GameSessionQueueArns=[
-                  'string',
+                  \'string\',
               ],
               RequestTimeoutSeconds=123,
               AcceptanceTimeoutSeconds=123,
               AcceptanceRequired=True|False,
-              RuleSetName='string',
-              NotificationTarget='string',
+              RuleSetName=\'string\',
+              NotificationTarget=\'string\',
               AdditionalPlayerCount=123,
-              CustomEventData='string',
+              CustomEventData=\'string\',
               GameProperties=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              GameSessionData='string'
+              GameSessionData=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1364,7 +1364,7 @@ class Client(BaseClient):
         :type AdditionalPlayerCount: integer
         :param AdditionalPlayerCount: 
         
-          Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+          Number of player slots in a match to keep open for future players. For example, if the configuration\'s rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
         
         :type CustomEventData: string
         :param CustomEventData: 
@@ -1401,27 +1401,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Configuration': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'GameSessionQueueArns': [
-                        'string',
+                \'Configuration\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'GameSessionQueueArns\': [
+                        \'string\',
                     ],
-                    'RequestTimeoutSeconds': 123,
-                    'AcceptanceTimeoutSeconds': 123,
-                    'AcceptanceRequired': True|False,
-                    'RuleSetName': 'string',
-                    'NotificationTarget': 'string',
-                    'AdditionalPlayerCount': 123,
-                    'CustomEventData': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'GameProperties': [
+                    \'RequestTimeoutSeconds\': 123,
+                    \'AcceptanceTimeoutSeconds\': 123,
+                    \'AcceptanceRequired\': True|False,
+                    \'RuleSetName\': \'string\',
+                    \'NotificationTarget\': \'string\',
+                    \'AdditionalPlayerCount\': 123,
+                    \'CustomEventData\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'GameSessionData': 'string'
+                    \'GameSessionData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1470,7 +1470,7 @@ class Client(BaseClient):
         
               - **AdditionalPlayerCount** *(integer) --* 
         
-                Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+                Number of player slots in a match to keep open for future players. For example, if the configuration\'s rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
         
               - **CustomEventData** *(string) --* 
         
@@ -1478,7 +1478,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **GameProperties** *(list) --* 
         
@@ -1532,8 +1532,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_matchmaking_rule_set(
-              Name='string',
-              RuleSetBody='string'
+              Name=\'string\',
+              RuleSetBody=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1553,10 +1553,10 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleSet': {
-                    'RuleSetName': 'string',
-                    'RuleSetBody': 'string',
-                    'CreationTime': datetime(2015, 1, 1)
+                \'RuleSet\': {
+                    \'RuleSetName\': \'string\',
+                    \'RuleSetBody\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1579,7 +1579,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -1613,9 +1613,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_player_session(
-              GameSessionId='string',
-              PlayerId='string',
-              PlayerData='string'
+              GameSessionId=\'string\',
+              PlayerId=\'string\',
+              PlayerData=\'string\'
           )
         :type GameSessionId: string
         :param GameSessionId: **[REQUIRED]** 
@@ -1640,17 +1640,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PlayerSession': {
-                    'PlayerSessionId': 'string',
-                    'PlayerId': 'string',
-                    'GameSessionId': 'string',
-                    'FleetId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'TerminationTime': datetime(2015, 1, 1),
-                    'Status': 'RESERVED'|'ACTIVE'|'COMPLETED'|'TIMEDOUT',
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlayerData': 'string'
+                \'PlayerSession\': {
+                    \'PlayerSessionId\': \'string\',
+                    \'PlayerId\': \'string\',
+                    \'GameSessionId\': \'string\',
+                    \'FleetId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'TerminationTime\': datetime(2015, 1, 1),
+                    \'Status\': \'RESERVED\'|\'ACTIVE\'|\'COMPLETED\'|\'TIMEDOUT\',
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlayerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1677,15 +1677,15 @@ class Client(BaseClient):
         
               - **FleetId** *(string) --* 
         
-                Unique identifier for a fleet that the player's game session is running on.
+                Unique identifier for a fleet that the player\'s game session is running on.
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **TerminationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **Status** *(string) --* 
         
@@ -1745,12 +1745,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_player_sessions(
-              GameSessionId='string',
+              GameSessionId=\'string\',
               PlayerIds=[
-                  'string',
+                  \'string\',
               ],
               PlayerDataMap={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type GameSessionId: string
@@ -1782,18 +1782,18 @@ class Client(BaseClient):
           ::
         
             {
-                'PlayerSessions': [
+                \'PlayerSessions\': [
                     {
-                        'PlayerSessionId': 'string',
-                        'PlayerId': 'string',
-                        'GameSessionId': 'string',
-                        'FleetId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TerminationTime': datetime(2015, 1, 1),
-                        'Status': 'RESERVED'|'ACTIVE'|'COMPLETED'|'TIMEDOUT',
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'PlayerData': 'string'
+                        \'PlayerSessionId\': \'string\',
+                        \'PlayerId\': \'string\',
+                        \'GameSessionId\': \'string\',
+                        \'FleetId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TerminationTime\': datetime(2015, 1, 1),
+                        \'Status\': \'RESERVED\'|\'ACTIVE\'|\'COMPLETED\'|\'TIMEDOUT\',
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'PlayerData\': \'string\'
                     },
                 ]
             }
@@ -1843,15 +1843,15 @@ class Client(BaseClient):
         
                 - **FleetId** *(string) --* 
         
-                  Unique identifier for a fleet that the player's game session is running on.
+                  Unique identifier for a fleet that the player\'s game session is running on.
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **TerminationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **Status** *(string) --* 
         
@@ -1913,8 +1913,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpc_peering_authorization(
-              GameLiftAwsAccountId='string',
-              PeerVpcId='string'
+              GameLiftAwsAccountId=\'string\',
+              PeerVpcId=\'string\'
           )
         :type GameLiftAwsAccountId: string
         :param GameLiftAwsAccountId: **[REQUIRED]** 
@@ -1934,12 +1934,12 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringAuthorization': {
-                    'GameLiftAwsAccountId': 'string',
-                    'PeerVpcAwsAccountId': 'string',
-                    'PeerVpcId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'ExpirationTime': datetime(2015, 1, 1)
+                \'VpcPeeringAuthorization\': {
+                    \'GameLiftAwsAccountId\': \'string\',
+                    \'PeerVpcAwsAccountId\': \'string\',
+                    \'PeerVpcId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'ExpirationTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1964,11 +1964,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **ExpirationTime** *(datetime) --* 
         
-                Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -1978,7 +1978,7 @@ class Client(BaseClient):
         
         Before calling this operation to establish the peering connection, you first need to call  CreateVpcPeeringAuthorization and identify the VPC you want to peer with. Once the authorization for the specified VPC is issued, you have 24 hours to establish the connection. These two operations handle all tasks necessary to peer the two VPCs, including acceptance, updating routing tables, etc. 
         
-        To establish the connection, call this operation from the AWS account that is used to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet you want to be enable a VPC peering connection for; (2) The AWS account with the VPC that you want to peer with; and (3) The ID of the VPC you want to peer with. This operation is asynchronous. If successful, a  VpcPeeringConnection request is created. You can use continuous polling to track the request's status using  DescribeVpcPeeringConnections , or by monitoring fleet events for success or failure using  DescribeFleetEvents . 
+        To establish the connection, call this operation from the AWS account that is used to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet you want to be enable a VPC peering connection for; (2) The AWS account with the VPC that you want to peer with; and (3) The ID of the VPC you want to peer with. This operation is asynchronous. If successful, a  VpcPeeringConnection request is created. You can use continuous polling to track the request\'s status using  DescribeVpcPeeringConnections , or by monitoring fleet events for success or failure using  DescribeFleetEvents . 
         
         VPC peering connection operations include:
         
@@ -2000,9 +2000,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpc_peering_connection(
-              FleetId='string',
-              PeerVpcAwsAccountId='string',
-              PeerVpcId='string'
+              FleetId=\'string\',
+              PeerVpcAwsAccountId=\'string\',
+              PeerVpcId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -2056,7 +2056,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_alias(
-              AliasId='string'
+              AliasId=\'string\'
           )
         :type AliasId: string
         :param AliasId: **[REQUIRED]** 
@@ -2090,7 +2090,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_build(
-              BuildId='string'
+              BuildId=\'string\'
           )
         :type BuildId: string
         :param BuildId: **[REQUIRED]** 
@@ -2104,7 +2104,7 @@ class Client(BaseClient):
     def delete_fleet(self, FleetId: str) -> NoReturn:
         """
         
-        This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
+        This action removes the fleet\'s resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
         
         Fleet-related operations include:
         
@@ -2152,7 +2152,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_fleet(
-              FleetId='string'
+              FleetId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -2182,7 +2182,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_game_session_queue(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2228,7 +2228,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_matchmaking_configuration(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2282,8 +2282,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_scaling_policy(
-              Name='string',
-              FleetId='string'
+              Name=\'string\',
+              FleetId=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -2322,8 +2322,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpc_peering_authorization(
-              GameLiftAwsAccountId='string',
-              PeerVpcId='string'
+              GameLiftAwsAccountId=\'string\',
+              PeerVpcId=\'string\'
           )
         :type GameLiftAwsAccountId: string
         :param GameLiftAwsAccountId: **[REQUIRED]** 
@@ -2374,8 +2374,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpc_peering_connection(
-              FleetId='string',
-              VpcPeeringConnectionId='string'
+              FleetId=\'string\',
+              VpcPeeringConnectionId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -2426,7 +2426,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_alias(
-              AliasId='string'
+              AliasId=\'string\'
           )
         :type AliasId: string
         :param AliasId: **[REQUIRED]** 
@@ -2441,18 +2441,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Alias': {
-                    'AliasId': 'string',
-                    'Name': 'string',
-                    'AliasArn': 'string',
-                    'Description': 'string',
-                    'RoutingStrategy': {
-                        'Type': 'SIMPLE'|'TERMINAL',
-                        'FleetId': 'string',
-                        'Message': 'string'
+                \'Alias\': {
+                    \'AliasId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AliasArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoutingStrategy\': {
+                        \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                        \'FleetId\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdatedTime': datetime(2015, 1, 1)
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2505,11 +2505,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **LastUpdatedTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -2535,7 +2535,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_build(
-              BuildId='string'
+              BuildId=\'string\'
           )
         :type BuildId: string
         :param BuildId: **[REQUIRED]** 
@@ -2550,14 +2550,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Build': {
-                    'BuildId': 'string',
-                    'Name': 'string',
-                    'Version': 'string',
-                    'Status': 'INITIALIZED'|'READY'|'FAILED',
-                    'SizeOnDisk': 123,
-                    'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                    'CreationTime': datetime(2015, 1, 1)
+                \'Build\': {
+                    \'BuildId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Version\': \'string\',
+                    \'Status\': \'INITIALIZED\'|\'READY\'|\'FAILED\',
+                    \'SizeOnDisk\': 123,
+                    \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                    \'CreationTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2604,7 +2604,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -2665,7 +2665,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_ec2_instance_limits(
-              EC2InstanceType='t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'
+              EC2InstanceType=\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'
           )
         :type EC2InstanceType: string
         :param EC2InstanceType: 
@@ -2680,11 +2680,11 @@ class Client(BaseClient):
           ::
         
             {
-                'EC2InstanceLimits': [
+                \'EC2InstanceLimits\': [
                     {
-                        'EC2InstanceType': 't2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
-                        'CurrentInstances': 123,
-                        'InstanceLimit': 123
+                        \'EC2InstanceType\': \'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
+                        \'CurrentInstances\': 123,
+                        \'InstanceLimit\': 123
                     },
                 ]
             }
@@ -2771,10 +2771,10 @@ class Client(BaseClient):
         
           response = client.describe_fleet_attributes(
               FleetIds=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetIds: list
         :param FleetIds: 
@@ -2801,38 +2801,38 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetAttributes': [
+                \'FleetAttributes\': [
                     {
-                        'FleetId': 'string',
-                        'FleetArn': 'string',
-                        'FleetType': 'ON_DEMAND'|'SPOT',
-                        'InstanceType': 't2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
-                        'Description': 'string',
-                        'Name': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TerminationTime': datetime(2015, 1, 1),
-                        'Status': 'NEW'|'DOWNLOADING'|'VALIDATING'|'BUILDING'|'ACTIVATING'|'ACTIVE'|'DELETING'|'ERROR'|'TERMINATED',
-                        'BuildId': 'string',
-                        'ServerLaunchPath': 'string',
-                        'ServerLaunchParameters': 'string',
-                        'LogPaths': [
-                            'string',
+                        \'FleetId\': \'string\',
+                        \'FleetArn\': \'string\',
+                        \'FleetType\': \'ON_DEMAND\'|\'SPOT\',
+                        \'InstanceType\': \'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
+                        \'Description\': \'string\',
+                        \'Name\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TerminationTime\': datetime(2015, 1, 1),
+                        \'Status\': \'NEW\'|\'DOWNLOADING\'|\'VALIDATING\'|\'BUILDING\'|\'ACTIVATING\'|\'ACTIVE\'|\'DELETING\'|\'ERROR\'|\'TERMINATED\',
+                        \'BuildId\': \'string\',
+                        \'ServerLaunchPath\': \'string\',
+                        \'ServerLaunchParameters\': \'string\',
+                        \'LogPaths\': [
+                            \'string\',
                         ],
-                        'NewGameSessionProtectionPolicy': 'NoProtection'|'FullProtection',
-                        'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                        'ResourceCreationLimitPolicy': {
-                            'NewGameSessionsPerCreator': 123,
-                            'PolicyPeriodInMinutes': 123
+                        \'NewGameSessionProtectionPolicy\': \'NoProtection\'|\'FullProtection\',
+                        \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                        \'ResourceCreationLimitPolicy\': {
+                            \'NewGameSessionsPerCreator\': 123,
+                            \'PolicyPeriodInMinutes\': 123
                         },
-                        'MetricGroups': [
-                            'string',
+                        \'MetricGroups\': [
+                            \'string\',
                         ],
-                        'StoppedActions': [
-                            'AUTO_SCALING',
+                        \'StoppedActions\': [
+                            \'AUTO_SCALING\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2914,11 +2914,11 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **TerminationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **Status** *(string) --* 
         
@@ -2944,11 +2944,11 @@ class Client(BaseClient):
         
                 - **ServerLaunchPath** *(string) --* 
         
-                  Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
+                  Path to a game server executable in the fleet\'s build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet\'s  RuntimeConfiguration .
         
                 - **ServerLaunchParameters** *(string) --* 
         
-                  Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
+                  Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet\'s  RuntimeConfiguration .
         
                 - **LogPaths** *(list) --* 
         
@@ -2966,7 +2966,7 @@ class Client(BaseClient):
                    
                 - **OperatingSystem** *(string) --* 
         
-                  Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
+                  Operating system of the fleet\'s computing resources. A fleet\'s operating system depends on the OS specified for the build that is deployed on this fleet.
         
                 - **ResourceCreationLimitPolicy** *(dict) --* 
         
@@ -3053,10 +3053,10 @@ class Client(BaseClient):
         
           response = client.describe_fleet_capacity(
               FleetIds=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetIds: list
         :param FleetIds: 
@@ -3083,22 +3083,22 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetCapacity': [
+                \'FleetCapacity\': [
                     {
-                        'FleetId': 'string',
-                        'InstanceType': 't2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
-                        'InstanceCounts': {
-                            'DESIRED': 123,
-                            'MINIMUM': 123,
-                            'MAXIMUM': 123,
-                            'PENDING': 123,
-                            'ACTIVE': 123,
-                            'IDLE': 123,
-                            'TERMINATING': 123
+                        \'FleetId\': \'string\',
+                        \'InstanceType\': \'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
+                        \'InstanceCounts\': {
+                            \'DESIRED\': 123,
+                            \'MINIMUM\': 123,
+                            \'MAXIMUM\': 123,
+                            \'PENDING\': 123,
+                            \'ACTIVE\': 123,
+                            \'IDLE\': 123,
+                            \'TERMINATING\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3112,7 +3112,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.
+                Information about the fleet\'s capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet\'s instance type.
         
                 Fleet-related operations include:
         
@@ -3172,11 +3172,11 @@ class Client(BaseClient):
         
                   - **MINIMUM** *(integer) --* 
         
-                    Minimum value allowed for the fleet's instance count.
+                    Minimum value allowed for the fleet\'s instance count.
         
                   - **MAXIMUM** *(integer) --* 
         
-                    Maximum value allowed for the fleet's instance count.
+                    Maximum value allowed for the fleet\'s instance count.
         
                   - **PENDING** *(integer) --* 
         
@@ -3192,7 +3192,7 @@ class Client(BaseClient):
         
                   - **TERMINATING** *(integer) --* 
         
-                    Number of instances in the fleet that are no longer active but haven't yet been terminated.
+                    Number of instances in the fleet that are no longer active but haven\'t yet been terminated.
         
             - **NextToken** *(string) --* 
         
@@ -3250,11 +3250,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_fleet_events(
-              FleetId='string',
+              FleetId=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -3264,12 +3264,12 @@ class Client(BaseClient):
         :type StartTime: datetime
         :param StartTime: 
         
-          Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+          Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\").
         
         :type EndTime: datetime
         :param EndTime: 
         
-          Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+          Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\").
         
         :type Limit: integer
         :param Limit: 
@@ -3289,17 +3289,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'EventId': 'string',
-                        'ResourceId': 'string',
-                        'EventCode': 'GENERIC_EVENT'|'FLEET_CREATED'|'FLEET_DELETED'|'FLEET_SCALING_EVENT'|'FLEET_STATE_DOWNLOADING'|'FLEET_STATE_VALIDATING'|'FLEET_STATE_BUILDING'|'FLEET_STATE_ACTIVATING'|'FLEET_STATE_ACTIVE'|'FLEET_STATE_ERROR'|'FLEET_INITIALIZATION_FAILED'|'FLEET_BINARY_DOWNLOAD_FAILED'|'FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND'|'FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE'|'FLEET_VALIDATION_TIMED_OUT'|'FLEET_ACTIVATION_FAILED'|'FLEET_ACTIVATION_FAILED_NO_INSTANCES'|'FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED'|'SERVER_PROCESS_INVALID_PATH'|'SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT'|'SERVER_PROCESS_PROCESS_READY_TIMEOUT'|'SERVER_PROCESS_CRASHED'|'SERVER_PROCESS_TERMINATED_UNHEALTHY'|'SERVER_PROCESS_FORCE_TERMINATED'|'SERVER_PROCESS_PROCESS_EXIT_TIMEOUT'|'GAME_SESSION_ACTIVATION_TIMEOUT'|'FLEET_CREATION_EXTRACTING_BUILD'|'FLEET_CREATION_RUNNING_INSTALLER'|'FLEET_CREATION_VALIDATING_RUNTIME_CONFIG'|'FLEET_VPC_PEERING_SUCCEEDED'|'FLEET_VPC_PEERING_FAILED'|'FLEET_VPC_PEERING_DELETED'|'INSTANCE_INTERRUPTED',
-                        'Message': 'string',
-                        'EventTime': datetime(2015, 1, 1),
-                        'PreSignedLogUrl': 'string'
+                        \'EventId\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'EventCode\': \'GENERIC_EVENT\'|\'FLEET_CREATED\'|\'FLEET_DELETED\'|\'FLEET_SCALING_EVENT\'|\'FLEET_STATE_DOWNLOADING\'|\'FLEET_STATE_VALIDATING\'|\'FLEET_STATE_BUILDING\'|\'FLEET_STATE_ACTIVATING\'|\'FLEET_STATE_ACTIVE\'|\'FLEET_STATE_ERROR\'|\'FLEET_INITIALIZATION_FAILED\'|\'FLEET_BINARY_DOWNLOAD_FAILED\'|\'FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND\'|\'FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE\'|\'FLEET_VALIDATION_TIMED_OUT\'|\'FLEET_ACTIVATION_FAILED\'|\'FLEET_ACTIVATION_FAILED_NO_INSTANCES\'|\'FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED\'|\'SERVER_PROCESS_INVALID_PATH\'|\'SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT\'|\'SERVER_PROCESS_PROCESS_READY_TIMEOUT\'|\'SERVER_PROCESS_CRASHED\'|\'SERVER_PROCESS_TERMINATED_UNHEALTHY\'|\'SERVER_PROCESS_FORCE_TERMINATED\'|\'SERVER_PROCESS_PROCESS_EXIT_TIMEOUT\'|\'GAME_SESSION_ACTIVATION_TIMEOUT\'|\'FLEET_CREATION_EXTRACTING_BUILD\'|\'FLEET_CREATION_RUNNING_INSTALLER\'|\'FLEET_CREATION_VALIDATING_RUNTIME_CONFIG\'|\'FLEET_VPC_PEERING_SUCCEEDED\'|\'FLEET_VPC_PEERING_FAILED\'|\'FLEET_VPC_PEERING_DELETED\'|\'INSTANCE_INTERRUPTED\',
+                        \'Message\': \'string\',
+                        \'EventTime\': datetime(2015, 1, 1),
+                        \'PreSignedLogUrl\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3337,9 +3337,9 @@ class Client(BaseClient):
                    
                   * FLEET_CREATION_EXTRACTING_BUILD – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to ``ACTIVE`` status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in *PreSignedLogUrl* . 
                    
-                  * FLEET_CREATION_RUNNING_INSTALLER – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to ``ACTIVE`` status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in *PreSignedLogUrl* .  
+                  * FLEET_CREATION_RUNNING_INSTALLER – The game server build files were successfully extracted, and the Amazon GameLift is now running the build\'s install script (if one is included). Failure in this stage prevents a fleet from moving to ``ACTIVE`` status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in *PreSignedLogUrl* .  
                    
-                  * FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to ``ACTIVE`` status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in *PreSignedLogUrl* .  
+                  * FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet\'s run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to ``ACTIVE`` status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in *PreSignedLogUrl* .  
                    
                   * FLEET_STATE_VALIDATING -- Fleet status changed from ``DOWNLOADING`` to ``VALIDATING`` . 
                    
@@ -3351,9 +3351,9 @@ class Client(BaseClient):
                    
                   * FLEET_STATE_ACTIVATING -- Fleet status changed from ``BUILDING`` to ``ACTIVATING`` .  
                    
-                  * FLEET_ACTIVATION_FAILED - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service. 
+                  * FLEET_ACTIVATION_FAILED - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting \"process ready\" to the Amazon GameLift service. 
                    
-                  * FLEET_STATE_ACTIVE -- The fleet's status changed from ``ACTIVATING`` to ``ACTIVE`` . The fleet is now ready to host game sessions. 
+                  * FLEET_STATE_ACTIVE -- The fleet\'s status changed from ``ACTIVATING`` to ``ACTIVE`` . The fleet is now ready to host game sessions. 
                    
                    **VPC peering events:**  
         
@@ -3369,9 +3369,9 @@ class Client(BaseClient):
                    
                    **Other fleet events:**  
         
-                  * FLEET_SCALING_EVENT -- A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings. 
+                  * FLEET_SCALING_EVENT -- A change was made to the fleet\'s capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings. 
                    
-                  * FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.  
+                  * FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet\'s game session protection policy setting. Event messaging includes both the old and new policy setting.  
                    
                   * FLEET_DELETED -- A request to delete a fleet was initiated. 
                    
@@ -3383,7 +3383,7 @@ class Client(BaseClient):
         
                 - **EventTime** *(datetime) --* 
         
-                  Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **PreSignedLogUrl** *(string) --* 
         
@@ -3445,7 +3445,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_fleet_port_settings(
-              FleetId='string'
+              FleetId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -3460,12 +3460,12 @@ class Client(BaseClient):
           ::
         
             {
-                'InboundPermissions': [
+                \'InboundPermissions\': [
                     {
-                        'FromPort': 123,
-                        'ToPort': 123,
-                        'IpRange': 'string',
-                        'Protocol': 'TCP'|'UDP'
+                        \'FromPort\': 123,
+                        \'ToPort\': 123,
+                        \'IpRange\': \'string\',
+                        \'Protocol\': \'TCP\'|\'UDP\'
                     },
                 ]
             }
@@ -3481,7 +3481,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the  GameSession object. 
+                A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object. 
         
                 - **FromPort** *(integer) --* 
         
@@ -3493,7 +3493,7 @@ class Client(BaseClient):
         
                 - **IpRange** *(string) --* 
         
-                  Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "``000.000.000.000/[subnet mask]`` " or optionally the shortened version "``0.0.0.0/[subnet mask]`` ".
+                  Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: \"``000.000.000.000/[subnet mask]`` \" or optionally the shortened version \"``0.0.0.0/[subnet mask]`` \".
         
                 - **Protocol** *(string) --* 
         
@@ -3556,10 +3556,10 @@ class Client(BaseClient):
         
           response = client.describe_fleet_utilization(
               FleetIds=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetIds: list
         :param FleetIds: 
@@ -3586,16 +3586,16 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetUtilization': [
+                \'FleetUtilization\': [
                     {
-                        'FleetId': 'string',
-                        'ActiveServerProcessCount': 123,
-                        'ActiveGameSessionCount': 123,
-                        'CurrentPlayerSessionCount': 123,
-                        'MaximumPlayerSessionCount': 123
+                        \'FleetId\': \'string\',
+                        \'ActiveServerProcessCount\': 123,
+                        \'ActiveGameSessionCount\': 123,
+                        \'CurrentPlayerSessionCount\': 123,
+                        \'MaximumPlayerSessionCount\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3711,12 +3711,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_game_session_details(
-              FleetId='string',
-              GameSessionId='string',
-              AliasId='string',
-              StatusFilter='string',
+              FleetId=\'string\',
+              GameSessionId=\'string\',
+              AliasId=\'string\',
+              StatusFilter=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: 
@@ -3756,35 +3756,35 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionDetails': [
+                \'GameSessionDetails\': [
                     {
-                        'GameSession': {
-                            'GameSessionId': 'string',
-                            'Name': 'string',
-                            'FleetId': 'string',
-                            'CreationTime': datetime(2015, 1, 1),
-                            'TerminationTime': datetime(2015, 1, 1),
-                            'CurrentPlayerSessionCount': 123,
-                            'MaximumPlayerSessionCount': 123,
-                            'Status': 'ACTIVE'|'ACTIVATING'|'TERMINATED'|'TERMINATING'|'ERROR',
-                            'StatusReason': 'INTERRUPTED',
-                            'GameProperties': [
+                        \'GameSession\': {
+                            \'GameSessionId\': \'string\',
+                            \'Name\': \'string\',
+                            \'FleetId\': \'string\',
+                            \'CreationTime\': datetime(2015, 1, 1),
+                            \'TerminationTime\': datetime(2015, 1, 1),
+                            \'CurrentPlayerSessionCount\': 123,
+                            \'MaximumPlayerSessionCount\': 123,
+                            \'Status\': \'ACTIVE\'|\'ACTIVATING\'|\'TERMINATED\'|\'TERMINATING\'|\'ERROR\',
+                            \'StatusReason\': \'INTERRUPTED\',
+                            \'GameProperties\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ],
-                            'IpAddress': 'string',
-                            'Port': 123,
-                            'PlayerSessionCreationPolicy': 'ACCEPT_ALL'|'DENY_ALL',
-                            'CreatorId': 'string',
-                            'GameSessionData': 'string',
-                            'MatchmakerData': 'string'
+                            \'IpAddress\': \'string\',
+                            \'Port\': 123,
+                            \'PlayerSessionCreationPolicy\': \'ACCEPT_ALL\'|\'DENY_ALL\',
+                            \'CreatorId\': \'string\',
+                            \'GameSessionData\': \'string\',
+                            \'MatchmakerData\': \'string\'
                         },
-                        'ProtectionPolicy': 'NoProtection'|'FullProtection'
+                        \'ProtectionPolicy\': \'NoProtection\'|\'FullProtection\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3798,7 +3798,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A game session's properties plus the protection policy currently in force.
+                A game session\'s properties plus the protection policy currently in force.
         
                 - **GameSession** *(dict) --* 
         
@@ -3818,11 +3818,11 @@ class Client(BaseClient):
         
                   - **CreationTime** *(datetime) --* 
         
-                    Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                    Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                   - **TerminationTime** *(datetime) --* 
         
-                    Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                    Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                   - **CurrentPlayerSessionCount** *(integer) --* 
         
@@ -3926,7 +3926,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_game_session_placement(
-              PlacementId='string'
+              PlacementId=\'string\'
           )
         :type PlacementId: string
         :param PlacementId: **[REQUIRED]** 
@@ -3941,40 +3941,40 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionPlacement': {
-                    'PlacementId': 'string',
-                    'GameSessionQueueName': 'string',
-                    'Status': 'PENDING'|'FULFILLED'|'CANCELLED'|'TIMED_OUT',
-                    'GameProperties': [
+                \'GameSessionPlacement\': {
+                    \'PlacementId\': \'string\',
+                    \'GameSessionQueueName\': \'string\',
+                    \'Status\': \'PENDING\'|\'FULFILLED\'|\'CANCELLED\'|\'TIMED_OUT\',
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'MaximumPlayerSessionCount': 123,
-                    'GameSessionName': 'string',
-                    'GameSessionId': 'string',
-                    'GameSessionArn': 'string',
-                    'GameSessionRegion': 'string',
-                    'PlayerLatencies': [
+                    \'MaximumPlayerSessionCount\': 123,
+                    \'GameSessionName\': \'string\',
+                    \'GameSessionId\': \'string\',
+                    \'GameSessionArn\': \'string\',
+                    \'GameSessionRegion\': \'string\',
+                    \'PlayerLatencies\': [
                         {
-                            'PlayerId': 'string',
-                            'RegionIdentifier': 'string',
-                            'LatencyInMilliseconds': ...
+                            \'PlayerId\': \'string\',
+                            \'RegionIdentifier\': \'string\',
+                            \'LatencyInMilliseconds\': ...
                         },
                     ],
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlacedPlayerSessions': [
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlacedPlayerSessions\': [
                         {
-                            'PlayerId': 'string',
-                            'PlayerSessionId': 'string'
+                            \'PlayerId\': \'string\',
+                            \'PlayerSessionId\': \'string\'
                         },
                     ],
-                    'GameSessionData': 'string',
-                    'MatchmakerData': 'string'
+                    \'GameSessionData\': \'string\',
+                    \'MatchmakerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4049,7 +4049,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
+                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player\'s latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
         
                   - **PlayerId** *(string) --* 
         
@@ -4065,7 +4065,7 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **EndTime** *(datetime) --* 
         
@@ -4142,10 +4142,10 @@ class Client(BaseClient):
         
           response = client.describe_game_session_queues(
               Names=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -4172,25 +4172,25 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionQueues': [
+                \'GameSessionQueues\': [
                     {
-                        'Name': 'string',
-                        'GameSessionQueueArn': 'string',
-                        'TimeoutInSeconds': 123,
-                        'PlayerLatencyPolicies': [
+                        \'Name\': \'string\',
+                        \'GameSessionQueueArn\': \'string\',
+                        \'TimeoutInSeconds\': 123,
+                        \'PlayerLatencyPolicies\': [
                             {
-                                'MaximumIndividualPlayerLatencyMilliseconds': 123,
-                                'PolicyDurationSeconds': 123
+                                \'MaximumIndividualPlayerLatencyMilliseconds\': 123,
+                                \'PolicyDurationSeconds\': 123
                             },
                         ],
-                        'Destinations': [
+                        \'Destinations\': [
                             {
-                                'DestinationArn': 'string'
+                                \'DestinationArn\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4206,11 +4206,11 @@ class Client(BaseClient):
         
                 Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:
         
-                * The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency.  
+                * The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue\'s default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency.  
                  
                 * The length of time that placement requests can wait in the queue before timing out.  
                  
-                * A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum. 
+                * A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy\'s maximum. 
                  
                 Queue-related operations include:
         
@@ -4324,12 +4324,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_game_sessions(
-              FleetId='string',
-              GameSessionId='string',
-              AliasId='string',
-              StatusFilter='string',
+              FleetId=\'string\',
+              GameSessionId=\'string\',
+              AliasId=\'string\',
+              StatusFilter=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: 
@@ -4369,32 +4369,32 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessions': [
+                \'GameSessions\': [
                     {
-                        'GameSessionId': 'string',
-                        'Name': 'string',
-                        'FleetId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TerminationTime': datetime(2015, 1, 1),
-                        'CurrentPlayerSessionCount': 123,
-                        'MaximumPlayerSessionCount': 123,
-                        'Status': 'ACTIVE'|'ACTIVATING'|'TERMINATED'|'TERMINATING'|'ERROR',
-                        'StatusReason': 'INTERRUPTED',
-                        'GameProperties': [
+                        \'GameSessionId\': \'string\',
+                        \'Name\': \'string\',
+                        \'FleetId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TerminationTime\': datetime(2015, 1, 1),
+                        \'CurrentPlayerSessionCount\': 123,
+                        \'MaximumPlayerSessionCount\': 123,
+                        \'Status\': \'ACTIVE\'|\'ACTIVATING\'|\'TERMINATED\'|\'TERMINATING\'|\'ERROR\',
+                        \'StatusReason\': \'INTERRUPTED\',
+                        \'GameProperties\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'PlayerSessionCreationPolicy': 'ACCEPT_ALL'|'DENY_ALL',
-                        'CreatorId': 'string',
-                        'GameSessionData': 'string',
-                        'MatchmakerData': 'string'
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'PlayerSessionCreationPolicy\': \'ACCEPT_ALL\'|\'DENY_ALL\',
+                        \'CreatorId\': \'string\',
+                        \'GameSessionData\': \'string\',
+                        \'MatchmakerData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4450,11 +4450,11 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **TerminationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **CurrentPlayerSessionCount** *(integer) --* 
         
@@ -4530,10 +4530,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instances(
-              FleetId='string',
-              InstanceId='string',
+              FleetId=\'string\',
+              InstanceId=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -4563,18 +4563,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'FleetId': 'string',
-                        'InstanceId': 'string',
-                        'IpAddress': 'string',
-                        'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                        'Type': 't2.micro'|'t2.small'|'t2.medium'|'t2.large'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge',
-                        'Status': 'PENDING'|'ACTIVE'|'TERMINATING',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'FleetId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                        \'Type\': \'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\',
+                        \'Status\': \'PENDING\'|\'ACTIVE\'|\'TERMINATING\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4614,7 +4614,7 @@ class Client(BaseClient):
         
                   Current status of the instance. Possible statuses include the following:
         
-                  * **PENDING** -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.  
+                  * **PENDING** -- The instance is in the process of being created and launching server processes as defined in the fleet\'s run-time configuration.  
                    
                   * **ACTIVE** -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.  
                    
@@ -4622,7 +4622,7 @@ class Client(BaseClient):
                    
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
             - **NextToken** *(string) --* 
         
@@ -4657,7 +4657,7 @@ class Client(BaseClient):
         
           response = client.describe_matchmaking(
               TicketIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type TicketIds: list
@@ -4675,48 +4675,48 @@ class Client(BaseClient):
           ::
         
             {
-                'TicketList': [
+                \'TicketList\': [
                     {
-                        'TicketId': 'string',
-                        'ConfigurationName': 'string',
-                        'Status': 'CANCELLED'|'COMPLETED'|'FAILED'|'PLACING'|'QUEUED'|'REQUIRES_ACCEPTANCE'|'SEARCHING'|'TIMED_OUT',
-                        'StatusReason': 'string',
-                        'StatusMessage': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Players': [
+                        \'TicketId\': \'string\',
+                        \'ConfigurationName\': \'string\',
+                        \'Status\': \'CANCELLED\'|\'COMPLETED\'|\'FAILED\'|\'PLACING\'|\'QUEUED\'|\'REQUIRES_ACCEPTANCE\'|\'SEARCHING\'|\'TIMED_OUT\',
+                        \'StatusReason\': \'string\',
+                        \'StatusMessage\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Players\': [
                             {
-                                'PlayerId': 'string',
-                                'PlayerAttributes': {
-                                    'string': {
-                                        'S': 'string',
-                                        'N': 123.0,
-                                        'SL': [
-                                            'string',
+                                \'PlayerId\': \'string\',
+                                \'PlayerAttributes\': {
+                                    \'string\': {
+                                        \'S\': \'string\',
+                                        \'N\': 123.0,
+                                        \'SL\': [
+                                            \'string\',
                                         ],
-                                        'SDM': {
-                                            'string': 123.0
+                                        \'SDM\': {
+                                            \'string\': 123.0
                                         }
                                     }
                                 },
-                                'Team': 'string',
-                                'LatencyInMs': {
-                                    'string': 123
+                                \'Team\': \'string\',
+                                \'LatencyInMs\': {
+                                    \'string\': 123
                                 }
                             },
                         ],
-                        'GameSessionConnectionInfo': {
-                            'GameSessionArn': 'string',
-                            'IpAddress': 'string',
-                            'Port': 123,
-                            'MatchedPlayerSessions': [
+                        \'GameSessionConnectionInfo\': {
+                            \'GameSessionArn\': \'string\',
+                            \'IpAddress\': \'string\',
+                            \'Port\': 123,
+                            \'MatchedPlayerSessions\': [
                                 {
-                                    'PlayerId': 'string',
-                                    'PlayerSessionId': 'string'
+                                    \'PlayerId\': \'string\',
+                                    \'PlayerSessionId\': \'string\'
                                 },
                             ]
                         },
-                        'EstimatedWaitTime': 123
+                        \'EstimatedWaitTime\': 123
                     },
                 ]
             }
@@ -4776,11 +4776,11 @@ class Client(BaseClient):
         
                 - **StartTime** *(datetime) --* 
         
-                  Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **EndTime** *(datetime) --* 
         
-                  Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **Players** *(list) --* 
         
@@ -4796,7 +4796,7 @@ class Client(BaseClient):
         
                     - **PlayerAttributes** *(dict) --* 
         
-                      Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}`` .
+                      Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}`` .
         
                       - *(string) --* 
                         
@@ -4864,7 +4864,7 @@ class Client(BaseClient):
         
                       Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request. 
         
-                      When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.
+                      When players connect to the match\'s game session, they must include both player ID and player session ID in order to claim their assigned player slot.
         
                       - **PlayerId** *(string) --* 
         
@@ -4907,11 +4907,11 @@ class Client(BaseClient):
         
           response = client.describe_matchmaking_configurations(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              RuleSetName='string',
+              RuleSetName=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -4943,31 +4943,31 @@ class Client(BaseClient):
           ::
         
             {
-                'Configurations': [
+                \'Configurations\': [
                     {
-                        'Name': 'string',
-                        'Description': 'string',
-                        'GameSessionQueueArns': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'GameSessionQueueArns\': [
+                            \'string\',
                         ],
-                        'RequestTimeoutSeconds': 123,
-                        'AcceptanceTimeoutSeconds': 123,
-                        'AcceptanceRequired': True|False,
-                        'RuleSetName': 'string',
-                        'NotificationTarget': 'string',
-                        'AdditionalPlayerCount': 123,
-                        'CustomEventData': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'GameProperties': [
+                        \'RequestTimeoutSeconds\': 123,
+                        \'AcceptanceTimeoutSeconds\': 123,
+                        \'AcceptanceRequired\': True|False,
+                        \'RuleSetName\': \'string\',
+                        \'NotificationTarget\': \'string\',
+                        \'AdditionalPlayerCount\': 123,
+                        \'CustomEventData\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'GameProperties\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'GameSessionData': 'string'
+                        \'GameSessionData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5019,7 +5019,7 @@ class Client(BaseClient):
         
                 - **AdditionalPlayerCount** *(integer) --* 
         
-                  Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+                  Number of player slots in a match to keep open for future players. For example, if the configuration\'s rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
         
                 - **CustomEventData** *(string) --* 
         
@@ -5027,7 +5027,7 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **GameProperties** *(list) --* 
         
@@ -5082,10 +5082,10 @@ class Client(BaseClient):
         
           response = client.describe_matchmaking_rule_sets(
               Names=[
-                  'string',
+                  \'string\',
               ],
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Names: list
         :param Names: 
@@ -5112,14 +5112,14 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleSets': [
+                \'RuleSets\': [
                     {
-                        'RuleSetName': 'string',
-                        'RuleSetBody': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'RuleSetName\': \'string\',
+                        \'RuleSetBody\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5139,7 +5139,7 @@ class Client(BaseClient):
         
                 * Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled.  
                  
-                * Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level. 
+                * Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player\'s skill or level. 
                  
                 * Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players, teams, or entire matches. For example, a rule might require each player to meet a certain skill level, each team to have at least one player in a certain role, or the match to have a minimum average skill level. or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role.  
                  
@@ -5155,7 +5155,7 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
             - **NextToken** *(string) --* 
         
@@ -5193,12 +5193,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_player_sessions(
-              GameSessionId='string',
-              PlayerId='string',
-              PlayerSessionId='string',
-              PlayerSessionStatusFilter='string',
+              GameSessionId=\'string\',
+              PlayerId=\'string\',
+              PlayerSessionId=\'string\',
+              PlayerSessionStatusFilter=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type GameSessionId: string
         :param GameSessionId: 
@@ -5248,21 +5248,21 @@ class Client(BaseClient):
           ::
         
             {
-                'PlayerSessions': [
+                \'PlayerSessions\': [
                     {
-                        'PlayerSessionId': 'string',
-                        'PlayerId': 'string',
-                        'GameSessionId': 'string',
-                        'FleetId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TerminationTime': datetime(2015, 1, 1),
-                        'Status': 'RESERVED'|'ACTIVE'|'COMPLETED'|'TIMEDOUT',
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'PlayerData': 'string'
+                        \'PlayerSessionId\': \'string\',
+                        \'PlayerId\': \'string\',
+                        \'GameSessionId\': \'string\',
+                        \'FleetId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TerminationTime\': datetime(2015, 1, 1),
+                        \'Status\': \'RESERVED\'|\'ACTIVE\'|\'COMPLETED\'|\'TIMEDOUT\',
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'PlayerData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5310,15 +5310,15 @@ class Client(BaseClient):
         
                 - **FleetId** *(string) --* 
         
-                  Unique identifier for a fleet that the player's game session is running on.
+                  Unique identifier for a fleet that the player\'s game session is running on.
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **TerminationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **Status** *(string) --* 
         
@@ -5402,7 +5402,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_runtime_configuration(
-              FleetId='string'
+              FleetId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -5417,16 +5417,16 @@ class Client(BaseClient):
           ::
         
             {
-                'RuntimeConfiguration': {
-                    'ServerProcesses': [
+                \'RuntimeConfiguration\': {
+                    \'ServerProcesses\': [
                         {
-                            'LaunchPath': 'string',
-                            'Parameters': 'string',
-                            'ConcurrentExecutions': 123
+                            \'LaunchPath\': \'string\',
+                            \'Parameters\': \'string\',
+                            \'ConcurrentExecutions\': 123
                         },
                     ],
-                    'MaxConcurrentGameSessionActivations': 123,
-                    'GameSessionActivationTimeoutSeconds': 123
+                    \'MaxConcurrentGameSessionActivations\': 123,
+                    \'GameSessionActivationTimeoutSeconds\': 123
                 }
             }
           **Response Structure** 
@@ -5445,11 +5445,11 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
         
                   - **LaunchPath** *(string) --* 
         
-                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \". 
         
                   - **Parameters** *(string) --* 
         
@@ -5473,9 +5473,9 @@ class Client(BaseClient):
     def describe_scaling_policies(self, FleetId: str, StatusFilter: str = None, Limit: int = None, NextToken: str = None) -> Dict:
         """
         
-        To get a fleet's scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of  ScalingPolicy objects is returned for the fleet.
+        To get a fleet\'s scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of  ScalingPolicy objects is returned for the fleet.
         
-        A fleet may have all of its scaling policies suspended ( StopFleetActions ). This action does not affect the status of the scaling policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force or suspended, call  DescribeFleetAttributes and check the stopped actions.
+        A fleet may have all of its scaling policies suspended ( StopFleetActions ). This action does not affect the status of the scaling policies, which remains ACTIVE. To see whether a fleet\'s scaling policies are in force or suspended, call  DescribeFleetAttributes and check the stopped actions.
         
         Operations related to fleet capacity scaling include:
         
@@ -5505,10 +5505,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_scaling_policies(
-              FleetId='string',
-              StatusFilter='ACTIVE'|'UPDATE_REQUESTED'|'UPDATING'|'DELETE_REQUESTED'|'DELETING'|'DELETED'|'ERROR',
+              FleetId=\'string\',
+              StatusFilter=\'ACTIVE\'|\'UPDATE_REQUESTED\'|\'UPDATING\'|\'DELETE_REQUESTED\'|\'DELETING\'|\'DELETED\'|\'ERROR\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -5552,24 +5552,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ScalingPolicies': [
+                \'ScalingPolicies\': [
                     {
-                        'FleetId': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'UPDATE_REQUESTED'|'UPDATING'|'DELETE_REQUESTED'|'DELETING'|'DELETED'|'ERROR',
-                        'ScalingAdjustment': 123,
-                        'ScalingAdjustmentType': 'ChangeInCapacity'|'ExactCapacity'|'PercentChangeInCapacity',
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'Threshold': 123.0,
-                        'EvaluationPeriods': 123,
-                        'MetricName': 'ActivatingGameSessions'|'ActiveGameSessions'|'ActiveInstances'|'AvailableGameSessions'|'AvailablePlayerSessions'|'CurrentPlayerSessions'|'IdleInstances'|'PercentAvailableGameSessions'|'PercentIdleInstances'|'QueueDepth'|'WaitTime',
-                        'PolicyType': 'RuleBased'|'TargetBased',
-                        'TargetConfiguration': {
-                            'TargetValue': 123.0
+                        \'FleetId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'UPDATE_REQUESTED\'|\'UPDATING\'|\'DELETE_REQUESTED\'|\'DELETING\'|\'DELETED\'|\'ERROR\',
+                        \'ScalingAdjustment\': 123,
+                        \'ScalingAdjustmentType\': \'ChangeInCapacity\'|\'ExactCapacity\'|\'PercentChangeInCapacity\',
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'Threshold\': 123.0,
+                        \'EvaluationPeriods\': 123,
+                        \'MetricName\': \'ActivatingGameSessions\'|\'ActiveGameSessions\'|\'ActiveInstances\'|\'AvailableGameSessions\'|\'AvailablePlayerSessions\'|\'CurrentPlayerSessions\'|\'IdleInstances\'|\'PercentAvailableGameSessions\'|\'PercentIdleInstances\'|\'QueueDepth\'|\'WaitTime\',
+                        \'PolicyType\': \'RuleBased\'|\'TargetBased\',
+                        \'TargetConfiguration\': {
+                            \'TargetValue\': 123.0
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5617,7 +5617,7 @@ class Client(BaseClient):
         
                 - **Status** *(string) --* 
         
-                  Current status of the scaling policy. The scaling policy can be in force only when in an ``ACTIVE`` status. Scaling policies can be suspended for individual fleets (see  StopFleetActions ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling  DescribeFleetCapacity .
+                  Current status of the scaling policy. The scaling policy can be in force only when in an ``ACTIVE`` status. Scaling policies can be suspended for individual fleets (see  StopFleetActions ; if suspended for a fleet, the policy status does not change. View a fleet\'s stopped actions by calling  DescribeFleetCapacity .
         
                   * **ACTIVE** -- The scaling policy can be used for auto-scaling a fleet. 
                    
@@ -5639,7 +5639,7 @@ class Client(BaseClient):
         
                 - **ScalingAdjustmentType** *(string) --* 
         
-                  Type of adjustment to make to a fleet's instance count (see  FleetCapacity ):
+                  Type of adjustment to make to a fleet\'s instance count (see  FleetCapacity ):
         
                   * **ChangeInCapacity** -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down. 
                    
@@ -5687,7 +5687,7 @@ class Client(BaseClient):
                    
                 - **PolicyType** *(string) --* 
         
-                  Type of scaling policy to create. For a target-based policy, set the parameter *MetricName* to 'PercentAvailableGameSessions' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .
+                  Type of scaling policy to create. For a target-based policy, set the parameter *MetricName* to \'PercentAvailableGameSessions\' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .
         
                 - **TargetConfiguration** *(dict) --* 
         
@@ -5695,7 +5695,7 @@ class Client(BaseClient):
         
                   - **TargetValue** *(float) --* 
         
-                    Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+                    Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet\'s buffer (the percent of capacity that should be idle and ready for new game sessions).
         
             - **NextToken** *(string) --* 
         
@@ -5736,13 +5736,13 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringAuthorizations': [
+                \'VpcPeeringAuthorizations\': [
                     {
-                        'GameLiftAwsAccountId': 'string',
-                        'PeerVpcAwsAccountId': 'string',
-                        'PeerVpcId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'ExpirationTime': datetime(2015, 1, 1)
+                        \'GameLiftAwsAccountId\': \'string\',
+                        \'PeerVpcAwsAccountId\': \'string\',
+                        \'PeerVpcId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'ExpirationTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -5784,11 +5784,11 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **ExpirationTime** *(datetime) --* 
         
-                  Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -5818,7 +5818,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_vpc_peering_connections(
-              FleetId='string'
+              FleetId=\'string\'
           )
         :type FleetId: string
         :param FleetId: 
@@ -5833,17 +5833,17 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringConnections': [
+                \'VpcPeeringConnections\': [
                     {
-                        'FleetId': 'string',
-                        'IpV4CidrBlock': 'string',
-                        'VpcPeeringConnectionId': 'string',
-                        'Status': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'FleetId\': \'string\',
+                        \'IpV4CidrBlock\': \'string\',
+                        \'VpcPeeringConnectionId\': \'string\',
+                        \'Status\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'PeerVpcId': 'string',
-                        'GameLiftVpcId': 'string'
+                        \'PeerVpcId\': \'string\',
+                        \'GameLiftVpcId\': \'string\'
                     },
                 ]
             }
@@ -5926,7 +5926,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5967,7 +5967,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_game_session_log_url(
-              GameSessionId='string'
+              GameSessionId=\'string\'
           )
         :type GameSessionId: string
         :param GameSessionId: **[REQUIRED]** 
@@ -5982,7 +5982,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PreSignedUrl': 'string'
+                \'PreSignedUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -6000,9 +6000,9 @@ class Client(BaseClient):
     def get_instance_access(self, FleetId: str, InstanceId: str) -> Dict:
         """
         
-        Access requires credentials that match the operating system of the instance. For a Windows instance, Amazon GameLift returns a user name and password as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift returns a user name and RSA private key, also as strings, for use with an SSH client. The private key must be saved in the proper format to a ``.pem`` file before using. If you're making this request using the AWS CLI, saving the secret can be handled as part of the GetInstanceAccess request. (See the example later in this topic). For more information on remote access, see `Remotely Accessing an Instance <http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html>`__ .
+        Access requires credentials that match the operating system of the instance. For a Windows instance, Amazon GameLift returns a user name and password as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift returns a user name and RSA private key, also as strings, for use with an SSH client. The private key must be saved in the proper format to a ``.pem`` file before using. If you\'re making this request using the AWS CLI, saving the secret can be handled as part of the GetInstanceAccess request. (See the example later in this topic). For more information on remote access, see `Remotely Accessing an Instance <http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html>`__ .
         
-        To request access to a specific instance, specify the IDs of the instance and the fleet it belongs to. If successful, an  InstanceAccess object is returned containing the instance's IP address and a set of credentials.
+        To request access to a specific instance, specify the IDs of the instance and the fleet it belongs to. If successful, an  InstanceAccess object is returned containing the instance\'s IP address and a set of credentials.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/GetInstanceAccess>`_
         
@@ -6010,8 +6010,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance_access(
-              FleetId='string',
-              InstanceId='string'
+              FleetId=\'string\',
+              InstanceId=\'string\'
           )
         :type FleetId: string
         :param FleetId: **[REQUIRED]** 
@@ -6031,14 +6031,14 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceAccess': {
-                    'FleetId': 'string',
-                    'InstanceId': 'string',
-                    'IpAddress': 'string',
-                    'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                    'Credentials': {
-                        'UserName': 'string',
-                        'Secret': 'string'
+                \'InstanceAccess\': {
+                    \'FleetId\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'IpAddress\': \'string\',
+                    \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                    \'Credentials\': {
+                        \'UserName\': \'string\',
+                        \'Secret\': \'string\'
                     }
                 }
             }
@@ -6089,10 +6089,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -6142,10 +6142,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_aliases(
-              RoutingStrategyType='SIMPLE'|'TERMINAL',
-              Name='string',
+              RoutingStrategyType=\'SIMPLE\'|\'TERMINAL\',
+              Name=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type RoutingStrategyType: string
         :param RoutingStrategyType: 
@@ -6181,22 +6181,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Aliases': [
+                \'Aliases\': [
                     {
-                        'AliasId': 'string',
-                        'Name': 'string',
-                        'AliasArn': 'string',
-                        'Description': 'string',
-                        'RoutingStrategy': {
-                            'Type': 'SIMPLE'|'TERMINAL',
-                            'FleetId': 'string',
-                            'Message': 'string'
+                        \'AliasId\': \'string\',
+                        \'Name\': \'string\',
+                        \'AliasArn\': \'string\',
+                        \'Description\': \'string\',
+                        \'RoutingStrategy\': {
+                            \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                            \'FleetId\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1)
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6266,11 +6266,11 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **LastUpdatedTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
             - **NextToken** *(string) --* 
         
@@ -6304,9 +6304,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_builds(
-              Status='INITIALIZED'|'READY'|'FAILED',
+              Status=\'INITIALIZED\'|\'READY\'|\'FAILED\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Status: string
         :param Status: 
@@ -6339,18 +6339,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Builds': [
+                \'Builds\': [
                     {
-                        'BuildId': 'string',
-                        'Name': 'string',
-                        'Version': 'string',
-                        'Status': 'INITIALIZED'|'READY'|'FAILED',
-                        'SizeOnDisk': 123,
-                        'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'BuildId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Version\': \'string\',
+                        \'Status\': \'INITIALIZED\'|\'READY\'|\'FAILED\',
+                        \'SizeOnDisk\': 123,
+                        \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6412,7 +6412,7 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
             - **NextToken** *(string) --* 
         
@@ -6474,9 +6474,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_fleets(
-              BuildId='string',
+              BuildId=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type BuildId: string
         :param BuildId: 
@@ -6501,10 +6501,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetIds': [
-                    'string',
+                \'FleetIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6536,19 +6536,19 @@ class Client(BaseClient):
         
          **Target-based policy**  
         
-        A target-based policy tracks a single metric: PercentAvailableGameSessions. This metric tells us how much of a fleet's hosting capacity is ready to host game sessions but is not currently in use. This is the fleet's buffer; it measures the additional player demand that the fleet could handle at current capacity. With a target-based policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action is needed to maintain that target. 
+        A target-based policy tracks a single metric: PercentAvailableGameSessions. This metric tells us how much of a fleet\'s hosting capacity is ready to host game sessions but is not currently in use. This is the fleet\'s buffer; it measures the additional player demand that the fleet could handle at current capacity. With a target-based policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action is needed to maintain that target. 
         
-        For example, you might choose to maintain a 10% buffer for a fleet that has the capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take action whenever the fleet's available capacity falls below or rises above 10 game sessions. Amazon GameLift will start new instances or stop unused instances in order to return to the 10% buffer. 
+        For example, you might choose to maintain a 10% buffer for a fleet that has the capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take action whenever the fleet\'s available capacity falls below or rises above 10 game sessions. Amazon GameLift will start new instances or stop unused instances in order to return to the 10% buffer. 
         
-        To create or update a target-based policy, specify a fleet ID and name, and set the policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions) and reference a  TargetConfiguration object with your desired buffer value. Exclude all other parameters. On a successful request, the policy name is returned. The scaling policy is automatically in force as soon as it's successfully created. If the fleet's auto-scaling actions are temporarily suspended, the new policy will be in force once the fleet actions are restarted.
+        To create or update a target-based policy, specify a fleet ID and name, and set the policy type to \"TargetBased\". Specify the metric to track (PercentAvailableGameSessions) and reference a  TargetConfiguration object with your desired buffer value. Exclude all other parameters. On a successful request, the policy name is returned. The scaling policy is automatically in force as soon as it\'s successfully created. If the fleet\'s auto-scaling actions are temporarily suspended, the new policy will be in force once the fleet actions are restarted.
         
          **Rule-based policy**  
         
         A rule-based policy tracks specified fleet metric, sets a threshold value, and specifies the type of action to initiate when triggered. With a rule-based policy, you can select from several available fleet metrics. Each policy specifies whether to scale up or scale down (and by how much), so you need one policy for each type of action. 
         
-        For example, a policy may make the following statement: "If the percentage of idle instances is greater than 20% for more than 15 minutes, then reduce the fleet capacity by 10%."
+        For example, a policy may make the following statement: \"If the percentage of idle instances is greater than 20% for more than 15 minutes, then reduce the fleet capacity by 10%.\"
         
-        A policy's rule statement has the following structure:
+        A policy\'s rule statement has the following structure:
         
         If ``[MetricName]`` is ``[ComparisonOperator]``  ``[Threshold]`` for ``[EvaluationPeriods]`` minutes, then ``[ScalingAdjustmentType]`` to/by ``[ScalingAdjustment]`` .
         
@@ -6556,7 +6556,7 @@ class Client(BaseClient):
         
         If ``[PercentIdleInstances]`` is ``[GreaterThanThreshold]``  ``[20]`` for ``[15]`` minutes, then ``[PercentChangeInCapacity]`` to/by ``[10]`` .
         
-        To create or update a scaling policy, specify a unique combination of name and fleet ID, and set the policy type to "RuleBased". Specify the parameter values for a policy rule statement. On a successful request, the policy name is returned. Scaling policies are automatically in force as soon as they're successfully created. If the fleet's auto-scaling actions are temporarily suspended, the new policy will be in force once the fleet actions are restarted.
+        To create or update a scaling policy, specify a unique combination of name and fleet ID, and set the policy type to \"RuleBased\". Specify the parameter values for a policy rule statement. On a successful request, the policy name is returned. Scaling policies are automatically in force as soon as they\'re successfully created. If the fleet\'s auto-scaling actions are temporarily suspended, the new policy will be in force once the fleet actions are restarted.
         
         Operations related to fleet capacity scaling include:
         
@@ -6586,17 +6586,17 @@ class Client(BaseClient):
         ::
         
           response = client.put_scaling_policy(
-              Name='string',
-              FleetId='string',
+              Name=\'string\',
+              FleetId=\'string\',
               ScalingAdjustment=123,
-              ScalingAdjustmentType='ChangeInCapacity'|'ExactCapacity'|'PercentChangeInCapacity',
+              ScalingAdjustmentType=\'ChangeInCapacity\'|\'ExactCapacity\'|\'PercentChangeInCapacity\',
               Threshold=123.0,
-              ComparisonOperator='GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
+              ComparisonOperator=\'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
               EvaluationPeriods=123,
-              MetricName='ActivatingGameSessions'|'ActiveGameSessions'|'ActiveInstances'|'AvailableGameSessions'|'AvailablePlayerSessions'|'CurrentPlayerSessions'|'IdleInstances'|'PercentAvailableGameSessions'|'PercentIdleInstances'|'QueueDepth'|'WaitTime',
-              PolicyType='RuleBased'|'TargetBased',
+              MetricName=\'ActivatingGameSessions\'|\'ActiveGameSessions\'|\'ActiveInstances\'|\'AvailableGameSessions\'|\'AvailablePlayerSessions\'|\'CurrentPlayerSessions\'|\'IdleInstances\'|\'PercentAvailableGameSessions\'|\'PercentIdleInstances\'|\'QueueDepth\'|\'WaitTime\',
+              PolicyType=\'RuleBased\'|\'TargetBased\',
               TargetConfiguration={
-                  'TargetValue': 123.0
+                  \'TargetValue\': 123.0
               }
           )
         :type Name: string
@@ -6617,13 +6617,13 @@ class Client(BaseClient):
         :type ScalingAdjustmentType: string
         :param ScalingAdjustmentType: 
         
-          Type of adjustment to make to a fleet's instance count (see  FleetCapacity ):
+          Type of adjustment to make to a fleet\'s instance count (see  FleetCapacity ):
         
           * **ChangeInCapacity** -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down. 
            
           * **ExactCapacity** -- set the instance count to the scaling adjustment value. 
            
-          * **PercentChangeInCapacity** -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of "-10" scales the fleet down by 10%. 
+          * **PercentChangeInCapacity** -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of \"-10\" scales the fleet down by 10%. 
            
         :type Threshold: float
         :param Threshold: 
@@ -6670,7 +6670,7 @@ class Client(BaseClient):
         :type PolicyType: string
         :param PolicyType: 
         
-          Type of scaling policy to create. For a target-based policy, set the parameter *MetricName* to 'PercentAvailableGameSessions' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .
+          Type of scaling policy to create. For a target-based policy, set the parameter *MetricName* to \'PercentAvailableGameSessions\' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .
         
         :type TargetConfiguration: dict
         :param TargetConfiguration: 
@@ -6679,7 +6679,7 @@ class Client(BaseClient):
         
           - **TargetValue** *(float) --* **[REQUIRED]** 
         
-            Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+            Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet\'s buffer (the percent of capacity that should be idle and ready for new game sessions).
         
         :rtype: dict
         :returns: 
@@ -6689,7 +6689,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -6715,7 +6715,7 @@ class Client(BaseClient):
         ::
         
           response = client.request_upload_credentials(
-              BuildId='string'
+              BuildId=\'string\'
           )
         :type BuildId: string
         :param BuildId: **[REQUIRED]** 
@@ -6730,15 +6730,15 @@ class Client(BaseClient):
           ::
         
             {
-                'UploadCredentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string'
+                \'UploadCredentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\'
                 },
-                'StorageLocation': {
-                    'Bucket': 'string',
-                    'Key': 'string',
-                    'RoleArn': 'string'
+                \'StorageLocation\': {
+                    \'Bucket\': \'string\',
+                    \'Key\': \'string\',
+                    \'RoleArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -6805,7 +6805,7 @@ class Client(BaseClient):
         ::
         
           response = client.resolve_alias(
-              AliasId='string'
+              AliasId=\'string\'
           )
         :type AliasId: string
         :param AliasId: **[REQUIRED]** 
@@ -6820,7 +6820,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetId': 'string'
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -6843,7 +6843,7 @@ class Client(BaseClient):
          
         * **gameSessionName** -- Name assigned to a game session. This value is set when requesting a new game session with  CreateGameSession or updating with  UpdateGameSession . Game session names do not need to be unique to a game session. 
          
-        * **gameSessionProperties** -- Custom data defined in a game session's ``GameProperty`` parameter. ``GameProperty`` values are stored as key:value pairs; the filter expression must indicate the key and a string to search the data values for. For example, to search for game sessions with custom data containing the key:value pair "gameMode:brawl", specify the following: ``gameSessionProperties.gameMode = "brawl"`` . All custom data values are searched as strings. 
+        * **gameSessionProperties** -- Custom data defined in a game session\'s ``GameProperty`` parameter. ``GameProperty`` values are stored as key:value pairs; the filter expression must indicate the key and a string to search the data values for. For example, to search for game sessions with custom data containing the key:value pair \"gameMode:brawl\", specify the following: ``gameSessionProperties.gameMode = \"brawl\"`` . All custom data values are searched as strings. 
          
         * **maximumSessions** -- Maximum number of player sessions allowed for a game session. This value is set when requesting a new game session with  CreateGameSession or updating with  UpdateGameSession . 
          
@@ -6889,12 +6889,12 @@ class Client(BaseClient):
         ::
         
           response = client.search_game_sessions(
-              FleetId='string',
-              AliasId='string',
-              FilterExpression='string',
-              SortExpression='string',
+              FleetId=\'string\',
+              AliasId=\'string\',
+              FilterExpression=\'string\',
+              SortExpression=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type FleetId: string
         :param FleetId: 
@@ -6917,7 +6917,7 @@ class Client(BaseClient):
            
           * **Comparator** -- Valid comparators are: ``=`` , ``<>`` , ``<`` , ``>`` , ``<=`` , ``>=`` .  
            
-          * **Value** -- Value to be searched for. Values may be numbers, boolean values (true/false) or strings depending on the operand. String values are case sensitive and must be enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators ``=`` and ``<>`` . For example, the following filter expression searches on ``gameSessionName`` : "``FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"`` .  
+          * **Value** -- Value to be searched for. Values may be numbers, boolean values (true/false) or strings depending on the operand. String values are case sensitive and must be enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators ``=`` and ``<>`` . For example, the following filter expression searches on ``gameSessionName`` : \"``FilterExpression\": \"gameSessionName = \'Matt\\\'s Awesome Game 1\'\"`` .  
            
           To chain multiple conditions in a single expression, use the logical keywords ``AND`` , ``OR`` , and ``NOT`` and parentheses as needed. For example: ``x AND y AND NOT z`` , ``NOT (x OR y)`` .
         
@@ -6933,7 +6933,7 @@ class Client(BaseClient):
            
           * OR 
            
-          For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: ``"maximumSessions>=10 AND hasAvailablePlayerSessions=true"`` . 
+          For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: ``\"maximumSessions>=10 AND hasAvailablePlayerSessions=true\"`` . 
         
         :type SortExpression: string
         :param SortExpression: 
@@ -6944,7 +6944,7 @@ class Client(BaseClient):
            
           * **Order** -- Valid sort orders are ``ASC`` (ascending) and ``DESC`` (descending). 
            
-          For example, this sort expression returns the oldest active sessions first: ``"SortExpression": "creationTimeMillis ASC"`` . Results with a null value for the sort operand are returned at the end of the list.
+          For example, this sort expression returns the oldest active sessions first: ``\"SortExpression\": \"creationTimeMillis ASC\"`` . Results with a null value for the sort operand are returned at the end of the list.
         
         :type Limit: integer
         :param Limit: 
@@ -6964,32 +6964,32 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessions': [
+                \'GameSessions\': [
                     {
-                        'GameSessionId': 'string',
-                        'Name': 'string',
-                        'FleetId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TerminationTime': datetime(2015, 1, 1),
-                        'CurrentPlayerSessionCount': 123,
-                        'MaximumPlayerSessionCount': 123,
-                        'Status': 'ACTIVE'|'ACTIVATING'|'TERMINATED'|'TERMINATING'|'ERROR',
-                        'StatusReason': 'INTERRUPTED',
-                        'GameProperties': [
+                        \'GameSessionId\': \'string\',
+                        \'Name\': \'string\',
+                        \'FleetId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TerminationTime\': datetime(2015, 1, 1),
+                        \'CurrentPlayerSessionCount\': 123,
+                        \'MaximumPlayerSessionCount\': 123,
+                        \'Status\': \'ACTIVE\'|\'ACTIVATING\'|\'TERMINATED\'|\'TERMINATING\'|\'ERROR\',
+                        \'StatusReason\': \'INTERRUPTED\',
+                        \'GameProperties\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'PlayerSessionCreationPolicy': 'ACCEPT_ALL'|'DENY_ALL',
-                        'CreatorId': 'string',
-                        'GameSessionData': 'string',
-                        'MatchmakerData': 'string'
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'PlayerSessionCreationPolicy\': \'ACCEPT_ALL\'|\'DENY_ALL\',
+                        \'CreatorId\': \'string\',
+                        \'GameSessionData\': \'string\',
+                        \'MatchmakerData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7045,11 +7045,11 @@ class Client(BaseClient):
         
                 - **CreationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **TerminationTime** *(datetime) --* 
         
-                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                  Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
                 - **CurrentPlayerSessionCount** *(integer) --* 
         
@@ -7117,7 +7117,7 @@ class Client(BaseClient):
     def start_fleet_actions(self, FleetId: str, Actions: List) -> Dict:
         """
         
-        To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet's scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet's stopped actions using  DescribeFleetAttributes .
+        To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet\'s scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet\'s stopped actions using  DescribeFleetAttributes .
         
         Operations related to fleet capacity scaling include:
         
@@ -7147,9 +7147,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_fleet_actions(
-              FleetId='string',
+              FleetId=\'string\',
               Actions=[
-                  'AUTO_SCALING',
+                  \'AUTO_SCALING\',
               ]
           )
         :type FleetId: string
@@ -7183,9 +7183,9 @@ class Client(BaseClient):
         
         A game session placement request can also request player sessions. When a new game session is successfully created, Amazon GameLift creates a player session for each player included in the request.
         
-        When placing a game session, by default Amazon GameLift tries each fleet in the order they are listed in the queue configuration. Ideally, a queue's destinations are listed in preference order.
+        When placing a game session, by default Amazon GameLift tries each fleet in the order they are listed in the queue configuration. Ideally, a queue\'s destinations are listed in preference order.
         
-        Alternatively, when requesting a game session with players, you can also provide latency data for each player in relevant regions. Latency data indicates the performance lag a player experiences when connected to a fleet in the region. Amazon GameLift uses latency data to reorder the list of destinations to place the game session in a region with minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each region's average lag for all players and reorders to get the best game play across all players. 
+        Alternatively, when requesting a game session with players, you can also provide latency data for each player in relevant regions. Latency data indicates the performance lag a player experiences when connected to a fleet in the region. Amazon GameLift uses latency data to reorder the list of destinations to place the game session in a region with minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each region\'s average lag for all players and reorders to get the best game play across all players. 
         
         To place a new game session request, specify the following:
         
@@ -7199,7 +7199,7 @@ class Client(BaseClient):
          
         If successful, a new game session placement is created.
         
-        To track the status of a placement request, call  DescribeGameSessionPlacement and check the request's status. If the status is ``FULFILLED`` , a new game session has been created and a game session ARN and region are referenced. If the placement request times out, you can resubmit the request or retry it with a different queue. 
+        To track the status of a placement request, call  DescribeGameSessionPlacement and check the request\'s status. If the status is ``FULFILLED`` , a new game session has been created and a game session ARN and region are referenced. If the placement request times out, you can resubmit the request or retry it with a different queue. 
         
         Game-session-related operations include:
         
@@ -7229,30 +7229,30 @@ class Client(BaseClient):
         ::
         
           response = client.start_game_session_placement(
-              PlacementId='string',
-              GameSessionQueueName='string',
+              PlacementId=\'string\',
+              GameSessionQueueName=\'string\',
               GameProperties=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               MaximumPlayerSessionCount=123,
-              GameSessionName='string',
+              GameSessionName=\'string\',
               PlayerLatencies=[
                   {
-                      'PlayerId': 'string',
-                      'RegionIdentifier': 'string',
-                      'LatencyInMilliseconds': ...
+                      \'PlayerId\': \'string\',
+                      \'RegionIdentifier\': \'string\',
+                      \'LatencyInMilliseconds\': ...
                   },
               ],
               DesiredPlayerSessions=[
                   {
-                      'PlayerId': 'string',
-                      'PlayerData': 'string'
+                      \'PlayerId\': \'string\',
+                      \'PlayerData\': \'string\'
                   },
               ],
-              GameSessionData='string'
+              GameSessionData=\'string\'
           )
         :type PlacementId: string
         :param PlacementId: **[REQUIRED]** 
@@ -7298,7 +7298,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
+            Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player\'s latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
         
             - **PlayerId** *(string) --* 
         
@@ -7342,40 +7342,40 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionPlacement': {
-                    'PlacementId': 'string',
-                    'GameSessionQueueName': 'string',
-                    'Status': 'PENDING'|'FULFILLED'|'CANCELLED'|'TIMED_OUT',
-                    'GameProperties': [
+                \'GameSessionPlacement\': {
+                    \'PlacementId\': \'string\',
+                    \'GameSessionQueueName\': \'string\',
+                    \'Status\': \'PENDING\'|\'FULFILLED\'|\'CANCELLED\'|\'TIMED_OUT\',
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'MaximumPlayerSessionCount': 123,
-                    'GameSessionName': 'string',
-                    'GameSessionId': 'string',
-                    'GameSessionArn': 'string',
-                    'GameSessionRegion': 'string',
-                    'PlayerLatencies': [
+                    \'MaximumPlayerSessionCount\': 123,
+                    \'GameSessionName\': \'string\',
+                    \'GameSessionId\': \'string\',
+                    \'GameSessionArn\': \'string\',
+                    \'GameSessionRegion\': \'string\',
+                    \'PlayerLatencies\': [
                         {
-                            'PlayerId': 'string',
-                            'RegionIdentifier': 'string',
-                            'LatencyInMilliseconds': ...
+                            \'PlayerId\': \'string\',
+                            \'RegionIdentifier\': \'string\',
+                            \'LatencyInMilliseconds\': ...
                         },
                     ],
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlacedPlayerSessions': [
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlacedPlayerSessions\': [
                         {
-                            'PlayerId': 'string',
-                            'PlayerSessionId': 'string'
+                            \'PlayerId\': \'string\',
+                            \'PlayerSessionId\': \'string\'
                         },
                     ],
-                    'GameSessionData': 'string',
-                    'MatchmakerData': 'string'
+                    \'GameSessionData\': \'string\',
+                    \'MatchmakerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7450,7 +7450,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
+                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player\'s latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
         
                   - **PlayerId** *(string) --* 
         
@@ -7466,7 +7466,7 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **EndTime** *(datetime) --* 
         
@@ -7526,9 +7526,9 @@ class Client(BaseClient):
     def start_match_backfill(self, ConfigurationName: str, GameSessionArn: str, Players: List, TicketId: str = None) -> Dict:
         """
         
-        To request a match backfill, specify a unique ticket ID, the existing game session's ARN, a matchmaking configuration, and a set of data that describes all current players in the game session. If successful, a match backfill ticket is created and returned with status set to QUEUED. The ticket is placed in the matchmaker's ticket pool and processed. Track the status of the ticket to respond as needed. For more detail how to set up backfilling, see `Backfill Existing Games with FlexMatch <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html>`__ . 
+        To request a match backfill, specify a unique ticket ID, the existing game session\'s ARN, a matchmaking configuration, and a set of data that describes all current players in the game session. If successful, a match backfill ticket is created and returned with status set to QUEUED. The ticket is placed in the matchmaker\'s ticket pool and processed. Track the status of the ticket to respond as needed. For more detail how to set up backfilling, see `Backfill Existing Games with FlexMatch <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html>`__ . 
         
-        The process of finding backfill matches is essentially identical to the initial matchmaking process. The matchmaker searches the pool and groups tickets together to form potential matches, allowing only one backfill ticket per potential match. Once the a match is formed, the matchmaker creates player sessions for the new players. All tickets in the match are updated with the game session's connection information, and the  GameSession object is updated to include matchmaker data on the new players. For more detail on how match backfill requests are processed, see `How Amazon GameLift FlexMatch Works <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html>`__ . 
+        The process of finding backfill matches is essentially identical to the initial matchmaking process. The matchmaker searches the pool and groups tickets together to form potential matches, allowing only one backfill ticket per potential match. Once the a match is formed, the matchmaker creates player sessions for the new players. All tickets in the match are updated with the game session\'s connection information, and the  GameSession object is updated to include matchmaker data on the new players. For more detail on how match backfill requests are processed, see `How Amazon GameLift FlexMatch Works <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html>`__ . 
         
         Matchmaking-related operations include:
         
@@ -7548,27 +7548,27 @@ class Client(BaseClient):
         ::
         
           response = client.start_match_backfill(
-              TicketId='string',
-              ConfigurationName='string',
-              GameSessionArn='string',
+              TicketId=\'string\',
+              ConfigurationName=\'string\',
+              GameSessionArn=\'string\',
               Players=[
                   {
-                      'PlayerId': 'string',
-                      'PlayerAttributes': {
-                          'string': {
-                              'S': 'string',
-                              'N': 123.0,
-                              'SL': [
-                                  'string',
+                      \'PlayerId\': \'string\',
+                      \'PlayerAttributes\': {
+                          \'string\': {
+                              \'S\': \'string\',
+                              \'N\': 123.0,
+                              \'SL\': [
+                                  \'string\',
                               ],
-                              'SDM': {
-                                  'string': 123.0
+                              \'SDM\': {
+                                  \'string\': 123.0
                               }
                           }
                       },
-                      'Team': 'string',
-                      'LatencyInMs': {
-                          'string': 123
+                      \'Team\': \'string\',
+                      \'LatencyInMs\': {
+                          \'string\': 123
                       }
                   },
               ]
@@ -7581,7 +7581,7 @@ class Client(BaseClient):
         :type ConfigurationName: string
         :param ConfigurationName: **[REQUIRED]** 
         
-          Name of the matchmaker to use for this request. The name of the matchmaker that was used with the original game session is listed in the  GameSession object, ``MatchmakerData`` property. This property contains a matchmaking configuration ARN value, which includes the matchmaker name. (In the ARN value "arn:aws:gamelift:us-west-2:111122223333:matchmakingconfiguration/MM-4v4", the matchmaking configuration name is "MM-4v4".) Use only the name for this parameter.
+          Name of the matchmaker to use for this request. The name of the matchmaker that was used with the original game session is listed in the  GameSession object, ``MatchmakerData`` property. This property contains a matchmaking configuration ARN value, which includes the matchmaker name. (In the ARN value \"arn:aws:gamelift:us-west-2:111122223333:matchmakingconfiguration/MM-4v4\", the matchmaking configuration name is \"MM-4v4\".) Use only the name for this parameter.
         
         :type GameSessionArn: string
         :param GameSessionArn: **[REQUIRED]** 
@@ -7607,7 +7607,7 @@ class Client(BaseClient):
         
             - **PlayerAttributes** *(dict) --* 
         
-              Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}`` .
+              Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}`` .
         
               - *(string) --* 
         
@@ -7659,47 +7659,47 @@ class Client(BaseClient):
           ::
         
             {
-                'MatchmakingTicket': {
-                    'TicketId': 'string',
-                    'ConfigurationName': 'string',
-                    'Status': 'CANCELLED'|'COMPLETED'|'FAILED'|'PLACING'|'QUEUED'|'REQUIRES_ACCEPTANCE'|'SEARCHING'|'TIMED_OUT',
-                    'StatusReason': 'string',
-                    'StatusMessage': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'Players': [
+                \'MatchmakingTicket\': {
+                    \'TicketId\': \'string\',
+                    \'ConfigurationName\': \'string\',
+                    \'Status\': \'CANCELLED\'|\'COMPLETED\'|\'FAILED\'|\'PLACING\'|\'QUEUED\'|\'REQUIRES_ACCEPTANCE\'|\'SEARCHING\'|\'TIMED_OUT\',
+                    \'StatusReason\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'Players\': [
                         {
-                            'PlayerId': 'string',
-                            'PlayerAttributes': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 123.0,
-                                    'SL': [
-                                        'string',
+                            \'PlayerId\': \'string\',
+                            \'PlayerAttributes\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': 123.0,
+                                    \'SL\': [
+                                        \'string\',
                                     ],
-                                    'SDM': {
-                                        'string': 123.0
+                                    \'SDM\': {
+                                        \'string\': 123.0
                                     }
                                 }
                             },
-                            'Team': 'string',
-                            'LatencyInMs': {
-                                'string': 123
+                            \'Team\': \'string\',
+                            \'LatencyInMs\': {
+                                \'string\': 123
                             }
                         },
                     ],
-                    'GameSessionConnectionInfo': {
-                        'GameSessionArn': 'string',
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'MatchedPlayerSessions': [
+                    \'GameSessionConnectionInfo\': {
+                        \'GameSessionArn\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'MatchedPlayerSessions\': [
                             {
-                                'PlayerId': 'string',
-                                'PlayerSessionId': 'string'
+                                \'PlayerId\': \'string\',
+                                \'PlayerSessionId\': \'string\'
                             },
                         ]
                     },
-                    'EstimatedWaitTime': 123
+                    \'EstimatedWaitTime\': 123
                 }
             }
           **Response Structure** 
@@ -7754,11 +7754,11 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **EndTime** *(datetime) --* 
         
-                Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **Players** *(list) --* 
         
@@ -7774,7 +7774,7 @@ class Client(BaseClient):
         
                   - **PlayerAttributes** *(dict) --* 
         
-                    Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}`` .
+                    Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}`` .
         
                     - *(string) --* 
                       
@@ -7842,7 +7842,7 @@ class Client(BaseClient):
         
                     Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request. 
         
-                    When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.
+                    When players connect to the match\'s game session, they must include both player ID and player session ID in order to claim their assigned player slot.
         
                     - **PlayerId** *(string) --* 
         
@@ -7900,26 +7900,26 @@ class Client(BaseClient):
         ::
         
           response = client.start_matchmaking(
-              TicketId='string',
-              ConfigurationName='string',
+              TicketId=\'string\',
+              ConfigurationName=\'string\',
               Players=[
                   {
-                      'PlayerId': 'string',
-                      'PlayerAttributes': {
-                          'string': {
-                              'S': 'string',
-                              'N': 123.0,
-                              'SL': [
-                                  'string',
+                      \'PlayerId\': \'string\',
+                      \'PlayerAttributes\': {
+                          \'string\': {
+                              \'S\': \'string\',
+                              \'N\': 123.0,
+                              \'SL\': [
+                                  \'string\',
                               ],
-                              'SDM': {
-                                  'string': 123.0
+                              \'SDM\': {
+                                  \'string\': 123.0
                               }
                           }
                       },
-                      'Team': 'string',
-                      'LatencyInMs': {
-                          'string': 123
+                      \'Team\': \'string\',
+                      \'LatencyInMs\': {
+                          \'string\': 123
                       }
                   },
               ]
@@ -7949,7 +7949,7 @@ class Client(BaseClient):
         
             - **PlayerAttributes** *(dict) --* 
         
-              Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}`` .
+              Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}`` .
         
               - *(string) --* 
         
@@ -8001,47 +8001,47 @@ class Client(BaseClient):
           ::
         
             {
-                'MatchmakingTicket': {
-                    'TicketId': 'string',
-                    'ConfigurationName': 'string',
-                    'Status': 'CANCELLED'|'COMPLETED'|'FAILED'|'PLACING'|'QUEUED'|'REQUIRES_ACCEPTANCE'|'SEARCHING'|'TIMED_OUT',
-                    'StatusReason': 'string',
-                    'StatusMessage': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'Players': [
+                \'MatchmakingTicket\': {
+                    \'TicketId\': \'string\',
+                    \'ConfigurationName\': \'string\',
+                    \'Status\': \'CANCELLED\'|\'COMPLETED\'|\'FAILED\'|\'PLACING\'|\'QUEUED\'|\'REQUIRES_ACCEPTANCE\'|\'SEARCHING\'|\'TIMED_OUT\',
+                    \'StatusReason\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'Players\': [
                         {
-                            'PlayerId': 'string',
-                            'PlayerAttributes': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 123.0,
-                                    'SL': [
-                                        'string',
+                            \'PlayerId\': \'string\',
+                            \'PlayerAttributes\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': 123.0,
+                                    \'SL\': [
+                                        \'string\',
                                     ],
-                                    'SDM': {
-                                        'string': 123.0
+                                    \'SDM\': {
+                                        \'string\': 123.0
                                     }
                                 }
                             },
-                            'Team': 'string',
-                            'LatencyInMs': {
-                                'string': 123
+                            \'Team\': \'string\',
+                            \'LatencyInMs\': {
+                                \'string\': 123
                             }
                         },
                     ],
-                    'GameSessionConnectionInfo': {
-                        'GameSessionArn': 'string',
-                        'IpAddress': 'string',
-                        'Port': 123,
-                        'MatchedPlayerSessions': [
+                    \'GameSessionConnectionInfo\': {
+                        \'GameSessionArn\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'Port\': 123,
+                        \'MatchedPlayerSessions\': [
                             {
-                                'PlayerId': 'string',
-                                'PlayerSessionId': 'string'
+                                \'PlayerId\': \'string\',
+                                \'PlayerSessionId\': \'string\'
                             },
                         ]
                     },
-                    'EstimatedWaitTime': 123
+                    \'EstimatedWaitTime\': 123
                 }
             }
           **Response Structure** 
@@ -8096,11 +8096,11 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **EndTime** *(datetime) --* 
         
-                Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **Players** *(list) --* 
         
@@ -8116,7 +8116,7 @@ class Client(BaseClient):
         
                   - **PlayerAttributes** *(dict) --* 
         
-                    Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}`` .
+                    Collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the *playerAttributes* used in a matchmaking rule set. Example: ``\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}`` .
         
                     - *(string) --* 
                       
@@ -8184,7 +8184,7 @@ class Client(BaseClient):
         
                     Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request. 
         
-                    When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.
+                    When players connect to the match\'s game session, they must include both player ID and player session ID in order to claim their assigned player slot.
         
                     - **PlayerId** *(string) --* 
         
@@ -8204,7 +8204,7 @@ class Client(BaseClient):
     def stop_fleet_actions(self, FleetId: str, Actions: List) -> Dict:
         """
         
-        To stop fleet actions, specify the fleet ID and the type of actions to suspend. When auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events except to maintain the fleet's desired instances setting ( FleetCapacity . Changes to the fleet's capacity must be done manually using  UpdateFleetCapacity . 
+        To stop fleet actions, specify the fleet ID and the type of actions to suspend. When auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events except to maintain the fleet\'s desired instances setting ( FleetCapacity . Changes to the fleet\'s capacity must be done manually using  UpdateFleetCapacity . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/StopFleetActions>`_
         
@@ -8212,9 +8212,9 @@ class Client(BaseClient):
         ::
         
           response = client.stop_fleet_actions(
-              FleetId='string',
+              FleetId=\'string\',
               Actions=[
-                  'AUTO_SCALING',
+                  \'AUTO_SCALING\',
               ]
           )
         :type FleetId: string
@@ -8274,7 +8274,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_game_session_placement(
-              PlacementId='string'
+              PlacementId=\'string\'
           )
         :type PlacementId: string
         :param PlacementId: **[REQUIRED]** 
@@ -8289,40 +8289,40 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionPlacement': {
-                    'PlacementId': 'string',
-                    'GameSessionQueueName': 'string',
-                    'Status': 'PENDING'|'FULFILLED'|'CANCELLED'|'TIMED_OUT',
-                    'GameProperties': [
+                \'GameSessionPlacement\': {
+                    \'PlacementId\': \'string\',
+                    \'GameSessionQueueName\': \'string\',
+                    \'Status\': \'PENDING\'|\'FULFILLED\'|\'CANCELLED\'|\'TIMED_OUT\',
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'MaximumPlayerSessionCount': 123,
-                    'GameSessionName': 'string',
-                    'GameSessionId': 'string',
-                    'GameSessionArn': 'string',
-                    'GameSessionRegion': 'string',
-                    'PlayerLatencies': [
+                    \'MaximumPlayerSessionCount\': 123,
+                    \'GameSessionName\': \'string\',
+                    \'GameSessionId\': \'string\',
+                    \'GameSessionArn\': \'string\',
+                    \'GameSessionRegion\': \'string\',
+                    \'PlayerLatencies\': [
                         {
-                            'PlayerId': 'string',
-                            'RegionIdentifier': 'string',
-                            'LatencyInMilliseconds': ...
+                            \'PlayerId\': \'string\',
+                            \'RegionIdentifier\': \'string\',
+                            \'LatencyInMilliseconds\': ...
                         },
                     ],
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlacedPlayerSessions': [
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlacedPlayerSessions\': [
                         {
-                            'PlayerId': 'string',
-                            'PlayerSessionId': 'string'
+                            \'PlayerId\': \'string\',
+                            \'PlayerSessionId\': \'string\'
                         },
                     ],
-                    'GameSessionData': 'string',
-                    'MatchmakerData': 'string'
+                    \'GameSessionData\': \'string\',
+                    \'MatchmakerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8397,7 +8397,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
+                  Regional latency information for a player, used when requesting a new game session with  StartGameSessionPlacement . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player\'s latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. 
         
                   - **PlayerId** *(string) --* 
         
@@ -8413,7 +8413,7 @@ class Client(BaseClient):
         
               - **StartTime** *(datetime) --* 
         
-                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **EndTime** *(datetime) --* 
         
@@ -8491,7 +8491,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_matchmaking(
-              TicketId='string'
+              TicketId=\'string\'
           )
         :type TicketId: string
         :param TicketId: **[REQUIRED]** 
@@ -8535,13 +8535,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_alias(
-              AliasId='string',
-              Name='string',
-              Description='string',
+              AliasId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
               RoutingStrategy={
-                  'Type': 'SIMPLE'|'TERMINAL',
-                  'FleetId': 'string',
-                  'Message': 'string'
+                  \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                  \'FleetId\': \'string\',
+                  \'Message\': \'string\'
               }
           )
         :type AliasId: string
@@ -8590,18 +8590,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Alias': {
-                    'AliasId': 'string',
-                    'Name': 'string',
-                    'AliasArn': 'string',
-                    'Description': 'string',
-                    'RoutingStrategy': {
-                        'Type': 'SIMPLE'|'TERMINAL',
-                        'FleetId': 'string',
-                        'Message': 'string'
+                \'Alias\': {
+                    \'AliasId\': \'string\',
+                    \'Name\': \'string\',
+                    \'AliasArn\': \'string\',
+                    \'Description\': \'string\',
+                    \'RoutingStrategy\': {
+                        \'Type\': \'SIMPLE\'|\'TERMINAL\',
+                        \'FleetId\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'LastUpdatedTime': datetime(2015, 1, 1)
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -8654,11 +8654,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **LastUpdatedTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -8684,9 +8684,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_build(
-              BuildId='string',
-              Name='string',
-              Version='string'
+              BuildId=\'string\',
+              Name=\'string\',
+              Version=\'string\'
           )
         :type BuildId: string
         :param BuildId: **[REQUIRED]** 
@@ -8711,14 +8711,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Build': {
-                    'BuildId': 'string',
-                    'Name': 'string',
-                    'Version': 'string',
-                    'Status': 'INITIALIZED'|'READY'|'FAILED',
-                    'SizeOnDisk': 123,
-                    'OperatingSystem': 'WINDOWS_2012'|'AMAZON_LINUX',
-                    'CreationTime': datetime(2015, 1, 1)
+                \'Build\': {
+                    \'BuildId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Version\': \'string\',
+                    \'Status\': \'INITIALIZED\'|\'READY\'|\'FAILED\',
+                    \'SizeOnDisk\': 123,
+                    \'OperatingSystem\': \'WINDOWS_2012\'|\'AMAZON_LINUX\',
+                    \'CreationTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -8765,7 +8765,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
         """
         pass
@@ -8819,16 +8819,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_fleet_attributes(
-              FleetId='string',
-              Name='string',
-              Description='string',
-              NewGameSessionProtectionPolicy='NoProtection'|'FullProtection',
+              FleetId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
+              NewGameSessionProtectionPolicy=\'NoProtection\'|\'FullProtection\',
               ResourceCreationLimitPolicy={
-                  'NewGameSessionsPerCreator': 123,
-                  'PolicyPeriodInMinutes': 123
+                  \'NewGameSessionsPerCreator\': 123,
+                  \'PolicyPeriodInMinutes\': 123
               },
               MetricGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FleetId: string
@@ -8883,7 +8883,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetId': 'string'
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -8903,7 +8903,7 @@ class Client(BaseClient):
         
         Specify minimum and maximum number of instances. Amazon GameLift will not change fleet capacity to values fall outside of this range. This is particularly important when using auto-scaling (see  PutScalingPolicy ) to allow capacity to adjust based on player demand while imposing limits on automatic adjustments.
         
-        To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet's active instance count matches the desired instance count. You can view a fleet's current capacity information by calling  DescribeFleetCapacity . If the desired instance count is higher than the instance type's limit, the "Limit Exceeded" exception occurs.
+        To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet\'s active instance count matches the desired instance count. You can view a fleet\'s current capacity information by calling  DescribeFleetCapacity . If the desired instance count is higher than the instance type\'s limit, the \"Limit Exceeded\" exception occurs.
         
         Fleet-related operations include:
         
@@ -8951,7 +8951,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_fleet_capacity(
-              FleetId='string',
+              FleetId=\'string\',
               DesiredInstances=123,
               MinSize=123,
               MaxSize=123
@@ -8969,12 +8969,12 @@ class Client(BaseClient):
         :type MinSize: integer
         :param MinSize: 
         
-          Minimum value allowed for the fleet's instance count. Default if not set is 0.
+          Minimum value allowed for the fleet\'s instance count. Default if not set is 0.
         
         :type MaxSize: integer
         :param MaxSize: 
         
-          Maximum value allowed for the fleet's instance count. Default if not set is 1.
+          Maximum value allowed for the fleet\'s instance count. Default if not set is 1.
         
         :rtype: dict
         :returns: 
@@ -8984,7 +8984,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetId': 'string'
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -9048,21 +9048,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_fleet_port_settings(
-              FleetId='string',
+              FleetId=\'string\',
               InboundPermissionAuthorizations=[
                   {
-                      'FromPort': 123,
-                      'ToPort': 123,
-                      'IpRange': 'string',
-                      'Protocol': 'TCP'|'UDP'
+                      \'FromPort\': 123,
+                      \'ToPort\': 123,
+                      \'IpRange\': \'string\',
+                      \'Protocol\': \'TCP\'|\'UDP\'
                   },
               ],
               InboundPermissionRevocations=[
                   {
-                      'FromPort': 123,
-                      'ToPort': 123,
-                      'IpRange': 'string',
-                      'Protocol': 'TCP'|'UDP'
+                      \'FromPort\': 123,
+                      \'ToPort\': 123,
+                      \'IpRange\': \'string\',
+                      \'Protocol\': \'TCP\'|\'UDP\'
                   },
               ]
           )
@@ -9078,7 +9078,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the  GameSession object. 
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object. 
         
             - **FromPort** *(integer) --* **[REQUIRED]** 
         
@@ -9090,7 +9090,7 @@ class Client(BaseClient):
         
             - **IpRange** *(string) --* **[REQUIRED]** 
         
-              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "``000.000.000.000/[subnet mask]`` " or optionally the shortened version "``0.0.0.0/[subnet mask]`` ".
+              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: \"``000.000.000.000/[subnet mask]`` \" or optionally the shortened version \"``0.0.0.0/[subnet mask]`` \".
         
             - **Protocol** *(string) --* **[REQUIRED]** 
         
@@ -9103,7 +9103,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
         
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the  GameSession object. 
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object. 
         
             - **FromPort** *(integer) --* **[REQUIRED]** 
         
@@ -9115,7 +9115,7 @@ class Client(BaseClient):
         
             - **IpRange** *(string) --* **[REQUIRED]** 
         
-              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "``000.000.000.000/[subnet mask]`` " or optionally the shortened version "``0.0.0.0/[subnet mask]`` ".
+              Range of allowed IP addresses. This value must be expressed in CIDR notation. Example: \"``000.000.000.000/[subnet mask]`` \" or optionally the shortened version \"``0.0.0.0/[subnet mask]`` \".
         
             - **Protocol** *(string) --* **[REQUIRED]** 
         
@@ -9129,7 +9129,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetId': 'string'
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -9175,11 +9175,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_game_session(
-              GameSessionId='string',
+              GameSessionId=\'string\',
               MaximumPlayerSessionCount=123,
-              Name='string',
-              PlayerSessionCreationPolicy='ACCEPT_ALL'|'DENY_ALL',
-              ProtectionPolicy='NoProtection'|'FullProtection'
+              Name=\'string\',
+              PlayerSessionCreationPolicy=\'ACCEPT_ALL\'|\'DENY_ALL\',
+              ProtectionPolicy=\'NoProtection\'|\'FullProtection\'
           )
         :type GameSessionId: string
         :param GameSessionId: **[REQUIRED]** 
@@ -9218,28 +9218,28 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSession': {
-                    'GameSessionId': 'string',
-                    'Name': 'string',
-                    'FleetId': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'TerminationTime': datetime(2015, 1, 1),
-                    'CurrentPlayerSessionCount': 123,
-                    'MaximumPlayerSessionCount': 123,
-                    'Status': 'ACTIVE'|'ACTIVATING'|'TERMINATED'|'TERMINATING'|'ERROR',
-                    'StatusReason': 'INTERRUPTED',
-                    'GameProperties': [
+                \'GameSession\': {
+                    \'GameSessionId\': \'string\',
+                    \'Name\': \'string\',
+                    \'FleetId\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'TerminationTime\': datetime(2015, 1, 1),
+                    \'CurrentPlayerSessionCount\': 123,
+                    \'MaximumPlayerSessionCount\': 123,
+                    \'Status\': \'ACTIVE\'|\'ACTIVATING\'|\'TERMINATED\'|\'TERMINATING\'|\'ERROR\',
+                    \'StatusReason\': \'INTERRUPTED\',
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'IpAddress': 'string',
-                    'Port': 123,
-                    'PlayerSessionCreationPolicy': 'ACCEPT_ALL'|'DENY_ALL',
-                    'CreatorId': 'string',
-                    'GameSessionData': 'string',
-                    'MatchmakerData': 'string'
+                    \'IpAddress\': \'string\',
+                    \'Port\': 123,
+                    \'PlayerSessionCreationPolicy\': \'ACCEPT_ALL\'|\'DENY_ALL\',
+                    \'CreatorId\': \'string\',
+                    \'GameSessionData\': \'string\',
+                    \'MatchmakerData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9266,11 +9266,11 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **TerminationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **CurrentPlayerSessionCount** *(integer) --* 
         
@@ -9350,17 +9350,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_game_session_queue(
-              Name='string',
+              Name=\'string\',
               TimeoutInSeconds=123,
               PlayerLatencyPolicies=[
                   {
-                      'MaximumIndividualPlayerLatencyMilliseconds': 123,
-                      'PolicyDurationSeconds': 123
+                      \'MaximumIndividualPlayerLatencyMilliseconds\': 123,
+                      \'PolicyDurationSeconds\': 123
                   },
               ],
               Destinations=[
                   {
-                      'DestinationArn': 'string'
+                      \'DestinationArn\': \'string\'
                   },
               ]
           )
@@ -9432,19 +9432,19 @@ class Client(BaseClient):
           ::
         
             {
-                'GameSessionQueue': {
-                    'Name': 'string',
-                    'GameSessionQueueArn': 'string',
-                    'TimeoutInSeconds': 123,
-                    'PlayerLatencyPolicies': [
+                \'GameSessionQueue\': {
+                    \'Name\': \'string\',
+                    \'GameSessionQueueArn\': \'string\',
+                    \'TimeoutInSeconds\': 123,
+                    \'PlayerLatencyPolicies\': [
                         {
-                            'MaximumIndividualPlayerLatencyMilliseconds': 123,
-                            'PolicyDurationSeconds': 123
+                            \'MaximumIndividualPlayerLatencyMilliseconds\': 123,
+                            \'PolicyDurationSeconds\': 123
                         },
                     ],
-                    'Destinations': [
+                    \'Destinations\': [
                         {
-                            'DestinationArn': 'string'
+                            \'DestinationArn\': \'string\'
                         },
                     ]
                 }
@@ -9547,25 +9547,25 @@ class Client(BaseClient):
         ::
         
           response = client.update_matchmaking_configuration(
-              Name='string',
-              Description='string',
+              Name=\'string\',
+              Description=\'string\',
               GameSessionQueueArns=[
-                  'string',
+                  \'string\',
               ],
               RequestTimeoutSeconds=123,
               AcceptanceTimeoutSeconds=123,
               AcceptanceRequired=True|False,
-              RuleSetName='string',
-              NotificationTarget='string',
+              RuleSetName=\'string\',
+              NotificationTarget=\'string\',
               AdditionalPlayerCount=123,
-              CustomEventData='string',
+              CustomEventData=\'string\',
               GameProperties=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              GameSessionData='string'
+              GameSessionData=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -9612,7 +9612,7 @@ class Client(BaseClient):
         :type AdditionalPlayerCount: integer
         :param AdditionalPlayerCount: 
         
-          Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+          Number of player slots in a match to keep open for future players. For example, if the configuration\'s rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
         
         :type CustomEventData: string
         :param CustomEventData: 
@@ -9649,27 +9649,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Configuration': {
-                    'Name': 'string',
-                    'Description': 'string',
-                    'GameSessionQueueArns': [
-                        'string',
+                \'Configuration\': {
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'GameSessionQueueArns\': [
+                        \'string\',
                     ],
-                    'RequestTimeoutSeconds': 123,
-                    'AcceptanceTimeoutSeconds': 123,
-                    'AcceptanceRequired': True|False,
-                    'RuleSetName': 'string',
-                    'NotificationTarget': 'string',
-                    'AdditionalPlayerCount': 123,
-                    'CustomEventData': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'GameProperties': [
+                    \'RequestTimeoutSeconds\': 123,
+                    \'AcceptanceTimeoutSeconds\': 123,
+                    \'AcceptanceRequired\': True|False,
+                    \'RuleSetName\': \'string\',
+                    \'NotificationTarget\': \'string\',
+                    \'AdditionalPlayerCount\': 123,
+                    \'CustomEventData\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'GameProperties\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'GameSessionData': 'string'
+                    \'GameSessionData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9718,7 +9718,7 @@ class Client(BaseClient):
         
               - **AdditionalPlayerCount** *(integer) --* 
         
-                Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+                Number of player slots in a match to keep open for future players. For example, if the configuration\'s rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
         
               - **CustomEventData** *(string) --* 
         
@@ -9726,7 +9726,7 @@ class Client(BaseClient):
         
               - **CreationTime** *(datetime) --* 
         
-                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\").
         
               - **GameProperties** *(list) --* 
         
@@ -9756,7 +9756,7 @@ class Client(BaseClient):
         
         To update run-time configuration, specify the fleet ID and provide a ``RuntimeConfiguration`` object with the updated collection of server process configurations.
         
-        Each instance in a Amazon GameLift fleet checks regularly for an updated run-time configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; they continue to run until they end, while Amazon GameLift simply adds new server processes to fit the current run-time configuration. As a result, the run-time configuration changes are applied gradually as existing processes shut down and new processes are launched in Amazon GameLift's normal process recycling activity.
+        Each instance in a Amazon GameLift fleet checks regularly for an updated run-time configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; they continue to run until they end, while Amazon GameLift simply adds new server processes to fit the current run-time configuration. As a result, the run-time configuration changes are applied gradually as existing processes shut down and new processes are launched in Amazon GameLift\'s normal process recycling activity.
         
         Fleet-related operations include:
         
@@ -9804,17 +9804,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_runtime_configuration(
-              FleetId='string',
+              FleetId=\'string\',
               RuntimeConfiguration={
-                  'ServerProcesses': [
+                  \'ServerProcesses\': [
                       {
-                          'LaunchPath': 'string',
-                          'Parameters': 'string',
-                          'ConcurrentExecutions': 123
+                          \'LaunchPath\': \'string\',
+                          \'Parameters\': \'string\',
+                          \'ConcurrentExecutions\': 123
                       },
                   ],
-                  'MaxConcurrentGameSessionActivations': 123,
-                  'GameSessionActivationTimeoutSeconds': 123
+                  \'MaxConcurrentGameSessionActivations\': 123,
+                  \'GameSessionActivationTimeoutSeconds\': 123
               }
           )
         :type FleetId: string
@@ -9833,11 +9833,11 @@ class Client(BaseClient):
         
             - *(dict) --* 
         
-              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
         
               - **LaunchPath** *(string) --* **[REQUIRED]** 
         
-                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \". 
         
               - **Parameters** *(string) --* 
         
@@ -9863,16 +9863,16 @@ class Client(BaseClient):
           ::
         
             {
-                'RuntimeConfiguration': {
-                    'ServerProcesses': [
+                \'RuntimeConfiguration\': {
+                    \'ServerProcesses\': [
                         {
-                            'LaunchPath': 'string',
-                            'Parameters': 'string',
-                            'ConcurrentExecutions': 123
+                            \'LaunchPath\': \'string\',
+                            \'Parameters\': \'string\',
+                            \'ConcurrentExecutions\': 123
                         },
                     ],
-                    'MaxConcurrentGameSessionActivations': 123,
-                    'GameSessionActivationTimeoutSeconds': 123
+                    \'MaxConcurrentGameSessionActivations\': 123,
+                    \'GameSessionActivationTimeoutSeconds\': 123
                 }
             }
           **Response Structure** 
@@ -9891,11 +9891,11 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
         
                   - **LaunchPath** *(string) --* 
         
-                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \". 
         
                   - **Parameters** *(string) --* 
         
@@ -9941,7 +9941,7 @@ class Client(BaseClient):
         ::
         
           response = client.validate_matchmaking_rule_set(
-              RuleSetBody='string'
+              RuleSetBody=\'string\'
           )
         :type RuleSetBody: string
         :param RuleSetBody: **[REQUIRED]** 
@@ -9956,7 +9956,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Valid': True|False
+                \'Valid\': True|False
             }
           **Response Structure** 
         

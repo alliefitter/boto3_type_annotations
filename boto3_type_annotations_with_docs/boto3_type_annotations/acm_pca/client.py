@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,35 +35,35 @@ class Client(BaseClient):
         
           response = client.create_certificate_authority(
               CertificateAuthorityConfiguration={
-                  'KeyAlgorithm': 'RSA_2048'|'RSA_4096'|'EC_prime256v1'|'EC_secp384r1',
-                  'SigningAlgorithm': 'SHA256WITHECDSA'|'SHA384WITHECDSA'|'SHA512WITHECDSA'|'SHA256WITHRSA'|'SHA384WITHRSA'|'SHA512WITHRSA',
-                  'Subject': {
-                      'Country': 'string',
-                      'Organization': 'string',
-                      'OrganizationalUnit': 'string',
-                      'DistinguishedNameQualifier': 'string',
-                      'State': 'string',
-                      'CommonName': 'string',
-                      'SerialNumber': 'string',
-                      'Locality': 'string',
-                      'Title': 'string',
-                      'Surname': 'string',
-                      'GivenName': 'string',
-                      'Initials': 'string',
-                      'Pseudonym': 'string',
-                      'GenerationQualifier': 'string'
+                  \'KeyAlgorithm\': \'RSA_2048\'|\'RSA_4096\'|\'EC_prime256v1\'|\'EC_secp384r1\',
+                  \'SigningAlgorithm\': \'SHA256WITHECDSA\'|\'SHA384WITHECDSA\'|\'SHA512WITHECDSA\'|\'SHA256WITHRSA\'|\'SHA384WITHRSA\'|\'SHA512WITHRSA\',
+                  \'Subject\': {
+                      \'Country\': \'string\',
+                      \'Organization\': \'string\',
+                      \'OrganizationalUnit\': \'string\',
+                      \'DistinguishedNameQualifier\': \'string\',
+                      \'State\': \'string\',
+                      \'CommonName\': \'string\',
+                      \'SerialNumber\': \'string\',
+                      \'Locality\': \'string\',
+                      \'Title\': \'string\',
+                      \'Surname\': \'string\',
+                      \'GivenName\': \'string\',
+                      \'Initials\': \'string\',
+                      \'Pseudonym\': \'string\',
+                      \'GenerationQualifier\': \'string\'
                   }
               },
               RevocationConfiguration={
-                  'CrlConfiguration': {
-                      'Enabled': True|False,
-                      'ExpirationInDays': 123,
-                      'CustomCname': 'string',
-                      'S3BucketName': 'string'
+                  \'CrlConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'ExpirationInDays\': 123,
+                      \'CustomCname\': \'string\',
+                      \'S3BucketName\': \'string\'
                   }
               },
-              CertificateAuthorityType='SUBORDINATE',
-              IdempotencyToken='string'
+              CertificateAuthorityType=\'SUBORDINATE\',
+              IdempotencyToken=\'string\'
           )
         :type CertificateAuthorityConfiguration: dict
         :param CertificateAuthorityConfiguration: **[REQUIRED]** 
@@ -157,7 +157,7 @@ class Client(BaseClient):
         
             - **CustomCname** *(string) --* 
         
-              Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+              Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don\'t want the name of your S3 bucket to be public.
         
             - **S3BucketName** *(string) --* 
         
@@ -181,7 +181,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateAuthorityArn': 'string'
+                \'CertificateAuthorityArn\': \'string\'
             }
           **Response Structure** 
         
@@ -205,9 +205,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_certificate_authority_audit_report(
-              CertificateAuthorityArn='string',
-              S3BucketName='string',
-              AuditReportResponseFormat='JSON'|'CSV'
+              CertificateAuthorityArn=\'string\',
+              S3BucketName=\'string\',
+              AuditReportResponseFormat=\'JSON\'|\'CSV\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -234,8 +234,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AuditReportId': 'string',
-                'S3Key': 'string'
+                \'AuditReportId\': \'string\',
+                \'S3Key\': \'string\'
             }
           **Response Structure** 
         
@@ -255,9 +255,9 @@ class Client(BaseClient):
     def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None) -> NoReturn:
         """
         
-        Additionally, you can delete a CA if you are waiting for it to be created (the **Status** field of the  CertificateAuthority is ``CREATING`` ). You can also delete it if the CA has been created but you haven't yet imported the signed certificate (the **Status** is ``PENDING_CERTIFICATE`` ) into ACM PCA. 
+        Additionally, you can delete a CA if you are waiting for it to be created (the **Status** field of the  CertificateAuthority is ``CREATING`` ). You can also delete it if the CA has been created but you haven\'t yet imported the signed certificate (the **Status** is ``PENDING_CERTIFICATE`` ) into ACM PCA. 
         
-        If the CA is in one of the aforementioned states and you call  DeleteCertificateAuthority , the CA's status changes to ``DELETED`` . However, the CA won't be permentantly deleted until the restoration period has passed. By default, if you do not set the ``PermanentDeletionTimeInDays`` parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The  DescribeCertificateAuthority operation returns the time remaining in the restoration window of a Private CA in the ``DELETED`` state. To restore an eligable CA, call the  RestoreCertificateAuthority operation.
+        If the CA is in one of the aforementioned states and you call  DeleteCertificateAuthority , the CA\'s status changes to ``DELETED`` . However, the CA won\'t be permentantly deleted until the restoration period has passed. By default, if you do not set the ``PermanentDeletionTimeInDays`` parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The  DescribeCertificateAuthority operation returns the time remaining in the restoration window of a Private CA in the ``DELETED`` state. To restore an eligable CA, call the  RestoreCertificateAuthority operation.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/DeleteCertificateAuthority>`_
         
@@ -265,7 +265,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_certificate_authority(
-              CertificateAuthorityArn='string',
+              CertificateAuthorityArn=\'string\',
               PermanentDeletionTimeInDays=123
           )
         :type CertificateAuthorityArn: string
@@ -299,7 +299,7 @@ class Client(BaseClient):
          
         * ``FAILED`` - Your private CA has failed. Your CA can fail because of problems such a network outage or backend AWS failure or other errors. A failed CA can never return to the pending state. You must create a new CA.  
          
-        * ``DELETED`` - Your private CA is within the restoration period, after which it will be permanently deleted. The length of time remaining in the CA's restoration period will also be included in this operation's output. 
+        * ``DELETED`` - Your private CA is within the restoration period, after which it will be permanently deleted. The length of time remaining in the CA\'s restoration period will also be included in this operation\'s output. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/DescribeCertificateAuthority>`_
         
@@ -307,7 +307,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_certificate_authority(
-              CertificateAuthorityArn='string'
+              CertificateAuthorityArn=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -324,45 +324,45 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateAuthority': {
-                    'Arn': 'string',
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'LastStateChangeAt': datetime(2015, 1, 1),
-                    'Type': 'SUBORDINATE',
-                    'Serial': 'string',
-                    'Status': 'CREATING'|'PENDING_CERTIFICATE'|'ACTIVE'|'DELETED'|'DISABLED'|'EXPIRED'|'FAILED',
-                    'NotBefore': datetime(2015, 1, 1),
-                    'NotAfter': datetime(2015, 1, 1),
-                    'FailureReason': 'REQUEST_TIMED_OUT'|'UNSUPPORTED_ALGORITHM'|'OTHER',
-                    'CertificateAuthorityConfiguration': {
-                        'KeyAlgorithm': 'RSA_2048'|'RSA_4096'|'EC_prime256v1'|'EC_secp384r1',
-                        'SigningAlgorithm': 'SHA256WITHECDSA'|'SHA384WITHECDSA'|'SHA512WITHECDSA'|'SHA256WITHRSA'|'SHA384WITHRSA'|'SHA512WITHRSA',
-                        'Subject': {
-                            'Country': 'string',
-                            'Organization': 'string',
-                            'OrganizationalUnit': 'string',
-                            'DistinguishedNameQualifier': 'string',
-                            'State': 'string',
-                            'CommonName': 'string',
-                            'SerialNumber': 'string',
-                            'Locality': 'string',
-                            'Title': 'string',
-                            'Surname': 'string',
-                            'GivenName': 'string',
-                            'Initials': 'string',
-                            'Pseudonym': 'string',
-                            'GenerationQualifier': 'string'
+                \'CertificateAuthority\': {
+                    \'Arn\': \'string\',
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'LastStateChangeAt\': datetime(2015, 1, 1),
+                    \'Type\': \'SUBORDINATE\',
+                    \'Serial\': \'string\',
+                    \'Status\': \'CREATING\'|\'PENDING_CERTIFICATE\'|\'ACTIVE\'|\'DELETED\'|\'DISABLED\'|\'EXPIRED\'|\'FAILED\',
+                    \'NotBefore\': datetime(2015, 1, 1),
+                    \'NotAfter\': datetime(2015, 1, 1),
+                    \'FailureReason\': \'REQUEST_TIMED_OUT\'|\'UNSUPPORTED_ALGORITHM\'|\'OTHER\',
+                    \'CertificateAuthorityConfiguration\': {
+                        \'KeyAlgorithm\': \'RSA_2048\'|\'RSA_4096\'|\'EC_prime256v1\'|\'EC_secp384r1\',
+                        \'SigningAlgorithm\': \'SHA256WITHECDSA\'|\'SHA384WITHECDSA\'|\'SHA512WITHECDSA\'|\'SHA256WITHRSA\'|\'SHA384WITHRSA\'|\'SHA512WITHRSA\',
+                        \'Subject\': {
+                            \'Country\': \'string\',
+                            \'Organization\': \'string\',
+                            \'OrganizationalUnit\': \'string\',
+                            \'DistinguishedNameQualifier\': \'string\',
+                            \'State\': \'string\',
+                            \'CommonName\': \'string\',
+                            \'SerialNumber\': \'string\',
+                            \'Locality\': \'string\',
+                            \'Title\': \'string\',
+                            \'Surname\': \'string\',
+                            \'GivenName\': \'string\',
+                            \'Initials\': \'string\',
+                            \'Pseudonym\': \'string\',
+                            \'GenerationQualifier\': \'string\'
                         }
                     },
-                    'RevocationConfiguration': {
-                        'CrlConfiguration': {
-                            'Enabled': True|False,
-                            'ExpirationInDays': 123,
-                            'CustomCname': 'string',
-                            'S3BucketName': 'string'
+                    \'RevocationConfiguration\': {
+                        \'CrlConfiguration\': {
+                            \'Enabled\': True|False,
+                            \'ExpirationInDays\': 123,
+                            \'CustomCname\': \'string\',
+                            \'S3BucketName\': \'string\'
                         }
                     },
-                    'RestorableUntil': datetime(2015, 1, 1)
+                    \'RestorableUntil\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -499,7 +499,7 @@ class Client(BaseClient):
         
                   - **CustomCname** *(string) --* 
         
-                    Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+                    Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don\'t want the name of your S3 bucket to be public.
         
                   - **S3BucketName** *(string) --* 
         
@@ -521,8 +521,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_certificate_authority_audit_report(
-              CertificateAuthorityArn='string',
-              AuditReportId='string'
+              CertificateAuthorityArn=\'string\',
+              AuditReportId=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -544,10 +544,10 @@ class Client(BaseClient):
           ::
         
             {
-                'AuditReportStatus': 'CREATING'|'SUCCESS'|'FAILED',
-                'S3BucketName': 'string',
-                'S3Key': 'string',
-                'CreatedAt': datetime(2015, 1, 1)
+                \'AuditReportStatus\': \'CREATING\'|\'SUCCESS\'|\'FAILED\',
+                \'S3BucketName\': \'string\',
+                \'S3Key\': \'string\',
+                \'CreatedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -588,7 +588,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -603,8 +603,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_certificate(
-              CertificateAuthorityArn='string',
-              CertificateArn='string'
+              CertificateAuthorityArn=\'string\',
+              CertificateArn=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -628,8 +628,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': 'string',
-                'CertificateChain': 'string'
+                \'Certificate\': \'string\',
+                \'CertificateChain\': \'string\'
             }
           **Response Structure** 
         
@@ -655,7 +655,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_certificate_authority_certificate(
-              CertificateAuthorityArn='string'
+              CertificateAuthorityArn=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -672,8 +672,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Certificate': 'string',
-                'CertificateChain': 'string'
+                \'Certificate\': \'string\',
+                \'CertificateChain\': \'string\'
             }
           **Response Structure** 
         
@@ -699,7 +699,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_certificate_authority_csr(
-              CertificateAuthorityArn='string'
+              CertificateAuthorityArn=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -716,7 +716,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Csr': 'string'
+                \'Csr\': \'string\'
             }
           **Response Structure** 
         
@@ -735,10 +735,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -782,9 +782,9 @@ class Client(BaseClient):
         ::
         
           response = client.import_certificate_authority_certificate(
-              CertificateAuthorityArn='string',
-              Certificate=b'bytes',
-              CertificateChain=b'bytes'
+              CertificateAuthorityArn=\'string\',
+              Certificate=b\'bytes\',
+              CertificateChain=b\'bytes\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -801,7 +801,7 @@ class Client(BaseClient):
         :type CertificateChain: bytes
         :param CertificateChain: **[REQUIRED]** 
         
-          A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding. 
+          A PEM-encoded file that contains all of your certificates, other than the certificate you\'re importing, chaining up to your root CA. Your on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding. 
         
         :returns: None
         """
@@ -820,14 +820,14 @@ class Client(BaseClient):
         ::
         
           response = client.issue_certificate(
-              CertificateAuthorityArn='string',
-              Csr=b'bytes',
-              SigningAlgorithm='SHA256WITHECDSA'|'SHA384WITHECDSA'|'SHA512WITHECDSA'|'SHA256WITHRSA'|'SHA384WITHRSA'|'SHA512WITHRSA',
+              CertificateAuthorityArn=\'string\',
+              Csr=b\'bytes\',
+              SigningAlgorithm=\'SHA256WITHECDSA\'|\'SHA384WITHECDSA\'|\'SHA512WITHECDSA\'|\'SHA256WITHRSA\'|\'SHA384WITHRSA\'|\'SHA512WITHRSA\',
               Validity={
-                  'Value': 123,
-                  'Type': 'END_DATE'|'ABSOLUTE'|'DAYS'|'MONTHS'|'YEARS'
+                  \'Value\': 123,
+                  \'Type\': \'END_DATE\'|\'ABSOLUTE\'|\'DAYS\'|\'MONTHS\'|\'YEARS\'
               },
-              IdempotencyToken='string'
+              IdempotencyToken=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -878,7 +878,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateArn': 'string'
+                \'CertificateArn\': \'string\'
             }
           **Response Structure** 
         
@@ -902,7 +902,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_certificate_authorities(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -923,49 +923,49 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateAuthorities': [
+                \'CertificateAuthorities\': [
                     {
-                        'Arn': 'string',
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'LastStateChangeAt': datetime(2015, 1, 1),
-                        'Type': 'SUBORDINATE',
-                        'Serial': 'string',
-                        'Status': 'CREATING'|'PENDING_CERTIFICATE'|'ACTIVE'|'DELETED'|'DISABLED'|'EXPIRED'|'FAILED',
-                        'NotBefore': datetime(2015, 1, 1),
-                        'NotAfter': datetime(2015, 1, 1),
-                        'FailureReason': 'REQUEST_TIMED_OUT'|'UNSUPPORTED_ALGORITHM'|'OTHER',
-                        'CertificateAuthorityConfiguration': {
-                            'KeyAlgorithm': 'RSA_2048'|'RSA_4096'|'EC_prime256v1'|'EC_secp384r1',
-                            'SigningAlgorithm': 'SHA256WITHECDSA'|'SHA384WITHECDSA'|'SHA512WITHECDSA'|'SHA256WITHRSA'|'SHA384WITHRSA'|'SHA512WITHRSA',
-                            'Subject': {
-                                'Country': 'string',
-                                'Organization': 'string',
-                                'OrganizationalUnit': 'string',
-                                'DistinguishedNameQualifier': 'string',
-                                'State': 'string',
-                                'CommonName': 'string',
-                                'SerialNumber': 'string',
-                                'Locality': 'string',
-                                'Title': 'string',
-                                'Surname': 'string',
-                                'GivenName': 'string',
-                                'Initials': 'string',
-                                'Pseudonym': 'string',
-                                'GenerationQualifier': 'string'
+                        \'Arn\': \'string\',
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'LastStateChangeAt\': datetime(2015, 1, 1),
+                        \'Type\': \'SUBORDINATE\',
+                        \'Serial\': \'string\',
+                        \'Status\': \'CREATING\'|\'PENDING_CERTIFICATE\'|\'ACTIVE\'|\'DELETED\'|\'DISABLED\'|\'EXPIRED\'|\'FAILED\',
+                        \'NotBefore\': datetime(2015, 1, 1),
+                        \'NotAfter\': datetime(2015, 1, 1),
+                        \'FailureReason\': \'REQUEST_TIMED_OUT\'|\'UNSUPPORTED_ALGORITHM\'|\'OTHER\',
+                        \'CertificateAuthorityConfiguration\': {
+                            \'KeyAlgorithm\': \'RSA_2048\'|\'RSA_4096\'|\'EC_prime256v1\'|\'EC_secp384r1\',
+                            \'SigningAlgorithm\': \'SHA256WITHECDSA\'|\'SHA384WITHECDSA\'|\'SHA512WITHECDSA\'|\'SHA256WITHRSA\'|\'SHA384WITHRSA\'|\'SHA512WITHRSA\',
+                            \'Subject\': {
+                                \'Country\': \'string\',
+                                \'Organization\': \'string\',
+                                \'OrganizationalUnit\': \'string\',
+                                \'DistinguishedNameQualifier\': \'string\',
+                                \'State\': \'string\',
+                                \'CommonName\': \'string\',
+                                \'SerialNumber\': \'string\',
+                                \'Locality\': \'string\',
+                                \'Title\': \'string\',
+                                \'Surname\': \'string\',
+                                \'GivenName\': \'string\',
+                                \'Initials\': \'string\',
+                                \'Pseudonym\': \'string\',
+                                \'GenerationQualifier\': \'string\'
                             }
                         },
-                        'RevocationConfiguration': {
-                            'CrlConfiguration': {
-                                'Enabled': True|False,
-                                'ExpirationInDays': 123,
-                                'CustomCname': 'string',
-                                'S3BucketName': 'string'
+                        \'RevocationConfiguration\': {
+                            \'CrlConfiguration\': {
+                                \'Enabled\': True|False,
+                                \'ExpirationInDays\': 123,
+                                \'CustomCname\': \'string\',
+                                \'S3BucketName\': \'string\'
                             }
                         },
-                        'RestorableUntil': datetime(2015, 1, 1)
+                        \'RestorableUntil\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1105,7 +1105,7 @@ class Client(BaseClient):
         
                     - **CustomCname** *(string) --* 
         
-                      Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+                      Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don\'t want the name of your S3 bucket to be public.
         
                     - **S3BucketName** *(string) --* 
         
@@ -1131,8 +1131,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              CertificateAuthorityArn='string',
-              NextToken='string',
+              CertificateAuthorityArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CertificateAuthorityArn: string
@@ -1160,13 +1160,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1204,7 +1204,7 @@ class Client(BaseClient):
         ::
         
           response = client.restore_certificate_authority(
-              CertificateAuthorityArn='string'
+              CertificateAuthorityArn=\'string\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -1226,9 +1226,9 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_certificate(
-              CertificateAuthorityArn='string',
-              CertificateSerial='string',
-              RevocationReason='UNSPECIFIED'|'KEY_COMPROMISE'|'CERTIFICATE_AUTHORITY_COMPROMISE'|'AFFILIATION_CHANGED'|'SUPERSEDED'|'CESSATION_OF_OPERATION'|'PRIVILEGE_WITHDRAWN'|'A_A_COMPROMISE'
+              CertificateAuthorityArn=\'string\',
+              CertificateSerial=\'string\',
+              RevocationReason=\'UNSPECIFIED\'|\'KEY_COMPROMISE\'|\'CERTIFICATE_AUTHORITY_COMPROMISE\'|\'AFFILIATION_CHANGED\'|\'SUPERSEDED\'|\'CESSATION_OF_OPERATION\'|\'PRIVILEGE_WITHDRAWN\'|\'A_A_COMPROMISE\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -1264,11 +1264,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_certificate_authority(
-              CertificateAuthorityArn='string',
+              CertificateAuthorityArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1309,11 +1309,11 @@ class Client(BaseClient):
         ::
         
           response = client.untag_certificate_authority(
-              CertificateAuthorityArn='string',
+              CertificateAuthorityArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1354,16 +1354,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_certificate_authority(
-              CertificateAuthorityArn='string',
+              CertificateAuthorityArn=\'string\',
               RevocationConfiguration={
-                  'CrlConfiguration': {
-                      'Enabled': True|False,
-                      'ExpirationInDays': 123,
-                      'CustomCname': 'string',
-                      'S3BucketName': 'string'
+                  \'CrlConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'ExpirationInDays\': 123,
+                      \'CustomCname\': \'string\',
+                      \'S3BucketName\': \'string\'
                   }
               },
-              Status='CREATING'|'PENDING_CERTIFICATE'|'ACTIVE'|'DELETED'|'DISABLED'|'EXPIRED'|'FAILED'
+              Status=\'CREATING\'|\'PENDING_CERTIFICATE\'|\'ACTIVE\'|\'DELETED\'|\'DISABLED\'|\'EXPIRED\'|\'FAILED\'
           )
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]** 
@@ -1391,7 +1391,7 @@ class Client(BaseClient):
         
             - **CustomCname** *(string) --* 
         
-              Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+              Name inserted into the certificate **CRL Distribution Points** extension that enables the use of an alias for the CRL distribution point. Use this value if you don\'t want the name of your S3 bucket to be public.
         
             - **S3BucketName** *(string) --* 
         

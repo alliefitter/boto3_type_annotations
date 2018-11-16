@@ -13,9 +13,9 @@ class GetActiveNames(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,10 +43,10 @@ class GetActiveNames(Paginator):
           ::
         
             {
-                'activeNames': [
-                    'string',
+                \'activeNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -78,9 +78,9 @@ class GetBlueprints(Paginator):
           response_iterator = paginator.paginate(
               includeInactive=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type includeInactive: boolean
@@ -113,23 +113,23 @@ class GetBlueprints(Paginator):
           ::
         
             {
-                'blueprints': [
+                \'blueprints\': [
                     {
-                        'blueprintId': 'string',
-                        'name': 'string',
-                        'group': 'string',
-                        'type': 'os'|'app',
-                        'description': 'string',
-                        'isActive': True|False,
-                        'minPower': 123,
-                        'version': 'string',
-                        'versionCode': 'string',
-                        'productUrl': 'string',
-                        'licenseUrl': 'string',
-                        'platform': 'LINUX_UNIX'|'WINDOWS'
+                        \'blueprintId\': \'string\',
+                        \'name\': \'string\',
+                        \'group\': \'string\',
+                        \'type\': \'os\'|\'app\',
+                        \'description\': \'string\',
+                        \'isActive\': True|False,
+                        \'minPower\': 123,
+                        \'version\': \'string\',
+                        \'versionCode\': \'string\',
+                        \'productUrl\': \'string\',
+                        \'licenseUrl\': \'string\',
+                        \'platform\': \'LINUX_UNIX\'|\'WINDOWS\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -211,9 +211,9 @@ class GetBundles(Paginator):
           response_iterator = paginator.paginate(
               includeInactive=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type includeInactive: boolean
@@ -246,24 +246,24 @@ class GetBundles(Paginator):
           ::
         
             {
-                'bundles': [
+                \'bundles\': [
                     {
-                        'price': ...,
-                        'cpuCount': 123,
-                        'diskSizeInGb': 123,
-                        'bundleId': 'string',
-                        'instanceType': 'string',
-                        'isActive': True|False,
-                        'name': 'string',
-                        'power': 123,
-                        'ramSizeInGb': ...,
-                        'transferPerMonthInGb': 123,
-                        'supportedPlatforms': [
-                            'LINUX_UNIX'|'WINDOWS',
+                        \'price\': ...,
+                        \'cpuCount\': 123,
+                        \'diskSizeInGb\': 123,
+                        \'bundleId\': \'string\',
+                        \'instanceType\': \'string\',
+                        \'isActive\': True|False,
+                        \'name\': \'string\',
+                        \'power\': 123,
+                        \'ramSizeInGb\': ...,
+                        \'transferPerMonthInGb\': 123,
+                        \'supportedPlatforms\': [
+                            \'LINUX_UNIX\'|\'WINDOWS\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -307,7 +307,7 @@ class GetBundles(Paginator):
         
                 - **power** *(integer) --* 
         
-                  A numeric value that represents the power of the bundle (e.g., ``500`` ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
+                  A numeric value that represents the power of the bundle (e.g., ``500`` ). You can use the bundle\'s power value in conjunction with a blueprint\'s minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
         
                 - **ramSizeInGb** *(float) --* 
         
@@ -342,9 +342,9 @@ class GetDomains(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -372,32 +372,32 @@ class GetDomains(Paginator):
           ::
         
             {
-                'domains': [
+                \'domains\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'domainEntries': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'domainEntries\': [
                             {
-                                'id': 'string',
-                                'name': 'string',
-                                'target': 'string',
-                                'isAlias': True|False,
-                                'type': 'string',
-                                'options': {
-                                    'string': 'string'
+                                \'id\': \'string\',
+                                \'name\': \'string\',
+                                \'target\': \'string\',
+                                \'isAlias\': True|False,
+                                \'type\': \'string\',
+                                \'options\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -405,7 +405,7 @@ class GetDomains(Paginator):
             
             - **domains** *(list) --* 
         
-              An array of key-value pairs containing information about each of the domain entries in the user's account.
+              An array of key-value pairs containing information about each of the domain entries in the user\'s account.
         
               - *(dict) --* 
         
@@ -504,9 +504,9 @@ class GetInstanceSnapshots(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -534,49 +534,49 @@ class GetInstanceSnapshots(Paginator):
           ::
         
             {
-                'instanceSnapshots': [
+                \'instanceSnapshots\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'state': 'pending'|'error'|'available',
-                        'progress': 'string',
-                        'fromAttachedDisks': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'state\': \'pending\'|\'error\'|\'available\',
+                        \'progress\': \'string\',
+                        \'fromAttachedDisks\': [
                             {
-                                'name': 'string',
-                                'arn': 'string',
-                                'supportCode': 'string',
-                                'createdAt': datetime(2015, 1, 1),
-                                'location': {
-                                    'availabilityZone': 'string',
-                                    'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                                \'name\': \'string\',
+                                \'arn\': \'string\',
+                                \'supportCode\': \'string\',
+                                \'createdAt\': datetime(2015, 1, 1),
+                                \'location\': {
+                                    \'availabilityZone\': \'string\',
+                                    \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                                 },
-                                'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                                'sizeInGb': 123,
-                                'isSystemDisk': True|False,
-                                'iops': 123,
-                                'path': 'string',
-                                'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                                'attachedTo': 'string',
-                                'isAttached': True|False,
-                                'attachmentState': 'string',
-                                'gbInUse': 123
+                                \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                                \'sizeInGb\': 123,
+                                \'isSystemDisk\': True|False,
+                                \'iops\': 123,
+                                \'path\': \'string\',
+                                \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                                \'attachedTo\': \'string\',
+                                \'isAttached\': True|False,
+                                \'attachmentState\': \'string\',
+                                \'gbInUse\': 123
                             },
                         ],
-                        'fromInstanceName': 'string',
-                        'fromInstanceArn': 'string',
-                        'fromBlueprintId': 'string',
-                        'fromBundleId': 'string',
-                        'sizeInGb': 123
+                        \'fromInstanceName\': \'string\',
+                        \'fromInstanceArn\': \'string\',
+                        \'fromBlueprintId\': \'string\',
+                        \'fromBundleId\': \'string\',
+                        \'sizeInGb\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -753,9 +753,9 @@ class GetInstances(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -783,75 +783,75 @@ class GetInstances(Paginator):
           ::
         
             {
-                'instances': [
+                \'instances\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'blueprintId': 'string',
-                        'blueprintName': 'string',
-                        'bundleId': 'string',
-                        'isStaticIp': True|False,
-                        'privateIpAddress': 'string',
-                        'publicIpAddress': 'string',
-                        'ipv6Address': 'string',
-                        'hardware': {
-                            'cpuCount': 123,
-                            'disks': [
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'blueprintId\': \'string\',
+                        \'blueprintName\': \'string\',
+                        \'bundleId\': \'string\',
+                        \'isStaticIp\': True|False,
+                        \'privateIpAddress\': \'string\',
+                        \'publicIpAddress\': \'string\',
+                        \'ipv6Address\': \'string\',
+                        \'hardware\': {
+                            \'cpuCount\': 123,
+                            \'disks\': [
                                 {
-                                    'name': 'string',
-                                    'arn': 'string',
-                                    'supportCode': 'string',
-                                    'createdAt': datetime(2015, 1, 1),
-                                    'location': {
-                                        'availabilityZone': 'string',
-                                        'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                                    \'name\': \'string\',
+                                    \'arn\': \'string\',
+                                    \'supportCode\': \'string\',
+                                    \'createdAt\': datetime(2015, 1, 1),
+                                    \'location\': {
+                                        \'availabilityZone\': \'string\',
+                                        \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                                     },
-                                    'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                                    'sizeInGb': 123,
-                                    'isSystemDisk': True|False,
-                                    'iops': 123,
-                                    'path': 'string',
-                                    'state': 'pending'|'error'|'available'|'in-use'|'unknown',
-                                    'attachedTo': 'string',
-                                    'isAttached': True|False,
-                                    'attachmentState': 'string',
-                                    'gbInUse': 123
+                                    \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                                    \'sizeInGb\': 123,
+                                    \'isSystemDisk\': True|False,
+                                    \'iops\': 123,
+                                    \'path\': \'string\',
+                                    \'state\': \'pending\'|\'error\'|\'available\'|\'in-use\'|\'unknown\',
+                                    \'attachedTo\': \'string\',
+                                    \'isAttached\': True|False,
+                                    \'attachmentState\': \'string\',
+                                    \'gbInUse\': 123
                                 },
                             ],
-                            'ramSizeInGb': ...
+                            \'ramSizeInGb\': ...
                         },
-                        'networking': {
-                            'monthlyTransfer': {
-                                'gbPerMonthAllocated': 123
+                        \'networking\': {
+                            \'monthlyTransfer\': {
+                                \'gbPerMonthAllocated\': 123
                             },
-                            'ports': [
+                            \'ports\': [
                                 {
-                                    'fromPort': 123,
-                                    'toPort': 123,
-                                    'protocol': 'tcp'|'all'|'udp',
-                                    'accessFrom': 'string',
-                                    'accessType': 'Public'|'Private',
-                                    'commonName': 'string',
-                                    'accessDirection': 'inbound'|'outbound'
+                                    \'fromPort\': 123,
+                                    \'toPort\': 123,
+                                    \'protocol\': \'tcp\'|\'all\'|\'udp\',
+                                    \'accessFrom\': \'string\',
+                                    \'accessType\': \'Public\'|\'Private\',
+                                    \'commonName\': \'string\',
+                                    \'accessDirection\': \'inbound\'|\'outbound\'
                                 },
                             ]
                         },
-                        'state': {
-                            'code': 123,
-                            'name': 'string'
+                        \'state\': {
+                            \'code\': 123,
+                            \'name\': \'string\'
                         },
-                        'username': 'string',
-                        'sshKeyName': 'string'
+                        \'username\': \'string\',
+                        \'sshKeyName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1053,11 +1053,11 @@ class GetInstances(Paginator):
         
                         The protocol being used. Can be one of the following.
         
-                        * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead. 
+                        * ``tcp`` - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn\'t require reliable data stream service, use UDP instead. 
                          
                         * ``all`` - All transport layer protocol types. For more general information, see `Transport layer <https://en.wikipedia.org/wiki/Transport_layer>`__ on Wikipedia. 
                          
-                        * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
+                        * ``udp`` - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don\'t require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead. 
                          
                       - **accessFrom** *(string) --* 
         
@@ -1114,9 +1114,9 @@ class GetKeyPairs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1144,21 +1144,21 @@ class GetKeyPairs(Paginator):
           ::
         
             {
-                'keyPairs': [
+                \'keyPairs\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'fingerprint': 'string'
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'fingerprint\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1227,9 +1227,9 @@ class GetOperations(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1257,26 +1257,26 @@ class GetOperations(Paginator):
           ::
         
             {
-                'operations': [
+                \'operations\': [
                     {
-                        'id': 'string',
-                        'resourceName': 'string',
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'id\': \'string\',
+                        \'resourceName\': \'string\',
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'isTerminal': True|False,
-                        'operationDetails': 'string',
-                        'operationType': 'DeleteInstance'|'CreateInstance'|'StopInstance'|'StartInstance'|'RebootInstance'|'OpenInstancePublicPorts'|'PutInstancePublicPorts'|'CloseInstancePublicPorts'|'AllocateStaticIp'|'ReleaseStaticIp'|'AttachStaticIp'|'DetachStaticIp'|'UpdateDomainEntry'|'DeleteDomainEntry'|'CreateDomain'|'DeleteDomain'|'CreateInstanceSnapshot'|'DeleteInstanceSnapshot'|'CreateInstancesFromSnapshot'|'CreateLoadBalancer'|'DeleteLoadBalancer'|'AttachInstancesToLoadBalancer'|'DetachInstancesFromLoadBalancer'|'UpdateLoadBalancerAttribute'|'CreateLoadBalancerTlsCertificate'|'DeleteLoadBalancerTlsCertificate'|'AttachLoadBalancerTlsCertificate'|'CreateDisk'|'DeleteDisk'|'AttachDisk'|'DetachDisk'|'CreateDiskSnapshot'|'DeleteDiskSnapshot'|'CreateDiskFromSnapshot',
-                        'status': 'NotStarted'|'Started'|'Failed'|'Completed'|'Succeeded',
-                        'statusChangedAt': datetime(2015, 1, 1),
-                        'errorCode': 'string',
-                        'errorDetails': 'string'
+                        \'isTerminal\': True|False,
+                        \'operationDetails\': \'string\',
+                        \'operationType\': \'DeleteInstance\'|\'CreateInstance\'|\'StopInstance\'|\'StartInstance\'|\'RebootInstance\'|\'OpenInstancePublicPorts\'|\'PutInstancePublicPorts\'|\'CloseInstancePublicPorts\'|\'AllocateStaticIp\'|\'ReleaseStaticIp\'|\'AttachStaticIp\'|\'DetachStaticIp\'|\'UpdateDomainEntry\'|\'DeleteDomainEntry\'|\'CreateDomain\'|\'DeleteDomain\'|\'CreateInstanceSnapshot\'|\'DeleteInstanceSnapshot\'|\'CreateInstancesFromSnapshot\'|\'CreateLoadBalancer\'|\'DeleteLoadBalancer\'|\'AttachInstancesToLoadBalancer\'|\'DetachInstancesFromLoadBalancer\'|\'UpdateLoadBalancerAttribute\'|\'CreateLoadBalancerTlsCertificate\'|\'DeleteLoadBalancerTlsCertificate\'|\'AttachLoadBalancerTlsCertificate\'|\'CreateDisk\'|\'DeleteDisk\'|\'AttachDisk\'|\'DetachDisk\'|\'CreateDiskSnapshot\'|\'DeleteDiskSnapshot\'|\'CreateDiskFromSnapshot\',
+                        \'status\': \'NotStarted\'|\'Started\'|\'Failed\'|\'Completed\'|\'Succeeded\',
+                        \'statusChangedAt\': datetime(2015, 1, 1),
+                        \'errorCode\': \'string\',
+                        \'errorDetails\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1365,9 +1365,9 @@ class GetStaticIps(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1395,23 +1395,23 @@ class GetStaticIps(Paginator):
           ::
         
             {
-                'staticIps': [
+                \'staticIps\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'supportCode': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'location': {
-                            'availabilityZone': 'string',
-                            'regionName': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ca-central-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'supportCode\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'location\': {
+                            \'availabilityZone\': \'string\',
+                            \'regionName\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ca-central-1\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'
                         },
-                        'resourceType': 'Instance'|'StaticIp'|'KeyPair'|'InstanceSnapshot'|'Domain'|'PeeredVpc'|'LoadBalancer'|'LoadBalancerTlsCertificate'|'Disk'|'DiskSnapshot'|'RelationalDatabase'|'RelationalDatabaseSnapshot',
-                        'ipAddress': 'string',
-                        'attachedTo': 'string',
-                        'isAttached': True|False
+                        \'resourceType\': \'Instance\'|\'StaticIp\'|\'KeyPair\'|\'InstanceSnapshot\'|\'Domain\'|\'PeeredVpc\'|\'LoadBalancer\'|\'LoadBalancerTlsCertificate\'|\'Disk\'|\'DiskSnapshot\'|\'RelationalDatabase\'|\'RelationalDatabaseSnapshot\',
+                        \'ipAddress\': \'string\',
+                        \'attachedTo\': \'string\',
+                        \'isAttached\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

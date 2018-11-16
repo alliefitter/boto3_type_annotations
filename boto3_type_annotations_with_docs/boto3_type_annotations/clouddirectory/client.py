@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,29 +18,29 @@ class Client(BaseClient):
         ::
         
           response = client.add_facet_to_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               SchemaFacet={
-                  'SchemaArn': 'string',
-                  'FacetName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'FacetName\': \'string\'
               },
               ObjectAttributeList=[
                   {
-                      'Key': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'Key\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'Value': {
-                          'StringValue': 'string',
-                          'BinaryValue': b'bytes',
-                          'BooleanValue': True|False,
-                          'NumberValue': 'string',
-                          'DatetimeValue': datetime(2015, 1, 1)
+                      \'Value\': {
+                          \'StringValue\': \'string\',
+                          \'BinaryValue\': b\'bytes\',
+                          \'BooleanValue\': True|False,
+                          \'NumberValue\': \'string\',
+                          \'DatetimeValue\': datetime(2015, 1, 1)
                       }
                   },
               ],
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -148,8 +148,8 @@ class Client(BaseClient):
         ::
         
           response = client.apply_schema(
-              PublishedSchemaArn='string',
-              DirectoryArn='string'
+              PublishedSchemaArn=\'string\',
+              DirectoryArn=\'string\'
           )
         :type PublishedSchemaArn: string
         :param PublishedSchemaArn: **[REQUIRED]** 
@@ -169,8 +169,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AppliedSchemaArn': 'string',
-                'DirectoryArn': 'string'
+                \'AppliedSchemaArn\': \'string\',
+                \'DirectoryArn\': \'string\'
             }
           **Response Structure** 
         
@@ -201,14 +201,14 @@ class Client(BaseClient):
         ::
         
           response = client.attach_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ParentReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               ChildReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              LinkName='string'
+              LinkName=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -258,7 +258,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedObjectIdentifier': 'string'
+                \'AttachedObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -280,12 +280,12 @@ class Client(BaseClient):
         ::
         
           response = client.attach_policy(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               PolicyReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -346,12 +346,12 @@ class Client(BaseClient):
         ::
         
           response = client.attach_to_index(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               IndexReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               TargetReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -397,7 +397,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedObjectIdentifier': 'string'
+                \'AttachedObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -419,26 +419,26 @@ class Client(BaseClient):
         ::
         
           response = client.attach_typed_link(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               SourceObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               TargetObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               TypedLinkFacet={
-                  'SchemaArn': 'string',
-                  'TypedLinkName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'TypedLinkName\': \'string\'
               },
               Attributes=[
                   {
-                      'AttributeName': 'string',
-                      'Value': {
-                          'StringValue': 'string',
-                          'BinaryValue': b'bytes',
-                          'BooleanValue': True|False,
-                          'NumberValue': 'string',
-                          'DatetimeValue': datetime(2015, 1, 1)
+                      \'AttributeName\': \'string\',
+                      \'Value\': {
+                          \'StringValue\': \'string\',
+                          \'BinaryValue\': b\'bytes\',
+                          \'BooleanValue\': True|False,
+                          \'NumberValue\': \'string\',
+                          \'DatetimeValue\': datetime(2015, 1, 1)
                       }
                   },
               ]
@@ -536,26 +536,26 @@ class Client(BaseClient):
           ::
         
             {
-                'TypedLinkSpecifier': {
-                    'TypedLinkFacet': {
-                        'SchemaArn': 'string',
-                        'TypedLinkName': 'string'
+                \'TypedLinkSpecifier\': {
+                    \'TypedLinkFacet\': {
+                        \'SchemaArn\': \'string\',
+                        \'TypedLinkName\': \'string\'
                     },
-                    'SourceObjectReference': {
-                        'Selector': 'string'
+                    \'SourceObjectReference\': {
+                        \'Selector\': \'string\'
                     },
-                    'TargetObjectReference': {
-                        'Selector': 'string'
+                    \'TargetObjectReference\': {
+                        \'Selector\': \'string\'
                     },
-                    'IdentityAttributeValues': [
+                    \'IdentityAttributeValues\': [
                         {
-                            'AttributeName': 'string',
-                            'Value': {
-                                'StringValue': 'string',
-                                'BinaryValue': b'bytes',
-                                'BooleanValue': True|False,
-                                'NumberValue': 'string',
-                                'DatetimeValue': datetime(2015, 1, 1)
+                            \'AttributeName\': \'string\',
+                            \'Value\': {
+                                \'StringValue\': \'string\',
+                                \'BinaryValue\': b\'bytes\',
+                                \'BooleanValue\': True|False,
+                                \'NumberValue\': \'string\',
+                                \'DatetimeValue\': datetime(2015, 1, 1)
                             }
                         },
                     ]
@@ -657,220 +657,220 @@ class Client(BaseClient):
         ::
         
           response = client.batch_read(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               Operations=[
                   {
-                      'ListObjectAttributes': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListObjectAttributes\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123,
-                          'FacetFilter': {
-                              'SchemaArn': 'string',
-                              'FacetName': 'string'
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123,
+                          \'FacetFilter\': {
+                              \'SchemaArn\': \'string\',
+                              \'FacetName\': \'string\'
                           }
                       },
-                      'ListObjectChildren': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListObjectChildren\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListAttachedIndices': {
-                          'TargetReference': {
-                              'Selector': 'string'
+                      \'ListAttachedIndices\': {
+                          \'TargetReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListObjectParentPaths': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListObjectParentPaths\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'GetObjectInformation': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'GetObjectInformation\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'GetObjectAttributes': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'GetObjectAttributes\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'SchemaFacet': {
-                              'SchemaArn': 'string',
-                              'FacetName': 'string'
+                          \'SchemaFacet\': {
+                              \'SchemaArn\': \'string\',
+                              \'FacetName\': \'string\'
                           },
-                          'AttributeNames': [
-                              'string',
+                          \'AttributeNames\': [
+                              \'string\',
                           ]
                       },
-                      'ListObjectParents': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListObjectParents\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListObjectPolicies': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListObjectPolicies\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListPolicyAttachments': {
-                          'PolicyReference': {
-                              'Selector': 'string'
+                      \'ListPolicyAttachments\': {
+                          \'PolicyReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'LookupPolicy': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'LookupPolicy\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListIndex': {
-                          'RangesOnIndexedValues': [
+                      \'ListIndex\': {
+                          \'RangesOnIndexedValues\': [
                               {
-                                  'AttributeKey': {
-                                      'SchemaArn': 'string',
-                                      'FacetName': 'string',
-                                      'Name': 'string'
+                                  \'AttributeKey\': {
+                                      \'SchemaArn\': \'string\',
+                                      \'FacetName\': \'string\',
+                                      \'Name\': \'string\'
                                   },
-                                  'Range': {
-                                      'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'StartValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                  \'Range\': {
+                                      \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'StartValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       },
-                                      'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'EndValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'EndValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   }
                               },
                           ],
-                          'IndexReference': {
-                              'Selector': 'string'
+                          \'IndexReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'MaxResults': 123,
-                          'NextToken': 'string'
+                          \'MaxResults\': 123,
+                          \'NextToken\': \'string\'
                       },
-                      'ListOutgoingTypedLinks': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListOutgoingTypedLinks\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'FilterAttributeRanges': [
+                          \'FilterAttributeRanges\': [
                               {
-                                  'AttributeName': 'string',
-                                  'Range': {
-                                      'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'StartValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                  \'AttributeName\': \'string\',
+                                  \'Range\': {
+                                      \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'StartValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       },
-                                      'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'EndValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'EndValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   }
                               },
                           ],
-                          'FilterTypedLink': {
-                              'SchemaArn': 'string',
-                              'TypedLinkName': 'string'
+                          \'FilterTypedLink\': {
+                              \'SchemaArn\': \'string\',
+                              \'TypedLinkName\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'ListIncomingTypedLinks': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'ListIncomingTypedLinks\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'FilterAttributeRanges': [
+                          \'FilterAttributeRanges\': [
                               {
-                                  'AttributeName': 'string',
-                                  'Range': {
-                                      'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'StartValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                  \'AttributeName\': \'string\',
+                                  \'Range\': {
+                                      \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'StartValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       },
-                                      'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                                      'EndValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                                      \'EndValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   }
                               },
                           ],
-                          'FilterTypedLink': {
-                              'SchemaArn': 'string',
-                              'TypedLinkName': 'string'
+                          \'FilterTypedLink\': {
+                              \'SchemaArn\': \'string\',
+                              \'TypedLinkName\': \'string\'
                           },
-                          'NextToken': 'string',
-                          'MaxResults': 123
+                          \'NextToken\': \'string\',
+                          \'MaxResults\': 123
                       },
-                      'GetLinkAttributes': {
-                          'TypedLinkSpecifier': {
-                              'TypedLinkFacet': {
-                                  'SchemaArn': 'string',
-                                  'TypedLinkName': 'string'
+                      \'GetLinkAttributes\': {
+                          \'TypedLinkSpecifier\': {
+                              \'TypedLinkFacet\': {
+                                  \'SchemaArn\': \'string\',
+                                  \'TypedLinkName\': \'string\'
                               },
-                              'SourceObjectReference': {
-                                  'Selector': 'string'
+                              \'SourceObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'TargetObjectReference': {
-                                  'Selector': 'string'
+                              \'TargetObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'IdentityAttributeValues': [
+                              \'IdentityAttributeValues\': [
                                   {
-                                      'AttributeName': 'string',
-                                      'Value': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'AttributeName\': \'string\',
+                                      \'Value\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   },
                               ]
                           },
-                          'AttributeNames': [
-                              'string',
+                          \'AttributeNames\': [
+                              \'string\',
                           ]
                       }
                   },
               ],
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -1130,7 +1130,7 @@ class Client(BaseClient):
         
             - **LookupPolicy** *(dict) --* 
         
-              Lists all policies from the root of the  Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the ``ObjectIdentifier`` for such objects. If policies are present, it returns ``ObjectIdentifier`` , ``policyId`` , and ``policyType`` . Paths that don't lead to the root from the target object are ignored. For more information, see `Policies <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies>`__ .
+              Lists all policies from the root of the  Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don\'t have the policies attached, it returns the ``ObjectIdentifier`` for such objects. If policies are present, it returns ``ObjectIdentifier`` , ``policyId`` , and ``policyType`` . Paths that don\'t lead to the root from the target object are ignored. For more information, see `Policies <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies>`__ .
         
               - **ObjectReference** *(dict) --* **[REQUIRED]** 
         
@@ -1587,236 +1587,236 @@ class Client(BaseClient):
           ::
         
             {
-                'Responses': [
+                \'Responses\': [
                     {
-                        'SuccessfulResponse': {
-                            'ListObjectAttributes': {
-                                'Attributes': [
+                        \'SuccessfulResponse\': {
+                            \'ListObjectAttributes\': {
+                                \'Attributes\': [
                                     {
-                                        'Key': {
-                                            'SchemaArn': 'string',
-                                            'FacetName': 'string',
-                                            'Name': 'string'
+                                        \'Key\': {
+                                            \'SchemaArn\': \'string\',
+                                            \'FacetName\': \'string\',
+                                            \'Name\': \'string\'
                                         },
-                                        'Value': {
-                                            'StringValue': 'string',
-                                            'BinaryValue': b'bytes',
-                                            'BooleanValue': True|False,
-                                            'NumberValue': 'string',
-                                            'DatetimeValue': datetime(2015, 1, 1)
+                                        \'Value\': {
+                                            \'StringValue\': \'string\',
+                                            \'BinaryValue\': b\'bytes\',
+                                            \'BooleanValue\': True|False,
+                                            \'NumberValue\': \'string\',
+                                            \'DatetimeValue\': datetime(2015, 1, 1)
                                         }
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListObjectChildren': {
-                                'Children': {
-                                    'string': 'string'
+                            \'ListObjectChildren\': {
+                                \'Children\': {
+                                    \'string\': \'string\'
                                 },
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'GetObjectInformation': {
-                                'SchemaFacets': [
+                            \'GetObjectInformation\': {
+                                \'SchemaFacets\': [
                                     {
-                                        'SchemaArn': 'string',
-                                        'FacetName': 'string'
+                                        \'SchemaArn\': \'string\',
+                                        \'FacetName\': \'string\'
                                     },
                                 ],
-                                'ObjectIdentifier': 'string'
+                                \'ObjectIdentifier\': \'string\'
                             },
-                            'GetObjectAttributes': {
-                                'Attributes': [
+                            \'GetObjectAttributes\': {
+                                \'Attributes\': [
                                     {
-                                        'Key': {
-                                            'SchemaArn': 'string',
-                                            'FacetName': 'string',
-                                            'Name': 'string'
+                                        \'Key\': {
+                                            \'SchemaArn\': \'string\',
+                                            \'FacetName\': \'string\',
+                                            \'Name\': \'string\'
                                         },
-                                        'Value': {
-                                            'StringValue': 'string',
-                                            'BinaryValue': b'bytes',
-                                            'BooleanValue': True|False,
-                                            'NumberValue': 'string',
-                                            'DatetimeValue': datetime(2015, 1, 1)
+                                        \'Value\': {
+                                            \'StringValue\': \'string\',
+                                            \'BinaryValue\': b\'bytes\',
+                                            \'BooleanValue\': True|False,
+                                            \'NumberValue\': \'string\',
+                                            \'DatetimeValue\': datetime(2015, 1, 1)
                                         }
                                     },
                                 ]
                             },
-                            'ListAttachedIndices': {
-                                'IndexAttachments': [
+                            \'ListAttachedIndices\': {
+                                \'IndexAttachments\': [
                                     {
-                                        'IndexedAttributes': [
+                                        \'IndexedAttributes\': [
                                             {
-                                                'Key': {
-                                                    'SchemaArn': 'string',
-                                                    'FacetName': 'string',
-                                                    'Name': 'string'
+                                                \'Key\': {
+                                                    \'SchemaArn\': \'string\',
+                                                    \'FacetName\': \'string\',
+                                                    \'Name\': \'string\'
                                                 },
-                                                'Value': {
-                                                    'StringValue': 'string',
-                                                    'BinaryValue': b'bytes',
-                                                    'BooleanValue': True|False,
-                                                    'NumberValue': 'string',
-                                                    'DatetimeValue': datetime(2015, 1, 1)
+                                                \'Value\': {
+                                                    \'StringValue\': \'string\',
+                                                    \'BinaryValue\': b\'bytes\',
+                                                    \'BooleanValue\': True|False,
+                                                    \'NumberValue\': \'string\',
+                                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                                 }
                                             },
                                         ],
-                                        'ObjectIdentifier': 'string'
+                                        \'ObjectIdentifier\': \'string\'
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListObjectParentPaths': {
-                                'PathToObjectIdentifiersList': [
+                            \'ListObjectParentPaths\': {
+                                \'PathToObjectIdentifiersList\': [
                                     {
-                                        'Path': 'string',
-                                        'ObjectIdentifiers': [
-                                            'string',
+                                        \'Path\': \'string\',
+                                        \'ObjectIdentifiers\': [
+                                            \'string\',
                                         ]
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListObjectPolicies': {
-                                'AttachedPolicyIds': [
-                                    'string',
+                            \'ListObjectPolicies\': {
+                                \'AttachedPolicyIds\': [
+                                    \'string\',
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListPolicyAttachments': {
-                                'ObjectIdentifiers': [
-                                    'string',
+                            \'ListPolicyAttachments\': {
+                                \'ObjectIdentifiers\': [
+                                    \'string\',
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'LookupPolicy': {
-                                'PolicyToPathList': [
+                            \'LookupPolicy\': {
+                                \'PolicyToPathList\': [
                                     {
-                                        'Path': 'string',
-                                        'Policies': [
+                                        \'Path\': \'string\',
+                                        \'Policies\': [
                                             {
-                                                'PolicyId': 'string',
-                                                'ObjectIdentifier': 'string',
-                                                'PolicyType': 'string'
+                                                \'PolicyId\': \'string\',
+                                                \'ObjectIdentifier\': \'string\',
+                                                \'PolicyType\': \'string\'
                                             },
                                         ]
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListIndex': {
-                                'IndexAttachments': [
+                            \'ListIndex\': {
+                                \'IndexAttachments\': [
                                     {
-                                        'IndexedAttributes': [
+                                        \'IndexedAttributes\': [
                                             {
-                                                'Key': {
-                                                    'SchemaArn': 'string',
-                                                    'FacetName': 'string',
-                                                    'Name': 'string'
+                                                \'Key\': {
+                                                    \'SchemaArn\': \'string\',
+                                                    \'FacetName\': \'string\',
+                                                    \'Name\': \'string\'
                                                 },
-                                                'Value': {
-                                                    'StringValue': 'string',
-                                                    'BinaryValue': b'bytes',
-                                                    'BooleanValue': True|False,
-                                                    'NumberValue': 'string',
-                                                    'DatetimeValue': datetime(2015, 1, 1)
+                                                \'Value\': {
+                                                    \'StringValue\': \'string\',
+                                                    \'BinaryValue\': b\'bytes\',
+                                                    \'BooleanValue\': True|False,
+                                                    \'NumberValue\': \'string\',
+                                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                                 }
                                             },
                                         ],
-                                        'ObjectIdentifier': 'string'
+                                        \'ObjectIdentifier\': \'string\'
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListOutgoingTypedLinks': {
-                                'TypedLinkSpecifiers': [
+                            \'ListOutgoingTypedLinks\': {
+                                \'TypedLinkSpecifiers\': [
                                     {
-                                        'TypedLinkFacet': {
-                                            'SchemaArn': 'string',
-                                            'TypedLinkName': 'string'
+                                        \'TypedLinkFacet\': {
+                                            \'SchemaArn\': \'string\',
+                                            \'TypedLinkName\': \'string\'
                                         },
-                                        'SourceObjectReference': {
-                                            'Selector': 'string'
+                                        \'SourceObjectReference\': {
+                                            \'Selector\': \'string\'
                                         },
-                                        'TargetObjectReference': {
-                                            'Selector': 'string'
+                                        \'TargetObjectReference\': {
+                                            \'Selector\': \'string\'
                                         },
-                                        'IdentityAttributeValues': [
+                                        \'IdentityAttributeValues\': [
                                             {
-                                                'AttributeName': 'string',
-                                                'Value': {
-                                                    'StringValue': 'string',
-                                                    'BinaryValue': b'bytes',
-                                                    'BooleanValue': True|False,
-                                                    'NumberValue': 'string',
-                                                    'DatetimeValue': datetime(2015, 1, 1)
+                                                \'AttributeName\': \'string\',
+                                                \'Value\': {
+                                                    \'StringValue\': \'string\',
+                                                    \'BinaryValue\': b\'bytes\',
+                                                    \'BooleanValue\': True|False,
+                                                    \'NumberValue\': \'string\',
+                                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                                 }
                                             },
                                         ]
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'ListIncomingTypedLinks': {
-                                'LinkSpecifiers': [
+                            \'ListIncomingTypedLinks\': {
+                                \'LinkSpecifiers\': [
                                     {
-                                        'TypedLinkFacet': {
-                                            'SchemaArn': 'string',
-                                            'TypedLinkName': 'string'
+                                        \'TypedLinkFacet\': {
+                                            \'SchemaArn\': \'string\',
+                                            \'TypedLinkName\': \'string\'
                                         },
-                                        'SourceObjectReference': {
-                                            'Selector': 'string'
+                                        \'SourceObjectReference\': {
+                                            \'Selector\': \'string\'
                                         },
-                                        'TargetObjectReference': {
-                                            'Selector': 'string'
+                                        \'TargetObjectReference\': {
+                                            \'Selector\': \'string\'
                                         },
-                                        'IdentityAttributeValues': [
+                                        \'IdentityAttributeValues\': [
                                             {
-                                                'AttributeName': 'string',
-                                                'Value': {
-                                                    'StringValue': 'string',
-                                                    'BinaryValue': b'bytes',
-                                                    'BooleanValue': True|False,
-                                                    'NumberValue': 'string',
-                                                    'DatetimeValue': datetime(2015, 1, 1)
+                                                \'AttributeName\': \'string\',
+                                                \'Value\': {
+                                                    \'StringValue\': \'string\',
+                                                    \'BinaryValue\': b\'bytes\',
+                                                    \'BooleanValue\': True|False,
+                                                    \'NumberValue\': \'string\',
+                                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                                 }
                                             },
                                         ]
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             },
-                            'GetLinkAttributes': {
-                                'Attributes': [
+                            \'GetLinkAttributes\': {
+                                \'Attributes\': [
                                     {
-                                        'Key': {
-                                            'SchemaArn': 'string',
-                                            'FacetName': 'string',
-                                            'Name': 'string'
+                                        \'Key\': {
+                                            \'SchemaArn\': \'string\',
+                                            \'FacetName\': \'string\',
+                                            \'Name\': \'string\'
                                         },
-                                        'Value': {
-                                            'StringValue': 'string',
-                                            'BinaryValue': b'bytes',
-                                            'BooleanValue': True|False,
-                                            'NumberValue': 'string',
-                                            'DatetimeValue': datetime(2015, 1, 1)
+                                        \'Value\': {
+                                            \'StringValue\': \'string\',
+                                            \'BinaryValue\': b\'bytes\',
+                                            \'BooleanValue\': True|False,
+                                            \'NumberValue\': \'string\',
+                                            \'DatetimeValue\': datetime(2015, 1, 1)
                                         }
                                     },
                                 ]
                             },
-                            'ListObjectParents': {
-                                'ParentLinks': [
+                            \'ListObjectParents\': {
+                                \'ParentLinks\': [
                                     {
-                                        'ObjectIdentifier': 'string',
-                                        'LinkName': 'string'
+                                        \'ObjectIdentifier\': \'string\',
+                                        \'LinkName\': \'string\'
                                     },
                                 ],
-                                'NextToken': 'string'
+                                \'NextToken\': \'string\'
                             }
                         },
-                        'ExceptionResponse': {
-                            'Type': 'ValidationException'|'InvalidArnException'|'ResourceNotFoundException'|'InvalidNextTokenException'|'AccessDeniedException'|'NotNodeException'|'FacetValidationException'|'CannotListParentOfRootException'|'NotIndexException'|'NotPolicyException'|'DirectoryNotEnabledException'|'LimitExceededException'|'InternalServiceException',
-                            'Message': 'string'
+                        \'ExceptionResponse\': {
+                            \'Type\': \'ValidationException\'|\'InvalidArnException\'|\'ResourceNotFoundException\'|\'InvalidNextTokenException\'|\'AccessDeniedException\'|\'NotNodeException\'|\'FacetValidationException\'|\'CannotListParentOfRootException\'|\'NotIndexException\'|\'NotPolicyException\'|\'DirectoryNotEnabledException\'|\'LimitExceededException\'|\'InternalServiceException\',
+                            \'Message\': \'string\'
                         }
                     },
                 ]
@@ -2109,7 +2109,7 @@ class Client(BaseClient):
         
                   - **LookupPolicy** *(dict) --* 
         
-                    Lists all policies from the root of the  Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the ``ObjectIdentifier`` for such objects. If policies are present, it returns ``ObjectIdentifier`` , ``policyId`` , and ``policyType`` . Paths that don't lead to the root from the target object are ignored. For more information, see `Policies <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies>`__ .
+                    Lists all policies from the root of the  Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don\'t have the policies attached, it returns the ``ObjectIdentifier`` for such objects. If policies are present, it returns ``ObjectIdentifier`` , ``policyId`` , and ``policyType`` . Paths that don\'t lead to the root from the target object are ignored. For more information, see `Policies <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies>`__ .
         
                     - **PolicyToPathList** *(list) --* 
         
@@ -2493,254 +2493,254 @@ class Client(BaseClient):
         ::
         
           response = client.batch_write(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               Operations=[
                   {
-                      'CreateObject': {
-                          'SchemaFacet': [
+                      \'CreateObject\': {
+                          \'SchemaFacet\': [
                               {
-                                  'SchemaArn': 'string',
-                                  'FacetName': 'string'
+                                  \'SchemaArn\': \'string\',
+                                  \'FacetName\': \'string\'
                               },
                           ],
-                          'ObjectAttributeList': [
+                          \'ObjectAttributeList\': [
                               {
-                                  'Key': {
-                                      'SchemaArn': 'string',
-                                      'FacetName': 'string',
-                                      'Name': 'string'
+                                  \'Key\': {
+                                      \'SchemaArn\': \'string\',
+                                      \'FacetName\': \'string\',
+                                      \'Name\': \'string\'
                                   },
-                                  'Value': {
-                                      'StringValue': 'string',
-                                      'BinaryValue': b'bytes',
-                                      'BooleanValue': True|False,
-                                      'NumberValue': 'string',
-                                      'DatetimeValue': datetime(2015, 1, 1)
+                                  \'Value\': {
+                                      \'StringValue\': \'string\',
+                                      \'BinaryValue\': b\'bytes\',
+                                      \'BooleanValue\': True|False,
+                                      \'NumberValue\': \'string\',
+                                      \'DatetimeValue\': datetime(2015, 1, 1)
                                   }
                               },
                           ],
-                          'ParentReference': {
-                              'Selector': 'string'
+                          \'ParentReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'LinkName': 'string',
-                          'BatchReferenceName': 'string'
+                          \'LinkName\': \'string\',
+                          \'BatchReferenceName\': \'string\'
                       },
-                      'AttachObject': {
-                          'ParentReference': {
-                              'Selector': 'string'
+                      \'AttachObject\': {
+                          \'ParentReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'ChildReference': {
-                              'Selector': 'string'
+                          \'ChildReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'LinkName': 'string'
+                          \'LinkName\': \'string\'
                       },
-                      'DetachObject': {
-                          'ParentReference': {
-                              'Selector': 'string'
+                      \'DetachObject\': {
+                          \'ParentReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'LinkName': 'string',
-                          'BatchReferenceName': 'string'
+                          \'LinkName\': \'string\',
+                          \'BatchReferenceName\': \'string\'
                       },
-                      'UpdateObjectAttributes': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'UpdateObjectAttributes\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'AttributeUpdates': [
+                          \'AttributeUpdates\': [
                               {
-                                  'ObjectAttributeKey': {
-                                      'SchemaArn': 'string',
-                                      'FacetName': 'string',
-                                      'Name': 'string'
+                                  \'ObjectAttributeKey\': {
+                                      \'SchemaArn\': \'string\',
+                                      \'FacetName\': \'string\',
+                                      \'Name\': \'string\'
                                   },
-                                  'ObjectAttributeAction': {
-                                      'ObjectAttributeActionType': 'CREATE_OR_UPDATE'|'DELETE',
-                                      'ObjectAttributeUpdateValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                  \'ObjectAttributeAction\': {
+                                      \'ObjectAttributeActionType\': \'CREATE_OR_UPDATE\'|\'DELETE\',
+                                      \'ObjectAttributeUpdateValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   }
                               },
                           ]
                       },
-                      'DeleteObject': {
-                          'ObjectReference': {
-                              'Selector': 'string'
+                      \'DeleteObject\': {
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'AddFacetToObject': {
-                          'SchemaFacet': {
-                              'SchemaArn': 'string',
-                              'FacetName': 'string'
+                      \'AddFacetToObject\': {
+                          \'SchemaFacet\': {
+                              \'SchemaArn\': \'string\',
+                              \'FacetName\': \'string\'
                           },
-                          'ObjectAttributeList': [
+                          \'ObjectAttributeList\': [
                               {
-                                  'Key': {
-                                      'SchemaArn': 'string',
-                                      'FacetName': 'string',
-                                      'Name': 'string'
+                                  \'Key\': {
+                                      \'SchemaArn\': \'string\',
+                                      \'FacetName\': \'string\',
+                                      \'Name\': \'string\'
                                   },
-                                  'Value': {
-                                      'StringValue': 'string',
-                                      'BinaryValue': b'bytes',
-                                      'BooleanValue': True|False,
-                                      'NumberValue': 'string',
-                                      'DatetimeValue': datetime(2015, 1, 1)
+                                  \'Value\': {
+                                      \'StringValue\': \'string\',
+                                      \'BinaryValue\': b\'bytes\',
+                                      \'BooleanValue\': True|False,
+                                      \'NumberValue\': \'string\',
+                                      \'DatetimeValue\': datetime(2015, 1, 1)
                                   }
                               },
                           ],
-                          'ObjectReference': {
-                              'Selector': 'string'
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'RemoveFacetFromObject': {
-                          'SchemaFacet': {
-                              'SchemaArn': 'string',
-                              'FacetName': 'string'
+                      \'RemoveFacetFromObject\': {
+                          \'SchemaFacet\': {
+                              \'SchemaArn\': \'string\',
+                              \'FacetName\': \'string\'
                           },
-                          'ObjectReference': {
-                              'Selector': 'string'
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'AttachPolicy': {
-                          'PolicyReference': {
-                              'Selector': 'string'
+                      \'AttachPolicy\': {
+                          \'PolicyReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'ObjectReference': {
-                              'Selector': 'string'
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'DetachPolicy': {
-                          'PolicyReference': {
-                              'Selector': 'string'
+                      \'DetachPolicy\': {
+                          \'PolicyReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'ObjectReference': {
-                              'Selector': 'string'
+                          \'ObjectReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'CreateIndex': {
-                          'OrderedIndexedAttributeList': [
+                      \'CreateIndex\': {
+                          \'OrderedIndexedAttributeList\': [
                               {
-                                  'SchemaArn': 'string',
-                                  'FacetName': 'string',
-                                  'Name': 'string'
+                                  \'SchemaArn\': \'string\',
+                                  \'FacetName\': \'string\',
+                                  \'Name\': \'string\'
                               },
                           ],
-                          'IsUnique': True|False,
-                          'ParentReference': {
-                              'Selector': 'string'
+                          \'IsUnique\': True|False,
+                          \'ParentReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'LinkName': 'string',
-                          'BatchReferenceName': 'string'
+                          \'LinkName\': \'string\',
+                          \'BatchReferenceName\': \'string\'
                       },
-                      'AttachToIndex': {
-                          'IndexReference': {
-                              'Selector': 'string'
+                      \'AttachToIndex\': {
+                          \'IndexReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'TargetReference': {
-                              'Selector': 'string'
+                          \'TargetReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'DetachFromIndex': {
-                          'IndexReference': {
-                              'Selector': 'string'
+                      \'DetachFromIndex\': {
+                          \'IndexReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'TargetReference': {
-                              'Selector': 'string'
+                          \'TargetReference\': {
+                              \'Selector\': \'string\'
                           }
                       },
-                      'AttachTypedLink': {
-                          'SourceObjectReference': {
-                              'Selector': 'string'
+                      \'AttachTypedLink\': {
+                          \'SourceObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'TargetObjectReference': {
-                              'Selector': 'string'
+                          \'TargetObjectReference\': {
+                              \'Selector\': \'string\'
                           },
-                          'TypedLinkFacet': {
-                              'SchemaArn': 'string',
-                              'TypedLinkName': 'string'
+                          \'TypedLinkFacet\': {
+                              \'SchemaArn\': \'string\',
+                              \'TypedLinkName\': \'string\'
                           },
-                          'Attributes': [
+                          \'Attributes\': [
                               {
-                                  'AttributeName': 'string',
-                                  'Value': {
-                                      'StringValue': 'string',
-                                      'BinaryValue': b'bytes',
-                                      'BooleanValue': True|False,
-                                      'NumberValue': 'string',
-                                      'DatetimeValue': datetime(2015, 1, 1)
+                                  \'AttributeName\': \'string\',
+                                  \'Value\': {
+                                      \'StringValue\': \'string\',
+                                      \'BinaryValue\': b\'bytes\',
+                                      \'BooleanValue\': True|False,
+                                      \'NumberValue\': \'string\',
+                                      \'DatetimeValue\': datetime(2015, 1, 1)
                                   }
                               },
                           ]
                       },
-                      'DetachTypedLink': {
-                          'TypedLinkSpecifier': {
-                              'TypedLinkFacet': {
-                                  'SchemaArn': 'string',
-                                  'TypedLinkName': 'string'
+                      \'DetachTypedLink\': {
+                          \'TypedLinkSpecifier\': {
+                              \'TypedLinkFacet\': {
+                                  \'SchemaArn\': \'string\',
+                                  \'TypedLinkName\': \'string\'
                               },
-                              'SourceObjectReference': {
-                                  'Selector': 'string'
+                              \'SourceObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'TargetObjectReference': {
-                                  'Selector': 'string'
+                              \'TargetObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'IdentityAttributeValues': [
+                              \'IdentityAttributeValues\': [
                                   {
-                                      'AttributeName': 'string',
-                                      'Value': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'AttributeName\': \'string\',
+                                      \'Value\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   },
                               ]
                           }
                       },
-                      'UpdateLinkAttributes': {
-                          'TypedLinkSpecifier': {
-                              'TypedLinkFacet': {
-                                  'SchemaArn': 'string',
-                                  'TypedLinkName': 'string'
+                      \'UpdateLinkAttributes\': {
+                          \'TypedLinkSpecifier\': {
+                              \'TypedLinkFacet\': {
+                                  \'SchemaArn\': \'string\',
+                                  \'TypedLinkName\': \'string\'
                               },
-                              'SourceObjectReference': {
-                                  'Selector': 'string'
+                              \'SourceObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'TargetObjectReference': {
-                                  'Selector': 'string'
+                              \'TargetObjectReference\': {
+                                  \'Selector\': \'string\'
                               },
-                              'IdentityAttributeValues': [
+                              \'IdentityAttributeValues\': [
                                   {
-                                      'AttributeName': 'string',
-                                      'Value': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                      \'AttributeName\': \'string\',
+                                      \'Value\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   },
                               ]
                           },
-                          'AttributeUpdates': [
+                          \'AttributeUpdates\': [
                               {
-                                  'AttributeKey': {
-                                      'SchemaArn': 'string',
-                                      'FacetName': 'string',
-                                      'Name': 'string'
+                                  \'AttributeKey\': {
+                                      \'SchemaArn\': \'string\',
+                                      \'FacetName\': \'string\',
+                                      \'Name\': \'string\'
                                   },
-                                  'AttributeAction': {
-                                      'AttributeActionType': 'CREATE_OR_UPDATE'|'DELETE',
-                                      'AttributeUpdateValue': {
-                                          'StringValue': 'string',
-                                          'BinaryValue': b'bytes',
-                                          'BooleanValue': True|False,
-                                          'NumberValue': 'string',
-                                          'DatetimeValue': datetime(2015, 1, 1)
+                                  \'AttributeAction\': {
+                                      \'AttributeActionType\': \'CREATE_OR_UPDATE\'|\'DELETE\',
+                                      \'AttributeUpdateValue\': {
+                                          \'StringValue\': \'string\',
+                                          \'BinaryValue\': b\'bytes\',
+                                          \'BooleanValue\': True|False,
+                                          \'NumberValue\': \'string\',
+                                          \'DatetimeValue\': datetime(2015, 1, 1)
                                       }
                                   }
                               },
@@ -2917,7 +2917,7 @@ class Client(BaseClient):
         
             - **UpdateObjectAttributes** *(dict) --* 
         
-              Updates a given object's attributes.
+              Updates a given object\'s attributes.
         
               - **ObjectReference** *(dict) --* **[REQUIRED]** 
         
@@ -3459,7 +3459,7 @@ class Client(BaseClient):
         
             - **UpdateLinkAttributes** *(dict) --* 
         
-              Updates a given object's attributes.
+              Updates a given object\'s attributes.
         
               - **TypedLinkSpecifier** *(dict) --* **[REQUIRED]** 
         
@@ -3605,62 +3605,62 @@ class Client(BaseClient):
           ::
         
             {
-                'Responses': [
+                \'Responses\': [
                     {
-                        'CreateObject': {
-                            'ObjectIdentifier': 'string'
+                        \'CreateObject\': {
+                            \'ObjectIdentifier\': \'string\'
                         },
-                        'AttachObject': {
-                            'attachedObjectIdentifier': 'string'
+                        \'AttachObject\': {
+                            \'attachedObjectIdentifier\': \'string\'
                         },
-                        'DetachObject': {
-                            'detachedObjectIdentifier': 'string'
+                        \'DetachObject\': {
+                            \'detachedObjectIdentifier\': \'string\'
                         },
-                        'UpdateObjectAttributes': {
-                            'ObjectIdentifier': 'string'
+                        \'UpdateObjectAttributes\': {
+                            \'ObjectIdentifier\': \'string\'
                         },
-                        'DeleteObject': {},
-                        'AddFacetToObject': {},
-                        'RemoveFacetFromObject': {},
-                        'AttachPolicy': {},
-                        'DetachPolicy': {},
-                        'CreateIndex': {
-                            'ObjectIdentifier': 'string'
+                        \'DeleteObject\': {},
+                        \'AddFacetToObject\': {},
+                        \'RemoveFacetFromObject\': {},
+                        \'AttachPolicy\': {},
+                        \'DetachPolicy\': {},
+                        \'CreateIndex\': {
+                            \'ObjectIdentifier\': \'string\'
                         },
-                        'AttachToIndex': {
-                            'AttachedObjectIdentifier': 'string'
+                        \'AttachToIndex\': {
+                            \'AttachedObjectIdentifier\': \'string\'
                         },
-                        'DetachFromIndex': {
-                            'DetachedObjectIdentifier': 'string'
+                        \'DetachFromIndex\': {
+                            \'DetachedObjectIdentifier\': \'string\'
                         },
-                        'AttachTypedLink': {
-                            'TypedLinkSpecifier': {
-                                'TypedLinkFacet': {
-                                    'SchemaArn': 'string',
-                                    'TypedLinkName': 'string'
+                        \'AttachTypedLink\': {
+                            \'TypedLinkSpecifier\': {
+                                \'TypedLinkFacet\': {
+                                    \'SchemaArn\': \'string\',
+                                    \'TypedLinkName\': \'string\'
                                 },
-                                'SourceObjectReference': {
-                                    'Selector': 'string'
+                                \'SourceObjectReference\': {
+                                    \'Selector\': \'string\'
                                 },
-                                'TargetObjectReference': {
-                                    'Selector': 'string'
+                                \'TargetObjectReference\': {
+                                    \'Selector\': \'string\'
                                 },
-                                'IdentityAttributeValues': [
+                                \'IdentityAttributeValues\': [
                                     {
-                                        'AttributeName': 'string',
-                                        'Value': {
-                                            'StringValue': 'string',
-                                            'BinaryValue': b'bytes',
-                                            'BooleanValue': True|False,
-                                            'NumberValue': 'string',
-                                            'DatetimeValue': datetime(2015, 1, 1)
+                                        \'AttributeName\': \'string\',
+                                        \'Value\': {
+                                            \'StringValue\': \'string\',
+                                            \'BinaryValue\': b\'bytes\',
+                                            \'BooleanValue\': True|False,
+                                            \'NumberValue\': \'string\',
+                                            \'DatetimeValue\': datetime(2015, 1, 1)
                                         }
                                     },
                                 ]
                             }
                         },
-                        'DetachTypedLink': {},
-                        'UpdateLinkAttributes': {}
+                        \'DetachTypedLink\': {},
+                        \'UpdateLinkAttributes\': {}
                     },
                 ]
             }
@@ -3853,10 +3853,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -3874,8 +3874,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_directory(
-              Name='string',
-              SchemaArn='string'
+              Name=\'string\',
+              SchemaArn=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -3895,10 +3895,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryArn': 'string',
-                'Name': 'string',
-                'ObjectIdentifier': 'string',
-                'AppliedSchemaArn': 'string'
+                \'DirectoryArn\': \'string\',
+                \'Name\': \'string\',
+                \'ObjectIdentifier\': \'string\',
+                \'AppliedSchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -3932,39 +3932,39 @@ class Client(BaseClient):
         ::
         
           response = client.create_facet(
-              SchemaArn='string',
-              Name='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
               Attributes=[
                   {
-                      'Name': 'string',
-                      'AttributeDefinition': {
-                          'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                          'DefaultValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'Name\': \'string\',
+                      \'AttributeDefinition\': {
+                          \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                          \'DefaultValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'IsImmutable': True|False,
-                          'Rules': {
-                              'string': {
-                                  'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                  'Parameters': {
-                                      'string': 'string'
+                          \'IsImmutable\': True|False,
+                          \'Rules\': {
+                              \'string\': {
+                                  \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                  \'Parameters\': {
+                                      \'string\': \'string\'
                                   }
                               }
                           }
                       },
-                      'AttributeReference': {
-                          'TargetFacetName': 'string',
-                          'TargetAttributeName': 'string'
+                      \'AttributeReference\': {
+                          \'TargetFacetName\': \'string\',
+                          \'TargetAttributeName\': \'string\'
                       },
-                      'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                      \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                   },
               ],
-              ObjectType='NODE'|'LEAF_NODE'|'POLICY'|'INDEX',
-              FacetStyle='STATIC'|'DYNAMIC'
+              ObjectType=\'NODE\'|\'LEAF_NODE\'|\'POLICY\'|\'INDEX\',
+              FacetStyle=\'STATIC\'|\'DYNAMIC\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -4104,19 +4104,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_index(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               OrderedIndexedAttributeList=[
                   {
-                      'SchemaArn': 'string',
-                      'FacetName': 'string',
-                      'Name': 'string'
+                      \'SchemaArn\': \'string\',
+                      \'FacetName\': \'string\',
+                      \'Name\': \'string\'
                   },
               ],
               IsUnique=True|False,
               ParentReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              LinkName='string'
+              LinkName=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -4177,7 +4177,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ObjectIdentifier': 'string'
+                \'ObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -4199,33 +4199,33 @@ class Client(BaseClient):
         ::
         
           response = client.create_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               SchemaFacets=[
                   {
-                      'SchemaArn': 'string',
-                      'FacetName': 'string'
+                      \'SchemaArn\': \'string\',
+                      \'FacetName\': \'string\'
                   },
               ],
               ObjectAttributeList=[
                   {
-                      'Key': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'Key\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'Value': {
-                          'StringValue': 'string',
-                          'BinaryValue': b'bytes',
-                          'BooleanValue': True|False,
-                          'NumberValue': 'string',
-                          'DatetimeValue': datetime(2015, 1, 1)
+                      \'Value\': {
+                          \'StringValue\': \'string\',
+                          \'BinaryValue\': b\'bytes\',
+                          \'BooleanValue\': True|False,
+                          \'NumberValue\': \'string\',
+                          \'DatetimeValue\': datetime(2015, 1, 1)
                       }
                   },
               ],
               ParentReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              LinkName='string'
+              LinkName=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -4326,7 +4326,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ObjectIdentifier': 'string'
+                \'ObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -4355,7 +4355,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_schema(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -4370,7 +4370,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArn': 'string'
+                \'SchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -4392,34 +4392,34 @@ class Client(BaseClient):
         ::
         
           response = client.create_typed_link_facet(
-              SchemaArn='string',
+              SchemaArn=\'string\',
               Facet={
-                  'Name': 'string',
-                  'Attributes': [
+                  \'Name\': \'string\',
+                  \'Attributes\': [
                       {
-                          'Name': 'string',
-                          'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                          'DefaultValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'Name\': \'string\',
+                          \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                          \'DefaultValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'IsImmutable': True|False,
-                          'Rules': {
-                              'string': {
-                                  'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                  'Parameters': {
-                                      'string': 'string'
+                          \'IsImmutable\': True|False,
+                          \'Rules\': {
+                              \'string\': {
+                                  \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                  \'Parameters\': {
+                                      \'string\': \'string\'
                                   }
                               }
                           },
-                          'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                          \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                       },
                   ],
-                  'IdentityAttributeOrder': [
-                      'string',
+                  \'IdentityAttributeOrder\': [
+                      \'string\',
                   ]
               }
           )
@@ -4536,7 +4536,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_directory(
-              DirectoryArn='string'
+              DirectoryArn=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -4551,7 +4551,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryArn': 'string'
+                \'DirectoryArn\': \'string\'
             }
           **Response Structure** 
         
@@ -4573,8 +4573,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_facet(
-              SchemaArn='string',
-              Name='string'
+              SchemaArn=\'string\',
+              Name=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -4609,9 +4609,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -4657,7 +4657,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_schema(
-              SchemaArn='string'
+              SchemaArn=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -4672,7 +4672,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArn': 'string'
+                \'SchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -4694,8 +4694,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_typed_link_facet(
-              SchemaArn='string',
-              Name='string'
+              SchemaArn=\'string\',
+              Name=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -4730,12 +4730,12 @@ class Client(BaseClient):
         ::
         
           response = client.detach_from_index(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               IndexReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               TargetReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -4781,7 +4781,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DetachedObjectIdentifier': 'string'
+                \'DetachedObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -4803,11 +4803,11 @@ class Client(BaseClient):
         ::
         
           response = client.detach_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ParentReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              LinkName='string'
+              LinkName=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -4842,7 +4842,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DetachedObjectIdentifier': 'string'
+                \'DetachedObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -4864,12 +4864,12 @@ class Client(BaseClient):
         ::
         
           response = client.detach_policy(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               PolicyReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -4930,27 +4930,27 @@ class Client(BaseClient):
         ::
         
           response = client.detach_typed_link(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               TypedLinkSpecifier={
-                  'TypedLinkFacet': {
-                      'SchemaArn': 'string',
-                      'TypedLinkName': 'string'
+                  \'TypedLinkFacet\': {
+                      \'SchemaArn\': \'string\',
+                      \'TypedLinkName\': \'string\'
                   },
-                  'SourceObjectReference': {
-                      'Selector': 'string'
+                  \'SourceObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'TargetObjectReference': {
-                      'Selector': 'string'
+                  \'TargetObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'IdentityAttributeValues': [
+                  \'IdentityAttributeValues\': [
                       {
-                          'AttributeName': 'string',
-                          'Value': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'AttributeName\': \'string\',
+                          \'Value\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       },
                   ]
@@ -5055,7 +5055,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_directory(
-              DirectoryArn='string'
+              DirectoryArn=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5070,7 +5070,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryArn': 'string'
+                \'DirectoryArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5092,7 +5092,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_directory(
-              DirectoryArn='string'
+              DirectoryArn=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5107,7 +5107,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryArn': 'string'
+                \'DirectoryArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5136,7 +5136,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -5151,7 +5151,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_applied_schema_version(
-              SchemaArn='string'
+              SchemaArn=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -5166,7 +5166,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AppliedSchemaArn': 'string'
+                \'AppliedSchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5188,7 +5188,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_directory(
-              DirectoryArn='string'
+              DirectoryArn=\'string\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5203,11 +5203,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Directory': {
-                    'Name': 'string',
-                    'DirectoryArn': 'string',
-                    'State': 'ENABLED'|'DISABLED'|'DELETED',
-                    'CreationDateTime': datetime(2015, 1, 1)
+                \'Directory\': {
+                    \'Name\': \'string\',
+                    \'DirectoryArn\': \'string\',
+                    \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                    \'CreationDateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -5246,8 +5246,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_facet(
-              SchemaArn='string',
-              Name='string'
+              SchemaArn=\'string\',
+              Name=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -5267,10 +5267,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Facet': {
-                    'Name': 'string',
-                    'ObjectType': 'NODE'|'LEAF_NODE'|'POLICY'|'INDEX',
-                    'FacetStyle': 'STATIC'|'DYNAMIC'
+                \'Facet\': {
+                    \'Name\': \'string\',
+                    \'ObjectType\': \'NODE\'|\'LEAF_NODE\'|\'POLICY\'|\'INDEX\',
+                    \'FacetStyle\': \'STATIC\'|\'DYNAMIC\'
                 }
             }
           **Response Structure** 
@@ -5305,35 +5305,35 @@ class Client(BaseClient):
         ::
         
           response = client.get_link_attributes(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               TypedLinkSpecifier={
-                  'TypedLinkFacet': {
-                      'SchemaArn': 'string',
-                      'TypedLinkName': 'string'
+                  \'TypedLinkFacet\': {
+                      \'SchemaArn\': \'string\',
+                      \'TypedLinkName\': \'string\'
                   },
-                  'SourceObjectReference': {
-                      'Selector': 'string'
+                  \'SourceObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'TargetObjectReference': {
-                      'Selector': 'string'
+                  \'TargetObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'IdentityAttributeValues': [
+                  \'IdentityAttributeValues\': [
                       {
-                          'AttributeName': 'string',
-                          'Value': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'AttributeName\': \'string\',
+                          \'Value\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       },
                   ]
               },
               AttributeNames=[
-                  'string',
+                  \'string\',
               ],
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5441,19 +5441,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': {
-                            'SchemaArn': 'string',
-                            'FacetName': 'string',
-                            'Name': 'string'
+                        \'Key\': {
+                            \'SchemaArn\': \'string\',
+                            \'FacetName\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'Value': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Value\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -5522,17 +5522,17 @@ class Client(BaseClient):
         ::
         
           response = client.get_object_attributes(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               SchemaFacet={
-                  'SchemaArn': 'string',
-                  'FacetName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'FacetName\': \'string\'
               },
               AttributeNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryArn: string
@@ -5588,19 +5588,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': {
-                            'SchemaArn': 'string',
-                            'FacetName': 'string',
-                            'Name': 'string'
+                        \'Key\': {
+                            \'SchemaArn\': \'string\',
+                            \'FacetName\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'Value': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Value\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -5669,11 +5669,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_object_information(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5708,13 +5708,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaFacets': [
+                \'SchemaFacets\': [
                     {
-                        'SchemaArn': 'string',
-                        'FacetName': 'string'
+                        \'SchemaArn\': \'string\',
+                        \'FacetName\': \'string\'
                     },
                 ],
-                'ObjectIdentifier': 'string'
+                \'ObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -5749,10 +5749,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -5772,7 +5772,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_schema_as_json(
-              SchemaArn='string'
+              SchemaArn=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -5787,8 +5787,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string',
-                'Document': 'string'
+                \'Name\': \'string\',
+                \'Document\': \'string\'
             }
           **Response Structure** 
         
@@ -5814,8 +5814,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_typed_link_facet_information(
-              SchemaArn='string',
-              Name='string'
+              SchemaArn=\'string\',
+              Name=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -5835,8 +5835,8 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityAttributeOrder': [
-                    'string',
+                \'IdentityAttributeOrder\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -5873,9 +5873,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_applied_schema_arns(
-              DirectoryArn='string',
-              SchemaArn='string',
-              NextToken='string',
+              DirectoryArn=\'string\',
+              SchemaArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DirectoryArn: string
@@ -5906,10 +5906,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5937,13 +5937,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_attached_indices(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               TargetReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -5988,28 +5988,28 @@ class Client(BaseClient):
           ::
         
             {
-                'IndexAttachments': [
+                \'IndexAttachments\': [
                     {
-                        'IndexedAttributes': [
+                        \'IndexedAttributes\': [
                             {
-                                'Key': {
-                                    'SchemaArn': 'string',
-                                    'FacetName': 'string',
-                                    'Name': 'string'
+                                \'Key\': {
+                                    \'SchemaArn\': \'string\',
+                                    \'FacetName\': \'string\',
+                                    \'Name\': \'string\'
                                 },
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ],
-                        'ObjectIdentifier': 'string'
+                        \'ObjectIdentifier\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6091,7 +6091,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_development_schema_arns(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -6112,10 +6112,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6143,9 +6143,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_directories(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              state='ENABLED'|'DISABLED'|'DELETED'
+              state=\'ENABLED\'|\'DISABLED\'|\'DELETED\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -6170,15 +6170,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Directories': [
+                \'Directories\': [
                     {
-                        'Name': 'string',
-                        'DirectoryArn': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'CreationDateTime': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'DirectoryArn\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'CreationDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6224,9 +6224,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_facet_attributes(
-              SchemaArn='string',
-              Name='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -6257,36 +6257,36 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Name': 'string',
-                        'AttributeDefinition': {
-                            'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                            'DefaultValue': {
-                                'StringValue': 'string',
-                                'BinaryValue': b'bytes',
-                                'BooleanValue': True|False,
-                                'NumberValue': 'string',
-                                'DatetimeValue': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'AttributeDefinition\': {
+                            \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                            \'DefaultValue\': {
+                                \'StringValue\': \'string\',
+                                \'BinaryValue\': b\'bytes\',
+                                \'BooleanValue\': True|False,
+                                \'NumberValue\': \'string\',
+                                \'DatetimeValue\': datetime(2015, 1, 1)
                             },
-                            'IsImmutable': True|False,
-                            'Rules': {
-                                'string': {
-                                    'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                    'Parameters': {
-                                        'string': 'string'
+                            \'IsImmutable\': True|False,
+                            \'Rules\': {
+                                \'string\': {
+                                    \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                    \'Parameters\': {
+                                        \'string\': \'string\'
                                     }
                                 }
                             }
                         },
-                        'AttributeReference': {
-                            'TargetFacetName': 'string',
-                            'TargetAttributeName': 'string'
+                        \'AttributeReference\': {
+                            \'TargetFacetName\': \'string\',
+                            \'TargetAttributeName\': \'string\'
                         },
-                        'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                        \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6394,8 +6394,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_facet_names(
-              SchemaArn='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -6421,10 +6421,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FacetNames': [
-                    'string',
+                \'FacetNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6452,40 +6452,40 @@ class Client(BaseClient):
         ::
         
           response = client.list_incoming_typed_links(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               FilterAttributeRanges=[
                   {
-                      'AttributeName': 'string',
-                      'Range': {
-                          'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'StartValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'AttributeName\': \'string\',
+                      \'Range\': {
+                          \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'StartValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'EndValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'EndValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
               ],
               FilterTypedLink={
-                  'SchemaArn': 'string',
-                  'TypedLinkName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'TypedLinkName\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -6616,33 +6616,33 @@ class Client(BaseClient):
           ::
         
             {
-                'LinkSpecifiers': [
+                \'LinkSpecifiers\': [
                     {
-                        'TypedLinkFacet': {
-                            'SchemaArn': 'string',
-                            'TypedLinkName': 'string'
+                        \'TypedLinkFacet\': {
+                            \'SchemaArn\': \'string\',
+                            \'TypedLinkName\': \'string\'
                         },
-                        'SourceObjectReference': {
-                            'Selector': 'string'
+                        \'SourceObjectReference\': {
+                            \'Selector\': \'string\'
                         },
-                        'TargetObjectReference': {
-                            'Selector': 'string'
+                        \'TargetObjectReference\': {
+                            \'Selector\': \'string\'
                         },
-                        'IdentityAttributeValues': [
+                        \'IdentityAttributeValues\': [
                             {
-                                'AttributeName': 'string',
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'AttributeName\': \'string\',
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6748,40 +6748,40 @@ class Client(BaseClient):
         ::
         
           response = client.list_index(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               RangesOnIndexedValues=[
                   {
-                      'AttributeKey': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'AttributeKey\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'Range': {
-                          'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'StartValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'Range\': {
+                          \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'StartValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'EndValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'EndValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
               ],
               IndexReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               MaxResults=123,
-              NextToken='string',
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              NextToken=\'string\',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -6911,28 +6911,28 @@ class Client(BaseClient):
           ::
         
             {
-                'IndexAttachments': [
+                \'IndexAttachments\': [
                     {
-                        'IndexedAttributes': [
+                        \'IndexedAttributes\': [
                             {
-                                'Key': {
-                                    'SchemaArn': 'string',
-                                    'FacetName': 'string',
-                                    'Name': 'string'
+                                \'Key\': {
+                                    \'SchemaArn\': \'string\',
+                                    \'FacetName\': \'string\',
+                                    \'Name\': \'string\'
                                 },
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ],
-                        'ObjectIdentifier': 'string'
+                        \'ObjectIdentifier\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7014,8 +7014,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_managed_schema_arns(
-              SchemaArn='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -7041,10 +7041,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7072,16 +7072,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_attributes(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               FacetFilter={
-                  'SchemaArn': 'string',
-                  'FacetName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'FacetName\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -7140,23 +7140,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': {
-                            'SchemaArn': 'string',
-                            'FacetName': 'string',
-                            'Name': 'string'
+                        \'Key\': {
+                            \'SchemaArn\': \'string\',
+                            \'FacetName\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'Value': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Value\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7226,13 +7226,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_children(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -7277,10 +7277,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Children': {
-                    'string': 'string'
+                \'Children\': {
+                    \'string\': \'string\'
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7312,11 +7312,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_parent_paths(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DirectoryArn: string
@@ -7357,15 +7357,15 @@ class Client(BaseClient):
           ::
         
             {
-                'PathToObjectIdentifiersList': [
+                \'PathToObjectIdentifiersList\': [
                     {
-                        'Path': 'string',
-                        'ObjectIdentifiers': [
-                            'string',
+                        \'Path\': \'string\',
+                        \'ObjectIdentifiers\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7405,13 +7405,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_parents(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               IncludeAllLinksToEachParent=True|False
           )
         :type DirectoryArn: string
@@ -7462,14 +7462,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Parents': {
-                    'string': 'string'
+                \'Parents\': {
+                    \'string\': \'string\'
                 },
-                'NextToken': 'string',
-                'ParentLinks': [
+                \'NextToken\': \'string\',
+                \'ParentLinks\': [
                     {
-                        'ObjectIdentifier': 'string',
-                        'LinkName': 'string'
+                        \'ObjectIdentifier\': \'string\',
+                        \'LinkName\': \'string\'
                     },
                 ]
             }
@@ -7517,13 +7517,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_object_policies(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -7568,10 +7568,10 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachedPolicyIds': [
-                    'string',
+                \'AttachedPolicyIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7599,40 +7599,40 @@ class Client(BaseClient):
         ::
         
           response = client.list_outgoing_typed_links(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               FilterAttributeRanges=[
                   {
-                      'AttributeName': 'string',
-                      'Range': {
-                          'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'StartValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'AttributeName\': \'string\',
+                      \'Range\': {
+                          \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'StartValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'EndValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'EndValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
               ],
               FilterTypedLink={
-                  'SchemaArn': 'string',
-                  'TypedLinkName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'TypedLinkName\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -7763,33 +7763,33 @@ class Client(BaseClient):
           ::
         
             {
-                'TypedLinkSpecifiers': [
+                \'TypedLinkSpecifiers\': [
                     {
-                        'TypedLinkFacet': {
-                            'SchemaArn': 'string',
-                            'TypedLinkName': 'string'
+                        \'TypedLinkFacet\': {
+                            \'SchemaArn\': \'string\',
+                            \'TypedLinkName\': \'string\'
                         },
-                        'SourceObjectReference': {
-                            'Selector': 'string'
+                        \'SourceObjectReference\': {
+                            \'Selector\': \'string\'
                         },
-                        'TargetObjectReference': {
-                            'Selector': 'string'
+                        \'TargetObjectReference\': {
+                            \'Selector\': \'string\'
                         },
-                        'IdentityAttributeValues': [
+                        \'IdentityAttributeValues\': [
                             {
-                                'AttributeName': 'string',
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'AttributeName\': \'string\',
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7895,13 +7895,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_policy_attachments(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               PolicyReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL'
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\'
           )
         :type DirectoryArn: string
         :param DirectoryArn: **[REQUIRED]** 
@@ -7946,10 +7946,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ObjectIdentifiers': [
-                    'string',
+                \'ObjectIdentifiers\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7977,8 +7977,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_published_schema_arns(
-              SchemaArn='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -8004,10 +8004,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8035,8 +8035,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceArn='string',
-              NextToken='string',
+              ResourceArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ResourceArn: string
@@ -8062,13 +8062,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8106,9 +8106,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_typed_link_facet_attributes(
-              SchemaArn='string',
-              Name='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -8139,30 +8139,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Name': 'string',
-                        'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                        'DefaultValue': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                        \'DefaultValue\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         },
-                        'IsImmutable': True|False,
-                        'Rules': {
-                            'string': {
-                                'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                'Parameters': {
-                                    'string': 'string'
+                        \'IsImmutable\': True|False,
+                        \'Rules\': {
+                            \'string\': {
+                                \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
-                        'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                        \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8254,8 +8254,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_typed_link_facet_names(
-              SchemaArn='string',
-              NextToken='string',
+              SchemaArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SchemaArn: string
@@ -8281,10 +8281,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FacetNames': [
-                    'string',
+                \'FacetNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8312,11 +8312,11 @@ class Client(BaseClient):
         ::
         
           response = client.lookup_policy(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DirectoryArn: string
@@ -8357,19 +8357,19 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyToPathList': [
+                \'PolicyToPathList\': [
                     {
-                        'Path': 'string',
-                        'Policies': [
+                        \'Path\': \'string\',
+                        \'Policies\': [
                             {
-                                'PolicyId': 'string',
-                                'ObjectIdentifier': 'string',
-                                'PolicyType': 'string'
+                                \'PolicyId\': \'string\',
+                                \'ObjectIdentifier\': \'string\',
+                                \'PolicyType\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -8423,10 +8423,10 @@ class Client(BaseClient):
         ::
         
           response = client.publish_schema(
-              DevelopmentSchemaArn='string',
-              Version='string',
-              MinorVersion='string',
-              Name='string'
+              DevelopmentSchemaArn=\'string\',
+              Version=\'string\',
+              MinorVersion=\'string\',
+              Name=\'string\'
           )
         :type DevelopmentSchemaArn: string
         :param DevelopmentSchemaArn: **[REQUIRED]** 
@@ -8456,7 +8456,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PublishedSchemaArn': 'string'
+                \'PublishedSchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -8478,8 +8478,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_schema_from_json(
-              SchemaArn='string',
-              Document='string'
+              SchemaArn=\'string\',
+              Document=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -8499,7 +8499,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string'
+                \'Arn\': \'string\'
             }
           **Response Structure** 
         
@@ -8521,13 +8521,13 @@ class Client(BaseClient):
         ::
         
           response = client.remove_facet_from_object(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               SchemaFacet={
-                  'SchemaArn': 'string',
-                  'FacetName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'FacetName\': \'string\'
               },
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -8586,11 +8586,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -8639,9 +8639,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -8686,41 +8686,41 @@ class Client(BaseClient):
         ::
         
           response = client.update_facet(
-              SchemaArn='string',
-              Name='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
               AttributeUpdates=[
                   {
-                      'Attribute': {
-                          'Name': 'string',
-                          'AttributeDefinition': {
-                              'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                              'DefaultValue': {
-                                  'StringValue': 'string',
-                                  'BinaryValue': b'bytes',
-                                  'BooleanValue': True|False,
-                                  'NumberValue': 'string',
-                                  'DatetimeValue': datetime(2015, 1, 1)
+                      \'Attribute\': {
+                          \'Name\': \'string\',
+                          \'AttributeDefinition\': {
+                              \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                              \'DefaultValue\': {
+                                  \'StringValue\': \'string\',
+                                  \'BinaryValue\': b\'bytes\',
+                                  \'BooleanValue\': True|False,
+                                  \'NumberValue\': \'string\',
+                                  \'DatetimeValue\': datetime(2015, 1, 1)
                               },
-                              'IsImmutable': True|False,
-                              'Rules': {
-                                  'string': {
-                                      'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                      'Parameters': {
-                                          'string': 'string'
+                              \'IsImmutable\': True|False,
+                              \'Rules\': {
+                                  \'string\': {
+                                      \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                      \'Parameters\': {
+                                          \'string\': \'string\'
                                       }
                                   }
                               }
                           },
-                          'AttributeReference': {
-                              'TargetFacetName': 'string',
-                              'TargetAttributeName': 'string'
+                          \'AttributeReference\': {
+                              \'TargetFacetName\': \'string\',
+                              \'TargetAttributeName\': \'string\'
                           },
-                          'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                          \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                       },
-                      'Action': 'CREATE_OR_UPDATE'|'DELETE'
+                      \'Action\': \'CREATE_OR_UPDATE\'|\'DELETE\'
                   },
               ],
-              ObjectType='NODE'|'LEAF_NODE'|'POLICY'|'INDEX'
+              ObjectType=\'NODE\'|\'LEAF_NODE\'|\'POLICY\'|\'INDEX\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -8855,46 +8855,46 @@ class Client(BaseClient):
         ::
         
           response = client.update_link_attributes(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               TypedLinkSpecifier={
-                  'TypedLinkFacet': {
-                      'SchemaArn': 'string',
-                      'TypedLinkName': 'string'
+                  \'TypedLinkFacet\': {
+                      \'SchemaArn\': \'string\',
+                      \'TypedLinkName\': \'string\'
                   },
-                  'SourceObjectReference': {
-                      'Selector': 'string'
+                  \'SourceObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'TargetObjectReference': {
-                      'Selector': 'string'
+                  \'TargetObjectReference\': {
+                      \'Selector\': \'string\'
                   },
-                  'IdentityAttributeValues': [
+                  \'IdentityAttributeValues\': [
                       {
-                          'AttributeName': 'string',
-                          'Value': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'AttributeName\': \'string\',
+                          \'Value\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       },
                   ]
               },
               AttributeUpdates=[
                   {
-                      'AttributeKey': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'AttributeKey\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'AttributeAction': {
-                          'AttributeActionType': 'CREATE_OR_UPDATE'|'DELETE',
-                          'AttributeUpdateValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'AttributeAction\': {
+                          \'AttributeActionType\': \'CREATE_OR_UPDATE\'|\'DELETE\',
+                          \'AttributeUpdateValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
@@ -9066,25 +9066,25 @@ class Client(BaseClient):
         ::
         
           response = client.update_object_attributes(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               AttributeUpdates=[
                   {
-                      'ObjectAttributeKey': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'ObjectAttributeKey\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'ObjectAttributeAction': {
-                          'ObjectAttributeActionType': 'CREATE_OR_UPDATE'|'DELETE',
-                          'ObjectAttributeUpdateValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'ObjectAttributeAction\': {
+                          \'ObjectAttributeActionType\': \'CREATE_OR_UPDATE\'|\'DELETE\',
+                          \'ObjectAttributeUpdateValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
@@ -9175,7 +9175,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ObjectIdentifier': 'string'
+                \'ObjectIdentifier\': \'string\'
             }
           **Response Structure** 
         
@@ -9197,8 +9197,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_schema(
-              SchemaArn='string',
-              Name='string'
+              SchemaArn=\'string\',
+              Name=\'string\'
           )
         :type SchemaArn: string
         :param SchemaArn: **[REQUIRED]** 
@@ -9218,7 +9218,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaArn': 'string'
+                \'SchemaArn\': \'string\'
             }
           **Response Structure** 
         
@@ -9240,36 +9240,36 @@ class Client(BaseClient):
         ::
         
           response = client.update_typed_link_facet(
-              SchemaArn='string',
-              Name='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
               AttributeUpdates=[
                   {
-                      'Attribute': {
-                          'Name': 'string',
-                          'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                          'DefaultValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'Attribute\': {
+                          \'Name\': \'string\',
+                          \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                          \'DefaultValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'IsImmutable': True|False,
-                          'Rules': {
-                              'string': {
-                                  'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                  'Parameters': {
-                                      'string': 'string'
+                          \'IsImmutable\': True|False,
+                          \'Rules\': {
+                              \'string\': {
+                                  \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                  \'Parameters\': {
+                                      \'string\': \'string\'
                                   }
                               }
                           },
-                          'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                          \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                       },
-                      'Action': 'CREATE_OR_UPDATE'|'DELETE'
+                      \'Action\': \'CREATE_OR_UPDATE\'|\'DELETE\'
                   },
               ],
               IdentityAttributeOrder=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SchemaArn: string
@@ -9391,8 +9391,8 @@ class Client(BaseClient):
         ::
         
           response = client.upgrade_applied_schema(
-              PublishedSchemaArn='string',
-              DirectoryArn='string',
+              PublishedSchemaArn=\'string\',
+              DirectoryArn=\'string\',
               DryRun=True|False
           )
         :type PublishedSchemaArn: string
@@ -9418,8 +9418,8 @@ class Client(BaseClient):
           ::
         
             {
-                'UpgradedSchemaArn': 'string',
-                'DirectoryArn': 'string'
+                \'UpgradedSchemaArn\': \'string\',
+                \'DirectoryArn\': \'string\'
             }
           **Response Structure** 
         
@@ -9445,9 +9445,9 @@ class Client(BaseClient):
         ::
         
           response = client.upgrade_published_schema(
-              DevelopmentSchemaArn='string',
-              PublishedSchemaArn='string',
-              MinorVersion='string',
+              DevelopmentSchemaArn=\'string\',
+              PublishedSchemaArn=\'string\',
+              MinorVersion=\'string\',
               DryRun=True|False
           )
         :type DevelopmentSchemaArn: string
@@ -9478,7 +9478,7 @@ class Client(BaseClient):
           ::
         
             {
-                'UpgradedSchemaArn': 'string'
+                \'UpgradedSchemaArn\': \'string\'
             }
           **Response Structure** 
         

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,8 +18,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_role_to_group(
-              GroupId='string',
-              RoleArn='string'
+              GroupId=\'string\',
+              RoleArn=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -35,7 +35,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociatedAt': 'string'
+                \'AssociatedAt\': \'string\'
             }
           **Response Structure** 
         
@@ -54,7 +54,7 @@ class Client(BaseClient):
         ::
         
           response = client.associate_service_role_to_account(
-              RoleArn='string'
+              RoleArn=\'string\'
           )
         :type RoleArn: string
         :param RoleArn: The ARN of the service role you wish to associate with your account.
@@ -67,7 +67,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociatedAt': 'string'
+                \'AssociatedAt\': \'string\'
             }
           **Response Structure** 
         
@@ -83,10 +83,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -102,18 +102,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_core_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Cores': [
+                  \'Cores\': [
                       {
-                          'CertificateArn': 'string',
-                          'Id': 'string',
-                          'SyncShadow': True|False,
-                          'ThingArn': 'string'
+                          \'CertificateArn\': \'string\',
+                          \'Id\': \'string\',
+                          \'SyncShadow\': True|False,
+                          \'ThingArn\': \'string\'
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -127,9 +127,9 @@ class Client(BaseClient):
         
               - **CertificateArn** *(string) --* The ARN of the certificate associated with the core.
         
-              - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+              - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-              - **SyncShadow** *(boolean) --* If true, the core's local shadow is automatically synced with the cloud.
+              - **SyncShadow** *(boolean) --* If true, the core\'s local shadow is automatically synced with the cloud.
         
               - **ThingArn** *(string) --* The ARN of the thing which is the core.
         
@@ -144,13 +144,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -181,14 +181,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_core_definition_version(
-              AmznClientToken='string',
-              CoreDefinitionId='string',
+              AmznClientToken=\'string\',
+              CoreDefinitionId=\'string\',
               Cores=[
                   {
-                      'CertificateArn': 'string',
-                      'Id': 'string',
-                      'SyncShadow': True|False,
-                      'ThingArn': 'string'
+                      \'CertificateArn\': \'string\',
+                      \'Id\': \'string\',
+                      \'SyncShadow\': True|False,
+                      \'ThingArn\': \'string\'
                   },
               ]
           )
@@ -205,9 +205,9 @@ class Client(BaseClient):
         
             - **CertificateArn** *(string) --* The ARN of the certificate associated with the core.
         
-            - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+            - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-            - **SyncShadow** *(boolean) --* If true, the core's local shadow is automatically synced with the cloud.
+            - **SyncShadow** *(boolean) --* If true, the core\'s local shadow is automatically synced with the cloud.
         
             - **ThingArn** *(string) --* The ARN of the thing which is the core.
         
@@ -219,10 +219,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -247,11 +247,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_deployment(
-              AmznClientToken='string',
-              DeploymentId='string',
-              DeploymentType='NewDeployment'|'Redeployment'|'ResetDeployment'|'ForceResetDeployment',
-              GroupId='string',
-              GroupVersionId='string'
+              AmznClientToken=\'string\',
+              DeploymentId=\'string\',
+              DeploymentType=\'NewDeployment\'|\'Redeployment\'|\'ResetDeployment\'|\'ForceResetDeployment\',
+              GroupId=\'string\',
+              GroupVersionId=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -260,7 +260,7 @@ class Client(BaseClient):
         :param DeploymentId: The ID of the deployment if you wish to redeploy a previous deployment.
         
         :type DeploymentType: string
-        :param DeploymentType: The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+        :param DeploymentType: The type of deployment. When used in \'\'CreateDeployment\'\', only \'\'NewDeployment\'\' and \'\'Redeployment\'\' are valid.
         
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -276,8 +276,8 @@ class Client(BaseClient):
           ::
         
             {
-                'DeploymentArn': 'string',
-                'DeploymentId': 'string'
+                \'DeploymentArn\': \'string\',
+                \'DeploymentId\': \'string\'
             }
           **Response Structure** 
         
@@ -298,18 +298,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_device_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Devices': [
+                  \'Devices\': [
                       {
-                          'CertificateArn': 'string',
-                          'Id': 'string',
-                          'SyncShadow': True|False,
-                          'ThingArn': 'string'
+                          \'CertificateArn\': \'string\',
+                          \'Id\': \'string\',
+                          \'SyncShadow\': True|False,
+                          \'ThingArn\': \'string\'
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -323,9 +323,9 @@ class Client(BaseClient):
         
               - **CertificateArn** *(string) --* The ARN of the certificate associated with the device.
         
-              - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+              - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-              - **SyncShadow** *(boolean) --* If true, the device's local shadow will be automatically synced with the cloud.
+              - **SyncShadow** *(boolean) --* If true, the device\'s local shadow will be automatically synced with the cloud.
         
               - **ThingArn** *(string) --* The thing ARN of the device.
         
@@ -340,13 +340,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -377,14 +377,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_device_definition_version(
-              AmznClientToken='string',
-              DeviceDefinitionId='string',
+              AmznClientToken=\'string\',
+              DeviceDefinitionId=\'string\',
               Devices=[
                   {
-                      'CertificateArn': 'string',
-                      'Id': 'string',
-                      'SyncShadow': True|False,
-                      'ThingArn': 'string'
+                      \'CertificateArn\': \'string\',
+                      \'Id\': \'string\',
+                      \'SyncShadow\': True|False,
+                      \'ThingArn\': \'string\'
                   },
               ]
           )
@@ -401,9 +401,9 @@ class Client(BaseClient):
         
             - **CertificateArn** *(string) --* The ARN of the certificate associated with the device.
         
-            - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+            - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-            - **SyncShadow** *(boolean) --* If true, the device's local shadow will be automatically synced with the cloud.
+            - **SyncShadow** *(boolean) --* If true, the device\'s local shadow will be automatically synced with the cloud.
         
             - **ThingArn** *(string) --* The thing ARN of the device.
         
@@ -415,10 +415,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -443,36 +443,36 @@ class Client(BaseClient):
         ::
         
           response = client.create_function_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Functions': [
+                  \'Functions\': [
                       {
-                          'FunctionArn': 'string',
-                          'FunctionConfiguration': {
-                              'EncodingType': 'binary'|'json',
-                              'Environment': {
-                                  'AccessSysfs': True|False,
-                                  'ResourceAccessPolicies': [
+                          \'FunctionArn\': \'string\',
+                          \'FunctionConfiguration\': {
+                              \'EncodingType\': \'binary\'|\'json\',
+                              \'Environment\': {
+                                  \'AccessSysfs\': True|False,
+                                  \'ResourceAccessPolicies\': [
                                       {
-                                          'Permission': 'ro'|'rw',
-                                          'ResourceId': 'string'
+                                          \'Permission\': \'ro\'|\'rw\',
+                                          \'ResourceId\': \'string\'
                                       },
                                   ],
-                                  'Variables': {
-                                      'string': 'string'
+                                  \'Variables\': {
+                                      \'string\': \'string\'
                                   }
                               },
-                              'ExecArgs': 'string',
-                              'Executable': 'string',
-                              'MemorySize': 123,
-                              'Pinned': True|False,
-                              'Timeout': 123
+                              \'ExecArgs\': \'string\',
+                              \'Executable\': \'string\',
+                              \'MemorySize\': 123,
+                              \'Pinned\': True|False,
+                              \'Timeout\': 123
                           },
-                          'Id': 'string'
+                          \'Id\': \'string\'
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -488,21 +488,21 @@ class Client(BaseClient):
         
               - **FunctionConfiguration** *(dict) --* The configuration of the Lambda function.
         
-                - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is ''json''.
+                - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is \'\'json\'\'.
         
                 - **Environment** *(dict) --* The environment configuration of the function.
         
-                  - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys.
+                  - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host\'s /sys folder. Use this when the Lambda function needs to read device information from /sys.
         
                   - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources.
         
                     - *(dict) --* A policy used by the function to access a resource.
         
-                      - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+                      - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of \'\'rw\'\' (read/write) or \'\'ro\'\' (read-only).
         
                       - **ResourceId** *(string) --* The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
         
-                  - **Variables** *(dict) --* Environment variables for the Lambda function's configuration.
+                  - **Variables** *(dict) --* Environment variables for the Lambda function\'s configuration.
         
                     - *(string) --* 
         
@@ -518,7 +518,7 @@ class Client(BaseClient):
         
                 - **Timeout** *(integer) --* The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request.
         
-              - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+              - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
         :type Name: string
         :param Name: The name of the function definition.
@@ -531,13 +531,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -568,32 +568,32 @@ class Client(BaseClient):
         ::
         
           response = client.create_function_definition_version(
-              AmznClientToken='string',
-              FunctionDefinitionId='string',
+              AmznClientToken=\'string\',
+              FunctionDefinitionId=\'string\',
               Functions=[
                   {
-                      'FunctionArn': 'string',
-                      'FunctionConfiguration': {
-                          'EncodingType': 'binary'|'json',
-                          'Environment': {
-                              'AccessSysfs': True|False,
-                              'ResourceAccessPolicies': [
+                      \'FunctionArn\': \'string\',
+                      \'FunctionConfiguration\': {
+                          \'EncodingType\': \'binary\'|\'json\',
+                          \'Environment\': {
+                              \'AccessSysfs\': True|False,
+                              \'ResourceAccessPolicies\': [
                                   {
-                                      'Permission': 'ro'|'rw',
-                                      'ResourceId': 'string'
+                                      \'Permission\': \'ro\'|\'rw\',
+                                      \'ResourceId\': \'string\'
                                   },
                               ],
-                              'Variables': {
-                                  'string': 'string'
+                              \'Variables\': {
+                                  \'string\': \'string\'
                               }
                           },
-                          'ExecArgs': 'string',
-                          'Executable': 'string',
-                          'MemorySize': 123,
-                          'Pinned': True|False,
-                          'Timeout': 123
+                          \'ExecArgs\': \'string\',
+                          \'Executable\': \'string\',
+                          \'MemorySize\': 123,
+                          \'Pinned\': True|False,
+                          \'Timeout\': 123
                       },
-                      'Id': 'string'
+                      \'Id\': \'string\'
                   },
               ]
           )
@@ -612,21 +612,21 @@ class Client(BaseClient):
         
             - **FunctionConfiguration** *(dict) --* The configuration of the Lambda function.
         
-              - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is ''json''.
+              - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is \'\'json\'\'.
         
               - **Environment** *(dict) --* The environment configuration of the function.
         
-                - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys.
+                - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host\'s /sys folder. Use this when the Lambda function needs to read device information from /sys.
         
                 - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources.
         
                   - *(dict) --* A policy used by the function to access a resource.
         
-                    - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+                    - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of \'\'rw\'\' (read/write) or \'\'ro\'\' (read-only).
         
                     - **ResourceId** *(string) --* The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
         
-                - **Variables** *(dict) --* Environment variables for the Lambda function's configuration.
+                - **Variables** *(dict) --* Environment variables for the Lambda function\'s configuration.
         
                   - *(string) --* 
         
@@ -642,7 +642,7 @@ class Client(BaseClient):
         
               - **Timeout** *(integer) --* The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request.
         
-            - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+            - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
         :rtype: dict
         :returns: 
@@ -652,10 +652,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -680,16 +680,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_group(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'CoreDefinitionVersionArn': 'string',
-                  'DeviceDefinitionVersionArn': 'string',
-                  'FunctionDefinitionVersionArn': 'string',
-                  'LoggerDefinitionVersionArn': 'string',
-                  'ResourceDefinitionVersionArn': 'string',
-                  'SubscriptionDefinitionVersionArn': 'string'
+                  \'CoreDefinitionVersionArn\': \'string\',
+                  \'DeviceDefinitionVersionArn\': \'string\',
+                  \'FunctionDefinitionVersionArn\': \'string\',
+                  \'LoggerDefinitionVersionArn\': \'string\',
+                  \'ResourceDefinitionVersionArn\': \'string\',
+                  \'SubscriptionDefinitionVersionArn\': \'string\'
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -720,13 +720,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -757,8 +757,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_group_certificate_authority(
-              AmznClientToken='string',
-              GroupId='string'
+              AmznClientToken=\'string\',
+              GroupId=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -774,7 +774,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupCertificateAuthorityArn': 'string'
+                \'GroupCertificateAuthorityArn\': \'string\'
             }
           **Response Structure** 
         
@@ -793,14 +793,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_group_version(
-              AmznClientToken='string',
-              CoreDefinitionVersionArn='string',
-              DeviceDefinitionVersionArn='string',
-              FunctionDefinitionVersionArn='string',
-              GroupId='string',
-              LoggerDefinitionVersionArn='string',
-              ResourceDefinitionVersionArn='string',
-              SubscriptionDefinitionVersionArn='string'
+              AmznClientToken=\'string\',
+              CoreDefinitionVersionArn=\'string\',
+              DeviceDefinitionVersionArn=\'string\',
+              FunctionDefinitionVersionArn=\'string\',
+              GroupId=\'string\',
+              LoggerDefinitionVersionArn=\'string\',
+              ResourceDefinitionVersionArn=\'string\',
+              SubscriptionDefinitionVersionArn=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -834,10 +834,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -862,19 +862,19 @@ class Client(BaseClient):
         ::
         
           response = client.create_logger_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Loggers': [
+                  \'Loggers\': [
                       {
-                          'Component': 'GreengrassSystem'|'Lambda',
-                          'Id': 'string',
-                          'Level': 'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL',
-                          'Space': 123,
-                          'Type': 'FileSystem'|'AWSCloudWatch'
+                          \'Component\': \'GreengrassSystem\'|\'Lambda\',
+                          \'Id\': \'string\',
+                          \'Level\': \'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
+                          \'Space\': 123,
+                          \'Type\': \'FileSystem\'|\'AWSCloudWatch\'
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -888,7 +888,7 @@ class Client(BaseClient):
         
               - **Component** *(string) --* The component that will be subject to logging.
         
-              - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+              - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
               - **Level** *(string) --* The level of the logs.
         
@@ -907,13 +907,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -944,15 +944,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_logger_definition_version(
-              AmznClientToken='string',
-              LoggerDefinitionId='string',
+              AmznClientToken=\'string\',
+              LoggerDefinitionId=\'string\',
               Loggers=[
                   {
-                      'Component': 'GreengrassSystem'|'Lambda',
-                      'Id': 'string',
-                      'Level': 'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL',
-                      'Space': 123,
-                      'Type': 'FileSystem'|'AWSCloudWatch'
+                      \'Component\': \'GreengrassSystem\'|\'Lambda\',
+                      \'Id\': \'string\',
+                      \'Level\': \'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
+                      \'Space\': 123,
+                      \'Type\': \'FileSystem\'|\'AWSCloudWatch\'
                   },
               ]
           )
@@ -969,7 +969,7 @@ class Client(BaseClient):
         
             - **Component** *(string) --* The component that will be subject to logging.
         
-            - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+            - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
             - **Level** *(string) --* The level of the logs.
         
@@ -985,10 +985,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -1013,41 +1013,41 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Resources': [
+                  \'Resources\': [
                       {
-                          'Id': 'string',
-                          'Name': 'string',
-                          'ResourceDataContainer': {
-                              'LocalDeviceResourceData': {
-                                  'GroupOwnerSetting': {
-                                      'AutoAddGroupOwner': True|False,
-                                      'GroupOwner': 'string'
+                          \'Id\': \'string\',
+                          \'Name\': \'string\',
+                          \'ResourceDataContainer\': {
+                              \'LocalDeviceResourceData\': {
+                                  \'GroupOwnerSetting\': {
+                                      \'AutoAddGroupOwner\': True|False,
+                                      \'GroupOwner\': \'string\'
                                   },
-                                  'SourcePath': 'string'
+                                  \'SourcePath\': \'string\'
                               },
-                              'LocalVolumeResourceData': {
-                                  'DestinationPath': 'string',
-                                  'GroupOwnerSetting': {
-                                      'AutoAddGroupOwner': True|False,
-                                      'GroupOwner': 'string'
+                              \'LocalVolumeResourceData\': {
+                                  \'DestinationPath\': \'string\',
+                                  \'GroupOwnerSetting\': {
+                                      \'AutoAddGroupOwner\': True|False,
+                                      \'GroupOwner\': \'string\'
                                   },
-                                  'SourcePath': 'string'
+                                  \'SourcePath\': \'string\'
                               },
-                              'S3MachineLearningModelResourceData': {
-                                  'DestinationPath': 'string',
-                                  'S3Uri': 'string'
+                              \'S3MachineLearningModelResourceData\': {
+                                  \'DestinationPath\': \'string\',
+                                  \'S3Uri\': \'string\'
                               },
-                              'SageMakerMachineLearningModelResourceData': {
-                                  'DestinationPath': 'string',
-                                  'SageMakerJobArn': 'string'
+                              \'SageMakerMachineLearningModelResourceData\': {
+                                  \'DestinationPath\': \'string\',
+                                  \'SageMakerJobArn\': \'string\'
                               }
                           }
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -1059,9 +1059,9 @@ class Client(BaseClient):
         
             - *(dict) --* Information about a resource.
         
-              - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+              - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
         
-              - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+              - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
         
               - **ResourceDataContainer** *(dict) --* A container of data for all resource types.
         
@@ -1073,7 +1073,7 @@ class Client(BaseClient):
         
                     - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
         
-                  - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
+                  - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under \'\'/dev\'\'.
         
                 - **LocalVolumeResourceData** *(dict) --* Attributes that define the local volume resource.
         
@@ -1085,7 +1085,7 @@ class Client(BaseClient):
         
                     - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
         
-                  - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/proc'' or ''/sys''.
+                  - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with \'\'/proc\'\' or \'\'/sys\'\'.
         
                 - **S3MachineLearningModelResourceData** *(dict) --* Attributes that define an S3 machine learning resource.
         
@@ -1110,13 +1110,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1147,35 +1147,35 @@ class Client(BaseClient):
         ::
         
           response = client.create_resource_definition_version(
-              AmznClientToken='string',
-              ResourceDefinitionId='string',
+              AmznClientToken=\'string\',
+              ResourceDefinitionId=\'string\',
               Resources=[
                   {
-                      'Id': 'string',
-                      'Name': 'string',
-                      'ResourceDataContainer': {
-                          'LocalDeviceResourceData': {
-                              'GroupOwnerSetting': {
-                                  'AutoAddGroupOwner': True|False,
-                                  'GroupOwner': 'string'
+                      \'Id\': \'string\',
+                      \'Name\': \'string\',
+                      \'ResourceDataContainer\': {
+                          \'LocalDeviceResourceData\': {
+                              \'GroupOwnerSetting\': {
+                                  \'AutoAddGroupOwner\': True|False,
+                                  \'GroupOwner\': \'string\'
                               },
-                              'SourcePath': 'string'
+                              \'SourcePath\': \'string\'
                           },
-                          'LocalVolumeResourceData': {
-                              'DestinationPath': 'string',
-                              'GroupOwnerSetting': {
-                                  'AutoAddGroupOwner': True|False,
-                                  'GroupOwner': 'string'
+                          \'LocalVolumeResourceData\': {
+                              \'DestinationPath\': \'string\',
+                              \'GroupOwnerSetting\': {
+                                  \'AutoAddGroupOwner\': True|False,
+                                  \'GroupOwner\': \'string\'
                               },
-                              'SourcePath': 'string'
+                              \'SourcePath\': \'string\'
                           },
-                          'S3MachineLearningModelResourceData': {
-                              'DestinationPath': 'string',
-                              'S3Uri': 'string'
+                          \'S3MachineLearningModelResourceData\': {
+                              \'DestinationPath\': \'string\',
+                              \'S3Uri\': \'string\'
                           },
-                          'SageMakerMachineLearningModelResourceData': {
-                              'DestinationPath': 'string',
-                              'SageMakerJobArn': 'string'
+                          \'SageMakerMachineLearningModelResourceData\': {
+                              \'DestinationPath\': \'string\',
+                              \'SageMakerJobArn\': \'string\'
                           }
                       }
                   },
@@ -1192,9 +1192,9 @@ class Client(BaseClient):
         
           - *(dict) --* Information about a resource.
         
-            - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+            - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
         
-            - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+            - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
         
             - **ResourceDataContainer** *(dict) --* A container of data for all resource types.
         
@@ -1206,7 +1206,7 @@ class Client(BaseClient):
         
                   - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
         
-                - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
+                - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under \'\'/dev\'\'.
         
               - **LocalVolumeResourceData** *(dict) --* Attributes that define the local volume resource.
         
@@ -1218,7 +1218,7 @@ class Client(BaseClient):
         
                   - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
         
-                - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/proc'' or ''/sys''.
+                - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with \'\'/proc\'\' or \'\'/sys\'\'.
         
               - **S3MachineLearningModelResourceData** *(dict) --* Attributes that define an S3 machine learning resource.
         
@@ -1240,10 +1240,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -1268,15 +1268,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_software_update_job(
-              AmznClientToken='string',
-              S3UrlSignerRole='string',
-              SoftwareToUpdate='core'|'ota_agent',
-              UpdateAgentLogLevel='NONE'|'TRACE'|'DEBUG'|'VERBOSE'|'INFO'|'WARN'|'ERROR'|'FATAL',
+              AmznClientToken=\'string\',
+              S3UrlSignerRole=\'string\',
+              SoftwareToUpdate=\'core\'|\'ota_agent\',
+              UpdateAgentLogLevel=\'NONE\'|\'TRACE\'|\'DEBUG\'|\'VERBOSE\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
               UpdateTargets=[
-                  'string',
+                  \'string\',
               ],
-              UpdateTargetsArchitecture='armv7l'|'x86_64'|'aarch64',
-              UpdateTargetsOperatingSystem='ubuntu'|'raspbian'|'amazon_linux'
+              UpdateTargetsArchitecture=\'armv7l\'|\'x86_64\'|\'aarch64\',
+              UpdateTargetsOperatingSystem=\'ubuntu\'|\'raspbian\'|\'amazon_linux\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -1309,8 +1309,8 @@ class Client(BaseClient):
           ::
         
             {
-                'IotJobArn': 'string',
-                'IotJobId': 'string'
+                \'IotJobArn\': \'string\',
+                \'IotJobId\': \'string\'
             }
           **Response Structure** 
         
@@ -1331,18 +1331,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_subscription_definition(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               InitialVersion={
-                  'Subscriptions': [
+                  \'Subscriptions\': [
                       {
-                          'Id': 'string',
-                          'Source': 'string',
-                          'Subject': 'string',
-                          'Target': 'string'
+                          \'Id\': \'string\',
+                          \'Source\': \'string\',
+                          \'Subject\': \'string\',
+                          \'Target\': \'string\'
                       },
                   ]
               },
-              Name='string'
+              Name=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -1354,13 +1354,13 @@ class Client(BaseClient):
         
             - *(dict) --* Information about a subscription.
         
-              - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+              - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-              - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+              - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
         
               - **Subject** *(string) --* The subject of the message.
         
-              - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+              - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
         
         :type Name: string
         :param Name: The name of the subscription definition.
@@ -1373,13 +1373,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1410,14 +1410,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_subscription_definition_version(
-              AmznClientToken='string',
-              SubscriptionDefinitionId='string',
+              AmznClientToken=\'string\',
+              SubscriptionDefinitionId=\'string\',
               Subscriptions=[
                   {
-                      'Id': 'string',
-                      'Source': 'string',
-                      'Subject': 'string',
-                      'Target': 'string'
+                      \'Id\': \'string\',
+                      \'Source\': \'string\',
+                      \'Subject\': \'string\',
+                      \'Target\': \'string\'
                   },
               ]
           )
@@ -1432,13 +1432,13 @@ class Client(BaseClient):
         
           - *(dict) --* Information about a subscription.
         
-            - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+            - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
         
-            - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+            - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
         
             - **Subject** *(string) --* The subject of the message.
         
-            - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+            - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
         
         :rtype: dict
         :returns: 
@@ -1448,10 +1448,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'Version': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -1476,7 +1476,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_core_definition(
-              CoreDefinitionId='string'
+              CoreDefinitionId=\'string\'
           )
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
@@ -1504,7 +1504,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_device_definition(
-              DeviceDefinitionId='string'
+              DeviceDefinitionId=\'string\'
           )
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
@@ -1532,7 +1532,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_function_definition(
-              FunctionDefinitionId='string'
+              FunctionDefinitionId=\'string\'
           )
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
@@ -1560,7 +1560,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_group(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -1588,7 +1588,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_logger_definition(
-              LoggerDefinitionId='string'
+              LoggerDefinitionId=\'string\'
           )
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
@@ -1616,7 +1616,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_definition(
-              ResourceDefinitionId='string'
+              ResourceDefinitionId=\'string\'
           )
         :type ResourceDefinitionId: string
         :param ResourceDefinitionId: **[REQUIRED]** The ID of the resource definition.
@@ -1644,7 +1644,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_subscription_definition(
-              SubscriptionDefinitionId='string'
+              SubscriptionDefinitionId=\'string\'
           )
         :type SubscriptionDefinitionId: string
         :param SubscriptionDefinitionId: **[REQUIRED]** The ID of the subscription definition.
@@ -1672,7 +1672,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_role_from_group(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -1685,7 +1685,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DisassociatedAt': 'string'
+                \'DisassociatedAt\': \'string\'
             }
           **Response Structure** 
         
@@ -1713,7 +1713,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DisassociatedAt': 'string'
+                \'DisassociatedAt\': \'string\'
             }
           **Response Structure** 
         
@@ -1739,7 +1739,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1754,7 +1754,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_associated_role(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -1767,8 +1767,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociatedAt': 'string',
-                'RoleArn': 'string'
+                \'AssociatedAt\': \'string\',
+                \'RoleArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1789,7 +1789,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bulk_deployment_status(
-              BulkDeploymentId='string'
+              BulkDeploymentId=\'string\'
           )
         :type BulkDeploymentId: string
         :param BulkDeploymentId: **[REQUIRED]** The ID of the bulk deployment.
@@ -1802,20 +1802,20 @@ class Client(BaseClient):
           ::
         
             {
-                'BulkDeploymentMetrics': {
-                    'InvalidInputRecords': 123,
-                    'RecordsProcessed': 123,
-                    'RetryAttempts': 123
+                \'BulkDeploymentMetrics\': {
+                    \'InvalidInputRecords\': 123,
+                    \'RecordsProcessed\': 123,
+                    \'RetryAttempts\': 123
                 },
-                'BulkDeploymentStatus': 'Initializing'|'Running'|'Completed'|'Stopping'|'Stopped'|'Failed',
-                'CreatedAt': 'string',
-                'ErrorDetails': [
+                \'BulkDeploymentStatus\': \'Initializing\'|\'Running\'|\'Completed\'|\'Stopping\'|\'Stopped\'|\'Failed\',
+                \'CreatedAt\': \'string\',
+                \'ErrorDetails\': [
                     {
-                        'DetailedErrorCode': 'string',
-                        'DetailedErrorMessage': 'string'
+                        \'DetailedErrorCode\': \'string\',
+                        \'DetailedErrorMessage\': \'string\'
                     },
                 ],
-                'ErrorMessage': 'string'
+                \'ErrorMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -1823,11 +1823,11 @@ class Client(BaseClient):
             
             - **BulkDeploymentMetrics** *(dict) --* Relevant metrics on input records processed during bulk deployment.
               
-              - **InvalidInputRecords** *(integer) --* The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
+              - **InvalidInputRecords** *(integer) --* The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn\'t grant permission to deploy a group or group version.
               
               - **RecordsProcessed** *(integer) --* The total number of group records from the input file that have been processed so far, or attempted.
               
-              - **RetryAttempts** *(integer) --* The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
+              - **RetryAttempts** *(integer) --* The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. \'\'StartBulkDeployment\'\' retries a group deployment up to five times.
           
             - **BulkDeploymentStatus** *(string) --* The status of the bulk deployment.
             
@@ -1854,7 +1854,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_connectivity_info(
-              ThingName='string'
+              ThingName=\'string\'
           )
         :type ThingName: string
         :param ThingName: **[REQUIRED]** The thing name.
@@ -1867,15 +1867,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ConnectivityInfo': [
+                \'ConnectivityInfo\': [
                     {
-                        'HostAddress': 'string',
-                        'Id': 'string',
-                        'Metadata': 'string',
-                        'PortNumber': 123
+                        \'HostAddress\': \'string\',
+                        \'Id\': \'string\',
+                        \'Metadata\': \'string\',
+                        \'PortNumber\': 123
                     },
                 ],
-                'Message': 'string'
+                \'Message\': \'string\'
             }
           **Response Structure** 
         
@@ -1883,7 +1883,7 @@ class Client(BaseClient):
             
             - **ConnectivityInfo** *(list) --* Connectivity info list.
               
-              - *(dict) --* Information about a Greengrass core's connectivity.
+              - *(dict) --* Information about a Greengrass core\'s connectivity.
                 
                 - **HostAddress** *(string) --* The endpoint for the Greengrass core. Can be an IP address or DNS.
                 
@@ -1906,7 +1906,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_core_definition(
-              CoreDefinitionId='string'
+              CoreDefinitionId=\'string\'
           )
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
@@ -1919,13 +1919,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1956,8 +1956,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_core_definition_version(
-              CoreDefinitionId='string',
-              CoreDefinitionVersionId='string'
+              CoreDefinitionId=\'string\',
+              CoreDefinitionVersionId=\'string\'
           )
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
@@ -1973,21 +1973,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Cores': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Cores\': [
                         {
-                            'CertificateArn': 'string',
-                            'Id': 'string',
-                            'SyncShadow': True|False,
-                            'ThingArn': 'string'
+                            \'CertificateArn\': \'string\',
+                            \'Id\': \'string\',
+                            \'SyncShadow\': True|False,
+                            \'ThingArn\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string',
-                'NextToken': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'NextToken\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2005,15 +2005,15 @@ class Client(BaseClient):
                   
                   - **CertificateArn** *(string) --* The ARN of the certificate associated with the core.
                   
-                  - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+                  - **Id** *(string) --* A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
                   
-                  - **SyncShadow** *(boolean) --* If true, the core's local shadow is automatically synced with the cloud.
+                  - **SyncShadow** *(boolean) --* If true, the core\'s local shadow is automatically synced with the cloud.
                   
                   - **ThingArn** *(string) --* The ARN of the thing which is the core.
               
             - **Id** *(string) --* The ID of the core definition version.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Version** *(string) --* The version of the core definition version.
         """
@@ -2028,8 +2028,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_deployment_status(
-              DeploymentId='string',
-              GroupId='string'
+              DeploymentId=\'string\',
+              GroupId=\'string\'
           )
         :type DeploymentId: string
         :param DeploymentId: **[REQUIRED]** The ID of the deployment.
@@ -2045,22 +2045,22 @@ class Client(BaseClient):
           ::
         
             {
-                'DeploymentStatus': 'string',
-                'DeploymentType': 'NewDeployment'|'Redeployment'|'ResetDeployment'|'ForceResetDeployment',
-                'ErrorDetails': [
+                \'DeploymentStatus\': \'string\',
+                \'DeploymentType\': \'NewDeployment\'|\'Redeployment\'|\'ResetDeployment\'|\'ForceResetDeployment\',
+                \'ErrorDetails\': [
                     {
-                        'DetailedErrorCode': 'string',
-                        'DetailedErrorMessage': 'string'
+                        \'DetailedErrorCode\': \'string\',
+                        \'DetailedErrorMessage\': \'string\'
                     },
                 ],
-                'ErrorMessage': 'string',
-                'UpdatedAt': 'string'
+                \'ErrorMessage\': \'string\',
+                \'UpdatedAt\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* Success. The response body contains the status of the deployment for the group.
             
-            - **DeploymentStatus** *(string) --* The status of the deployment: ''Pending'', ''InProgress'', ''Success'', or ''Failure''.
+            - **DeploymentStatus** *(string) --* The status of the deployment: \'\'Pending\'\', \'\'InProgress\'\', \'\'Success\'\', or \'\'Failure\'\'.
             
             - **DeploymentType** *(string) --* The type of the deployment.
             
@@ -2087,7 +2087,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_definition(
-              DeviceDefinitionId='string'
+              DeviceDefinitionId=\'string\'
           )
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
@@ -2100,13 +2100,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2137,9 +2137,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_device_definition_version(
-              DeviceDefinitionId='string',
-              DeviceDefinitionVersionId='string',
-              NextToken='string'
+              DeviceDefinitionId=\'string\',
+              DeviceDefinitionVersionId=\'string\',
+              NextToken=\'string\'
           )
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
@@ -2148,7 +2148,7 @@ class Client(BaseClient):
         :param DeviceDefinitionVersionId: **[REQUIRED]** The ID of the device definition version.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -2158,21 +2158,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Devices': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Devices\': [
                         {
-                            'CertificateArn': 'string',
-                            'Id': 'string',
-                            'SyncShadow': True|False,
-                            'ThingArn': 'string'
+                            \'CertificateArn\': \'string\',
+                            \'Id\': \'string\',
+                            \'SyncShadow\': True|False,
+                            \'ThingArn\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string',
-                'NextToken': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'NextToken\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2190,15 +2190,15 @@ class Client(BaseClient):
                   
                   - **CertificateArn** *(string) --* The ARN of the certificate associated with the device.
                   
-                  - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+                  - **Id** *(string) --* A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
                   
-                  - **SyncShadow** *(boolean) --* If true, the device's local shadow will be automatically synced with the cloud.
+                  - **SyncShadow** *(boolean) --* If true, the device\'s local shadow will be automatically synced with the cloud.
                   
                   - **ThingArn** *(string) --* The thing ARN of the device.
               
             - **Id** *(string) --* The ID of the device definition version.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Version** *(string) --* The version of the device definition version.
         """
@@ -2213,7 +2213,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_function_definition(
-              FunctionDefinitionId='string'
+              FunctionDefinitionId=\'string\'
           )
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
@@ -2226,13 +2226,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2263,9 +2263,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_function_definition_version(
-              FunctionDefinitionId='string',
-              FunctionDefinitionVersionId='string',
-              NextToken='string'
+              FunctionDefinitionId=\'string\',
+              FunctionDefinitionVersionId=\'string\',
+              NextToken=\'string\'
           )
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
@@ -2274,7 +2274,7 @@ class Client(BaseClient):
         :param FunctionDefinitionVersionId: **[REQUIRED]** The ID of the function definition version.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -2284,39 +2284,39 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Functions': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Functions\': [
                         {
-                            'FunctionArn': 'string',
-                            'FunctionConfiguration': {
-                                'EncodingType': 'binary'|'json',
-                                'Environment': {
-                                    'AccessSysfs': True|False,
-                                    'ResourceAccessPolicies': [
+                            \'FunctionArn\': \'string\',
+                            \'FunctionConfiguration\': {
+                                \'EncodingType\': \'binary\'|\'json\',
+                                \'Environment\': {
+                                    \'AccessSysfs\': True|False,
+                                    \'ResourceAccessPolicies\': [
                                         {
-                                            'Permission': 'ro'|'rw',
-                                            'ResourceId': 'string'
+                                            \'Permission\': \'ro\'|\'rw\',
+                                            \'ResourceId\': \'string\'
                                         },
                                     ],
-                                    'Variables': {
-                                        'string': 'string'
+                                    \'Variables\': {
+                                        \'string\': \'string\'
                                     }
                                 },
-                                'ExecArgs': 'string',
-                                'Executable': 'string',
-                                'MemorySize': 123,
-                                'Pinned': True|False,
-                                'Timeout': 123
+                                \'ExecArgs\': \'string\',
+                                \'Executable\': \'string\',
+                                \'MemorySize\': 123,
+                                \'Pinned\': True|False,
+                                \'Timeout\': 123
                             },
-                            'Id': 'string'
+                            \'Id\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string',
-                'NextToken': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'NextToken\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2336,21 +2336,21 @@ class Client(BaseClient):
                   
                   - **FunctionConfiguration** *(dict) --* The configuration of the Lambda function.
                     
-                    - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is ''json''.
+                    - **EncodingType** *(string) --* The expected encoding type of the input payload for the function. The default is \'\'json\'\'.
                     
                     - **Environment** *(dict) --* The environment configuration of the function.
                       
-                      - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys.
+                      - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host\'s /sys folder. Use this when the Lambda function needs to read device information from /sys.
                       
                       - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources.
                         
                         - *(dict) --* A policy used by the function to access a resource.
                           
-                          - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+                          - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of \'\'rw\'\' (read/write) or \'\'ro\'\' (read-only).
                           
                           - **ResourceId** *(string) --* The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
                       
-                      - **Variables** *(dict) --* Environment variables for the Lambda function's configuration.
+                      - **Variables** *(dict) --* Environment variables for the Lambda function\'s configuration.
                         
                         - *(string) --* 
                           
@@ -2366,11 +2366,11 @@ class Client(BaseClient):
                     
                     - **Timeout** *(integer) --* The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned lambdas for each request.
                 
-                  - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+                  - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
               
             - **Id** *(string) --* The ID of the function definition version.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Version** *(string) --* The version of the function definition version.
         """
@@ -2385,7 +2385,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_group(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -2398,13 +2398,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2435,8 +2435,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_group_certificate_authority(
-              CertificateAuthorityId='string',
-              GroupId='string'
+              CertificateAuthorityId=\'string\',
+              GroupId=\'string\'
           )
         :type CertificateAuthorityId: string
         :param CertificateAuthorityId: **[REQUIRED]** The ID of the certificate authority.
@@ -2452,9 +2452,9 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupCertificateAuthorityArn': 'string',
-                'GroupCertificateAuthorityId': 'string',
-                'PemEncodedCertificate': 'string'
+                \'GroupCertificateAuthorityArn\': \'string\',
+                \'GroupCertificateAuthorityId\': \'string\',
+                \'PemEncodedCertificate\': \'string\'
             }
           **Response Structure** 
         
@@ -2477,7 +2477,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_group_certificate_configuration(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -2490,9 +2490,9 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateAuthorityExpiryInMilliseconds': 'string',
-                'CertificateExpiryInMilliseconds': 'string',
-                'GroupId': 'string'
+                \'CertificateAuthorityExpiryInMilliseconds\': \'string\',
+                \'CertificateExpiryInMilliseconds\': \'string\',
+                \'GroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -2515,8 +2515,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_group_version(
-              GroupId='string',
-              GroupVersionId='string'
+              GroupId=\'string\',
+              GroupVersionId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -2532,18 +2532,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'CoreDefinitionVersionArn': 'string',
-                    'DeviceDefinitionVersionArn': 'string',
-                    'FunctionDefinitionVersionArn': 'string',
-                    'LoggerDefinitionVersionArn': 'string',
-                    'ResourceDefinitionVersionArn': 'string',
-                    'SubscriptionDefinitionVersionArn': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'CoreDefinitionVersionArn\': \'string\',
+                    \'DeviceDefinitionVersionArn\': \'string\',
+                    \'FunctionDefinitionVersionArn\': \'string\',
+                    \'LoggerDefinitionVersionArn\': \'string\',
+                    \'ResourceDefinitionVersionArn\': \'string\',
+                    \'SubscriptionDefinitionVersionArn\': \'string\'
                 },
-                'Id': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2582,7 +2582,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_logger_definition(
-              LoggerDefinitionId='string'
+              LoggerDefinitionId=\'string\'
           )
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
@@ -2595,13 +2595,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2632,9 +2632,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_logger_definition_version(
-              LoggerDefinitionId='string',
-              LoggerDefinitionVersionId='string',
-              NextToken='string'
+              LoggerDefinitionId=\'string\',
+              LoggerDefinitionVersionId=\'string\',
+              NextToken=\'string\'
           )
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
@@ -2643,7 +2643,7 @@ class Client(BaseClient):
         :param LoggerDefinitionVersionId: **[REQUIRED]** The ID of the logger definition version.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -2653,21 +2653,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Loggers': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Loggers\': [
                         {
-                            'Component': 'GreengrassSystem'|'Lambda',
-                            'Id': 'string',
-                            'Level': 'DEBUG'|'INFO'|'WARN'|'ERROR'|'FATAL',
-                            'Space': 123,
-                            'Type': 'FileSystem'|'AWSCloudWatch'
+                            \'Component\': \'GreengrassSystem\'|\'Lambda\',
+                            \'Id\': \'string\',
+                            \'Level\': \'DEBUG\'|\'INFO\'|\'WARN\'|\'ERROR\'|\'FATAL\',
+                            \'Space\': 123,
+                            \'Type\': \'FileSystem\'|\'AWSCloudWatch\'
                         },
                     ]
                 },
-                'Id': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2685,7 +2685,7 @@ class Client(BaseClient):
                   
                   - **Component** *(string) --* The component that will be subject to logging.
                   
-                  - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+                  - **Id** *(string) --* A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
                   
                   - **Level** *(string) --* The level of the logs.
                   
@@ -2705,10 +2705,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2728,7 +2728,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource_definition(
-              ResourceDefinitionId='string'
+              ResourceDefinitionId=\'string\'
           )
         :type ResourceDefinitionId: string
         :param ResourceDefinitionId: **[REQUIRED]** The ID of the resource definition.
@@ -2741,13 +2741,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2778,8 +2778,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource_definition_version(
-              ResourceDefinitionId='string',
-              ResourceDefinitionVersionId='string'
+              ResourceDefinitionId=\'string\',
+              ResourceDefinitionVersionId=\'string\'
           )
         :type ResourceDefinitionId: string
         :param ResourceDefinitionId: **[REQUIRED]** The ID of the resource definition.
@@ -2795,43 +2795,43 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Resources': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Resources\': [
                         {
-                            'Id': 'string',
-                            'Name': 'string',
-                            'ResourceDataContainer': {
-                                'LocalDeviceResourceData': {
-                                    'GroupOwnerSetting': {
-                                        'AutoAddGroupOwner': True|False,
-                                        'GroupOwner': 'string'
+                            \'Id\': \'string\',
+                            \'Name\': \'string\',
+                            \'ResourceDataContainer\': {
+                                \'LocalDeviceResourceData\': {
+                                    \'GroupOwnerSetting\': {
+                                        \'AutoAddGroupOwner\': True|False,
+                                        \'GroupOwner\': \'string\'
                                     },
-                                    'SourcePath': 'string'
+                                    \'SourcePath\': \'string\'
                                 },
-                                'LocalVolumeResourceData': {
-                                    'DestinationPath': 'string',
-                                    'GroupOwnerSetting': {
-                                        'AutoAddGroupOwner': True|False,
-                                        'GroupOwner': 'string'
+                                \'LocalVolumeResourceData\': {
+                                    \'DestinationPath\': \'string\',
+                                    \'GroupOwnerSetting\': {
+                                        \'AutoAddGroupOwner\': True|False,
+                                        \'GroupOwner\': \'string\'
                                     },
-                                    'SourcePath': 'string'
+                                    \'SourcePath\': \'string\'
                                 },
-                                'S3MachineLearningModelResourceData': {
-                                    'DestinationPath': 'string',
-                                    'S3Uri': 'string'
+                                \'S3MachineLearningModelResourceData\': {
+                                    \'DestinationPath\': \'string\',
+                                    \'S3Uri\': \'string\'
                                 },
-                                'SageMakerMachineLearningModelResourceData': {
-                                    'DestinationPath': 'string',
-                                    'SageMakerJobArn': 'string'
+                                \'SageMakerMachineLearningModelResourceData\': {
+                                    \'DestinationPath\': \'string\',
+                                    \'SageMakerJobArn\': \'string\'
                                 }
                             }
                         },
                     ]
                 },
-                'Id': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -2847,9 +2847,9 @@ class Client(BaseClient):
                 
                 - *(dict) --* Information about a resource.
                   
-                  - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+                  - **Id** *(string) --* The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
                   
-                  - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+                  - **Name** *(string) --* The descriptive resource name, which is displayed on the Greengrass console. Max length 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'. This must be unique within a Greengrass group.
                   
                   - **ResourceDataContainer** *(dict) --* A container of data for all resource types.
                     
@@ -2861,7 +2861,7 @@ class Client(BaseClient):
                         
                         - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
                     
-                      - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
+                      - **SourcePath** *(string) --* The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under \'\'/dev\'\'.
                   
                     - **LocalVolumeResourceData** *(dict) --* Attributes that define the local volume resource.
                       
@@ -2873,7 +2873,7 @@ class Client(BaseClient):
                         
                         - **GroupOwner** *(string) --* The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
                     
-                      - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/proc'' or ''/sys''.
+                      - **SourcePath** *(string) --* The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with \'\'/proc\'\' or \'\'/sys\'\'.
                   
                     - **S3MachineLearningModelResourceData** *(dict) --* Attributes that define an S3 machine learning resource.
                       
@@ -2911,8 +2911,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociatedAt': 'string',
-                'RoleArn': 'string'
+                \'AssociatedAt\': \'string\',
+                \'RoleArn\': \'string\'
             }
           **Response Structure** 
         
@@ -2933,7 +2933,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_subscription_definition(
-              SubscriptionDefinitionId='string'
+              SubscriptionDefinitionId=\'string\'
           )
         :type SubscriptionDefinitionId: string
         :param SubscriptionDefinitionId: **[REQUIRED]** The ID of the subscription definition.
@@ -2946,13 +2946,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Id': 'string',
-                'LastUpdatedTimestamp': 'string',
-                'LatestVersion': 'string',
-                'LatestVersionArn': 'string',
-                'Name': 'string'
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Id\': \'string\',
+                \'LastUpdatedTimestamp\': \'string\',
+                \'LatestVersion\': \'string\',
+                \'LatestVersionArn\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2983,12 +2983,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_subscription_definition_version(
-              NextToken='string',
-              SubscriptionDefinitionId='string',
-              SubscriptionDefinitionVersionId='string'
+              NextToken=\'string\',
+              SubscriptionDefinitionId=\'string\',
+              SubscriptionDefinitionVersionId=\'string\'
           )
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :type SubscriptionDefinitionId: string
         :param SubscriptionDefinitionId: **[REQUIRED]** The ID of the subscription definition.
@@ -3004,21 +3004,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'CreationTimestamp': 'string',
-                'Definition': {
-                    'Subscriptions': [
+                \'Arn\': \'string\',
+                \'CreationTimestamp\': \'string\',
+                \'Definition\': {
+                    \'Subscriptions\': [
                         {
-                            'Id': 'string',
-                            'Source': 'string',
-                            'Subject': 'string',
-                            'Target': 'string'
+                            \'Id\': \'string\',
+                            \'Source\': \'string\',
+                            \'Subject\': \'string\',
+                            \'Target\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string',
-                'NextToken': 'string',
-                'Version': 'string'
+                \'Id\': \'string\',
+                \'NextToken\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -3034,17 +3034,17 @@ class Client(BaseClient):
                 
                 - *(dict) --* Information about a subscription.
                   
-                  - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a‑zA‑Z0‑9:_‑]+''.
+                  - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern \'\'[a‑zA‑Z0‑9:_‑]+\'\'.
                   
-                  - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+                  - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
                   
                   - **Subject** *(string) --* The subject of the message.
                   
-                  - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, 'cloud' (which represents the IoT cloud), or 'GGShadowService'.
+                  - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, \'cloud\' (which represents the IoT cloud), or \'GGShadowService\'.
               
             - **Id** *(string) --* The ID of the subscription definition version.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Version** *(string) --* The version of the subscription definition version.
         """
@@ -3071,9 +3071,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_bulk_deployment_detailed_reports(
-              BulkDeploymentId='string',
-              MaxResults='string',
-              NextToken='string'
+              BulkDeploymentId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type BulkDeploymentId: string
         :param BulkDeploymentId: **[REQUIRED]** The ID of the bulk deployment.
@@ -3082,7 +3082,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3092,24 +3092,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Deployments': [
+                \'Deployments\': [
                     {
-                        'CreatedAt': 'string',
-                        'DeploymentArn': 'string',
-                        'DeploymentId': 'string',
-                        'DeploymentStatus': 'string',
-                        'DeploymentType': 'NewDeployment'|'Redeployment'|'ResetDeployment'|'ForceResetDeployment',
-                        'ErrorDetails': [
+                        \'CreatedAt\': \'string\',
+                        \'DeploymentArn\': \'string\',
+                        \'DeploymentId\': \'string\',
+                        \'DeploymentStatus\': \'string\',
+                        \'DeploymentType\': \'NewDeployment\'|\'Redeployment\'|\'ResetDeployment\'|\'ForceResetDeployment\',
+                        \'ErrorDetails\': [
                             {
-                                'DetailedErrorCode': 'string',
-                                'DetailedErrorMessage': 'string'
+                                \'DetailedErrorCode\': \'string\',
+                                \'DetailedErrorMessage\': \'string\'
                             },
                         ],
-                        'ErrorMessage': 'string',
-                        'GroupArn': 'string'
+                        \'ErrorMessage\': \'string\',
+                        \'GroupArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3125,7 +3125,7 @@ class Client(BaseClient):
                 
                 - **DeploymentId** *(string) --* The ID of the group deployment.
                 
-                - **DeploymentStatus** *(string) --* The current status of the group deployment: ''Pending'', ''InProgress'', ''Success'', or ''Failure''.
+                - **DeploymentStatus** *(string) --* The current status of the group deployment: \'\'Pending\'\', \'\'InProgress\'\', \'\'Success\'\', or \'\'Failure\'\'.
                 
                 - **DeploymentType** *(string) --* The type of the deployment.
                 
@@ -3141,7 +3141,7 @@ class Client(BaseClient):
                 
                 - **GroupArn** *(string) --* The ARN of the Greengrass group.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3154,14 +3154,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_bulk_deployments(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3171,14 +3171,14 @@ class Client(BaseClient):
           ::
         
             {
-                'BulkDeployments': [
+                \'BulkDeployments\': [
                     {
-                        'BulkDeploymentArn': 'string',
-                        'BulkDeploymentId': 'string',
-                        'CreatedAt': 'string'
+                        \'BulkDeploymentArn\': \'string\',
+                        \'BulkDeploymentId\': \'string\',
+                        \'CreatedAt\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3194,7 +3194,7 @@ class Client(BaseClient):
                 
                 - **CreatedAt** *(string) --* The time, in ISO format, when the deployment was created.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3207,9 +3207,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_core_definition_versions(
-              CoreDefinitionId='string',
-              MaxResults='string',
-              NextToken='string'
+              CoreDefinitionId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
@@ -3218,7 +3218,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3228,13 +3228,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3242,7 +3242,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -3268,14 +3268,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_core_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3285,18 +3285,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3320,7 +3320,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3333,9 +3333,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_deployments(
-              GroupId='string',
-              MaxResults='string',
-              NextToken='string'
+              GroupId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -3344,7 +3344,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3354,16 +3354,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Deployments': [
+                \'Deployments\': [
                     {
-                        'CreatedAt': 'string',
-                        'DeploymentArn': 'string',
-                        'DeploymentId': 'string',
-                        'DeploymentType': 'NewDeployment'|'Redeployment'|'ResetDeployment'|'ForceResetDeployment',
-                        'GroupArn': 'string'
+                        \'CreatedAt\': \'string\',
+                        \'DeploymentArn\': \'string\',
+                        \'DeploymentId\': \'string\',
+                        \'DeploymentType\': \'NewDeployment\'|\'Redeployment\'|\'ResetDeployment\'|\'ForceResetDeployment\',
+                        \'GroupArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3383,7 +3383,7 @@ class Client(BaseClient):
                 
                 - **GroupArn** *(string) --* The ARN of the group for this deployment.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3396,9 +3396,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_device_definition_versions(
-              DeviceDefinitionId='string',
-              MaxResults='string',
-              NextToken='string'
+              DeviceDefinitionId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
@@ -3407,7 +3407,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3417,13 +3417,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3431,7 +3431,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -3457,14 +3457,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_device_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3474,18 +3474,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3509,7 +3509,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3522,9 +3522,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_function_definition_versions(
-              FunctionDefinitionId='string',
-              MaxResults='string',
-              NextToken='string'
+              FunctionDefinitionId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
@@ -3533,7 +3533,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3543,13 +3543,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3557,7 +3557,7 @@ class Client(BaseClient):
         
           - *(dict) --* success
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -3583,14 +3583,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_function_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3600,18 +3600,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3635,7 +3635,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3648,7 +3648,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_group_certificate_authorities(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -3661,10 +3661,10 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupCertificateAuthorities': [
+                \'GroupCertificateAuthorities\': [
                     {
-                        'GroupCertificateAuthorityArn': 'string',
-                        'GroupCertificateAuthorityId': 'string'
+                        \'GroupCertificateAuthorityArn\': \'string\',
+                        \'GroupCertificateAuthorityId\': \'string\'
                     },
                 ]
             }
@@ -3692,9 +3692,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_group_versions(
-              GroupId='string',
-              MaxResults='string',
-              NextToken='string'
+              GroupId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -3703,7 +3703,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3713,13 +3713,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3727,7 +3727,7 @@ class Client(BaseClient):
         
           - *(dict) --* Success. The response contains the list of versions and metadata for the given group.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -3753,14 +3753,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_groups(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3770,18 +3770,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3805,7 +3805,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the group.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3818,9 +3818,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_logger_definition_versions(
-              LoggerDefinitionId='string',
-              MaxResults='string',
-              NextToken='string'
+              LoggerDefinitionId=\'string\',
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
@@ -3829,7 +3829,7 @@ class Client(BaseClient):
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3839,13 +3839,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3853,7 +3853,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -3879,14 +3879,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_logger_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -3896,18 +3896,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3931,7 +3931,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -3944,15 +3944,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_definition_versions(
-              MaxResults='string',
-              NextToken='string',
-              ResourceDefinitionId='string'
+              MaxResults=\'string\',
+              NextToken=\'string\',
+              ResourceDefinitionId=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :type ResourceDefinitionId: string
         :param ResourceDefinitionId: **[REQUIRED]** The ID of the resource definition.
@@ -3965,13 +3965,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -3979,7 +3979,7 @@ class Client(BaseClient):
         
           - *(dict) --* success
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -4005,14 +4005,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -4022,18 +4022,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4057,7 +4057,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -4070,15 +4070,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_subscription_definition_versions(
-              MaxResults='string',
-              NextToken='string',
-              SubscriptionDefinitionId='string'
+              MaxResults=\'string\',
+              NextToken=\'string\',
+              SubscriptionDefinitionId=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :type SubscriptionDefinitionId: string
         :param SubscriptionDefinitionId: **[REQUIRED]** The ID of the subscription definition.
@@ -4091,13 +4091,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'Version': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'Version\': \'string\'
                     },
                 ]
             }
@@ -4105,7 +4105,7 @@ class Client(BaseClient):
         
           - *(dict) --* 
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
             
             - **Versions** *(list) --* Information about a version.
               
@@ -4131,14 +4131,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_subscription_definitions(
-              MaxResults='string',
-              NextToken='string'
+              MaxResults=\'string\',
+              NextToken=\'string\'
           )
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         
         :type NextToken: string
-        :param NextToken: The token for the next set of results, or ''null'' if there are no additional results.
+        :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
         
         :rtype: dict
         :returns: 
@@ -4148,18 +4148,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Definitions': [
+                \'Definitions\': [
                     {
-                        'Arn': 'string',
-                        'CreationTimestamp': 'string',
-                        'Id': 'string',
-                        'LastUpdatedTimestamp': 'string',
-                        'LatestVersion': 'string',
-                        'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        \'Arn\': \'string\',
+                        \'CreationTimestamp\': \'string\',
+                        \'Id\': \'string\',
+                        \'LastUpdatedTimestamp\': \'string\',
+                        \'LatestVersion\': \'string\',
+                        \'LatestVersionArn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4183,7 +4183,7 @@ class Client(BaseClient):
                 
                 - **Name** *(string) --* The name of the definition.
             
-            - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
+            - **NextToken** *(string) --* The token for the next set of results, or \'\'null\'\' if there are no additional results.
         """
         pass
 
@@ -4196,9 +4196,9 @@ class Client(BaseClient):
         ::
         
           response = client.reset_deployments(
-              AmznClientToken='string',
+              AmznClientToken=\'string\',
               Force=True|False,
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
@@ -4217,12 +4217,12 @@ class Client(BaseClient):
           ::
         
             {
-                'DeploymentArn': 'string',
-                'DeploymentId': 'string'
+                \'DeploymentArn\': \'string\',
+                \'DeploymentId\': \'string\'
             }
           **Response Structure** 
         
-          - *(dict) --* Success. The group's deployments were reset.
+          - *(dict) --* Success. The group\'s deployments were reset.
             
             - **DeploymentArn** *(string) --* The ARN of the deployment.
             
@@ -4239,18 +4239,18 @@ class Client(BaseClient):
         ::
         
           response = client.start_bulk_deployment(
-              AmznClientToken='string',
-              ExecutionRoleArn='string',
-              InputFileUri='string'
+              AmznClientToken=\'string\',
+              ExecutionRoleArn=\'string\',
+              InputFileUri=\'string\'
           )
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
         
         :type ExecutionRoleArn: string
-        :param ExecutionRoleArn: The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
+        :param ExecutionRoleArn: The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the \'\'greengrass:CreateDeployment\'\' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
         
         :type InputFileUri: string
-        :param InputFileUri: The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100MB. Currently, Greengrass; supports only ''NewDeployment'' deployment types.
+        :param InputFileUri: The URI of the input file contained in the S3 bucket. The execution role must have \'\'getObject\'\' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100MB. Currently, Greengrass; supports only \'\'NewDeployment\'\' deployment types.
         
         :rtype: dict
         :returns: 
@@ -4260,8 +4260,8 @@ class Client(BaseClient):
           ::
         
             {
-                'BulkDeploymentArn': 'string',
-                'BulkDeploymentId': 'string'
+                \'BulkDeploymentArn\': \'string\',
+                \'BulkDeploymentId\': \'string\'
             }
           **Response Structure** 
         
@@ -4282,7 +4282,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_bulk_deployment(
-              BulkDeploymentId='string'
+              BulkDeploymentId=\'string\'
           )
         :type BulkDeploymentId: string
         :param BulkDeploymentId: **[REQUIRED]** The ID of the bulk deployment.
@@ -4312,18 +4312,18 @@ class Client(BaseClient):
           response = client.update_connectivity_info(
               ConnectivityInfo=[
                   {
-                      'HostAddress': 'string',
-                      'Id': 'string',
-                      'Metadata': 'string',
-                      'PortNumber': 123
+                      \'HostAddress\': \'string\',
+                      \'Id\': \'string\',
+                      \'Metadata\': \'string\',
+                      \'PortNumber\': 123
                   },
               ],
-              ThingName='string'
+              ThingName=\'string\'
           )
         :type ConnectivityInfo: list
         :param ConnectivityInfo: A list of connectivity info.
         
-          - *(dict) --* Information about a Greengrass core's connectivity.
+          - *(dict) --* Information about a Greengrass core\'s connectivity.
         
             - **HostAddress** *(string) --* The endpoint for the Greengrass core. Can be an IP address or DNS.
         
@@ -4344,8 +4344,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Message': 'string',
-                'Version': 'string'
+                \'Message\': \'string\',
+                \'Version\': \'string\'
             }
           **Response Structure** 
         
@@ -4366,8 +4366,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_core_definition(
-              CoreDefinitionId='string',
-              Name='string'
+              CoreDefinitionId=\'string\',
+              Name=\'string\'
           )
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
@@ -4398,8 +4398,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_device_definition(
-              DeviceDefinitionId='string',
-              Name='string'
+              DeviceDefinitionId=\'string\',
+              Name=\'string\'
           )
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
@@ -4430,8 +4430,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_function_definition(
-              FunctionDefinitionId='string',
-              Name='string'
+              FunctionDefinitionId=\'string\',
+              Name=\'string\'
           )
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
@@ -4462,8 +4462,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_group(
-              GroupId='string',
-              Name='string'
+              GroupId=\'string\',
+              Name=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the AWS Greengrass group.
@@ -4494,8 +4494,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_group_certificate_configuration(
-              CertificateExpiryInMilliseconds='string',
-              GroupId='string'
+              CertificateExpiryInMilliseconds=\'string\',
+              GroupId=\'string\'
           )
         :type CertificateExpiryInMilliseconds: string
         :param CertificateExpiryInMilliseconds: The amount of time remaining before the certificate expires, in milliseconds.
@@ -4511,9 +4511,9 @@ class Client(BaseClient):
           ::
         
             {
-                'CertificateAuthorityExpiryInMilliseconds': 'string',
-                'CertificateExpiryInMilliseconds': 'string',
-                'GroupId': 'string'
+                \'CertificateAuthorityExpiryInMilliseconds\': \'string\',
+                \'CertificateExpiryInMilliseconds\': \'string\',
+                \'GroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -4536,8 +4536,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_logger_definition(
-              LoggerDefinitionId='string',
-              Name='string'
+              LoggerDefinitionId=\'string\',
+              Name=\'string\'
           )
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
@@ -4568,8 +4568,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_resource_definition(
-              Name='string',
-              ResourceDefinitionId='string'
+              Name=\'string\',
+              ResourceDefinitionId=\'string\'
           )
         :type Name: string
         :param Name: The name of the definition.
@@ -4600,8 +4600,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_subscription_definition(
-              Name='string',
-              SubscriptionDefinitionId='string'
+              Name=\'string\',
+              SubscriptionDefinitionId=\'string\'
           )
         :type Name: string
         :param Name: The name of the definition.

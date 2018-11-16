@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -38,8 +38,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_update_stack(
-              StackName='string',
-              ClientRequestToken='string'
+              StackName=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -49,7 +49,7 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``CancelUpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry ``CancelUpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CancelUpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to cancel an update on a stack with the same name. You might retry ``CancelUpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
         :returns: None
         """
@@ -58,7 +58,7 @@ class Client(BaseClient):
     def continue_update_rollback(self, StackName: str, RoleARN: str = None, ResourcesToSkip: List = None, ClientRequestToken: str = None) -> Dict:
         """
         
-        A stack goes into the ``UPDATE_ROLLBACK_FAILED`` state when AWS CloudFormation cannot roll back all changes after a failed stack update. For example, you might have a stack that is rolling back to an old database instance that was deleted outside of AWS CloudFormation. Because AWS CloudFormation doesn't know the database was deleted, it assumes that the database instance still exists and attempts to roll back to it, causing the update rollback to fail.
+        A stack goes into the ``UPDATE_ROLLBACK_FAILED`` state when AWS CloudFormation cannot roll back all changes after a failed stack update. For example, you might have a stack that is rolling back to an old database instance that was deleted outside of AWS CloudFormation. Because AWS CloudFormation doesn\'t know the database was deleted, it assumes that the database instance still exists and attempts to roll back to it, causing the update rollback to fail.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/ContinueUpdateRollback>`_
         
@@ -66,12 +66,12 @@ class Client(BaseClient):
         ::
         
           response = client.continue_update_rollback(
-              StackName='string',
-              RoleARN='string',
+              StackName=\'string\',
+              RoleARN=\'string\',
               ResourcesToSkip=[
-                  'string',
+                  \'string\',
               ],
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -80,23 +80,23 @@ class Client(BaseClient):
         
           .. note::
         
-            Don't specify the name of a nested stack (a stack that was created by using the ``AWS::CloudFormation::Stack`` resource). Instead, use this operation on the parent stack (the stack that contains the ``AWS::CloudFormation::Stack`` resource).
+            Don\'t specify the name of a nested stack (a stack that was created by using the ``AWS::CloudFormation::Stack`` resource). Instead, use this operation on the parent stack (the stack that contains the ``AWS::CloudFormation::Stack`` resource).
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type ResourcesToSkip: list
         :param ResourcesToSkip: 
         
-          A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the ``UPDATE_FAILED`` state because a rollback failed. You can't specify resources that are in the ``UPDATE_FAILED`` state for other reasons, for example, because an update was cancelled. To check why a resource update failed, use the  DescribeStackResources action, and view the resource status reason. 
+          A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the ``UPDATE_FAILED`` state because a rollback failed. You can\'t specify resources that are in the ``UPDATE_FAILED`` state for other reasons, for example, because an update was cancelled. To check why a resource update failed, use the  DescribeStackResources action, and view the resource status reason. 
         
           .. warning::
         
-            Specify this property to skip rolling back resources that AWS CloudFormation can't successfully roll back. We recommend that you `troubleshoot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ resources before skipping them. AWS CloudFormation sets the status of the specified resources to ``UPDATE_COMPLETE`` and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable. 
+            Specify this property to skip rolling back resources that AWS CloudFormation can\'t successfully roll back. We recommend that you `troubleshoot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ resources before skipping them. AWS CloudFormation sets the status of the specified resources to ``UPDATE_COMPLETE`` and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don\'t, subsequent stack updates might fail, and the stack will become unrecoverable. 
         
           Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources. 
         
@@ -104,14 +104,14 @@ class Client(BaseClient):
         
           .. note::
         
-            Don't confuse a child stack's name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see `Using ResourcesToSkip to recover a nested stacks hierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks>`__ . 
+            Don\'t confuse a child stack\'s name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see `Using ResourcesToSkip to recover a nested stacks hierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks>`__ . 
         
           - *(string) --* 
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``ContinueUpdateRollback`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to continue the rollback to a stack with the same name. You might retry ``ContinueUpdateRollback`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``ContinueUpdateRollback`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to continue the rollback to a stack with the same name. You might retry ``ContinueUpdateRollback`` requests to ensure that AWS CloudFormation successfully received them.
         
         :rtype: dict
         :returns: 
@@ -133,11 +133,11 @@ class Client(BaseClient):
     def create_change_set(self, StackName: str, ChangeSetName: str, TemplateBody: str = None, TemplateURL: str = None, UsePreviousTemplate: bool = None, Parameters: List = None, Capabilities: List = None, ResourceTypes: List = None, RoleARN: str = None, RollbackConfiguration: Dict = None, NotificationARNs: List = None, Tags: List = None, ClientToken: str = None, Description: str = None, ChangeSetType: str = None) -> Dict:
         """
         
-        Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. You can create a change set for a stack that doesn't exist or an existing stack. If you create a change set for a stack that doesn't exist, the change set shows all of the resources that AWS CloudFormation will create. If you create a change set for an existing stack, AWS CloudFormation compares the stack's information with the information that you submit in the change set and lists the differences. Use change sets to understand which resources AWS CloudFormation will create or change, and how it will change resources in an existing stack, before you create or update a stack.
+        Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. You can create a change set for a stack that doesn\'t exist or an existing stack. If you create a change set for a stack that doesn\'t exist, the change set shows all of the resources that AWS CloudFormation will create. If you create a change set for an existing stack, AWS CloudFormation compares the stack\'s information with the information that you submit in the change set and lists the differences. Use change sets to understand which resources AWS CloudFormation will create or change, and how it will change resources in an existing stack, before you create or update a stack.
         
-        To create a change set for a stack that doesn't exist, for the ``ChangeSetType`` parameter, specify ``CREATE`` . To create a change set for an existing stack, specify ``UPDATE`` for the ``ChangeSetType`` parameter. After the ``CreateChangeSet`` call successfully completes, AWS CloudFormation starts creating the change set. To check the status of the change set or to review it, use the  DescribeChangeSet action.
+        To create a change set for a stack that doesn\'t exist, for the ``ChangeSetType`` parameter, specify ``CREATE`` . To create a change set for an existing stack, specify ``UPDATE`` for the ``ChangeSetType`` parameter. After the ``CreateChangeSet`` call successfully completes, AWS CloudFormation starts creating the change set. To check the status of the change set or to review it, use the  DescribeChangeSet action.
         
-        When you are satisfied with the changes the change set will make, execute the change set by using the  ExecuteChangeSet action. AWS CloudFormation doesn't make changes until you execute the change set.
+        When you are satisfied with the changes the change set will make, execute the change set by using the  ExecuteChangeSet action. AWS CloudFormation doesn\'t make changes until you execute the change set.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`_
         
@@ -145,52 +145,52 @@ class Client(BaseClient):
         ::
         
           response = client.create_change_set(
-              StackName='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackName=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               UsePreviousTemplate=True|False,
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
+              RoleARN=\'string\',
               RollbackConfiguration={
-                  'RollbackTriggers': [
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ],
-                  'MonitoringTimeInMinutes': 123
+                  \'MonitoringTimeInMinutes\': 123
               },
               NotificationARNs=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ChangeSetName='string',
-              ClientToken='string',
-              Description='string',
-              ChangeSetType='CREATE'|'UPDATE'
+              ChangeSetName=\'string\',
+              ClientToken=\'string\',
+              Description=\'string\',
+              ChangeSetType=\'CREATE\'|\'UPDATE\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
         
-          The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates the change set by comparing this stack's information with the information that you submit, such as a modified template or different parameter input values.
+          The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates the change set by comparing this stack\'s information with the information that you submit, such as a modified template or different parameter input values.
         
         :type TemplateBody: string
         :param TemplateBody: 
@@ -222,7 +222,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -243,7 +243,7 @@ class Client(BaseClient):
         
           The only valid values are ``CAPABILITY_IAM`` and ``CAPABILITY_NAMED_IAM`` . The following resources require you to specify this parameter: `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__ , `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__ , `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ , `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__ , and `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__ . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
         
@@ -254,16 +254,16 @@ class Client(BaseClient):
         
           The template resource types that you have permissions to work with if you execute this change set, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` .
         
-          If the list of resource types doesn't include a resource type that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ in the AWS CloudFormation User Guide.
+          If the list of resource types doesn\'t include a resource type that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ in the AWS CloudFormation User Guide.
         
           - *(string) --* 
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type RollbackConfiguration: dict
         :param RollbackConfiguration: 
@@ -276,9 +276,9 @@ class Client(BaseClient):
         
             By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-            * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+            * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
              
-            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
              
             * To remove all currently specified triggers, specify an empty list for this parameter. 
              
@@ -342,7 +342,7 @@ class Client(BaseClient):
         :type ClientToken: string
         :param ClientToken: 
         
-          A unique identifier for this ``CreateChangeSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create another change set with the same name. You might retry ``CreateChangeSet`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CreateChangeSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to create another change set with the same name. You might retry ``CreateChangeSet`` requests to ensure that AWS CloudFormation successfully received them.
         
         :type Description: string
         :param Description: 
@@ -356,7 +356,7 @@ class Client(BaseClient):
         
           If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the ` ``REVIEW_IN_PROGRESS`` http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995`__ state until you execute the change set.
         
-          By default, AWS CloudFormation specifies ``UPDATE`` . You can't use the ``UPDATE`` type to create a change set for a new stack or the ``CREATE`` type to create a change set for an existing stack.
+          By default, AWS CloudFormation specifies ``UPDATE`` . You can\'t use the ``UPDATE`` type to create a change set for a new stack or the ``CREATE`` type to create a change set for an existing stack.
         
         :rtype: dict
         :returns: 
@@ -366,8 +366,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Id': 'string',
-                'StackId': 'string'
+                \'Id\': \'string\',
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -395,48 +395,48 @@ class Client(BaseClient):
         ::
         
           response = client.create_stack(
-              StackName='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackName=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               DisableRollback=True|False,
               RollbackConfiguration={
-                  'RollbackTriggers': [
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ],
-                  'MonitoringTimeInMinutes': 123
+                  \'MonitoringTimeInMinutes\': 123
               },
               TimeoutInMinutes=123,
               NotificationARNs=[
-                  'string',
+                  \'string\',
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
-              OnFailure='DO_NOTHING'|'ROLLBACK'|'DELETE',
-              StackPolicyBody='string',
-              StackPolicyURL='string',
+              RoleARN=\'string\',
+              OnFailure=\'DO_NOTHING\'|\'ROLLBACK\'|\'DELETE\',
+              StackPolicyBody=\'string\',
+              StackPolicyURL=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ClientRequestToken='string',
+              ClientRequestToken=\'string\',
               EnableTerminationProtection=True|False
           )
         :type StackName: string
@@ -473,7 +473,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -505,9 +505,9 @@ class Client(BaseClient):
         
             By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-            * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+            * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
              
-            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
              
             * To remove all currently specified triggers, specify an empty list for this parameter. 
              
@@ -556,7 +556,7 @@ class Client(BaseClient):
         
           The only valid values are ``CAPABILITY_IAM`` and ``CAPABILITY_NAMED_IAM`` . The following resources require you to specify this parameter: `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__ , `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__ , `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ , `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__ , and `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__ . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
         
@@ -567,16 +567,16 @@ class Client(BaseClient):
         
           The template resource types that you have permissions to work with for this create stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` . Use the following syntax to describe template resource types: ``AWS::*`` (for all AWS resource), ``Custom::*`` (for all custom resources), ``Custom::*logical_ID* `` (for a specific custom resource), ``AWS::*service_name* ::*`` (for all resources of a particular AWS service), and ``AWS::*service_name* ::*resource_logical_ID* `` (for a specific AWS resource).
         
-          If the list of resource types doesn't include a resource that you're creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
         
           - *(string) --* 
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type OnFailure: string
         :param OnFailure: 
@@ -615,7 +615,7 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``CreateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create a stack with the same name. You might retry ``CreateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CreateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to create a stack with the same name. You might retry ``CreateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -636,7 +636,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -660,31 +660,31 @@ class Client(BaseClient):
         ::
         
           response = client.create_stack_instances(
-              StackSetName='string',
+              StackSetName=\'string\',
               Accounts=[
-                  'string',
+                  \'string\',
               ],
               Regions=[
-                  'string',
+                  \'string\',
               ],
               ParameterOverrides=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               OperationPreferences={
-                  'RegionOrder': [
-                      'string',
+                  \'RegionOrder\': [
+                      \'string\',
                   ],
-                  'FailureToleranceCount': 123,
-                  'FailureTolerancePercentage': 123,
-                  'MaxConcurrentCount': 123,
-                  'MaxConcurrentPercentage': 123
+                  \'FailureToleranceCount\': 123,
+                  \'FailureTolerancePercentage\': 123,
+                  \'MaxConcurrentCount\': 123,
+                  \'MaxConcurrentPercentage\': 123
               },
-              OperationId='string'
+              OperationId=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -734,7 +734,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -761,13 +761,13 @@ class Client(BaseClient):
         
           - **FailureToleranceCount** *(integer) --* 
         
-            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             Conditional: You must specify either ``FailureToleranceCount`` or ``FailureTolerancePercentage`` (but not both).
         
           - **FailureTolerancePercentage** *(integer) --* 
         
-            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
         
@@ -798,7 +798,7 @@ class Client(BaseClient):
         
           The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
         
-          If you don't specify an operation ID, the SDK generates one automatically. 
+          If you don\'t specify an operation ID, the SDK generates one automatically. 
         
           Repeating this stack set operation with a new operation ID retries all stack instances whose status is ``OUTDATED`` . 
         
@@ -812,7 +812,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -834,30 +834,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_stack_set(
-              StackSetName='string',
-              Description='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackSetName=\'string\',
+              Description=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              AdministrationRoleARN='string',
-              ExecutionRoleName='string',
-              ClientRequestToken='string'
+              AdministrationRoleARN=\'string\',
+              ExecutionRoleName=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -866,12 +866,12 @@ class Client(BaseClient):
         
           .. note::
         
-            A stack name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can't be longer than 128 characters.
+            A stack name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can\'t be longer than 128 characters.
         
         :type Description: string
         :param Description: 
         
-          A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
+          A description of the stack set. You can use the description to identify the stack set\'s purpose or other important information.
         
         :type TemplateBody: string
         :param TemplateBody: 
@@ -883,7 +883,7 @@ class Client(BaseClient):
         :type TemplateURL: string
         :param TemplateURL: 
         
-          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that\'s located in an Amazon S3 bucket. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
         
           Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.
         
@@ -898,7 +898,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -935,7 +935,7 @@ class Client(BaseClient):
            
           If your stack template contains these resources, we recommend that you review all permissions that are associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates. <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__  
         
@@ -946,7 +946,7 @@ class Client(BaseClient):
         
           The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         
-          If you specify tags as part of a ``CreateStackSet`` action, AWS CloudFormation checks to see if you have the required IAM permission to tag resources. If you don't, the entire ``CreateStackSet`` action fails with an ``access denied`` error, and the stack set is not created.
+          If you specify tags as part of a ``CreateStackSet`` action, AWS CloudFormation checks to see if you have the required IAM permission to tag resources. If you don\'t, the entire ``CreateStackSet`` action fails with an ``access denied`` error, and the stack set is not created.
         
           - *(dict) --* 
         
@@ -977,9 +977,9 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``CreateStackSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create another stack set with the same name. You might retry ``CreateStackSet`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``CreateStackSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to create another stack set with the same name. You might retry ``CreateStackSet`` requests to ensure that AWS CloudFormation successfully received them.
         
-          If you don't specify an operation ID, the SDK generates one automatically. 
+          If you don\'t specify an operation ID, the SDK generates one automatically. 
         
           This field is autopopulated if not provided.
         
@@ -991,7 +991,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackSetId': 'string'
+                \'StackSetId\': \'string\'
             }
           **Response Structure** 
         
@@ -999,7 +999,7 @@ class Client(BaseClient):
             
             - **StackSetId** *(string) --* 
         
-              The ID of the stack set that you're creating.
+              The ID of the stack set that you\'re creating.
         
         """
         pass
@@ -1015,8 +1015,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_change_set(
-              ChangeSetName='string',
-              StackName='string'
+              ChangeSetName=\'string\',
+              StackName=\'string\'
           )
         :type ChangeSetName: string
         :param ChangeSetName: **[REQUIRED]** 
@@ -1054,12 +1054,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stack(
-              StackName='string',
+              StackName=\'string\',
               RetainResources=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
-              ClientRequestToken='string'
+              RoleARN=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -1078,14 +1078,14 @@ class Client(BaseClient):
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``DeleteStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to delete a stack with the same name. You might retry ``DeleteStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``DeleteStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to delete a stack with the same name. You might retry ``DeleteStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -1104,24 +1104,24 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stack_instances(
-              StackSetName='string',
+              StackSetName=\'string\',
               Accounts=[
-                  'string',
+                  \'string\',
               ],
               Regions=[
-                  'string',
+                  \'string\',
               ],
               OperationPreferences={
-                  'RegionOrder': [
-                      'string',
+                  \'RegionOrder\': [
+                      \'string\',
                   ],
-                  'FailureToleranceCount': 123,
-                  'FailureTolerancePercentage': 123,
-                  'MaxConcurrentCount': 123,
-                  'MaxConcurrentPercentage': 123
+                  \'FailureToleranceCount\': 123,
+                  \'FailureTolerancePercentage\': 123,
+                  \'MaxConcurrentCount\': 123,
+                  \'MaxConcurrentPercentage\': 123
               },
               RetainStacks=True|False,
-              OperationId='string'
+              OperationId=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -1155,13 +1155,13 @@ class Client(BaseClient):
         
           - **FailureToleranceCount** *(integer) --* 
         
-            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             Conditional: You must specify either ``FailureToleranceCount`` or ``FailureTolerancePercentage`` (but not both).
         
           - **FailureTolerancePercentage** *(integer) --* 
         
-            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
         
@@ -1188,7 +1188,7 @@ class Client(BaseClient):
         :type RetainStacks: boolean
         :param RetainStacks: **[REQUIRED]** 
         
-          Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
+          Removes the stack instances from the specified stack set, but doesn\'t delete the stacks. You can\'t reassociate a retained stack or add an existing, saved stack to a new stack set.
         
           For more information, see `Stack set operation options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options>`__ .
         
@@ -1197,7 +1197,7 @@ class Client(BaseClient):
         
           The unique identifier for this stack set operation. 
         
-          If you don't specify an operation ID, the SDK generates one automatically. 
+          If you don\'t specify an operation ID, the SDK generates one automatically. 
         
           The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
         
@@ -1213,7 +1213,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -1235,12 +1235,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stack_set(
-              StackSetName='string'
+              StackSetName=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
         
-          The name or unique ID of the stack set that you're deleting. You can obtain this value by running  ListStackSets .
+          The name or unique ID of the stack set that you\'re deleting. You can obtain this value by running  ListStackSets .
         
         :rtype: dict
         :returns: 
@@ -1265,7 +1265,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_account_limits(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1280,13 +1280,13 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountLimits': [
+                \'AccountLimits\': [
                     {
-                        'Name': 'string',
-                        'Value': 123
+                        \'Name\': \'string\',
+                        \'Value\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1326,9 +1326,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_change_set(
-              ChangeSetName='string',
-              StackName='string',
-              NextToken='string'
+              ChangeSetName=\'string\',
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type ChangeSetName: string
         :param ChangeSetName: **[REQUIRED]** 
@@ -1353,72 +1353,72 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeSetName': 'string',
-                'ChangeSetId': 'string',
-                'StackId': 'string',
-                'StackName': 'string',
-                'Description': 'string',
-                'Parameters': [
+                \'ChangeSetName\': \'string\',
+                \'ChangeSetId\': \'string\',
+                \'StackId\': \'string\',
+                \'StackName\': \'string\',
+                \'Description\': \'string\',
+                \'Parameters\': [
                     {
-                        'ParameterKey': 'string',
-                        'ParameterValue': 'string',
-                        'UsePreviousValue': True|False,
-                        'ResolvedValue': 'string'
+                        \'ParameterKey\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'UsePreviousValue\': True|False,
+                        \'ResolvedValue\': \'string\'
                     },
                 ],
-                'CreationTime': datetime(2015, 1, 1),
-                'ExecutionStatus': 'UNAVAILABLE'|'AVAILABLE'|'EXECUTE_IN_PROGRESS'|'EXECUTE_COMPLETE'|'EXECUTE_FAILED'|'OBSOLETE',
-                'Status': 'CREATE_PENDING'|'CREATE_IN_PROGRESS'|'CREATE_COMPLETE'|'DELETE_COMPLETE'|'FAILED',
-                'StatusReason': 'string',
-                'NotificationARNs': [
-                    'string',
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'ExecutionStatus\': \'UNAVAILABLE\'|\'AVAILABLE\'|\'EXECUTE_IN_PROGRESS\'|\'EXECUTE_COMPLETE\'|\'EXECUTE_FAILED\'|\'OBSOLETE\',
+                \'Status\': \'CREATE_PENDING\'|\'CREATE_IN_PROGRESS\'|\'CREATE_COMPLETE\'|\'DELETE_COMPLETE\'|\'FAILED\',
+                \'StatusReason\': \'string\',
+                \'NotificationARNs\': [
+                    \'string\',
                 ],
-                'RollbackConfiguration': {
-                    'RollbackTriggers': [
+                \'RollbackConfiguration\': {
+                    \'RollbackTriggers\': [
                         {
-                            'Arn': 'string',
-                            'Type': 'string'
+                            \'Arn\': \'string\',
+                            \'Type\': \'string\'
                         },
                     ],
-                    'MonitoringTimeInMinutes': 123
+                    \'MonitoringTimeInMinutes\': 123
                 },
-                'Capabilities': [
-                    'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                \'Capabilities\': [
+                    \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                 ],
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'Changes': [
+                \'Changes\': [
                     {
-                        'Type': 'Resource',
-                        'ResourceChange': {
-                            'Action': 'Add'|'Modify'|'Remove',
-                            'LogicalResourceId': 'string',
-                            'PhysicalResourceId': 'string',
-                            'ResourceType': 'string',
-                            'Replacement': 'True'|'False'|'Conditional',
-                            'Scope': [
-                                'Properties'|'Metadata'|'CreationPolicy'|'UpdatePolicy'|'DeletionPolicy'|'Tags',
+                        \'Type\': \'Resource\',
+                        \'ResourceChange\': {
+                            \'Action\': \'Add\'|\'Modify\'|\'Remove\',
+                            \'LogicalResourceId\': \'string\',
+                            \'PhysicalResourceId\': \'string\',
+                            \'ResourceType\': \'string\',
+                            \'Replacement\': \'True\'|\'False\'|\'Conditional\',
+                            \'Scope\': [
+                                \'Properties\'|\'Metadata\'|\'CreationPolicy\'|\'UpdatePolicy\'|\'DeletionPolicy\'|\'Tags\',
                             ],
-                            'Details': [
+                            \'Details\': [
                                 {
-                                    'Target': {
-                                        'Attribute': 'Properties'|'Metadata'|'CreationPolicy'|'UpdatePolicy'|'DeletionPolicy'|'Tags',
-                                        'Name': 'string',
-                                        'RequiresRecreation': 'Never'|'Conditionally'|'Always'
+                                    \'Target\': {
+                                        \'Attribute\': \'Properties\'|\'Metadata\'|\'CreationPolicy\'|\'UpdatePolicy\'|\'DeletionPolicy\'|\'Tags\',
+                                        \'Name\': \'string\',
+                                        \'RequiresRecreation\': \'Never\'|\'Conditionally\'|\'Always\'
                                     },
-                                    'Evaluation': 'Static'|'Dynamic',
-                                    'ChangeSource': 'ResourceReference'|'ParameterReference'|'ResourceAttribute'|'DirectModification'|'Automatic',
-                                    'CausingEntity': 'string'
+                                    \'Evaluation\': \'Static\'|\'Dynamic\',
+                                    \'ChangeSource\': \'ResourceReference\'|\'ParameterReference\'|\'ResourceAttribute\'|\'DirectModification\'|\'Automatic\',
+                                    \'CausingEntity\': \'string\'
                                 },
                             ]
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1456,7 +1456,7 @@ class Client(BaseClient):
         
                 - **ParameterKey** *(string) --* 
         
-                  The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+                  The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
                 - **ParameterValue** *(string) --* 
         
@@ -1484,7 +1484,7 @@ class Client(BaseClient):
         
             - **StatusReason** *(string) --* 
         
-              A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
+              A description of the change set\'s status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
         
             - **NotificationARNs** *(list) --* 
         
@@ -1502,9 +1502,9 @@ class Client(BaseClient):
         
                 By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-                * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+                * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
                  
-                * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+                * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
                  
                 * To remove all currently specified triggers, specify an empty list for this parameter. 
                  
@@ -1578,11 +1578,11 @@ class Client(BaseClient):
         
                   - **LogicalResourceId** *(string) --* 
         
-                    The resource's logical ID, which is defined in the stack's template.
+                    The resource\'s logical ID, which is defined in the stack\'s template.
         
                   - **PhysicalResourceId** *(string) --* 
         
-                    The resource's physical ID (resource name). Resources that you are adding don't have physical IDs because they haven't been created.
+                    The resource\'s physical ID (resource name). Resources that you are adding don\'t have physical IDs because they haven\'t been created.
         
                   - **ResourceType** *(string) --* 
         
@@ -1596,7 +1596,7 @@ class Client(BaseClient):
         
                   - **Scope** *(list) --* 
         
-                    For the ``Modify`` action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's ``Metadata`` , ``Properties`` , or ``Tags`` .
+                    For the ``Modify`` action, indicates which resource attribute is triggering this update, such as a change in the resource attribute\'s ``Metadata`` , ``Properties`` , or ``Tags`` .
         
                     - *(string) --* 
                 
@@ -1614,7 +1614,7 @@ class Client(BaseClient):
         
                         - **Attribute** *(string) --* 
         
-                          Indicates which resource attribute is triggering this update, such as a change in the resource attribute's ``Metadata`` , ``Properties`` , or ``Tags`` .
+                          Indicates which resource attribute is triggering this update, such as a change in the resource attribute\'s ``Metadata`` , ``Properties`` , or ``Tags`` .
         
                         - **Name** *(string) --* 
         
@@ -1636,15 +1636,15 @@ class Client(BaseClient):
         
                         The group to which the ``CausingEntity`` value belongs. There are five entity groups:
         
-                        * ``ResourceReference`` entities are ``Ref`` intrinsic functions that refer to resources in the template, such as ``{ "Ref" : "MyEC2InstanceResource" }`` . 
+                        * ``ResourceReference`` entities are ``Ref`` intrinsic functions that refer to resources in the template, such as ``{ \"Ref\" : \"MyEC2InstanceResource\" }`` . 
                          
-                        * ``ParameterReference`` entities are ``Ref`` intrinsic functions that get template parameter values, such as ``{ "Ref" : "MyPasswordParameter" }`` . 
+                        * ``ParameterReference`` entities are ``Ref`` intrinsic functions that get template parameter values, such as ``{ \"Ref\" : \"MyPasswordParameter\" }`` . 
                          
-                        * ``ResourceAttribute`` entities are ``Fn::GetAtt`` intrinsic functions that get resource attribute values, such as ``{ "Fn::GetAtt" : [ "MyEC2InstanceResource", "PublicDnsName" ] }`` . 
+                        * ``ResourceAttribute`` entities are ``Fn::GetAtt`` intrinsic functions that get resource attribute values, such as ``{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }`` . 
                          
                         * ``DirectModification`` entities are changes that are made directly to the template. 
                          
-                        * ``Automatic`` entities are ``AWS::CloudFormation::Stack`` resource types, which are also known as nested stacks. If you made no changes to the ``AWS::CloudFormation::Stack`` resource, AWS CloudFormation sets the ``ChangeSource`` to ``Automatic`` because the nested stack's template might have changed. Changes to a nested stack's template aren't visible to AWS CloudFormation until you run an update on the parent stack. 
+                        * ``Automatic`` entities are ``AWS::CloudFormation::Stack`` resource types, which are also known as nested stacks. If you made no changes to the ``AWS::CloudFormation::Stack`` resource, AWS CloudFormation sets the ``ChangeSource`` to ``Automatic`` because the nested stack\'s template might have changed. Changes to a nested stack\'s template aren\'t visible to AWS CloudFormation until you run an update on the parent stack. 
                          
                       - **CausingEntity** *(string) --* 
         
@@ -1670,7 +1670,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_drift_detection_status(
-              StackDriftDetectionId='string'
+              StackDriftDetectionId=\'string\'
           )
         :type StackDriftDetectionId: string
         :param StackDriftDetectionId: **[REQUIRED]** 
@@ -1687,13 +1687,13 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string',
-                'StackDriftDetectionId': 'string',
-                'StackDriftStatus': 'DRIFTED'|'IN_SYNC'|'UNKNOWN'|'NOT_CHECKED',
-                'DetectionStatus': 'DETECTION_IN_PROGRESS'|'DETECTION_FAILED'|'DETECTION_COMPLETE',
-                'DetectionStatusReason': 'string',
-                'DriftedStackResourceCount': 123,
-                'Timestamp': datetime(2015, 1, 1)
+                \'StackId\': \'string\',
+                \'StackDriftDetectionId\': \'string\',
+                \'StackDriftStatus\': \'DRIFTED\'|\'IN_SYNC\'|\'UNKNOWN\'|\'NOT_CHECKED\',
+                \'DetectionStatus\': \'DETECTION_IN_PROGRESS\'|\'DETECTION_FAILED\'|\'DETECTION_COMPLETE\',
+                \'DetectionStatusReason\': \'string\',
+                \'DriftedStackResourceCount\': 123,
+                \'Timestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1711,13 +1711,13 @@ class Client(BaseClient):
         
             - **StackDriftStatus** *(string) --* 
         
-              Status of the stack's actual configuration compared to its expected configuration. 
+              Status of the stack\'s actual configuration compared to its expected configuration. 
         
               * ``DRIFTED`` : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted. 
                
               * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the stack differs from its expected template configuration. 
                
-              * ``IN_SYNC`` : The stack's actual configuration matches its expected template configuration. 
+              * ``IN_SYNC`` : The stack\'s actual configuration matches its expected template configuration. 
                
               * ``UNKNOWN`` : This value is reserved for future use. 
                
@@ -1759,15 +1759,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_events(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -1786,22 +1786,22 @@ class Client(BaseClient):
           ::
         
             {
-                'StackEvents': [
+                \'StackEvents\': [
                     {
-                        'StackId': 'string',
-                        'EventId': 'string',
-                        'StackName': 'string',
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                        'ResourceStatusReason': 'string',
-                        'ResourceProperties': 'string',
-                        'ClientRequestToken': 'string'
+                        \'StackId\': \'string\',
+                        \'EventId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                        \'ResourceStatusReason\': \'string\',
+                        \'ResourceProperties\': \'string\',
+                        \'ClientRequestToken\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1883,9 +1883,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_instance(
-              StackSetName='string',
-              StackInstanceAccount='string',
-              StackInstanceRegion='string'
+              StackSetName=\'string\',
+              StackInstanceAccount=\'string\',
+              StackInstanceRegion=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -1895,12 +1895,12 @@ class Client(BaseClient):
         :type StackInstanceAccount: string
         :param StackInstanceAccount: **[REQUIRED]** 
         
-          The ID of an AWS account that's associated with this stack instance.
+          The ID of an AWS account that\'s associated with this stack instance.
         
         :type StackInstanceRegion: string
         :param StackInstanceRegion: **[REQUIRED]** 
         
-          The name of a region that's associated with this stack instance.
+          The name of a region that\'s associated with this stack instance.
         
         :rtype: dict
         :returns: 
@@ -1910,21 +1910,21 @@ class Client(BaseClient):
           ::
         
             {
-                'StackInstance': {
-                    'StackSetId': 'string',
-                    'Region': 'string',
-                    'Account': 'string',
-                    'StackId': 'string',
-                    'ParameterOverrides': [
+                \'StackInstance\': {
+                    \'StackSetId\': \'string\',
+                    \'Region\': \'string\',
+                    \'Account\': \'string\',
+                    \'StackId\': \'string\',
+                    \'ParameterOverrides\': [
                         {
-                            'ParameterKey': 'string',
-                            'ParameterValue': 'string',
-                            'UsePreviousValue': True|False,
-                            'ResolvedValue': 'string'
+                            \'ParameterKey\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'UsePreviousValue\': True|False,
+                            \'ResolvedValue\': \'string\'
                         },
                     ],
-                    'Status': 'CURRENT'|'OUTDATED'|'INOPERABLE',
-                    'StatusReason': 'string'
+                    \'Status\': \'CURRENT\'|\'OUTDATED\'|\'INOPERABLE\',
+                    \'StatusReason\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1961,7 +1961,7 @@ class Client(BaseClient):
         
                   - **ParameterKey** *(string) --* 
         
-                    The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+                    The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
                   - **ParameterValue** *(string) --* 
         
@@ -1981,7 +1981,7 @@ class Client(BaseClient):
         
                 * ``INOPERABLE`` : A ``DeleteStackInstances`` operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further ``UpdateStackSet`` operations. You might need to perform a ``DeleteStackInstances`` operation, with ``RetainStacks`` set to ``true`` , to delete the stack instance, and then delete the stack manually. 
                  
-                * ``OUTDATED`` : The stack isn't currently up to date with the stack set because: 
+                * ``OUTDATED`` : The stack isn\'t currently up to date with the stack set because: 
         
                   * The associated stack failed during a ``CreateStackSet`` or ``UpdateStackSet`` operation.  
                    
@@ -2007,15 +2007,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_resource(
-              StackName='string',
-              LogicalResourceId='string'
+              StackName=\'string\',
+              LogicalResourceId=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -2036,20 +2036,20 @@ class Client(BaseClient):
           ::
         
             {
-                'StackResourceDetail': {
-                    'StackName': 'string',
-                    'StackId': 'string',
-                    'LogicalResourceId': 'string',
-                    'PhysicalResourceId': 'string',
-                    'ResourceType': 'string',
-                    'LastUpdatedTimestamp': datetime(2015, 1, 1),
-                    'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                    'ResourceStatusReason': 'string',
-                    'Description': 'string',
-                    'Metadata': 'string',
-                    'DriftInformation': {
-                        'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                        'LastCheckTimestamp': datetime(2015, 1, 1)
+                \'StackResourceDetail\': {
+                    \'StackName\': \'string\',
+                    \'StackId\': \'string\',
+                    \'LogicalResourceId\': \'string\',
+                    \'PhysicalResourceId\': \'string\',
+                    \'ResourceType\': \'string\',
+                    \'LastUpdatedTimestamp\': datetime(2015, 1, 1),
+                    \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                    \'ResourceStatusReason\': \'string\',
+                    \'Description\': \'string\',
+                    \'Metadata\': \'string\',
+                    \'DriftInformation\': {
+                        \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                        \'LastCheckTimestamp\': datetime(2015, 1, 1)
                     }
                 }
             }
@@ -2105,11 +2105,11 @@ class Client(BaseClient):
         
               - **DriftInformation** *(dict) --* 
         
-                Information about whether the resource's actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                Information about whether the resource\'s actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                 - **StackResourceDriftStatus** *(string) --* 
         
-                  Status of the resource's actual configuration compared to its expected configuration
+                  Status of the resource\'s actual configuration compared to its expected configuration
         
                   * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                    
@@ -2117,7 +2117,7 @@ class Client(BaseClient):
                    
                   * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
                    
-                  * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
+                  * ``IN_SYNC`` : The resources\'s actual configuration matches its expected configuration. 
                    
                 - **LastCheckTimestamp** *(datetime) --* 
         
@@ -2139,11 +2139,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_resource_drifts(
-              StackName='string',
+              StackName=\'string\',
               StackResourceDriftStatusFilters=[
-                  'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
+                  \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type StackName: string
@@ -2160,7 +2160,7 @@ class Client(BaseClient):
            
           * ``MODIFIED`` : One or more resource properties differ from their expected template values. 
            
-          * ``IN_SYNC`` : The resources's actual configuration matches its expected template configuration. 
+          * ``IN_SYNC`` : The resources\'s actual configuration matches its expected template configuration. 
            
           * ``NOT_CHECKED`` : AWS CloudFormation does not currently return this value. 
            
@@ -2184,33 +2184,33 @@ class Client(BaseClient):
           ::
         
             {
-                'StackResourceDrifts': [
+                \'StackResourceDrifts\': [
                     {
-                        'StackId': 'string',
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'PhysicalResourceIdContext': [
+                        \'StackId\': \'string\',
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'PhysicalResourceIdContext\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'ResourceType': 'string',
-                        'ExpectedProperties': 'string',
-                        'ActualProperties': 'string',
-                        'PropertyDifferences': [
+                        \'ResourceType\': \'string\',
+                        \'ExpectedProperties\': \'string\',
+                        \'ActualProperties\': \'string\',
+                        \'PropertyDifferences\': [
                             {
-                                'PropertyPath': 'string',
-                                'ExpectedValue': 'string',
-                                'ActualValue': 'string',
-                                'DifferenceType': 'ADD'|'REMOVE'|'NOT_EQUAL'
+                                \'PropertyPath\': \'string\',
+                                \'ExpectedValue\': \'string\',
+                                \'ActualValue\': \'string\',
+                                \'DifferenceType\': \'ADD\'|\'REMOVE\'|\'NOT_EQUAL\'
                             },
                         ],
-                        'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2244,11 +2244,11 @@ class Client(BaseClient):
         
                 - **PhysicalResourceIdContext** *(list) --* 
         
-                  Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource's logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a unique resource that contains the targeted resource.
+                  Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource\'s logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a unique resource that contains the targeted resource.
         
                   - *(dict) --* 
         
-                    Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource's logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a resource that contains the targeted resource.
+                    Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource\'s logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a resource that contains the targeted resource.
         
                     - **Key** *(string) --* 
         
@@ -2306,13 +2306,13 @@ class Client(BaseClient):
                        
                 - **StackResourceDriftStatus** *(string) --* 
         
-                  Status of the resource's actual configuration compared to its expected configuration
+                  Status of the resource\'s actual configuration compared to its expected configuration
         
                   * ``DELETED`` : The resource differs from its expected template configuration because the resource has been deleted. 
                    
                   * ``MODIFIED`` : One or more resource properties differ from their expected values (as defined in the stack template and any values specified as template parameters). 
                    
-                  * ``IN_SYNC`` : The resources's actual configuration matches its expected template configuration. 
+                  * ``IN_SYNC`` : The resources\'s actual configuration matches its expected template configuration. 
                    
                   * ``NOT_CHECKED`` : AWS CloudFormation does not currently return this value. 
                    
@@ -2322,7 +2322,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If the request doesn't return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``DescribeStackResourceDrifts`` again and assign that token to the request object's ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
+              If the request doesn\'t return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``DescribeStackResourceDrifts`` again and assign that token to the request object\'s ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
         
         """
         pass
@@ -2348,16 +2348,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_resources(
-              StackName='string',
-              LogicalResourceId='string',
-              PhysicalResourceId='string'
+              StackName=\'string\',
+              LogicalResourceId=\'string\',
+              PhysicalResourceId=\'string\'
           )
         :type StackName: string
         :param StackName: 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -2391,20 +2391,20 @@ class Client(BaseClient):
           ::
         
             {
-                'StackResources': [
+                \'StackResources\': [
                     {
-                        'StackName': 'string',
-                        'StackId': 'string',
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                        'ResourceStatusReason': 'string',
-                        'Description': 'string',
-                        'DriftInformation': {
-                            'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'StackName\': \'string\',
+                        \'StackId\': \'string\',
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                        \'ResourceStatusReason\': \'string\',
+                        \'Description\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -2461,11 +2461,11 @@ class Client(BaseClient):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Information about whether the resource's actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information about whether the resource\'s actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackResourceDriftStatus** *(string) --* 
         
-                    Status of the resource's actual configuration compared to its expected configuration
+                    Status of the resource\'s actual configuration compared to its expected configuration
         
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                      
@@ -2473,7 +2473,7 @@ class Client(BaseClient):
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
                      
-                    * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
+                    * ``IN_SYNC`` : The resources\'s actual configuration matches its expected configuration. 
                      
                   - **LastCheckTimestamp** *(datetime) --* 
         
@@ -2491,7 +2491,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_set(
-              StackSetName='string'
+              StackSetName=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -2506,32 +2506,32 @@ class Client(BaseClient):
           ::
         
             {
-                'StackSet': {
-                    'StackSetName': 'string',
-                    'StackSetId': 'string',
-                    'Description': 'string',
-                    'Status': 'ACTIVE'|'DELETED',
-                    'TemplateBody': 'string',
-                    'Parameters': [
+                \'StackSet\': {
+                    \'StackSetName\': \'string\',
+                    \'StackSetId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'DELETED\',
+                    \'TemplateBody\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterKey': 'string',
-                            'ParameterValue': 'string',
-                            'UsePreviousValue': True|False,
-                            'ResolvedValue': 'string'
+                            \'ParameterKey\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'UsePreviousValue\': True|False,
+                            \'ResolvedValue\': \'string\'
                         },
                     ],
-                    'Capabilities': [
-                        'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                    \'Capabilities\': [
+                        \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'StackSetARN': 'string',
-                    'AdministrationRoleARN': 'string',
-                    'ExecutionRoleName': 'string'
+                    \'StackSetARN\': \'string\',
+                    \'AdministrationRoleARN\': \'string\',
+                    \'ExecutionRoleName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2544,7 +2544,7 @@ class Client(BaseClient):
         
               - **StackSetName** *(string) --* 
         
-                The name that's associated with the stack set.
+                The name that\'s associated with the stack set.
         
               - **StackSetId** *(string) --* 
         
@@ -2572,7 +2572,7 @@ class Client(BaseClient):
         
                   - **ParameterKey** *(string) --* 
         
-                    The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+                    The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
                   - **ParameterValue** *(string) --* 
         
@@ -2636,8 +2636,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stack_set_operation(
-              StackSetName='string',
-              OperationId='string'
+              StackSetName=\'string\',
+              OperationId=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -2657,25 +2657,25 @@ class Client(BaseClient):
           ::
         
             {
-                'StackSetOperation': {
-                    'OperationId': 'string',
-                    'StackSetId': 'string',
-                    'Action': 'CREATE'|'UPDATE'|'DELETE',
-                    'Status': 'RUNNING'|'SUCCEEDED'|'FAILED'|'STOPPING'|'STOPPED',
-                    'OperationPreferences': {
-                        'RegionOrder': [
-                            'string',
+                \'StackSetOperation\': {
+                    \'OperationId\': \'string\',
+                    \'StackSetId\': \'string\',
+                    \'Action\': \'CREATE\'|\'UPDATE\'|\'DELETE\',
+                    \'Status\': \'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'STOPPING\'|\'STOPPED\',
+                    \'OperationPreferences\': {
+                        \'RegionOrder\': [
+                            \'string\',
                         ],
-                        'FailureToleranceCount': 123,
-                        'FailureTolerancePercentage': 123,
-                        'MaxConcurrentCount': 123,
-                        'MaxConcurrentPercentage': 123
+                        \'FailureToleranceCount\': 123,
+                        \'FailureTolerancePercentage\': 123,
+                        \'MaxConcurrentCount\': 123,
+                        \'MaxConcurrentPercentage\': 123
                     },
-                    'RetainStacks': True|False,
-                    'AdministrationRoleARN': 'string',
-                    'ExecutionRoleName': 'string',
-                    'CreationTimestamp': datetime(2015, 1, 1),
-                    'EndTimestamp': datetime(2015, 1, 1)
+                    \'RetainStacks\': True|False,
+                    \'AdministrationRoleARN\': \'string\',
+                    \'ExecutionRoleName\': \'string\',
+                    \'CreationTimestamp\': datetime(2015, 1, 1),
+                    \'EndTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2702,7 +2702,7 @@ class Client(BaseClient):
         
                 The status of the operation. 
         
-                * ``FAILED`` : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to ``FAILED`` . This in turn sets the status of the operation as a whole to ``FAILED`` , and AWS CloudFormation cancels the operation in any remaining regions. 
+                * ``FAILED`` : The operation exceeded the specified failure tolerance. The failure tolerance value that you\'ve set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to ``FAILED`` . This in turn sets the status of the operation as a whole to ``FAILED`` , and AWS CloudFormation cancels the operation in any remaining regions. 
                  
                 * ``RUNNING`` : The operation is currently being performed. 
                  
@@ -2724,13 +2724,13 @@ class Client(BaseClient):
               
                 - **FailureToleranceCount** *(integer) --* 
         
-                  The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+                  The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
                   Conditional: You must specify either ``FailureToleranceCount`` or ``FailureTolerancePercentage`` (but not both).
         
                 - **FailureTolerancePercentage** *(integer) --* 
         
-                  The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+                  The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
                   When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
         
@@ -2756,7 +2756,7 @@ class Client(BaseClient):
         
               - **RetainStacks** *(boolean) --* 
         
-                For stack set operations of action type ``DELETE`` , specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack, or add an existing, saved stack to a new stack set.
+                For stack set operations of action type ``DELETE`` , specifies whether to remove the stack instances from the specified stack set, but doesn\'t delete the stacks. You can\'t reassociate a retained stack, or add an existing, saved stack to a new stack set.
         
               - **AdministrationRoleARN** *(string) --* 
         
@@ -2776,7 +2776,7 @@ class Client(BaseClient):
         
               - **EndTimestamp** *(datetime) --* 
         
-                The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+                The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn\'t necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
         
         """
         pass
@@ -2794,15 +2794,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stacks(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -2821,67 +2821,67 @@ class Client(BaseClient):
           ::
         
             {
-                'Stacks': [
+                \'Stacks\': [
                     {
-                        'StackId': 'string',
-                        'StackName': 'string',
-                        'ChangeSetId': 'string',
-                        'Description': 'string',
-                        'Parameters': [
+                        \'StackId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'ChangeSetId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Parameters\': [
                             {
-                                'ParameterKey': 'string',
-                                'ParameterValue': 'string',
-                                'UsePreviousValue': True|False,
-                                'ResolvedValue': 'string'
+                                \'ParameterKey\': \'string\',
+                                \'ParameterValue\': \'string\',
+                                \'UsePreviousValue\': True|False,
+                                \'ResolvedValue\': \'string\'
                             },
                         ],
-                        'CreationTime': datetime(2015, 1, 1),
-                        'DeletionTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'RollbackConfiguration': {
-                            'RollbackTriggers': [
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'DeletionTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'RollbackConfiguration\': {
+                            \'RollbackTriggers\': [
                                 {
-                                    'Arn': 'string',
-                                    'Type': 'string'
+                                    \'Arn\': \'string\',
+                                    \'Type\': \'string\'
                                 },
                             ],
-                            'MonitoringTimeInMinutes': 123
+                            \'MonitoringTimeInMinutes\': 123
                         },
-                        'StackStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
-                        'StackStatusReason': 'string',
-                        'DisableRollback': True|False,
-                        'NotificationARNs': [
-                            'string',
+                        \'StackStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
+                        \'StackStatusReason\': \'string\',
+                        \'DisableRollback\': True|False,
+                        \'NotificationARNs\': [
+                            \'string\',
                         ],
-                        'TimeoutInMinutes': 123,
-                        'Capabilities': [
-                            'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                        \'TimeoutInMinutes\': 123,
+                        \'Capabilities\': [
+                            \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                         ],
-                        'Outputs': [
+                        \'Outputs\': [
                             {
-                                'OutputKey': 'string',
-                                'OutputValue': 'string',
-                                'Description': 'string',
-                                'ExportName': 'string'
+                                \'OutputKey\': \'string\',
+                                \'OutputValue\': \'string\',
+                                \'Description\': \'string\',
+                                \'ExportName\': \'string\'
                             },
                         ],
-                        'RoleARN': 'string',
-                        'Tags': [
+                        \'RoleARN\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'EnableTerminationProtection': True|False,
-                        'ParentId': 'string',
-                        'RootId': 'string',
-                        'DriftInformation': {
-                            'StackDriftStatus': 'DRIFTED'|'IN_SYNC'|'UNKNOWN'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'EnableTerminationProtection\': True|False,
+                        \'ParentId\': \'string\',
+                        \'RootId\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackDriftStatus\': \'DRIFTED\'|\'IN_SYNC\'|\'UNKNOWN\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2923,7 +2923,7 @@ class Client(BaseClient):
         
                     - **ParameterKey** *(string) --* 
         
-                      The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+                      The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
                     - **ParameterValue** *(string) --* 
         
@@ -2959,9 +2959,9 @@ class Client(BaseClient):
         
                     By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-                    * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+                    * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
                      
-                    * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+                    * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
                      
                     * To remove all currently specified triggers, specify an empty list for this parameter. 
                      
@@ -3049,7 +3049,7 @@ class Client(BaseClient):
         
                 - **RoleARN** *(string) --* 
         
-                  The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
+                  The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role\'s credentials to make calls on your behalf.
         
                 - **Tags** *(list) --* 
         
@@ -3087,17 +3087,17 @@ class Client(BaseClient):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Information on whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information on whether a stack\'s actual configuration differs, or has *drifted* , from it\'s expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackDriftStatus** *(string) --* 
         
-                    Status of the stack's actual configuration compared to its expected template configuration. 
+                    Status of the stack\'s actual configuration compared to its expected template configuration. 
         
                     * ``DRIFTED`` : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted. 
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the stack differs from its expected template configuration. 
                      
-                    * ``IN_SYNC`` : The stack's actual configuration matches its expected template configuration. 
+                    * ``IN_SYNC`` : The stack\'s actual configuration matches its expected template configuration. 
                      
                     * ``UNKNOWN`` : This value is reserved for future use. 
                      
@@ -3129,9 +3129,9 @@ class Client(BaseClient):
         ::
         
           response = client.detect_stack_drift(
-              StackName='string',
+              StackName=\'string\',
               LogicalResourceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackName: string
@@ -3154,7 +3154,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackDriftDetectionId': 'string'
+                \'StackDriftDetectionId\': \'string\'
             }
           **Response Structure** 
         
@@ -3182,8 +3182,8 @@ class Client(BaseClient):
         ::
         
           response = client.detect_stack_resource_drift(
-              StackName='string',
-              LogicalResourceId='string'
+              StackName=\'string\',
+              LogicalResourceId=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -3203,29 +3203,29 @@ class Client(BaseClient):
           ::
         
             {
-                'StackResourceDrift': {
-                    'StackId': 'string',
-                    'LogicalResourceId': 'string',
-                    'PhysicalResourceId': 'string',
-                    'PhysicalResourceIdContext': [
+                \'StackResourceDrift\': {
+                    \'StackId\': \'string\',
+                    \'LogicalResourceId\': \'string\',
+                    \'PhysicalResourceId\': \'string\',
+                    \'PhysicalResourceIdContext\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'ResourceType': 'string',
-                    'ExpectedProperties': 'string',
-                    'ActualProperties': 'string',
-                    'PropertyDifferences': [
+                    \'ResourceType\': \'string\',
+                    \'ExpectedProperties\': \'string\',
+                    \'ActualProperties\': \'string\',
+                    \'PropertyDifferences\': [
                         {
-                            'PropertyPath': 'string',
-                            'ExpectedValue': 'string',
-                            'ActualValue': 'string',
-                            'DifferenceType': 'ADD'|'REMOVE'|'NOT_EQUAL'
+                            \'PropertyPath\': \'string\',
+                            \'ExpectedValue\': \'string\',
+                            \'ActualValue\': \'string\',
+                            \'DifferenceType\': \'ADD\'|\'REMOVE\'|\'NOT_EQUAL\'
                         },
                     ],
-                    'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                    'Timestamp': datetime(2015, 1, 1)
+                    \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                    \'Timestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3234,7 +3234,7 @@ class Client(BaseClient):
             
             - **StackResourceDrift** *(dict) --* 
         
-              Information about whether the resource's actual configuration has drifted from its expected template configuration, including actual and expected property values and any differences detected.
+              Information about whether the resource\'s actual configuration has drifted from its expected template configuration, including actual and expected property values and any differences detected.
         
               - **StackId** *(string) --* 
         
@@ -3250,11 +3250,11 @@ class Client(BaseClient):
         
               - **PhysicalResourceIdContext** *(list) --* 
         
-                Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource's logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a unique resource that contains the targeted resource.
+                Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource\'s logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a unique resource that contains the targeted resource.
         
                 - *(dict) --* 
         
-                  Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource's logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a resource that contains the targeted resource.
+                  Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource\'s logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a resource that contains the targeted resource.
         
                   - **Key** *(string) --* 
         
@@ -3312,13 +3312,13 @@ class Client(BaseClient):
                      
               - **StackResourceDriftStatus** *(string) --* 
         
-                Status of the resource's actual configuration compared to its expected configuration
+                Status of the resource\'s actual configuration compared to its expected configuration
         
                 * ``DELETED`` : The resource differs from its expected template configuration because the resource has been deleted. 
                  
                 * ``MODIFIED`` : One or more resource properties differ from their expected values (as defined in the stack template and any values specified as template parameters). 
                  
-                * ``IN_SYNC`` : The resources's actual configuration matches its expected template configuration. 
+                * ``IN_SYNC`` : The resources\'s actual configuration matches its expected template configuration. 
                  
                 * ``NOT_CHECKED`` : AWS CloudFormation does not currently return this value. 
                  
@@ -3338,14 +3338,14 @@ class Client(BaseClient):
         ::
         
           response = client.estimate_template_cost(
-              TemplateBody='string',
-              TemplateURL='string',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ]
           )
@@ -3374,7 +3374,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -3396,7 +3396,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Url': 'string'
+                \'Url\': \'string\'
             }
           **Response Structure** 
         
@@ -3414,9 +3414,9 @@ class Client(BaseClient):
     def execute_change_set(self, ChangeSetName: str, StackName: str = None, ClientRequestToken: str = None) -> Dict:
         """
         
-        When you execute a change set, AWS CloudFormation deletes all other change sets associated with the stack because they aren't valid for the updated stack.
+        When you execute a change set, AWS CloudFormation deletes all other change sets associated with the stack because they aren\'t valid for the updated stack.
         
-        If a stack policy is associated with the stack, AWS CloudFormation enforces the policy during the update. You can't specify a temporary stack policy that overrides the current policy.
+        If a stack policy is associated with the stack, AWS CloudFormation enforces the policy during the update. You can\'t specify a temporary stack policy that overrides the current policy.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/ExecuteChangeSet>`_
         
@@ -3424,9 +3424,9 @@ class Client(BaseClient):
         ::
         
           response = client.execute_change_set(
-              ChangeSetName='string',
-              StackName='string',
-              ClientRequestToken='string'
+              ChangeSetName=\'string\',
+              StackName=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type ChangeSetName: string
         :param ChangeSetName: **[REQUIRED]** 
@@ -3441,7 +3441,7 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``ExecuteChangeSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry ``ExecuteChangeSet`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``ExecuteChangeSet`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to execute a change set to update a stack with the same name. You might retry ``ExecuteChangeSet`` requests to ensure that AWS CloudFormation successfully received them.
         
         :rtype: dict
         :returns: 
@@ -3476,7 +3476,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3488,10 +3488,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3511,7 +3511,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_stack_policy(
-              StackName='string'
+              StackName=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -3526,7 +3526,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackPolicyBody': 'string'
+                \'StackPolicyBody\': \'string\'
             }
           **Response Structure** 
         
@@ -3556,16 +3556,16 @@ class Client(BaseClient):
         ::
         
           response = client.get_template(
-              StackName='string',
-              ChangeSetName='string',
-              TemplateStage='Original'|'Processed'
+              StackName=\'string\',
+              ChangeSetName=\'string\',
+              TemplateStage=\'Original\'|\'Processed\'
           )
         :type StackName: string
         :param StackName: 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -3581,7 +3581,7 @@ class Client(BaseClient):
         
           For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify ``Original`` . To get the template after AWS CloudFormation has processed all transforms, specify ``Processed`` . 
         
-          If the template doesn't include transforms, ``Original`` and ``Processed`` return the same template. By default, AWS CloudFormation specifies ``Original`` . 
+          If the template doesn\'t include transforms, ``Original`` and ``Processed`` return the same template. By default, AWS CloudFormation specifies ``Original`` . 
         
         :rtype: dict
         :returns: 
@@ -3591,9 +3591,9 @@ class Client(BaseClient):
           ::
         
             {
-                'TemplateBody': {},
-                'StagesAvailable': [
-                    'Original'|'Processed',
+                \'TemplateBody\': {},
+                \'StagesAvailable\': [
+                    \'Original\'|\'Processed\',
                 ]
             }
           **Response Structure** 
@@ -3630,10 +3630,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_template_summary(
-              TemplateBody='string',
-              TemplateURL='string',
-              StackName='string',
-              StackSetName='string'
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
+              StackName=\'string\',
+              StackSetName=\'string\'
           )
         :type TemplateBody: string
         :param TemplateBody: 
@@ -3652,7 +3652,7 @@ class Client(BaseClient):
         :type StackName: string
         :param StackName: 
         
-          The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
+          The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack\'s name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
         
           Conditional: You must specify only one of the following parameters: ``StackName`` , ``StackSetName`` , ``TemplateBody`` , or ``TemplateURL`` .
         
@@ -3671,32 +3671,32 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterKey': 'string',
-                        'DefaultValue': 'string',
-                        'ParameterType': 'string',
-                        'NoEcho': True|False,
-                        'Description': 'string',
-                        'ParameterConstraints': {
-                            'AllowedValues': [
-                                'string',
+                        \'ParameterKey\': \'string\',
+                        \'DefaultValue\': \'string\',
+                        \'ParameterType\': \'string\',
+                        \'NoEcho\': True|False,
+                        \'Description\': \'string\',
+                        \'ParameterConstraints\': {
+                            \'AllowedValues\': [
+                                \'string\',
                             ]
                         }
                     },
                 ],
-                'Description': 'string',
-                'Capabilities': [
-                    'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                \'Description\': \'string\',
+                \'Capabilities\': [
+                    \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                 ],
-                'CapabilitiesReason': 'string',
-                'ResourceTypes': [
-                    'string',
+                \'CapabilitiesReason\': \'string\',
+                \'ResourceTypes\': [
+                    \'string\',
                 ],
-                'Version': 'string',
-                'Metadata': 'string',
-                'DeclaredTransforms': [
-                    'string',
+                \'Version\': \'string\',
+                \'Metadata\': \'string\',
+                \'DeclaredTransforms\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3803,8 +3803,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_change_sets(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -3824,20 +3824,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Summaries': [
+                \'Summaries\': [
                     {
-                        'StackId': 'string',
-                        'StackName': 'string',
-                        'ChangeSetId': 'string',
-                        'ChangeSetName': 'string',
-                        'ExecutionStatus': 'UNAVAILABLE'|'AVAILABLE'|'EXECUTE_IN_PROGRESS'|'EXECUTE_COMPLETE'|'EXECUTE_FAILED'|'OBSOLETE',
-                        'Status': 'CREATE_PENDING'|'CREATE_IN_PROGRESS'|'CREATE_COMPLETE'|'DELETE_COMPLETE'|'FAILED',
-                        'StatusReason': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'Description': 'string'
+                        \'StackId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'ChangeSetId\': \'string\',
+                        \'ChangeSetName\': \'string\',
+                        \'ExecutionStatus\': \'UNAVAILABLE\'|\'AVAILABLE\'|\'EXECUTE_IN_PROGRESS\'|\'EXECUTE_COMPLETE\'|\'EXECUTE_FAILED\'|\'OBSOLETE\',
+                        \'Status\': \'CREATE_PENDING\'|\'CREATE_IN_PROGRESS\'|\'CREATE_COMPLETE\'|\'DELETE_COMPLETE\'|\'FAILED\',
+                        \'StatusReason\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3851,7 +3851,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                The ``ChangeSetSummary`` structure describes a change set, its status, and the stack with which it's associated.
+                The ``ChangeSetSummary`` structure describes a change set, its status, and the stack with which it\'s associated.
         
                 - **StackId** *(string) --* 
         
@@ -3879,7 +3879,7 @@ class Client(BaseClient):
         
                 - **StatusReason** *(string) --* 
         
-                  A description of the change set's status. For example, if your change set is in the ``FAILED`` state, AWS CloudFormation shows the error message.
+                  A description of the change set\'s status. For example, if your change set is in the ``FAILED`` state, AWS CloudFormation shows the error message.
         
                 - **CreationTime** *(datetime) --* 
         
@@ -3909,7 +3909,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_exports(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -3924,14 +3924,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Exports': [
+                \'Exports\': [
                     {
-                        'ExportingStackId': 'string',
-                        'Name': 'string',
-                        'Value': 'string'
+                        \'ExportingStackId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3951,11 +3951,11 @@ class Client(BaseClient):
         
                 - **Name** *(string) --* 
         
-                  The name of exported output value. Use this name and the ``Fn::ImportValue`` function to import the associated value into other stacks. The name is defined in the ``Export`` field in the associated stack's ``Outputs`` section.
+                  The name of exported output value. Use this name and the ``Fn::ImportValue`` function to import the associated value into other stacks. The name is defined in the ``Export`` field in the associated stack\'s ``Outputs`` section.
         
                 - **Value** *(string) --* 
         
-                  The value of the exported output, such as a resource physical ID. This value is defined in the ``Export`` field in the associated stack's ``Outputs`` section.
+                  The value of the exported output, such as a resource physical ID. This value is defined in the ``Export`` field in the associated stack\'s ``Outputs`` section.
         
             - **NextToken** *(string) --* 
         
@@ -3977,8 +3977,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_imports(
-              ExportName='string',
-              NextToken='string'
+              ExportName=\'string\',
+              NextToken=\'string\'
           )
         :type ExportName: string
         :param ExportName: **[REQUIRED]** 
@@ -3998,10 +3998,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Imports': [
-                    'string',
+                \'Imports\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4029,11 +4029,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_stack_instances(
-              StackSetName='string',
-              NextToken='string',
+              StackSetName=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
-              StackInstanceAccount='string',
-              StackInstanceRegion='string'
+              StackInstanceAccount=\'string\',
+              StackInstanceRegion=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -4043,7 +4043,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          If the previous request didn't return all of the remaining results, the response's ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, the previous response object's ``NextToken`` parameter is set to ``null`` .
+          If the previous request didn\'t return all of the remaining results, the response\'s ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, the previous response object\'s ``NextToken`` parameter is set to ``null`` .
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -4068,17 +4068,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Summaries': [
+                \'Summaries\': [
                     {
-                        'StackSetId': 'string',
-                        'Region': 'string',
-                        'Account': 'string',
-                        'StackId': 'string',
-                        'Status': 'CURRENT'|'OUTDATED'|'INOPERABLE',
-                        'StatusReason': 'string'
+                        \'StackSetId\': \'string\',
+                        \'Region\': \'string\',
+                        \'Account\': \'string\',
+                        \'StackId\': \'string\',
+                        \'Status\': \'CURRENT\'|\'OUTDATED\'|\'INOPERABLE\',
+                        \'StatusReason\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4114,7 +4114,7 @@ class Client(BaseClient):
         
                   * ``INOPERABLE`` : A ``DeleteStackInstances`` operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further ``UpdateStackSet`` operations. You might need to perform a ``DeleteStackInstances`` operation, with ``RetainStacks`` set to ``true`` , to delete the stack instance, and then delete the stack manually. 
                    
-                  * ``OUTDATED`` : The stack isn't currently up to date with the stack set because: 
+                  * ``OUTDATED`` : The stack isn\'t currently up to date with the stack set because: 
         
                     * The associated stack failed during a ``CreateStackSet`` or ``UpdateStackSet`` operation.  
                      
@@ -4128,7 +4128,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If the request doesn't return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object's ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
+              If the request doesn\'t return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object\'s ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
         
         """
         pass
@@ -4144,15 +4144,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_stack_resources(
-              StackName='string',
-              NextToken='string'
+              StackName=\'string\',
+              NextToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -4171,21 +4171,21 @@ class Client(BaseClient):
           ::
         
             {
-                'StackResourceSummaries': [
+                \'StackResourceSummaries\': [
                     {
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'LastUpdatedTimestamp': datetime(2015, 1, 1),
-                        'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                        'ResourceStatusReason': 'string',
-                        'DriftInformation': {
-                            'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'LastUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                        \'ResourceStatusReason\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4227,11 +4227,11 @@ class Client(BaseClient):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Information about whether the resource's actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information about whether the resource\'s actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackResourceDriftStatus** *(string) --* 
         
-                    Status of the resource's actual configuration compared to its expected configuration
+                    Status of the resource\'s actual configuration compared to its expected configuration
         
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                      
@@ -4239,7 +4239,7 @@ class Client(BaseClient):
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
                      
-                    * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
+                    * ``IN_SYNC`` : The resources\'s actual configuration matches its expected configuration. 
                      
                   - **LastCheckTimestamp** *(datetime) --* 
         
@@ -4261,9 +4261,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_stack_set_operation_results(
-              StackSetName='string',
-              OperationId='string',
-              NextToken='string',
+              StackSetName=\'string\',
+              OperationId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type StackSetName: string
@@ -4279,7 +4279,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          If the previous request didn't return all of the remaining results, the response object's ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSetOperationResults`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, the previous response object's ``NextToken`` parameter is set to ``null`` .
+          If the previous request didn\'t return all of the remaining results, the response object\'s ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSetOperationResults`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, the previous response object\'s ``NextToken`` parameter is set to ``null`` .
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -4294,19 +4294,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Summaries': [
+                \'Summaries\': [
                     {
-                        'Account': 'string',
-                        'Region': 'string',
-                        'Status': 'PENDING'|'RUNNING'|'SUCCEEDED'|'FAILED'|'CANCELLED',
-                        'StatusReason': 'string',
-                        'AccountGateResult': {
-                            'Status': 'SUCCEEDED'|'FAILED'|'SKIPPED',
-                            'StatusReason': 'string'
+                        \'Account\': \'string\',
+                        \'Region\': \'string\',
+                        \'Status\': \'PENDING\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'CANCELLED\',
+                        \'StatusReason\': \'string\',
+                        \'AccountGateResult\': {
+                            \'Status\': \'SUCCEEDED\'|\'FAILED\'|\'SKIPPED\',
+                            \'StatusReason\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4318,7 +4318,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                The structure that contains information about a specified operation's results for a given account in a given region.
+                The structure that contains information about a specified operation\'s results for a given account in a given region.
         
                 - **Account** *(string) --* 
         
@@ -4372,7 +4372,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If the request doesn't return all results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListOperationResults`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, ``NextToken`` is set to ``null`` .
+              If the request doesn\'t return all results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListOperationResults`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, ``NextToken`` is set to ``null`` .
         
         """
         pass
@@ -4386,8 +4386,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_stack_set_operations(
-              StackSetName='string',
-              NextToken='string',
+              StackSetName=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type StackSetName: string
@@ -4398,7 +4398,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          If the previous paginated request didn't return all of the remaining results, the response object's ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSetOperations`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, the previous response object's ``NextToken`` parameter is set to ``null`` .
+          If the previous paginated request didn\'t return all of the remaining results, the response object\'s ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSetOperations`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, the previous response object\'s ``NextToken`` parameter is set to ``null`` .
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -4413,16 +4413,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Summaries': [
+                \'Summaries\': [
                     {
-                        'OperationId': 'string',
-                        'Action': 'CREATE'|'UPDATE'|'DELETE',
-                        'Status': 'RUNNING'|'SUCCEEDED'|'FAILED'|'STOPPING'|'STOPPED',
-                        'CreationTimestamp': datetime(2015, 1, 1),
-                        'EndTimestamp': datetime(2015, 1, 1)
+                        \'OperationId\': \'string\',
+                        \'Action\': \'CREATE\'|\'UPDATE\'|\'DELETE\',
+                        \'Status\': \'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'STOPPING\'|\'STOPPED\',
+                        \'CreationTimestamp\': datetime(2015, 1, 1),
+                        \'EndTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4448,7 +4448,7 @@ class Client(BaseClient):
         
                   The overall status of the operation.
         
-                  * ``FAILED`` : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to ``FAILED`` . This in turn sets the status of the operation as a whole to ``FAILED`` , and AWS CloudFormation cancels the operation in any remaining regions. 
+                  * ``FAILED`` : The operation exceeded the specified failure tolerance. The failure tolerance value that you\'ve set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to ``FAILED`` . This in turn sets the status of the operation as a whole to ``FAILED`` , and AWS CloudFormation cancels the operation in any remaining regions. 
                    
                   * ``RUNNING`` : The operation is currently being performed. 
                    
@@ -4464,11 +4464,11 @@ class Client(BaseClient):
         
                 - **EndTimestamp** *(datetime) --* 
         
-                  The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+                  The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn\'t necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
         
             - **NextToken** *(string) --* 
         
-              If the request doesn't return all results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListOperationResults`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, ``NextToken`` is set to ``null`` .
+              If the request doesn\'t return all results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListOperationResults`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, ``NextToken`` is set to ``null`` .
         
         """
         pass
@@ -4482,14 +4482,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_stack_sets(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              Status='ACTIVE'|'DELETED'
+              Status=\'ACTIVE\'|\'DELETED\'
           )
         :type NextToken: string
         :param NextToken: 
         
-          If the previous paginated request didn't return all of the remaining results, the response object's ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSets`` again and assign that token to the request object's ``NextToken`` parameter. If there are no remaining results, the previous response object's ``NextToken`` parameter is set to ``null`` .
+          If the previous paginated request didn\'t return all of the remaining results, the response object\'s ``NextToken`` parameter value is set to a token. To retrieve the next set of results, call ``ListStackSets`` again and assign that token to the request object\'s ``NextToken`` parameter. If there are no remaining results, the previous response object\'s ``NextToken`` parameter is set to ``null`` .
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -4509,15 +4509,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Summaries': [
+                \'Summaries\': [
                     {
-                        'StackSetName': 'string',
-                        'StackSetId': 'string',
-                        'Description': 'string',
-                        'Status': 'ACTIVE'|'DELETED'
+                        \'StackSetName\': \'string\',
+                        \'StackSetId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'DELETED\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4525,7 +4525,7 @@ class Client(BaseClient):
             
             - **Summaries** *(list) --* 
         
-              A list of ``StackSetSummary`` structures that contain information about the user's stack sets.
+              A list of ``StackSetSummary`` structures that contain information about the user\'s stack sets.
         
               - *(dict) --* 
         
@@ -4549,7 +4549,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If the request doesn't return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object's ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
+              If the request doesn\'t return all of the remaining results, ``NextToken`` is set to a token. To retrieve the next set of results, call ``ListStackInstances`` again and assign that token to the request object\'s ``NextToken`` parameter. If the request returns all results, ``NextToken`` is set to ``null`` .
         
         """
         pass
@@ -4563,9 +4563,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_stacks(
-              NextToken='string',
+              NextToken=\'string\',
               StackStatusFilter=[
-                  'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
+                  \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
               ]
           )
         :type NextToken: string
@@ -4588,25 +4588,25 @@ class Client(BaseClient):
           ::
         
             {
-                'StackSummaries': [
+                \'StackSummaries\': [
                     {
-                        'StackId': 'string',
-                        'StackName': 'string',
-                        'TemplateDescription': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'DeletionTime': datetime(2015, 1, 1),
-                        'StackStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
-                        'StackStatusReason': 'string',
-                        'ParentId': 'string',
-                        'RootId': 'string',
-                        'DriftInformation': {
-                            'StackDriftStatus': 'DRIFTED'|'IN_SYNC'|'UNKNOWN'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'StackId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'TemplateDescription\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'DeletionTime\': datetime(2015, 1, 1),
+                        \'StackStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
+                        \'StackStatusReason\': \'string\',
+                        \'ParentId\': \'string\',
+                        \'RootId\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackDriftStatus\': \'DRIFTED\'|\'IN_SYNC\'|\'UNKNOWN\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4668,17 +4668,17 @@ class Client(BaseClient):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Summarizes information on whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Summarizes information on whether a stack\'s actual configuration differs, or has *drifted* , from it\'s expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackDriftStatus** *(string) --* 
         
-                    Status of the stack's actual configuration compared to its expected template configuration. 
+                    Status of the stack\'s actual configuration compared to its expected template configuration. 
         
                     * ``DRIFTED`` : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted. 
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the stack differs from its expected template configuration. 
                      
-                    * ``IN_SYNC`` : The stack's actual configuration matches its expected template configuration. 
+                    * ``IN_SYNC`` : The stack\'s actual configuration matches its expected template configuration. 
                      
                     * ``UNKNOWN`` : This value is reserved for future use. 
                      
@@ -4702,9 +4702,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_stack_policy(
-              StackName='string',
-              StackPolicyBody='string',
-              StackPolicyURL='string'
+              StackName=\'string\',
+              StackPolicyBody=\'string\',
+              StackPolicyURL=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -4734,10 +4734,10 @@ class Client(BaseClient):
         ::
         
           response = client.signal_resource(
-              StackName='string',
-              LogicalResourceId='string',
-              UniqueId='string',
-              Status='SUCCESS'|'FAILURE'
+              StackName=\'string\',
+              LogicalResourceId=\'string\',
+              UniqueId=\'string\',
+              Status=\'SUCCESS\'|\'FAILURE\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -4772,8 +4772,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_stack_set_operation(
-              StackSetName='string',
-              OperationId='string'
+              StackSetName=\'string\',
+              OperationId=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -4812,48 +4812,48 @@ class Client(BaseClient):
         ::
         
           response = client.update_stack(
-              StackName='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackName=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               UsePreviousTemplate=True|False,
-              StackPolicyDuringUpdateBody='string',
-              StackPolicyDuringUpdateURL='string',
+              StackPolicyDuringUpdateBody=\'string\',
+              StackPolicyDuringUpdateURL=\'string\',
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
-              RoleARN='string',
+              RoleARN=\'string\',
               RollbackConfiguration={
-                  'RollbackTriggers': [
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ],
-                  'MonitoringTimeInMinutes': 123
+                  \'MonitoringTimeInMinutes\': 123
               },
-              StackPolicyBody='string',
-              StackPolicyURL='string',
+              StackPolicyBody=\'string\',
+              StackPolicyURL=\'string\',
               NotificationARNs=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type StackName: string
         :param StackName: **[REQUIRED]** 
@@ -4906,7 +4906,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -4927,7 +4927,7 @@ class Client(BaseClient):
         
           The only valid values are ``CAPABILITY_IAM`` and ``CAPABILITY_NAMED_IAM`` . The following resources require you to specify this parameter: `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__ , `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__ , `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ , `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__ , and `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__ . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify ``CAPABILITY_NAMED_IAM`` . If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
         
@@ -4938,16 +4938,16 @@ class Client(BaseClient):
         
           The template resource types that you have permissions to work with for this update stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` .
         
-          If the list of resource types doesn't include a resource that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
         
           - *(string) --* 
         
         :type RoleARN: string
         :param RoleARN: 
         
-          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
+          The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role\'s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don\'t have permission to pass it. Ensure that the role grants least privilege.
         
-          If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+          If you don\'t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         
         :type RollbackConfiguration: dict
         :param RollbackConfiguration: 
@@ -4960,9 +4960,9 @@ class Client(BaseClient):
         
             By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-            * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+            * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
              
-            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+            * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
              
             * To remove all currently specified triggers, specify an empty list for this parameter. 
              
@@ -5018,7 +5018,7 @@ class Client(BaseClient):
         
           Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 50 tags.
         
-          If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
+          If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify the stack\'s tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
         
           - *(dict) --* 
         
@@ -5035,7 +5035,7 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken: 
         
-          A unique identifier for this ``UpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to update a stack with the same name. You might retry ``UpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
+          A unique identifier for this ``UpdateStack`` request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you\'re not attempting to update a stack with the same name. You might retry ``UpdateStack`` requests to ensure that AWS CloudFormation successfully received them.
         
           All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a ``CreateStack`` operation with the token ``token1`` , then all the ``StackEvents`` generated by that operation will have ``ClientRequestToken`` set as ``token1`` .
         
@@ -5049,7 +5049,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -5079,31 +5079,31 @@ class Client(BaseClient):
         ::
         
           response = client.update_stack_instances(
-              StackSetName='string',
+              StackSetName=\'string\',
               Accounts=[
-                  'string',
+                  \'string\',
               ],
               Regions=[
-                  'string',
+                  \'string\',
               ],
               ParameterOverrides=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               OperationPreferences={
-                  'RegionOrder': [
-                      'string',
+                  \'RegionOrder\': [
+                      \'string\',
                   ],
-                  'FailureToleranceCount': 123,
-                  'FailureTolerancePercentage': 123,
-                  'MaxConcurrentCount': 123,
-                  'MaxConcurrentPercentage': 123
+                  \'FailureToleranceCount\': 123,
+                  \'FailureTolerancePercentage\': 123,
+                  \'MaxConcurrentCount\': 123,
+                  \'MaxConcurrentPercentage\': 123
               },
-              OperationId='string'
+              OperationId=\'string\'
           )
         :type StackSetName: string
         :param StackSetName: **[REQUIRED]** 
@@ -5153,7 +5153,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -5180,13 +5180,13 @@ class Client(BaseClient):
         
           - **FailureToleranceCount** *(integer) --* 
         
-            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             Conditional: You must specify either ``FailureToleranceCount`` or ``FailureTolerancePercentage`` (but not both).
         
           - **FailureTolerancePercentage** *(integer) --* 
         
-            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
         
@@ -5217,7 +5217,7 @@ class Client(BaseClient):
         
           The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
         
-          If you don't specify an operation ID, the SDK generates one automatically. 
+          If you don\'t specify an operation ID, the SDK generates one automatically. 
         
           This field is autopopulated if not provided.
         
@@ -5229,7 +5229,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -5253,45 +5253,45 @@ class Client(BaseClient):
         ::
         
           response = client.update_stack_set(
-              StackSetName='string',
-              Description='string',
-              TemplateBody='string',
-              TemplateURL='string',
+              StackSetName=\'string\',
+              Description=\'string\',
+              TemplateBody=\'string\',
+              TemplateURL=\'string\',
               UsePreviousTemplate=True|False,
               Parameters=[
                   {
-                      'ParameterKey': 'string',
-                      'ParameterValue': 'string',
-                      'UsePreviousValue': True|False,
-                      'ResolvedValue': 'string'
+                      \'ParameterKey\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'UsePreviousValue\': True|False,
+                      \'ResolvedValue\': \'string\'
                   },
               ],
               Capabilities=[
-                  'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                  \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               OperationPreferences={
-                  'RegionOrder': [
-                      'string',
+                  \'RegionOrder\': [
+                      \'string\',
                   ],
-                  'FailureToleranceCount': 123,
-                  'FailureTolerancePercentage': 123,
-                  'MaxConcurrentCount': 123,
-                  'MaxConcurrentPercentage': 123
+                  \'FailureToleranceCount\': 123,
+                  \'FailureTolerancePercentage\': 123,
+                  \'MaxConcurrentCount\': 123,
+                  \'MaxConcurrentPercentage\': 123
               },
-              AdministrationRoleARN='string',
-              ExecutionRoleName='string',
-              OperationId='string',
+              AdministrationRoleARN=\'string\',
+              ExecutionRoleName=\'string\',
+              OperationId=\'string\',
               Accounts=[
-                  'string',
+                  \'string\',
               ],
               Regions=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StackSetName: string
@@ -5321,7 +5321,7 @@ class Client(BaseClient):
         :type UsePreviousTemplate: boolean
         :param UsePreviousTemplate: 
         
-          Use the existing template that's associated with the stack set that you're updating.
+          Use the existing template that\'s associated with the stack set that you\'re updating.
         
           Conditional: You must specify only one of the following parameters: ``TemplateBody`` or ``TemplateURL`` —or set ``UsePreviousTemplate`` to true. 
         
@@ -5336,7 +5336,7 @@ class Client(BaseClient):
         
             - **ParameterKey** *(string) --* 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **ParameterValue** *(string) --* 
         
@@ -5373,7 +5373,7 @@ class Client(BaseClient):
            
           If your stack template contains these resources, we recommend that you review all permissions that are associated with them and edit their permissions if necessary.
         
-          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don't specify this parameter, this action returns an ``InsufficientCapabilities`` error.
+          If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don\'t specify this parameter, this action returns an ``InsufficientCapabilities`` error.
         
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates. <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__  
         
@@ -5386,13 +5386,13 @@ class Client(BaseClient):
         
           If you specify tags for this parameter, those tags replace any list of tags that are currently associated with this stack set. This means:
         
-          * If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags.  
+          * If you don\'t specify this parameter, AWS CloudFormation doesn\'t modify the stack\'s tags.  
            
-          * If you specify *any* tags using this parameter, you must specify *all* the tags that you want associated with this stack set, even tags you've specifed before (for example, when creating the stack set or during a previous update of the stack set.). Any tags that you don't include in the updated list of tags are removed from the stack set, and therefore from the stacks and resources as well.  
+          * If you specify *any* tags using this parameter, you must specify *all* the tags that you want associated with this stack set, even tags you\'ve specifed before (for example, when creating the stack set or during a previous update of the stack set.). Any tags that you don\'t include in the updated list of tags are removed from the stack set, and therefore from the stacks and resources as well.  
            
           * If you specify an empty value, AWS CloudFormation removes all currently associated tags. 
            
-          If you specify new tags as part of an ``UpdateStackSet`` action, AWS CloudFormation checks to see if you have the required IAM permission to tag resources. If you omit tags that are currently associated with the stack set from the list of tags you specify, AWS CloudFormation assumes that you want to remove those tags from the stack set, and checks to see if you have permission to untag resources. If you don't have the necessary permission(s), the entire ``UpdateStackSet`` action fails with an ``access denied`` error, and the stack set is not updated.
+          If you specify new tags as part of an ``UpdateStackSet`` action, AWS CloudFormation checks to see if you have the required IAM permission to tag resources. If you omit tags that are currently associated with the stack set from the list of tags you specify, AWS CloudFormation assumes that you want to remove those tags from the stack set, and checks to see if you have permission to untag resources. If you don\'t have the necessary permission(s), the entire ``UpdateStackSet`` action fails with an ``access denied`` error, and the stack set is not updated.
         
           - *(dict) --* 
         
@@ -5419,13 +5419,13 @@ class Client(BaseClient):
         
           - **FailureToleranceCount** *(integer) --* 
         
-            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             Conditional: You must specify either ``FailureToleranceCount`` or ``FailureTolerancePercentage`` (but not both).
         
           - **FailureTolerancePercentage** *(integer) --* 
         
-            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions.
+            The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn\'t attempt the operation in any subsequent regions.
         
             When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
         
@@ -5474,7 +5474,7 @@ class Client(BaseClient):
         
           The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
         
-          If you don't specify an operation ID, AWS CloudFormation generates one automatically.
+          If you don\'t specify an operation ID, AWS CloudFormation generates one automatically.
         
           Repeating this stack set operation with a new operation ID retries all stack instances whose status is ``OUTDATED`` . 
         
@@ -5510,7 +5510,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -5535,7 +5535,7 @@ class Client(BaseClient):
         
           response = client.update_termination_protection(
               EnableTerminationProtection=True|False,
-              StackName='string'
+              StackName=\'string\'
           )
         :type EnableTerminationProtection: boolean
         :param EnableTerminationProtection: **[REQUIRED]** 
@@ -5555,7 +5555,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StackId': 'string'
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -5577,8 +5577,8 @@ class Client(BaseClient):
         ::
         
           response = client.validate_template(
-              TemplateBody='string',
-              TemplateURL='string'
+              TemplateBody=\'string\',
+              TemplateURL=\'string\'
           )
         :type TemplateBody: string
         :param TemplateBody: 
@@ -5602,21 +5602,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterKey': 'string',
-                        'DefaultValue': 'string',
-                        'NoEcho': True|False,
-                        'Description': 'string'
+                        \'ParameterKey\': \'string\',
+                        \'DefaultValue\': \'string\',
+                        \'NoEcho\': True|False,
+                        \'Description\': \'string\'
                     },
                 ],
-                'Description': 'string',
-                'Capabilities': [
-                    'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                \'Description\': \'string\',
+                \'Capabilities\': [
+                    \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                 ],
-                'CapabilitiesReason': 'string',
-                'DeclaredTransforms': [
-                    'string',
+                \'CapabilitiesReason\': \'string\',
+                \'DeclaredTransforms\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 

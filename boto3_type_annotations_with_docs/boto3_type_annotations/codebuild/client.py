@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -19,7 +19,7 @@ class Client(BaseClient):
         
           response = client.batch_delete_builds(
               ids=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ids: list
@@ -37,13 +37,13 @@ class Client(BaseClient):
           ::
         
             {
-                'buildsDeleted': [
-                    'string',
+                \'buildsDeleted\': [
+                    \'string\',
                 ],
-                'buildsNotDeleted': [
+                \'buildsNotDeleted\': [
                     {
-                        'id': 'string',
-                        'statusCode': 'string'
+                        \'id\': \'string\',
+                        \'statusCode\': \'string\'
                     },
                 ]
             }
@@ -86,7 +86,7 @@ class Client(BaseClient):
         
           response = client.batch_get_builds(
               ids=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ids: list
@@ -104,139 +104,139 @@ class Client(BaseClient):
           ::
         
             {
-                'builds': [
+                \'builds\': [
                     {
-                        'id': 'string',
-                        'arn': 'string',
-                        'startTime': datetime(2015, 1, 1),
-                        'endTime': datetime(2015, 1, 1),
-                        'currentPhase': 'string',
-                        'buildStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                        'sourceVersion': 'string',
-                        'resolvedSourceVersion': 'string',
-                        'projectName': 'string',
-                        'phases': [
+                        \'id\': \'string\',
+                        \'arn\': \'string\',
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'endTime\': datetime(2015, 1, 1),
+                        \'currentPhase\': \'string\',
+                        \'buildStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                        \'sourceVersion\': \'string\',
+                        \'resolvedSourceVersion\': \'string\',
+                        \'projectName\': \'string\',
+                        \'phases\': [
                             {
-                                'phaseType': 'SUBMITTED'|'PROVISIONING'|'DOWNLOAD_SOURCE'|'INSTALL'|'PRE_BUILD'|'BUILD'|'POST_BUILD'|'UPLOAD_ARTIFACTS'|'FINALIZING'|'COMPLETED',
-                                'phaseStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                                'startTime': datetime(2015, 1, 1),
-                                'endTime': datetime(2015, 1, 1),
-                                'durationInSeconds': 123,
-                                'contexts': [
+                                \'phaseType\': \'SUBMITTED\'|\'PROVISIONING\'|\'DOWNLOAD_SOURCE\'|\'INSTALL\'|\'PRE_BUILD\'|\'BUILD\'|\'POST_BUILD\'|\'UPLOAD_ARTIFACTS\'|\'FINALIZING\'|\'COMPLETED\',
+                                \'phaseStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                                \'startTime\': datetime(2015, 1, 1),
+                                \'endTime\': datetime(2015, 1, 1),
+                                \'durationInSeconds\': 123,
+                                \'contexts\': [
                                     {
-                                        'statusCode': 'string',
-                                        'message': 'string'
+                                        \'statusCode\': \'string\',
+                                        \'message\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'source': {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                        \'source\': {
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
-                        'secondarySources': [
+                        \'secondarySources\': [
                             {
-                                'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                                'location': 'string',
-                                'gitCloneDepth': 123,
-                                'buildspec': 'string',
-                                'auth': {
-                                    'type': 'OAUTH',
-                                    'resource': 'string'
+                                \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                                \'location\': \'string\',
+                                \'gitCloneDepth\': 123,
+                                \'buildspec\': \'string\',
+                                \'auth\': {
+                                    \'type\': \'OAUTH\',
+                                    \'resource\': \'string\'
                                 },
-                                'reportBuildStatus': True|False,
-                                'insecureSsl': True|False,
-                                'sourceIdentifier': 'string'
+                                \'reportBuildStatus\': True|False,
+                                \'insecureSsl\': True|False,
+                                \'sourceIdentifier\': \'string\'
                             },
                         ],
-                        'secondarySourceVersions': [
+                        \'secondarySourceVersions\': [
                             {
-                                'sourceIdentifier': 'string',
-                                'sourceVersion': 'string'
+                                \'sourceIdentifier\': \'string\',
+                                \'sourceVersion\': \'string\'
                             },
                         ],
-                        'artifacts': {
-                            'location': 'string',
-                            'sha256sum': 'string',
-                            'md5sum': 'string',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                        \'artifacts\': {
+                            \'location\': \'string\',
+                            \'sha256sum\': \'string\',
+                            \'md5sum\': \'string\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
-                        'secondaryArtifacts': [
+                        \'secondaryArtifacts\': [
                             {
-                                'location': 'string',
-                                'sha256sum': 'string',
-                                'md5sum': 'string',
-                                'overrideArtifactName': True|False,
-                                'encryptionDisabled': True|False,
-                                'artifactIdentifier': 'string'
+                                \'location\': \'string\',
+                                \'sha256sum\': \'string\',
+                                \'md5sum\': \'string\',
+                                \'overrideArtifactName\': True|False,
+                                \'encryptionDisabled\': True|False,
+                                \'artifactIdentifier\': \'string\'
                             },
                         ],
-                        'cache': {
-                            'type': 'NO_CACHE'|'S3',
-                            'location': 'string'
+                        \'cache\': {
+                            \'type\': \'NO_CACHE\'|\'S3\',
+                            \'location\': \'string\'
                         },
-                        'environment': {
-                            'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                            'image': 'string',
-                            'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                            'environmentVariables': [
+                        \'environment\': {
+                            \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                            \'image\': \'string\',
+                            \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                            \'environmentVariables\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string',
-                                    'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\',
+                                    \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                                 },
                             ],
-                            'privilegedMode': True|False,
-                            'certificate': 'string'
+                            \'privilegedMode\': True|False,
+                            \'certificate\': \'string\'
                         },
-                        'serviceRole': 'string',
-                        'logs': {
-                            'groupName': 'string',
-                            'streamName': 'string',
-                            'deepLink': 'string',
-                            's3DeepLink': 'string',
-                            'cloudWatchLogs': {
-                                'status': 'ENABLED'|'DISABLED',
-                                'groupName': 'string',
-                                'streamName': 'string'
+                        \'serviceRole\': \'string\',
+                        \'logs\': {
+                            \'groupName\': \'string\',
+                            \'streamName\': \'string\',
+                            \'deepLink\': \'string\',
+                            \'s3DeepLink\': \'string\',
+                            \'cloudWatchLogs\': {
+                                \'status\': \'ENABLED\'|\'DISABLED\',
+                                \'groupName\': \'string\',
+                                \'streamName\': \'string\'
                             },
-                            's3Logs': {
-                                'status': 'ENABLED'|'DISABLED',
-                                'location': 'string'
+                            \'s3Logs\': {
+                                \'status\': \'ENABLED\'|\'DISABLED\',
+                                \'location\': \'string\'
                             }
                         },
-                        'timeoutInMinutes': 123,
-                        'buildComplete': True|False,
-                        'initiator': 'string',
-                        'vpcConfig': {
-                            'vpcId': 'string',
-                            'subnets': [
-                                'string',
+                        \'timeoutInMinutes\': 123,
+                        \'buildComplete\': True|False,
+                        \'initiator\': \'string\',
+                        \'vpcConfig\': {
+                            \'vpcId\': \'string\',
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroupIds': [
-                                'string',
+                            \'securityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'networkInterface': {
-                            'subnetId': 'string',
-                            'networkInterfaceId': 'string'
+                        \'networkInterface\': {
+                            \'subnetId\': \'string\',
+                            \'networkInterfaceId\': \'string\'
                         },
-                        'encryptionKey': 'string'
+                        \'encryptionKey\': \'string\'
                     },
                 ],
-                'buildsNotFound': [
-                    'string',
+                \'buildsNotFound\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -293,7 +293,7 @@ class Client(BaseClient):
         
                 - **resolvedSourceVersion** *(string) --* 
         
-                  An identifier for the version of this build's source code. 
+                  An identifier for the version of this build\'s source code. 
         
                   * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.  
                    
@@ -363,7 +363,7 @@ class Client(BaseClient):
         
                     - **durationInSeconds** *(integer) --* 
         
-                      How long, in seconds, between the starting and ending times of the build's phase.
+                      How long, in seconds, between the starting and ending times of the build\'s phase.
         
                     - **contexts** *(list) --* 
         
@@ -379,7 +379,7 @@ class Client(BaseClient):
         
                         - **message** *(string) --* 
         
-                          An explanation of the build phase's context. This explanation might include a command ID and an exit code.
+                          An explanation of the build phase\'s context. This explanation might include a command ID and an exit code.
         
                 - **source** *(dict) --* 
         
@@ -405,7 +405,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -415,9 +415,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -433,7 +433,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -445,7 +445,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -483,7 +483,7 @@ class Client(BaseClient):
         
                       Information about the location of the source code to be built. Valid values include:
         
-                      * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                      * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                        
                       * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                        
@@ -493,9 +493,9 @@ class Client(BaseClient):
                          
                         * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                          
-                      * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                      * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                        
-                      * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                      * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                        
                     - **gitCloneDepth** *(integer) --* 
         
@@ -511,7 +511,7 @@ class Client(BaseClient):
         
                       Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                      This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                      This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                       - **type** *(string) --* 
         
@@ -523,7 +523,7 @@ class Client(BaseClient):
         
                     - **reportBuildStatus** *(boolean) --* 
         
-                      Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                      Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                     - **insecureSsl** *(boolean) --* 
         
@@ -539,9 +539,9 @@ class Client(BaseClient):
         
                   * For AWS CodeCommit: the commit ID to use. 
                    
-                  * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                  * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                    
-                  * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                  * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                    
                   * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                    
@@ -559,9 +559,9 @@ class Client(BaseClient):
         
                       * For AWS CodeCommit: the commit ID to use. 
                        
-                      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                        
-                      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                        
                       * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                        
@@ -581,7 +581,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **md5sum** *(string) --* 
         
@@ -591,7 +591,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **overrideArtifactName** *(boolean) --* 
         
@@ -625,7 +625,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                        This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                     - **md5sum** *(string) --* 
         
@@ -635,7 +635,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                        This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                     - **overrideArtifactName** *(boolean) --* 
         
@@ -723,13 +723,13 @@ class Client(BaseClient):
         
                     Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                    If the operating system's base image is Ubuntu Linux:
+                    If the operating system\'s base image is Ubuntu Linux:
         
-                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                    If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                    If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                   - **certificate** *(string) --* 
         
@@ -741,7 +741,7 @@ class Client(BaseClient):
         
                 - **logs** *(dict) --* 
         
-                  Information about the build's logs in Amazon CloudWatch Logs.
+                  Information about the build\'s logs in Amazon CloudWatch Logs.
         
                   - **groupName** *(string) --* 
         
@@ -807,9 +807,9 @@ class Client(BaseClient):
         
                   The entity that started the build. Valid values include:
         
-                  * If AWS CodePipeline started the build, the pipeline's name (for example, ``codepipeline/my-demo-pipeline`` ). 
+                  * If AWS CodePipeline started the build, the pipeline\'s name (for example, ``codepipeline/my-demo-pipeline`` ). 
                    
-                  * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example ``MyUserName`` ). 
+                  * If an AWS Identity and Access Management (IAM) user started the build, the user\'s name (for example ``MyUserName`` ). 
                    
                   * If the Jenkins plugin for AWS CodeBuild started the build, the string ``CodeBuild-Jenkins-Plugin`` . 
                    
@@ -849,7 +849,7 @@ class Client(BaseClient):
         
                   The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                  This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                  This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
             - **buildsNotFound** *(list) --* 
         
@@ -870,7 +870,7 @@ class Client(BaseClient):
         
           response = client.batch_get_projects(
               names=[
-                  'string',
+                  \'string\',
               ]
           )
         :type names: list
@@ -888,127 +888,127 @@ class Client(BaseClient):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'name': 'string',
-                        'arn': 'string',
-                        'description': 'string',
-                        'source': {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                        \'name\': \'string\',
+                        \'arn\': \'string\',
+                        \'description\': \'string\',
+                        \'source\': {
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
-                        'secondarySources': [
+                        \'secondarySources\': [
                             {
-                                'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                                'location': 'string',
-                                'gitCloneDepth': 123,
-                                'buildspec': 'string',
-                                'auth': {
-                                    'type': 'OAUTH',
-                                    'resource': 'string'
+                                \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                                \'location\': \'string\',
+                                \'gitCloneDepth\': 123,
+                                \'buildspec\': \'string\',
+                                \'auth\': {
+                                    \'type\': \'OAUTH\',
+                                    \'resource\': \'string\'
                                 },
-                                'reportBuildStatus': True|False,
-                                'insecureSsl': True|False,
-                                'sourceIdentifier': 'string'
+                                \'reportBuildStatus\': True|False,
+                                \'insecureSsl\': True|False,
+                                \'sourceIdentifier\': \'string\'
                             },
                         ],
-                        'artifacts': {
-                            'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                            'location': 'string',
-                            'path': 'string',
-                            'namespaceType': 'NONE'|'BUILD_ID',
-                            'name': 'string',
-                            'packaging': 'NONE'|'ZIP',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                        \'artifacts\': {
+                            \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                            \'location\': \'string\',
+                            \'path\': \'string\',
+                            \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                            \'name\': \'string\',
+                            \'packaging\': \'NONE\'|\'ZIP\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
-                        'secondaryArtifacts': [
+                        \'secondaryArtifacts\': [
                             {
-                                'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                                'location': 'string',
-                                'path': 'string',
-                                'namespaceType': 'NONE'|'BUILD_ID',
-                                'name': 'string',
-                                'packaging': 'NONE'|'ZIP',
-                                'overrideArtifactName': True|False,
-                                'encryptionDisabled': True|False,
-                                'artifactIdentifier': 'string'
+                                \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                                \'location\': \'string\',
+                                \'path\': \'string\',
+                                \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                                \'name\': \'string\',
+                                \'packaging\': \'NONE\'|\'ZIP\',
+                                \'overrideArtifactName\': True|False,
+                                \'encryptionDisabled\': True|False,
+                                \'artifactIdentifier\': \'string\'
                             },
                         ],
-                        'cache': {
-                            'type': 'NO_CACHE'|'S3',
-                            'location': 'string'
+                        \'cache\': {
+                            \'type\': \'NO_CACHE\'|\'S3\',
+                            \'location\': \'string\'
                         },
-                        'environment': {
-                            'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                            'image': 'string',
-                            'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                            'environmentVariables': [
+                        \'environment\': {
+                            \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                            \'image\': \'string\',
+                            \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                            \'environmentVariables\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string',
-                                    'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\',
+                                    \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                                 },
                             ],
-                            'privilegedMode': True|False,
-                            'certificate': 'string'
+                            \'privilegedMode\': True|False,
+                            \'certificate\': \'string\'
                         },
-                        'serviceRole': 'string',
-                        'timeoutInMinutes': 123,
-                        'encryptionKey': 'string',
-                        'tags': [
+                        \'serviceRole\': \'string\',
+                        \'timeoutInMinutes\': 123,
+                        \'encryptionKey\': \'string\',
+                        \'tags\': [
                             {
-                                'key': 'string',
-                                'value': 'string'
+                                \'key\': \'string\',
+                                \'value\': \'string\'
                             },
                         ],
-                        'created': datetime(2015, 1, 1),
-                        'lastModified': datetime(2015, 1, 1),
-                        'webhook': {
-                            'url': 'string',
-                            'payloadUrl': 'string',
-                            'secret': 'string',
-                            'branchFilter': 'string',
-                            'lastModifiedSecret': datetime(2015, 1, 1)
+                        \'created\': datetime(2015, 1, 1),
+                        \'lastModified\': datetime(2015, 1, 1),
+                        \'webhook\': {
+                            \'url\': \'string\',
+                            \'payloadUrl\': \'string\',
+                            \'secret\': \'string\',
+                            \'branchFilter\': \'string\',
+                            \'lastModifiedSecret\': datetime(2015, 1, 1)
                         },
-                        'vpcConfig': {
-                            'vpcId': 'string',
-                            'subnets': [
-                                'string',
+                        \'vpcConfig\': {
+                            \'vpcId\': \'string\',
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroupIds': [
-                                'string',
+                            \'securityGroupIds\': [
+                                \'string\',
                             ]
                         },
-                        'badge': {
-                            'badgeEnabled': True|False,
-                            'badgeRequestUrl': 'string'
+                        \'badge\': {
+                            \'badgeEnabled\': True|False,
+                            \'badgeRequestUrl\': \'string\'
                         },
-                        'logsConfig': {
-                            'cloudWatchLogs': {
-                                'status': 'ENABLED'|'DISABLED',
-                                'groupName': 'string',
-                                'streamName': 'string'
+                        \'logsConfig\': {
+                            \'cloudWatchLogs\': {
+                                \'status\': \'ENABLED\'|\'DISABLED\',
+                                \'groupName\': \'string\',
+                                \'streamName\': \'string\'
                             },
-                            's3Logs': {
-                                'status': 'ENABLED'|'DISABLED',
-                                'location': 'string'
+                            \'s3Logs\': {
+                                \'status\': \'ENABLED\'|\'DISABLED\',
+                                \'location\': \'string\'
                             }
                         }
                     },
                 ],
-                'projectsNotFound': [
-                    'string',
+                \'projectsNotFound\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1059,7 +1059,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -1069,9 +1069,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -1087,7 +1087,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -1099,7 +1099,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -1137,7 +1137,7 @@ class Client(BaseClient):
         
                       Information about the location of the source code to be built. Valid values include:
         
-                      * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                      * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                        
                       * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                        
@@ -1147,9 +1147,9 @@ class Client(BaseClient):
                          
                         * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                          
-                      * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                      * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                        
-                      * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                      * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                        
                     - **gitCloneDepth** *(integer) --* 
         
@@ -1165,7 +1165,7 @@ class Client(BaseClient):
         
                       Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                      This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                      This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                       - **type** *(string) --* 
         
@@ -1177,7 +1177,7 @@ class Client(BaseClient):
         
                     - **reportBuildStatus** *(boolean) --* 
         
-                      Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                      Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                     - **insecureSsl** *(boolean) --* 
         
@@ -1247,15 +1247,15 @@ class Client(BaseClient):
                      
                     * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                      
-                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                      
                     For example:
         
                     * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                      
-                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                      
-                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                      
                   - **packaging** *(string) --* 
         
@@ -1347,15 +1347,15 @@ class Client(BaseClient):
                        
                       * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                        
-                      * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                      * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                        
                       For example:
         
                       * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                        
-                      * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                      * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                        
-                      * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                      * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                        
                     - **packaging** *(string) --* 
         
@@ -1457,13 +1457,13 @@ class Client(BaseClient):
         
                     Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                    If the operating system's base image is Ubuntu Linux:
+                    If the operating system\'s base image is Ubuntu Linux:
         
-                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                    If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                    If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                     ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                   - **certificate** *(string) --* 
         
@@ -1481,7 +1481,7 @@ class Client(BaseClient):
         
                   The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                  This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                  This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
                 - **tags** *(list) --* 
         
@@ -1497,11 +1497,11 @@ class Client(BaseClient):
         
                     - **key** *(string) --* 
         
-                      The tag's key.
+                      The tag\'s key.
         
                     - **value** *(string) --* 
         
-                      The tag's value.
+                      The tag\'s value.
         
                 - **created** *(datetime) --* 
         
@@ -1509,7 +1509,7 @@ class Client(BaseClient):
         
                 - **lastModified** *(datetime) --* 
         
-                  When the build project's settings were last modified, expressed in Unix time format.
+                  When the build project\'s settings were last modified, expressed in Unix time format.
         
                 - **webhook** *(dict) --* 
         
@@ -1533,11 +1533,11 @@ class Client(BaseClient):
         
                   - **branchFilter** *(string) --* 
         
-                    A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+                    A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
                   - **lastModifiedSecret** *(datetime) --* 
         
-                    A timestamp indicating the last time a repository's secret token was modified. 
+                    A timestamp indicating the last time a repository\'s secret token was modified. 
         
                 - **vpcConfig** *(dict) --* 
         
@@ -1565,7 +1565,7 @@ class Client(BaseClient):
         
                   - **badgeEnabled** *(boolean) --* 
         
-                    Set this to true to generate a publicly-accessible URL for your project's build badge.
+                    Set this to true to generate a publicly-accessible URL for your project\'s build badge.
         
                   - **badgeRequestUrl** *(string) --* 
         
@@ -1626,10 +1626,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -1645,106 +1645,106 @@ class Client(BaseClient):
         ::
         
           response = client.create_project(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               source={
-                  'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                  'location': 'string',
-                  'gitCloneDepth': 123,
-                  'buildspec': 'string',
-                  'auth': {
-                      'type': 'OAUTH',
-                      'resource': 'string'
+                  \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                  \'location\': \'string\',
+                  \'gitCloneDepth\': 123,
+                  \'buildspec\': \'string\',
+                  \'auth\': {
+                      \'type\': \'OAUTH\',
+                      \'resource\': \'string\'
                   },
-                  'reportBuildStatus': True|False,
-                  'insecureSsl': True|False,
-                  'sourceIdentifier': 'string'
+                  \'reportBuildStatus\': True|False,
+                  \'insecureSsl\': True|False,
+                  \'sourceIdentifier\': \'string\'
               },
               secondarySources=[
                   {
-                      'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                      'location': 'string',
-                      'gitCloneDepth': 123,
-                      'buildspec': 'string',
-                      'auth': {
-                          'type': 'OAUTH',
-                          'resource': 'string'
+                      \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                      \'location\': \'string\',
+                      \'gitCloneDepth\': 123,
+                      \'buildspec\': \'string\',
+                      \'auth\': {
+                          \'type\': \'OAUTH\',
+                          \'resource\': \'string\'
                       },
-                      'reportBuildStatus': True|False,
-                      'insecureSsl': True|False,
-                      'sourceIdentifier': 'string'
+                      \'reportBuildStatus\': True|False,
+                      \'insecureSsl\': True|False,
+                      \'sourceIdentifier\': \'string\'
                   },
               ],
               artifacts={
-                  'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                  'location': 'string',
-                  'path': 'string',
-                  'namespaceType': 'NONE'|'BUILD_ID',
-                  'name': 'string',
-                  'packaging': 'NONE'|'ZIP',
-                  'overrideArtifactName': True|False,
-                  'encryptionDisabled': True|False,
-                  'artifactIdentifier': 'string'
+                  \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                  \'location\': \'string\',
+                  \'path\': \'string\',
+                  \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                  \'name\': \'string\',
+                  \'packaging\': \'NONE\'|\'ZIP\',
+                  \'overrideArtifactName\': True|False,
+                  \'encryptionDisabled\': True|False,
+                  \'artifactIdentifier\': \'string\'
               },
               secondaryArtifacts=[
                   {
-                      'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                      'location': 'string',
-                      'path': 'string',
-                      'namespaceType': 'NONE'|'BUILD_ID',
-                      'name': 'string',
-                      'packaging': 'NONE'|'ZIP',
-                      'overrideArtifactName': True|False,
-                      'encryptionDisabled': True|False,
-                      'artifactIdentifier': 'string'
+                      \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                      \'location\': \'string\',
+                      \'path\': \'string\',
+                      \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                      \'name\': \'string\',
+                      \'packaging\': \'NONE\'|\'ZIP\',
+                      \'overrideArtifactName\': True|False,
+                      \'encryptionDisabled\': True|False,
+                      \'artifactIdentifier\': \'string\'
                   },
               ],
               cache={
-                  'type': 'NO_CACHE'|'S3',
-                  'location': 'string'
+                  \'type\': \'NO_CACHE\'|\'S3\',
+                  \'location\': \'string\'
               },
               environment={
-                  'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                  'image': 'string',
-                  'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                  'environmentVariables': [
+                  \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                  \'image\': \'string\',
+                  \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                  \'environmentVariables\': [
                       {
-                          'name': 'string',
-                          'value': 'string',
-                          'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                          \'name\': \'string\',
+                          \'value\': \'string\',
+                          \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                       },
                   ],
-                  'privilegedMode': True|False,
-                  'certificate': 'string'
+                  \'privilegedMode\': True|False,
+                  \'certificate\': \'string\'
               },
-              serviceRole='string',
+              serviceRole=\'string\',
               timeoutInMinutes=123,
-              encryptionKey='string',
+              encryptionKey=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ],
               vpcConfig={
-                  'vpcId': 'string',
-                  'subnets': [
-                      'string',
+                  \'vpcId\': \'string\',
+                  \'subnets\': [
+                      \'string\',
                   ],
-                  'securityGroupIds': [
-                      'string',
+                  \'securityGroupIds\': [
+                      \'string\',
                   ]
               },
               badgeEnabled=True|False,
               logsConfig={
-                  'cloudWatchLogs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'groupName': 'string',
-                      'streamName': 'string'
+                  \'cloudWatchLogs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'groupName\': \'string\',
+                      \'streamName\': \'string\'
                   },
-                  's3Logs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                  \'s3Logs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'location\': \'string\'
                   }
               }
           )
@@ -1783,7 +1783,7 @@ class Client(BaseClient):
         
             Information about the location of the source code to be built. Valid values include:
         
-            * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+            * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
              
             * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
              
@@ -1793,9 +1793,9 @@ class Client(BaseClient):
                
               * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                
-            * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+            * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
              
-            * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+            * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
              
           - **gitCloneDepth** *(integer) --* 
         
@@ -1811,7 +1811,7 @@ class Client(BaseClient):
         
             Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-            This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+            This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
             - **type** *(string) --* **[REQUIRED]** 
         
@@ -1823,7 +1823,7 @@ class Client(BaseClient):
         
           - **reportBuildStatus** *(boolean) --* 
         
-            Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+            Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
           - **insecureSsl** *(boolean) --* 
         
@@ -1862,7 +1862,7 @@ class Client(BaseClient):
         
               Information about the location of the source code to be built. Valid values include:
         
-              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                
               * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                
@@ -1872,9 +1872,9 @@ class Client(BaseClient):
                  
                 * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                  
-              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
-              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
             - **gitCloneDepth** *(integer) --* 
         
@@ -1890,7 +1890,7 @@ class Client(BaseClient):
         
               Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-              This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+              This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
               - **type** *(string) --* **[REQUIRED]** 
         
@@ -1902,7 +1902,7 @@ class Client(BaseClient):
         
             - **reportBuildStatus** *(boolean) --* 
         
-              Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+              Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
             - **insecureSsl** *(boolean) --* 
         
@@ -1973,15 +1973,15 @@ class Client(BaseClient):
              
             * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
              
-            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
              
             For example:
         
             * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
              
-            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
              
-            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
              
           - **packaging** *(string) --* 
         
@@ -2074,15 +2074,15 @@ class Client(BaseClient):
                
               * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                
-              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                
               For example:
         
               * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                
-              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                
-              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                
             - **packaging** *(string) --* 
         
@@ -2186,13 +2186,13 @@ class Client(BaseClient):
         
             Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-            If the operating system's base image is Ubuntu Linux:
+            If the operating system\'s base image is Ubuntu Linux:
         
-             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-            If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+            If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
           - **certificate** *(string) --* 
         
@@ -2213,7 +2213,7 @@ class Client(BaseClient):
         
           The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-          You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
+          You can specify either the CMK\'s Amazon Resource Name (ARN) or, if available, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
         :type tags: list
         :param tags: 
@@ -2230,11 +2230,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* 
         
-              The tag's value.
+              The tag\'s value.
         
         :type vpcConfig: dict
         :param vpcConfig: 
@@ -2260,7 +2260,7 @@ class Client(BaseClient):
         :type badgeEnabled: boolean
         :param badgeEnabled: 
         
-          Set this to true to generate a publicly-accessible URL for your project's build badge.
+          Set this to true to generate a publicly-accessible URL for your project\'s build badge.
         
         :type logsConfig: dict
         :param logsConfig: 
@@ -2311,120 +2311,120 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'description': 'string',
-                    'source': {
-                        'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                        'location': 'string',
-                        'gitCloneDepth': 123,
-                        'buildspec': 'string',
-                        'auth': {
-                            'type': 'OAUTH',
-                            'resource': 'string'
+                \'project\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'description\': \'string\',
+                    \'source\': {
+                        \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                        \'location\': \'string\',
+                        \'gitCloneDepth\': 123,
+                        \'buildspec\': \'string\',
+                        \'auth\': {
+                            \'type\': \'OAUTH\',
+                            \'resource\': \'string\'
                         },
-                        'reportBuildStatus': True|False,
-                        'insecureSsl': True|False,
-                        'sourceIdentifier': 'string'
+                        \'reportBuildStatus\': True|False,
+                        \'insecureSsl\': True|False,
+                        \'sourceIdentifier\': \'string\'
                     },
-                    'secondarySources': [
+                    \'secondarySources\': [
                         {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
                     ],
-                    'artifacts': {
-                        'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                        'location': 'string',
-                        'path': 'string',
-                        'namespaceType': 'NONE'|'BUILD_ID',
-                        'name': 'string',
-                        'packaging': 'NONE'|'ZIP',
-                        'overrideArtifactName': True|False,
-                        'encryptionDisabled': True|False,
-                        'artifactIdentifier': 'string'
+                    \'artifacts\': {
+                        \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                        \'location\': \'string\',
+                        \'path\': \'string\',
+                        \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                        \'name\': \'string\',
+                        \'packaging\': \'NONE\'|\'ZIP\',
+                        \'overrideArtifactName\': True|False,
+                        \'encryptionDisabled\': True|False,
+                        \'artifactIdentifier\': \'string\'
                     },
-                    'secondaryArtifacts': [
+                    \'secondaryArtifacts\': [
                         {
-                            'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                            'location': 'string',
-                            'path': 'string',
-                            'namespaceType': 'NONE'|'BUILD_ID',
-                            'name': 'string',
-                            'packaging': 'NONE'|'ZIP',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                            \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                            \'location\': \'string\',
+                            \'path\': \'string\',
+                            \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                            \'name\': \'string\',
+                            \'packaging\': \'NONE\'|\'ZIP\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
                     ],
-                    'cache': {
-                        'type': 'NO_CACHE'|'S3',
-                        'location': 'string'
+                    \'cache\': {
+                        \'type\': \'NO_CACHE\'|\'S3\',
+                        \'location\': \'string\'
                     },
-                    'environment': {
-                        'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                        'image': 'string',
-                        'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                        'environmentVariables': [
+                    \'environment\': {
+                        \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                        \'image\': \'string\',
+                        \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                        \'environmentVariables\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                             },
                         ],
-                        'privilegedMode': True|False,
-                        'certificate': 'string'
+                        \'privilegedMode\': True|False,
+                        \'certificate\': \'string\'
                     },
-                    'serviceRole': 'string',
-                    'timeoutInMinutes': 123,
-                    'encryptionKey': 'string',
-                    'tags': [
+                    \'serviceRole\': \'string\',
+                    \'timeoutInMinutes\': 123,
+                    \'encryptionKey\': \'string\',
+                    \'tags\': [
                         {
-                            'key': 'string',
-                            'value': 'string'
+                            \'key\': \'string\',
+                            \'value\': \'string\'
                         },
                     ],
-                    'created': datetime(2015, 1, 1),
-                    'lastModified': datetime(2015, 1, 1),
-                    'webhook': {
-                        'url': 'string',
-                        'payloadUrl': 'string',
-                        'secret': 'string',
-                        'branchFilter': 'string',
-                        'lastModifiedSecret': datetime(2015, 1, 1)
+                    \'created\': datetime(2015, 1, 1),
+                    \'lastModified\': datetime(2015, 1, 1),
+                    \'webhook\': {
+                        \'url\': \'string\',
+                        \'payloadUrl\': \'string\',
+                        \'secret\': \'string\',
+                        \'branchFilter\': \'string\',
+                        \'lastModifiedSecret\': datetime(2015, 1, 1)
                     },
-                    'vpcConfig': {
-                        'vpcId': 'string',
-                        'subnets': [
-                            'string',
+                    \'vpcConfig\': {
+                        \'vpcId\': \'string\',
+                        \'subnets\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'badge': {
-                        'badgeEnabled': True|False,
-                        'badgeRequestUrl': 'string'
+                    \'badge\': {
+                        \'badgeEnabled\': True|False,
+                        \'badgeRequestUrl\': \'string\'
                     },
-                    'logsConfig': {
-                        'cloudWatchLogs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'groupName': 'string',
-                            'streamName': 'string'
+                    \'logsConfig\': {
+                        \'cloudWatchLogs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'groupName\': \'string\',
+                            \'streamName\': \'string\'
                         },
-                        's3Logs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                        \'s3Logs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'location\': \'string\'
                         }
                     }
                 }
@@ -2473,7 +2473,7 @@ class Client(BaseClient):
         
                   Information about the location of the source code to be built. Valid values include:
         
-                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                    
                   * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                    
@@ -2483,9 +2483,9 @@ class Client(BaseClient):
                      
                     * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                      
-                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
-                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
                 - **gitCloneDepth** *(integer) --* 
         
@@ -2501,7 +2501,7 @@ class Client(BaseClient):
         
                   Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                  This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                  This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                   - **type** *(string) --* 
         
@@ -2513,7 +2513,7 @@ class Client(BaseClient):
         
                 - **reportBuildStatus** *(boolean) --* 
         
-                  Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                  Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                 - **insecureSsl** *(boolean) --* 
         
@@ -2551,7 +2551,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -2561,9 +2561,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -2579,7 +2579,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -2591,7 +2591,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -2661,15 +2661,15 @@ class Client(BaseClient):
                    
                   * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                    
-                  * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                  * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                    
                   For example:
         
                   * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                    
-                  * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                  * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                    
-                  * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                  * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                    
                 - **packaging** *(string) --* 
         
@@ -2761,15 +2761,15 @@ class Client(BaseClient):
                      
                     * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                      
-                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                      
                     For example:
         
                     * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                      
-                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                      
-                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                      
                   - **packaging** *(string) --* 
         
@@ -2871,13 +2871,13 @@ class Client(BaseClient):
         
                   Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                  If the operating system's base image is Ubuntu Linux:
+                  If the operating system\'s base image is Ubuntu Linux:
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                  If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                  If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                 - **certificate** *(string) --* 
         
@@ -2895,7 +2895,7 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
               - **tags** *(list) --* 
         
@@ -2911,11 +2911,11 @@ class Client(BaseClient):
         
                   - **key** *(string) --* 
         
-                    The tag's key.
+                    The tag\'s key.
         
                   - **value** *(string) --* 
         
-                    The tag's value.
+                    The tag\'s value.
         
               - **created** *(datetime) --* 
         
@@ -2923,7 +2923,7 @@ class Client(BaseClient):
         
               - **lastModified** *(datetime) --* 
         
-                When the build project's settings were last modified, expressed in Unix time format.
+                When the build project\'s settings were last modified, expressed in Unix time format.
         
               - **webhook** *(dict) --* 
         
@@ -2947,11 +2947,11 @@ class Client(BaseClient):
         
                 - **branchFilter** *(string) --* 
         
-                  A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+                  A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
                 - **lastModifiedSecret** *(datetime) --* 
         
-                  A timestamp indicating the last time a repository's secret token was modified. 
+                  A timestamp indicating the last time a repository\'s secret token was modified. 
         
               - **vpcConfig** *(dict) --* 
         
@@ -2979,7 +2979,7 @@ class Client(BaseClient):
         
                 - **badgeEnabled** *(boolean) --* 
         
-                  Set this to true to generate a publicly-accessible URL for your project's build badge.
+                  Set this to true to generate a publicly-accessible URL for your project\'s build badge.
         
                 - **badgeRequestUrl** *(string) --* 
         
@@ -3033,7 +3033,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds will be created for each commit. One build is triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you will be billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more information, see step 5 in `Change a Build Project's Settings <http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console>`__ .
+          If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds will be created for each commit. One build is triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you will be billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more information, see step 5 in `Change a Build Project\'s Settings <http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/CreateWebhook>`_
         
@@ -3041,8 +3041,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_webhook(
-              projectName='string',
-              branchFilter='string'
+              projectName=\'string\',
+              branchFilter=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -3052,7 +3052,7 @@ class Client(BaseClient):
         :type branchFilter: string
         :param branchFilter: 
         
-          A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+          A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
         :rtype: dict
         :returns: 
@@ -3062,12 +3062,12 @@ class Client(BaseClient):
           ::
         
             {
-                'webhook': {
-                    'url': 'string',
-                    'payloadUrl': 'string',
-                    'secret': 'string',
-                    'branchFilter': 'string',
-                    'lastModifiedSecret': datetime(2015, 1, 1)
+                \'webhook\': {
+                    \'url\': \'string\',
+                    \'payloadUrl\': \'string\',
+                    \'secret\': \'string\',
+                    \'branchFilter\': \'string\',
+                    \'lastModifiedSecret\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -3096,11 +3096,11 @@ class Client(BaseClient):
         
               - **branchFilter** *(string) --* 
         
-                A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+                A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
               - **lastModifiedSecret** *(datetime) --* 
         
-                A timestamp indicating the last time a repository's secret token was modified. 
+                A timestamp indicating the last time a repository\'s secret token was modified. 
         
         """
         pass
@@ -3114,7 +3114,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_project(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -3144,7 +3144,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_webhook(
-              projectName='string'
+              projectName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -3181,7 +3181,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3193,10 +3193,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3228,7 +3228,7 @@ class Client(BaseClient):
         ::
         
           response = client.invalidate_project_cache(
-              projectName='string'
+              projectName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -3258,8 +3258,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_builds(
-              sortOrder='ASCENDING'|'DESCENDING',
-              nextToken='string'
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
+              nextToken=\'string\'
           )
         :type sortOrder: string
         :param sortOrder: 
@@ -3283,10 +3283,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3314,9 +3314,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_builds_for_project(
-              projectName='string',
-              sortOrder='ASCENDING'|'DESCENDING',
-              nextToken='string'
+              projectName=\'string\',
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
+              nextToken=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -3345,10 +3345,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ids': [
-                    'string',
+                \'ids\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3385,18 +3385,18 @@ class Client(BaseClient):
           ::
         
             {
-                'platforms': [
+                \'platforms\': [
                     {
-                        'platform': 'DEBIAN'|'AMAZON_LINUX'|'UBUNTU'|'WINDOWS_SERVER',
-                        'languages': [
+                        \'platform\': \'DEBIAN\'|\'AMAZON_LINUX\'|\'UBUNTU\'|\'WINDOWS_SERVER\',
+                        \'languages\': [
                             {
-                                'language': 'JAVA'|'PYTHON'|'NODE_JS'|'RUBY'|'GOLANG'|'DOCKER'|'ANDROID'|'DOTNET'|'BASE',
-                                'images': [
+                                \'language\': \'JAVA\'|\'PYTHON\'|\'NODE_JS\'|\'RUBY\'|\'GOLANG\'|\'DOCKER\'|\'ANDROID\'|\'DOTNET\'|\'BASE\',
+                                \'images\': [
                                     {
-                                        'name': 'string',
-                                        'description': 'string',
-                                        'versions': [
-                                            'string',
+                                        \'name\': \'string\',
+                                        \'description\': \'string\',
+                                        \'versions\': [
+                                            \'string\',
                                         ]
                                     },
                                 ]
@@ -3419,7 +3419,7 @@ class Client(BaseClient):
         
                 - **platform** *(string) --* 
         
-                  The platform's name.
+                  The platform\'s name.
         
                 - **languages** *(list) --* 
         
@@ -3467,9 +3467,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_projects(
-              sortBy='NAME'|'CREATED_TIME'|'LAST_MODIFIED_TIME',
-              sortOrder='ASCENDING'|'DESCENDING',
-              nextToken='string'
+              sortBy=\'NAME\'|\'CREATED_TIME\'|\'LAST_MODIFIED_TIME\',
+              sortOrder=\'ASCENDING\'|\'DESCENDING\',
+              nextToken=\'string\'
           )
         :type sortBy: string
         :param sortBy: 
@@ -3480,7 +3480,7 @@ class Client(BaseClient):
            
           * ``LAST_MODIFIED_TIME`` : List the build project names based on when information about each build project was last changed. 
            
-          * ``NAME`` : List the build project names based on each build project's name. 
+          * ``NAME`` : List the build project names based on each build project\'s name. 
            
           Use ``sortOrder`` to specify in what order to list the build project names based on the preceding criteria.
         
@@ -3508,9 +3508,9 @@ class Client(BaseClient):
           ::
         
             {
-                'nextToken': 'string',
-                'projects': [
-                    'string',
+                \'nextToken\': \'string\',
+                \'projects\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3539,91 +3539,91 @@ class Client(BaseClient):
         ::
         
           response = client.start_build(
-              projectName='string',
+              projectName=\'string\',
               secondarySourcesOverride=[
                   {
-                      'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                      'location': 'string',
-                      'gitCloneDepth': 123,
-                      'buildspec': 'string',
-                      'auth': {
-                          'type': 'OAUTH',
-                          'resource': 'string'
+                      \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                      \'location\': \'string\',
+                      \'gitCloneDepth\': 123,
+                      \'buildspec\': \'string\',
+                      \'auth\': {
+                          \'type\': \'OAUTH\',
+                          \'resource\': \'string\'
                       },
-                      'reportBuildStatus': True|False,
-                      'insecureSsl': True|False,
-                      'sourceIdentifier': 'string'
+                      \'reportBuildStatus\': True|False,
+                      \'insecureSsl\': True|False,
+                      \'sourceIdentifier\': \'string\'
                   },
               ],
               secondarySourcesVersionOverride=[
                   {
-                      'sourceIdentifier': 'string',
-                      'sourceVersion': 'string'
+                      \'sourceIdentifier\': \'string\',
+                      \'sourceVersion\': \'string\'
                   },
               ],
-              sourceVersion='string',
+              sourceVersion=\'string\',
               artifactsOverride={
-                  'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                  'location': 'string',
-                  'path': 'string',
-                  'namespaceType': 'NONE'|'BUILD_ID',
-                  'name': 'string',
-                  'packaging': 'NONE'|'ZIP',
-                  'overrideArtifactName': True|False,
-                  'encryptionDisabled': True|False,
-                  'artifactIdentifier': 'string'
+                  \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                  \'location\': \'string\',
+                  \'path\': \'string\',
+                  \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                  \'name\': \'string\',
+                  \'packaging\': \'NONE\'|\'ZIP\',
+                  \'overrideArtifactName\': True|False,
+                  \'encryptionDisabled\': True|False,
+                  \'artifactIdentifier\': \'string\'
               },
               secondaryArtifactsOverride=[
                   {
-                      'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                      'location': 'string',
-                      'path': 'string',
-                      'namespaceType': 'NONE'|'BUILD_ID',
-                      'name': 'string',
-                      'packaging': 'NONE'|'ZIP',
-                      'overrideArtifactName': True|False,
-                      'encryptionDisabled': True|False,
-                      'artifactIdentifier': 'string'
+                      \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                      \'location\': \'string\',
+                      \'path\': \'string\',
+                      \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                      \'name\': \'string\',
+                      \'packaging\': \'NONE\'|\'ZIP\',
+                      \'overrideArtifactName\': True|False,
+                      \'encryptionDisabled\': True|False,
+                      \'artifactIdentifier\': \'string\'
                   },
               ],
               environmentVariablesOverride=[
                   {
-                      'name': 'string',
-                      'value': 'string',
-                      'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                      \'name\': \'string\',
+                      \'value\': \'string\',
+                      \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                   },
               ],
-              sourceTypeOverride='CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-              sourceLocationOverride='string',
+              sourceTypeOverride=\'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+              sourceLocationOverride=\'string\',
               sourceAuthOverride={
-                  'type': 'OAUTH',
-                  'resource': 'string'
+                  \'type\': \'OAUTH\',
+                  \'resource\': \'string\'
               },
               gitCloneDepthOverride=123,
-              buildspecOverride='string',
+              buildspecOverride=\'string\',
               insecureSslOverride=True|False,
               reportBuildStatusOverride=True|False,
-              environmentTypeOverride='WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-              imageOverride='string',
-              computeTypeOverride='BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-              certificateOverride='string',
+              environmentTypeOverride=\'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+              imageOverride=\'string\',
+              computeTypeOverride=\'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+              certificateOverride=\'string\',
               cacheOverride={
-                  'type': 'NO_CACHE'|'S3',
-                  'location': 'string'
+                  \'type\': \'NO_CACHE\'|\'S3\',
+                  \'location\': \'string\'
               },
-              serviceRoleOverride='string',
+              serviceRoleOverride=\'string\',
               privilegedModeOverride=True|False,
               timeoutInMinutesOverride=123,
-              idempotencyToken='string',
+              idempotencyToken=\'string\',
               logsConfigOverride={
-                  'cloudWatchLogs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'groupName': 'string',
-                      'streamName': 'string'
+                  \'cloudWatchLogs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'groupName\': \'string\',
+                      \'streamName\': \'string\'
                   },
-                  's3Logs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                  \'s3Logs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'location\': \'string\'
                   }
               }
           )
@@ -3661,7 +3661,7 @@ class Client(BaseClient):
         
               Information about the location of the source code to be built. Valid values include:
         
-              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                
               * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                
@@ -3671,9 +3671,9 @@ class Client(BaseClient):
                  
                 * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                  
-              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
-              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
             - **gitCloneDepth** *(integer) --* 
         
@@ -3689,7 +3689,7 @@ class Client(BaseClient):
         
               Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-              This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+              This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
               - **type** *(string) --* **[REQUIRED]** 
         
@@ -3701,7 +3701,7 @@ class Client(BaseClient):
         
             - **reportBuildStatus** *(boolean) --* 
         
-              Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+              Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
             - **insecureSsl** *(boolean) --* 
         
@@ -3714,7 +3714,7 @@ class Client(BaseClient):
         :type secondarySourcesVersionOverride: list
         :param secondarySourcesVersionOverride: 
         
-          An array of ``ProjectSourceVersion`` objects that specify one or more versions of the project's secondary sources to be used for this build only. 
+          An array of ``ProjectSourceVersion`` objects that specify one or more versions of the project\'s secondary sources to be used for this build only. 
         
           - *(dict) --* 
         
@@ -3730,9 +3730,9 @@ class Client(BaseClient):
         
               * For AWS CodeCommit: the commit ID to use. 
                
-              * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+              * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                
-              * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+              * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                
               * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                
@@ -3743,9 +3743,9 @@ class Client(BaseClient):
         
           * For AWS CodeCommit: the commit ID to use. 
            
-          * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+          * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
            
-          * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+          * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
            
           * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
            
@@ -3810,15 +3810,15 @@ class Client(BaseClient):
              
             * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
              
-            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
              
             For example:
         
             * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
              
-            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
              
-            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
              
           - **packaging** *(string) --* 
         
@@ -3911,15 +3911,15 @@ class Client(BaseClient):
                
               * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                
-              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                
               For example:
         
               * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                
-              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                
-              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                
             - **packaging** *(string) --* 
         
@@ -3989,7 +3989,7 @@ class Client(BaseClient):
         :type sourceAuthOverride: dict
         :param sourceAuthOverride: 
         
-          An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
+          An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project\'s source is BitBucket or GitHub.
         
           - **type** *(string) --* **[REQUIRED]** 
         
@@ -4012,12 +4012,12 @@ class Client(BaseClient):
         :type insecureSslOverride: boolean
         :param insecureSslOverride: 
         
-          Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
+          Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build\'s source is GitHub Enterprise.
         
         :type reportBuildStatusOverride: boolean
         :param reportBuildStatusOverride: 
         
-          Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown. 
+          Set to true to report to your source provider the status of a build\'s start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown. 
         
         :type environmentTypeOverride: string
         :param environmentTypeOverride: 
@@ -4129,134 +4129,134 @@ class Client(BaseClient):
           ::
         
             {
-                'build': {
-                    'id': 'string',
-                    'arn': 'string',
-                    'startTime': datetime(2015, 1, 1),
-                    'endTime': datetime(2015, 1, 1),
-                    'currentPhase': 'string',
-                    'buildStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                    'sourceVersion': 'string',
-                    'resolvedSourceVersion': 'string',
-                    'projectName': 'string',
-                    'phases': [
+                \'build\': {
+                    \'id\': \'string\',
+                    \'arn\': \'string\',
+                    \'startTime\': datetime(2015, 1, 1),
+                    \'endTime\': datetime(2015, 1, 1),
+                    \'currentPhase\': \'string\',
+                    \'buildStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                    \'sourceVersion\': \'string\',
+                    \'resolvedSourceVersion\': \'string\',
+                    \'projectName\': \'string\',
+                    \'phases\': [
                         {
-                            'phaseType': 'SUBMITTED'|'PROVISIONING'|'DOWNLOAD_SOURCE'|'INSTALL'|'PRE_BUILD'|'BUILD'|'POST_BUILD'|'UPLOAD_ARTIFACTS'|'FINALIZING'|'COMPLETED',
-                            'phaseStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                            'startTime': datetime(2015, 1, 1),
-                            'endTime': datetime(2015, 1, 1),
-                            'durationInSeconds': 123,
-                            'contexts': [
+                            \'phaseType\': \'SUBMITTED\'|\'PROVISIONING\'|\'DOWNLOAD_SOURCE\'|\'INSTALL\'|\'PRE_BUILD\'|\'BUILD\'|\'POST_BUILD\'|\'UPLOAD_ARTIFACTS\'|\'FINALIZING\'|\'COMPLETED\',
+                            \'phaseStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                            \'startTime\': datetime(2015, 1, 1),
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'durationInSeconds\': 123,
+                            \'contexts\': [
                                 {
-                                    'statusCode': 'string',
-                                    'message': 'string'
+                                    \'statusCode\': \'string\',
+                                    \'message\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'source': {
-                        'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                        'location': 'string',
-                        'gitCloneDepth': 123,
-                        'buildspec': 'string',
-                        'auth': {
-                            'type': 'OAUTH',
-                            'resource': 'string'
+                    \'source\': {
+                        \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                        \'location\': \'string\',
+                        \'gitCloneDepth\': 123,
+                        \'buildspec\': \'string\',
+                        \'auth\': {
+                            \'type\': \'OAUTH\',
+                            \'resource\': \'string\'
                         },
-                        'reportBuildStatus': True|False,
-                        'insecureSsl': True|False,
-                        'sourceIdentifier': 'string'
+                        \'reportBuildStatus\': True|False,
+                        \'insecureSsl\': True|False,
+                        \'sourceIdentifier\': \'string\'
                     },
-                    'secondarySources': [
+                    \'secondarySources\': [
                         {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
                     ],
-                    'secondarySourceVersions': [
+                    \'secondarySourceVersions\': [
                         {
-                            'sourceIdentifier': 'string',
-                            'sourceVersion': 'string'
+                            \'sourceIdentifier\': \'string\',
+                            \'sourceVersion\': \'string\'
                         },
                     ],
-                    'artifacts': {
-                        'location': 'string',
-                        'sha256sum': 'string',
-                        'md5sum': 'string',
-                        'overrideArtifactName': True|False,
-                        'encryptionDisabled': True|False,
-                        'artifactIdentifier': 'string'
+                    \'artifacts\': {
+                        \'location\': \'string\',
+                        \'sha256sum\': \'string\',
+                        \'md5sum\': \'string\',
+                        \'overrideArtifactName\': True|False,
+                        \'encryptionDisabled\': True|False,
+                        \'artifactIdentifier\': \'string\'
                     },
-                    'secondaryArtifacts': [
+                    \'secondaryArtifacts\': [
                         {
-                            'location': 'string',
-                            'sha256sum': 'string',
-                            'md5sum': 'string',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                            \'location\': \'string\',
+                            \'sha256sum\': \'string\',
+                            \'md5sum\': \'string\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
                     ],
-                    'cache': {
-                        'type': 'NO_CACHE'|'S3',
-                        'location': 'string'
+                    \'cache\': {
+                        \'type\': \'NO_CACHE\'|\'S3\',
+                        \'location\': \'string\'
                     },
-                    'environment': {
-                        'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                        'image': 'string',
-                        'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                        'environmentVariables': [
+                    \'environment\': {
+                        \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                        \'image\': \'string\',
+                        \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                        \'environmentVariables\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                             },
                         ],
-                        'privilegedMode': True|False,
-                        'certificate': 'string'
+                        \'privilegedMode\': True|False,
+                        \'certificate\': \'string\'
                     },
-                    'serviceRole': 'string',
-                    'logs': {
-                        'groupName': 'string',
-                        'streamName': 'string',
-                        'deepLink': 'string',
-                        's3DeepLink': 'string',
-                        'cloudWatchLogs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'groupName': 'string',
-                            'streamName': 'string'
+                    \'serviceRole\': \'string\',
+                    \'logs\': {
+                        \'groupName\': \'string\',
+                        \'streamName\': \'string\',
+                        \'deepLink\': \'string\',
+                        \'s3DeepLink\': \'string\',
+                        \'cloudWatchLogs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'groupName\': \'string\',
+                            \'streamName\': \'string\'
                         },
-                        's3Logs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                        \'s3Logs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'location\': \'string\'
                         }
                     },
-                    'timeoutInMinutes': 123,
-                    'buildComplete': True|False,
-                    'initiator': 'string',
-                    'vpcConfig': {
-                        'vpcId': 'string',
-                        'subnets': [
-                            'string',
+                    \'timeoutInMinutes\': 123,
+                    \'buildComplete\': True|False,
+                    \'initiator\': \'string\',
+                    \'vpcConfig\': {
+                        \'vpcId\': \'string\',
+                        \'subnets\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'networkInterface': {
-                        'subnetId': 'string',
-                        'networkInterfaceId': 'string'
+                    \'networkInterface\': {
+                        \'subnetId\': \'string\',
+                        \'networkInterfaceId\': \'string\'
                     },
-                    'encryptionKey': 'string'
+                    \'encryptionKey\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4309,7 +4309,7 @@ class Client(BaseClient):
         
               - **resolvedSourceVersion** *(string) --* 
         
-                An identifier for the version of this build's source code. 
+                An identifier for the version of this build\'s source code. 
         
                 * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.  
                  
@@ -4379,7 +4379,7 @@ class Client(BaseClient):
         
                   - **durationInSeconds** *(integer) --* 
         
-                    How long, in seconds, between the starting and ending times of the build's phase.
+                    How long, in seconds, between the starting and ending times of the build\'s phase.
         
                   - **contexts** *(list) --* 
         
@@ -4395,7 +4395,7 @@ class Client(BaseClient):
         
                       - **message** *(string) --* 
         
-                        An explanation of the build phase's context. This explanation might include a command ID and an exit code.
+                        An explanation of the build phase\'s context. This explanation might include a command ID and an exit code.
         
               - **source** *(dict) --* 
         
@@ -4421,7 +4421,7 @@ class Client(BaseClient):
         
                   Information about the location of the source code to be built. Valid values include:
         
-                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                    
                   * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                    
@@ -4431,9 +4431,9 @@ class Client(BaseClient):
                      
                     * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                      
-                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
-                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
                 - **gitCloneDepth** *(integer) --* 
         
@@ -4449,7 +4449,7 @@ class Client(BaseClient):
         
                   Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                  This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                  This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                   - **type** *(string) --* 
         
@@ -4461,7 +4461,7 @@ class Client(BaseClient):
         
                 - **reportBuildStatus** *(boolean) --* 
         
-                  Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                  Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                 - **insecureSsl** *(boolean) --* 
         
@@ -4499,7 +4499,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -4509,9 +4509,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -4527,7 +4527,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -4539,7 +4539,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -4555,9 +4555,9 @@ class Client(BaseClient):
         
                 * For AWS CodeCommit: the commit ID to use. 
                  
-                * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                  
-                * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                  
                 * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                  
@@ -4575,9 +4575,9 @@ class Client(BaseClient):
         
                     * For AWS CodeCommit: the commit ID to use. 
                      
-                    * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                    * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                      
-                    * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                    * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                      
                     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                      
@@ -4597,7 +4597,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                    This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                 - **md5sum** *(string) --* 
         
@@ -4607,7 +4607,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                    This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                 - **overrideArtifactName** *(boolean) --* 
         
@@ -4641,7 +4641,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **md5sum** *(string) --* 
         
@@ -4651,7 +4651,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **overrideArtifactName** *(boolean) --* 
         
@@ -4739,13 +4739,13 @@ class Client(BaseClient):
         
                   Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                  If the operating system's base image is Ubuntu Linux:
+                  If the operating system\'s base image is Ubuntu Linux:
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                  If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                  If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                 - **certificate** *(string) --* 
         
@@ -4757,7 +4757,7 @@ class Client(BaseClient):
         
               - **logs** *(dict) --* 
         
-                Information about the build's logs in Amazon CloudWatch Logs.
+                Information about the build\'s logs in Amazon CloudWatch Logs.
         
                 - **groupName** *(string) --* 
         
@@ -4823,9 +4823,9 @@ class Client(BaseClient):
         
                 The entity that started the build. Valid values include:
         
-                * If AWS CodePipeline started the build, the pipeline's name (for example, ``codepipeline/my-demo-pipeline`` ). 
+                * If AWS CodePipeline started the build, the pipeline\'s name (for example, ``codepipeline/my-demo-pipeline`` ). 
                  
-                * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example ``MyUserName`` ). 
+                * If an AWS Identity and Access Management (IAM) user started the build, the user\'s name (for example ``MyUserName`` ). 
                  
                 * If the Jenkins plugin for AWS CodeBuild started the build, the string ``CodeBuild-Jenkins-Plugin`` . 
                  
@@ -4865,7 +4865,7 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
         """
         pass
@@ -4879,7 +4879,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_build(
-              id='string'
+              id=\'string\'
           )
         :type id: string
         :param id: **[REQUIRED]** 
@@ -4894,134 +4894,134 @@ class Client(BaseClient):
           ::
         
             {
-                'build': {
-                    'id': 'string',
-                    'arn': 'string',
-                    'startTime': datetime(2015, 1, 1),
-                    'endTime': datetime(2015, 1, 1),
-                    'currentPhase': 'string',
-                    'buildStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                    'sourceVersion': 'string',
-                    'resolvedSourceVersion': 'string',
-                    'projectName': 'string',
-                    'phases': [
+                \'build\': {
+                    \'id\': \'string\',
+                    \'arn\': \'string\',
+                    \'startTime\': datetime(2015, 1, 1),
+                    \'endTime\': datetime(2015, 1, 1),
+                    \'currentPhase\': \'string\',
+                    \'buildStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                    \'sourceVersion\': \'string\',
+                    \'resolvedSourceVersion\': \'string\',
+                    \'projectName\': \'string\',
+                    \'phases\': [
                         {
-                            'phaseType': 'SUBMITTED'|'PROVISIONING'|'DOWNLOAD_SOURCE'|'INSTALL'|'PRE_BUILD'|'BUILD'|'POST_BUILD'|'UPLOAD_ARTIFACTS'|'FINALIZING'|'COMPLETED',
-                            'phaseStatus': 'SUCCEEDED'|'FAILED'|'FAULT'|'TIMED_OUT'|'IN_PROGRESS'|'STOPPED',
-                            'startTime': datetime(2015, 1, 1),
-                            'endTime': datetime(2015, 1, 1),
-                            'durationInSeconds': 123,
-                            'contexts': [
+                            \'phaseType\': \'SUBMITTED\'|\'PROVISIONING\'|\'DOWNLOAD_SOURCE\'|\'INSTALL\'|\'PRE_BUILD\'|\'BUILD\'|\'POST_BUILD\'|\'UPLOAD_ARTIFACTS\'|\'FINALIZING\'|\'COMPLETED\',
+                            \'phaseStatus\': \'SUCCEEDED\'|\'FAILED\'|\'FAULT\'|\'TIMED_OUT\'|\'IN_PROGRESS\'|\'STOPPED\',
+                            \'startTime\': datetime(2015, 1, 1),
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'durationInSeconds\': 123,
+                            \'contexts\': [
                                 {
-                                    'statusCode': 'string',
-                                    'message': 'string'
+                                    \'statusCode\': \'string\',
+                                    \'message\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'source': {
-                        'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                        'location': 'string',
-                        'gitCloneDepth': 123,
-                        'buildspec': 'string',
-                        'auth': {
-                            'type': 'OAUTH',
-                            'resource': 'string'
+                    \'source\': {
+                        \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                        \'location\': \'string\',
+                        \'gitCloneDepth\': 123,
+                        \'buildspec\': \'string\',
+                        \'auth\': {
+                            \'type\': \'OAUTH\',
+                            \'resource\': \'string\'
                         },
-                        'reportBuildStatus': True|False,
-                        'insecureSsl': True|False,
-                        'sourceIdentifier': 'string'
+                        \'reportBuildStatus\': True|False,
+                        \'insecureSsl\': True|False,
+                        \'sourceIdentifier\': \'string\'
                     },
-                    'secondarySources': [
+                    \'secondarySources\': [
                         {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
                     ],
-                    'secondarySourceVersions': [
+                    \'secondarySourceVersions\': [
                         {
-                            'sourceIdentifier': 'string',
-                            'sourceVersion': 'string'
+                            \'sourceIdentifier\': \'string\',
+                            \'sourceVersion\': \'string\'
                         },
                     ],
-                    'artifacts': {
-                        'location': 'string',
-                        'sha256sum': 'string',
-                        'md5sum': 'string',
-                        'overrideArtifactName': True|False,
-                        'encryptionDisabled': True|False,
-                        'artifactIdentifier': 'string'
+                    \'artifacts\': {
+                        \'location\': \'string\',
+                        \'sha256sum\': \'string\',
+                        \'md5sum\': \'string\',
+                        \'overrideArtifactName\': True|False,
+                        \'encryptionDisabled\': True|False,
+                        \'artifactIdentifier\': \'string\'
                     },
-                    'secondaryArtifacts': [
+                    \'secondaryArtifacts\': [
                         {
-                            'location': 'string',
-                            'sha256sum': 'string',
-                            'md5sum': 'string',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                            \'location\': \'string\',
+                            \'sha256sum\': \'string\',
+                            \'md5sum\': \'string\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
                     ],
-                    'cache': {
-                        'type': 'NO_CACHE'|'S3',
-                        'location': 'string'
+                    \'cache\': {
+                        \'type\': \'NO_CACHE\'|\'S3\',
+                        \'location\': \'string\'
                     },
-                    'environment': {
-                        'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                        'image': 'string',
-                        'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                        'environmentVariables': [
+                    \'environment\': {
+                        \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                        \'image\': \'string\',
+                        \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                        \'environmentVariables\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                             },
                         ],
-                        'privilegedMode': True|False,
-                        'certificate': 'string'
+                        \'privilegedMode\': True|False,
+                        \'certificate\': \'string\'
                     },
-                    'serviceRole': 'string',
-                    'logs': {
-                        'groupName': 'string',
-                        'streamName': 'string',
-                        'deepLink': 'string',
-                        's3DeepLink': 'string',
-                        'cloudWatchLogs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'groupName': 'string',
-                            'streamName': 'string'
+                    \'serviceRole\': \'string\',
+                    \'logs\': {
+                        \'groupName\': \'string\',
+                        \'streamName\': \'string\',
+                        \'deepLink\': \'string\',
+                        \'s3DeepLink\': \'string\',
+                        \'cloudWatchLogs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'groupName\': \'string\',
+                            \'streamName\': \'string\'
                         },
-                        's3Logs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                        \'s3Logs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'location\': \'string\'
                         }
                     },
-                    'timeoutInMinutes': 123,
-                    'buildComplete': True|False,
-                    'initiator': 'string',
-                    'vpcConfig': {
-                        'vpcId': 'string',
-                        'subnets': [
-                            'string',
+                    \'timeoutInMinutes\': 123,
+                    \'buildComplete\': True|False,
+                    \'initiator\': \'string\',
+                    \'vpcConfig\': {
+                        \'vpcId\': \'string\',
+                        \'subnets\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'networkInterface': {
-                        'subnetId': 'string',
-                        'networkInterfaceId': 'string'
+                    \'networkInterface\': {
+                        \'subnetId\': \'string\',
+                        \'networkInterfaceId\': \'string\'
                     },
-                    'encryptionKey': 'string'
+                    \'encryptionKey\': \'string\'
                 }
             }
           **Response Structure** 
@@ -5074,7 +5074,7 @@ class Client(BaseClient):
         
               - **resolvedSourceVersion** *(string) --* 
         
-                An identifier for the version of this build's source code. 
+                An identifier for the version of this build\'s source code. 
         
                 * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.  
                  
@@ -5144,7 +5144,7 @@ class Client(BaseClient):
         
                   - **durationInSeconds** *(integer) --* 
         
-                    How long, in seconds, between the starting and ending times of the build's phase.
+                    How long, in seconds, between the starting and ending times of the build\'s phase.
         
                   - **contexts** *(list) --* 
         
@@ -5160,7 +5160,7 @@ class Client(BaseClient):
         
                       - **message** *(string) --* 
         
-                        An explanation of the build phase's context. This explanation might include a command ID and an exit code.
+                        An explanation of the build phase\'s context. This explanation might include a command ID and an exit code.
         
               - **source** *(dict) --* 
         
@@ -5186,7 +5186,7 @@ class Client(BaseClient):
         
                   Information about the location of the source code to be built. Valid values include:
         
-                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                    
                   * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                    
@@ -5196,9 +5196,9 @@ class Client(BaseClient):
                      
                     * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                      
-                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
-                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
                 - **gitCloneDepth** *(integer) --* 
         
@@ -5214,7 +5214,7 @@ class Client(BaseClient):
         
                   Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                  This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                  This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                   - **type** *(string) --* 
         
@@ -5226,7 +5226,7 @@ class Client(BaseClient):
         
                 - **reportBuildStatus** *(boolean) --* 
         
-                  Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                  Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                 - **insecureSsl** *(boolean) --* 
         
@@ -5264,7 +5264,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -5274,9 +5274,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -5292,7 +5292,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -5304,7 +5304,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -5320,9 +5320,9 @@ class Client(BaseClient):
         
                 * For AWS CodeCommit: the commit ID to use. 
                  
-                * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                  
-                * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                  
                 * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                  
@@ -5340,9 +5340,9 @@ class Client(BaseClient):
         
                     * For AWS CodeCommit: the commit ID to use. 
                      
-                    * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                    * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format ``pr/pull-request-ID`` (for example ``pr/25`` ). If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                      
-                    * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used. 
+                    * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch\'s HEAD commit ID will be used. If not specified, the default branch\'s HEAD commit ID will be used. 
                      
                     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use. 
                      
@@ -5362,7 +5362,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                    This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                 - **md5sum** *(string) --* 
         
@@ -5372,7 +5372,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                    This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                 - **overrideArtifactName** *(boolean) --* 
         
@@ -5406,7 +5406,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **md5sum** *(string) --* 
         
@@ -5416,7 +5416,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      This value is available only if the build project's ``packaging`` value is set to ``ZIP`` .
+                      This value is available only if the build project\'s ``packaging`` value is set to ``ZIP`` .
         
                   - **overrideArtifactName** *(boolean) --* 
         
@@ -5504,13 +5504,13 @@ class Client(BaseClient):
         
                   Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                  If the operating system's base image is Ubuntu Linux:
+                  If the operating system\'s base image is Ubuntu Linux:
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                  If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                  If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                 - **certificate** *(string) --* 
         
@@ -5522,7 +5522,7 @@ class Client(BaseClient):
         
               - **logs** *(dict) --* 
         
-                Information about the build's logs in Amazon CloudWatch Logs.
+                Information about the build\'s logs in Amazon CloudWatch Logs.
         
                 - **groupName** *(string) --* 
         
@@ -5588,9 +5588,9 @@ class Client(BaseClient):
         
                 The entity that started the build. Valid values include:
         
-                * If AWS CodePipeline started the build, the pipeline's name (for example, ``codepipeline/my-demo-pipeline`` ). 
+                * If AWS CodePipeline started the build, the pipeline\'s name (for example, ``codepipeline/my-demo-pipeline`` ). 
                  
-                * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example ``MyUserName`` ). 
+                * If an AWS Identity and Access Management (IAM) user started the build, the user\'s name (for example ``MyUserName`` ). 
                  
                 * If the Jenkins plugin for AWS CodeBuild started the build, the string ``CodeBuild-Jenkins-Plugin`` . 
                  
@@ -5630,7 +5630,7 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
         """
         pass
@@ -5644,106 +5644,106 @@ class Client(BaseClient):
         ::
         
           response = client.update_project(
-              name='string',
-              description='string',
+              name=\'string\',
+              description=\'string\',
               source={
-                  'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                  'location': 'string',
-                  'gitCloneDepth': 123,
-                  'buildspec': 'string',
-                  'auth': {
-                      'type': 'OAUTH',
-                      'resource': 'string'
+                  \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                  \'location\': \'string\',
+                  \'gitCloneDepth\': 123,
+                  \'buildspec\': \'string\',
+                  \'auth\': {
+                      \'type\': \'OAUTH\',
+                      \'resource\': \'string\'
                   },
-                  'reportBuildStatus': True|False,
-                  'insecureSsl': True|False,
-                  'sourceIdentifier': 'string'
+                  \'reportBuildStatus\': True|False,
+                  \'insecureSsl\': True|False,
+                  \'sourceIdentifier\': \'string\'
               },
               secondarySources=[
                   {
-                      'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                      'location': 'string',
-                      'gitCloneDepth': 123,
-                      'buildspec': 'string',
-                      'auth': {
-                          'type': 'OAUTH',
-                          'resource': 'string'
+                      \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                      \'location\': \'string\',
+                      \'gitCloneDepth\': 123,
+                      \'buildspec\': \'string\',
+                      \'auth\': {
+                          \'type\': \'OAUTH\',
+                          \'resource\': \'string\'
                       },
-                      'reportBuildStatus': True|False,
-                      'insecureSsl': True|False,
-                      'sourceIdentifier': 'string'
+                      \'reportBuildStatus\': True|False,
+                      \'insecureSsl\': True|False,
+                      \'sourceIdentifier\': \'string\'
                   },
               ],
               artifacts={
-                  'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                  'location': 'string',
-                  'path': 'string',
-                  'namespaceType': 'NONE'|'BUILD_ID',
-                  'name': 'string',
-                  'packaging': 'NONE'|'ZIP',
-                  'overrideArtifactName': True|False,
-                  'encryptionDisabled': True|False,
-                  'artifactIdentifier': 'string'
+                  \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                  \'location\': \'string\',
+                  \'path\': \'string\',
+                  \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                  \'name\': \'string\',
+                  \'packaging\': \'NONE\'|\'ZIP\',
+                  \'overrideArtifactName\': True|False,
+                  \'encryptionDisabled\': True|False,
+                  \'artifactIdentifier\': \'string\'
               },
               secondaryArtifacts=[
                   {
-                      'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                      'location': 'string',
-                      'path': 'string',
-                      'namespaceType': 'NONE'|'BUILD_ID',
-                      'name': 'string',
-                      'packaging': 'NONE'|'ZIP',
-                      'overrideArtifactName': True|False,
-                      'encryptionDisabled': True|False,
-                      'artifactIdentifier': 'string'
+                      \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                      \'location\': \'string\',
+                      \'path\': \'string\',
+                      \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                      \'name\': \'string\',
+                      \'packaging\': \'NONE\'|\'ZIP\',
+                      \'overrideArtifactName\': True|False,
+                      \'encryptionDisabled\': True|False,
+                      \'artifactIdentifier\': \'string\'
                   },
               ],
               cache={
-                  'type': 'NO_CACHE'|'S3',
-                  'location': 'string'
+                  \'type\': \'NO_CACHE\'|\'S3\',
+                  \'location\': \'string\'
               },
               environment={
-                  'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                  'image': 'string',
-                  'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                  'environmentVariables': [
+                  \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                  \'image\': \'string\',
+                  \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                  \'environmentVariables\': [
                       {
-                          'name': 'string',
-                          'value': 'string',
-                          'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                          \'name\': \'string\',
+                          \'value\': \'string\',
+                          \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                       },
                   ],
-                  'privilegedMode': True|False,
-                  'certificate': 'string'
+                  \'privilegedMode\': True|False,
+                  \'certificate\': \'string\'
               },
-              serviceRole='string',
+              serviceRole=\'string\',
               timeoutInMinutes=123,
-              encryptionKey='string',
+              encryptionKey=\'string\',
               tags=[
                   {
-                      'key': 'string',
-                      'value': 'string'
+                      \'key\': \'string\',
+                      \'value\': \'string\'
                   },
               ],
               vpcConfig={
-                  'vpcId': 'string',
-                  'subnets': [
-                      'string',
+                  \'vpcId\': \'string\',
+                  \'subnets\': [
+                      \'string\',
                   ],
-                  'securityGroupIds': [
-                      'string',
+                  \'securityGroupIds\': [
+                      \'string\',
                   ]
               },
               badgeEnabled=True|False,
               logsConfig={
-                  'cloudWatchLogs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'groupName': 'string',
-                      'streamName': 'string'
+                  \'cloudWatchLogs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'groupName\': \'string\',
+                      \'streamName\': \'string\'
                   },
-                  's3Logs': {
-                      'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                  \'s3Logs\': {
+                      \'status\': \'ENABLED\'|\'DISABLED\',
+                      \'location\': \'string\'
                   }
               }
           )
@@ -5754,7 +5754,7 @@ class Client(BaseClient):
         
           .. note::
         
-            You cannot change a build project's name.
+            You cannot change a build project\'s name.
         
         :type description: string
         :param description: 
@@ -5786,7 +5786,7 @@ class Client(BaseClient):
         
             Information about the location of the source code to be built. Valid values include:
         
-            * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+            * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
              
             * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
              
@@ -5796,9 +5796,9 @@ class Client(BaseClient):
                
               * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                
-            * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+            * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
              
-            * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+            * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
              
           - **gitCloneDepth** *(integer) --* 
         
@@ -5814,7 +5814,7 @@ class Client(BaseClient):
         
             Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-            This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+            This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
             - **type** *(string) --* **[REQUIRED]** 
         
@@ -5826,7 +5826,7 @@ class Client(BaseClient):
         
           - **reportBuildStatus** *(boolean) --* 
         
-            Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+            Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
           - **insecureSsl** *(boolean) --* 
         
@@ -5865,7 +5865,7 @@ class Client(BaseClient):
         
               Information about the location of the source code to be built. Valid values include:
         
-              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+              * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                
               * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                
@@ -5875,9 +5875,9 @@ class Client(BaseClient):
                  
                 * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                  
-              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
-              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+              * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                
             - **gitCloneDepth** *(integer) --* 
         
@@ -5893,7 +5893,7 @@ class Client(BaseClient):
         
               Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-              This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+              This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
               - **type** *(string) --* **[REQUIRED]** 
         
@@ -5905,7 +5905,7 @@ class Client(BaseClient):
         
             - **reportBuildStatus** *(boolean) --* 
         
-              Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+              Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
             - **insecureSsl** *(boolean) --* 
         
@@ -5976,15 +5976,15 @@ class Client(BaseClient):
              
             * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
              
-            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+            * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
              
             For example:
         
             * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
              
-            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+            * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
              
-            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+            * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
              
           - **packaging** *(string) --* 
         
@@ -6077,15 +6077,15 @@ class Client(BaseClient):
                
               * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                
-              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+              * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                
               For example:
         
               * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                
-              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+              * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                
-              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+              * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                
             - **packaging** *(string) --* 
         
@@ -6189,13 +6189,13 @@ class Client(BaseClient):
         
             Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-            If the operating system's base image is Ubuntu Linux:
+            If the operating system\'s base image is Ubuntu Linux:
         
-             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-            If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+            If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+             ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
           - **certificate** *(string) --* 
         
@@ -6216,7 +6216,7 @@ class Client(BaseClient):
         
           The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-          You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
+          You can specify either the CMK\'s Amazon Resource Name (ARN) or, if available, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
         :type tags: list
         :param tags: 
@@ -6233,11 +6233,11 @@ class Client(BaseClient):
         
             - **key** *(string) --* 
         
-              The tag's key.
+              The tag\'s key.
         
             - **value** *(string) --* 
         
-              The tag's value.
+              The tag\'s value.
         
         :type vpcConfig: dict
         :param vpcConfig: 
@@ -6263,7 +6263,7 @@ class Client(BaseClient):
         :type badgeEnabled: boolean
         :param badgeEnabled: 
         
-          Set this to true to generate a publicly-accessible URL for your project's build badge.
+          Set this to true to generate a publicly-accessible URL for your project\'s build badge.
         
         :type logsConfig: dict
         :param logsConfig: 
@@ -6314,120 +6314,120 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'description': 'string',
-                    'source': {
-                        'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                        'location': 'string',
-                        'gitCloneDepth': 123,
-                        'buildspec': 'string',
-                        'auth': {
-                            'type': 'OAUTH',
-                            'resource': 'string'
+                \'project\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'description\': \'string\',
+                    \'source\': {
+                        \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                        \'location\': \'string\',
+                        \'gitCloneDepth\': 123,
+                        \'buildspec\': \'string\',
+                        \'auth\': {
+                            \'type\': \'OAUTH\',
+                            \'resource\': \'string\'
                         },
-                        'reportBuildStatus': True|False,
-                        'insecureSsl': True|False,
-                        'sourceIdentifier': 'string'
+                        \'reportBuildStatus\': True|False,
+                        \'insecureSsl\': True|False,
+                        \'sourceIdentifier\': \'string\'
                     },
-                    'secondarySources': [
+                    \'secondarySources\': [
                         {
-                            'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
-                            'location': 'string',
-                            'gitCloneDepth': 123,
-                            'buildspec': 'string',
-                            'auth': {
-                                'type': 'OAUTH',
-                                'resource': 'string'
+                            \'type\': \'CODECOMMIT\'|\'CODEPIPELINE\'|\'GITHUB\'|\'S3\'|\'BITBUCKET\'|\'GITHUB_ENTERPRISE\'|\'NO_SOURCE\',
+                            \'location\': \'string\',
+                            \'gitCloneDepth\': 123,
+                            \'buildspec\': \'string\',
+                            \'auth\': {
+                                \'type\': \'OAUTH\',
+                                \'resource\': \'string\'
                             },
-                            'reportBuildStatus': True|False,
-                            'insecureSsl': True|False,
-                            'sourceIdentifier': 'string'
+                            \'reportBuildStatus\': True|False,
+                            \'insecureSsl\': True|False,
+                            \'sourceIdentifier\': \'string\'
                         },
                     ],
-                    'artifacts': {
-                        'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                        'location': 'string',
-                        'path': 'string',
-                        'namespaceType': 'NONE'|'BUILD_ID',
-                        'name': 'string',
-                        'packaging': 'NONE'|'ZIP',
-                        'overrideArtifactName': True|False,
-                        'encryptionDisabled': True|False,
-                        'artifactIdentifier': 'string'
+                    \'artifacts\': {
+                        \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                        \'location\': \'string\',
+                        \'path\': \'string\',
+                        \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                        \'name\': \'string\',
+                        \'packaging\': \'NONE\'|\'ZIP\',
+                        \'overrideArtifactName\': True|False,
+                        \'encryptionDisabled\': True|False,
+                        \'artifactIdentifier\': \'string\'
                     },
-                    'secondaryArtifacts': [
+                    \'secondaryArtifacts\': [
                         {
-                            'type': 'CODEPIPELINE'|'S3'|'NO_ARTIFACTS',
-                            'location': 'string',
-                            'path': 'string',
-                            'namespaceType': 'NONE'|'BUILD_ID',
-                            'name': 'string',
-                            'packaging': 'NONE'|'ZIP',
-                            'overrideArtifactName': True|False,
-                            'encryptionDisabled': True|False,
-                            'artifactIdentifier': 'string'
+                            \'type\': \'CODEPIPELINE\'|\'S3\'|\'NO_ARTIFACTS\',
+                            \'location\': \'string\',
+                            \'path\': \'string\',
+                            \'namespaceType\': \'NONE\'|\'BUILD_ID\',
+                            \'name\': \'string\',
+                            \'packaging\': \'NONE\'|\'ZIP\',
+                            \'overrideArtifactName\': True|False,
+                            \'encryptionDisabled\': True|False,
+                            \'artifactIdentifier\': \'string\'
                         },
                     ],
-                    'cache': {
-                        'type': 'NO_CACHE'|'S3',
-                        'location': 'string'
+                    \'cache\': {
+                        \'type\': \'NO_CACHE\'|\'S3\',
+                        \'location\': \'string\'
                     },
-                    'environment': {
-                        'type': 'WINDOWS_CONTAINER'|'LINUX_CONTAINER',
-                        'image': 'string',
-                        'computeType': 'BUILD_GENERAL1_SMALL'|'BUILD_GENERAL1_MEDIUM'|'BUILD_GENERAL1_LARGE',
-                        'environmentVariables': [
+                    \'environment\': {
+                        \'type\': \'WINDOWS_CONTAINER\'|\'LINUX_CONTAINER\',
+                        \'image\': \'string\',
+                        \'computeType\': \'BUILD_GENERAL1_SMALL\'|\'BUILD_GENERAL1_MEDIUM\'|\'BUILD_GENERAL1_LARGE\',
+                        \'environmentVariables\': [
                             {
-                                'name': 'string',
-                                'value': 'string',
-                                'type': 'PLAINTEXT'|'PARAMETER_STORE'
+                                \'name\': \'string\',
+                                \'value\': \'string\',
+                                \'type\': \'PLAINTEXT\'|\'PARAMETER_STORE\'
                             },
                         ],
-                        'privilegedMode': True|False,
-                        'certificate': 'string'
+                        \'privilegedMode\': True|False,
+                        \'certificate\': \'string\'
                     },
-                    'serviceRole': 'string',
-                    'timeoutInMinutes': 123,
-                    'encryptionKey': 'string',
-                    'tags': [
+                    \'serviceRole\': \'string\',
+                    \'timeoutInMinutes\': 123,
+                    \'encryptionKey\': \'string\',
+                    \'tags\': [
                         {
-                            'key': 'string',
-                            'value': 'string'
+                            \'key\': \'string\',
+                            \'value\': \'string\'
                         },
                     ],
-                    'created': datetime(2015, 1, 1),
-                    'lastModified': datetime(2015, 1, 1),
-                    'webhook': {
-                        'url': 'string',
-                        'payloadUrl': 'string',
-                        'secret': 'string',
-                        'branchFilter': 'string',
-                        'lastModifiedSecret': datetime(2015, 1, 1)
+                    \'created\': datetime(2015, 1, 1),
+                    \'lastModified\': datetime(2015, 1, 1),
+                    \'webhook\': {
+                        \'url\': \'string\',
+                        \'payloadUrl\': \'string\',
+                        \'secret\': \'string\',
+                        \'branchFilter\': \'string\',
+                        \'lastModifiedSecret\': datetime(2015, 1, 1)
                     },
-                    'vpcConfig': {
-                        'vpcId': 'string',
-                        'subnets': [
-                            'string',
+                    \'vpcConfig\': {
+                        \'vpcId\': \'string\',
+                        \'subnets\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ]
                     },
-                    'badge': {
-                        'badgeEnabled': True|False,
-                        'badgeRequestUrl': 'string'
+                    \'badge\': {
+                        \'badgeEnabled\': True|False,
+                        \'badgeRequestUrl\': \'string\'
                     },
-                    'logsConfig': {
-                        'cloudWatchLogs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'groupName': 'string',
-                            'streamName': 'string'
+                    \'logsConfig\': {
+                        \'cloudWatchLogs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'groupName\': \'string\',
+                            \'streamName\': \'string\'
                         },
-                        's3Logs': {
-                            'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                        \'s3Logs\': {
+                            \'status\': \'ENABLED\'|\'DISABLED\',
+                            \'location\': \'string\'
                         }
                     }
                 }
@@ -6476,7 +6476,7 @@ class Client(BaseClient):
         
                   Information about the location of the source code to be built. Valid values include:
         
-                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                  * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                    
                   * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                    
@@ -6486,9 +6486,9 @@ class Client(BaseClient):
                      
                     * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                      
-                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
-                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                  * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                    
                 - **gitCloneDepth** *(integer) --* 
         
@@ -6504,7 +6504,7 @@ class Client(BaseClient):
         
                   Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                  This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                  This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                   - **type** *(string) --* 
         
@@ -6516,7 +6516,7 @@ class Client(BaseClient):
         
                 - **reportBuildStatus** *(boolean) --* 
         
-                  Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                  Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                 - **insecureSsl** *(boolean) --* 
         
@@ -6554,7 +6554,7 @@ class Client(BaseClient):
         
                     Information about the location of the source code to be built. Valid values include:
         
-                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value. 
+                    * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, ``location`` should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline\'s source action instead of this value. 
                      
                     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, ``https://git-codecommit.*region-ID* .amazonaws.com/v1/repos/*repo-name* `` ). 
                      
@@ -6564,9 +6564,9 @@ class Client(BaseClient):
                        
                       * The path to the folder that contains the source code (for example, `` *bucket-name* /*path* /*to* /*source-code* /*folder* /`` ).  
                        
-                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page that displays, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to. Then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
-                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
+                    * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page that displays, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` . 
                      
                   - **gitCloneDepth** *(integer) --* 
         
@@ -6582,7 +6582,7 @@ class Client(BaseClient):
         
                     Information about the authorization settings for AWS CodeBuild to access the source code to be built.
         
-                    This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
+                    This information is for the AWS CodeBuild console\'s use only. Your code should not get or set this information directly (unless the build project\'s source ``type`` value is ``BITBUCKET`` or ``GITHUB`` ).
         
                     - **type** *(string) --* 
         
@@ -6594,7 +6594,7 @@ class Client(BaseClient):
         
                   - **reportBuildStatus** *(boolean) --* 
         
-                    Set to true to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
+                    Set to true to report the status of a build\'s start and finish to your source provider. This option is only valid when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. 
         
                   - **insecureSsl** *(boolean) --* 
         
@@ -6664,15 +6664,15 @@ class Client(BaseClient):
                    
                   * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                    
-                  * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                  * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                    
                   For example:
         
                   * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                    
-                  * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                  * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                    
-                  * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                  * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                    
                 - **packaging** *(string) --* 
         
@@ -6764,15 +6764,15 @@ class Client(BaseClient):
                      
                     * If ``type`` is set to ``NO_ARTIFACTS`` , then this value will be ignored if specified, because no build output will be produced. 
                      
-                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), then the artifact is stored in the root of the output bucket. 
+                    * If ``type`` is set to ``S3`` , this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), then the artifact is stored in the root of the output bucket. 
                      
                     For example:
         
                     * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to ``MyArtifact.zip`` , then the output artifact would be stored in ``MyArtifacts/*build-ID* /MyArtifact.zip`` .  
                      
-                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in the root of the output bucket.  
+                    * If ``path`` is empty, ``namespaceType`` is set to ``NONE`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in the root of the output bucket.  
                      
-                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to "``/`` ", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
+                    * If ``path`` is set to ``MyArtifacts`` , ``namespaceType`` is set to ``BUILD_ID`` , and ``name`` is set to \"``/`` \", then the output artifact would be stored in ``MyArtifacts/*build-ID* `` .  
                      
                   - **packaging** *(string) --* 
         
@@ -6874,13 +6874,13 @@ class Client(BaseClient):
         
                   Enables running the Docker daemon inside a Docker container. Set to true only if the build project is be used to build Docker images, and the specified build environment image is not provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that builds can interact with it. One way to do this is to initialize the Docker daemon during the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.)
         
-                  If the operating system's base image is Ubuntu Linux:
+                  If the operating system\'s base image is Ubuntu Linux:
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
-                  If the operating system's base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
+                  If the operating system\'s base image is Alpine Linux, add the ``-t`` argument to ``timeout`` :
         
-                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c "until docker info; do echo .; sleep 1; done"``  
+                   ``- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout 15 -t sh -c \"until docker info; do echo .; sleep 1; done\"``  
         
                 - **certificate** *(string) --* 
         
@@ -6898,7 +6898,7 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
         
-                This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                This is expressed either as the CMK\'s Amazon Resource Name (ARN) or, if specified, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         
               - **tags** *(list) --* 
         
@@ -6914,11 +6914,11 @@ class Client(BaseClient):
         
                   - **key** *(string) --* 
         
-                    The tag's key.
+                    The tag\'s key.
         
                   - **value** *(string) --* 
         
-                    The tag's value.
+                    The tag\'s value.
         
               - **created** *(datetime) --* 
         
@@ -6926,7 +6926,7 @@ class Client(BaseClient):
         
               - **lastModified** *(datetime) --* 
         
-                When the build project's settings were last modified, expressed in Unix time format.
+                When the build project\'s settings were last modified, expressed in Unix time format.
         
               - **webhook** *(dict) --* 
         
@@ -6950,11 +6950,11 @@ class Client(BaseClient):
         
                 - **branchFilter** *(string) --* 
         
-                  A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+                  A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
                 - **lastModifiedSecret** *(datetime) --* 
         
-                  A timestamp indicating the last time a repository's secret token was modified. 
+                  A timestamp indicating the last time a repository\'s secret token was modified. 
         
               - **vpcConfig** *(dict) --* 
         
@@ -6982,7 +6982,7 @@ class Client(BaseClient):
         
                 - **badgeEnabled** *(boolean) --* 
         
-                  Set this to true to generate a publicly-accessible URL for your project's build badge.
+                  Set this to true to generate a publicly-accessible URL for your project\'s build badge.
         
                 - **badgeRequestUrl** *(string) --* 
         
@@ -7044,8 +7044,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_webhook(
-              projectName='string',
-              branchFilter='string',
+              projectName=\'string\',
+              branchFilter=\'string\',
               rotateSecret=True|False
           )
         :type projectName: string
@@ -7056,12 +7056,12 @@ class Client(BaseClient):
         :type branchFilter: string
         :param branchFilter: 
         
-          A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+          A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
         :type rotateSecret: boolean
         :param rotateSecret: 
         
-          A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository then ``rotateSecret`` is ignored. 
+          A boolean value that specifies whether the associated GitHub repository\'s secret token should be updated. If you use Bitbucket for your repository then ``rotateSecret`` is ignored. 
         
         :rtype: dict
         :returns: 
@@ -7071,12 +7071,12 @@ class Client(BaseClient):
           ::
         
             {
-                'webhook': {
-                    'url': 'string',
-                    'payloadUrl': 'string',
-                    'secret': 'string',
-                    'branchFilter': 'string',
-                    'lastModifiedSecret': datetime(2015, 1, 1)
+                \'webhook\': {
+                    \'url\': \'string\',
+                    \'payloadUrl\': \'string\',
+                    \'secret\': \'string\',
+                    \'branchFilter\': \'string\',
+                    \'lastModifiedSecret\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -7085,7 +7085,7 @@ class Client(BaseClient):
             
             - **webhook** *(dict) --* 
         
-              Information about a repository's webhook that is associated with a project in AWS CodeBuild. 
+              Information about a repository\'s webhook that is associated with a project in AWS CodeBuild. 
         
               - **url** *(string) --* 
         
@@ -7105,11 +7105,11 @@ class Client(BaseClient):
         
               - **branchFilter** *(string) --* 
         
-                A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If ``branchFilter`` is empty, then all branches are built.
+                A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn\'t match, then it is not. If ``branchFilter`` is empty, then all branches are built.
         
               - **lastModifiedSecret** *(datetime) --* 
         
-                A timestamp indicating the last time a repository's secret token was modified. 
+                A timestamp indicating the last time a repository\'s secret token was modified. 
         
         """
         pass

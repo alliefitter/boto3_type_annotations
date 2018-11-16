@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -20,7 +20,7 @@ class Client(BaseClient):
         ::
         
           response = client.bulk_publish(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -33,7 +33,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string'
+                \'IdentityPoolId\': \'string\'
             }
           **Response Structure** 
         
@@ -49,10 +49,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -70,9 +70,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dataset(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -81,7 +81,7 @@ class Client(BaseClient):
         :param IdentityId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
         
         :type DatasetName: string
-        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
         
         :rtype: dict
         :returns: 
@@ -91,25 +91,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Dataset': {
-                    'IdentityId': 'string',
-                    'DatasetName': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'LastModifiedBy': 'string',
-                    'DataStorage': 123,
-                    'NumRecords': 123
+                \'Dataset\': {
+                    \'IdentityId\': \'string\',
+                    \'DatasetName\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'LastModifiedBy\': \'string\',
+                    \'DataStorage\': 123,
+                    \'NumRecords\': 123
                 }
             }
           **Response Structure** 
         
           - *(dict) --* Response to a successful DeleteDataset request.
             
-            - **Dataset** *(dict) --* A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+            - **Dataset** *(dict) --* A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
               
               - **IdentityId** *(string) --* A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
               
-              - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+              - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
               
               - **CreationDate** *(datetime) --* Date on which the dataset was created.
               
@@ -135,9 +135,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_dataset(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -146,7 +146,7 @@ class Client(BaseClient):
         :param IdentityId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
         
         :type DatasetName: string
-        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
         
         :rtype: dict
         :returns: 
@@ -156,25 +156,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Dataset': {
-                    'IdentityId': 'string',
-                    'DatasetName': 'string',
-                    'CreationDate': datetime(2015, 1, 1),
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'LastModifiedBy': 'string',
-                    'DataStorage': 123,
-                    'NumRecords': 123
+                \'Dataset\': {
+                    \'IdentityId\': \'string\',
+                    \'DatasetName\': \'string\',
+                    \'CreationDate\': datetime(2015, 1, 1),
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'LastModifiedBy\': \'string\',
+                    \'DataStorage\': 123,
+                    \'NumRecords\': 123
                 }
             }
           **Response Structure** 
         
           - *(dict) --* Response to a successful DescribeDataset request.
             
-            - **Dataset** *(dict) --* Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+            - **Dataset** *(dict) --* Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
               
               - **IdentityId** *(string) --* A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
               
-              - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+              - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
               
               - **CreationDate** *(datetime) --* Date on which the dataset was created.
               
@@ -200,7 +200,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity_pool_usage(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -213,11 +213,11 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolUsage': {
-                    'IdentityPoolId': 'string',
-                    'SyncSessionsCount': 123,
-                    'DataStorage': 123,
-                    'LastModifiedDate': datetime(2015, 1, 1)
+                \'IdentityPoolUsage\': {
+                    \'IdentityPoolId\': \'string\',
+                    \'SyncSessionsCount\': 123,
+                    \'DataStorage\': 123,
+                    \'LastModifiedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -248,8 +248,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity_usage(
-              IdentityPoolId='string',
-              IdentityId='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -265,12 +265,12 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityUsage': {
-                    'IdentityId': 'string',
-                    'IdentityPoolId': 'string',
-                    'LastModifiedDate': datetime(2015, 1, 1),
-                    'DatasetCount': 123,
-                    'DataStorage': 123
+                \'IdentityUsage\': {
+                    \'IdentityId\': \'string\',
+                    \'IdentityPoolId\': \'string\',
+                    \'LastModifiedDate\': datetime(2015, 1, 1),
+                    \'DatasetCount\': 123,
+                    \'DataStorage\': 123
                 }
             }
           **Response Structure** 
@@ -308,7 +308,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -325,7 +325,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_bulk_publish_details(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -338,11 +338,11 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'BulkPublishStartTime': datetime(2015, 1, 1),
-                'BulkPublishCompleteTime': datetime(2015, 1, 1),
-                'BulkPublishStatus': 'NOT_STARTED'|'IN_PROGRESS'|'FAILED'|'SUCCEEDED',
-                'FailureMessage': 'string'
+                \'IdentityPoolId\': \'string\',
+                \'BulkPublishStartTime\': datetime(2015, 1, 1),
+                \'BulkPublishCompleteTime\': datetime(2015, 1, 1),
+                \'BulkPublishStatus\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'FAILED\'|\'SUCCEEDED\',
+                \'FailureMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -379,7 +379,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_cognito_events(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -394,8 +394,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Events': {
-                    'string': 'string'
+                \'Events\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -426,7 +426,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_identity_pool_configuration(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -441,17 +441,17 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'PushSync': {
-                    'ApplicationArns': [
-                        'string',
+                \'IdentityPoolId\': \'string\',
+                \'PushSync\': {
+                    \'ApplicationArns\': [
+                        \'string\',
                     ],
-                    'RoleArn': 'string'
+                    \'RoleArn\': \'string\'
                 },
-                'CognitoStreams': {
-                    'StreamName': 'string',
-                    'RoleArn': 'string',
-                    'StreamingStatus': 'ENABLED'|'DISABLED'
+                \'CognitoStreams\': {
+                    \'StreamName\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'StreamingStatus\': \'ENABLED\'|\'DISABLED\'
                 }
             }
           **Response Structure** 
@@ -499,10 +499,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -536,9 +536,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_datasets(
-              IdentityPoolId='string',
-              IdentityId='string',
-              NextToken='string',
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type IdentityPoolId: string
@@ -561,19 +561,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Datasets': [
+                \'Datasets\': [
                     {
-                        'IdentityId': 'string',
-                        'DatasetName': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedBy': 'string',
-                        'DataStorage': 123,
-                        'NumRecords': 123
+                        \'IdentityId\': \'string\',
+                        \'DatasetName\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedBy\': \'string\',
+                        \'DataStorage\': 123,
+                        \'NumRecords\': 123
                     },
                 ],
-                'Count': 123,
-                'NextToken': 'string'
+                \'Count\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -581,11 +581,11 @@ class Client(BaseClient):
             
             - **Datasets** *(list) --* A set of datasets.
               
-              - *(dict) --* A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+              - *(dict) --* A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
                 
                 - **IdentityId** *(string) --* A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
                 
-                - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+                - **DatasetName** *(string) --* A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
                 
                 - **CreationDate** *(datetime) --* Date on which the dataset was created.
                 
@@ -614,7 +614,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_identity_pool_usage(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -631,17 +631,17 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolUsages': [
+                \'IdentityPoolUsages\': [
                     {
-                        'IdentityPoolId': 'string',
-                        'SyncSessionsCount': 123,
-                        'DataStorage': 123,
-                        'LastModifiedDate': datetime(2015, 1, 1)
+                        \'IdentityPoolId\': \'string\',
+                        \'SyncSessionsCount\': 123,
+                        \'DataStorage\': 123,
+                        \'LastModifiedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'MaxResults': 123,
-                'Count': 123,
-                'NextToken': 'string'
+                \'MaxResults\': 123,
+                \'Count\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -678,13 +678,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_records(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string',
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\',
               LastSyncCount=123,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              SyncSessionToken='string'
+              SyncSessionToken=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -693,7 +693,7 @@ class Client(BaseClient):
         :param IdentityId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
         
         :type DatasetName: string
-        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
         
         :type LastSyncCount: integer
         :param LastSyncCount: The last server sync count for this record.
@@ -715,26 +715,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Records': [
+                \'Records\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'SyncCount': 123,
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedBy': 'string',
-                        'DeviceLastModifiedDate': datetime(2015, 1, 1)
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'SyncCount\': 123,
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedBy\': \'string\',
+                        \'DeviceLastModifiedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string',
-                'Count': 123,
-                'DatasetSyncCount': 123,
-                'LastModifiedBy': 'string',
-                'MergedDatasetNames': [
-                    'string',
+                \'NextToken\': \'string\',
+                \'Count\': 123,
+                \'DatasetSyncCount\': 123,
+                \'LastModifiedBy\': \'string\',
+                \'MergedDatasetNames\': [
+                    \'string\',
                 ],
-                'DatasetExists': True|False,
-                'DatasetDeletedAfterRequestedSyncCount': True|False,
-                'SyncSessionToken': 'string'
+                \'DatasetExists\': True|False,
+                \'DatasetDeletedAfterRequestedSyncCount\': True|False,
+                \'SyncSessionToken\': \'string\'
             }
           **Response Structure** 
         
@@ -787,10 +787,10 @@ class Client(BaseClient):
         ::
         
           response = client.register_device(
-              IdentityPoolId='string',
-              IdentityId='string',
-              Platform='APNS'|'APNS_SANDBOX'|'GCM'|'ADM',
-              Token='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              Platform=\'APNS\'|\'APNS_SANDBOX\'|\'GCM\'|\'ADM\',
+              Token=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -820,7 +820,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceId': 'string'
+                \'DeviceId\': \'string\'
             }
           **Response Structure** 
         
@@ -846,9 +846,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_cognito_events(
-              IdentityPoolId='string',
+              IdentityPoolId=\'string\',
               Events={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type IdentityPoolId: string
@@ -880,17 +880,17 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_pool_configuration(
-              IdentityPoolId='string',
+              IdentityPoolId=\'string\',
               PushSync={
-                  'ApplicationArns': [
-                      'string',
+                  \'ApplicationArns\': [
+                      \'string\',
                   ],
-                  'RoleArn': 'string'
+                  \'RoleArn\': \'string\'
               },
               CognitoStreams={
-                  'StreamName': 'string',
-                  'RoleArn': 'string',
-                  'StreamingStatus': 'ENABLED'|'DISABLED'
+                  \'StreamName\': \'string\',
+                  \'RoleArn\': \'string\',
+                  \'StreamingStatus\': \'ENABLED\'|\'DISABLED\'
               }
           )
         :type IdentityPoolId: string
@@ -934,17 +934,17 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'PushSync': {
-                    'ApplicationArns': [
-                        'string',
+                \'IdentityPoolId\': \'string\',
+                \'PushSync\': {
+                    \'ApplicationArns\': [
+                        \'string\',
                     ],
-                    'RoleArn': 'string'
+                    \'RoleArn\': \'string\'
                 },
-                'CognitoStreams': {
-                    'StreamName': 'string',
-                    'RoleArn': 'string',
-                    'StreamingStatus': 'ENABLED'|'DISABLED'
+                \'CognitoStreams\': {
+                    \'StreamName\': \'string\',
+                    \'RoleArn\': \'string\',
+                    \'StreamingStatus\': \'ENABLED\'|\'DISABLED\'
                 }
             }
           **Response Structure** 
@@ -997,10 +997,10 @@ class Client(BaseClient):
         ::
         
           response = client.subscribe_to_dataset(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string',
-              DeviceId='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\',
+              DeviceId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -1050,10 +1050,10 @@ class Client(BaseClient):
         ::
         
           response = client.unsubscribe_from_dataset(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string',
-              DeviceId='string'
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\',
+              DeviceId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -1107,21 +1107,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_records(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DatasetName='string',
-              DeviceId='string',
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DatasetName=\'string\',
+              DeviceId=\'string\',
               RecordPatches=[
                   {
-                      'Op': 'replace'|'remove',
-                      'Key': 'string',
-                      'Value': 'string',
-                      'SyncCount': 123,
-                      'DeviceLastModifiedDate': datetime(2015, 1, 1)
+                      \'Op\': \'replace\'|\'remove\',
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'SyncCount\': 123,
+                      \'DeviceLastModifiedDate\': datetime(2015, 1, 1)
                   },
               ],
-              SyncSessionToken='string',
-              ClientContext='string'
+              SyncSessionToken=\'string\',
+              ClientContext=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
@@ -1130,7 +1130,7 @@ class Client(BaseClient):
         :param IdentityId: **[REQUIRED]** A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
         
         :type DatasetName: string
-        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+        :param DatasetName: **[REQUIRED]** A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
         
         :type DeviceId: string
         :param DeviceId: 
@@ -1166,14 +1166,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Records': [
+                \'Records\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'SyncCount': 123,
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedBy': 'string',
-                        'DeviceLastModifiedDate': datetime(2015, 1, 1)
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'SyncCount\': 123,
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedBy\': \'string\',
+                        \'DeviceLastModifiedDate\': datetime(2015, 1, 1)
                     },
                 ]
             }

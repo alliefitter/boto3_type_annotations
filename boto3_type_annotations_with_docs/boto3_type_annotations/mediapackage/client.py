@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,8 +34,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_channel(
-              Description='string',
-              Id='string'
+              Description=\'string\',
+              Id=\'string\'
           )
         :type Description: string
         :param Description: A short text description of the Channel.
@@ -51,19 +51,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Description': 'string',
-                'HlsIngest': {
-                    'IngestEndpoints': [
+                \'Arn\': \'string\',
+                \'Description\': \'string\',
+                \'HlsIngest\': {
+                    \'IngestEndpoints\': [
                         {
-                            'Id': 'string',
-                            'Password': 'string',
-                            'Url': 'string',
-                            'Username': 'string'
+                            \'Id\': \'string\',
+                            \'Password\': \'string\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string'
+                \'Id\': \'string\'
             }
           **Response Structure** 
         
@@ -100,123 +100,123 @@ class Client(BaseClient):
         ::
         
           response = client.create_origin_endpoint(
-              ChannelId='string',
+              ChannelId=\'string\',
               CmafPackage={
-                  'Encryption': {
-                      'KeyRotationIntervalSeconds': 123,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'HlsManifests': [
+                  \'HlsManifests\': [
                       {
-                          'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                          'Id': 'string',
-                          'IncludeIframeOnlyStream': True|False,
-                          'ManifestName': 'string',
-                          'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                          'PlaylistWindowSeconds': 123,
-                          'ProgramDateTimeIntervalSeconds': 123
+                          \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                          \'Id\': \'string\',
+                          \'IncludeIframeOnlyStream\': True|False,
+                          \'ManifestName\': \'string\',
+                          \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                          \'PlaylistWindowSeconds\': 123,
+                          \'ProgramDateTimeIntervalSeconds\': 123
                       },
                   ],
-                  'SegmentDurationSeconds': 123,
-                  'SegmentPrefix': 'string',
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'SegmentDurationSeconds\': 123,
+                  \'SegmentPrefix\': \'string\',
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   }
               },
               DashPackage={
-                  'Encryption': {
-                      'KeyRotationIntervalSeconds': 123,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'ManifestWindowSeconds': 123,
-                  'MinBufferTimeSeconds': 123,
-                  'MinUpdatePeriodSeconds': 123,
-                  'PeriodTriggers': [
-                      'ADS',
+                  \'ManifestWindowSeconds\': 123,
+                  \'MinBufferTimeSeconds\': 123,
+                  \'MinUpdatePeriodSeconds\': 123,
+                  \'PeriodTriggers\': [
+                      \'ADS\',
                   ],
-                  'Profile': 'NONE'|'HBBTV_1_5',
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   },
-                  'SuggestedPresentationDelaySeconds': 123
+                  \'SuggestedPresentationDelaySeconds\': 123
               },
-              Description='string',
+              Description=\'string\',
               HlsPackage={
-                  'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                  'Encryption': {
-                      'ConstantInitializationVector': 'string',
-                      'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                      'KeyRotationIntervalSeconds': 123,
-                      'RepeatExtXKey': True|False,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                  \'Encryption\': {
+                      \'ConstantInitializationVector\': \'string\',
+                      \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'RepeatExtXKey\': True|False,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'IncludeIframeOnlyStream': True|False,
-                  'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                  'PlaylistWindowSeconds': 123,
-                  'ProgramDateTimeIntervalSeconds': 123,
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'IncludeIframeOnlyStream\': True|False,
+                  \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                  \'PlaylistWindowSeconds\': 123,
+                  \'ProgramDateTimeIntervalSeconds\': 123,
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   },
-                  'UseAudioRenditionGroup': True|False
+                  \'UseAudioRenditionGroup\': True|False
               },
-              Id='string',
-              ManifestName='string',
+              Id=\'string\',
+              ManifestName=\'string\',
               MssPackage={
-                  'Encryption': {
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'ManifestWindowSeconds': 123,
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'ManifestWindowSeconds\': 123,
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   }
               },
               StartoverWindowSeconds=123,
               TimeDelaySeconds=123,
               Whitelist=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ChannelId: string
@@ -247,7 +247,7 @@ class Client(BaseClient):
         
             - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
         
-              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
         
               - **Id** *(string) --* **[REQUIRED]** The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
         
@@ -255,7 +255,7 @@ class Client(BaseClient):
         
               - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
         
-              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
         
               - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
         
@@ -300,11 +300,11 @@ class Client(BaseClient):
         
           - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
         
-          - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+          - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
         
             - *(string) --* 
         
-          - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+          - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
         
           - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
         
@@ -324,7 +324,7 @@ class Client(BaseClient):
         :type HlsPackage: dict
         :param HlsPackage: An HTTP Live Streaming (HLS) packaging configuration.
         
-          - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+          - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
         
           - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
         
@@ -352,7 +352,7 @@ class Client(BaseClient):
         
           - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
         
-          - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+          - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
         
           - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
         
@@ -374,7 +374,7 @@ class Client(BaseClient):
         :param Id: **[REQUIRED]** The ID of the OriginEndpoint. The ID must be unique within the region and it cannot be changed after the OriginEndpoint is created. 
         
         :type ManifestName: string
-        :param ManifestName: A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
+        :param ManifestName: A short string that will be used as the filename of the OriginEndpoint URL (defaults to \"index\").
         
         :type MssPackage: dict
         :param MssPackage: A Microsoft Smooth Streaming (MSS) packaging configuration.
@@ -426,126 +426,126 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'ChannelId': 'string',
-                'CmafPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Arn\': \'string\',
+                \'ChannelId\': \'string\',
+                \'CmafPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'HlsManifests': [
+                    \'HlsManifests\': [
                         {
-                            'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                            'Id': 'string',
-                            'IncludeIframeOnlyStream': True|False,
-                            'ManifestName': 'string',
-                            'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                            'PlaylistWindowSeconds': 123,
-                            'ProgramDateTimeIntervalSeconds': 123,
-                            'Url': 'string'
+                            \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                            \'Id\': \'string\',
+                            \'IncludeIframeOnlyStream\': True|False,
+                            \'ManifestName\': \'string\',
+                            \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                            \'PlaylistWindowSeconds\': 123,
+                            \'ProgramDateTimeIntervalSeconds\': 123,
+                            \'Url\': \'string\'
                         },
                     ],
-                    'SegmentDurationSeconds': 123,
-                    'SegmentPrefix': 'string',
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'SegmentDurationSeconds\': 123,
+                    \'SegmentPrefix\': \'string\',
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'DashPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'DashPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'MinBufferTimeSeconds': 123,
-                    'MinUpdatePeriodSeconds': 123,
-                    'PeriodTriggers': [
-                        'ADS',
+                    \'ManifestWindowSeconds\': 123,
+                    \'MinBufferTimeSeconds\': 123,
+                    \'MinUpdatePeriodSeconds\': 123,
+                    \'PeriodTriggers\': [
+                        \'ADS\',
                     ],
-                    'Profile': 'NONE'|'HBBTV_1_5',
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'SuggestedPresentationDelaySeconds': 123
+                    \'SuggestedPresentationDelaySeconds\': 123
                 },
-                'Description': 'string',
-                'HlsPackage': {
-                    'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                    'Encryption': {
-                        'ConstantInitializationVector': 'string',
-                        'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                        'KeyRotationIntervalSeconds': 123,
-                        'RepeatExtXKey': True|False,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Description\': \'string\',
+                \'HlsPackage\': {
+                    \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                    \'Encryption\': {
+                        \'ConstantInitializationVector\': \'string\',
+                        \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'RepeatExtXKey\': True|False,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'IncludeIframeOnlyStream': True|False,
-                    'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                    'PlaylistWindowSeconds': 123,
-                    'ProgramDateTimeIntervalSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'IncludeIframeOnlyStream\': True|False,
+                    \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                    \'PlaylistWindowSeconds\': 123,
+                    \'ProgramDateTimeIntervalSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'UseAudioRenditionGroup': True|False
+                    \'UseAudioRenditionGroup\': True|False
                 },
-                'Id': 'string',
-                'ManifestName': 'string',
-                'MssPackage': {
-                    'Encryption': {
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Id\': \'string\',
+                \'ManifestName\': \'string\',
+                \'MssPackage\': {
+                    \'Encryption\': {
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'ManifestWindowSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'StartoverWindowSeconds': 123,
-                'TimeDelaySeconds': 123,
-                'Url': 'string',
-                'Whitelist': [
-                    'string',
+                \'StartoverWindowSeconds\': 123,
+                \'TimeDelaySeconds\': 123,
+                \'Url\': \'string\',
+                \'Whitelist\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -580,7 +580,7 @@ class Client(BaseClient):
                 
                 - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
                   
-                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
                   
                   - **Id** *(string) --* The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
                   
@@ -588,7 +588,7 @@ class Client(BaseClient):
                   
                   - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
                   
-                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
                   
                   - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
                   
@@ -634,11 +634,11 @@ class Client(BaseClient):
               
               - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
               
-              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
                 
                 - *(string) --* 
             
-              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
               
               - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
               
@@ -656,7 +656,7 @@ class Client(BaseClient):
             
             - **HlsPackage** *(dict) --* An HTTP Live Streaming (HLS) packaging configuration.
               
-              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
               
               - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
                 
@@ -684,7 +684,7 @@ class Client(BaseClient):
               
               - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
               
-              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
               
               - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
               
@@ -758,7 +758,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_channel(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the Channel to delete.
@@ -786,7 +786,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_origin_endpoint(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the OriginEndpoint to delete.
@@ -814,7 +814,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_channel(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of a Channel.
@@ -827,19 +827,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Description': 'string',
-                'HlsIngest': {
-                    'IngestEndpoints': [
+                \'Arn\': \'string\',
+                \'Description\': \'string\',
+                \'HlsIngest\': {
+                    \'IngestEndpoints\': [
                         {
-                            'Id': 'string',
-                            'Password': 'string',
-                            'Url': 'string',
-                            'Username': 'string'
+                            \'Id\': \'string\',
+                            \'Password\': \'string\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string'
+                \'Id\': \'string\'
             }
           **Response Structure** 
         
@@ -876,7 +876,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_origin_endpoint(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the OriginEndpoint.
@@ -889,126 +889,126 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'ChannelId': 'string',
-                'CmafPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Arn\': \'string\',
+                \'ChannelId\': \'string\',
+                \'CmafPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'HlsManifests': [
+                    \'HlsManifests\': [
                         {
-                            'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                            'Id': 'string',
-                            'IncludeIframeOnlyStream': True|False,
-                            'ManifestName': 'string',
-                            'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                            'PlaylistWindowSeconds': 123,
-                            'ProgramDateTimeIntervalSeconds': 123,
-                            'Url': 'string'
+                            \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                            \'Id\': \'string\',
+                            \'IncludeIframeOnlyStream\': True|False,
+                            \'ManifestName\': \'string\',
+                            \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                            \'PlaylistWindowSeconds\': 123,
+                            \'ProgramDateTimeIntervalSeconds\': 123,
+                            \'Url\': \'string\'
                         },
                     ],
-                    'SegmentDurationSeconds': 123,
-                    'SegmentPrefix': 'string',
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'SegmentDurationSeconds\': 123,
+                    \'SegmentPrefix\': \'string\',
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'DashPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'DashPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'MinBufferTimeSeconds': 123,
-                    'MinUpdatePeriodSeconds': 123,
-                    'PeriodTriggers': [
-                        'ADS',
+                    \'ManifestWindowSeconds\': 123,
+                    \'MinBufferTimeSeconds\': 123,
+                    \'MinUpdatePeriodSeconds\': 123,
+                    \'PeriodTriggers\': [
+                        \'ADS\',
                     ],
-                    'Profile': 'NONE'|'HBBTV_1_5',
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'SuggestedPresentationDelaySeconds': 123
+                    \'SuggestedPresentationDelaySeconds\': 123
                 },
-                'Description': 'string',
-                'HlsPackage': {
-                    'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                    'Encryption': {
-                        'ConstantInitializationVector': 'string',
-                        'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                        'KeyRotationIntervalSeconds': 123,
-                        'RepeatExtXKey': True|False,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Description\': \'string\',
+                \'HlsPackage\': {
+                    \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                    \'Encryption\': {
+                        \'ConstantInitializationVector\': \'string\',
+                        \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'RepeatExtXKey\': True|False,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'IncludeIframeOnlyStream': True|False,
-                    'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                    'PlaylistWindowSeconds': 123,
-                    'ProgramDateTimeIntervalSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'IncludeIframeOnlyStream\': True|False,
+                    \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                    \'PlaylistWindowSeconds\': 123,
+                    \'ProgramDateTimeIntervalSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'UseAudioRenditionGroup': True|False
+                    \'UseAudioRenditionGroup\': True|False
                 },
-                'Id': 'string',
-                'ManifestName': 'string',
-                'MssPackage': {
-                    'Encryption': {
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Id\': \'string\',
+                \'ManifestName\': \'string\',
+                \'MssPackage\': {
+                    \'Encryption\': {
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'ManifestWindowSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'StartoverWindowSeconds': 123,
-                'TimeDelaySeconds': 123,
-                'Url': 'string',
-                'Whitelist': [
-                    'string',
+                \'StartoverWindowSeconds\': 123,
+                \'TimeDelaySeconds\': 123,
+                \'Url\': \'string\',
+                \'Whitelist\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1043,7 +1043,7 @@ class Client(BaseClient):
                 
                 - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
                   
-                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
                   
                   - **Id** *(string) --* The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
                   
@@ -1051,7 +1051,7 @@ class Client(BaseClient):
                   
                   - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
                   
-                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
                   
                   - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
                   
@@ -1097,11 +1097,11 @@ class Client(BaseClient):
               
               - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
               
-              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
                 
                 - *(string) --* 
             
-              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
               
               - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
               
@@ -1119,7 +1119,7 @@ class Client(BaseClient):
             
             - **HlsPackage** *(dict) --* An HTTP Live Streaming (HLS) packaging configuration.
               
-              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
               
               - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
                 
@@ -1147,7 +1147,7 @@ class Client(BaseClient):
               
               - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
               
-              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
               
               - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
               
@@ -1228,7 +1228,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1240,10 +1240,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1276,7 +1276,7 @@ class Client(BaseClient):
         
           response = client.list_channels(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: Upper bound on number of records to return.
@@ -1292,24 +1292,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Channels': [
+                \'Channels\': [
                     {
-                        'Arn': 'string',
-                        'Description': 'string',
-                        'HlsIngest': {
-                            'IngestEndpoints': [
+                        \'Arn\': \'string\',
+                        \'Description\': \'string\',
+                        \'HlsIngest\': {
+                            \'IngestEndpoints\': [
                                 {
-                                    'Id': 'string',
-                                    'Password': 'string',
-                                    'Url': 'string',
-                                    'Username': 'string'
+                                    \'Id\': \'string\',
+                                    \'Password\': \'string\',
+                                    \'Url\': \'string\',
+                                    \'Username\': \'string\'
                                 },
                             ]
                         },
-                        'Id': 'string'
+                        \'Id\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1352,9 +1352,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_origin_endpoints(
-              ChannelId='string',
+              ChannelId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ChannelId: string
         :param ChannelId: When specified, the request will return only OriginEndpoints associated with the given Channel ID.
@@ -1373,129 +1373,129 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'OriginEndpoints': [
+                \'NextToken\': \'string\',
+                \'OriginEndpoints\': [
                     {
-                        'Arn': 'string',
-                        'ChannelId': 'string',
-                        'CmafPackage': {
-                            'Encryption': {
-                                'KeyRotationIntervalSeconds': 123,
-                                'SpekeKeyProvider': {
-                                    'CertificateArn': 'string',
-                                    'ResourceId': 'string',
-                                    'RoleArn': 'string',
-                                    'SystemIds': [
-                                        'string',
+                        \'Arn\': \'string\',
+                        \'ChannelId\': \'string\',
+                        \'CmafPackage\': {
+                            \'Encryption\': {
+                                \'KeyRotationIntervalSeconds\': 123,
+                                \'SpekeKeyProvider\': {
+                                    \'CertificateArn\': \'string\',
+                                    \'ResourceId\': \'string\',
+                                    \'RoleArn\': \'string\',
+                                    \'SystemIds\': [
+                                        \'string\',
                                     ],
-                                    'Url': 'string'
+                                    \'Url\': \'string\'
                                 }
                             },
-                            'HlsManifests': [
+                            \'HlsManifests\': [
                                 {
-                                    'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                                    'Id': 'string',
-                                    'IncludeIframeOnlyStream': True|False,
-                                    'ManifestName': 'string',
-                                    'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                                    'PlaylistWindowSeconds': 123,
-                                    'ProgramDateTimeIntervalSeconds': 123,
-                                    'Url': 'string'
+                                    \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                                    \'Id\': \'string\',
+                                    \'IncludeIframeOnlyStream\': True|False,
+                                    \'ManifestName\': \'string\',
+                                    \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                                    \'PlaylistWindowSeconds\': 123,
+                                    \'ProgramDateTimeIntervalSeconds\': 123,
+                                    \'Url\': \'string\'
                                 },
                             ],
-                            'SegmentDurationSeconds': 123,
-                            'SegmentPrefix': 'string',
-                            'StreamSelection': {
-                                'MaxVideoBitsPerSecond': 123,
-                                'MinVideoBitsPerSecond': 123,
-                                'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                            \'SegmentDurationSeconds\': 123,
+                            \'SegmentPrefix\': \'string\',
+                            \'StreamSelection\': {
+                                \'MaxVideoBitsPerSecond\': 123,
+                                \'MinVideoBitsPerSecond\': 123,
+                                \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                             }
                         },
-                        'DashPackage': {
-                            'Encryption': {
-                                'KeyRotationIntervalSeconds': 123,
-                                'SpekeKeyProvider': {
-                                    'CertificateArn': 'string',
-                                    'ResourceId': 'string',
-                                    'RoleArn': 'string',
-                                    'SystemIds': [
-                                        'string',
+                        \'DashPackage\': {
+                            \'Encryption\': {
+                                \'KeyRotationIntervalSeconds\': 123,
+                                \'SpekeKeyProvider\': {
+                                    \'CertificateArn\': \'string\',
+                                    \'ResourceId\': \'string\',
+                                    \'RoleArn\': \'string\',
+                                    \'SystemIds\': [
+                                        \'string\',
                                     ],
-                                    'Url': 'string'
+                                    \'Url\': \'string\'
                                 }
                             },
-                            'ManifestWindowSeconds': 123,
-                            'MinBufferTimeSeconds': 123,
-                            'MinUpdatePeriodSeconds': 123,
-                            'PeriodTriggers': [
-                                'ADS',
+                            \'ManifestWindowSeconds\': 123,
+                            \'MinBufferTimeSeconds\': 123,
+                            \'MinUpdatePeriodSeconds\': 123,
+                            \'PeriodTriggers\': [
+                                \'ADS\',
                             ],
-                            'Profile': 'NONE'|'HBBTV_1_5',
-                            'SegmentDurationSeconds': 123,
-                            'StreamSelection': {
-                                'MaxVideoBitsPerSecond': 123,
-                                'MinVideoBitsPerSecond': 123,
-                                'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                            \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                            \'SegmentDurationSeconds\': 123,
+                            \'StreamSelection\': {
+                                \'MaxVideoBitsPerSecond\': 123,
+                                \'MinVideoBitsPerSecond\': 123,
+                                \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                             },
-                            'SuggestedPresentationDelaySeconds': 123
+                            \'SuggestedPresentationDelaySeconds\': 123
                         },
-                        'Description': 'string',
-                        'HlsPackage': {
-                            'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                            'Encryption': {
-                                'ConstantInitializationVector': 'string',
-                                'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                                'KeyRotationIntervalSeconds': 123,
-                                'RepeatExtXKey': True|False,
-                                'SpekeKeyProvider': {
-                                    'CertificateArn': 'string',
-                                    'ResourceId': 'string',
-                                    'RoleArn': 'string',
-                                    'SystemIds': [
-                                        'string',
+                        \'Description\': \'string\',
+                        \'HlsPackage\': {
+                            \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                            \'Encryption\': {
+                                \'ConstantInitializationVector\': \'string\',
+                                \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                                \'KeyRotationIntervalSeconds\': 123,
+                                \'RepeatExtXKey\': True|False,
+                                \'SpekeKeyProvider\': {
+                                    \'CertificateArn\': \'string\',
+                                    \'ResourceId\': \'string\',
+                                    \'RoleArn\': \'string\',
+                                    \'SystemIds\': [
+                                        \'string\',
                                     ],
-                                    'Url': 'string'
+                                    \'Url\': \'string\'
                                 }
                             },
-                            'IncludeIframeOnlyStream': True|False,
-                            'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                            'PlaylistWindowSeconds': 123,
-                            'ProgramDateTimeIntervalSeconds': 123,
-                            'SegmentDurationSeconds': 123,
-                            'StreamSelection': {
-                                'MaxVideoBitsPerSecond': 123,
-                                'MinVideoBitsPerSecond': 123,
-                                'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                            \'IncludeIframeOnlyStream\': True|False,
+                            \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                            \'PlaylistWindowSeconds\': 123,
+                            \'ProgramDateTimeIntervalSeconds\': 123,
+                            \'SegmentDurationSeconds\': 123,
+                            \'StreamSelection\': {
+                                \'MaxVideoBitsPerSecond\': 123,
+                                \'MinVideoBitsPerSecond\': 123,
+                                \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                             },
-                            'UseAudioRenditionGroup': True|False
+                            \'UseAudioRenditionGroup\': True|False
                         },
-                        'Id': 'string',
-                        'ManifestName': 'string',
-                        'MssPackage': {
-                            'Encryption': {
-                                'SpekeKeyProvider': {
-                                    'CertificateArn': 'string',
-                                    'ResourceId': 'string',
-                                    'RoleArn': 'string',
-                                    'SystemIds': [
-                                        'string',
+                        \'Id\': \'string\',
+                        \'ManifestName\': \'string\',
+                        \'MssPackage\': {
+                            \'Encryption\': {
+                                \'SpekeKeyProvider\': {
+                                    \'CertificateArn\': \'string\',
+                                    \'ResourceId\': \'string\',
+                                    \'RoleArn\': \'string\',
+                                    \'SystemIds\': [
+                                        \'string\',
                                     ],
-                                    'Url': 'string'
+                                    \'Url\': \'string\'
                                 }
                             },
-                            'ManifestWindowSeconds': 123,
-                            'SegmentDurationSeconds': 123,
-                            'StreamSelection': {
-                                'MaxVideoBitsPerSecond': 123,
-                                'MinVideoBitsPerSecond': 123,
-                                'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                            \'ManifestWindowSeconds\': 123,
+                            \'SegmentDurationSeconds\': 123,
+                            \'StreamSelection\': {
+                                \'MaxVideoBitsPerSecond\': 123,
+                                \'MinVideoBitsPerSecond\': 123,
+                                \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                             }
                         },
-                        'StartoverWindowSeconds': 123,
-                        'TimeDelaySeconds': 123,
-                        'Url': 'string',
-                        'Whitelist': [
-                            'string',
+                        \'StartoverWindowSeconds\': 123,
+                        \'TimeDelaySeconds\': 123,
+                        \'Url\': \'string\',
+                        \'Whitelist\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -1538,7 +1538,7 @@ class Client(BaseClient):
                     
                     - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
                       
-                      - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+                      - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
                       
                       - **Id** *(string) --* The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
                       
@@ -1546,7 +1546,7 @@ class Client(BaseClient):
                       
                       - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
                       
-                      - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+                      - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
                       
                       - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
                       
@@ -1592,11 +1592,11 @@ class Client(BaseClient):
                   
                   - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
                   
-                  - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+                  - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
                     
                     - *(string) --* 
                 
-                  - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+                  - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
                   
                   - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
                   
@@ -1614,7 +1614,7 @@ class Client(BaseClient):
                 
                 - **HlsPackage** *(dict) --* An HTTP Live Streaming (HLS) packaging configuration.
                   
-                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
                   
                   - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
                     
@@ -1642,7 +1642,7 @@ class Client(BaseClient):
                   
                   - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
                   
-                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
                   
                   - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
                   
@@ -1720,7 +1720,7 @@ class Client(BaseClient):
         ::
         
           response = client.rotate_channel_credentials(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the channel to update.
@@ -1733,19 +1733,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Description': 'string',
-                'HlsIngest': {
-                    'IngestEndpoints': [
+                \'Arn\': \'string\',
+                \'Description\': \'string\',
+                \'HlsIngest\': {
+                    \'IngestEndpoints\': [
                         {
-                            'Id': 'string',
-                            'Password': 'string',
-                            'Url': 'string',
-                            'Username': 'string'
+                            \'Id\': \'string\',
+                            \'Password\': \'string\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string'
+                \'Id\': \'string\'
             }
           **Response Structure** 
         
@@ -1782,8 +1782,8 @@ class Client(BaseClient):
         ::
         
           response = client.rotate_ingest_endpoint_credentials(
-              Id='string',
-              IngestEndpointId='string'
+              Id=\'string\',
+              IngestEndpointId=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the channel the IngestEndpoint is on.
@@ -1799,19 +1799,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Description': 'string',
-                'HlsIngest': {
-                    'IngestEndpoints': [
+                \'Arn\': \'string\',
+                \'Description\': \'string\',
+                \'HlsIngest\': {
+                    \'IngestEndpoints\': [
                         {
-                            'Id': 'string',
-                            'Password': 'string',
-                            'Url': 'string',
-                            'Username': 'string'
+                            \'Id\': \'string\',
+                            \'Password\': \'string\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string'
+                \'Id\': \'string\'
             }
           **Response Structure** 
         
@@ -1848,8 +1848,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_channel(
-              Description='string',
-              Id='string'
+              Description=\'string\',
+              Id=\'string\'
           )
         :type Description: string
         :param Description: A short text description of the Channel.
@@ -1865,19 +1865,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Description': 'string',
-                'HlsIngest': {
-                    'IngestEndpoints': [
+                \'Arn\': \'string\',
+                \'Description\': \'string\',
+                \'HlsIngest\': {
+                    \'IngestEndpoints\': [
                         {
-                            'Id': 'string',
-                            'Password': 'string',
-                            'Url': 'string',
-                            'Username': 'string'
+                            \'Id\': \'string\',
+                            \'Password\': \'string\',
+                            \'Url\': \'string\',
+                            \'Username\': \'string\'
                         },
                     ]
                 },
-                'Id': 'string'
+                \'Id\': \'string\'
             }
           **Response Structure** 
         
@@ -1915,121 +1915,121 @@ class Client(BaseClient):
         
           response = client.update_origin_endpoint(
               CmafPackage={
-                  'Encryption': {
-                      'KeyRotationIntervalSeconds': 123,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'HlsManifests': [
+                  \'HlsManifests\': [
                       {
-                          'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                          'Id': 'string',
-                          'IncludeIframeOnlyStream': True|False,
-                          'ManifestName': 'string',
-                          'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                          'PlaylistWindowSeconds': 123,
-                          'ProgramDateTimeIntervalSeconds': 123
+                          \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                          \'Id\': \'string\',
+                          \'IncludeIframeOnlyStream\': True|False,
+                          \'ManifestName\': \'string\',
+                          \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                          \'PlaylistWindowSeconds\': 123,
+                          \'ProgramDateTimeIntervalSeconds\': 123
                       },
                   ],
-                  'SegmentDurationSeconds': 123,
-                  'SegmentPrefix': 'string',
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'SegmentDurationSeconds\': 123,
+                  \'SegmentPrefix\': \'string\',
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   }
               },
               DashPackage={
-                  'Encryption': {
-                      'KeyRotationIntervalSeconds': 123,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'ManifestWindowSeconds': 123,
-                  'MinBufferTimeSeconds': 123,
-                  'MinUpdatePeriodSeconds': 123,
-                  'PeriodTriggers': [
-                      'ADS',
+                  \'ManifestWindowSeconds\': 123,
+                  \'MinBufferTimeSeconds\': 123,
+                  \'MinUpdatePeriodSeconds\': 123,
+                  \'PeriodTriggers\': [
+                      \'ADS\',
                   ],
-                  'Profile': 'NONE'|'HBBTV_1_5',
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   },
-                  'SuggestedPresentationDelaySeconds': 123
+                  \'SuggestedPresentationDelaySeconds\': 123
               },
-              Description='string',
+              Description=\'string\',
               HlsPackage={
-                  'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                  'Encryption': {
-                      'ConstantInitializationVector': 'string',
-                      'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                      'KeyRotationIntervalSeconds': 123,
-                      'RepeatExtXKey': True|False,
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                  \'Encryption\': {
+                      \'ConstantInitializationVector\': \'string\',
+                      \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                      \'KeyRotationIntervalSeconds\': 123,
+                      \'RepeatExtXKey\': True|False,
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'IncludeIframeOnlyStream': True|False,
-                  'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                  'PlaylistWindowSeconds': 123,
-                  'ProgramDateTimeIntervalSeconds': 123,
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'IncludeIframeOnlyStream\': True|False,
+                  \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                  \'PlaylistWindowSeconds\': 123,
+                  \'ProgramDateTimeIntervalSeconds\': 123,
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   },
-                  'UseAudioRenditionGroup': True|False
+                  \'UseAudioRenditionGroup\': True|False
               },
-              Id='string',
-              ManifestName='string',
+              Id=\'string\',
+              ManifestName=\'string\',
               MssPackage={
-                  'Encryption': {
-                      'SpekeKeyProvider': {
-                          'CertificateArn': 'string',
-                          'ResourceId': 'string',
-                          'RoleArn': 'string',
-                          'SystemIds': [
-                              'string',
+                  \'Encryption\': {
+                      \'SpekeKeyProvider\': {
+                          \'CertificateArn\': \'string\',
+                          \'ResourceId\': \'string\',
+                          \'RoleArn\': \'string\',
+                          \'SystemIds\': [
+                              \'string\',
                           ],
-                          'Url': 'string'
+                          \'Url\': \'string\'
                       }
                   },
-                  'ManifestWindowSeconds': 123,
-                  'SegmentDurationSeconds': 123,
-                  'StreamSelection': {
-                      'MaxVideoBitsPerSecond': 123,
-                      'MinVideoBitsPerSecond': 123,
-                      'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                  \'ManifestWindowSeconds\': 123,
+                  \'SegmentDurationSeconds\': 123,
+                  \'StreamSelection\': {
+                      \'MaxVideoBitsPerSecond\': 123,
+                      \'MinVideoBitsPerSecond\': 123,
+                      \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                   }
               },
               StartoverWindowSeconds=123,
               TimeDelaySeconds=123,
               Whitelist=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CmafPackage: dict
@@ -2057,7 +2057,7 @@ class Client(BaseClient):
         
             - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
         
-              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
         
               - **Id** *(string) --* **[REQUIRED]** The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
         
@@ -2065,7 +2065,7 @@ class Client(BaseClient):
         
               - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
         
-              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
         
               - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
         
@@ -2110,11 +2110,11 @@ class Client(BaseClient):
         
           - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
         
-          - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+          - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
         
             - *(string) --* 
         
-          - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+          - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
         
           - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
         
@@ -2134,7 +2134,7 @@ class Client(BaseClient):
         :type HlsPackage: dict
         :param HlsPackage: An HTTP Live Streaming (HLS) packaging configuration.
         
-          - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+          - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
         
           - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
         
@@ -2162,7 +2162,7 @@ class Client(BaseClient):
         
           - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
         
-          - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+          - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
         
           - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
         
@@ -2236,126 +2236,126 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'ChannelId': 'string',
-                'CmafPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Arn\': \'string\',
+                \'ChannelId\': \'string\',
+                \'CmafPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'HlsManifests': [
+                    \'HlsManifests\': [
                         {
-                            'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                            'Id': 'string',
-                            'IncludeIframeOnlyStream': True|False,
-                            'ManifestName': 'string',
-                            'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                            'PlaylistWindowSeconds': 123,
-                            'ProgramDateTimeIntervalSeconds': 123,
-                            'Url': 'string'
+                            \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                            \'Id\': \'string\',
+                            \'IncludeIframeOnlyStream\': True|False,
+                            \'ManifestName\': \'string\',
+                            \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                            \'PlaylistWindowSeconds\': 123,
+                            \'ProgramDateTimeIntervalSeconds\': 123,
+                            \'Url\': \'string\'
                         },
                     ],
-                    'SegmentDurationSeconds': 123,
-                    'SegmentPrefix': 'string',
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'SegmentDurationSeconds\': 123,
+                    \'SegmentPrefix\': \'string\',
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'DashPackage': {
-                    'Encryption': {
-                        'KeyRotationIntervalSeconds': 123,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'DashPackage\': {
+                    \'Encryption\': {
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'MinBufferTimeSeconds': 123,
-                    'MinUpdatePeriodSeconds': 123,
-                    'PeriodTriggers': [
-                        'ADS',
+                    \'ManifestWindowSeconds\': 123,
+                    \'MinBufferTimeSeconds\': 123,
+                    \'MinUpdatePeriodSeconds\': 123,
+                    \'PeriodTriggers\': [
+                        \'ADS\',
                     ],
-                    'Profile': 'NONE'|'HBBTV_1_5',
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'Profile\': \'NONE\'|\'HBBTV_1_5\',
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'SuggestedPresentationDelaySeconds': 123
+                    \'SuggestedPresentationDelaySeconds\': 123
                 },
-                'Description': 'string',
-                'HlsPackage': {
-                    'AdMarkers': 'NONE'|'SCTE35_ENHANCED'|'PASSTHROUGH',
-                    'Encryption': {
-                        'ConstantInitializationVector': 'string',
-                        'EncryptionMethod': 'AES_128'|'SAMPLE_AES',
-                        'KeyRotationIntervalSeconds': 123,
-                        'RepeatExtXKey': True|False,
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Description\': \'string\',
+                \'HlsPackage\': {
+                    \'AdMarkers\': \'NONE\'|\'SCTE35_ENHANCED\'|\'PASSTHROUGH\',
+                    \'Encryption\': {
+                        \'ConstantInitializationVector\': \'string\',
+                        \'EncryptionMethod\': \'AES_128\'|\'SAMPLE_AES\',
+                        \'KeyRotationIntervalSeconds\': 123,
+                        \'RepeatExtXKey\': True|False,
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'IncludeIframeOnlyStream': True|False,
-                    'PlaylistType': 'NONE'|'EVENT'|'VOD',
-                    'PlaylistWindowSeconds': 123,
-                    'ProgramDateTimeIntervalSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'IncludeIframeOnlyStream\': True|False,
+                    \'PlaylistType\': \'NONE\'|\'EVENT\'|\'VOD\',
+                    \'PlaylistWindowSeconds\': 123,
+                    \'ProgramDateTimeIntervalSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     },
-                    'UseAudioRenditionGroup': True|False
+                    \'UseAudioRenditionGroup\': True|False
                 },
-                'Id': 'string',
-                'ManifestName': 'string',
-                'MssPackage': {
-                    'Encryption': {
-                        'SpekeKeyProvider': {
-                            'CertificateArn': 'string',
-                            'ResourceId': 'string',
-                            'RoleArn': 'string',
-                            'SystemIds': [
-                                'string',
+                \'Id\': \'string\',
+                \'ManifestName\': \'string\',
+                \'MssPackage\': {
+                    \'Encryption\': {
+                        \'SpekeKeyProvider\': {
+                            \'CertificateArn\': \'string\',
+                            \'ResourceId\': \'string\',
+                            \'RoleArn\': \'string\',
+                            \'SystemIds\': [
+                                \'string\',
                             ],
-                            'Url': 'string'
+                            \'Url\': \'string\'
                         }
                     },
-                    'ManifestWindowSeconds': 123,
-                    'SegmentDurationSeconds': 123,
-                    'StreamSelection': {
-                        'MaxVideoBitsPerSecond': 123,
-                        'MinVideoBitsPerSecond': 123,
-                        'StreamOrder': 'ORIGINAL'|'VIDEO_BITRATE_ASCENDING'|'VIDEO_BITRATE_DESCENDING'
+                    \'ManifestWindowSeconds\': 123,
+                    \'SegmentDurationSeconds\': 123,
+                    \'StreamSelection\': {
+                        \'MaxVideoBitsPerSecond\': 123,
+                        \'MinVideoBitsPerSecond\': 123,
+                        \'StreamOrder\': \'ORIGINAL\'|\'VIDEO_BITRATE_ASCENDING\'|\'VIDEO_BITRATE_DESCENDING\'
                     }
                 },
-                'StartoverWindowSeconds': 123,
-                'TimeDelaySeconds': 123,
-                'Url': 'string',
-                'Whitelist': [
-                    'string',
+                \'StartoverWindowSeconds\': 123,
+                \'TimeDelaySeconds\': 123,
+                \'Url\': \'string\',
+                \'Whitelist\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2390,7 +2390,7 @@ class Client(BaseClient):
                 
                 - *(dict) --* A HTTP Live Streaming (HLS) manifest configuration.
                   
-                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+                  - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
                   
                   - **Id** *(string) --* The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
                   
@@ -2398,7 +2398,7 @@ class Client(BaseClient):
                   
                   - **ManifestName** *(string) --* An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
                   
-                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+                  - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
                   
                   - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
                   
@@ -2444,11 +2444,11 @@ class Client(BaseClient):
               
               - **MinUpdatePeriodSeconds** *(integer) --* Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
               
-              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers. 
+              - **PeriodTriggers** *(list) --* A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains \"ADS\", new periods will be created where the Channel source contains SCTE-35 ad markers. 
                 
                 - *(string) --* 
             
-              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+              - **Profile** *(string) --* The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
               
               - **SegmentDurationSeconds** *(integer) --* Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration. 
               
@@ -2466,7 +2466,7 @@ class Client(BaseClient):
             
             - **HlsPackage** *(dict) --* An HTTP Live Streaming (HLS) packaging configuration.
               
-              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
+              - **AdMarkers** *(string) --* This setting controls how ad markers are included in the packaged OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the output. \"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. \"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35 messages in the input source. 
               
               - **Encryption** *(dict) --* An HTTP Live Streaming (HLS) encryption configuration.
                 
@@ -2494,7 +2494,7 @@ class Client(BaseClient):
               
               - **IncludeIframeOnlyStream** *(boolean) --* When enabled, an I-Frame only stream will be included in the output.
               
-              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
+              - **PlaylistType** *(string) --* The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist. 
               
               - **PlaylistWindowSeconds** *(integer) --* Time window (in seconds) contained in each parent manifest.
               

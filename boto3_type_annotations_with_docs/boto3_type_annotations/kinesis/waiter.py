@@ -13,12 +13,12 @@ class StreamExists(Waiter):
         ::
         
           waiter.wait(
-              StreamName='string',
+              StreamName=\'string\',
               Limit=123,
-              ExclusiveStartShardId='string',
+              ExclusiveStartShardId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StreamName: string
@@ -64,12 +64,12 @@ class StreamNotExists(Waiter):
         ::
         
           waiter.wait(
-              StreamName='string',
+              StreamName=\'string\',
               Limit=123,
-              ExclusiveStartShardId='string',
+              ExclusiveStartShardId=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type StreamName: string

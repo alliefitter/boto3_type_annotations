@@ -12,12 +12,12 @@ class GetExecutionHistory(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              executionArn='string',
+              executionArn=\'string\',
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type executionArn: string
@@ -55,90 +55,90 @@ class GetExecutionHistory(Paginator):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'timestamp': datetime(2015, 1, 1),
-                        'type': 'ActivityFailed'|'ActivityScheduleFailed'|'ActivityScheduled'|'ActivityStarted'|'ActivitySucceeded'|'ActivityTimedOut'|'ChoiceStateEntered'|'ChoiceStateExited'|'ExecutionFailed'|'ExecutionStarted'|'ExecutionSucceeded'|'ExecutionAborted'|'ExecutionTimedOut'|'FailStateEntered'|'LambdaFunctionFailed'|'LambdaFunctionScheduleFailed'|'LambdaFunctionScheduled'|'LambdaFunctionStartFailed'|'LambdaFunctionStarted'|'LambdaFunctionSucceeded'|'LambdaFunctionTimedOut'|'SucceedStateEntered'|'SucceedStateExited'|'TaskStateAborted'|'TaskStateEntered'|'TaskStateExited'|'PassStateEntered'|'PassStateExited'|'ParallelStateAborted'|'ParallelStateEntered'|'ParallelStateExited'|'ParallelStateFailed'|'ParallelStateStarted'|'ParallelStateSucceeded'|'WaitStateAborted'|'WaitStateEntered'|'WaitStateExited',
-                        'id': 123,
-                        'previousEventId': 123,
-                        'activityFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'timestamp\': datetime(2015, 1, 1),
+                        \'type\': \'ActivityFailed\'|\'ActivityScheduleFailed\'|\'ActivityScheduled\'|\'ActivityStarted\'|\'ActivitySucceeded\'|\'ActivityTimedOut\'|\'ChoiceStateEntered\'|\'ChoiceStateExited\'|\'ExecutionFailed\'|\'ExecutionStarted\'|\'ExecutionSucceeded\'|\'ExecutionAborted\'|\'ExecutionTimedOut\'|\'FailStateEntered\'|\'LambdaFunctionFailed\'|\'LambdaFunctionScheduleFailed\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStartFailed\'|\'LambdaFunctionStarted\'|\'LambdaFunctionSucceeded\'|\'LambdaFunctionTimedOut\'|\'SucceedStateEntered\'|\'SucceedStateExited\'|\'TaskStateAborted\'|\'TaskStateEntered\'|\'TaskStateExited\'|\'PassStateEntered\'|\'PassStateExited\'|\'ParallelStateAborted\'|\'ParallelStateEntered\'|\'ParallelStateExited\'|\'ParallelStateFailed\'|\'ParallelStateStarted\'|\'ParallelStateSucceeded\'|\'WaitStateAborted\'|\'WaitStateEntered\'|\'WaitStateExited\',
+                        \'id\': 123,
+                        \'previousEventId\': 123,
+                        \'activityFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'activityScheduleFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'activityScheduleFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'activityScheduledEventDetails': {
-                            'resource': 'string',
-                            'input': 'string',
-                            'timeoutInSeconds': 123,
-                            'heartbeatInSeconds': 123
+                        \'activityScheduledEventDetails\': {
+                            \'resource\': \'string\',
+                            \'input\': \'string\',
+                            \'timeoutInSeconds\': 123,
+                            \'heartbeatInSeconds\': 123
                         },
-                        'activityStartedEventDetails': {
-                            'workerName': 'string'
+                        \'activityStartedEventDetails\': {
+                            \'workerName\': \'string\'
                         },
-                        'activitySucceededEventDetails': {
-                            'output': 'string'
+                        \'activitySucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'activityTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'activityTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionStartedEventDetails': {
-                            'input': 'string',
-                            'roleArn': 'string'
+                        \'executionStartedEventDetails\': {
+                            \'input\': \'string\',
+                            \'roleArn\': \'string\'
                         },
-                        'executionSucceededEventDetails': {
-                            'output': 'string'
+                        \'executionSucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'executionAbortedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionAbortedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'executionTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'executionTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionScheduleFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionScheduleFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventDetails': {
-                            'resource': 'string',
-                            'input': 'string',
-                            'timeoutInSeconds': 123
+                        \'lambdaFunctionScheduledEventDetails\': {
+                            \'resource\': \'string\',
+                            \'input\': \'string\',
+                            \'timeoutInSeconds\': 123
                         },
-                        'lambdaFunctionStartFailedEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionStartFailedEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'lambdaFunctionSucceededEventDetails': {
-                            'output': 'string'
+                        \'lambdaFunctionSucceededEventDetails\': {
+                            \'output\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventDetails': {
-                            'error': 'string',
-                            'cause': 'string'
+                        \'lambdaFunctionTimedOutEventDetails\': {
+                            \'error\': \'string\',
+                            \'cause\': \'string\'
                         },
-                        'stateEnteredEventDetails': {
-                            'name': 'string',
-                            'input': 'string'
+                        \'stateEnteredEventDetails\': {
+                            \'name\': \'string\',
+                            \'input\': \'string\'
                         },
-                        'stateExitedEventDetails': {
-                            'name': 'string',
-                            'output': 'string'
+                        \'stateExitedEventDetails\': {
+                            \'name\': \'string\',
+                            \'output\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -396,7 +396,7 @@ class GetExecutionHistory(Paginator):
                      
                     * wildcard characters ``? *``   
                      
-                    * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                    * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                      
                     * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                      
@@ -423,9 +423,9 @@ class ListActivities(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -453,14 +453,14 @@ class ListActivities(Paginator):
           ::
         
             {
-                'activities': [
+                \'activities\': [
                     {
-                        'activityArn': 'string',
-                        'name': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'activityArn\': \'string\',
+                        \'name\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -490,7 +490,7 @@ class ListActivities(Paginator):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    
@@ -516,12 +516,12 @@ class ListExecutions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              stateMachineArn='string',
-              statusFilter='RUNNING'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'ABORTED',
+              stateMachineArn=\'string\',
+              statusFilter=\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'ABORTED\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type stateMachineArn: string
@@ -559,17 +559,17 @@ class ListExecutions(Paginator):
           ::
         
             {
-                'executions': [
+                \'executions\': [
                     {
-                        'executionArn': 'string',
-                        'stateMachineArn': 'string',
-                        'name': 'string',
-                        'status': 'RUNNING'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'ABORTED',
-                        'startDate': datetime(2015, 1, 1),
-                        'stopDate': datetime(2015, 1, 1)
+                        \'executionArn\': \'string\',
+                        \'stateMachineArn\': \'string\',
+                        \'name\': \'string\',
+                        \'status\': \'RUNNING\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'ABORTED\',
+                        \'startDate\': datetime(2015, 1, 1),
+                        \'stopDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -603,7 +603,7 @@ class ListExecutions(Paginator):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    
@@ -638,9 +638,9 @@ class ListStateMachines(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -668,14 +668,14 @@ class ListStateMachines(Paginator):
           ::
         
             {
-                'stateMachines': [
+                \'stateMachines\': [
                     {
-                        'stateMachineArn': 'string',
-                        'name': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'stateMachineArn\': \'string\',
+                        \'name\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -703,7 +703,7 @@ class ListStateMachines(Paginator):
                    
                   * wildcard characters ``? *``   
                    
-                  * special characters ``" # % \ ^ | ~ ` $ & , ; : /``   
+                  * special characters ``\" # % \ ^ | ~ ` $ & , ; : /``   
                    
                   * control characters (``U+0000-001F`` , ``U+007F-009F`` ) 
                    

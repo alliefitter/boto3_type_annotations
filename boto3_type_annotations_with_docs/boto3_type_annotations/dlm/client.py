@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,38 +34,38 @@ class Client(BaseClient):
         ::
         
           response = client.create_lifecycle_policy(
-              ExecutionRoleArn='string',
-              Description='string',
-              State='ENABLED'|'DISABLED',
+              ExecutionRoleArn=\'string\',
+              Description=\'string\',
+              State=\'ENABLED\'|\'DISABLED\',
               PolicyDetails={
-                  'ResourceTypes': [
-                      'VOLUME',
+                  \'ResourceTypes\': [
+                      \'VOLUME\',
                   ],
-                  'TargetTags': [
+                  \'TargetTags\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ],
-                  'Schedules': [
+                  \'Schedules\': [
                       {
-                          'Name': 'string',
-                          'CopyTags': True|False,
-                          'TagsToAdd': [
+                          \'Name\': \'string\',
+                          \'CopyTags\': True|False,
+                          \'TagsToAdd\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'CreateRule': {
-                              'Interval': 123,
-                              'IntervalUnit': 'HOURS',
-                              'Times': [
-                                  'string',
+                          \'CreateRule\': {
+                              \'Interval\': 123,
+                              \'IntervalUnit\': \'HOURS\',
+                              \'Times\': [
+                                  \'string\',
                               ]
                           },
-                          'RetainRule': {
-                              'Count': 123
+                          \'RetainRule\': {
+                              \'Count\': 123
                           }
                       },
                   ]
@@ -181,7 +181,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyId': 'string'
+                \'PolicyId\': \'string\'
             }
           **Response Structure** 
         
@@ -203,7 +203,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_lifecycle_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
@@ -240,7 +240,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -258,17 +258,17 @@ class Client(BaseClient):
         
           response = client.get_lifecycle_policies(
               PolicyIds=[
-                  'string',
+                  \'string\',
               ],
-              State='ENABLED'|'DISABLED'|'ERROR',
+              State=\'ENABLED\'|\'DISABLED\'|\'ERROR\',
               ResourceTypes=[
-                  'VOLUME',
+                  \'VOLUME\',
               ],
               TargetTags=[
-                  'string',
+                  \'string\',
               ],
               TagsToAdd=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PolicyIds: list
@@ -318,11 +318,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'PolicyId': 'string',
-                        'Description': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'ERROR'
+                        \'PolicyId\': \'string\',
+                        \'Description\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'ERROR\'
                     },
                 ]
             }
@@ -362,7 +362,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_lifecycle_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
@@ -377,42 +377,42 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicyId': 'string',
-                    'Description': 'string',
-                    'State': 'ENABLED'|'DISABLED'|'ERROR',
-                    'ExecutionRoleArn': 'string',
-                    'DateCreated': datetime(2015, 1, 1),
-                    'DateModified': datetime(2015, 1, 1),
-                    'PolicyDetails': {
-                        'ResourceTypes': [
-                            'VOLUME',
+                \'Policy\': {
+                    \'PolicyId\': \'string\',
+                    \'Description\': \'string\',
+                    \'State\': \'ENABLED\'|\'DISABLED\'|\'ERROR\',
+                    \'ExecutionRoleArn\': \'string\',
+                    \'DateCreated\': datetime(2015, 1, 1),
+                    \'DateModified\': datetime(2015, 1, 1),
+                    \'PolicyDetails\': {
+                        \'ResourceTypes\': [
+                            \'VOLUME\',
                         ],
-                        'TargetTags': [
+                        \'TargetTags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Schedules': [
+                        \'Schedules\': [
                             {
-                                'Name': 'string',
-                                'CopyTags': True|False,
-                                'TagsToAdd': [
+                                \'Name\': \'string\',
+                                \'CopyTags\': True|False,
+                                \'TagsToAdd\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'CreateRule': {
-                                    'Interval': 123,
-                                    'IntervalUnit': 'HOURS',
-                                    'Times': [
-                                        'string',
+                                \'CreateRule\': {
+                                    \'Interval\': 123,
+                                    \'IntervalUnit\': \'HOURS\',
+                                    \'Times\': [
+                                        \'string\',
                                     ]
                                 },
-                                'RetainRule': {
-                                    'Count': 123
+                                \'RetainRule\': {
+                                    \'Count\': 123
                                 }
                             },
                         ]
@@ -544,10 +544,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -579,39 +579,39 @@ class Client(BaseClient):
         ::
         
           response = client.update_lifecycle_policy(
-              PolicyId='string',
-              ExecutionRoleArn='string',
-              State='ENABLED'|'DISABLED',
-              Description='string',
+              PolicyId=\'string\',
+              ExecutionRoleArn=\'string\',
+              State=\'ENABLED\'|\'DISABLED\',
+              Description=\'string\',
               PolicyDetails={
-                  'ResourceTypes': [
-                      'VOLUME',
+                  \'ResourceTypes\': [
+                      \'VOLUME\',
                   ],
-                  'TargetTags': [
+                  \'TargetTags\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ],
-                  'Schedules': [
+                  \'Schedules\': [
                       {
-                          'Name': 'string',
-                          'CopyTags': True|False,
-                          'TagsToAdd': [
+                          \'Name\': \'string\',
+                          \'CopyTags\': True|False,
+                          \'TagsToAdd\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ],
-                          'CreateRule': {
-                              'Interval': 123,
-                              'IntervalUnit': 'HOURS',
-                              'Times': [
-                                  'string',
+                          \'CreateRule\': {
+                              \'Interval\': 123,
+                              \'IntervalUnit\': \'HOURS\',
+                              \'Times\': [
+                                  \'string\',
                               ]
                           },
-                          'RetainRule': {
-                              'Count': 123
+                          \'RetainRule\': {
+                              \'Count\': 123
                           }
                       },
                   ]

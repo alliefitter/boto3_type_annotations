@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,13 +18,13 @@ class Client(BaseClient):
         ::
         
           response = client.add_permission(
-              TopicArn='string',
-              Label='string',
+              TopicArn=\'string\',
+              Label=\'string\',
               AWSAccountId=[
-                  'string',
+                  \'string\',
               ],
               ActionName=[
-                  'string',
+                  \'string\',
               ]
           )
         :type TopicArn: string
@@ -63,10 +63,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -84,7 +84,7 @@ class Client(BaseClient):
         ::
         
           response = client.check_if_phone_number_is_opted_out(
-              phoneNumber='string'
+              phoneNumber=\'string\'
           )
         :type phoneNumber: string
         :param phoneNumber: **[REQUIRED]** 
@@ -99,7 +99,7 @@ class Client(BaseClient):
           ::
         
             {
-                'isOptedOut': True|False
+                \'isOptedOut\': True|False
             }
           **Response Structure** 
         
@@ -127,9 +127,9 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_subscription(
-              TopicArn='string',
-              Token='string',
-              AuthenticateOnUnsubscribe='string'
+              TopicArn=\'string\',
+              Token=\'string\',
+              AuthenticateOnUnsubscribe=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -154,7 +154,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SubscriptionArn': 'string'
+                \'SubscriptionArn\': \'string\'
             }
           **Response Structure** 
         
@@ -172,7 +172,7 @@ class Client(BaseClient):
     def create_platform_application(self, Name: str, Platform: str, Attributes: Dict) -> Dict:
         """
         
-        For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
+        For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". For WNS, PlatformCredential is \"secret key\". For MPNS, PlatformCredential is \"private key\". For Baidu, PlatformCredential is \"secret key\". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreatePlatformApplication>`_
         
@@ -180,10 +180,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_platform_application(
-              Name='string',
-              Platform='string',
+              Name=\'string\',
+              Platform=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Name: string
@@ -213,7 +213,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformApplicationArn': 'string'
+                \'PlatformApplicationArn\': \'string\'
             }
           **Response Structure** 
         
@@ -239,11 +239,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_platform_endpoint(
-              PlatformApplicationArn='string',
-              Token='string',
-              CustomUserData='string',
+              PlatformApplicationArn=\'string\',
+              Token=\'string\',
+              CustomUserData=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type PlatformApplicationArn: string
@@ -278,7 +278,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointArn': 'string'
+                \'EndpointArn\': \'string\'
             }
           **Response Structure** 
         
@@ -302,7 +302,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_topic(
-              Name='string'
+              Name=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -319,7 +319,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TopicArn': 'string'
+                \'TopicArn\': \'string\'
             }
           **Response Structure** 
         
@@ -345,7 +345,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_endpoint(
-              EndpointArn='string'
+              EndpointArn=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -365,7 +365,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_platform_application(
-              PlatformApplicationArn='string'
+              PlatformApplicationArn=\'string\'
           )
         :type PlatformApplicationArn: string
         :param PlatformApplicationArn: **[REQUIRED]** 
@@ -385,7 +385,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_topic(
-              TopicArn='string'
+              TopicArn=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -412,7 +412,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -427,7 +427,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_endpoint_attributes(
-              EndpointArn='string'
+              EndpointArn=\'string\'
           )
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]** 
@@ -442,8 +442,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': {
-                    'string': 'string'
+                \'Attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -475,10 +475,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -498,7 +498,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_platform_application_attributes(
-              PlatformApplicationArn='string'
+              PlatformApplicationArn=\'string\'
           )
         :type PlatformApplicationArn: string
         :param PlatformApplicationArn: **[REQUIRED]** 
@@ -513,8 +513,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': {
-                    'string': 'string'
+                \'Attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -533,7 +533,7 @@ class Client(BaseClient):
                
               * ``EventEndpointUpdated`` -- Topic ARN to which EndpointUpdate event notifications should be sent. 
                
-              * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints. 
+              * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application\'s endpoints. 
                
               - *(string) --* 
                 
@@ -554,7 +554,7 @@ class Client(BaseClient):
         
           response = client.get_sms_attributes(
               attributes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type attributes: list
@@ -564,7 +564,7 @@ class Client(BaseClient):
         
           For all attribute names, see `SetSMSAttributes <http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html>`__ .
         
-          If you don't use this parameter, Amazon SNS returns all SMS attributes.
+          If you don\'t use this parameter, Amazon SNS returns all SMS attributes.
         
           - *(string) --* 
         
@@ -576,8 +576,8 @@ class Client(BaseClient):
           ::
         
             {
-                'attributes': {
-                    'string': 'string'
+                \'attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -606,7 +606,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_subscription_attributes(
-              SubscriptionArn='string'
+              SubscriptionArn=\'string\'
           )
         :type SubscriptionArn: string
         :param SubscriptionArn: **[REQUIRED]** 
@@ -621,8 +621,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': {
-                    'string': 'string'
+                \'Attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -633,23 +633,23 @@ class Client(BaseClient):
         
             - **Attributes** *(dict) --* 
         
-              A map of the subscription's attributes. Attributes in this map include the following:
+              A map of the subscription\'s attributes. Attributes in this map include the following:
         
               * ``ConfirmationWasAuthenticated`` -- ``true`` if the subscription confirmation request was authenticated. 
                
-              * ``DeliveryPolicy`` -- The JSON serialization of the subscription's delivery policy. 
+              * ``DeliveryPolicy`` -- The JSON serialization of the subscription\'s delivery policy. 
                
               * ``EffectiveDeliveryPolicy`` -- The JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults. 
                
               * ``FilterPolicy`` -- The filter policy JSON that is assigned to the subscription. 
                
-              * ``Owner`` -- The AWS account ID of the subscription's owner. 
+              * ``Owner`` -- The AWS account ID of the subscription\'s owner. 
                
-              * ``PendingConfirmation`` -- ``true`` if the subscription hasn't been confirmed. To confirm a pending subscription, call the ``ConfirmSubscription`` action with a confirmation token. 
+              * ``PendingConfirmation`` -- ``true`` if the subscription hasn\'t been confirmed. To confirm a pending subscription, call the ``ConfirmSubscription`` action with a confirmation token. 
                
               * ``RawMessageDelivery`` -- ``true`` if raw message delivery is enabled for the subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints. 
                
-              * ``SubscriptionArn`` -- The subscription's ARN. 
+              * ``SubscriptionArn`` -- The subscription\'s ARN. 
                
               * ``TopicArn`` -- The topic ARN that the subscription is associated with. 
                
@@ -669,7 +669,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_topic_attributes(
-              TopicArn='string'
+              TopicArn=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -684,8 +684,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Attributes': {
-                    'string': 'string'
+                \'Attributes\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -696,15 +696,15 @@ class Client(BaseClient):
         
             - **Attributes** *(dict) --* 
         
-              A map of the topic's attributes. Attributes in this map include the following:
+              A map of the topic\'s attributes. Attributes in this map include the following:
         
-              * ``TopicArn`` -- the topic's ARN 
+              * ``TopicArn`` -- the topic\'s ARN 
                
-              * ``Owner`` -- the AWS account ID of the topic's owner 
+              * ``Owner`` -- the AWS account ID of the topic\'s owner 
                
-              * ``Policy`` -- the JSON serialization of the topic's access control policy 
+              * ``Policy`` -- the JSON serialization of the topic\'s access control policy 
                
-              * ``DisplayName`` -- the human-readable name used in the "From" field for notifications to email and email-json endpoints 
+              * ``DisplayName`` -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints 
                
               * ``SubscriptionsPending`` -- the number of subscriptions pending confirmation on this topic 
                
@@ -712,7 +712,7 @@ class Client(BaseClient):
                
               * ``SubscriptionsDeleted`` -- the number of deleted subscriptions on this topic 
                
-              * ``DeliveryPolicy`` -- the JSON serialization of the topic's delivery policy 
+              * ``DeliveryPolicy`` -- the JSON serialization of the topic\'s delivery policy 
                
               * ``EffectiveDeliveryPolicy`` -- the JSON serialization of the effective delivery policy that takes into account system defaults 
                
@@ -746,8 +746,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_endpoints_by_platform_application(
-              PlatformApplicationArn='string',
-              NextToken='string'
+              PlatformApplicationArn=\'string\',
+              NextToken=\'string\'
           )
         :type PlatformApplicationArn: string
         :param PlatformApplicationArn: **[REQUIRED]** 
@@ -767,15 +767,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'EndpointArn': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'EndpointArn\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -821,7 +821,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_phone_numbers_opted_out(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -836,10 +836,10 @@ class Client(BaseClient):
           ::
         
             {
-                'phoneNumbers': [
-                    'string',
+                \'phoneNumbers\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -871,7 +871,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_platform_applications(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -886,15 +886,15 @@ class Client(BaseClient):
           ::
         
             {
-                'PlatformApplications': [
+                \'PlatformApplications\': [
                     {
-                        'PlatformApplicationArn': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'PlatformApplicationArn\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -940,7 +940,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_subscriptions(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -955,16 +955,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscriptions': [
+                \'Subscriptions\': [
                     {
-                        'SubscriptionArn': 'string',
-                        'Owner': 'string',
-                        'Protocol': 'string',
-                        'Endpoint': 'string',
-                        'TopicArn': 'string'
+                        \'SubscriptionArn\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Protocol\': \'string\',
+                        \'Endpoint\': \'string\',
+                        \'TopicArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -982,23 +982,23 @@ class Client(BaseClient):
         
                 - **SubscriptionArn** *(string) --* 
         
-                  The subscription's ARN.
+                  The subscription\'s ARN.
         
                 - **Owner** *(string) --* 
         
-                  The subscription's owner.
+                  The subscription\'s owner.
         
                 - **Protocol** *(string) --* 
         
-                  The subscription's protocol.
+                  The subscription\'s protocol.
         
                 - **Endpoint** *(string) --* 
         
-                  The subscription's endpoint (format depends on the protocol).
+                  The subscription\'s endpoint (format depends on the protocol).
         
                 - **TopicArn** *(string) --* 
         
-                  The ARN of the subscription's topic.
+                  The ARN of the subscription\'s topic.
         
             - **NextToken** *(string) --* 
         
@@ -1018,8 +1018,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_subscriptions_by_topic(
-              TopicArn='string',
-              NextToken='string'
+              TopicArn=\'string\',
+              NextToken=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -1039,16 +1039,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscriptions': [
+                \'Subscriptions\': [
                     {
-                        'SubscriptionArn': 'string',
-                        'Owner': 'string',
-                        'Protocol': 'string',
-                        'Endpoint': 'string',
-                        'TopicArn': 'string'
+                        \'SubscriptionArn\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Protocol\': \'string\',
+                        \'Endpoint\': \'string\',
+                        \'TopicArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1066,23 +1066,23 @@ class Client(BaseClient):
         
                 - **SubscriptionArn** *(string) --* 
         
-                  The subscription's ARN.
+                  The subscription\'s ARN.
         
                 - **Owner** *(string) --* 
         
-                  The subscription's owner.
+                  The subscription\'s owner.
         
                 - **Protocol** *(string) --* 
         
-                  The subscription's protocol.
+                  The subscription\'s protocol.
         
                 - **Endpoint** *(string) --* 
         
-                  The subscription's endpoint (format depends on the protocol).
+                  The subscription\'s endpoint (format depends on the protocol).
         
                 - **TopicArn** *(string) --* 
         
-                  The ARN of the subscription's topic.
+                  The ARN of the subscription\'s topic.
         
             - **NextToken** *(string) --* 
         
@@ -1102,7 +1102,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_topics(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -1117,12 +1117,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Topics': [
+                \'Topics\': [
                     {
-                        'TopicArn': 'string'
+                        \'TopicArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1136,11 +1136,11 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use ``GetTopicAttributes`` .
+                A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve a topic\'s attributes, use ``GetTopicAttributes`` .
         
                 - **TopicArn** *(string) --* 
         
-                  The topic's ARN.
+                  The topic\'s ARN.
         
             - **NextToken** *(string) --* 
         
@@ -1160,7 +1160,7 @@ class Client(BaseClient):
         ::
         
           response = client.opt_in_phone_number(
-              phoneNumber='string'
+              phoneNumber=\'string\'
           )
         :type phoneNumber: string
         :param phoneNumber: **[REQUIRED]** 
@@ -1201,17 +1201,17 @@ class Client(BaseClient):
         ::
         
           response = client.publish(
-              TopicArn='string',
-              TargetArn='string',
-              PhoneNumber='string',
-              Message='string',
-              Subject='string',
-              MessageStructure='string',
+              TopicArn=\'string\',
+              TargetArn=\'string\',
+              PhoneNumber=\'string\',
+              Message=\'string\',
+              Subject=\'string\',
+              MessageStructure=\'string\',
               MessageAttributes={
-                  'string': {
-                      'DataType': 'string',
-                      'StringValue': 'string',
-                      'BinaryValue': b'bytes'
+                  \'string\': {
+                      \'DataType\': \'string\',
+                      \'StringValue\': \'string\',
+                      \'BinaryValue\': b\'bytes\'
                   }
               }
           )
@@ -1220,21 +1220,21 @@ class Client(BaseClient):
         
           The topic you want to publish to.
         
-          If you don't specify a value for the ``TopicArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TargetArn`` parameters.
+          If you don\'t specify a value for the ``TopicArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TargetArn`` parameters.
         
         :type TargetArn: string
         :param TargetArn: 
         
           Either TopicArn or EndpointArn, but not both.
         
-          If you don't specify a value for the ``TargetArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TopicArn`` parameters.
+          If you don\'t specify a value for the ``TargetArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TopicArn`` parameters.
         
         :type PhoneNumber: string
         :param PhoneNumber: 
         
           The phone number to which you want to deliver an SMS message. Use E.164 format.
         
-          If you don't specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
+          If you don\'t specify a value for the ``PhoneNumber`` parameter, you must specify a value for the ``TargetArn`` or ``TopicArn`` parameters.
         
         :type Message: string
         :param Message: **[REQUIRED]** 
@@ -1257,7 +1257,7 @@ class Client(BaseClient):
            
           * Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending). 
            
-          * Values have a minimum length of 0 (the empty string, "", is allowed). 
+          * Values have a minimum length of 0 (the empty string, \"\", is allowed). 
            
           * Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes). 
            
@@ -1272,7 +1272,7 @@ class Client(BaseClient):
         :type Subject: string
         :param Subject: 
         
-          Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
+          Optional parameter to be used as the \"Subject\" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.
         
           Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation mark; must not include line breaks or control characters; and must be less than 100 characters long.
         
@@ -1283,9 +1283,9 @@ class Client(BaseClient):
         
           * be a syntactically valid JSON object; and 
            
-          * contain at least a top-level JSON key of "default" with a value that is a string. 
+          * contain at least a top-level JSON key of \"default\" with a value that is a string. 
            
-          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").
+          You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., \"http\").
         
           For information about sending different messages for each protocol using the AWS Management Console, go to `Create Different Messages for Each Protocol <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol>`__ in the *Amazon Simple Notification Service Getting Started Guide* . 
         
@@ -1324,7 +1324,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -1350,8 +1350,8 @@ class Client(BaseClient):
         ::
         
           response = client.remove_permission(
-              TopicArn='string',
-              Label='string'
+              TopicArn=\'string\',
+              Label=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -1376,9 +1376,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_endpoint_attributes(
-              EndpointArn='string',
+              EndpointArn=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type EndpointArn: string
@@ -1414,9 +1414,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_platform_application_attributes(
-              PlatformApplicationArn='string',
+              PlatformApplicationArn=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type PlatformApplicationArn: string
@@ -1429,9 +1429,9 @@ class Client(BaseClient):
         
           A map of the platform application attributes. Attributes in this map include the following:
         
-          * ``PlatformCredential`` -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". 
+          * ``PlatformCredential`` -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". 
            
-          * ``PlatformPrincipal`` -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". 
+          * ``PlatformPrincipal`` -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\". 
            
           * ``EventEndpointCreated`` -- Topic ARN to which EndpointCreated event notifications should be sent. 
            
@@ -1439,7 +1439,7 @@ class Client(BaseClient):
            
           * ``EventEndpointUpdated`` -- Topic ARN to which EndpointUpdate event notifications should be sent. 
            
-          * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints. 
+          * ``EventDeliveryFailure`` -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application\'s endpoints. 
            
           * ``SuccessFeedbackRoleArn`` -- IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf. 
            
@@ -1467,7 +1467,7 @@ class Client(BaseClient):
         
           response = client.set_sms_attributes(
               attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type attributes: dict
@@ -1547,9 +1547,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_subscription_attributes(
-              SubscriptionArn='string',
-              AttributeName='string',
-              AttributeValue='string'
+              SubscriptionArn=\'string\',
+              AttributeName=\'string\',
+              AttributeValue=\'string\'
           )
         :type SubscriptionArn: string
         :param SubscriptionArn: **[REQUIRED]** 
@@ -1581,9 +1581,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_topic_attributes(
-              TopicArn='string',
-              AttributeName='string',
-              AttributeValue='string'
+              TopicArn=\'string\',
+              AttributeName=\'string\',
+              AttributeValue=\'string\'
           )
         :type TopicArn: string
         :param TopicArn: **[REQUIRED]** 
@@ -1593,7 +1593,7 @@ class Client(BaseClient):
         :type AttributeName: string
         :param AttributeName: **[REQUIRED]** 
         
-          The name of the attribute you want to set. Only a subset of the topic's attributes are mutable.
+          The name of the attribute you want to set. Only a subset of the topic\'s attributes are mutable.
         
           Valid values: ``Policy`` | ``DisplayName`` | ``DeliveryPolicy``  
         
@@ -1617,11 +1617,11 @@ class Client(BaseClient):
         ::
         
           response = client.subscribe(
-              TopicArn='string',
-              Protocol='string',
-              Endpoint='string',
+              TopicArn=\'string\',
+              Protocol=\'string\',
+              Endpoint=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               ReturnSubscriptionArn=True|False
           )
@@ -1656,9 +1656,9 @@ class Client(BaseClient):
         
           The endpoint that you want to receive notifications. Endpoints vary by protocol:
         
-          * For the ``http`` protocol, the endpoint is an URL beginning with "http://" 
+          * For the ``http`` protocol, the endpoint is an URL beginning with \"http://\" 
            
-          * For the ``https`` protocol, the endpoint is a URL beginning with "https://" 
+          * For the ``https`` protocol, the endpoint is a URL beginning with \"https://\" 
            
           * For the ``email`` protocol, the endpoint is an email address 
            
@@ -1686,7 +1686,7 @@ class Client(BaseClient):
         
           Sets whether the response from the ``Subscribe`` request includes the subscription ARN, even if the subscription is not yet confirmed.
         
-          If you set this parameter to ``false`` , the response includes the ARN for confirmed subscriptions, but it includes an ARN value of "pending subscription" for subscriptions that are not yet confirmed. A subscription becomes confirmed when the subscriber calls the ``ConfirmSubscription`` action with a confirmation token.
+          If you set this parameter to ``false`` , the response includes the ARN for confirmed subscriptions, but it includes an ARN value of \"pending subscription\" for subscriptions that are not yet confirmed. A subscription becomes confirmed when the subscriber calls the ``ConfirmSubscription`` action with a confirmation token.
         
           If you set this parameter to ``true`` , the response includes the ARN in all cases, even if the subscription is not yet confirmed.
         
@@ -1700,7 +1700,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SubscriptionArn': 'string'
+                \'SubscriptionArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1710,7 +1710,7 @@ class Client(BaseClient):
         
             - **SubscriptionArn** *(string) --* 
         
-              The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter ``ReturnSubscriptionArn`` is true, then the value is always the subscription ARN, even if the subscription requires confirmation.
+              The ARN of the subscription if it is confirmed, or the string \"pending confirmation\" if the subscription requires confirmation. However, if the API request parameter ``ReturnSubscriptionArn`` is true, then the value is always the subscription ARN, even if the subscription requires confirmation.
         
         """
         pass
@@ -1726,7 +1726,7 @@ class Client(BaseClient):
         ::
         
           response = client.unsubscribe(
-              SubscriptionArn='string'
+              SubscriptionArn=\'string\'
           )
         :type SubscriptionArn: string
         :param SubscriptionArn: **[REQUIRED]** 

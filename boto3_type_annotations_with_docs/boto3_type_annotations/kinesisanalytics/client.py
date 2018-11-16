@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -19,11 +19,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_application_cloud_watch_logging_option(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
               CloudWatchLoggingOption={
-                  'LogStreamARN': 'string',
-                  'RoleARN': 'string'
+                  \'LogStreamARN\': \'string\',
+                  \'RoleARN\': \'string\'
               }
           )
         :type ApplicationName: string
@@ -78,46 +78,46 @@ class Client(BaseClient):
         ::
         
           response = client.add_application_input(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
               Input={
-                  'NamePrefix': 'string',
-                  'InputProcessingConfiguration': {
-                      'InputLambdaProcessor': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                  \'NamePrefix\': \'string\',
+                  \'InputProcessingConfiguration\': {
+                      \'InputLambdaProcessor\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       }
                   },
-                  'KinesisStreamsInput': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'KinesisStreamsInput\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
-                  'KinesisFirehoseInput': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'KinesisFirehoseInput\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
-                  'InputParallelism': {
-                      'Count': 123
+                  \'InputParallelism\': {
+                      \'Count\': 123
                   },
-                  'InputSchema': {
-                      'RecordFormat': {
-                          'RecordFormatType': 'JSON'|'CSV',
-                          'MappingParameters': {
-                              'JSONMappingParameters': {
-                                  'RecordRowPath': 'string'
+                  \'InputSchema\': {
+                      \'RecordFormat\': {
+                          \'RecordFormatType\': \'JSON\'|\'CSV\',
+                          \'MappingParameters\': {
+                              \'JSONMappingParameters\': {
+                                  \'RecordRowPath\': \'string\'
                               },
-                              'CSVMappingParameters': {
-                                  'RecordRowDelimiter': 'string',
-                                  'RecordColumnDelimiter': 'string'
+                              \'CSVMappingParameters\': {
+                                  \'RecordRowDelimiter\': \'string\',
+                                  \'RecordColumnDelimiter\': \'string\'
                               }
                           }
                       },
-                      'RecordEncoding': 'string',
-                      'RecordColumns': [
+                      \'RecordEncoding\': \'string\',
+                      \'RecordColumns\': [
                           {
-                              'Name': 'string',
-                              'Mapping': 'string',
-                              'SqlType': 'string'
+                              \'Name\': \'string\',
+                              \'Mapping\': \'string\',
+                              \'SqlType\': \'string\'
                           },
                       ]
                   }
@@ -140,11 +140,11 @@ class Client(BaseClient):
         
           - **NamePrefix** *(string) --* **[REQUIRED]** 
         
-            Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the ``InputParallelism`` count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. 
+            Name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"MyInApplicationStream.\" Amazon Kinesis Analytics then creates one or more (as per the ``InputParallelism`` count you specified) in-application streams with names \"MyInApplicationStream_001,\" \"MyInApplicationStream_002,\" and so on. 
         
           - **InputProcessingConfiguration** *(dict) --* 
         
-            The  InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is  InputLambdaProcessor .
+            The  InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application\'s SQL code executes. Currently, the only input processing configuration available is  InputLambdaProcessor .
         
             - **InputLambdaProcessor** *(dict) --* **[REQUIRED]** 
         
@@ -160,7 +160,7 @@ class Client(BaseClient):
         
           - **KinesisStreamsInput** *(dict) --* 
         
-            If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+            If the streaming source is an Amazon Kinesis stream, identifies the stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
             Note: Either ``KinesisStreamsInput`` or ``KinesisFirehoseInput`` is required.
         
@@ -174,7 +174,7 @@ class Client(BaseClient):
         
           - **KinesisFirehoseInput** *(dict) --* 
         
-            If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+            If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream\'s ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
             Note: Either ``KinesisStreamsInput`` or ``KinesisFirehoseInput`` is required.
         
@@ -230,11 +230,11 @@ class Client(BaseClient):
         
                   - **RecordRowDelimiter** *(string) --* **[REQUIRED]** 
         
-                    Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                    Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                   - **RecordColumnDelimiter** *(string) --* **[REQUIRED]** 
         
-                    Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                    Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
             - **RecordEncoding** *(string) --* 
         
@@ -286,13 +286,13 @@ class Client(BaseClient):
         ::
         
           response = client.add_application_input_processing_configuration(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
-              InputId='string',
+              InputId=\'string\',
               InputProcessingConfiguration={
-                  'InputLambdaProcessor': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'InputLambdaProcessor\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   }
               }
           )
@@ -361,24 +361,24 @@ class Client(BaseClient):
         ::
         
           response = client.add_application_output(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
               Output={
-                  'Name': 'string',
-                  'KinesisStreamsOutput': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'Name\': \'string\',
+                  \'KinesisStreamsOutput\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
-                  'KinesisFirehoseOutput': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'KinesisFirehoseOutput\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
-                  'LambdaOutput': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'LambdaOutput\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
-                  'DestinationSchema': {
-                      'RecordFormatType': 'JSON'|'CSV'
+                  \'DestinationSchema\': {
+                      \'RecordFormatType\': \'JSON\'|\'CSV\'
                   }
               }
           )
@@ -475,34 +475,34 @@ class Client(BaseClient):
         ::
         
           response = client.add_application_reference_data_source(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
               ReferenceDataSource={
-                  'TableName': 'string',
-                  'S3ReferenceDataSource': {
-                      'BucketARN': 'string',
-                      'FileKey': 'string',
-                      'ReferenceRoleARN': 'string'
+                  \'TableName\': \'string\',
+                  \'S3ReferenceDataSource\': {
+                      \'BucketARN\': \'string\',
+                      \'FileKey\': \'string\',
+                      \'ReferenceRoleARN\': \'string\'
                   },
-                  'ReferenceSchema': {
-                      'RecordFormat': {
-                          'RecordFormatType': 'JSON'|'CSV',
-                          'MappingParameters': {
-                              'JSONMappingParameters': {
-                                  'RecordRowPath': 'string'
+                  \'ReferenceSchema\': {
+                      \'RecordFormat\': {
+                          \'RecordFormatType\': \'JSON\'|\'CSV\',
+                          \'MappingParameters\': {
+                              \'JSONMappingParameters\': {
+                                  \'RecordRowPath\': \'string\'
                               },
-                              'CSVMappingParameters': {
-                                  'RecordRowDelimiter': 'string',
-                                  'RecordColumnDelimiter': 'string'
+                              \'CSVMappingParameters\': {
+                                  \'RecordRowDelimiter\': \'string\',
+                                  \'RecordColumnDelimiter\': \'string\'
                               }
                           }
                       },
-                      'RecordEncoding': 'string',
-                      'RecordColumns': [
+                      \'RecordEncoding\': \'string\',
+                      \'RecordColumns\': [
                           {
-                              'Name': 'string',
-                              'Mapping': 'string',
-                              'SqlType': 'string'
+                              \'Name\': \'string\',
+                              \'Mapping\': \'string\',
+                              \'SqlType\': \'string\'
                           },
                       ]
                   }
@@ -573,11 +573,11 @@ class Client(BaseClient):
         
                   - **RecordRowDelimiter** *(string) --* **[REQUIRED]** 
         
-                    Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                    Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                   - **RecordColumnDelimiter** *(string) --* **[REQUIRED]** 
         
-                    Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                    Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
             - **RecordEncoding** *(string) --* 
         
@@ -626,10 +626,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -655,47 +655,47 @@ class Client(BaseClient):
         ::
         
           response = client.create_application(
-              ApplicationName='string',
-              ApplicationDescription='string',
+              ApplicationName=\'string\',
+              ApplicationDescription=\'string\',
               Inputs=[
                   {
-                      'NamePrefix': 'string',
-                      'InputProcessingConfiguration': {
-                          'InputLambdaProcessor': {
-                              'ResourceARN': 'string',
-                              'RoleARN': 'string'
+                      \'NamePrefix\': \'string\',
+                      \'InputProcessingConfiguration\': {
+                          \'InputLambdaProcessor\': {
+                              \'ResourceARN\': \'string\',
+                              \'RoleARN\': \'string\'
                           }
                       },
-                      'KinesisStreamsInput': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                      \'KinesisStreamsInput\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       },
-                      'KinesisFirehoseInput': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                      \'KinesisFirehoseInput\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       },
-                      'InputParallelism': {
-                          'Count': 123
+                      \'InputParallelism\': {
+                          \'Count\': 123
                       },
-                      'InputSchema': {
-                          'RecordFormat': {
-                              'RecordFormatType': 'JSON'|'CSV',
-                              'MappingParameters': {
-                                  'JSONMappingParameters': {
-                                      'RecordRowPath': 'string'
+                      \'InputSchema\': {
+                          \'RecordFormat\': {
+                              \'RecordFormatType\': \'JSON\'|\'CSV\',
+                              \'MappingParameters\': {
+                                  \'JSONMappingParameters\': {
+                                      \'RecordRowPath\': \'string\'
                                   },
-                                  'CSVMappingParameters': {
-                                      'RecordRowDelimiter': 'string',
-                                      'RecordColumnDelimiter': 'string'
+                                  \'CSVMappingParameters\': {
+                                      \'RecordRowDelimiter\': \'string\',
+                                      \'RecordColumnDelimiter\': \'string\'
                                   }
                               }
                           },
-                          'RecordEncoding': 'string',
-                          'RecordColumns': [
+                          \'RecordEncoding\': \'string\',
+                          \'RecordColumns\': [
                               {
-                                  'Name': 'string',
-                                  'Mapping': 'string',
-                                  'SqlType': 'string'
+                                  \'Name\': \'string\',
+                                  \'Mapping\': \'string\',
+                                  \'SqlType\': \'string\'
                               },
                           ]
                       }
@@ -703,31 +703,31 @@ class Client(BaseClient):
               ],
               Outputs=[
                   {
-                      'Name': 'string',
-                      'KinesisStreamsOutput': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                      \'Name\': \'string\',
+                      \'KinesisStreamsOutput\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       },
-                      'KinesisFirehoseOutput': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                      \'KinesisFirehoseOutput\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       },
-                      'LambdaOutput': {
-                          'ResourceARN': 'string',
-                          'RoleARN': 'string'
+                      \'LambdaOutput\': {
+                          \'ResourceARN\': \'string\',
+                          \'RoleARN\': \'string\'
                       },
-                      'DestinationSchema': {
-                          'RecordFormatType': 'JSON'|'CSV'
+                      \'DestinationSchema\': {
+                          \'RecordFormatType\': \'JSON\'|\'CSV\'
                       }
                   },
               ],
               CloudWatchLoggingOptions=[
                   {
-                      'LogStreamARN': 'string',
-                      'RoleARN': 'string'
+                      \'LogStreamARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   },
               ],
-              ApplicationCode='string'
+              ApplicationCode=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -756,11 +756,11 @@ class Client(BaseClient):
         
             - **NamePrefix** *(string) --* **[REQUIRED]** 
         
-              Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the ``InputParallelism`` count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. 
+              Name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"MyInApplicationStream.\" Amazon Kinesis Analytics then creates one or more (as per the ``InputParallelism`` count you specified) in-application streams with names \"MyInApplicationStream_001,\" \"MyInApplicationStream_002,\" and so on. 
         
             - **InputProcessingConfiguration** *(dict) --* 
         
-              The  InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is  InputLambdaProcessor .
+              The  InputProcessingConfiguration for the input. An input processor transforms records as they are received from the stream, before the application\'s SQL code executes. Currently, the only input processing configuration available is  InputLambdaProcessor .
         
               - **InputLambdaProcessor** *(dict) --* **[REQUIRED]** 
         
@@ -776,7 +776,7 @@ class Client(BaseClient):
         
             - **KinesisStreamsInput** *(dict) --* 
         
-              If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+              If the streaming source is an Amazon Kinesis stream, identifies the stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
               Note: Either ``KinesisStreamsInput`` or ``KinesisFirehoseInput`` is required.
         
@@ -790,7 +790,7 @@ class Client(BaseClient):
         
             - **KinesisFirehoseInput** *(dict) --* 
         
-              If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+              If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream\'s ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
               Note: Either ``KinesisStreamsInput`` or ``KinesisFirehoseInput`` is required.
         
@@ -846,11 +846,11 @@ class Client(BaseClient):
         
                     - **RecordRowDelimiter** *(string) --* **[REQUIRED]** 
         
-                      Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                      Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                     - **RecordColumnDelimiter** *(string) --* **[REQUIRED]** 
         
-                      Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                      Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
               - **RecordEncoding** *(string) --* 
         
@@ -977,10 +977,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationSummary': {
-                    'ApplicationName': 'string',
-                    'ApplicationARN': 'string',
-                    'ApplicationStatus': 'DELETING'|'STARTING'|'STOPPING'|'READY'|'RUNNING'|'UPDATING'
+                \'ApplicationSummary\': {
+                    \'ApplicationName\': \'string\',
+                    \'ApplicationARN\': \'string\',
+                    \'ApplicationStatus\': \'DELETING\'|\'STARTING\'|\'STOPPING\'|\'READY\'|\'RUNNING\'|\'UPDATING\'
                 }
             }
           **Response Structure** 
@@ -1019,7 +1019,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CreateTimestamp=datetime(2015, 1, 1)
           )
         :type ApplicationName: string
@@ -1056,9 +1056,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application_cloud_watch_logging_option(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
-              CloudWatchLoggingOptionId='string'
+              CloudWatchLoggingOptionId=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1098,9 +1098,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application_input_processing_configuration(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
-              InputId='string'
+              InputId=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1142,9 +1142,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application_output(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
-              OutputId='string'
+              OutputId=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1189,9 +1189,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application_reference_data_source(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
-              ReferenceId='string'
+              ReferenceId=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1235,7 +1235,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_application(
-              ApplicationName='string'
+              ApplicationName=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -1250,127 +1250,127 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationDetail': {
-                    'ApplicationName': 'string',
-                    'ApplicationDescription': 'string',
-                    'ApplicationARN': 'string',
-                    'ApplicationStatus': 'DELETING'|'STARTING'|'STOPPING'|'READY'|'RUNNING'|'UPDATING',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'LastUpdateTimestamp': datetime(2015, 1, 1),
-                    'InputDescriptions': [
+                \'ApplicationDetail\': {
+                    \'ApplicationName\': \'string\',
+                    \'ApplicationDescription\': \'string\',
+                    \'ApplicationARN\': \'string\',
+                    \'ApplicationStatus\': \'DELETING\'|\'STARTING\'|\'STOPPING\'|\'READY\'|\'RUNNING\'|\'UPDATING\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'LastUpdateTimestamp\': datetime(2015, 1, 1),
+                    \'InputDescriptions\': [
                         {
-                            'InputId': 'string',
-                            'NamePrefix': 'string',
-                            'InAppStreamNames': [
-                                'string',
+                            \'InputId\': \'string\',
+                            \'NamePrefix\': \'string\',
+                            \'InAppStreamNames\': [
+                                \'string\',
                             ],
-                            'InputProcessingConfigurationDescription': {
-                                'InputLambdaProcessorDescription': {
-                                    'ResourceARN': 'string',
-                                    'RoleARN': 'string'
+                            \'InputProcessingConfigurationDescription\': {
+                                \'InputLambdaProcessorDescription\': {
+                                    \'ResourceARN\': \'string\',
+                                    \'RoleARN\': \'string\'
                                 }
                             },
-                            'KinesisStreamsInputDescription': {
-                                'ResourceARN': 'string',
-                                'RoleARN': 'string'
+                            \'KinesisStreamsInputDescription\': {
+                                \'ResourceARN\': \'string\',
+                                \'RoleARN\': \'string\'
                             },
-                            'KinesisFirehoseInputDescription': {
-                                'ResourceARN': 'string',
-                                'RoleARN': 'string'
+                            \'KinesisFirehoseInputDescription\': {
+                                \'ResourceARN\': \'string\',
+                                \'RoleARN\': \'string\'
                             },
-                            'InputSchema': {
-                                'RecordFormat': {
-                                    'RecordFormatType': 'JSON'|'CSV',
-                                    'MappingParameters': {
-                                        'JSONMappingParameters': {
-                                            'RecordRowPath': 'string'
+                            \'InputSchema\': {
+                                \'RecordFormat\': {
+                                    \'RecordFormatType\': \'JSON\'|\'CSV\',
+                                    \'MappingParameters\': {
+                                        \'JSONMappingParameters\': {
+                                            \'RecordRowPath\': \'string\'
                                         },
-                                        'CSVMappingParameters': {
-                                            'RecordRowDelimiter': 'string',
-                                            'RecordColumnDelimiter': 'string'
+                                        \'CSVMappingParameters\': {
+                                            \'RecordRowDelimiter\': \'string\',
+                                            \'RecordColumnDelimiter\': \'string\'
                                         }
                                     }
                                 },
-                                'RecordEncoding': 'string',
-                                'RecordColumns': [
+                                \'RecordEncoding\': \'string\',
+                                \'RecordColumns\': [
                                     {
-                                        'Name': 'string',
-                                        'Mapping': 'string',
-                                        'SqlType': 'string'
+                                        \'Name\': \'string\',
+                                        \'Mapping\': \'string\',
+                                        \'SqlType\': \'string\'
                                     },
                                 ]
                             },
-                            'InputParallelism': {
-                                'Count': 123
+                            \'InputParallelism\': {
+                                \'Count\': 123
                             },
-                            'InputStartingPositionConfiguration': {
-                                'InputStartingPosition': 'NOW'|'TRIM_HORIZON'|'LAST_STOPPED_POINT'
+                            \'InputStartingPositionConfiguration\': {
+                                \'InputStartingPosition\': \'NOW\'|\'TRIM_HORIZON\'|\'LAST_STOPPED_POINT\'
                             }
                         },
                     ],
-                    'OutputDescriptions': [
+                    \'OutputDescriptions\': [
                         {
-                            'OutputId': 'string',
-                            'Name': 'string',
-                            'KinesisStreamsOutputDescription': {
-                                'ResourceARN': 'string',
-                                'RoleARN': 'string'
+                            \'OutputId\': \'string\',
+                            \'Name\': \'string\',
+                            \'KinesisStreamsOutputDescription\': {
+                                \'ResourceARN\': \'string\',
+                                \'RoleARN\': \'string\'
                             },
-                            'KinesisFirehoseOutputDescription': {
-                                'ResourceARN': 'string',
-                                'RoleARN': 'string'
+                            \'KinesisFirehoseOutputDescription\': {
+                                \'ResourceARN\': \'string\',
+                                \'RoleARN\': \'string\'
                             },
-                            'LambdaOutputDescription': {
-                                'ResourceARN': 'string',
-                                'RoleARN': 'string'
+                            \'LambdaOutputDescription\': {
+                                \'ResourceARN\': \'string\',
+                                \'RoleARN\': \'string\'
                             },
-                            'DestinationSchema': {
-                                'RecordFormatType': 'JSON'|'CSV'
+                            \'DestinationSchema\': {
+                                \'RecordFormatType\': \'JSON\'|\'CSV\'
                             }
                         },
                     ],
-                    'ReferenceDataSourceDescriptions': [
+                    \'ReferenceDataSourceDescriptions\': [
                         {
-                            'ReferenceId': 'string',
-                            'TableName': 'string',
-                            'S3ReferenceDataSourceDescription': {
-                                'BucketARN': 'string',
-                                'FileKey': 'string',
-                                'ReferenceRoleARN': 'string'
+                            \'ReferenceId\': \'string\',
+                            \'TableName\': \'string\',
+                            \'S3ReferenceDataSourceDescription\': {
+                                \'BucketARN\': \'string\',
+                                \'FileKey\': \'string\',
+                                \'ReferenceRoleARN\': \'string\'
                             },
-                            'ReferenceSchema': {
-                                'RecordFormat': {
-                                    'RecordFormatType': 'JSON'|'CSV',
-                                    'MappingParameters': {
-                                        'JSONMappingParameters': {
-                                            'RecordRowPath': 'string'
+                            \'ReferenceSchema\': {
+                                \'RecordFormat\': {
+                                    \'RecordFormatType\': \'JSON\'|\'CSV\',
+                                    \'MappingParameters\': {
+                                        \'JSONMappingParameters\': {
+                                            \'RecordRowPath\': \'string\'
                                         },
-                                        'CSVMappingParameters': {
-                                            'RecordRowDelimiter': 'string',
-                                            'RecordColumnDelimiter': 'string'
+                                        \'CSVMappingParameters\': {
+                                            \'RecordRowDelimiter\': \'string\',
+                                            \'RecordColumnDelimiter\': \'string\'
                                         }
                                     }
                                 },
-                                'RecordEncoding': 'string',
-                                'RecordColumns': [
+                                \'RecordEncoding\': \'string\',
+                                \'RecordColumns\': [
                                     {
-                                        'Name': 'string',
-                                        'Mapping': 'string',
-                                        'SqlType': 'string'
+                                        \'Name\': \'string\',
+                                        \'Mapping\': \'string\',
+                                        \'SqlType\': \'string\'
                                     },
                                 ]
                             }
                         },
                     ],
-                    'CloudWatchLoggingOptionDescriptions': [
+                    \'CloudWatchLoggingOptionDescriptions\': [
                         {
-                            'CloudWatchLoggingOptionId': 'string',
-                            'LogStreamARN': 'string',
-                            'RoleARN': 'string'
+                            \'CloudWatchLoggingOptionId\': \'string\',
+                            \'LogStreamARN\': \'string\',
+                            \'RoleARN\': \'string\'
                         },
                     ],
-                    'ApplicationCode': 'string',
-                    'ApplicationVersionId': 123
+                    \'ApplicationCode\': \'string\',
+                    \'ApplicationVersionId\': 123
                 }
             }
           **Response Structure** 
@@ -1429,7 +1429,7 @@ class Client(BaseClient):
                 
                   - **InputProcessingConfigurationDescription** *(dict) --* 
         
-                    The description of the preprocessor that executes on records in this input before the application's code is run.
+                    The description of the preprocessor that executes on records in this input before the application\'s code is run.
         
                     - **InputLambdaProcessorDescription** *(dict) --* 
         
@@ -1445,7 +1445,7 @@ class Client(BaseClient):
         
                   - **KinesisStreamsInputDescription** *(dict) --* 
         
-                    If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+                    If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
                     - **ResourceARN** *(string) --* 
         
@@ -1457,7 +1457,7 @@ class Client(BaseClient):
         
                   - **KinesisFirehoseInputDescription** *(dict) --* 
         
-                    If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+                    If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream\'s ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
         
                     - **ResourceARN** *(string) --* 
         
@@ -1497,11 +1497,11 @@ class Client(BaseClient):
         
                           - **RecordRowDelimiter** *(string) --* 
         
-                            Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                            Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                           - **RecordColumnDelimiter** *(string) --* 
         
-                            Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                            Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
                     - **RecordEncoding** *(string) --* 
         
@@ -1673,11 +1673,11 @@ class Client(BaseClient):
         
                           - **RecordRowDelimiter** *(string) --* 
         
-                            Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                            Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                           - **RecordColumnDelimiter** *(string) --* 
         
-                            Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                            Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
                     - **RecordEncoding** *(string) --* 
         
@@ -1749,20 +1749,20 @@ class Client(BaseClient):
         ::
         
           response = client.discover_input_schema(
-              ResourceARN='string',
-              RoleARN='string',
+              ResourceARN=\'string\',
+              RoleARN=\'string\',
               InputStartingPositionConfiguration={
-                  'InputStartingPosition': 'NOW'|'TRIM_HORIZON'|'LAST_STOPPED_POINT'
+                  \'InputStartingPosition\': \'NOW\'|\'TRIM_HORIZON\'|\'LAST_STOPPED_POINT\'
               },
               S3Configuration={
-                  'RoleARN': 'string',
-                  'BucketARN': 'string',
-                  'FileKey': 'string'
+                  \'RoleARN\': \'string\',
+                  \'BucketARN\': \'string\',
+                  \'FileKey\': \'string\'
               },
               InputProcessingConfiguration={
-                  'InputLambdaProcessor': {
-                      'ResourceARN': 'string',
-                      'RoleARN': 'string'
+                  \'InputLambdaProcessor\': {
+                      \'ResourceARN\': \'string\',
+                      \'RoleARN\': \'string\'
                   }
               }
           )
@@ -1833,38 +1833,38 @@ class Client(BaseClient):
           ::
         
             {
-                'InputSchema': {
-                    'RecordFormat': {
-                        'RecordFormatType': 'JSON'|'CSV',
-                        'MappingParameters': {
-                            'JSONMappingParameters': {
-                                'RecordRowPath': 'string'
+                \'InputSchema\': {
+                    \'RecordFormat\': {
+                        \'RecordFormatType\': \'JSON\'|\'CSV\',
+                        \'MappingParameters\': {
+                            \'JSONMappingParameters\': {
+                                \'RecordRowPath\': \'string\'
                             },
-                            'CSVMappingParameters': {
-                                'RecordRowDelimiter': 'string',
-                                'RecordColumnDelimiter': 'string'
+                            \'CSVMappingParameters\': {
+                                \'RecordRowDelimiter\': \'string\',
+                                \'RecordColumnDelimiter\': \'string\'
                             }
                         }
                     },
-                    'RecordEncoding': 'string',
-                    'RecordColumns': [
+                    \'RecordEncoding\': \'string\',
+                    \'RecordColumns\': [
                         {
-                            'Name': 'string',
-                            'Mapping': 'string',
-                            'SqlType': 'string'
+                            \'Name\': \'string\',
+                            \'Mapping\': \'string\',
+                            \'SqlType\': \'string\'
                         },
                     ]
                 },
-                'ParsedInputRecords': [
+                \'ParsedInputRecords\': [
                     [
-                        'string',
+                        \'string\',
                     ],
                 ],
-                'ProcessedInputRecords': [
-                    'string',
+                \'ProcessedInputRecords\': [
+                    \'string\',
                 ],
-                'RawInputRecords': [
-                    'string',
+                \'RawInputRecords\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1901,11 +1901,11 @@ class Client(BaseClient):
         
                     - **RecordRowDelimiter** *(string) --* 
         
-                      Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                      Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                     - **RecordColumnDelimiter** *(string) --* 
         
-                      Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                      Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
               - **RecordEncoding** *(string) --* 
         
@@ -1972,7 +1972,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1984,10 +1984,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2024,7 +2024,7 @@ class Client(BaseClient):
         
           response = client.list_applications(
               Limit=123,
-              ExclusiveStartApplicationName='string'
+              ExclusiveStartApplicationName=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -2034,7 +2034,7 @@ class Client(BaseClient):
         :type ExclusiveStartApplicationName: string
         :param ExclusiveStartApplicationName: 
         
-          Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
+          Name of the application to start the list with. When using pagination to retrieve the list, you don\'t need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
         
         :rtype: dict
         :returns: 
@@ -2044,14 +2044,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationSummaries': [
+                \'ApplicationSummaries\': [
                     {
-                        'ApplicationName': 'string',
-                        'ApplicationARN': 'string',
-                        'ApplicationStatus': 'DELETING'|'STARTING'|'STOPPING'|'READY'|'RUNNING'|'UPDATING'
+                        \'ApplicationName\': \'string\',
+                        \'ApplicationARN\': \'string\',
+                        \'ApplicationStatus\': \'DELETING\'|\'STARTING\'|\'STOPPING\'|\'READY\'|\'RUNNING\'|\'UPDATING\'
                     },
                 ],
-                'HasMoreApplications': True|False
+                \'HasMoreApplications\': True|False
             }
           **Response Structure** 
         
@@ -2101,12 +2101,12 @@ class Client(BaseClient):
         ::
         
           response = client.start_application(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               InputConfigurations=[
                   {
-                      'Id': 'string',
-                      'InputStartingPositionConfiguration': {
-                          'InputStartingPosition': 'NOW'|'TRIM_HORIZON'|'LAST_STOPPED_POINT'
+                      \'Id\': \'string\',
+                      \'InputStartingPositionConfiguration\': {
+                          \'InputStartingPosition\': \'NOW\'|\'TRIM_HORIZON\'|\'LAST_STOPPED_POINT\'
                       }
                   },
               ]
@@ -2169,7 +2169,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_application(
-              ApplicationName='string'
+              ApplicationName=\'string\'
           )
         :type ApplicationName: string
         :param ApplicationName: **[REQUIRED]** 
@@ -2204,114 +2204,114 @@ class Client(BaseClient):
         ::
         
           response = client.update_application(
-              ApplicationName='string',
+              ApplicationName=\'string\',
               CurrentApplicationVersionId=123,
               ApplicationUpdate={
-                  'InputUpdates': [
+                  \'InputUpdates\': [
                       {
-                          'InputId': 'string',
-                          'NamePrefixUpdate': 'string',
-                          'InputProcessingConfigurationUpdate': {
-                              'InputLambdaProcessorUpdate': {
-                                  'ResourceARNUpdate': 'string',
-                                  'RoleARNUpdate': 'string'
+                          \'InputId\': \'string\',
+                          \'NamePrefixUpdate\': \'string\',
+                          \'InputProcessingConfigurationUpdate\': {
+                              \'InputLambdaProcessorUpdate\': {
+                                  \'ResourceARNUpdate\': \'string\',
+                                  \'RoleARNUpdate\': \'string\'
                               }
                           },
-                          'KinesisStreamsInputUpdate': {
-                              'ResourceARNUpdate': 'string',
-                              'RoleARNUpdate': 'string'
+                          \'KinesisStreamsInputUpdate\': {
+                              \'ResourceARNUpdate\': \'string\',
+                              \'RoleARNUpdate\': \'string\'
                           },
-                          'KinesisFirehoseInputUpdate': {
-                              'ResourceARNUpdate': 'string',
-                              'RoleARNUpdate': 'string'
+                          \'KinesisFirehoseInputUpdate\': {
+                              \'ResourceARNUpdate\': \'string\',
+                              \'RoleARNUpdate\': \'string\'
                           },
-                          'InputSchemaUpdate': {
-                              'RecordFormatUpdate': {
-                                  'RecordFormatType': 'JSON'|'CSV',
-                                  'MappingParameters': {
-                                      'JSONMappingParameters': {
-                                          'RecordRowPath': 'string'
+                          \'InputSchemaUpdate\': {
+                              \'RecordFormatUpdate\': {
+                                  \'RecordFormatType\': \'JSON\'|\'CSV\',
+                                  \'MappingParameters\': {
+                                      \'JSONMappingParameters\': {
+                                          \'RecordRowPath\': \'string\'
                                       },
-                                      'CSVMappingParameters': {
-                                          'RecordRowDelimiter': 'string',
-                                          'RecordColumnDelimiter': 'string'
+                                      \'CSVMappingParameters\': {
+                                          \'RecordRowDelimiter\': \'string\',
+                                          \'RecordColumnDelimiter\': \'string\'
                                       }
                                   }
                               },
-                              'RecordEncodingUpdate': 'string',
-                              'RecordColumnUpdates': [
+                              \'RecordEncodingUpdate\': \'string\',
+                              \'RecordColumnUpdates\': [
                                   {
-                                      'Name': 'string',
-                                      'Mapping': 'string',
-                                      'SqlType': 'string'
+                                      \'Name\': \'string\',
+                                      \'Mapping\': \'string\',
+                                      \'SqlType\': \'string\'
                                   },
                               ]
                           },
-                          'InputParallelismUpdate': {
-                              'CountUpdate': 123
+                          \'InputParallelismUpdate\': {
+                              \'CountUpdate\': 123
                           }
                       },
                   ],
-                  'ApplicationCodeUpdate': 'string',
-                  'OutputUpdates': [
+                  \'ApplicationCodeUpdate\': \'string\',
+                  \'OutputUpdates\': [
                       {
-                          'OutputId': 'string',
-                          'NameUpdate': 'string',
-                          'KinesisStreamsOutputUpdate': {
-                              'ResourceARNUpdate': 'string',
-                              'RoleARNUpdate': 'string'
+                          \'OutputId\': \'string\',
+                          \'NameUpdate\': \'string\',
+                          \'KinesisStreamsOutputUpdate\': {
+                              \'ResourceARNUpdate\': \'string\',
+                              \'RoleARNUpdate\': \'string\'
                           },
-                          'KinesisFirehoseOutputUpdate': {
-                              'ResourceARNUpdate': 'string',
-                              'RoleARNUpdate': 'string'
+                          \'KinesisFirehoseOutputUpdate\': {
+                              \'ResourceARNUpdate\': \'string\',
+                              \'RoleARNUpdate\': \'string\'
                           },
-                          'LambdaOutputUpdate': {
-                              'ResourceARNUpdate': 'string',
-                              'RoleARNUpdate': 'string'
+                          \'LambdaOutputUpdate\': {
+                              \'ResourceARNUpdate\': \'string\',
+                              \'RoleARNUpdate\': \'string\'
                           },
-                          'DestinationSchemaUpdate': {
-                              'RecordFormatType': 'JSON'|'CSV'
+                          \'DestinationSchemaUpdate\': {
+                              \'RecordFormatType\': \'JSON\'|\'CSV\'
                           }
                       },
                   ],
-                  'ReferenceDataSourceUpdates': [
+                  \'ReferenceDataSourceUpdates\': [
                       {
-                          'ReferenceId': 'string',
-                          'TableNameUpdate': 'string',
-                          'S3ReferenceDataSourceUpdate': {
-                              'BucketARNUpdate': 'string',
-                              'FileKeyUpdate': 'string',
-                              'ReferenceRoleARNUpdate': 'string'
+                          \'ReferenceId\': \'string\',
+                          \'TableNameUpdate\': \'string\',
+                          \'S3ReferenceDataSourceUpdate\': {
+                              \'BucketARNUpdate\': \'string\',
+                              \'FileKeyUpdate\': \'string\',
+                              \'ReferenceRoleARNUpdate\': \'string\'
                           },
-                          'ReferenceSchemaUpdate': {
-                              'RecordFormat': {
-                                  'RecordFormatType': 'JSON'|'CSV',
-                                  'MappingParameters': {
-                                      'JSONMappingParameters': {
-                                          'RecordRowPath': 'string'
+                          \'ReferenceSchemaUpdate\': {
+                              \'RecordFormat\': {
+                                  \'RecordFormatType\': \'JSON\'|\'CSV\',
+                                  \'MappingParameters\': {
+                                      \'JSONMappingParameters\': {
+                                          \'RecordRowPath\': \'string\'
                                       },
-                                      'CSVMappingParameters': {
-                                          'RecordRowDelimiter': 'string',
-                                          'RecordColumnDelimiter': 'string'
+                                      \'CSVMappingParameters\': {
+                                          \'RecordRowDelimiter\': \'string\',
+                                          \'RecordColumnDelimiter\': \'string\'
                                       }
                                   }
                               },
-                              'RecordEncoding': 'string',
-                              'RecordColumns': [
+                              \'RecordEncoding\': \'string\',
+                              \'RecordColumns\': [
                                   {
-                                      'Name': 'string',
-                                      'Mapping': 'string',
-                                      'SqlType': 'string'
+                                      \'Name\': \'string\',
+                                      \'Mapping\': \'string\',
+                                      \'SqlType\': \'string\'
                                   },
                               ]
                           }
                       },
                   ],
-                  'CloudWatchLoggingOptionUpdates': [
+                  \'CloudWatchLoggingOptionUpdates\': [
                       {
-                          'CloudWatchLoggingOptionId': 'string',
-                          'LogStreamARNUpdate': 'string',
-                          'RoleARNUpdate': 'string'
+                          \'CloudWatchLoggingOptionId\': \'string\',
+                          \'LogStreamARNUpdate\': \'string\',
+                          \'RoleARNUpdate\': \'string\'
                       },
                   ]
               }
@@ -2417,11 +2417,11 @@ class Client(BaseClient):
         
                       - **RecordRowDelimiter** *(string) --* **[REQUIRED]** 
         
-                        Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                        Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                       - **RecordColumnDelimiter** *(string) --* **[REQUIRED]** 
         
-                        Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                        Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
                 - **RecordEncodingUpdate** *(string) --* 
         
@@ -2583,11 +2583,11 @@ class Client(BaseClient):
         
                       - **RecordRowDelimiter** *(string) --* **[REQUIRED]** 
         
-                        Row delimiter. For example, in a CSV format, *'\n'* is the typical row delimiter.
+                        Row delimiter. For example, in a CSV format, *\'\n\'* is the typical row delimiter.
         
                       - **RecordColumnDelimiter** *(string) --* **[REQUIRED]** 
         
-                        Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+                        Column delimiter. For example, in a CSV format, a comma (\",\") is the typical column delimiter.
         
                 - **RecordEncoding** *(string) --* 
         

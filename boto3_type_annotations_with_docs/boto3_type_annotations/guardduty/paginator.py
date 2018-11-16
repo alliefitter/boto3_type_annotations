@@ -13,9 +13,9 @@ class ListDetectors(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,8 +43,8 @@ class ListDetectors(Paginator):
           ::
         
             {
-                'DetectorIds': [
-                    'string',
+                \'DetectorIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -70,11 +70,11 @@ class ListFilters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DetectorId='string',
+              DetectorId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DetectorId: string
@@ -105,8 +105,8 @@ class ListFilters(Paginator):
           ::
         
             {
-                'FilterNames': [
-                    'string',
+                \'FilterNames\': [
+                    \'string\',
                 ],
                 
             }
@@ -132,31 +132,31 @@ class ListFindings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingCriteria={
-                  'Criterion': {
-                      'string': {
-                          'Eq': [
-                              'string',
+                  \'Criterion\': {
+                      \'string\': {
+                          \'Eq\': [
+                              \'string\',
                           ],
-                          'Gt': 123,
-                          'Gte': 123,
-                          'Lt': 123,
-                          'Lte': 123,
-                          'Neq': [
-                              'string',
+                          \'Gt\': 123,
+                          \'Gte\': 123,
+                          \'Lt\': 123,
+                          \'Lte\': 123,
+                          \'Neq\': [
+                              \'string\',
                           ]
                       }
                   }
               },
               SortCriteria={
-                  'AttributeName': 'string',
-                  'OrderBy': 'ASC'|'DESC'
+                  \'AttributeName\': \'string\',
+                  \'OrderBy\': \'ASC\'|\'DESC\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DetectorId: string
@@ -219,8 +219,8 @@ class ListFindings(Paginator):
           ::
         
             {
-                'FindingIds': [
-                    'string',
+                \'FindingIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -246,11 +246,11 @@ class ListIPSets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DetectorId='string',
+              DetectorId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DetectorId: string
@@ -281,8 +281,8 @@ class ListIPSets(Paginator):
           ::
         
             {
-                'IpSetIds': [
-                    'string',
+                \'IpSetIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -309,9 +309,9 @@ class ListInvitations(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -339,12 +339,12 @@ class ListInvitations(Paginator):
           ::
         
             {
-                'Invitations': [
+                \'Invitations\': [
                     {
-                        'AccountId': 'string',
-                        'InvitationId': 'string',
-                        'InvitedAt': 'string',
-                        'RelationshipStatus': 'string'
+                        \'AccountId\': \'string\',
+                        \'InvitationId\': \'string\',
+                        \'InvitedAt\': \'string\',
+                        \'RelationshipStatus\': \'string\'
                     },
                 ],
                 
@@ -355,7 +355,7 @@ class ListInvitations(Paginator):
             
             - **Invitations** *(list) --* A list of invitation descriptions.
               
-              - *(dict) --* Invitation from an AWS account to become the current account's master.
+              - *(dict) --* Invitation from an AWS account to become the current account\'s master.
                 
                 - **AccountId** *(string) --* Inviter account ID
                 
@@ -379,12 +379,12 @@ class ListMembers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DetectorId='string',
-              OnlyAssociated='string',
+              DetectorId=\'string\',
+              OnlyAssociated=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DetectorId: string
@@ -418,15 +418,15 @@ class ListMembers(Paginator):
           ::
         
             {
-                'Members': [
+                \'Members\': [
                     {
-                        'AccountId': 'string',
-                        'DetectorId': 'string',
-                        'Email': 'string',
-                        'InvitedAt': 'string',
-                        'MasterId': 'string',
-                        'RelationshipStatus': 'string',
-                        'UpdatedAt': 'string'
+                        \'AccountId\': \'string\',
+                        \'DetectorId\': \'string\',
+                        \'Email\': \'string\',
+                        \'InvitedAt\': \'string\',
+                        \'MasterId\': \'string\',
+                        \'RelationshipStatus\': \'string\',
+                        \'UpdatedAt\': \'string\'
                     },
                 ],
                 
@@ -443,7 +443,7 @@ class ListMembers(Paginator):
                 
                 - **DetectorId** *(string) --* The unique identifier for a detector.
                 
-                - **Email** *(string) --* Member account's email address.
+                - **Email** *(string) --* Member account\'s email address.
                 
                 - **InvitedAt** *(string) --* Timestamp at which the invitation was sent
                 
@@ -467,11 +467,11 @@ class ListThreatIntelSets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DetectorId='string',
+              DetectorId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DetectorId: string
@@ -502,8 +502,8 @@ class ListThreatIntelSets(Paginator):
           ::
         
             {
-                'ThreatIntelSetIds': [
-                    'string',
+                \'ThreatIntelSetIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 

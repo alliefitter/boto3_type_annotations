@@ -15,16 +15,16 @@ class DescribeActivations(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'FilterKey': 'ActivationIds'|'DefaultInstanceName'|'IamRole',
-                      'FilterValues': [
-                          'string',
+                      \'FilterKey\': \'ActivationIds\'|\'DefaultInstanceName\'|\'IamRole\',
+                      \'FilterValues\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -71,17 +71,17 @@ class DescribeActivations(Paginator):
           ::
         
             {
-                'ActivationList': [
+                \'ActivationList\': [
                     {
-                        'ActivationId': 'string',
-                        'Description': 'string',
-                        'DefaultInstanceName': 'string',
-                        'IamRole': 'string',
-                        'RegistrationLimit': 123,
-                        'RegistrationsCount': 123,
-                        'ExpirationDate': datetime(2015, 1, 1),
-                        'Expired': True|False,
-                        'CreatedDate': datetime(2015, 1, 1)
+                        \'ActivationId\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefaultInstanceName\': \'string\',
+                        \'IamRole\': \'string\',
+                        \'RegistrationLimit\': 123,
+                        \'RegistrationsCount\': 123,
+                        \'ExpirationDate\': datetime(2015, 1, 1),
+                        \'Expired\': True|False,
+                        \'CreatedDate\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -150,32 +150,32 @@ class DescribeInstanceInformation(Paginator):
           response_iterator = paginator.paginate(
               InstanceInformationFilterList=[
                   {
-                      'key': 'InstanceIds'|'AgentVersion'|'PingStatus'|'PlatformTypes'|'ActivationIds'|'IamRole'|'ResourceType'|'AssociationStatus',
-                      'valueSet': [
-                          'string',
+                      \'key\': \'InstanceIds\'|\'AgentVersion\'|\'PingStatus\'|\'PlatformTypes\'|\'ActivationIds\'|\'IamRole\'|\'ResourceType\'|\'AssociationStatus\',
+                      \'valueSet\': [
+                          \'string\',
                       ]
                   },
               ],
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type InstanceInformationFilterList: list
         :param InstanceInformationFilterList: 
         
-          This is a legacy method. We recommend that you don't use this method. Instead, use the  InstanceInformationFilter action. The ``InstanceInformationFilter`` action enables you to return instance information by using tags that are specified as a key-value mapping. 
+          This is a legacy method. We recommend that you don\'t use this method. Instead, use the  InstanceInformationFilter action. The ``InstanceInformationFilter`` action enables you to return instance information by using tags that are specified as a key-value mapping. 
         
-          If you do use this method, then you can't use the ``InstanceInformationFilter`` action. Using this method and the ``InstanceInformationFilter`` action causes an exception error. 
+          If you do use this method, then you can\'t use the ``InstanceInformationFilter`` action. Using this method and the ``InstanceInformationFilter`` action causes an exception error. 
         
           - *(dict) --* 
         
@@ -206,7 +206,7 @@ class DescribeInstanceInformation(Paginator):
         
               The filter key name to describe your instances. For example:
         
-              "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
+              \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag Key\"
         
             - **Values** *(list) --* **[REQUIRED]** 
         
@@ -239,30 +239,30 @@ class DescribeInstanceInformation(Paginator):
           ::
         
             {
-                'InstanceInformationList': [
+                \'InstanceInformationList\': [
                     {
-                        'InstanceId': 'string',
-                        'PingStatus': 'Online'|'ConnectionLost'|'Inactive',
-                        'LastPingDateTime': datetime(2015, 1, 1),
-                        'AgentVersion': 'string',
-                        'IsLatestVersion': True|False,
-                        'PlatformType': 'Windows'|'Linux',
-                        'PlatformName': 'string',
-                        'PlatformVersion': 'string',
-                        'ActivationId': 'string',
-                        'IamRole': 'string',
-                        'RegistrationDate': datetime(2015, 1, 1),
-                        'ResourceType': 'ManagedInstance'|'Document'|'EC2Instance',
-                        'Name': 'string',
-                        'IPAddress': 'string',
-                        'ComputerName': 'string',
-                        'AssociationStatus': 'string',
-                        'LastAssociationExecutionDate': datetime(2015, 1, 1),
-                        'LastSuccessfulAssociationExecutionDate': datetime(2015, 1, 1),
-                        'AssociationOverview': {
-                            'DetailedStatus': 'string',
-                            'InstanceAssociationStatusAggregatedCount': {
-                                'string': 123
+                        \'InstanceId\': \'string\',
+                        \'PingStatus\': \'Online\'|\'ConnectionLost\'|\'Inactive\',
+                        \'LastPingDateTime\': datetime(2015, 1, 1),
+                        \'AgentVersion\': \'string\',
+                        \'IsLatestVersion\': True|False,
+                        \'PlatformType\': \'Windows\'|\'Linux\',
+                        \'PlatformName\': \'string\',
+                        \'PlatformVersion\': \'string\',
+                        \'ActivationId\': \'string\',
+                        \'IamRole\': \'string\',
+                        \'RegistrationDate\': datetime(2015, 1, 1),
+                        \'ResourceType\': \'ManagedInstance\'|\'Document\'|\'EC2Instance\',
+                        \'Name\': \'string\',
+                        \'IPAddress\': \'string\',
+                        \'ComputerName\': \'string\',
+                        \'AssociationStatus\': \'string\',
+                        \'LastAssociationExecutionDate\': datetime(2015, 1, 1),
+                        \'LastSuccessfulAssociationExecutionDate\': datetime(2015, 1, 1),
+                        \'AssociationOverview\': {
+                            \'DetailedStatus\': \'string\',
+                            \'InstanceAssociationStatusAggregatedCount\': {
+                                \'string\': 123
                             }
                         }
                     },
@@ -385,25 +385,25 @@ class DescribeParameters(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'Name'|'Type'|'KeyId',
-                      'Values': [
-                          'string',
+                      \'Key\': \'Name\'|\'Type\'|\'KeyId\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ParameterFilters=[
                   {
-                      'Key': 'string',
-                      'Option': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Option\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -436,7 +436,7 @@ class DescribeParameters(Paginator):
         
             .. note::
         
-              The ``Name`` field can't be used with the  GetParametersByPath API action.
+              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
@@ -477,16 +477,16 @@ class DescribeParameters(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'KeyId': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedUser': 'string',
-                        'Description': 'string',
-                        'AllowedPattern': 'string',
-                        'Version': 123
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'KeyId\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedUser\': \'string\',
+                        \'Description\': \'string\',
+                        \'AllowedPattern\': \'string\',
+                        \'Version\': 123
                     },
                 ],
                 
@@ -551,12 +551,12 @@ class GetParameterHistory(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Name='string',
+              Name=\'string\',
               WithDecryption=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Name: string
@@ -594,19 +594,19 @@ class GetParameterHistory(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'KeyId': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'LastModifiedUser': 'string',
-                        'Description': 'string',
-                        'Value': 'string',
-                        'AllowedPattern': 'string',
-                        'Version': 123,
-                        'Labels': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'KeyId\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'LastModifiedUser\': \'string\',
+                        \'Description\': \'string\',
+                        \'Value\': \'string\',
+                        \'AllowedPattern\': \'string\',
+                        \'Version\': 123,
+                        \'Labels\': [
+                            \'string\',
                         ]
                     },
                 ],
@@ -682,22 +682,22 @@ class GetParametersByPath(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Path='string',
+              Path=\'string\',
               Recursive=True|False,
               ParameterFilters=[
                   {
-                      'Key': 'string',
-                      'Option': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Option\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               WithDecryption=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Path: string
@@ -721,7 +721,7 @@ class GetParametersByPath(Paginator):
         
           .. note::
         
-            You can't filter using the parameter name.
+            You can\'t filter using the parameter name.
         
           - *(dict) --* 
         
@@ -729,7 +729,7 @@ class GetParametersByPath(Paginator):
         
             .. note::
         
-              The ``Name`` field can't be used with the  GetParametersByPath API action.
+              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
         
             - **Key** *(string) --* **[REQUIRED]** 
         
@@ -775,16 +775,16 @@ class GetParametersByPath(Paginator):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'Name': 'string',
-                        'Type': 'String'|'StringList'|'SecureString',
-                        'Value': 'string',
-                        'Version': 123,
-                        'Selector': 'string',
-                        'SourceResult': 'string',
-                        'LastModifiedDate': datetime(2015, 1, 1),
-                        'ARN': 'string'
+                        \'Name\': \'string\',
+                        \'Type\': \'String\'|\'StringList\'|\'SecureString\',
+                        \'Value\': \'string\',
+                        \'Version\': 123,
+                        \'Selector\': \'string\',
+                        \'SourceResult\': \'string\',
+                        \'LastModifiedDate\': datetime(2015, 1, 1),
+                        \'ARN\': \'string\'
                     },
                 ],
                 
@@ -853,14 +853,14 @@ class ListAssociations(Paginator):
           response_iterator = paginator.paginate(
               AssociationFilterList=[
                   {
-                      'key': 'InstanceId'|'Name'|'AssociationId'|'AssociationStatusName'|'LastExecutedBefore'|'LastExecutedAfter'|'AssociationName',
-                      'value': 'string'
+                      \'key\': \'InstanceId\'|\'Name\'|\'AssociationId\'|\'AssociationStatusName\'|\'LastExecutedBefore\'|\'LastExecutedAfter\'|\'AssociationName\',
+                      \'value\': \'string\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AssociationFilterList: list
@@ -905,31 +905,31 @@ class ListAssociations(Paginator):
           ::
         
             {
-                'Associations': [
+                \'Associations\': [
                     {
-                        'Name': 'string',
-                        'InstanceId': 'string',
-                        'AssociationId': 'string',
-                        'AssociationVersion': 'string',
-                        'DocumentVersion': 'string',
-                        'Targets': [
+                        \'Name\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'AssociationId\': \'string\',
+                        \'AssociationVersion\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'LastExecutionDate': datetime(2015, 1, 1),
-                        'Overview': {
-                            'Status': 'string',
-                            'DetailedStatus': 'string',
-                            'AssociationStatusAggregatedCount': {
-                                'string': 123
+                        \'LastExecutionDate\': datetime(2015, 1, 1),
+                        \'Overview\': {
+                            \'Status\': \'string\',
+                            \'DetailedStatus\': \'string\',
+                            \'AssociationStatusAggregatedCount\': {
+                                \'string\': 123
                             }
                         },
-                        'ScheduleExpression': 'string',
-                        'AssociationName': 'string'
+                        \'ScheduleExpression\': \'string\',
+                        \'AssociationName\': \'string\'
                     },
                 ],
                 
@@ -972,7 +972,7 @@ class ListAssociations(Paginator):
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -1030,19 +1030,19 @@ class ListCommandInvocations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CommandId='string',
-              InstanceId='string',
+              CommandId=\'string\',
+              InstanceId=\'string\',
               Filters=[
                   {
-                      'key': 'InvokedAfter'|'InvokedBefore'|'Status'|'ExecutionStage'|'DocumentName',
-                      'value': 'string'
+                      \'key\': \'InvokedAfter\'|\'InvokedBefore\'|\'Status\'|\'ExecutionStage\'|\'DocumentName\',
+                      \'value\': \'string\'
                   },
               ],
               Details=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CommandId: string
@@ -1130,47 +1130,47 @@ class ListCommandInvocations(Paginator):
           ::
         
             {
-                'CommandInvocations': [
+                \'CommandInvocations\': [
                     {
-                        'CommandId': 'string',
-                        'InstanceId': 'string',
-                        'InstanceName': 'string',
-                        'Comment': 'string',
-                        'DocumentName': 'string',
-                        'DocumentVersion': 'string',
-                        'RequestedDateTime': datetime(2015, 1, 1),
-                        'Status': 'Pending'|'InProgress'|'Delayed'|'Success'|'Cancelled'|'TimedOut'|'Failed'|'Cancelling',
-                        'StatusDetails': 'string',
-                        'TraceOutput': 'string',
-                        'StandardOutputUrl': 'string',
-                        'StandardErrorUrl': 'string',
-                        'CommandPlugins': [
+                        \'CommandId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'InstanceName\': \'string\',
+                        \'Comment\': \'string\',
+                        \'DocumentName\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'RequestedDateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'Pending\'|\'InProgress\'|\'Delayed\'|\'Success\'|\'Cancelled\'|\'TimedOut\'|\'Failed\'|\'Cancelling\',
+                        \'StatusDetails\': \'string\',
+                        \'TraceOutput\': \'string\',
+                        \'StandardOutputUrl\': \'string\',
+                        \'StandardErrorUrl\': \'string\',
+                        \'CommandPlugins\': [
                             {
-                                'Name': 'string',
-                                'Status': 'Pending'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
-                                'StatusDetails': 'string',
-                                'ResponseCode': 123,
-                                'ResponseStartDateTime': datetime(2015, 1, 1),
-                                'ResponseFinishDateTime': datetime(2015, 1, 1),
-                                'Output': 'string',
-                                'StandardOutputUrl': 'string',
-                                'StandardErrorUrl': 'string',
-                                'OutputS3Region': 'string',
-                                'OutputS3BucketName': 'string',
-                                'OutputS3KeyPrefix': 'string'
+                                \'Name\': \'string\',
+                                \'Status\': \'Pending\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
+                                \'StatusDetails\': \'string\',
+                                \'ResponseCode\': 123,
+                                \'ResponseStartDateTime\': datetime(2015, 1, 1),
+                                \'ResponseFinishDateTime\': datetime(2015, 1, 1),
+                                \'Output\': \'string\',
+                                \'StandardOutputUrl\': \'string\',
+                                \'StandardErrorUrl\': \'string\',
+                                \'OutputS3Region\': \'string\',
+                                \'OutputS3BucketName\': \'string\',
+                                \'OutputS3KeyPrefix\': \'string\'
                             },
                         ],
-                        'ServiceRole': 'string',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                        \'ServiceRole\': \'string\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'CloudWatchOutputConfig': {
-                            'CloudWatchLogGroupName': 'string',
-                            'CloudWatchOutputEnabled': True|False
+                        \'CloudWatchOutputConfig\': {
+                            \'CloudWatchLogGroupName\': \'string\',
+                            \'CloudWatchOutputEnabled\': True|False
                         }
                     },
                 ],
@@ -1230,7 +1230,7 @@ class ListCommandInvocations(Paginator):
                    
                   * Success: The execution of the command or plugin was successfully completed. This is a terminal state. 
                    
-                  * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                  * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command\'s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                    
                   * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state. 
                    
@@ -1238,7 +1238,7 @@ class ListCommandInvocations(Paginator):
                    
                   * Canceled: The command was terminated before it was completed. This is a terminal state. 
                    
-                  * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                  * Undeliverable: The command can\'t be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don\'t count against the parent command\'s MaxErrors limit and don\'t contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                    
                   * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                    
@@ -1248,11 +1248,11 @@ class ListCommandInvocations(Paginator):
         
                 - **StandardOutputUrl** *(string) --* 
         
-                  The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+                  The URL to the plugin\'s StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
         
                 - **StandardErrorUrl** *(string) --* 
         
-                  The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+                  The URL to the plugin\'s StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
         
                 - **CommandPlugins** *(list) --* 
                   
@@ -1278,7 +1278,7 @@ class ListCommandInvocations(Paginator):
                        
                       * Success: The execution of the command or plugin was successfully completed. This is a terminal state. 
                        
-                      * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                      * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command\'s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                        
                       * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state. 
                        
@@ -1286,7 +1286,7 @@ class ListCommandInvocations(Paginator):
                        
                       * Canceled: The command was terminated before it was completed. This is a terminal state. 
                        
-                      * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
+                      * Undeliverable: The command can\'t be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don\'t count against the parent command\'s MaxErrors limit, and they don\'t contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                        
                       * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                        
@@ -1374,7 +1374,7 @@ class ListCommandInvocations(Paginator):
         
                   - **CloudWatchLogGroupName** *(string) --* 
         
-                    The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                    The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
                   - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -1394,18 +1394,18 @@ class ListCommands(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CommandId='string',
-              InstanceId='string',
+              CommandId=\'string\',
+              InstanceId=\'string\',
               Filters=[
                   {
-                      'key': 'InvokedAfter'|'InvokedBefore'|'Status'|'ExecutionStage'|'DocumentName',
-                      'value': 'string'
+                      \'key\': \'InvokedAfter\'|\'InvokedBefore\'|\'Status\'|\'ExecutionStage\'|\'DocumentName\',
+                      \'value\': \'string\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CommandId: string
@@ -1488,52 +1488,52 @@ class ListCommands(Paginator):
           ::
         
             {
-                'Commands': [
+                \'Commands\': [
                     {
-                        'CommandId': 'string',
-                        'DocumentName': 'string',
-                        'DocumentVersion': 'string',
-                        'Comment': 'string',
-                        'ExpiresAfter': datetime(2015, 1, 1),
-                        'Parameters': {
-                            'string': [
-                                'string',
+                        \'CommandId\': \'string\',
+                        \'DocumentName\': \'string\',
+                        \'DocumentVersion\': \'string\',
+                        \'Comment\': \'string\',
+                        \'ExpiresAfter\': datetime(2015, 1, 1),
+                        \'Parameters\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         },
-                        'InstanceIds': [
-                            'string',
+                        \'InstanceIds\': [
+                            \'string\',
                         ],
-                        'Targets': [
+                        \'Targets\': [
                             {
-                                'Key': 'string',
-                                'Values': [
-                                    'string',
+                                \'Key\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'RequestedDateTime': datetime(2015, 1, 1),
-                        'Status': 'Pending'|'InProgress'|'Success'|'Cancelled'|'Failed'|'TimedOut'|'Cancelling',
-                        'StatusDetails': 'string',
-                        'OutputS3Region': 'string',
-                        'OutputS3BucketName': 'string',
-                        'OutputS3KeyPrefix': 'string',
-                        'MaxConcurrency': 'string',
-                        'MaxErrors': 'string',
-                        'TargetCount': 123,
-                        'CompletedCount': 123,
-                        'ErrorCount': 123,
-                        'DeliveryTimedOutCount': 123,
-                        'ServiceRole': 'string',
-                        'NotificationConfig': {
-                            'NotificationArn': 'string',
-                            'NotificationEvents': [
-                                'All'|'InProgress'|'Success'|'TimedOut'|'Cancelled'|'Failed',
+                        \'RequestedDateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'Pending\'|\'InProgress\'|\'Success\'|\'Cancelled\'|\'Failed\'|\'TimedOut\'|\'Cancelling\',
+                        \'StatusDetails\': \'string\',
+                        \'OutputS3Region\': \'string\',
+                        \'OutputS3BucketName\': \'string\',
+                        \'OutputS3KeyPrefix\': \'string\',
+                        \'MaxConcurrency\': \'string\',
+                        \'MaxErrors\': \'string\',
+                        \'TargetCount\': 123,
+                        \'CompletedCount\': 123,
+                        \'ErrorCount\': 123,
+                        \'DeliveryTimedOutCount\': 123,
+                        \'ServiceRole\': \'string\',
+                        \'NotificationConfig\': {
+                            \'NotificationArn\': \'string\',
+                            \'NotificationEvents\': [
+                                \'All\'|\'InProgress\'|\'Success\'|\'TimedOut\'|\'Cancelled\'|\'Failed\',
                             ],
-                            'NotificationType': 'Command'|'Invocation'
+                            \'NotificationType\': \'Command\'|\'Invocation\'
                         },
-                        'CloudWatchOutputConfig': {
-                            'CloudWatchLogGroupName': 'string',
-                            'CloudWatchOutputEnabled': True|False
+                        \'CloudWatchOutputConfig\': {
+                            \'CloudWatchLogGroupName\': \'string\',
+                            \'CloudWatchOutputEnabled\': True|False
                         }
                     },
                 ],
@@ -1589,11 +1589,11 @@ class ListCommands(Paginator):
               
                 - **Targets** *(list) --* 
         
-                  An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
+                  An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don\'t provide one or more instance IDs in the call.
         
                   - *(dict) --* 
         
-                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
+                    An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
         
                     - **Key** *(string) --* 
         
@@ -1699,7 +1699,7 @@ class ListCommands(Paginator):
         
                   - **CloudWatchLogGroupName** *(string) --* 
         
-                    The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
+                    The name of the CloudWatch log group where you want to send command output. If you don\'t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName* .
         
                   - **CloudWatchOutputEnabled** *(boolean) --* 
         
@@ -1721,22 +1721,22 @@ class ListDocuments(Paginator):
           response_iterator = paginator.paginate(
               DocumentFilterList=[
                   {
-                      'key': 'Name'|'Owner'|'PlatformTypes'|'DocumentType',
-                      'value': 'string'
+                      \'key\': \'Name\'|\'Owner\'|\'PlatformTypes\'|\'DocumentType\',
+                      \'value\': \'string\'
                   },
               ],
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DocumentFilterList: list
@@ -1818,22 +1818,22 @@ class ListDocuments(Paginator):
           ::
         
             {
-                'DocumentIdentifiers': [
+                \'DocumentIdentifiers\': [
                     {
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'PlatformTypes': [
-                            'Windows'|'Linux',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'PlatformTypes\': [
+                            \'Windows\'|\'Linux\',
                         ],
-                        'DocumentVersion': 'string',
-                        'DocumentType': 'Command'|'Policy'|'Automation'|'Session',
-                        'SchemaVersion': 'string',
-                        'DocumentFormat': 'YAML'|'JSON',
-                        'TargetType': 'string',
-                        'Tags': [
+                        \'DocumentVersion\': \'string\',
+                        \'DocumentType\': \'Command\'|\'Policy\'|\'Automation\'|\'Session\',
+                        \'SchemaVersion\': \'string\',
+                        \'DocumentFormat\': \'YAML\'|\'JSON\',
+                        \'TargetType\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },

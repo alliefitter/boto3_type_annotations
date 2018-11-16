@@ -13,15 +13,15 @@ class DescribeBackups(Paginator):
         
           response_iterator = paginator.paginate(
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
               SortAscending=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: dict
@@ -71,17 +71,17 @@ class DescribeBackups(Paginator):
           ::
         
             {
-                'Backups': [
+                \'Backups\': [
                     {
-                        'BackupId': 'string',
-                        'BackupState': 'CREATE_IN_PROGRESS'|'READY'|'DELETED'|'PENDING_DELETION',
-                        'ClusterId': 'string',
-                        'CreateTimestamp': datetime(2015, 1, 1),
-                        'CopyTimestamp': datetime(2015, 1, 1),
-                        'SourceRegion': 'string',
-                        'SourceBackup': 'string',
-                        'SourceCluster': 'string',
-                        'DeleteTimestamp': datetime(2015, 1, 1)
+                        \'BackupId\': \'string\',
+                        \'BackupState\': \'CREATE_IN_PROGRESS\'|\'READY\'|\'DELETED\'|\'PENDING_DELETION\',
+                        \'ClusterId\': \'string\',
+                        \'CreateTimestamp\': datetime(2015, 1, 1),
+                        \'CopyTimestamp\': datetime(2015, 1, 1),
+                        \'SourceRegion\': \'string\',
+                        \'SourceBackup\': \'string\',
+                        \'SourceCluster\': \'string\',
+                        \'DeleteTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -141,14 +141,14 @@ class DescribeClusters(Paginator):
         
           response_iterator = paginator.paginate(
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: dict
@@ -193,39 +193,39 @@ class DescribeClusters(Paginator):
           ::
         
             {
-                'Clusters': [
+                \'Clusters\': [
                     {
-                        'BackupPolicy': 'DEFAULT',
-                        'ClusterId': 'string',
-                        'CreateTimestamp': datetime(2015, 1, 1),
-                        'Hsms': [
+                        \'BackupPolicy\': \'DEFAULT\',
+                        \'ClusterId\': \'string\',
+                        \'CreateTimestamp\': datetime(2015, 1, 1),
+                        \'Hsms\': [
                             {
-                                'AvailabilityZone': 'string',
-                                'ClusterId': 'string',
-                                'SubnetId': 'string',
-                                'EniId': 'string',
-                                'EniIp': 'string',
-                                'HsmId': 'string',
-                                'State': 'CREATE_IN_PROGRESS'|'ACTIVE'|'DEGRADED'|'DELETE_IN_PROGRESS'|'DELETED',
-                                'StateMessage': 'string'
+                                \'AvailabilityZone\': \'string\',
+                                \'ClusterId\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'EniId\': \'string\',
+                                \'EniIp\': \'string\',
+                                \'HsmId\': \'string\',
+                                \'State\': \'CREATE_IN_PROGRESS\'|\'ACTIVE\'|\'DEGRADED\'|\'DELETE_IN_PROGRESS\'|\'DELETED\',
+                                \'StateMessage\': \'string\'
                             },
                         ],
-                        'HsmType': 'string',
-                        'PreCoPassword': 'string',
-                        'SecurityGroup': 'string',
-                        'SourceBackupId': 'string',
-                        'State': 'CREATE_IN_PROGRESS'|'UNINITIALIZED'|'INITIALIZE_IN_PROGRESS'|'INITIALIZED'|'ACTIVE'|'UPDATE_IN_PROGRESS'|'DELETE_IN_PROGRESS'|'DELETED'|'DEGRADED',
-                        'StateMessage': 'string',
-                        'SubnetMapping': {
-                            'string': 'string'
+                        \'HsmType\': \'string\',
+                        \'PreCoPassword\': \'string\',
+                        \'SecurityGroup\': \'string\',
+                        \'SourceBackupId\': \'string\',
+                        \'State\': \'CREATE_IN_PROGRESS\'|\'UNINITIALIZED\'|\'INITIALIZE_IN_PROGRESS\'|\'INITIALIZED\'|\'ACTIVE\'|\'UPDATE_IN_PROGRESS\'|\'DELETE_IN_PROGRESS\'|\'DELETED\'|\'DEGRADED\',
+                        \'StateMessage\': \'string\',
+                        \'SubnetMapping\': {
+                            \'string\': \'string\'
                         },
-                        'VpcId': 'string',
-                        'Certificates': {
-                            'ClusterCsr': 'string',
-                            'HsmCertificate': 'string',
-                            'AwsHardwareCertificate': 'string',
-                            'ManufacturerHardwareCertificate': 'string',
-                            'ClusterCertificate': 'string'
+                        \'VpcId\': \'string\',
+                        \'Certificates\': {
+                            \'ClusterCsr\': \'string\',
+                            \'HsmCertificate\': \'string\',
+                            \'AwsHardwareCertificate\': \'string\',
+                            \'ManufacturerHardwareCertificate\': \'string\',
+                            \'ClusterCertificate\': \'string\'
                         }
                     },
                 ],
@@ -245,11 +245,11 @@ class DescribeClusters(Paginator):
         
                 - **BackupPolicy** *(string) --* 
         
-                  The cluster's backup policy.
+                  The cluster\'s backup policy.
         
                 - **ClusterId** *(string) --* 
         
-                  The cluster's identifier (ID).
+                  The cluster\'s identifier (ID).
         
                 - **CreateTimestamp** *(datetime) --* 
         
@@ -273,27 +273,27 @@ class DescribeClusters(Paginator):
         
                     - **SubnetId** *(string) --* 
         
-                      The subnet that contains the HSM's elastic network interface (ENI).
+                      The subnet that contains the HSM\'s elastic network interface (ENI).
         
                     - **EniId** *(string) --* 
         
-                      The identifier (ID) of the HSM's elastic network interface (ENI).
+                      The identifier (ID) of the HSM\'s elastic network interface (ENI).
         
                     - **EniIp** *(string) --* 
         
-                      The IP address of the HSM's elastic network interface (ENI).
+                      The IP address of the HSM\'s elastic network interface (ENI).
         
                     - **HsmId** *(string) --* 
         
-                      The HSM's identifier (ID).
+                      The HSM\'s identifier (ID).
         
                     - **State** *(string) --* 
         
-                      The HSM's state.
+                      The HSM\'s state.
         
                     - **StateMessage** *(string) --* 
         
-                      A description of the HSM's state.
+                      A description of the HSM\'s state.
         
                 - **HsmType** *(string) --* 
         
@@ -301,11 +301,11 @@ class DescribeClusters(Paginator):
         
                 - **PreCoPassword** *(string) --* 
         
-                  The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+                  The default password for the cluster\'s Pre-Crypto Officer (PRECO) user.
         
                 - **SecurityGroup** *(string) --* 
         
-                  The identifier (ID) of the cluster's security group.
+                  The identifier (ID) of the cluster\'s security group.
         
                 - **SourceBackupId** *(string) --* 
         
@@ -313,15 +313,15 @@ class DescribeClusters(Paginator):
         
                 - **State** *(string) --* 
         
-                  The cluster's state.
+                  The cluster\'s state.
         
                 - **StateMessage** *(string) --* 
         
-                  A description of the cluster's state.
+                  A description of the cluster\'s state.
         
                 - **SubnetMapping** *(dict) --* 
         
-                  A map of the cluster's subnets and their corresponding Availability Zones.
+                  A map of the cluster\'s subnets and their corresponding Availability Zones.
         
                   - *(string) --* 
                     
@@ -337,7 +337,7 @@ class DescribeClusters(Paginator):
         
                   - **ClusterCsr** *(string) --* 
         
-                    The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is ``UNINITIALIZED`` .
+                    The cluster\'s certificate signing request (CSR). The CSR exists only when the cluster\'s state is ``UNINITIALIZED`` .
         
                   - **HsmCertificate** *(string) --* 
         
@@ -353,7 +353,7 @@ class DescribeClusters(Paginator):
         
                   - **ClusterCertificate** *(string) --* 
         
-                    The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+                    The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster\'s owner.
         
         """
         pass
@@ -369,11 +369,11 @@ class ListTags(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ResourceId='string',
+              ResourceId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceId: string
@@ -406,10 +406,10 @@ class ListTags(Paginator):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
                 

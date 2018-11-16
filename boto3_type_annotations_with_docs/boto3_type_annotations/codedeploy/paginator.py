@@ -13,16 +13,16 @@ class ListApplicationRevisions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              applicationName='string',
-              sortBy='registerTime'|'firstUsedTime'|'lastUsedTime',
-              sortOrder='ascending'|'descending',
-              s3Bucket='string',
-              s3KeyPrefix='string',
-              deployed='include'|'exclude'|'ignore',
+              applicationName=\'string\',
+              sortBy=\'registerTime\'|\'firstUsedTime\'|\'lastUsedTime\',
+              sortOrder=\'ascending\'|\'descending\',
+              s3Bucket=\'string\',
+              s3KeyPrefix=\'string\',
+              deployed=\'include\'|\'exclude\'|\'ignore\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type applicationName: string
@@ -61,7 +61,7 @@ class ListApplicationRevisions(Paginator):
         
           An Amazon S3 bucket name to limit the search for revisions.
         
-          If set to null, all of the user's buckets will be searched.
+          If set to null, all of the user\'s buckets will be searched.
         
         :type s3KeyPrefix: string
         :param s3KeyPrefix: 
@@ -104,27 +104,27 @@ class ListApplicationRevisions(Paginator):
           ::
         
             {
-                'revisions': [
+                \'revisions\': [
                     {
-                        'revisionType': 'S3'|'GitHub'|'String',
-                        's3Location': {
-                            'bucket': 'string',
-                            'key': 'string',
-                            'bundleType': 'tar'|'tgz'|'zip'|'YAML'|'JSON',
-                            'version': 'string',
-                            'eTag': 'string'
+                        \'revisionType\': \'S3\'|\'GitHub\'|\'String\',
+                        \'s3Location\': {
+                            \'bucket\': \'string\',
+                            \'key\': \'string\',
+                            \'bundleType\': \'tar\'|\'tgz\'|\'zip\'|\'YAML\'|\'JSON\',
+                            \'version\': \'string\',
+                            \'eTag\': \'string\'
                         },
-                        'gitHubLocation': {
-                            'repository': 'string',
-                            'commitId': 'string'
+                        \'gitHubLocation\': {
+                            \'repository\': \'string\',
+                            \'commitId\': \'string\'
                         },
-                        'string': {
-                            'content': 'string',
-                            'sha256': 'string'
+                        \'string\': {
+                            \'content\': \'string\',
+                            \'sha256\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -229,9 +229,9 @@ class ListApplications(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -259,10 +259,10 @@ class ListApplications(Paginator):
           ::
         
             {
-                'applications': [
-                    'string',
+                \'applications\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -295,9 +295,9 @@ class ListDeploymentConfigs(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -325,10 +325,10 @@ class ListDeploymentConfigs(Paginator):
           ::
         
             {
-                'deploymentConfigsList': [
-                    'string',
+                \'deploymentConfigsList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -360,11 +360,11 @@ class ListDeploymentGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              applicationName='string',
+              applicationName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type applicationName: string
@@ -397,11 +397,11 @@ class ListDeploymentGroups(Paginator):
           ::
         
             {
-                'applicationName': 'string',
-                'deploymentGroups': [
-                    'string',
+                \'applicationName\': \'string\',
+                \'deploymentGroups\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -437,17 +437,17 @@ class ListDeploymentInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              deploymentId='string',
+              deploymentId=\'string\',
               instanceStatusFilter=[
-                  'Pending'|'InProgress'|'Succeeded'|'Failed'|'Skipped'|'Unknown'|'Ready',
+                  \'Pending\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Skipped\'|\'Unknown\'|\'Ready\',
               ],
               instanceTypeFilter=[
-                  'Blue'|'Green',
+                  \'Blue\'|\'Green\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type deploymentId: string
@@ -477,7 +477,7 @@ class ListDeploymentInstances(Paginator):
         :type instanceTypeFilter: list
         :param instanceTypeFilter: 
         
-          The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
+          The set of instances in a blue/green deployment, either those in the original environment (\"BLUE\") or those in the replacement environment (\"GREEN\"), for which you want to view instance information.
         
           - *(string) --* 
         
@@ -506,10 +506,10 @@ class ListDeploymentInstances(Paginator):
           ::
         
             {
-                'instancesList': [
-                    'string',
+                \'instancesList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -541,19 +541,19 @@ class ListDeployments(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              applicationName='string',
-              deploymentGroupName='string',
+              applicationName=\'string\',
+              deploymentGroupName=\'string\',
               includeOnlyStatuses=[
-                  'Created'|'Queued'|'InProgress'|'Succeeded'|'Failed'|'Stopped'|'Ready',
+                  \'Created\'|\'Queued\'|\'InProgress\'|\'Succeeded\'|\'Failed\'|\'Stopped\'|\'Ready\',
               ],
               createTimeRange={
-                  'start': datetime(2015, 1, 1),
-                  'end': datetime(2015, 1, 1)
+                  \'start\': datetime(2015, 1, 1),
+                  \'end\': datetime(2015, 1, 1)
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type applicationName: string
@@ -631,10 +631,10 @@ class ListDeployments(Paginator):
           ::
         
             {
-                'deployments': [
-                    'string',
+                \'deployments\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

@@ -12,12 +12,12 @@ class ListJobsByPipeline(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PipelineId='string',
-              Ascending='string',
+              PipelineId=\'string\',
+              Ascending=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PipelineId: string
@@ -55,333 +55,333 @@ class ListJobsByPipeline(Paginator):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'PipelineId': 'string',
-                        'Input': {
-                            'Key': 'string',
-                            'FrameRate': 'string',
-                            'Resolution': 'string',
-                            'AspectRatio': 'string',
-                            'Interlaced': 'string',
-                            'Container': 'string',
-                            'Encryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'PipelineId\': \'string\',
+                        \'Input\': {
+                            \'Key\': \'string\',
+                            \'FrameRate\': \'string\',
+                            \'Resolution\': \'string\',
+                            \'AspectRatio\': \'string\',
+                            \'Interlaced\': \'string\',
+                            \'Container\': \'string\',
+                            \'Encryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'TimeSpan': {
-                                'StartTime': 'string',
-                                'Duration': 'string'
+                            \'TimeSpan\': {
+                                \'StartTime\': \'string\',
+                                \'Duration\': \'string\'
                             },
-                            'InputCaptions': {
-                                'MergePolicy': 'string',
-                                'CaptionSources': [
+                            \'InputCaptions\': {
+                                \'MergePolicy\': \'string\',
+                                \'CaptionSources\': [
                                     {
-                                        'Key': 'string',
-                                        'Language': 'string',
-                                        'TimeOffset': 'string',
-                                        'Label': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Key\': \'string\',
+                                        \'Language\': \'string\',
+                                        \'TimeOffset\': \'string\',
+                                        \'Label\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'DetectedProperties': {
-                                'Width': 123,
-                                'Height': 123,
-                                'FrameRate': 'string',
-                                'FileSize': 123,
-                                'DurationMillis': 123
+                            \'DetectedProperties\': {
+                                \'Width\': 123,
+                                \'Height\': 123,
+                                \'FrameRate\': \'string\',
+                                \'FileSize\': 123,
+                                \'DurationMillis\': 123
                             }
                         },
-                        'Inputs': [
+                        \'Inputs\': [
                             {
-                                'Key': 'string',
-                                'FrameRate': 'string',
-                                'Resolution': 'string',
-                                'AspectRatio': 'string',
-                                'Interlaced': 'string',
-                                'Container': 'string',
-                                'Encryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Key\': \'string\',
+                                \'FrameRate\': \'string\',
+                                \'Resolution\': \'string\',
+                                \'AspectRatio\': \'string\',
+                                \'Interlaced\': \'string\',
+                                \'Container\': \'string\',
+                                \'Encryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'TimeSpan': {
-                                    'StartTime': 'string',
-                                    'Duration': 'string'
+                                \'TimeSpan\': {
+                                    \'StartTime\': \'string\',
+                                    \'Duration\': \'string\'
                                 },
-                                'InputCaptions': {
-                                    'MergePolicy': 'string',
-                                    'CaptionSources': [
+                                \'InputCaptions\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'CaptionSources\': [
                                         {
-                                            'Key': 'string',
-                                            'Language': 'string',
-                                            'TimeOffset': 'string',
-                                            'Label': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Key\': \'string\',
+                                            \'Language\': \'string\',
+                                            \'TimeOffset\': \'string\',
+                                            \'Label\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'DetectedProperties': {
-                                    'Width': 123,
-                                    'Height': 123,
-                                    'FrameRate': 'string',
-                                    'FileSize': 123,
-                                    'DurationMillis': 123
+                                \'DetectedProperties\': {
+                                    \'Width\': 123,
+                                    \'Height\': 123,
+                                    \'FrameRate\': \'string\',
+                                    \'FileSize\': 123,
+                                    \'DurationMillis\': 123
                                 }
                             },
                         ],
-                        'Output': {
-                            'Id': 'string',
-                            'Key': 'string',
-                            'ThumbnailPattern': 'string',
-                            'ThumbnailEncryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                        \'Output\': {
+                            \'Id\': \'string\',
+                            \'Key\': \'string\',
+                            \'ThumbnailPattern\': \'string\',
+                            \'ThumbnailEncryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'Rotate': 'string',
-                            'PresetId': 'string',
-                            'SegmentDuration': 'string',
-                            'Status': 'string',
-                            'StatusDetail': 'string',
-                            'Duration': 123,
-                            'Width': 123,
-                            'Height': 123,
-                            'FrameRate': 'string',
-                            'FileSize': 123,
-                            'DurationMillis': 123,
-                            'Watermarks': [
+                            \'Rotate\': \'string\',
+                            \'PresetId\': \'string\',
+                            \'SegmentDuration\': \'string\',
+                            \'Status\': \'string\',
+                            \'StatusDetail\': \'string\',
+                            \'Duration\': 123,
+                            \'Width\': 123,
+                            \'Height\': 123,
+                            \'FrameRate\': \'string\',
+                            \'FileSize\': 123,
+                            \'DurationMillis\': 123,
+                            \'Watermarks\': [
                                 {
-                                    'PresetWatermarkId': 'string',
-                                    'InputKey': 'string',
-                                    'Encryption': {
-                                        'Mode': 'string',
-                                        'Key': 'string',
-                                        'KeyMd5': 'string',
-                                        'InitializationVector': 'string'
+                                    \'PresetWatermarkId\': \'string\',
+                                    \'InputKey\': \'string\',
+                                    \'Encryption\': {
+                                        \'Mode\': \'string\',
+                                        \'Key\': \'string\',
+                                        \'KeyMd5\': \'string\',
+                                        \'InitializationVector\': \'string\'
                                     }
                                 },
                             ],
-                            'AlbumArt': {
-                                'MergePolicy': 'string',
-                                'Artwork': [
+                            \'AlbumArt\': {
+                                \'MergePolicy\': \'string\',
+                                \'Artwork\': [
                                     {
-                                        'InputKey': 'string',
-                                        'MaxWidth': 'string',
-                                        'MaxHeight': 'string',
-                                        'SizingPolicy': 'string',
-                                        'PaddingPolicy': 'string',
-                                        'AlbumArtFormat': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'InputKey\': \'string\',
+                                        \'MaxWidth\': \'string\',
+                                        \'MaxHeight\': \'string\',
+                                        \'SizingPolicy\': \'string\',
+                                        \'PaddingPolicy\': \'string\',
+                                        \'AlbumArtFormat\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'Composition': [
+                            \'Composition\': [
                                 {
-                                    'TimeSpan': {
-                                        'StartTime': 'string',
-                                        'Duration': 'string'
+                                    \'TimeSpan\': {
+                                        \'StartTime\': \'string\',
+                                        \'Duration\': \'string\'
                                     }
                                 },
                             ],
-                            'Captions': {
-                                'MergePolicy': 'string',
-                                'CaptionSources': [
+                            \'Captions\': {
+                                \'MergePolicy\': \'string\',
+                                \'CaptionSources\': [
                                     {
-                                        'Key': 'string',
-                                        'Language': 'string',
-                                        'TimeOffset': 'string',
-                                        'Label': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Key\': \'string\',
+                                        \'Language\': \'string\',
+                                        \'TimeOffset\': \'string\',
+                                        \'Label\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ],
-                                'CaptionFormats': [
+                                \'CaptionFormats\': [
                                     {
-                                        'Format': 'string',
-                                        'Pattern': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Format\': \'string\',
+                                        \'Pattern\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'Encryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                            \'Encryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'AppliedColorSpaceConversion': 'string'
+                            \'AppliedColorSpaceConversion\': \'string\'
                         },
-                        'Outputs': [
+                        \'Outputs\': [
                             {
-                                'Id': 'string',
-                                'Key': 'string',
-                                'ThumbnailPattern': 'string',
-                                'ThumbnailEncryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Id\': \'string\',
+                                \'Key\': \'string\',
+                                \'ThumbnailPattern\': \'string\',
+                                \'ThumbnailEncryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'Rotate': 'string',
-                                'PresetId': 'string',
-                                'SegmentDuration': 'string',
-                                'Status': 'string',
-                                'StatusDetail': 'string',
-                                'Duration': 123,
-                                'Width': 123,
-                                'Height': 123,
-                                'FrameRate': 'string',
-                                'FileSize': 123,
-                                'DurationMillis': 123,
-                                'Watermarks': [
+                                \'Rotate\': \'string\',
+                                \'PresetId\': \'string\',
+                                \'SegmentDuration\': \'string\',
+                                \'Status\': \'string\',
+                                \'StatusDetail\': \'string\',
+                                \'Duration\': 123,
+                                \'Width\': 123,
+                                \'Height\': 123,
+                                \'FrameRate\': \'string\',
+                                \'FileSize\': 123,
+                                \'DurationMillis\': 123,
+                                \'Watermarks\': [
                                     {
-                                        'PresetWatermarkId': 'string',
-                                        'InputKey': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'PresetWatermarkId\': \'string\',
+                                        \'InputKey\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ],
-                                'AlbumArt': {
-                                    'MergePolicy': 'string',
-                                    'Artwork': [
+                                \'AlbumArt\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'Artwork\': [
                                         {
-                                            'InputKey': 'string',
-                                            'MaxWidth': 'string',
-                                            'MaxHeight': 'string',
-                                            'SizingPolicy': 'string',
-                                            'PaddingPolicy': 'string',
-                                            'AlbumArtFormat': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'InputKey\': \'string\',
+                                            \'MaxWidth\': \'string\',
+                                            \'MaxHeight\': \'string\',
+                                            \'SizingPolicy\': \'string\',
+                                            \'PaddingPolicy\': \'string\',
+                                            \'AlbumArtFormat\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'Composition': [
+                                \'Composition\': [
                                     {
-                                        'TimeSpan': {
-                                            'StartTime': 'string',
-                                            'Duration': 'string'
+                                        \'TimeSpan\': {
+                                            \'StartTime\': \'string\',
+                                            \'Duration\': \'string\'
                                         }
                                     },
                                 ],
-                                'Captions': {
-                                    'MergePolicy': 'string',
-                                    'CaptionSources': [
+                                \'Captions\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'CaptionSources\': [
                                         {
-                                            'Key': 'string',
-                                            'Language': 'string',
-                                            'TimeOffset': 'string',
-                                            'Label': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Key\': \'string\',
+                                            \'Language\': \'string\',
+                                            \'TimeOffset\': \'string\',
+                                            \'Label\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ],
-                                    'CaptionFormats': [
+                                    \'CaptionFormats\': [
                                         {
-                                            'Format': 'string',
-                                            'Pattern': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Format\': \'string\',
+                                            \'Pattern\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'Encryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Encryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'AppliedColorSpaceConversion': 'string'
+                                \'AppliedColorSpaceConversion\': \'string\'
                             },
                         ],
-                        'OutputKeyPrefix': 'string',
-                        'Playlists': [
+                        \'OutputKeyPrefix\': \'string\',
+                        \'Playlists\': [
                             {
-                                'Name': 'string',
-                                'Format': 'string',
-                                'OutputKeys': [
-                                    'string',
+                                \'Name\': \'string\',
+                                \'Format\': \'string\',
+                                \'OutputKeys\': [
+                                    \'string\',
                                 ],
-                                'HlsContentProtection': {
-                                    'Method': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string',
-                                    'LicenseAcquisitionUrl': 'string',
-                                    'KeyStoragePolicy': 'string'
+                                \'HlsContentProtection\': {
+                                    \'Method\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\',
+                                    \'LicenseAcquisitionUrl\': \'string\',
+                                    \'KeyStoragePolicy\': \'string\'
                                 },
-                                'PlayReadyDrm': {
-                                    'Format': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'KeyId': 'string',
-                                    'InitializationVector': 'string',
-                                    'LicenseAcquisitionUrl': 'string'
+                                \'PlayReadyDrm\': {
+                                    \'Format\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'KeyId\': \'string\',
+                                    \'InitializationVector\': \'string\',
+                                    \'LicenseAcquisitionUrl\': \'string\'
                                 },
-                                'Status': 'string',
-                                'StatusDetail': 'string'
+                                \'Status\': \'string\',
+                                \'StatusDetail\': \'string\'
                             },
                         ],
-                        'Status': 'string',
-                        'UserMetadata': {
-                            'string': 'string'
+                        \'Status\': \'string\',
+                        \'UserMetadata\': {
+                            \'string\': \'string\'
                         },
-                        'Timing': {
-                            'SubmitTimeMillis': 123,
-                            'StartTimeMillis': 123,
-                            'FinishTimeMillis': 123
+                        \'Timing\': {
+                            \'SubmitTimeMillis\': 123,
+                            \'StartTimeMillis\': 123,
+                            \'FinishTimeMillis\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -417,7 +417,7 @@ class ListJobsByPipeline(Paginator):
         
                     The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The ``InputBucket`` object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. 
         
-                    If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                    If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                   - **FrameRate** *(string) --* 
         
@@ -463,7 +463,7 @@ class ListJobsByPipeline(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -481,7 +481,7 @@ class ListJobsByPipeline(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -505,11 +505,11 @@ class ListJobsByPipeline(Paginator):
         
                     - **StartTime** *(string) --* 
         
-                      The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                      The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                     - **Duration** *(string) --* 
         
-                      The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                      The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                       If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -585,7 +585,7 @@ class ListJobsByPipeline(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -603,7 +603,7 @@ class ListJobsByPipeline(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -647,17 +647,17 @@ class ListJobsByPipeline(Paginator):
         
                 - **Inputs** *(list) --* 
         
-                  Information about the files that you're transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
+                  Information about the files that you\'re transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
         
                   - *(dict) --* 
         
-                    Information about the file that you're transcoding.
+                    Information about the file that you\'re transcoding.
         
                     - **Key** *(string) --* 
         
                       The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The ``InputBucket`` object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. 
         
-                      If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                      If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                     - **FrameRate** *(string) --* 
         
@@ -703,7 +703,7 @@ class ListJobsByPipeline(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -721,7 +721,7 @@ class ListJobsByPipeline(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -745,11 +745,11 @@ class ListJobsByPipeline(Paginator):
         
                       - **StartTime** *(string) --* 
         
-                        The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                        The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                       - **Duration** *(string) --* 
         
-                        The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                        The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                         If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -825,7 +825,7 @@ class ListJobsByPipeline(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -843,7 +843,7 @@ class ListJobsByPipeline(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -907,7 +907,7 @@ class ListJobsByPipeline(Paginator):
         
                     Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.
         
-                    If you don't want Elastic Transcoder to create thumbnails, specify "".
+                    If you don\'t want Elastic Transcoder to create thumbnails, specify \"\".
         
                     If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include in the file name for each thumbnail. You can specify the following values in any sequence:
         
@@ -933,7 +933,7 @@ class ListJobsByPipeline(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -951,7 +951,7 @@ class ListJobsByPipeline(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -975,7 +975,7 @@ class ListJobsByPipeline(Paginator):
         
                      ``auto`` , ``0`` , ``90`` , ``180`` , ``270``  
         
-                    The value ``auto`` generally works only if the file that you're transcoding contains rotation metadata.
+                    The value ``auto`` generally works only if the file that you\'re transcoding contains rotation metadata.
         
                   - **PresetId** *(string) --* 
         
@@ -1053,7 +1053,7 @@ class ListJobsByPipeline(Paginator):
         
                         The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``Pipeline`` ; the ``Input Bucket`` object in that pipeline identifies the bucket.
         
-                        If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. 
+                        If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error. 
         
                       - **Encryption** *(dict) --* 
         
@@ -1065,7 +1065,7 @@ class ListJobsByPipeline(Paginator):
         
                           * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                            
-                          * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                          * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                            
                           * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                            
@@ -1083,7 +1083,7 @@ class ListJobsByPipeline(Paginator):
                            
                           .. warning::
         
-                            For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                            For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                         - **Key** *(string) --* 
         
@@ -1125,15 +1125,15 @@ class ListJobsByPipeline(Paginator):
         
                         The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.
         
-                        To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to "Replace" and use an empty ``Artwork`` array.
+                        To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to \"Replace\" and use an empty ``Artwork`` array.
         
-                        To pass through existing artwork unchanged, set the ``Merge Policy`` to "Prepend", "Append", or "Fallback", and use an empty ``Artwork`` array.
+                        To pass through existing artwork unchanged, set the ``Merge Policy`` to \"Prepend\", \"Append\", or \"Fallback\", and use an empty ``Artwork`` array.
         
                         - **InputKey** *(string) --* 
         
                           The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``PipelineId`` ; the ``InputBucket`` object in that pipeline identifies the bucket.
         
-                          If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                          If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                         - **MaxWidth** *(string) --* 
         
@@ -1177,7 +1177,7 @@ class ListJobsByPipeline(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -1195,7 +1195,7 @@ class ListJobsByPipeline(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -1227,11 +1227,11 @@ class ListJobsByPipeline(Paginator):
         
                         - **StartTime** *(string) --* 
         
-                          The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                          The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                         - **Duration** *(string) --* 
         
-                          The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                          The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                           If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -1307,7 +1307,7 @@ class ListJobsByPipeline(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -1325,7 +1325,7 @@ class ListJobsByPipeline(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -1385,9 +1385,9 @@ class ListJobsByPipeline(Paginator):
                            
                           * ``{language}`` is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names. 
                            
-                          If you don't include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends "``{language}`` " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+                          If you don\'t include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends \"``{language}`` \" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
         
-                          For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+                          For example, suppose you\'re transcoding into srt format. When you enter \"Sydney-{language}-sunrise\", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
         
                         - **Encryption** *(dict) --* 
         
@@ -1399,7 +1399,7 @@ class ListJobsByPipeline(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -1417,7 +1417,7 @@ class ListJobsByPipeline(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -1445,7 +1445,7 @@ class ListJobsByPipeline(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -1463,7 +1463,7 @@ class ListJobsByPipeline(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -1511,7 +1511,7 @@ class ListJobsByPipeline(Paginator):
         
                       Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.
         
-                      If you don't want Elastic Transcoder to create thumbnails, specify "".
+                      If you don\'t want Elastic Transcoder to create thumbnails, specify \"\".
         
                       If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include in the file name for each thumbnail. You can specify the following values in any sequence:
         
@@ -1537,7 +1537,7 @@ class ListJobsByPipeline(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -1555,7 +1555,7 @@ class ListJobsByPipeline(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -1579,7 +1579,7 @@ class ListJobsByPipeline(Paginator):
         
                        ``auto`` , ``0`` , ``90`` , ``180`` , ``270``  
         
-                      The value ``auto`` generally works only if the file that you're transcoding contains rotation metadata.
+                      The value ``auto`` generally works only if the file that you\'re transcoding contains rotation metadata.
         
                     - **PresetId** *(string) --* 
         
@@ -1657,7 +1657,7 @@ class ListJobsByPipeline(Paginator):
         
                           The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``Pipeline`` ; the ``Input Bucket`` object in that pipeline identifies the bucket.
         
-                          If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. 
+                          If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error. 
         
                         - **Encryption** *(dict) --* 
         
@@ -1669,7 +1669,7 @@ class ListJobsByPipeline(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -1687,7 +1687,7 @@ class ListJobsByPipeline(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -1729,15 +1729,15 @@ class ListJobsByPipeline(Paginator):
         
                           The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.
         
-                          To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to "Replace" and use an empty ``Artwork`` array.
+                          To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to \"Replace\" and use an empty ``Artwork`` array.
         
-                          To pass through existing artwork unchanged, set the ``Merge Policy`` to "Prepend", "Append", or "Fallback", and use an empty ``Artwork`` array.
+                          To pass through existing artwork unchanged, set the ``Merge Policy`` to \"Prepend\", \"Append\", or \"Fallback\", and use an empty ``Artwork`` array.
         
                           - **InputKey** *(string) --* 
         
                             The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``PipelineId`` ; the ``InputBucket`` object in that pipeline identifies the bucket.
         
-                            If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                            If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                           - **MaxWidth** *(string) --* 
         
@@ -1781,7 +1781,7 @@ class ListJobsByPipeline(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -1799,7 +1799,7 @@ class ListJobsByPipeline(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -1831,11 +1831,11 @@ class ListJobsByPipeline(Paginator):
         
                           - **StartTime** *(string) --* 
         
-                            The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                            The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                           - **Duration** *(string) --* 
         
-                            The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                            The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                             If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -1911,7 +1911,7 @@ class ListJobsByPipeline(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -1929,7 +1929,7 @@ class ListJobsByPipeline(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -1989,9 +1989,9 @@ class ListJobsByPipeline(Paginator):
                              
                             * ``{language}`` is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names. 
                              
-                            If you don't include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends "``{language}`` " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+                            If you don\'t include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends \"``{language}`` \" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
         
-                            For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+                            For example, suppose you\'re transcoding into srt format. When you enter \"Sydney-{language}-sunrise\", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
         
                           - **Encryption** *(dict) --* 
         
@@ -2003,7 +2003,7 @@ class ListJobsByPipeline(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -2021,7 +2021,7 @@ class ListJobsByPipeline(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -2049,7 +2049,7 @@ class ListJobsByPipeline(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -2067,7 +2067,7 @@ class ListJobsByPipeline(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -2271,12 +2271,12 @@ class ListJobsByStatus(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Status='string',
-              Ascending='string',
+              Status=\'string\',
+              Ascending=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Status: string
@@ -2314,333 +2314,333 @@ class ListJobsByStatus(Paginator):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'PipelineId': 'string',
-                        'Input': {
-                            'Key': 'string',
-                            'FrameRate': 'string',
-                            'Resolution': 'string',
-                            'AspectRatio': 'string',
-                            'Interlaced': 'string',
-                            'Container': 'string',
-                            'Encryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'PipelineId\': \'string\',
+                        \'Input\': {
+                            \'Key\': \'string\',
+                            \'FrameRate\': \'string\',
+                            \'Resolution\': \'string\',
+                            \'AspectRatio\': \'string\',
+                            \'Interlaced\': \'string\',
+                            \'Container\': \'string\',
+                            \'Encryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'TimeSpan': {
-                                'StartTime': 'string',
-                                'Duration': 'string'
+                            \'TimeSpan\': {
+                                \'StartTime\': \'string\',
+                                \'Duration\': \'string\'
                             },
-                            'InputCaptions': {
-                                'MergePolicy': 'string',
-                                'CaptionSources': [
+                            \'InputCaptions\': {
+                                \'MergePolicy\': \'string\',
+                                \'CaptionSources\': [
                                     {
-                                        'Key': 'string',
-                                        'Language': 'string',
-                                        'TimeOffset': 'string',
-                                        'Label': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Key\': \'string\',
+                                        \'Language\': \'string\',
+                                        \'TimeOffset\': \'string\',
+                                        \'Label\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'DetectedProperties': {
-                                'Width': 123,
-                                'Height': 123,
-                                'FrameRate': 'string',
-                                'FileSize': 123,
-                                'DurationMillis': 123
+                            \'DetectedProperties\': {
+                                \'Width\': 123,
+                                \'Height\': 123,
+                                \'FrameRate\': \'string\',
+                                \'FileSize\': 123,
+                                \'DurationMillis\': 123
                             }
                         },
-                        'Inputs': [
+                        \'Inputs\': [
                             {
-                                'Key': 'string',
-                                'FrameRate': 'string',
-                                'Resolution': 'string',
-                                'AspectRatio': 'string',
-                                'Interlaced': 'string',
-                                'Container': 'string',
-                                'Encryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Key\': \'string\',
+                                \'FrameRate\': \'string\',
+                                \'Resolution\': \'string\',
+                                \'AspectRatio\': \'string\',
+                                \'Interlaced\': \'string\',
+                                \'Container\': \'string\',
+                                \'Encryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'TimeSpan': {
-                                    'StartTime': 'string',
-                                    'Duration': 'string'
+                                \'TimeSpan\': {
+                                    \'StartTime\': \'string\',
+                                    \'Duration\': \'string\'
                                 },
-                                'InputCaptions': {
-                                    'MergePolicy': 'string',
-                                    'CaptionSources': [
+                                \'InputCaptions\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'CaptionSources\': [
                                         {
-                                            'Key': 'string',
-                                            'Language': 'string',
-                                            'TimeOffset': 'string',
-                                            'Label': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Key\': \'string\',
+                                            \'Language\': \'string\',
+                                            \'TimeOffset\': \'string\',
+                                            \'Label\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'DetectedProperties': {
-                                    'Width': 123,
-                                    'Height': 123,
-                                    'FrameRate': 'string',
-                                    'FileSize': 123,
-                                    'DurationMillis': 123
+                                \'DetectedProperties\': {
+                                    \'Width\': 123,
+                                    \'Height\': 123,
+                                    \'FrameRate\': \'string\',
+                                    \'FileSize\': 123,
+                                    \'DurationMillis\': 123
                                 }
                             },
                         ],
-                        'Output': {
-                            'Id': 'string',
-                            'Key': 'string',
-                            'ThumbnailPattern': 'string',
-                            'ThumbnailEncryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                        \'Output\': {
+                            \'Id\': \'string\',
+                            \'Key\': \'string\',
+                            \'ThumbnailPattern\': \'string\',
+                            \'ThumbnailEncryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'Rotate': 'string',
-                            'PresetId': 'string',
-                            'SegmentDuration': 'string',
-                            'Status': 'string',
-                            'StatusDetail': 'string',
-                            'Duration': 123,
-                            'Width': 123,
-                            'Height': 123,
-                            'FrameRate': 'string',
-                            'FileSize': 123,
-                            'DurationMillis': 123,
-                            'Watermarks': [
+                            \'Rotate\': \'string\',
+                            \'PresetId\': \'string\',
+                            \'SegmentDuration\': \'string\',
+                            \'Status\': \'string\',
+                            \'StatusDetail\': \'string\',
+                            \'Duration\': 123,
+                            \'Width\': 123,
+                            \'Height\': 123,
+                            \'FrameRate\': \'string\',
+                            \'FileSize\': 123,
+                            \'DurationMillis\': 123,
+                            \'Watermarks\': [
                                 {
-                                    'PresetWatermarkId': 'string',
-                                    'InputKey': 'string',
-                                    'Encryption': {
-                                        'Mode': 'string',
-                                        'Key': 'string',
-                                        'KeyMd5': 'string',
-                                        'InitializationVector': 'string'
+                                    \'PresetWatermarkId\': \'string\',
+                                    \'InputKey\': \'string\',
+                                    \'Encryption\': {
+                                        \'Mode\': \'string\',
+                                        \'Key\': \'string\',
+                                        \'KeyMd5\': \'string\',
+                                        \'InitializationVector\': \'string\'
                                     }
                                 },
                             ],
-                            'AlbumArt': {
-                                'MergePolicy': 'string',
-                                'Artwork': [
+                            \'AlbumArt\': {
+                                \'MergePolicy\': \'string\',
+                                \'Artwork\': [
                                     {
-                                        'InputKey': 'string',
-                                        'MaxWidth': 'string',
-                                        'MaxHeight': 'string',
-                                        'SizingPolicy': 'string',
-                                        'PaddingPolicy': 'string',
-                                        'AlbumArtFormat': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'InputKey\': \'string\',
+                                        \'MaxWidth\': \'string\',
+                                        \'MaxHeight\': \'string\',
+                                        \'SizingPolicy\': \'string\',
+                                        \'PaddingPolicy\': \'string\',
+                                        \'AlbumArtFormat\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'Composition': [
+                            \'Composition\': [
                                 {
-                                    'TimeSpan': {
-                                        'StartTime': 'string',
-                                        'Duration': 'string'
+                                    \'TimeSpan\': {
+                                        \'StartTime\': \'string\',
+                                        \'Duration\': \'string\'
                                     }
                                 },
                             ],
-                            'Captions': {
-                                'MergePolicy': 'string',
-                                'CaptionSources': [
+                            \'Captions\': {
+                                \'MergePolicy\': \'string\',
+                                \'CaptionSources\': [
                                     {
-                                        'Key': 'string',
-                                        'Language': 'string',
-                                        'TimeOffset': 'string',
-                                        'Label': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Key\': \'string\',
+                                        \'Language\': \'string\',
+                                        \'TimeOffset\': \'string\',
+                                        \'Label\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ],
-                                'CaptionFormats': [
+                                \'CaptionFormats\': [
                                     {
-                                        'Format': 'string',
-                                        'Pattern': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'Format\': \'string\',
+                                        \'Pattern\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ]
                             },
-                            'Encryption': {
-                                'Mode': 'string',
-                                'Key': 'string',
-                                'KeyMd5': 'string',
-                                'InitializationVector': 'string'
+                            \'Encryption\': {
+                                \'Mode\': \'string\',
+                                \'Key\': \'string\',
+                                \'KeyMd5\': \'string\',
+                                \'InitializationVector\': \'string\'
                             },
-                            'AppliedColorSpaceConversion': 'string'
+                            \'AppliedColorSpaceConversion\': \'string\'
                         },
-                        'Outputs': [
+                        \'Outputs\': [
                             {
-                                'Id': 'string',
-                                'Key': 'string',
-                                'ThumbnailPattern': 'string',
-                                'ThumbnailEncryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Id\': \'string\',
+                                \'Key\': \'string\',
+                                \'ThumbnailPattern\': \'string\',
+                                \'ThumbnailEncryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'Rotate': 'string',
-                                'PresetId': 'string',
-                                'SegmentDuration': 'string',
-                                'Status': 'string',
-                                'StatusDetail': 'string',
-                                'Duration': 123,
-                                'Width': 123,
-                                'Height': 123,
-                                'FrameRate': 'string',
-                                'FileSize': 123,
-                                'DurationMillis': 123,
-                                'Watermarks': [
+                                \'Rotate\': \'string\',
+                                \'PresetId\': \'string\',
+                                \'SegmentDuration\': \'string\',
+                                \'Status\': \'string\',
+                                \'StatusDetail\': \'string\',
+                                \'Duration\': 123,
+                                \'Width\': 123,
+                                \'Height\': 123,
+                                \'FrameRate\': \'string\',
+                                \'FileSize\': 123,
+                                \'DurationMillis\': 123,
+                                \'Watermarks\': [
                                     {
-                                        'PresetWatermarkId': 'string',
-                                        'InputKey': 'string',
-                                        'Encryption': {
-                                            'Mode': 'string',
-                                            'Key': 'string',
-                                            'KeyMd5': 'string',
-                                            'InitializationVector': 'string'
+                                        \'PresetWatermarkId\': \'string\',
+                                        \'InputKey\': \'string\',
+                                        \'Encryption\': {
+                                            \'Mode\': \'string\',
+                                            \'Key\': \'string\',
+                                            \'KeyMd5\': \'string\',
+                                            \'InitializationVector\': \'string\'
                                         }
                                     },
                                 ],
-                                'AlbumArt': {
-                                    'MergePolicy': 'string',
-                                    'Artwork': [
+                                \'AlbumArt\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'Artwork\': [
                                         {
-                                            'InputKey': 'string',
-                                            'MaxWidth': 'string',
-                                            'MaxHeight': 'string',
-                                            'SizingPolicy': 'string',
-                                            'PaddingPolicy': 'string',
-                                            'AlbumArtFormat': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'InputKey\': \'string\',
+                                            \'MaxWidth\': \'string\',
+                                            \'MaxHeight\': \'string\',
+                                            \'SizingPolicy\': \'string\',
+                                            \'PaddingPolicy\': \'string\',
+                                            \'AlbumArtFormat\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'Composition': [
+                                \'Composition\': [
                                     {
-                                        'TimeSpan': {
-                                            'StartTime': 'string',
-                                            'Duration': 'string'
+                                        \'TimeSpan\': {
+                                            \'StartTime\': \'string\',
+                                            \'Duration\': \'string\'
                                         }
                                     },
                                 ],
-                                'Captions': {
-                                    'MergePolicy': 'string',
-                                    'CaptionSources': [
+                                \'Captions\': {
+                                    \'MergePolicy\': \'string\',
+                                    \'CaptionSources\': [
                                         {
-                                            'Key': 'string',
-                                            'Language': 'string',
-                                            'TimeOffset': 'string',
-                                            'Label': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Key\': \'string\',
+                                            \'Language\': \'string\',
+                                            \'TimeOffset\': \'string\',
+                                            \'Label\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ],
-                                    'CaptionFormats': [
+                                    \'CaptionFormats\': [
                                         {
-                                            'Format': 'string',
-                                            'Pattern': 'string',
-                                            'Encryption': {
-                                                'Mode': 'string',
-                                                'Key': 'string',
-                                                'KeyMd5': 'string',
-                                                'InitializationVector': 'string'
+                                            \'Format\': \'string\',
+                                            \'Pattern\': \'string\',
+                                            \'Encryption\': {
+                                                \'Mode\': \'string\',
+                                                \'Key\': \'string\',
+                                                \'KeyMd5\': \'string\',
+                                                \'InitializationVector\': \'string\'
                                             }
                                         },
                                     ]
                                 },
-                                'Encryption': {
-                                    'Mode': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string'
+                                \'Encryption\': {
+                                    \'Mode\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\'
                                 },
-                                'AppliedColorSpaceConversion': 'string'
+                                \'AppliedColorSpaceConversion\': \'string\'
                             },
                         ],
-                        'OutputKeyPrefix': 'string',
-                        'Playlists': [
+                        \'OutputKeyPrefix\': \'string\',
+                        \'Playlists\': [
                             {
-                                'Name': 'string',
-                                'Format': 'string',
-                                'OutputKeys': [
-                                    'string',
+                                \'Name\': \'string\',
+                                \'Format\': \'string\',
+                                \'OutputKeys\': [
+                                    \'string\',
                                 ],
-                                'HlsContentProtection': {
-                                    'Method': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'InitializationVector': 'string',
-                                    'LicenseAcquisitionUrl': 'string',
-                                    'KeyStoragePolicy': 'string'
+                                \'HlsContentProtection\': {
+                                    \'Method\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'InitializationVector\': \'string\',
+                                    \'LicenseAcquisitionUrl\': \'string\',
+                                    \'KeyStoragePolicy\': \'string\'
                                 },
-                                'PlayReadyDrm': {
-                                    'Format': 'string',
-                                    'Key': 'string',
-                                    'KeyMd5': 'string',
-                                    'KeyId': 'string',
-                                    'InitializationVector': 'string',
-                                    'LicenseAcquisitionUrl': 'string'
+                                \'PlayReadyDrm\': {
+                                    \'Format\': \'string\',
+                                    \'Key\': \'string\',
+                                    \'KeyMd5\': \'string\',
+                                    \'KeyId\': \'string\',
+                                    \'InitializationVector\': \'string\',
+                                    \'LicenseAcquisitionUrl\': \'string\'
                                 },
-                                'Status': 'string',
-                                'StatusDetail': 'string'
+                                \'Status\': \'string\',
+                                \'StatusDetail\': \'string\'
                             },
                         ],
-                        'Status': 'string',
-                        'UserMetadata': {
-                            'string': 'string'
+                        \'Status\': \'string\',
+                        \'UserMetadata\': {
+                            \'string\': \'string\'
                         },
-                        'Timing': {
-                            'SubmitTimeMillis': 123,
-                            'StartTimeMillis': 123,
-                            'FinishTimeMillis': 123
+                        \'Timing\': {
+                            \'SubmitTimeMillis\': 123,
+                            \'StartTimeMillis\': 123,
+                            \'FinishTimeMillis\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2676,7 +2676,7 @@ class ListJobsByStatus(Paginator):
         
                     The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The ``InputBucket`` object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. 
         
-                    If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                    If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                   - **FrameRate** *(string) --* 
         
@@ -2722,7 +2722,7 @@ class ListJobsByStatus(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -2740,7 +2740,7 @@ class ListJobsByStatus(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -2764,11 +2764,11 @@ class ListJobsByStatus(Paginator):
         
                     - **StartTime** *(string) --* 
         
-                      The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                      The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                     - **Duration** *(string) --* 
         
-                      The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                      The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                       If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -2844,7 +2844,7 @@ class ListJobsByStatus(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -2862,7 +2862,7 @@ class ListJobsByStatus(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -2906,17 +2906,17 @@ class ListJobsByStatus(Paginator):
         
                 - **Inputs** *(list) --* 
         
-                  Information about the files that you're transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
+                  Information about the files that you\'re transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
         
                   - *(dict) --* 
         
-                    Information about the file that you're transcoding.
+                    Information about the file that you\'re transcoding.
         
                     - **Key** *(string) --* 
         
                       The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The ``InputBucket`` object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. 
         
-                      If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                      If the file name includes a prefix, such as ``cooking/lasagna.mpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                     - **FrameRate** *(string) --* 
         
@@ -2962,7 +2962,7 @@ class ListJobsByStatus(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -2980,7 +2980,7 @@ class ListJobsByStatus(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -3004,11 +3004,11 @@ class ListJobsByStatus(Paginator):
         
                       - **StartTime** *(string) --* 
         
-                        The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                        The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                       - **Duration** *(string) --* 
         
-                        The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                        The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                         If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -3084,7 +3084,7 @@ class ListJobsByStatus(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -3102,7 +3102,7 @@ class ListJobsByStatus(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -3166,7 +3166,7 @@ class ListJobsByStatus(Paginator):
         
                     Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.
         
-                    If you don't want Elastic Transcoder to create thumbnails, specify "".
+                    If you don\'t want Elastic Transcoder to create thumbnails, specify \"\".
         
                     If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include in the file name for each thumbnail. You can specify the following values in any sequence:
         
@@ -3192,7 +3192,7 @@ class ListJobsByStatus(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -3210,7 +3210,7 @@ class ListJobsByStatus(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -3234,7 +3234,7 @@ class ListJobsByStatus(Paginator):
         
                      ``auto`` , ``0`` , ``90`` , ``180`` , ``270``  
         
-                    The value ``auto`` generally works only if the file that you're transcoding contains rotation metadata.
+                    The value ``auto`` generally works only if the file that you\'re transcoding contains rotation metadata.
         
                   - **PresetId** *(string) --* 
         
@@ -3312,7 +3312,7 @@ class ListJobsByStatus(Paginator):
         
                         The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``Pipeline`` ; the ``Input Bucket`` object in that pipeline identifies the bucket.
         
-                        If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. 
+                        If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error. 
         
                       - **Encryption** *(dict) --* 
         
@@ -3324,7 +3324,7 @@ class ListJobsByStatus(Paginator):
         
                           * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                            
-                          * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                          * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                            
                           * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                            
@@ -3342,7 +3342,7 @@ class ListJobsByStatus(Paginator):
                            
                           .. warning::
         
-                            For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                            For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                         - **Key** *(string) --* 
         
@@ -3384,15 +3384,15 @@ class ListJobsByStatus(Paginator):
         
                         The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.
         
-                        To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to "Replace" and use an empty ``Artwork`` array.
+                        To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to \"Replace\" and use an empty ``Artwork`` array.
         
-                        To pass through existing artwork unchanged, set the ``Merge Policy`` to "Prepend", "Append", or "Fallback", and use an empty ``Artwork`` array.
+                        To pass through existing artwork unchanged, set the ``Merge Policy`` to \"Prepend\", \"Append\", or \"Fallback\", and use an empty ``Artwork`` array.
         
                         - **InputKey** *(string) --* 
         
                           The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``PipelineId`` ; the ``InputBucket`` object in that pipeline identifies the bucket.
         
-                          If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                          If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                         - **MaxWidth** *(string) --* 
         
@@ -3436,7 +3436,7 @@ class ListJobsByStatus(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -3454,7 +3454,7 @@ class ListJobsByStatus(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -3486,11 +3486,11 @@ class ListJobsByStatus(Paginator):
         
                         - **StartTime** *(string) --* 
         
-                          The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                          The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                         - **Duration** *(string) --* 
         
-                          The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                          The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                           If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -3566,7 +3566,7 @@ class ListJobsByStatus(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -3584,7 +3584,7 @@ class ListJobsByStatus(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -3644,9 +3644,9 @@ class ListJobsByStatus(Paginator):
                            
                           * ``{language}`` is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names. 
                            
-                          If you don't include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends "``{language}`` " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+                          If you don\'t include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends \"``{language}`` \" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
         
-                          For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+                          For example, suppose you\'re transcoding into srt format. When you enter \"Sydney-{language}-sunrise\", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
         
                         - **Encryption** *(dict) --* 
         
@@ -3658,7 +3658,7 @@ class ListJobsByStatus(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -3676,7 +3676,7 @@ class ListJobsByStatus(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -3704,7 +3704,7 @@ class ListJobsByStatus(Paginator):
         
                       * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                        
-                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                      * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                        
                       * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                        
@@ -3722,7 +3722,7 @@ class ListJobsByStatus(Paginator):
                        
                       .. warning::
         
-                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                        For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                     - **Key** *(string) --* 
         
@@ -3770,7 +3770,7 @@ class ListJobsByStatus(Paginator):
         
                       Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.
         
-                      If you don't want Elastic Transcoder to create thumbnails, specify "".
+                      If you don\'t want Elastic Transcoder to create thumbnails, specify \"\".
         
                       If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include in the file name for each thumbnail. You can specify the following values in any sequence:
         
@@ -3796,7 +3796,7 @@ class ListJobsByStatus(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -3814,7 +3814,7 @@ class ListJobsByStatus(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -3838,7 +3838,7 @@ class ListJobsByStatus(Paginator):
         
                        ``auto`` , ``0`` , ``90`` , ``180`` , ``270``  
         
-                      The value ``auto`` generally works only if the file that you're transcoding contains rotation metadata.
+                      The value ``auto`` generally works only if the file that you\'re transcoding contains rotation metadata.
         
                     - **PresetId** *(string) --* 
         
@@ -3916,7 +3916,7 @@ class ListJobsByStatus(Paginator):
         
                           The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``Pipeline`` ; the ``Input Bucket`` object in that pipeline identifies the bucket.
         
-                          If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. 
+                          If the file name includes a prefix, for example, **logos/128x64.png** , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error. 
         
                         - **Encryption** *(dict) --* 
         
@@ -3928,7 +3928,7 @@ class ListJobsByStatus(Paginator):
         
                             * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                              
-                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                            * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                              
                             * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                              
@@ -3946,7 +3946,7 @@ class ListJobsByStatus(Paginator):
                              
                             .. warning::
         
-                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                              For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                           - **Key** *(string) --* 
         
@@ -3988,15 +3988,15 @@ class ListJobsByStatus(Paginator):
         
                           The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.
         
-                          To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to "Replace" and use an empty ``Artwork`` array.
+                          To remove artwork or leave the artwork empty, you can either set ``Artwork`` to null, or set the ``Merge Policy`` to \"Replace\" and use an empty ``Artwork`` array.
         
-                          To pass through existing artwork unchanged, set the ``Merge Policy`` to "Prepend", "Append", or "Fallback", and use an empty ``Artwork`` array.
+                          To pass through existing artwork unchanged, set the ``Merge Policy`` to \"Prepend\", \"Append\", or \"Fallback\", and use an empty ``Artwork`` array.
         
                           - **InputKey** *(string) --* 
         
                             The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by ``PipelineId`` ; the ``InputBucket`` object in that pipeline identifies the bucket.
         
-                            If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+                            If the file name includes a prefix, for example, ``cooking/pie.jpg`` , include the prefix in the key. If the file isn\'t in the specified bucket, Elastic Transcoder returns an error.
         
                           - **MaxWidth** *(string) --* 
         
@@ -4040,7 +4040,7 @@ class ListJobsByStatus(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -4058,7 +4058,7 @@ class ListJobsByStatus(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -4090,11 +4090,11 @@ class ListJobsByStatus(Paginator):
         
                           - **StartTime** *(string) --* 
         
-                            The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+                            The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder starts at the beginning of the input file.
         
                           - **Duration** *(string) --* 
         
-                            The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+                            The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don\'t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
         
                             If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
         
@@ -4170,7 +4170,7 @@ class ListJobsByStatus(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -4188,7 +4188,7 @@ class ListJobsByStatus(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -4248,9 +4248,9 @@ class ListJobsByStatus(Paginator):
                              
                             * ``{language}`` is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names. 
                              
-                            If you don't include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends "``{language}`` " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+                            If you don\'t include ``{language}`` in the file name pattern, Elastic Transcoder automatically appends \"``{language}`` \" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
         
-                            For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+                            For example, suppose you\'re transcoding into srt format. When you enter \"Sydney-{language}-sunrise\", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
         
                           - **Encryption** *(dict) --* 
         
@@ -4262,7 +4262,7 @@ class ListJobsByStatus(Paginator):
         
                               * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                                
-                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                              * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                                
                               * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                                
@@ -4280,7 +4280,7 @@ class ListJobsByStatus(Paginator):
                                
                               .. warning::
         
-                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                                For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                             - **Key** *(string) --* 
         
@@ -4308,7 +4308,7 @@ class ListJobsByStatus(Paginator):
         
                         * **s3:** Amazon S3 creates and manages the keys used for encrypting your files. 
                          
-                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
+                        * **s3-aws-kms:** Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify ``s3-aws-kms`` and you don\'t want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline. 
                          
                         * **aes-cbc-pkcs7:** A padded cipher-block mode of operation originally used for HLS files. 
                          
@@ -4326,7 +4326,7 @@ class ListJobsByStatus(Paginator):
                          
                         .. warning::
         
-                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+                          For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won\'t be able to unencrypt your data.
         
                       - **Key** *(string) --* 
         
@@ -4530,11 +4530,11 @@ class ListPipelines(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Ascending='string',
+              Ascending=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Ascending: string
@@ -4567,51 +4567,51 @@ class ListPipelines(Paginator):
           ::
         
             {
-                'Pipelines': [
+                \'Pipelines\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Status': 'string',
-                        'InputBucket': 'string',
-                        'OutputBucket': 'string',
-                        'Role': 'string',
-                        'AwsKmsKeyArn': 'string',
-                        'Notifications': {
-                            'Progressing': 'string',
-                            'Completed': 'string',
-                            'Warning': 'string',
-                            'Error': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'string\',
+                        \'InputBucket\': \'string\',
+                        \'OutputBucket\': \'string\',
+                        \'Role\': \'string\',
+                        \'AwsKmsKeyArn\': \'string\',
+                        \'Notifications\': {
+                            \'Progressing\': \'string\',
+                            \'Completed\': \'string\',
+                            \'Warning\': \'string\',
+                            \'Error\': \'string\'
                         },
-                        'ContentConfig': {
-                            'Bucket': 'string',
-                            'StorageClass': 'string',
-                            'Permissions': [
+                        \'ContentConfig\': {
+                            \'Bucket\': \'string\',
+                            \'StorageClass\': \'string\',
+                            \'Permissions\': [
                                 {
-                                    'GranteeType': 'string',
-                                    'Grantee': 'string',
-                                    'Access': [
-                                        'string',
+                                    \'GranteeType\': \'string\',
+                                    \'Grantee\': \'string\',
+                                    \'Access\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         },
-                        'ThumbnailConfig': {
-                            'Bucket': 'string',
-                            'StorageClass': 'string',
-                            'Permissions': [
+                        \'ThumbnailConfig\': {
+                            \'Bucket\': \'string\',
+                            \'StorageClass\': \'string\',
+                            \'Permissions\': [
                                 {
-                                    'GranteeType': 'string',
-                                    'Grantee': 'string',
-                                    'Access': [
-                                        'string',
+                                    \'GranteeType\': \'string\',
+                                    \'Grantee\': \'string\',
+                                    \'Access\': [
+                                        \'string\',
                                     ]
                                 },
                             ]
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4665,7 +4665,7 @@ class ListPipelines(Paginator):
         
                   The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         
-                  If you use either ``s3`` or ``s3-aws-kms`` as your ``Encryption:Mode`` , you don't need to provide a key with your job because a default key, known as an AWS-KMS key, is created for you automatically. You need to provide an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if you are using an ``Encryption:Mode`` of ``aes-cbc-pkcs7`` , ``aes-ctr`` , or ``aes-gcm`` .
+                  If you use either ``s3`` or ``s3-aws-kms`` as your ``Encryption:Mode`` , you don\'t need to provide a key with your job because a default key, known as an AWS-KMS key, is created for you automatically. You need to provide an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if you are using an ``Encryption:Mode`` of ``aes-cbc-pkcs7`` , ``aes-ctr`` , or ``aes-gcm`` .
         
                 - **Notifications** *(dict) --* 
         
@@ -4905,11 +4905,11 @@ class ListPresets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Ascending='string',
+              Ascending=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Ascending: string
@@ -4942,72 +4942,72 @@ class ListPresets(Paginator):
           ::
         
             {
-                'Presets': [
+                \'Presets\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Container': 'string',
-                        'Audio': {
-                            'Codec': 'string',
-                            'SampleRate': 'string',
-                            'BitRate': 'string',
-                            'Channels': 'string',
-                            'AudioPackingMode': 'string',
-                            'CodecOptions': {
-                                'Profile': 'string',
-                                'BitDepth': 'string',
-                                'BitOrder': 'string',
-                                'Signed': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Container\': \'string\',
+                        \'Audio\': {
+                            \'Codec\': \'string\',
+                            \'SampleRate\': \'string\',
+                            \'BitRate\': \'string\',
+                            \'Channels\': \'string\',
+                            \'AudioPackingMode\': \'string\',
+                            \'CodecOptions\': {
+                                \'Profile\': \'string\',
+                                \'BitDepth\': \'string\',
+                                \'BitOrder\': \'string\',
+                                \'Signed\': \'string\'
                             }
                         },
-                        'Video': {
-                            'Codec': 'string',
-                            'CodecOptions': {
-                                'string': 'string'
+                        \'Video\': {
+                            \'Codec\': \'string\',
+                            \'CodecOptions\': {
+                                \'string\': \'string\'
                             },
-                            'KeyframesMaxDist': 'string',
-                            'FixedGOP': 'string',
-                            'BitRate': 'string',
-                            'FrameRate': 'string',
-                            'MaxFrameRate': 'string',
-                            'Resolution': 'string',
-                            'AspectRatio': 'string',
-                            'MaxWidth': 'string',
-                            'MaxHeight': 'string',
-                            'DisplayAspectRatio': 'string',
-                            'SizingPolicy': 'string',
-                            'PaddingPolicy': 'string',
-                            'Watermarks': [
+                            \'KeyframesMaxDist\': \'string\',
+                            \'FixedGOP\': \'string\',
+                            \'BitRate\': \'string\',
+                            \'FrameRate\': \'string\',
+                            \'MaxFrameRate\': \'string\',
+                            \'Resolution\': \'string\',
+                            \'AspectRatio\': \'string\',
+                            \'MaxWidth\': \'string\',
+                            \'MaxHeight\': \'string\',
+                            \'DisplayAspectRatio\': \'string\',
+                            \'SizingPolicy\': \'string\',
+                            \'PaddingPolicy\': \'string\',
+                            \'Watermarks\': [
                                 {
-                                    'Id': 'string',
-                                    'MaxWidth': 'string',
-                                    'MaxHeight': 'string',
-                                    'SizingPolicy': 'string',
-                                    'HorizontalAlign': 'string',
-                                    'HorizontalOffset': 'string',
-                                    'VerticalAlign': 'string',
-                                    'VerticalOffset': 'string',
-                                    'Opacity': 'string',
-                                    'Target': 'string'
+                                    \'Id\': \'string\',
+                                    \'MaxWidth\': \'string\',
+                                    \'MaxHeight\': \'string\',
+                                    \'SizingPolicy\': \'string\',
+                                    \'HorizontalAlign\': \'string\',
+                                    \'HorizontalOffset\': \'string\',
+                                    \'VerticalAlign\': \'string\',
+                                    \'VerticalOffset\': \'string\',
+                                    \'Opacity\': \'string\',
+                                    \'Target\': \'string\'
                                 },
                             ]
                         },
-                        'Thumbnails': {
-                            'Format': 'string',
-                            'Interval': 'string',
-                            'Resolution': 'string',
-                            'AspectRatio': 'string',
-                            'MaxWidth': 'string',
-                            'MaxHeight': 'string',
-                            'SizingPolicy': 'string',
-                            'PaddingPolicy': 'string'
+                        \'Thumbnails\': {
+                            \'Format\': \'string\',
+                            \'Interval\': \'string\',
+                            \'Resolution\': \'string\',
+                            \'AspectRatio\': \'string\',
+                            \'MaxWidth\': \'string\',
+                            \'MaxHeight\': \'string\',
+                            \'SizingPolicy\': \'string\',
+                            \'PaddingPolicy\': \'string\'
                         },
-                        'Type': 'string'
+                        \'Type\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5021,7 +5021,7 @@ class ListPresets(Paginator):
         
               - *(dict) --* 
         
-                Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.
+                Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren\'t included among the default presets. You specify which preset you want to use when you create a job.
         
                 - **Id** *(string) --* 
         
@@ -5277,7 +5277,7 @@ class ListPresets(Paginator):
         
                      **BufferSize (Optional, H.264/MPEG2/VP8/VP9 only)**  
         
-                    The maximum number of bits in any x seconds of the output video. This window is commonly 10 seconds, the standard segment duration when you're using FMP4 or MPEG-TS for the container type of the output video. Specify an integer greater than 0. If you specify ``MaxBitRate`` and omit ``BufferSize`` , Elastic Transcoder sets ``BufferSize`` to 10 times the value of ``MaxBitRate`` .
+                    The maximum number of bits in any x seconds of the output video. This window is commonly 10 seconds, the standard segment duration when you\'re using FMP4 or MPEG-TS for the container type of the output video. Specify an integer greater than 0. If you specify ``MaxBitRate`` and omit ``BufferSize`` , Elastic Transcoder sets ``BufferSize`` to 10 times the value of ``MaxBitRate`` .
         
                      **InterlacedMode (Optional, H.264/MPEG2 Only)**  
         
@@ -5627,7 +5627,7 @@ class ListPresets(Paginator):
         
                         A percentage that indicates how much you want a watermark to obscure the video in the location where it appears. Valid values are 0 (the watermark is invisible) to 100 (the watermark completely obscures the video in the specified location). The datatype of ``Opacity`` is float.
         
-                        Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent portion of the video appears as if you had specified a value of 0 for ``Opacity`` . The .jpg file format doesn't support transparency.
+                        Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent portion of the video appears as if you had specified a value of 0 for ``Opacity`` . The .jpg file format doesn\'t support transparency.
         
                       - **Target** *(string) --* 
         

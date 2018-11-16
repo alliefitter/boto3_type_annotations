@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -20,9 +20,9 @@ class Client(BaseClient):
         
           response = client.batch_get_traces(
               TraceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type TraceIds: list
         :param TraceIds: **[REQUIRED]** 
@@ -44,22 +44,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Traces': [
+                \'Traces\': [
                     {
-                        'Id': 'string',
-                        'Duration': 123.0,
-                        'Segments': [
+                        \'Id\': \'string\',
+                        \'Duration\': 123.0,
+                        \'Segments\': [
                             {
-                                'Id': 'string',
-                                'Document': 'string'
+                                \'Id\': \'string\',
+                                \'Document\': \'string\'
                             },
                         ]
                     },
                 ],
-                'UnprocessedTraceIds': [
-                    'string',
+                \'UnprocessedTraceIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -75,7 +75,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  The unique identifier for the request that generated the trace's segments and subsegments.
+                  The unique identifier for the request that generated the trace\'s segments and subsegments.
         
                 - **Duration** *(float) --* 
         
@@ -93,7 +93,7 @@ class Client(BaseClient):
         
                     - **Id** *(string) --* 
         
-                      The segment's ID.
+                      The segment\'s ID.
         
                     - **Document** *(string) --* 
         
@@ -101,7 +101,7 @@ class Client(BaseClient):
         
             - **UnprocessedTraceIds** *(list) --* 
         
-              Trace IDs of requests that haven't been processed.
+              Trace IDs of requests that haven\'t been processed.
         
               - *(string) --* 
           
@@ -118,10 +118,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -138,20 +138,20 @@ class Client(BaseClient):
         
           response = client.create_sampling_rule(
               SamplingRule={
-                  'RuleName': 'string',
-                  'RuleARN': 'string',
-                  'ResourceARN': 'string',
-                  'Priority': 123,
-                  'FixedRate': 123.0,
-                  'ReservoirSize': 123,
-                  'ServiceName': 'string',
-                  'ServiceType': 'string',
-                  'Host': 'string',
-                  'HTTPMethod': 'string',
-                  'URLPath': 'string',
-                  'Version': 123,
-                  'Attributes': {
-                      'string': 'string'
+                  \'RuleName\': \'string\',
+                  \'RuleARN\': \'string\',
+                  \'ResourceARN\': \'string\',
+                  \'Priority\': 123,
+                  \'FixedRate\': 123.0,
+                  \'ReservoirSize\': 123,
+                  \'ServiceName\': \'string\',
+                  \'ServiceType\': \'string\',
+                  \'Host\': \'string\',
+                  \'HTTPMethod\': \'string\',
+                  \'URLPath\': \'string\',
+                  \'Version\': 123,
+                  \'Attributes\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -224,26 +224,26 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingRuleRecord': {
-                    'SamplingRule': {
-                        'RuleName': 'string',
-                        'RuleARN': 'string',
-                        'ResourceARN': 'string',
-                        'Priority': 123,
-                        'FixedRate': 123.0,
-                        'ReservoirSize': 123,
-                        'ServiceName': 'string',
-                        'ServiceType': 'string',
-                        'Host': 'string',
-                        'HTTPMethod': 'string',
-                        'URLPath': 'string',
-                        'Version': 123,
-                        'Attributes': {
-                            'string': 'string'
+                \'SamplingRuleRecord\': {
+                    \'SamplingRule\': {
+                        \'RuleName\': \'string\',
+                        \'RuleARN\': \'string\',
+                        \'ResourceARN\': \'string\',
+                        \'Priority\': 123,
+                        \'FixedRate\': 123.0,
+                        \'ReservoirSize\': 123,
+                        \'ServiceName\': \'string\',
+                        \'ServiceType\': \'string\',
+                        \'Host\': \'string\',
+                        \'HTTPMethod\': \'string\',
+                        \'URLPath\': \'string\',
+                        \'Version\': 123,
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'ModifiedAt': datetime(2015, 1, 1)
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'ModifiedAt\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -334,8 +334,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_sampling_rule(
-              RuleName='string',
-              RuleARN='string'
+              RuleName=\'string\',
+              RuleARN=\'string\'
           )
         :type RuleName: string
         :param RuleName: 
@@ -355,26 +355,26 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingRuleRecord': {
-                    'SamplingRule': {
-                        'RuleName': 'string',
-                        'RuleARN': 'string',
-                        'ResourceARN': 'string',
-                        'Priority': 123,
-                        'FixedRate': 123.0,
-                        'ReservoirSize': 123,
-                        'ServiceName': 'string',
-                        'ServiceType': 'string',
-                        'Host': 'string',
-                        'HTTPMethod': 'string',
-                        'URLPath': 'string',
-                        'Version': 123,
-                        'Attributes': {
-                            'string': 'string'
+                \'SamplingRuleRecord\': {
+                    \'SamplingRule\': {
+                        \'RuleName\': \'string\',
+                        \'RuleARN\': \'string\',
+                        \'ResourceARN\': \'string\',
+                        \'Priority\': 123,
+                        \'FixedRate\': 123.0,
+                        \'ReservoirSize\': 123,
+                        \'ServiceName\': \'string\',
+                        \'ServiceType\': \'string\',
+                        \'Host\': \'string\',
+                        \'HTTPMethod\': \'string\',
+                        \'URLPath\': \'string\',
+                        \'Version\': 123,
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'ModifiedAt': datetime(2015, 1, 1)
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'ModifiedAt\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -472,7 +472,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -496,10 +496,10 @@ class Client(BaseClient):
           ::
         
             {
-                'EncryptionConfig': {
-                    'KeyId': 'string',
-                    'Status': 'UPDATING'|'ACTIVE',
-                    'Type': 'NONE'|'KMS'
+                \'EncryptionConfig\': {
+                    \'KeyId\': \'string\',
+                    \'Status\': \'UPDATING\'|\'ACTIVE\',
+                    \'Type\': \'NONE\'|\'KMS\'
                 }
             }
           **Response Structure** 
@@ -531,10 +531,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -554,7 +554,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sampling_rules(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -569,30 +569,30 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingRuleRecords': [
+                \'SamplingRuleRecords\': [
                     {
-                        'SamplingRule': {
-                            'RuleName': 'string',
-                            'RuleARN': 'string',
-                            'ResourceARN': 'string',
-                            'Priority': 123,
-                            'FixedRate': 123.0,
-                            'ReservoirSize': 123,
-                            'ServiceName': 'string',
-                            'ServiceType': 'string',
-                            'Host': 'string',
-                            'HTTPMethod': 'string',
-                            'URLPath': 'string',
-                            'Version': 123,
-                            'Attributes': {
-                                'string': 'string'
+                        \'SamplingRule\': {
+                            \'RuleName\': \'string\',
+                            \'RuleARN\': \'string\',
+                            \'ResourceARN\': \'string\',
+                            \'Priority\': 123,
+                            \'FixedRate\': 123.0,
+                            \'ReservoirSize\': 123,
+                            \'ServiceName\': \'string\',
+                            \'ServiceType\': \'string\',
+                            \'Host\': \'string\',
+                            \'HTTPMethod\': \'string\',
+                            \'URLPath\': \'string\',
+                            \'Version\': 123,
+                            \'Attributes\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'CreatedAt': datetime(2015, 1, 1),
-                        'ModifiedAt': datetime(2015, 1, 1)
+                        \'CreatedAt\': datetime(2015, 1, 1),
+                        \'ModifiedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -690,7 +690,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_sampling_statistic_summaries(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -705,16 +705,16 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingStatisticSummaries': [
+                \'SamplingStatisticSummaries\': [
                     {
-                        'RuleName': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'RequestCount': 123,
-                        'BorrowCount': 123,
-                        'SampledCount': 123
+                        \'RuleName\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'RequestCount\': 123,
+                        \'BorrowCount\': 123,
+                        \'SampledCount\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -766,12 +766,12 @@ class Client(BaseClient):
           response = client.get_sampling_targets(
               SamplingStatisticsDocuments=[
                   {
-                      'RuleName': 'string',
-                      'ClientID': 'string',
-                      'Timestamp': datetime(2015, 1, 1),
-                      'RequestCount': 123,
-                      'SampledCount': 123,
-                      'BorrowCount': 123
+                      \'RuleName\': \'string\',
+                      \'ClientID\': \'string\',
+                      \'Timestamp\': datetime(2015, 1, 1),
+                      \'RequestCount\': 123,
+                      \'SampledCount\': 123,
+                      \'BorrowCount\': 123
                   },
               ]
           )
@@ -816,21 +816,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingTargetDocuments': [
+                \'SamplingTargetDocuments\': [
                     {
-                        'RuleName': 'string',
-                        'FixedRate': 123.0,
-                        'ReservoirQuota': 123,
-                        'ReservoirQuotaTTL': datetime(2015, 1, 1),
-                        'Interval': 123
+                        \'RuleName\': \'string\',
+                        \'FixedRate\': 123.0,
+                        \'ReservoirQuota\': 123,
+                        \'ReservoirQuotaTTL\': datetime(2015, 1, 1),
+                        \'Interval\': 123
                     },
                 ],
-                'LastRuleModification': datetime(2015, 1, 1),
-                'UnprocessedStatistics': [
+                \'LastRuleModification\': datetime(2015, 1, 1),
+                \'UnprocessedStatistics\': [
                     {
-                        'RuleName': 'string',
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                        \'RuleName\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -904,7 +904,7 @@ class Client(BaseClient):
           response = client.get_service_graph(
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type StartTime: datetime
         :param StartTime: **[REQUIRED]** 
@@ -929,86 +929,86 @@ class Client(BaseClient):
           ::
         
             {
-                'StartTime': datetime(2015, 1, 1),
-                'EndTime': datetime(2015, 1, 1),
-                'Services': [
+                \'StartTime\': datetime(2015, 1, 1),
+                \'EndTime\': datetime(2015, 1, 1),
+                \'Services\': [
                     {
-                        'ReferenceId': 123,
-                        'Name': 'string',
-                        'Names': [
-                            'string',
+                        \'ReferenceId\': 123,
+                        \'Name\': \'string\',
+                        \'Names\': [
+                            \'string\',
                         ],
-                        'Root': True|False,
-                        'AccountId': 'string',
-                        'Type': 'string',
-                        'State': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Edges': [
+                        \'Root\': True|False,
+                        \'AccountId\': \'string\',
+                        \'Type\': \'string\',
+                        \'State\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Edges\': [
                             {
-                                'ReferenceId': 123,
-                                'StartTime': datetime(2015, 1, 1),
-                                'EndTime': datetime(2015, 1, 1),
-                                'SummaryStatistics': {
-                                    'OkCount': 123,
-                                    'ErrorStatistics': {
-                                        'ThrottleCount': 123,
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                \'ReferenceId\': 123,
+                                \'StartTime\': datetime(2015, 1, 1),
+                                \'EndTime\': datetime(2015, 1, 1),
+                                \'SummaryStatistics\': {
+                                    \'OkCount\': 123,
+                                    \'ErrorStatistics\': {
+                                        \'ThrottleCount\': 123,
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'FaultStatistics': {
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                    \'FaultStatistics\': {
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'TotalCount': 123,
-                                    'TotalResponseTime': 123.0
+                                    \'TotalCount\': 123,
+                                    \'TotalResponseTime\': 123.0
                                 },
-                                'ResponseTimeHistogram': [
+                                \'ResponseTimeHistogram\': [
                                     {
-                                        'Value': 123.0,
-                                        'Count': 123
+                                        \'Value\': 123.0,
+                                        \'Count\': 123
                                     },
                                 ],
-                                'Aliases': [
+                                \'Aliases\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'Type': 'string'
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SummaryStatistics': {
-                            'OkCount': 123,
-                            'ErrorStatistics': {
-                                'ThrottleCount': 123,
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                        \'SummaryStatistics\': {
+                            \'OkCount\': 123,
+                            \'ErrorStatistics\': {
+                                \'ThrottleCount\': 123,
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'FaultStatistics': {
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                            \'FaultStatistics\': {
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'TotalCount': 123,
-                            'TotalResponseTime': 123.0
+                            \'TotalCount\': 123,
+                            \'TotalResponseTime\': 123.0
                         },
-                        'DurationHistogram': [
+                        \'DurationHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ],
-                        'ResponseTimeHistogram': [
+                        \'ResponseTimeHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1058,7 +1058,7 @@ class Client(BaseClient):
         
                   * AWS Resource - The type of an AWS resource. For example, ``AWS::EC2::Instance`` for a application running on Amazon EC2 or ``AWS::DynamoDB::Table`` for an Amazon DynamoDB table that the application used. 
                    
-                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn't target a specific table. 
+                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn\'t target a specific table. 
                    
                   * ``client`` - Represents the clients that sent requests to a root service. 
                    
@@ -1066,7 +1066,7 @@ class Client(BaseClient):
                    
                 - **State** *(string) --* 
         
-                  The service's state.
+                  The service\'s state.
         
                 - **StartTime** *(datetime) --* 
         
@@ -1271,9 +1271,9 @@ class Client(BaseClient):
         
           response = client.get_trace_graph(
               TraceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type TraceIds: list
         :param TraceIds: **[REQUIRED]** 
@@ -1295,84 +1295,84 @@ class Client(BaseClient):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'ReferenceId': 123,
-                        'Name': 'string',
-                        'Names': [
-                            'string',
+                        \'ReferenceId\': 123,
+                        \'Name\': \'string\',
+                        \'Names\': [
+                            \'string\',
                         ],
-                        'Root': True|False,
-                        'AccountId': 'string',
-                        'Type': 'string',
-                        'State': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Edges': [
+                        \'Root\': True|False,
+                        \'AccountId\': \'string\',
+                        \'Type\': \'string\',
+                        \'State\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Edges\': [
                             {
-                                'ReferenceId': 123,
-                                'StartTime': datetime(2015, 1, 1),
-                                'EndTime': datetime(2015, 1, 1),
-                                'SummaryStatistics': {
-                                    'OkCount': 123,
-                                    'ErrorStatistics': {
-                                        'ThrottleCount': 123,
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                \'ReferenceId\': 123,
+                                \'StartTime\': datetime(2015, 1, 1),
+                                \'EndTime\': datetime(2015, 1, 1),
+                                \'SummaryStatistics\': {
+                                    \'OkCount\': 123,
+                                    \'ErrorStatistics\': {
+                                        \'ThrottleCount\': 123,
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'FaultStatistics': {
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                    \'FaultStatistics\': {
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'TotalCount': 123,
-                                    'TotalResponseTime': 123.0
+                                    \'TotalCount\': 123,
+                                    \'TotalResponseTime\': 123.0
                                 },
-                                'ResponseTimeHistogram': [
+                                \'ResponseTimeHistogram\': [
                                     {
-                                        'Value': 123.0,
-                                        'Count': 123
+                                        \'Value\': 123.0,
+                                        \'Count\': 123
                                     },
                                 ],
-                                'Aliases': [
+                                \'Aliases\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'Type': 'string'
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SummaryStatistics': {
-                            'OkCount': 123,
-                            'ErrorStatistics': {
-                                'ThrottleCount': 123,
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                        \'SummaryStatistics\': {
+                            \'OkCount\': 123,
+                            \'ErrorStatistics\': {
+                                \'ThrottleCount\': 123,
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'FaultStatistics': {
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                            \'FaultStatistics\': {
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'TotalCount': 123,
-                            'TotalResponseTime': 123.0
+                            \'TotalCount\': 123,
+                            \'TotalResponseTime\': 123.0
                         },
-                        'DurationHistogram': [
+                        \'DurationHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ],
-                        'ResponseTimeHistogram': [
+                        \'ResponseTimeHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1414,7 +1414,7 @@ class Client(BaseClient):
         
                   * AWS Resource - The type of an AWS resource. For example, ``AWS::EC2::Instance`` for a application running on Amazon EC2 or ``AWS::DynamoDB::Table`` for an Amazon DynamoDB table that the application used. 
                    
-                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn't target a specific table. 
+                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn\'t target a specific table. 
                    
                   * ``client`` - Represents the clients that sent requests to a root service. 
                    
@@ -1422,7 +1422,7 @@ class Client(BaseClient):
                    
                 - **State** *(string) --* 
         
-                  The service's state.
+                  The service\'s state.
         
                 - **StartTime** *(datetime) --* 
         
@@ -1622,11 +1622,11 @@ class Client(BaseClient):
         
         A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through ``api.example.com`` :
         
-         ``service("api.example.com")``  
+         ``service(\"api.example.com\")``  
         
         This filter expression finds traces that have an annotation named ``account`` with the value ``12345`` :
         
-         ``annotation.account = "12345"``  
+         ``annotation.account = \"12345\"``  
         
         For a full list of indexed fields and keywords that you can use in filter expressions, see `Using Filter Expressions <http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html>`__ in the *AWS X-Ray Developer Guide* .
         
@@ -1639,8 +1639,8 @@ class Client(BaseClient):
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Sampling=True|False,
-              FilterExpression='string',
-              NextToken='string'
+              FilterExpression=\'string\',
+              NextToken=\'string\'
           )
         :type StartTime: datetime
         :param StartTime: **[REQUIRED]** 
@@ -1675,73 +1675,73 @@ class Client(BaseClient):
           ::
         
             {
-                'TraceSummaries': [
+                \'TraceSummaries\': [
                     {
-                        'Id': 'string',
-                        'Duration': 123.0,
-                        'ResponseTime': 123.0,
-                        'HasFault': True|False,
-                        'HasError': True|False,
-                        'HasThrottle': True|False,
-                        'IsPartial': True|False,
-                        'Http': {
-                            'HttpURL': 'string',
-                            'HttpStatus': 123,
-                            'HttpMethod': 'string',
-                            'UserAgent': 'string',
-                            'ClientIp': 'string'
+                        \'Id\': \'string\',
+                        \'Duration\': 123.0,
+                        \'ResponseTime\': 123.0,
+                        \'HasFault\': True|False,
+                        \'HasError\': True|False,
+                        \'HasThrottle\': True|False,
+                        \'IsPartial\': True|False,
+                        \'Http\': {
+                            \'HttpURL\': \'string\',
+                            \'HttpStatus\': 123,
+                            \'HttpMethod\': \'string\',
+                            \'UserAgent\': \'string\',
+                            \'ClientIp\': \'string\'
                         },
-                        'Annotations': {
-                            'string': [
+                        \'Annotations\': {
+                            \'string\': [
                                 {
-                                    'AnnotationValue': {
-                                        'NumberValue': 123.0,
-                                        'BooleanValue': True|False,
-                                        'StringValue': 'string'
+                                    \'AnnotationValue\': {
+                                        \'NumberValue\': 123.0,
+                                        \'BooleanValue\': True|False,
+                                        \'StringValue\': \'string\'
                                     },
-                                    'ServiceIds': [
+                                    \'ServiceIds\': [
                                         {
-                                            'Name': 'string',
-                                            'Names': [
-                                                'string',
+                                            \'Name\': \'string\',
+                                            \'Names\': [
+                                                \'string\',
                                             ],
-                                            'AccountId': 'string',
-                                            'Type': 'string'
+                                            \'AccountId\': \'string\',
+                                            \'Type\': \'string\'
                                         },
                                     ]
                                 },
                             ]
                         },
-                        'Users': [
+                        \'Users\': [
                             {
-                                'UserName': 'string',
-                                'ServiceIds': [
+                                \'UserName\': \'string\',
+                                \'ServiceIds\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'AccountId': 'string',
-                                        'Type': 'string'
+                                        \'AccountId\': \'string\',
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'ServiceIds': [
+                        \'ServiceIds\': [
                             {
-                                'Name': 'string',
-                                'Names': [
-                                    'string',
+                                \'Name\': \'string\',
+                                \'Names\': [
+                                    \'string\',
                                 ],
-                                'AccountId': 'string',
-                                'Type': 'string'
+                                \'AccountId\': \'string\',
+                                \'Type\': \'string\'
                             },
                         ]
                     },
                 ],
-                'ApproximateTime': datetime(2015, 1, 1),
-                'TracesProcessedCount': 123,
-                'NextToken': 'string'
+                \'ApproximateTime\': datetime(2015, 1, 1),
+                \'TracesProcessedCount\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1757,7 +1757,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  The unique identifier for the request that generated the trace's segments and subsegments.
+                  The unique identifier for the request that generated the trace\'s segments and subsegments.
         
                 - **Duration** *(float) --* 
         
@@ -1801,7 +1801,7 @@ class Client(BaseClient):
         
                   - **UserAgent** *(string) --* 
         
-                    The request's user agent string.
+                    The request\'s user agent string.
         
                   - **ClientIp** *(string) --* 
         
@@ -1809,7 +1809,7 @@ class Client(BaseClient):
         
                 - **Annotations** *(dict) --* 
         
-                  Annotations from the trace's segment documents.
+                  Annotations from the trace\'s segment documents.
         
                   - *(string) --* 
                     
@@ -1853,7 +1853,7 @@ class Client(BaseClient):
         
                 - **Users** *(list) --* 
         
-                  Users from the trace's segment documents.
+                  Users from the trace\'s segment documents.
         
                   - *(dict) --* 
         
@@ -1861,11 +1861,11 @@ class Client(BaseClient):
         
                     - **UserName** *(string) --* 
         
-                      The user's name.
+                      The user\'s name.
         
                     - **ServiceIds** *(list) --* 
         
-                      Services that the user's request hit.
+                      Services that the user\'s request hit.
         
                       - *(dict) --* 
         
@@ -1881,7 +1881,7 @@ class Client(BaseClient):
         
                 - **ServiceIds** *(list) --* 
         
-                  Service IDs from the trace's segment documents.
+                  Service IDs from the trace\'s segment documents.
         
                   - *(dict) --* 
         
@@ -1931,8 +1931,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_encryption_config(
-              KeyId='string',
-              Type='NONE'|'KMS'
+              KeyId=\'string\',
+              Type=\'NONE\'|\'KMS\'
           )
         :type KeyId: string
         :param KeyId: 
@@ -1960,10 +1960,10 @@ class Client(BaseClient):
           ::
         
             {
-                'EncryptionConfig': {
-                    'KeyId': 'string',
-                    'Status': 'UPDATING'|'ACTIVE',
-                    'Type': 'NONE'|'KMS'
+                \'EncryptionConfig\': {
+                    \'KeyId\': \'string\',
+                    \'Status\': \'UPDATING\'|\'ACTIVE\',
+                    \'Type\': \'NONE\'|\'KMS\'
                 }
             }
           **Response Structure** 
@@ -2000,24 +2000,24 @@ class Client(BaseClient):
           response = client.put_telemetry_records(
               TelemetryRecords=[
                   {
-                      'Timestamp': datetime(2015, 1, 1),
-                      'SegmentsReceivedCount': 123,
-                      'SegmentsSentCount': 123,
-                      'SegmentsSpilloverCount': 123,
-                      'SegmentsRejectedCount': 123,
-                      'BackendConnectionErrors': {
-                          'TimeoutCount': 123,
-                          'ConnectionRefusedCount': 123,
-                          'HTTPCode4XXCount': 123,
-                          'HTTPCode5XXCount': 123,
-                          'UnknownHostCount': 123,
-                          'OtherCount': 123
+                      \'Timestamp\': datetime(2015, 1, 1),
+                      \'SegmentsReceivedCount\': 123,
+                      \'SegmentsSentCount\': 123,
+                      \'SegmentsSpilloverCount\': 123,
+                      \'SegmentsRejectedCount\': 123,
+                      \'BackendConnectionErrors\': {
+                          \'TimeoutCount\': 123,
+                          \'ConnectionRefusedCount\': 123,
+                          \'HTTPCode4XXCount\': 123,
+                          \'HTTPCode5XXCount\': 123,
+                          \'UnknownHostCount\': 123,
+                          \'OtherCount\': 123
                       }
                   },
               ],
-              EC2InstanceId='string',
-              Hostname='string',
-              ResourceARN='string'
+              EC2InstanceId=\'string\',
+              Hostname=\'string\',
+              ResourceARN=\'string\'
           )
         :type TelemetryRecords: list
         :param TelemetryRecords: **[REQUIRED]** 
@@ -2107,7 +2107,7 @@ class Client(BaseClient):
         
           response = client.put_trace_segments(
               TraceSegmentDocuments=[
-                  'string',
+                  \'string\',
               ]
           )
         :type TraceSegmentDocuments: list
@@ -2125,11 +2125,11 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedTraceSegments': [
+                \'UnprocessedTraceSegments\': [
                     {
-                        'Id': 'string',
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                        \'Id\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -2147,7 +2147,7 @@ class Client(BaseClient):
         
                 - **Id** *(string) --* 
         
-                  The segment's ID.
+                  The segment\'s ID.
         
                 - **ErrorCode** *(string) --* 
         
@@ -2170,19 +2170,19 @@ class Client(BaseClient):
         
           response = client.update_sampling_rule(
               SamplingRuleUpdate={
-                  'RuleName': 'string',
-                  'RuleARN': 'string',
-                  'ResourceARN': 'string',
-                  'Priority': 123,
-                  'FixedRate': 123.0,
-                  'ReservoirSize': 123,
-                  'Host': 'string',
-                  'ServiceName': 'string',
-                  'ServiceType': 'string',
-                  'HTTPMethod': 'string',
-                  'URLPath': 'string',
-                  'Attributes': {
-                      'string': 'string'
+                  \'RuleName\': \'string\',
+                  \'RuleARN\': \'string\',
+                  \'ResourceARN\': \'string\',
+                  \'Priority\': 123,
+                  \'FixedRate\': 123.0,
+                  \'ReservoirSize\': 123,
+                  \'Host\': \'string\',
+                  \'ServiceName\': \'string\',
+                  \'ServiceType\': \'string\',
+                  \'HTTPMethod\': \'string\',
+                  \'URLPath\': \'string\',
+                  \'Attributes\': {
+                      \'string\': \'string\'
                   }
               }
           )
@@ -2251,26 +2251,26 @@ class Client(BaseClient):
           ::
         
             {
-                'SamplingRuleRecord': {
-                    'SamplingRule': {
-                        'RuleName': 'string',
-                        'RuleARN': 'string',
-                        'ResourceARN': 'string',
-                        'Priority': 123,
-                        'FixedRate': 123.0,
-                        'ReservoirSize': 123,
-                        'ServiceName': 'string',
-                        'ServiceType': 'string',
-                        'Host': 'string',
-                        'HTTPMethod': 'string',
-                        'URLPath': 'string',
-                        'Version': 123,
-                        'Attributes': {
-                            'string': 'string'
+                \'SamplingRuleRecord\': {
+                    \'SamplingRule\': {
+                        \'RuleName\': \'string\',
+                        \'RuleARN\': \'string\',
+                        \'ResourceARN\': \'string\',
+                        \'Priority\': 123,
+                        \'FixedRate\': 123.0,
+                        \'ReservoirSize\': 123,
+                        \'ServiceName\': \'string\',
+                        \'ServiceType\': \'string\',
+                        \'Host\': \'string\',
+                        \'HTTPMethod\': \'string\',
+                        \'URLPath\': \'string\',
+                        \'Version\': 123,
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
-                    'CreatedAt': datetime(2015, 1, 1),
-                    'ModifiedAt': datetime(2015, 1, 1)
+                    \'CreatedAt\': datetime(2015, 1, 1),
+                    \'ModifiedAt\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 

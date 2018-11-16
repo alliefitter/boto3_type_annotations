@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -23,12 +23,12 @@ class Client(BaseClient):
         
           response = client.add_tags(
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -84,9 +84,9 @@ class Client(BaseClient):
         ::
         
           response = client.apply_security_groups_to_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -109,8 +109,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityGroups': [
-                    'string',
+                \'SecurityGroups\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -139,9 +139,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_load_balancer_to_subnets(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Subnets=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -164,8 +164,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Subnets': [
-                    'string',
+                \'Subnets\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -189,10 +189,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -210,13 +210,13 @@ class Client(BaseClient):
         ::
         
           response = client.configure_health_check(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               HealthCheck={
-                  'Target': 'string',
-                  'Interval': 123,
-                  'Timeout': 123,
-                  'UnhealthyThreshold': 123,
-                  'HealthyThreshold': 123
+                  \'Target\': \'string\',
+                  \'Interval\': 123,
+                  \'Timeout\': 123,
+                  \'UnhealthyThreshold\': 123,
+                  \'HealthyThreshold\': 123
               }
           )
         :type LoadBalancerName: string
@@ -233,11 +233,11 @@ class Client(BaseClient):
         
             The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
         
-            TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+            TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
         
             SSL is also specified as SSL: port pair, for example, SSL:5000.
         
-            For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+            For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example \"HTTP:80/weather/us/wa/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.
         
             The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
         
@@ -267,12 +267,12 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheck': {
-                    'Target': 'string',
-                    'Interval': 123,
-                    'Timeout': 123,
-                    'UnhealthyThreshold': 123,
-                    'HealthyThreshold': 123
+                \'HealthCheck\': {
+                    \'Target\': \'string\',
+                    \'Interval\': 123,
+                    \'Timeout\': 123,
+                    \'UnhealthyThreshold\': 123,
+                    \'HealthyThreshold\': 123
                 }
             }
           **Response Structure** 
@@ -289,11 +289,11 @@ class Client(BaseClient):
         
                 The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
         
-                TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+                TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
         
                 SSL is also specified as SSL: port pair, for example, SSL:5000.
         
-                For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+                For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example \"HTTP:80/weather/us/wa/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.
         
                 The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
         
@@ -333,9 +333,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_app_cookie_stickiness_policy(
-              LoadBalancerName='string',
-              PolicyName='string',
-              CookieName='string'
+              LoadBalancerName=\'string\',
+              PolicyName=\'string\',
+              CookieName=\'string\'
           )
         :type LoadBalancerName: string
         :param LoadBalancerName: **[REQUIRED]** 
@@ -384,8 +384,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_lb_cookie_stickiness_policy(
-              LoadBalancerName='string',
-              PolicyName='string',
+              LoadBalancerName=\'string\',
+              PolicyName=\'string\',
               CookieExpirationPeriod=123
           )
         :type LoadBalancerName: string
@@ -435,30 +435,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Listeners=[
                   {
-                      'Protocol': 'string',
-                      'LoadBalancerPort': 123,
-                      'InstanceProtocol': 'string',
-                      'InstancePort': 123,
-                      'SSLCertificateId': 'string'
+                      \'Protocol\': \'string\',
+                      \'LoadBalancerPort\': 123,
+                      \'InstanceProtocol\': \'string\',
+                      \'InstancePort\': 123,
+                      \'SSLCertificateId\': \'string\'
                   },
               ],
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               Subnets=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              Scheme='string',
+              Scheme=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -496,9 +496,9 @@ class Client(BaseClient):
         
               If the front-end protocol is HTTP, HTTPS, TCP, or SSL, ``InstanceProtocol`` must be at the same protocol.
         
-              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener's ``InstanceProtocol`` must also be secure.
+              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener\'s ``InstanceProtocol`` must also be secure.
         
-              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener's ``InstanceProtocol`` must be HTTP or TCP.
+              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener\'s ``InstanceProtocol`` must be HTTP or TCP.
         
             - **InstancePort** *(integer) --* **[REQUIRED]** 
         
@@ -569,7 +569,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DNSName': 'string'
+                \'DNSName\': \'string\'
             }
           **Response Structure** 
         
@@ -595,14 +595,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer_listeners(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Listeners=[
                   {
-                      'Protocol': 'string',
-                      'LoadBalancerPort': 123,
-                      'InstanceProtocol': 'string',
-                      'InstancePort': 123,
-                      'SSLCertificateId': 'string'
+                      \'Protocol\': \'string\',
+                      \'LoadBalancerPort\': 123,
+                      \'InstanceProtocol\': \'string\',
+                      \'InstancePort\': 123,
+                      \'SSLCertificateId\': \'string\'
                   },
               ]
           )
@@ -636,9 +636,9 @@ class Client(BaseClient):
         
               If the front-end protocol is HTTP, HTTPS, TCP, or SSL, ``InstanceProtocol`` must be at the same protocol.
         
-              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener's ``InstanceProtocol`` must also be secure.
+              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener\'s ``InstanceProtocol`` must also be secure.
         
-              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener's ``InstanceProtocol`` must be HTTP or TCP.
+              If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener\'s ``InstanceProtocol`` must be HTTP or TCP.
         
             - **InstancePort** *(integer) --* **[REQUIRED]** 
         
@@ -676,13 +676,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_load_balancer_policy(
-              LoadBalancerName='string',
-              PolicyName='string',
-              PolicyTypeName='string',
+              LoadBalancerName=\'string\',
+              PolicyName=\'string\',
+              PolicyTypeName=\'string\',
               PolicyAttributes=[
                   {
-                      'AttributeName': 'string',
-                      'AttributeValue': 'string'
+                      \'AttributeName\': \'string\',
+                      \'AttributeValue\': \'string\'
                   },
               ]
           )
@@ -748,7 +748,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer(
-              LoadBalancerName='string'
+              LoadBalancerName=\'string\'
           )
         :type LoadBalancerName: string
         :param LoadBalancerName: **[REQUIRED]** 
@@ -781,7 +781,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer_listeners(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               LoadBalancerPorts=[
                   123,
               ]
@@ -824,8 +824,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_load_balancer_policy(
-              LoadBalancerName='string',
-              PolicyName='string'
+              LoadBalancerName=\'string\',
+              PolicyName=\'string\'
           )
         :type LoadBalancerName: string
         :param LoadBalancerName: **[REQUIRED]** 
@@ -867,10 +867,10 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_instances_from_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ]
           )
@@ -900,9 +900,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'InstanceId': 'string'
+                        \'InstanceId\': \'string\'
                     },
                 ]
             }
@@ -938,7 +938,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_account_limits(
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type Marker: string
@@ -959,13 +959,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Limits': [
+                \'Limits\': [
                     {
-                        'Name': 'string',
-                        'Max': 'string'
+                        \'Name\': \'string\',
+                        \'Max\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -1009,10 +1009,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instance_health(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ]
           )
@@ -1042,12 +1042,12 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceStates': [
+                \'InstanceStates\': [
                     {
-                        'InstanceId': 'string',
-                        'State': 'string',
-                        'ReasonCode': 'string',
-                        'Description': 'string'
+                        \'InstanceId\': \'string\',
+                        \'State\': \'string\',
+                        \'ReasonCode\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -1121,7 +1121,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_load_balancer_attributes(
-              LoadBalancerName='string'
+              LoadBalancerName=\'string\'
           )
         :type LoadBalancerName: string
         :param LoadBalancerName: **[REQUIRED]** 
@@ -1136,27 +1136,27 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancerAttributes': {
-                    'CrossZoneLoadBalancing': {
-                        'Enabled': True|False
+                \'LoadBalancerAttributes\': {
+                    \'CrossZoneLoadBalancing\': {
+                        \'Enabled\': True|False
                     },
-                    'AccessLog': {
-                        'Enabled': True|False,
-                        'S3BucketName': 'string',
-                        'EmitInterval': 123,
-                        'S3BucketPrefix': 'string'
+                    \'AccessLog\': {
+                        \'Enabled\': True|False,
+                        \'S3BucketName\': \'string\',
+                        \'EmitInterval\': 123,
+                        \'S3BucketPrefix\': \'string\'
                     },
-                    'ConnectionDraining': {
-                        'Enabled': True|False,
-                        'Timeout': 123
+                    \'ConnectionDraining\': {
+                        \'Enabled\': True|False,
+                        \'Timeout\': 123
                     },
-                    'ConnectionSettings': {
-                        'IdleTimeout': 123
+                    \'ConnectionSettings\': {
+                        \'IdleTimeout\': 123
                     },
-                    'AdditionalAttributes': [
+                    \'AdditionalAttributes\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -1251,7 +1251,7 @@ class Client(BaseClient):
     def describe_load_balancer_policies(self, LoadBalancerName: str = None, PolicyNames: List = None) -> Dict:
         """
         
-        If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the ``ELBSample-`` prefix.
+        If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don\'t specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the ``ELBSample-`` prefix.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancing-2012-06-01/DescribeLoadBalancerPolicies>`_
         
@@ -1259,9 +1259,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_load_balancer_policies(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               PolicyNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -1284,14 +1284,14 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyDescriptions': [
+                \'PolicyDescriptions\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyTypeName': 'string',
-                        'PolicyAttributeDescriptions': [
+                        \'PolicyName\': \'string\',
+                        \'PolicyTypeName\': \'string\',
+                        \'PolicyAttributeDescriptions\': [
                             {
-                                'AttributeName': 'string',
-                                'AttributeValue': 'string'
+                                \'AttributeName\': \'string\',
+                                \'AttributeValue\': \'string\'
                             },
                         ]
                     },
@@ -1352,7 +1352,7 @@ class Client(BaseClient):
         
           response = client.describe_load_balancer_policy_types(
               PolicyTypeNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type PolicyTypeNames: list
@@ -1370,17 +1370,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyTypeDescriptions': [
+                \'PolicyTypeDescriptions\': [
                     {
-                        'PolicyTypeName': 'string',
-                        'Description': 'string',
-                        'PolicyAttributeTypeDescriptions': [
+                        \'PolicyTypeName\': \'string\',
+                        \'Description\': \'string\',
+                        \'PolicyAttributeTypeDescriptions\': [
                             {
-                                'AttributeName': 'string',
-                                'AttributeType': 'string',
-                                'Description': 'string',
-                                'DefaultValue': 'string',
-                                'Cardinality': 'string'
+                                \'AttributeName\': \'string\',
+                                \'AttributeType\': \'string\',
+                                \'Description\': \'string\',
+                                \'DefaultValue\': \'string\',
+                                \'Cardinality\': \'string\'
                             },
                         ]
                     },
@@ -1459,9 +1459,9 @@ class Client(BaseClient):
         
           response = client.describe_load_balancers(
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ],
-              Marker='string',
+              Marker=\'string\',
               PageSize=123
           )
         :type LoadBalancerNames: list
@@ -1489,82 +1489,82 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancerDescriptions': [
+                \'LoadBalancerDescriptions\': [
                     {
-                        'LoadBalancerName': 'string',
-                        'DNSName': 'string',
-                        'CanonicalHostedZoneName': 'string',
-                        'CanonicalHostedZoneNameID': 'string',
-                        'ListenerDescriptions': [
+                        \'LoadBalancerName\': \'string\',
+                        \'DNSName\': \'string\',
+                        \'CanonicalHostedZoneName\': \'string\',
+                        \'CanonicalHostedZoneNameID\': \'string\',
+                        \'ListenerDescriptions\': [
                             {
-                                'Listener': {
-                                    'Protocol': 'string',
-                                    'LoadBalancerPort': 123,
-                                    'InstanceProtocol': 'string',
-                                    'InstancePort': 123,
-                                    'SSLCertificateId': 'string'
+                                \'Listener\': {
+                                    \'Protocol\': \'string\',
+                                    \'LoadBalancerPort\': 123,
+                                    \'InstanceProtocol\': \'string\',
+                                    \'InstancePort\': 123,
+                                    \'SSLCertificateId\': \'string\'
                                 },
-                                'PolicyNames': [
-                                    'string',
+                                \'PolicyNames\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'Policies': {
-                            'AppCookieStickinessPolicies': [
+                        \'Policies\': {
+                            \'AppCookieStickinessPolicies\': [
                                 {
-                                    'PolicyName': 'string',
-                                    'CookieName': 'string'
+                                    \'PolicyName\': \'string\',
+                                    \'CookieName\': \'string\'
                                 },
                             ],
-                            'LBCookieStickinessPolicies': [
+                            \'LBCookieStickinessPolicies\': [
                                 {
-                                    'PolicyName': 'string',
-                                    'CookieExpirationPeriod': 123
+                                    \'PolicyName\': \'string\',
+                                    \'CookieExpirationPeriod\': 123
                                 },
                             ],
-                            'OtherPolicies': [
-                                'string',
+                            \'OtherPolicies\': [
+                                \'string\',
                             ]
                         },
-                        'BackendServerDescriptions': [
+                        \'BackendServerDescriptions\': [
                             {
-                                'InstancePort': 123,
-                                'PolicyNames': [
-                                    'string',
+                                \'InstancePort\': 123,
+                                \'PolicyNames\': [
+                                    \'string\',
                                 ]
                             },
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'Subnets': [
-                            'string',
+                        \'Subnets\': [
+                            \'string\',
                         ],
-                        'VPCId': 'string',
-                        'Instances': [
+                        \'VPCId\': \'string\',
+                        \'Instances\': [
                             {
-                                'InstanceId': 'string'
+                                \'InstanceId\': \'string\'
                             },
                         ],
-                        'HealthCheck': {
-                            'Target': 'string',
-                            'Interval': 123,
-                            'Timeout': 123,
-                            'UnhealthyThreshold': 123,
-                            'HealthyThreshold': 123
+                        \'HealthCheck\': {
+                            \'Target\': \'string\',
+                            \'Interval\': 123,
+                            \'Timeout\': 123,
+                            \'UnhealthyThreshold\': 123,
+                            \'HealthyThreshold\': 123
                         },
-                        'SourceSecurityGroup': {
-                            'OwnerAlias': 'string',
-                            'GroupName': 'string'
+                        \'SourceSecurityGroup\': {
+                            \'OwnerAlias\': \'string\',
+                            \'GroupName\': \'string\'
                         },
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'Scheme': 'string'
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'Scheme\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -1624,9 +1624,9 @@ class Client(BaseClient):
         
                         If the front-end protocol is HTTP, HTTPS, TCP, or SSL, ``InstanceProtocol`` must be at the same protocol.
         
-                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener's ``InstanceProtocol`` must also be secure.
+                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is secure, (HTTPS or SSL), the listener\'s ``InstanceProtocol`` must also be secure.
         
-                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener's ``InstanceProtocol`` must be HTTP or TCP.
+                        If there is another listener with the same ``InstancePort`` whose ``InstanceProtocol`` is HTTP or TCP, the listener\'s ``InstanceProtocol`` must be HTTP or TCP.
         
                       - **InstancePort** *(integer) --* 
         
@@ -1738,11 +1738,11 @@ class Client(BaseClient):
         
                     The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
         
-                    TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+                    TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
         
                     SSL is also specified as SSL: port pair, for example, SSL:5000.
         
-                    For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+                    For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example \"HTTP:80/weather/us/wa/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.
         
                     The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
         
@@ -1811,7 +1811,7 @@ class Client(BaseClient):
         
           response = client.describe_tags(
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerNames: list
@@ -1829,13 +1829,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TagDescriptions': [
+                \'TagDescriptions\': [
                     {
-                        'LoadBalancerName': 'string',
-                        'Tags': [
+                        \'LoadBalancerName\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -1889,9 +1889,9 @@ class Client(BaseClient):
         ::
         
           response = client.detach_load_balancer_from_subnets(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Subnets=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -1914,8 +1914,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Subnets': [
-                    'string',
+                \'Subnets\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1948,9 +1948,9 @@ class Client(BaseClient):
         ::
         
           response = client.disable_availability_zones_for_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -1973,8 +1973,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityZones': [
-                    'string',
+                \'AvailabilityZones\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2005,9 +2005,9 @@ class Client(BaseClient):
         ::
         
           response = client.enable_availability_zones_for_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -2030,8 +2030,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityZones': [
-                    'string',
+                \'AvailabilityZones\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2065,7 +2065,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2077,10 +2077,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2124,28 +2124,28 @@ class Client(BaseClient):
         ::
         
           response = client.modify_load_balancer_attributes(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               LoadBalancerAttributes={
-                  'CrossZoneLoadBalancing': {
-                      'Enabled': True|False
+                  \'CrossZoneLoadBalancing\': {
+                      \'Enabled\': True|False
                   },
-                  'AccessLog': {
-                      'Enabled': True|False,
-                      'S3BucketName': 'string',
-                      'EmitInterval': 123,
-                      'S3BucketPrefix': 'string'
+                  \'AccessLog\': {
+                      \'Enabled\': True|False,
+                      \'S3BucketName\': \'string\',
+                      \'EmitInterval\': 123,
+                      \'S3BucketPrefix\': \'string\'
                   },
-                  'ConnectionDraining': {
-                      'Enabled': True|False,
-                      'Timeout': 123
+                  \'ConnectionDraining\': {
+                      \'Enabled\': True|False,
+                      \'Timeout\': 123
                   },
-                  'ConnectionSettings': {
-                      'IdleTimeout': 123
+                  \'ConnectionSettings\': {
+                      \'IdleTimeout\': 123
                   },
-                  'AdditionalAttributes': [
+                  \'AdditionalAttributes\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -2242,28 +2242,28 @@ class Client(BaseClient):
           ::
         
             {
-                'LoadBalancerName': 'string',
-                'LoadBalancerAttributes': {
-                    'CrossZoneLoadBalancing': {
-                        'Enabled': True|False
+                \'LoadBalancerName\': \'string\',
+                \'LoadBalancerAttributes\': {
+                    \'CrossZoneLoadBalancing\': {
+                        \'Enabled\': True|False
                     },
-                    'AccessLog': {
-                        'Enabled': True|False,
-                        'S3BucketName': 'string',
-                        'EmitInterval': 123,
-                        'S3BucketPrefix': 'string'
+                    \'AccessLog\': {
+                        \'Enabled\': True|False,
+                        \'S3BucketName\': \'string\',
+                        \'EmitInterval\': 123,
+                        \'S3BucketPrefix\': \'string\'
                     },
-                    'ConnectionDraining': {
-                        'Enabled': True|False,
-                        'Timeout': 123
+                    \'ConnectionDraining\': {
+                        \'Enabled\': True|False,
+                        \'Timeout\': 123
                     },
-                    'ConnectionSettings': {
-                        'IdleTimeout': 123
+                    \'ConnectionSettings\': {
+                        \'IdleTimeout\': 123
                     },
-                    'AdditionalAttributes': [
+                    \'AdditionalAttributes\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -2378,10 +2378,10 @@ class Client(BaseClient):
         ::
         
           response = client.register_instances_with_load_balancer(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               Instances=[
                   {
-                      'InstanceId': 'string'
+                      \'InstanceId\': \'string\'
                   },
               ]
           )
@@ -2411,9 +2411,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'InstanceId': 'string'
+                        \'InstanceId\': \'string\'
                     },
                 ]
             }
@@ -2448,11 +2448,11 @@ class Client(BaseClient):
         
           response = client.remove_tags(
               LoadBalancerNames=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string'
+                      \'Key\': \'string\'
                   },
               ]
           )
@@ -2504,9 +2504,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_load_balancer_listener_ssl_certificate(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               LoadBalancerPort=123,
-              SSLCertificateId='string'
+              SSLCertificateId=\'string\'
           )
         :type LoadBalancerName: string
         :param LoadBalancerName: **[REQUIRED]** 
@@ -2555,10 +2555,10 @@ class Client(BaseClient):
         ::
         
           response = client.set_load_balancer_policies_for_backend_server(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               InstancePort=123,
               PolicyNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string
@@ -2608,10 +2608,10 @@ class Client(BaseClient):
         ::
         
           response = client.set_load_balancer_policies_of_listener(
-              LoadBalancerName='string',
+              LoadBalancerName=\'string\',
               LoadBalancerPort=123,
               PolicyNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type LoadBalancerName: string

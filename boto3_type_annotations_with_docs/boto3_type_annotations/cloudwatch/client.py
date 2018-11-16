@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -16,10 +16,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -36,7 +36,7 @@ class Client(BaseClient):
         
           response = client.delete_alarms(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AlarmNames: list
@@ -60,7 +60,7 @@ class Client(BaseClient):
         
           response = client.delete_dashboards(
               DashboardNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DashboardNames: list
@@ -95,12 +95,12 @@ class Client(BaseClient):
         ::
         
           response = client.describe_alarm_history(
-              AlarmName='string',
-              HistoryItemType='ConfigurationUpdate'|'StateUpdate'|'Action',
+              AlarmName=\'string\',
+              HistoryItemType=\'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
               StartDate=datetime(2015, 1, 1),
               EndDate=datetime(2015, 1, 1),
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AlarmName: string
         :param AlarmName: 
@@ -140,16 +140,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AlarmHistoryItems': [
+                \'AlarmHistoryItems\': [
                     {
-                        'AlarmName': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'HistoryItemType': 'ConfigurationUpdate'|'StateUpdate'|'Action',
-                        'HistorySummary': 'string',
-                        'HistoryData': 'string'
+                        \'AlarmName\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'HistoryItemType\': \'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
+                        \'HistorySummary\': \'string\',
+                        \'HistoryData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -200,13 +200,13 @@ class Client(BaseClient):
         
           response = client.describe_alarms(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ],
-              AlarmNamePrefix='string',
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              ActionPrefix='string',
+              AlarmNamePrefix=\'string\',
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              ActionPrefix=\'string\',
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AlarmNames: list
         :param AlarmNames: 
@@ -248,47 +248,47 @@ class Client(BaseClient):
           ::
         
             {
-                'MetricAlarms': [
+                \'MetricAlarms\': [
                     {
-                        'AlarmName': 'string',
-                        'AlarmArn': 'string',
-                        'AlarmDescription': 'string',
-                        'AlarmConfigurationUpdatedTimestamp': datetime(2015, 1, 1),
-                        'ActionsEnabled': True|False,
-                        'OKActions': [
-                            'string',
+                        \'AlarmName\': \'string\',
+                        \'AlarmArn\': \'string\',
+                        \'AlarmDescription\': \'string\',
+                        \'AlarmConfigurationUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'ActionsEnabled\': True|False,
+                        \'OKActions\': [
+                            \'string\',
                         ],
-                        'AlarmActions': [
-                            'string',
+                        \'AlarmActions\': [
+                            \'string\',
                         ],
-                        'InsufficientDataActions': [
-                            'string',
+                        \'InsufficientDataActions\': [
+                            \'string\',
                         ],
-                        'StateValue': 'OK'|'ALARM'|'INSUFFICIENT_DATA',
-                        'StateReason': 'string',
-                        'StateReasonData': 'string',
-                        'StateUpdatedTimestamp': datetime(2015, 1, 1),
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-                        'ExtendedStatistic': 'string',
-                        'Dimensions': [
+                        \'StateValue\': \'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+                        \'StateReason\': \'string\',
+                        \'StateReasonData\': \'string\',
+                        \'StateUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+                        \'ExtendedStatistic\': \'string\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Period': 123,
-                        'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                        'EvaluationPeriods': 123,
-                        'DatapointsToAlarm': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'TreatMissingData': 'string',
-                        'EvaluateLowSampleCountPercentile': 'string'
+                        \'Period\': 123,
+                        \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                        \'EvaluationPeriods\': 123,
+                        \'DatapointsToAlarm\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'TreatMissingData\': \'string\',
+                        \'EvaluateLowSampleCountPercentile\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -436,18 +436,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_alarms_for_metric(
-              MetricName='string',
-              Namespace='string',
-              Statistic='SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-              ExtendedStatistic='string',
+              MetricName=\'string\',
+              Namespace=\'string\',
+              Statistic=\'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+              ExtendedStatistic=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               Period=123,
-              Unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+              Unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
           )
         :type MetricName: string
         :param MetricName: **[REQUIRED]** 
@@ -504,44 +504,44 @@ class Client(BaseClient):
           ::
         
             {
-                'MetricAlarms': [
+                \'MetricAlarms\': [
                     {
-                        'AlarmName': 'string',
-                        'AlarmArn': 'string',
-                        'AlarmDescription': 'string',
-                        'AlarmConfigurationUpdatedTimestamp': datetime(2015, 1, 1),
-                        'ActionsEnabled': True|False,
-                        'OKActions': [
-                            'string',
+                        \'AlarmName\': \'string\',
+                        \'AlarmArn\': \'string\',
+                        \'AlarmDescription\': \'string\',
+                        \'AlarmConfigurationUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'ActionsEnabled\': True|False,
+                        \'OKActions\': [
+                            \'string\',
                         ],
-                        'AlarmActions': [
-                            'string',
+                        \'AlarmActions\': [
+                            \'string\',
                         ],
-                        'InsufficientDataActions': [
-                            'string',
+                        \'InsufficientDataActions\': [
+                            \'string\',
                         ],
-                        'StateValue': 'OK'|'ALARM'|'INSUFFICIENT_DATA',
-                        'StateReason': 'string',
-                        'StateReasonData': 'string',
-                        'StateUpdatedTimestamp': datetime(2015, 1, 1),
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-                        'ExtendedStatistic': 'string',
-                        'Dimensions': [
+                        \'StateValue\': \'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+                        \'StateReason\': \'string\',
+                        \'StateReasonData\': \'string\',
+                        \'StateUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+                        \'ExtendedStatistic\': \'string\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Period': 123,
-                        'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                        'EvaluationPeriods': 123,
-                        'DatapointsToAlarm': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'TreatMissingData': 'string',
-                        'EvaluateLowSampleCountPercentile': 'string'
+                        \'Period\': 123,
+                        \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                        \'EvaluationPeriods\': 123,
+                        \'DatapointsToAlarm\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'TreatMissingData\': \'string\',
+                        \'EvaluateLowSampleCountPercentile\': \'string\'
                     },
                 ]
             }
@@ -688,7 +688,7 @@ class Client(BaseClient):
         
           response = client.disable_alarm_actions(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AlarmNames: list
@@ -712,7 +712,7 @@ class Client(BaseClient):
         
           response = client.enable_alarm_actions(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AlarmNames: list
@@ -742,7 +742,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -759,7 +759,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_dashboard(
-              DashboardName='string'
+              DashboardName=\'string\'
           )
         :type DashboardName: string
         :param DashboardName: **[REQUIRED]** 
@@ -774,9 +774,9 @@ class Client(BaseClient):
           ::
         
             {
-                'DashboardArn': 'string',
-                'DashboardBody': 'string',
-                'DashboardName': 'string'
+                \'DashboardArn\': \'string\',
+                \'DashboardBody\': \'string\',
+                \'DashboardName\': \'string\'
             }
           **Response Structure** 
         
@@ -822,31 +822,31 @@ class Client(BaseClient):
           response = client.get_metric_data(
               MetricDataQueries=[
                   {
-                      'Id': 'string',
-                      'MetricStat': {
-                          'Metric': {
-                              'Namespace': 'string',
-                              'MetricName': 'string',
-                              'Dimensions': [
+                      \'Id\': \'string\',
+                      \'MetricStat\': {
+                          \'Metric\': {
+                              \'Namespace\': \'string\',
+                              \'MetricName\': \'string\',
+                              \'Dimensions\': [
                                   {
-                                      'Name': 'string',
-                                      'Value': 'string'
+                                      \'Name\': \'string\',
+                                      \'Value\': \'string\'
                                   },
                               ]
                           },
-                          'Period': 123,
-                          'Stat': 'string',
-                          'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+                          \'Period\': 123,
+                          \'Stat\': \'string\',
+                          \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
                       },
-                      'Expression': 'string',
-                      'Label': 'string',
-                      'ReturnData': True|False
+                      \'Expression\': \'string\',
+                      \'Label\': \'string\',
+                      \'ReturnData\': True|False
                   },
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              NextToken='string',
-              ScanBy='TimestampDescending'|'TimestampAscending',
+              NextToken=\'string\',
+              ScanBy=\'TimestampDescending\'|\'TimestampAscending\',
               MaxDatapoints=123
           )
         :type MetricDataQueries: list
@@ -927,14 +927,14 @@ class Client(BaseClient):
         
           The time stamp indicating the earliest data to be returned.
         
-          For better performance, specify ``StartTime`` and ``EndTime`` values that align with the value of the metric's ``Period`` and sync up with the beginning and end of an hour. For example, if the ``Period`` of a metric is 5 minutes, specifying 12:05 or 12:30 as ``StartTime`` can get a faster response from CloudWatch then setting 12:07 or 12:29 as the ``StartTime`` .
+          For better performance, specify ``StartTime`` and ``EndTime`` values that align with the value of the metric\'s ``Period`` and sync up with the beginning and end of an hour. For example, if the ``Period`` of a metric is 5 minutes, specifying 12:05 or 12:30 as ``StartTime`` can get a faster response from CloudWatch then setting 12:07 or 12:29 as the ``StartTime`` .
         
         :type EndTime: datetime
         :param EndTime: **[REQUIRED]** 
         
           The time stamp indicating the latest data to be returned.
         
-          For better performance, specify ``StartTime`` and ``EndTime`` values that align with the value of the metric's ``Period`` and sync up with the beginning and end of an hour. For example, if the ``Period`` of a metric is 5 minutes, specifying 12:05 or 12:30 as ``EndTime`` can get a faster response from CloudWatch then setting 12:07 or 12:29 as the ``EndTime`` .
+          For better performance, specify ``StartTime`` and ``EndTime`` values that align with the value of the metric\'s ``Period`` and sync up with the beginning and end of an hour. For example, if the ``Period`` of a metric is 5 minutes, specifying 12:05 or 12:30 as ``EndTime`` can get a faster response from CloudWatch then setting 12:07 or 12:29 as the ``EndTime`` .
         
         :type NextToken: string
         :param NextToken: 
@@ -959,26 +959,26 @@ class Client(BaseClient):
           ::
         
             {
-                'MetricDataResults': [
+                \'MetricDataResults\': [
                     {
-                        'Id': 'string',
-                        'Label': 'string',
-                        'Timestamps': [
+                        \'Id\': \'string\',
+                        \'Label\': \'string\',
+                        \'Timestamps\': [
                             datetime(2015, 1, 1),
                         ],
-                        'Values': [
+                        \'Values\': [
                             123.0,
                         ],
-                        'StatusCode': 'Complete'|'InternalError'|'PartialData',
-                        'Messages': [
+                        \'StatusCode\': \'Complete\'|\'InternalError\'|\'PartialData\',
+                        \'Messages\': [
                             {
-                                'Code': 'string',
-                                'Value': 'string'
+                                \'Code\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1076,24 +1076,24 @@ class Client(BaseClient):
         ::
         
           response = client.get_metric_statistics(
-              Namespace='string',
-              MetricName='string',
+              Namespace=\'string\',
+              MetricName=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Period=123,
               Statistics=[
-                  'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
+                  \'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
               ],
               ExtendedStatistics=[
-                  'string',
+                  \'string\',
               ],
-              Unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+              Unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
           )
         :type Namespace: string
         :param Namespace: **[REQUIRED]** 
@@ -1108,7 +1108,7 @@ class Client(BaseClient):
         :type Dimensions: list
         :param Dimensions: 
         
-          The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see `Dimension Combinations <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations>`__ in the *Amazon CloudWatch User Guide* . For more information about specifying dimensions, see `Publishing Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html>`__ in the *Amazon CloudWatch User Guide* .
+          The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can\'t retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see `Dimension Combinations <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations>`__ in the *Amazon CloudWatch User Guide* . For more information about specifying dimensions, see `Publishing Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html>`__ in the *Amazon CloudWatch User Guide* .
         
           - *(dict) --* 
         
@@ -1186,18 +1186,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Label': 'string',
-                'Datapoints': [
+                \'Label\': \'string\',
+                \'Datapoints\': [
                     {
-                        'Timestamp': datetime(2015, 1, 1),
-                        'SampleCount': 123.0,
-                        'Average': 123.0,
-                        'Sum': 123.0,
-                        'Minimum': 123.0,
-                        'Maximum': 123.0,
-                        'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                        'ExtendedStatistics': {
-                            'string': 123.0
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'SampleCount\': 123.0,
+                        \'Average\': 123.0,
+                        \'Sum\': 123.0,
+                        \'Minimum\': 123.0,
+                        \'Maximum\': 123.0,
+                        \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                        \'ExtendedStatistics\': {
+                            \'string\': 123.0
                         }
                     },
                 ]
@@ -1274,8 +1274,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_metric_widget_image(
-              MetricWidget='string',
-              OutputFormat='string'
+              MetricWidget=\'string\',
+              OutputFormat=\'string\'
           )
         :type MetricWidget: string
         :param MetricWidget: **[REQUIRED]** 
@@ -1293,7 +1293,7 @@ class Client(BaseClient):
         
           The default is ``png`` . If you specify ``png`` , the API returns an HTTP response with the content-type set to ``text/xml`` . The image data is in a ``MetricWidgetImage`` field. For example:
         
-           ``<GetMetricWidgetImageResponse xmlns="http://monitoring.amazonaws.com/doc/2010-08-01/">``  
+           ``<GetMetricWidgetImageResponse xmlns=\"http://monitoring.amazonaws.com/doc/2010-08-01/\">``  
         
            ``<GetMetricWidgetImageResult>``  
         
@@ -1323,7 +1323,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MetricWidgetImage': b'bytes'
+                \'MetricWidgetImage\': b\'bytes\'
             }
           **Response Structure** 
         
@@ -1342,10 +1342,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1379,13 +1379,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_dashboards(
-              DashboardNamePrefix='string',
-              NextToken='string'
+              DashboardNamePrefix=\'string\',
+              NextToken=\'string\'
           )
         :type DashboardNamePrefix: string
         :param DashboardNamePrefix: 
         
-          If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_". 
+          If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\". 
         
         :type NextToken: string
         :param NextToken: 
@@ -1400,15 +1400,15 @@ class Client(BaseClient):
           ::
         
             {
-                'DashboardEntries': [
+                \'DashboardEntries\': [
                     {
-                        'DashboardName': 'string',
-                        'DashboardArn': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'Size': 123
+                        \'DashboardName\': \'string\',
+                        \'DashboardArn\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'Size\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1458,15 +1458,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_metrics(
-              Namespace='string',
-              MetricName='string',
+              Namespace=\'string\',
+              MetricName=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Namespace: string
         :param Namespace: 
@@ -1508,19 +1508,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Metrics': [
+                \'Metrics\': [
                     {
-                        'Namespace': 'string',
-                        'MetricName': 'string',
-                        'Dimensions': [
+                        \'Namespace\': \'string\',
+                        \'MetricName\': \'string\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1580,13 +1580,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_dashboard(
-              DashboardName='string',
-              DashboardBody='string'
+              DashboardName=\'string\',
+              DashboardBody=\'string\'
           )
         :type DashboardName: string
         :param DashboardName: **[REQUIRED]** 
         
-          The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
+          The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is required.
         
         :type DashboardBody: string
         :param DashboardBody: **[REQUIRED]** 
@@ -1603,10 +1603,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DashboardValidationMessages': [
+                \'DashboardValidationMessages\': [
                     {
-                        'DataPath': 'string',
-                        'Message': 'string'
+                        \'DataPath\': \'string\',
+                        \'Message\': \'string\'
                     },
                 ]
             }
@@ -1670,36 +1670,36 @@ class Client(BaseClient):
         ::
         
           response = client.put_metric_alarm(
-              AlarmName='string',
-              AlarmDescription='string',
+              AlarmName=\'string\',
+              AlarmDescription=\'string\',
               ActionsEnabled=True|False,
               OKActions=[
-                  'string',
+                  \'string\',
               ],
               AlarmActions=[
-                  'string',
+                  \'string\',
               ],
               InsufficientDataActions=[
-                  'string',
+                  \'string\',
               ],
-              MetricName='string',
-              Namespace='string',
-              Statistic='SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-              ExtendedStatistic='string',
+              MetricName=\'string\',
+              Namespace=\'string\',
+              Statistic=\'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+              ExtendedStatistic=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               Period=123,
-              Unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
+              Unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
               EvaluationPeriods=123,
               DatapointsToAlarm=123,
               Threshold=123.0,
-              ComparisonOperator='GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-              TreatMissingData='string',
-              EvaluateLowSampleCountPercentile='string'
+              ComparisonOperator=\'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+              TreatMissingData=\'string\',
+              EvaluateLowSampleCountPercentile=\'string\'
           )
         :type AlarmName: string
         :param AlarmName: **[REQUIRED]** 
@@ -1793,7 +1793,7 @@ class Client(BaseClient):
         
           Be sure to specify 10 or 30 only for metrics that are stored by a ``PutMetricData`` call with a ``StorageResolution`` of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see `Amazon CloudWatch Pricing <https://aws.amazon.com/cloudwatch/pricing/>`__ .
         
-          An alarm's total current evaluation period can be no longer than one day, so ``Period`` multiplied by ``EvaluationPeriods`` cannot be more than 86,400 seconds.
+          An alarm\'s total current evaluation period can be no longer than one day, so ``Period`` multiplied by ``EvaluationPeriods`` cannot be more than 86,400 seconds.
         
         :type Unit: string
         :param Unit: 
@@ -1805,14 +1805,14 @@ class Client(BaseClient):
         :type EvaluationPeriods: integer
         :param EvaluationPeriods: **[REQUIRED]** 
         
-          The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.
+          The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an \"M out of N\" alarm, this value is the N.
         
-          An alarm's total current evaluation period can be no longer than one day, so this number multiplied by ``Period`` cannot be more than 86,400 seconds.
+          An alarm\'s total current evaluation period can be no longer than one day, so this number multiplied by ``Period`` cannot be more than 86,400 seconds.
         
         :type DatapointsToAlarm: integer
         :param DatapointsToAlarm: 
         
-          The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M. For more information, see `Evaluating an Alarm <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation>`__ in the *Amazon CloudWatch User Guide* .
+          The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an \"M out of N\" alarm. In that case, this value is the M. For more information, see `Evaluating an Alarm <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation>`__ in the *Amazon CloudWatch User Guide* .
         
         :type Threshold: float
         :param Threshold: **[REQUIRED]** 
@@ -1867,32 +1867,32 @@ class Client(BaseClient):
         ::
         
           response = client.put_metric_data(
-              Namespace='string',
+              Namespace=\'string\',
               MetricData=[
                   {
-                      'MetricName': 'string',
-                      'Dimensions': [
+                      \'MetricName\': \'string\',
+                      \'Dimensions\': [
                           {
-                              'Name': 'string',
-                              'Value': 'string'
+                              \'Name\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ],
-                      'Timestamp': datetime(2015, 1, 1),
-                      'Value': 123.0,
-                      'StatisticValues': {
-                          'SampleCount': 123.0,
-                          'Sum': 123.0,
-                          'Minimum': 123.0,
-                          'Maximum': 123.0
+                      \'Timestamp\': datetime(2015, 1, 1),
+                      \'Value\': 123.0,
+                      \'StatisticValues\': {
+                          \'SampleCount\': 123.0,
+                          \'Sum\': 123.0,
+                          \'Minimum\': 123.0,
+                          \'Maximum\': 123.0
                       },
-                      'Values': [
+                      \'Values\': [
                           123.0,
                       ],
-                      'Counts': [
+                      \'Counts\': [
                           123.0,
                       ],
-                      'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                      'StorageResolution': 123
+                      \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                      \'StorageResolution\': 123
                   },
               ]
           )
@@ -1901,7 +1901,7 @@ class Client(BaseClient):
         
           The namespace for the metric data.
         
-          You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products.
+          You cannot specify a namespace that begins with \"AWS/\". Namespaces that begin with \"AWS/\" are reserved for use by Amazon Web Services products.
         
         :type MetricData: list
         :param MetricData: **[REQUIRED]** 
@@ -2001,10 +2001,10 @@ class Client(BaseClient):
         ::
         
           response = client.set_alarm_state(
-              AlarmName='string',
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              StateReason='string',
-              StateReasonData='string'
+              AlarmName=\'string\',
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              StateReason=\'string\',
+              StateReasonData=\'string\'
           )
         :type AlarmName: string
         :param AlarmName: **[REQUIRED]** 

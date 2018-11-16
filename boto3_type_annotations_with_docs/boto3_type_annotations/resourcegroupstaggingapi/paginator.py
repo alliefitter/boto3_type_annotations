@@ -15,20 +15,20 @@ class GetResources(Paginator):
           response_iterator = paginator.paginate(
               TagFilters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               TagsPerPage=123,
               ResourceTypeFilters=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TagFilters: list
@@ -68,7 +68,7 @@ class GetResources(Paginator):
         
           The constraints on the resources that you want returned. The format of each resource type is ``service[:resourceType]`` . For example, specifying a resource type of ``ec2`` returns all tagged Amazon EC2 resources (which includes tagged EC2 instances). Specifying a resource type of ``ec2:instance`` returns only EC2 instances. 
         
-          The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the *AWS General Reference* for the following:
+          The string for each service name and resource type is the same as that embedded in a resource\'s Amazon Resource Name (ARN). Consult the *AWS General Reference* for the following:
         
           * For a list of service name strings, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ . 
            
@@ -103,18 +103,18 @@ class GetResources(Paginator):
           ::
         
             {
-                'ResourceTagMappingList': [
+                \'ResourceTagMappingList\': [
                     {
-                        'ResourceARN': 'string',
-                        'Tags': [
+                        \'ResourceARN\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -167,9 +167,9 @@ class GetTagKeys(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -197,10 +197,10 @@ class GetTagKeys(Paginator):
           ::
         
             {
-                'TagKeys': [
-                    'string',
+                \'TagKeys\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -230,11 +230,11 @@ class GetTagValues(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Key='string',
+              Key=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Key: string
@@ -267,10 +267,10 @@ class GetTagValues(Paginator):
           ::
         
             {
-                'TagValues': [
-                    'string',
+                \'TagValues\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

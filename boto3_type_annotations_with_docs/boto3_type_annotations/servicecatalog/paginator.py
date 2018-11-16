@@ -12,12 +12,12 @@ class ListAcceptedPortfolioShares(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              PortfolioShareType='IMPORTED'|'AWS_SERVICECATALOG'|'AWS_ORGANIZATIONS',
+              AcceptLanguage=\'string\',
+              PortfolioShareType=\'IMPORTED\'|\'AWS_SERVICECATALOG\'|\'AWS_ORGANIZATIONS\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -67,17 +67,17 @@ class ListAcceptedPortfolioShares(Paginator):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -133,13 +133,13 @@ class ListConstraintsForPortfolio(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              ProductId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -188,15 +188,15 @@ class ListConstraintsForPortfolio(Paginator):
           ::
         
             {
-                'ConstraintDetails': [
+                \'ConstraintDetails\': [
                     {
-                        'ConstraintId': 'string',
-                        'Type': 'string',
-                        'Description': 'string',
-                        'Owner': 'string'
+                        \'ConstraintId\': \'string\',
+                        \'Type\': \'string\',
+                        \'Description\': \'string\',
+                        \'Owner\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -250,12 +250,12 @@ class ListLaunchPaths(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -299,25 +299,25 @@ class ListLaunchPaths(Paginator):
           ::
         
             {
-                'LaunchPathSummaries': [
+                \'LaunchPathSummaries\': [
                     {
-                        'Id': 'string',
-                        'ConstraintSummaries': [
+                        \'Id\': \'string\',
+                        \'ConstraintSummaries\': [
                             {
-                                'Type': 'string',
-                                'Description': 'string'
+                                \'Type\': \'string\',
+                                \'Description\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -395,11 +395,11 @@ class ListPortfolios(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -438,17 +438,17 @@ class ListPortfolios(Paginator):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -504,12 +504,12 @@ class ListPortfoliosForProduct(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -553,17 +553,17 @@ class ListPortfoliosForProduct(Paginator):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -619,12 +619,12 @@ class ListPrincipalsForPortfolio(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              PortfolioId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -668,13 +668,13 @@ class ListPrincipalsForPortfolio(Paginator):
           ::
         
             {
-                'Principals': [
+                \'Principals\': [
                     {
-                        'PrincipalARN': 'string',
-                        'PrincipalType': 'IAM'
+                        \'PrincipalARN\': \'string\',
+                        \'PrincipalType\': \'IAM\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -714,12 +714,12 @@ class ListResourcesForTagOption(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              TagOptionId='string',
-              ResourceType='string',
+              TagOptionId=\'string\',
+              ResourceType=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TagOptionId: string
@@ -761,16 +761,16 @@ class ListResourcesForTagOption(Paginator):
           ::
         
             {
-                'ResourceDetails': [
+                \'ResourceDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -823,14 +823,14 @@ class ListTagOptions(Paginator):
         
           response_iterator = paginator.paginate(
               Filters={
-                  'Key': 'string',
-                  'Value': 'string',
-                  'Active': True|False
+                  \'Key\': \'string\',
+                  \'Value\': \'string\',
+                  \'Active\': True|False
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: dict
@@ -875,15 +875,15 @@ class ListTagOptions(Paginator):
           ::
         
             {
-                'TagOptionDetails': [
+                \'TagOptionDetails\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'Active': True|False,
-                        'Id': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'Active\': True|False,
+                        \'Id\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -931,20 +931,20 @@ class SearchProductsAsAdmin(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AcceptLanguage='string',
-              PortfolioId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              SortBy='Title'|'VersionCount'|'CreationDate',
-              SortOrder='ASCENDING'|'DESCENDING',
-              ProductSource='ACCOUNT',
+              SortBy=\'Title\'|\'VersionCount\'|\'CreationDate\',
+              SortOrder=\'ASCENDING\'|\'DESCENDING\',
+              ProductSource=\'ACCOUNT\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -1014,27 +1014,27 @@ class SearchProductsAsAdmin(Paginator):
           ::
         
             {
-                'ProductViewDetails': [
+                \'ProductViewDetails\': [
                     {
-                        'ProductViewSummary': {
-                            'Id': 'string',
-                            'ProductId': 'string',
-                            'Name': 'string',
-                            'Owner': 'string',
-                            'ShortDescription': 'string',
-                            'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                            'Distributor': 'string',
-                            'HasDefaultPath': True|False,
-                            'SupportEmail': 'string',
-                            'SupportDescription': 'string',
-                            'SupportUrl': 'string'
+                        \'ProductViewSummary\': {
+                            \'Id\': \'string\',
+                            \'ProductId\': \'string\',
+                            \'Name\': \'string\',
+                            \'Owner\': \'string\',
+                            \'ShortDescription\': \'string\',
+                            \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                            \'Distributor\': \'string\',
+                            \'HasDefaultPath\': True|False,
+                            \'SupportEmail\': \'string\',
+                            \'SupportDescription\': \'string\',
+                            \'SupportUrl\': \'string\'
                         },
-                        'Status': 'AVAILABLE'|'CREATING'|'FAILED',
-                        'ProductARN': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\',
+                        \'ProductARN\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

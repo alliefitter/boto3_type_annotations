@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -47,24 +47,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_identity_pool(
-              IdentityPoolName='string',
+              IdentityPoolName=\'string\',
               AllowUnauthenticatedIdentities=True|False,
               SupportedLoginProviders={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              DeveloperProviderName='string',
+              DeveloperProviderName=\'string\',
               OpenIdConnectProviderARNs=[
-                  'string',
+                  \'string\',
               ],
               CognitoIdentityProviders=[
                   {
-                      'ProviderName': 'string',
-                      'ClientId': 'string',
-                      'ServerSideTokenCheck': True|False
+                      \'ProviderName\': \'string\',
+                      \'ClientId\': \'string\',
+                      \'ServerSideTokenCheck\': True|False
                   },
               ],
               SamlProviderARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type IdentityPoolName: string
@@ -89,7 +89,7 @@ class Client(BaseClient):
         :type DeveloperProviderName: string
         :param DeveloperProviderName: 
         
-          The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the ``DeveloperProviderName`` , you can use letters as well as period (``.`` ), underscore (``_`` ), and dash (``-`` ).
+          The \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the ``DeveloperProviderName`` , you can use letters as well as period (``.`` ), underscore (``_`` ), and dash (``-`` ).
         
           Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
         
@@ -136,25 +136,25 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'IdentityPoolName': 'string',
-                'AllowUnauthenticatedIdentities': True|False,
-                'SupportedLoginProviders': {
-                    'string': 'string'
+                \'IdentityPoolId\': \'string\',
+                \'IdentityPoolName\': \'string\',
+                \'AllowUnauthenticatedIdentities\': True|False,
+                \'SupportedLoginProviders\': {
+                    \'string\': \'string\'
                 },
-                'DeveloperProviderName': 'string',
-                'OpenIdConnectProviderARNs': [
-                    'string',
+                \'DeveloperProviderName\': \'string\',
+                \'OpenIdConnectProviderARNs\': [
+                    \'string\',
                 ],
-                'CognitoIdentityProviders': [
+                \'CognitoIdentityProviders\': [
                     {
-                        'ProviderName': 'string',
-                        'ClientId': 'string',
-                        'ServerSideTokenCheck': True|False
+                        \'ProviderName\': \'string\',
+                        \'ClientId\': \'string\',
+                        \'ServerSideTokenCheck\': True|False
                     },
                 ],
-                'SamlProviderARNs': [
-                    'string',
+                \'SamlProviderARNs\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -185,7 +185,7 @@ class Client(BaseClient):
           
             - **DeveloperProviderName** *(string) --* 
         
-              The "domain" by which Cognito will refer to your users.
+              The \"domain\" by which Cognito will refer to your users.
         
             - **OpenIdConnectProviderARNs** *(list) --* 
         
@@ -234,7 +234,7 @@ class Client(BaseClient):
         
           response = client.delete_identities(
               IdentityIdsToDelete=[
-                  'string',
+                  \'string\',
               ]
           )
         :type IdentityIdsToDelete: list
@@ -252,10 +252,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedIdentityIds': [
+                \'UnprocessedIdentityIds\': [
                     {
-                        'IdentityId': 'string',
-                        'ErrorCode': 'AccessDenied'|'InternalServerError'
+                        \'IdentityId\': \'string\',
+                        \'ErrorCode\': \'AccessDenied\'|\'InternalServerError\'
                     },
                 ]
             }
@@ -295,7 +295,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_identity_pool(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -317,7 +317,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity(
-              IdentityId='string'
+              IdentityId=\'string\'
           )
         :type IdentityId: string
         :param IdentityId: **[REQUIRED]** 
@@ -332,12 +332,12 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string',
-                'Logins': [
-                    'string',
+                \'IdentityId\': \'string\',
+                \'Logins\': [
+                    \'string\',
                 ],
-                'CreationDate': datetime(2015, 1, 1),
-                'LastModifiedDate': datetime(2015, 1, 1)
+                \'CreationDate\': datetime(2015, 1, 1),
+                \'LastModifiedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -377,7 +377,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity_pool(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -392,25 +392,25 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'IdentityPoolName': 'string',
-                'AllowUnauthenticatedIdentities': True|False,
-                'SupportedLoginProviders': {
-                    'string': 'string'
+                \'IdentityPoolId\': \'string\',
+                \'IdentityPoolName\': \'string\',
+                \'AllowUnauthenticatedIdentities\': True|False,
+                \'SupportedLoginProviders\': {
+                    \'string\': \'string\'
                 },
-                'DeveloperProviderName': 'string',
-                'OpenIdConnectProviderARNs': [
-                    'string',
+                \'DeveloperProviderName\': \'string\',
+                \'OpenIdConnectProviderARNs\': [
+                    \'string\',
                 ],
-                'CognitoIdentityProviders': [
+                \'CognitoIdentityProviders\': [
                     {
-                        'ProviderName': 'string',
-                        'ClientId': 'string',
-                        'ServerSideTokenCheck': True|False
+                        \'ProviderName\': \'string\',
+                        \'ClientId\': \'string\',
+                        \'ServerSideTokenCheck\': True|False
                     },
                 ],
-                'SamlProviderARNs': [
-                    'string',
+                \'SamlProviderARNs\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -441,7 +441,7 @@ class Client(BaseClient):
           
             - **DeveloperProviderName** *(string) --* 
         
-              The "domain" by which Cognito will refer to your users.
+              The \"domain\" by which Cognito will refer to your users.
         
             - **OpenIdConnectProviderARNs** *(list) --* 
         
@@ -494,7 +494,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -511,11 +511,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_credentials_for_identity(
-              IdentityId='string',
+              IdentityId=\'string\',
               Logins={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              CustomRoleArn='string'
+              CustomRoleArn=\'string\'
           )
         :type IdentityId: string
         :param IdentityId: **[REQUIRED]** 
@@ -544,12 +544,12 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string',
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'IdentityId\': \'string\',
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -596,10 +596,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_id(
-              AccountId='string',
-              IdentityPoolId='string',
+              AccountId=\'string\',
+              IdentityPoolId=\'string\',
               Logins={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type AccountId: string
@@ -641,7 +641,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string'
+                \'IdentityId\': \'string\'
             }
           **Response Structure** 
         
@@ -667,7 +667,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_identity_pool_roles(
-              IdentityPoolId='string'
+              IdentityPoolId=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -682,21 +682,21 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'Roles': {
-                    'string': 'string'
+                \'IdentityPoolId\': \'string\',
+                \'Roles\': {
+                    \'string\': \'string\'
                 },
-                'RoleMappings': {
-                    'string': {
-                        'Type': 'Token'|'Rules',
-                        'AmbiguousRoleResolution': 'AuthenticatedRole'|'Deny',
-                        'RulesConfiguration': {
-                            'Rules': [
+                \'RoleMappings\': {
+                    \'string\': {
+                        \'Type\': \'Token\'|\'Rules\',
+                        \'AmbiguousRoleResolution\': \'AuthenticatedRole\'|\'Deny\',
+                        \'RulesConfiguration\': {
+                            \'Rules\': [
                                 {
-                                    'Claim': 'string',
-                                    'MatchType': 'Equals'|'Contains'|'StartsWith'|'NotEqual',
-                                    'Value': 'string',
-                                    'RoleARN': 'string'
+                                    \'Claim\': \'string\',
+                                    \'MatchType\': \'Equals\'|\'Contains\'|\'StartsWith\'|\'NotEqual\',
+                                    \'Value\': \'string\',
+                                    \'RoleARN\': \'string\'
                                 },
                             ]
                         }
@@ -723,7 +723,7 @@ class Client(BaseClient):
           
             - **RoleMappings** *(dict) --* 
         
-              How users for a specific identity provider are to mapped to roles. This is a String-to- RoleMapping object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+              How users for a specific identity provider are to mapped to roles. This is a String-to- RoleMapping object map. The string identifies the identity provider, for example, \"graph.facebook.com\" or \"cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id\".
         
               - *(string) --* 
                 
@@ -759,7 +759,7 @@ class Client(BaseClient):
         
                         - **Claim** *(string) --* 
         
-                          The claim name that must be present in the token, for example, "isAdmin" or "paid".
+                          The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\".
         
                         - **MatchType** *(string) --* 
         
@@ -767,7 +767,7 @@ class Client(BaseClient):
         
                         - **Value** *(string) --* 
         
-                          A brief string that the claim must match, for example, "paid" or "yes".
+                          A brief string that the claim must match, for example, \"paid\" or \"yes\".
         
                         - **RoleARN** *(string) --* 
         
@@ -789,9 +789,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_open_id_token(
-              IdentityId='string',
+              IdentityId=\'string\',
               Logins={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type IdentityId: string
@@ -802,7 +802,7 @@ class Client(BaseClient):
         :type Logins: dict
         :param Logins: 
         
-          A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the ``id_token`` .
+          A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider\'s authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the ``id_token`` .
         
           - *(string) --* 
         
@@ -816,8 +816,8 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string',
-                'Token': 'string'
+                \'IdentityId\': \'string\',
+                \'Token\': \'string\'
             }
           **Response Structure** 
         
@@ -849,10 +849,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_open_id_token_for_developer_identity(
-              IdentityPoolId='string',
-              IdentityId='string',
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
               Logins={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               TokenDuration=123
           )
@@ -869,7 +869,7 @@ class Client(BaseClient):
         :type Logins: dict
         :param Logins: **[REQUIRED]** 
         
-          A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax ``"developer_provider_name": "developer_user_identifier"`` . The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
+          A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax ``\"developer_provider_name\": \"developer_user_identifier\"`` . The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
         
           - *(string) --* 
         
@@ -878,7 +878,7 @@ class Client(BaseClient):
         :type TokenDuration: integer
         :param TokenDuration: 
         
-          The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
+          The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don\'t provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token\'s duration.
         
         :rtype: dict
         :returns: 
@@ -888,8 +888,8 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string',
-                'Token': 'string'
+                \'IdentityId\': \'string\',
+                \'Token\': \'string\'
             }
           **Response Structure** 
         
@@ -914,10 +914,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -951,9 +951,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_identities(
-              IdentityPoolId='string',
+              IdentityPoolId=\'string\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               HideDisabled=True|False
           )
         :type IdentityPoolId: string
@@ -984,18 +984,18 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'Identities': [
+                \'IdentityPoolId\': \'string\',
+                \'Identities\': [
                     {
-                        'IdentityId': 'string',
-                        'Logins': [
-                            'string',
+                        \'IdentityId\': \'string\',
+                        \'Logins\': [
+                            \'string\',
                         ],
-                        'CreationDate': datetime(2015, 1, 1),
-                        'LastModifiedDate': datetime(2015, 1, 1)
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'LastModifiedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1052,7 +1052,7 @@ class Client(BaseClient):
         
           response = client.list_identity_pools(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: **[REQUIRED]** 
@@ -1072,13 +1072,13 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPools': [
+                \'IdentityPools\': [
                     {
-                        'IdentityPoolId': 'string',
-                        'IdentityPoolName': 'string'
+                        \'IdentityPoolId\': \'string\',
+                        \'IdentityPoolName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1120,11 +1120,11 @@ class Client(BaseClient):
         ::
         
           response = client.lookup_developer_identity(
-              IdentityPoolId='string',
-              IdentityId='string',
-              DeveloperUserIdentifier='string',
+              IdentityPoolId=\'string\',
+              IdentityId=\'string\',
+              DeveloperUserIdentifier=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -1149,7 +1149,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          A pagination token. The first call you make will have ``NextToken`` set to null. After that the service will return ``NextToken`` values as needed. For example, let's say you make a request with ``MaxResults`` set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
+          A pagination token. The first call you make will have ``NextToken`` set to null. After that the service will return ``NextToken`` values as needed. For example, let\'s say you make a request with ``MaxResults`` set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
         
         :rtype: dict
         :returns: 
@@ -1159,11 +1159,11 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string',
-                'DeveloperUserIdentifierList': [
-                    'string',
+                \'IdentityId\': \'string\',
+                \'DeveloperUserIdentifierList\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1183,7 +1183,7 @@ class Client(BaseClient):
           
             - **NextToken** *(string) --* 
         
-              A pagination token. The first call you make will have ``NextToken`` set to null. After that the service will return ``NextToken`` values as needed. For example, let's say you make a request with ``MaxResults`` set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
+              A pagination token. The first call you make will have ``NextToken`` set to null. After that the service will return ``NextToken`` values as needed. For example, let\'s say you make a request with ``MaxResults`` set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
         
         """
         pass
@@ -1199,10 +1199,10 @@ class Client(BaseClient):
         ::
         
           response = client.merge_developer_identities(
-              SourceUserIdentifier='string',
-              DestinationUserIdentifier='string',
-              DeveloperProviderName='string',
-              IdentityPoolId='string'
+              SourceUserIdentifier=\'string\',
+              DestinationUserIdentifier=\'string\',
+              DeveloperProviderName=\'string\',
+              IdentityPoolId=\'string\'
           )
         :type SourceUserIdentifier: string
         :param SourceUserIdentifier: **[REQUIRED]** 
@@ -1217,7 +1217,7 @@ class Client(BaseClient):
         :type DeveloperProviderName: string
         :param DeveloperProviderName: **[REQUIRED]** 
         
-          The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the ``DeveloperProviderName`` , you can use letters as well as period (.), underscore (_), and dash (-).
+          The \"domain\" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the ``DeveloperProviderName`` , you can use letters as well as period (.), underscore (_), and dash (-).
         
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]** 
@@ -1232,7 +1232,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityId': 'string'
+                \'IdentityId\': \'string\'
             }
           **Response Structure** 
         
@@ -1258,21 +1258,21 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_pool_roles(
-              IdentityPoolId='string',
+              IdentityPoolId=\'string\',
               Roles={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               RoleMappings={
-                  'string': {
-                      'Type': 'Token'|'Rules',
-                      'AmbiguousRoleResolution': 'AuthenticatedRole'|'Deny',
-                      'RulesConfiguration': {
-                          'Rules': [
+                  \'string\': {
+                      \'Type\': \'Token\'|\'Rules\',
+                      \'AmbiguousRoleResolution\': \'AuthenticatedRole\'|\'Deny\',
+                      \'RulesConfiguration\': {
+                          \'Rules\': [
                               {
-                                  'Claim': 'string',
-                                  'MatchType': 'Equals'|'Contains'|'StartsWith'|'NotEqual',
-                                  'Value': 'string',
-                                  'RoleARN': 'string'
+                                  \'Claim\': \'string\',
+                                  \'MatchType\': \'Equals\'|\'Contains\'|\'StartsWith\'|\'NotEqual\',
+                                  \'Value\': \'string\',
+                                  \'RoleARN\': \'string\'
                               },
                           ]
                       }
@@ -1287,7 +1287,7 @@ class Client(BaseClient):
         :type Roles: dict
         :param Roles: **[REQUIRED]** 
         
-          The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+          The map of roles associated with this pool. For a given role, the key will be either \"authenticated\" or \"unauthenticated\" and the value will be the Role ARN.
         
           - *(string) --* 
         
@@ -1296,7 +1296,7 @@ class Client(BaseClient):
         :type RoleMappings: dict
         :param RoleMappings: 
         
-          How users for a specific identity provider are to mapped to roles. This is a string to  RoleMapping object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+          How users for a specific identity provider are to mapped to roles. This is a string to  RoleMapping object map. The string identifies the identity provider, for example, \"graph.facebook.com\" or \"cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id\".
         
           Up to 25 rules can be specified per identity provider.
         
@@ -1334,7 +1334,7 @@ class Client(BaseClient):
         
                     - **Claim** *(string) --* **[REQUIRED]** 
         
-                      The claim name that must be present in the token, for example, "isAdmin" or "paid".
+                      The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\".
         
                     - **MatchType** *(string) --* **[REQUIRED]** 
         
@@ -1342,7 +1342,7 @@ class Client(BaseClient):
         
                     - **Value** *(string) --* **[REQUIRED]** 
         
-                      A brief string that the claim must match, for example, "paid" or "yes".
+                      A brief string that the claim must match, for example, \"paid\" or \"yes\".
         
                     - **RoleARN** *(string) --* **[REQUIRED]** 
         
@@ -1363,10 +1363,10 @@ class Client(BaseClient):
         ::
         
           response = client.unlink_developer_identity(
-              IdentityId='string',
-              IdentityPoolId='string',
-              DeveloperProviderName='string',
-              DeveloperUserIdentifier='string'
+              IdentityId=\'string\',
+              IdentityPoolId=\'string\',
+              DeveloperProviderName=\'string\',
+              DeveloperUserIdentifier=\'string\'
           )
         :type IdentityId: string
         :param IdentityId: **[REQUIRED]** 
@@ -1381,7 +1381,7 @@ class Client(BaseClient):
         :type DeveloperProviderName: string
         :param DeveloperProviderName: **[REQUIRED]** 
         
-          The "domain" by which Cognito will refer to your users.
+          The \"domain\" by which Cognito will refer to your users.
         
         :type DeveloperUserIdentifier: string
         :param DeveloperUserIdentifier: **[REQUIRED]** 
@@ -1403,12 +1403,12 @@ class Client(BaseClient):
         ::
         
           response = client.unlink_identity(
-              IdentityId='string',
+              IdentityId=\'string\',
               Logins={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               LoginsToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type IdentityId: string
@@ -1447,25 +1447,25 @@ class Client(BaseClient):
         ::
         
           response = client.update_identity_pool(
-              IdentityPoolId='string',
-              IdentityPoolName='string',
+              IdentityPoolId=\'string\',
+              IdentityPoolName=\'string\',
               AllowUnauthenticatedIdentities=True|False,
               SupportedLoginProviders={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              DeveloperProviderName='string',
+              DeveloperProviderName=\'string\',
               OpenIdConnectProviderARNs=[
-                  'string',
+                  \'string\',
               ],
               CognitoIdentityProviders=[
                   {
-                      'ProviderName': 'string',
-                      'ClientId': 'string',
-                      'ServerSideTokenCheck': True|False
+                      \'ProviderName\': \'string\',
+                      \'ClientId\': \'string\',
+                      \'ServerSideTokenCheck\': True|False
                   },
               ],
               SamlProviderARNs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type IdentityPoolId: string
@@ -1495,7 +1495,7 @@ class Client(BaseClient):
         :type DeveloperProviderName: string
         :param DeveloperProviderName: 
         
-          The "domain" by which Cognito will refer to your users.
+          The \"domain\" by which Cognito will refer to your users.
         
         :type OpenIdConnectProviderARNs: list
         :param OpenIdConnectProviderARNs: 
@@ -1540,25 +1540,25 @@ class Client(BaseClient):
           ::
         
             {
-                'IdentityPoolId': 'string',
-                'IdentityPoolName': 'string',
-                'AllowUnauthenticatedIdentities': True|False,
-                'SupportedLoginProviders': {
-                    'string': 'string'
+                \'IdentityPoolId\': \'string\',
+                \'IdentityPoolName\': \'string\',
+                \'AllowUnauthenticatedIdentities\': True|False,
+                \'SupportedLoginProviders\': {
+                    \'string\': \'string\'
                 },
-                'DeveloperProviderName': 'string',
-                'OpenIdConnectProviderARNs': [
-                    'string',
+                \'DeveloperProviderName\': \'string\',
+                \'OpenIdConnectProviderARNs\': [
+                    \'string\',
                 ],
-                'CognitoIdentityProviders': [
+                \'CognitoIdentityProviders\': [
                     {
-                        'ProviderName': 'string',
-                        'ClientId': 'string',
-                        'ServerSideTokenCheck': True|False
+                        \'ProviderName\': \'string\',
+                        \'ClientId\': \'string\',
+                        \'ServerSideTokenCheck\': True|False
                     },
                 ],
-                'SamlProviderARNs': [
-                    'string',
+                \'SamlProviderARNs\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1589,7 +1589,7 @@ class Client(BaseClient):
           
             - **DeveloperProviderName** *(string) --* 
         
-              The "domain" by which Cognito will refer to your users.
+              The \"domain\" by which Cognito will refer to your users.
         
             - **OpenIdConnectProviderARNs** *(list) --* 
         

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,8 +18,8 @@ class Client(BaseClient):
         ::
         
           response = client.acknowledge_job(
-              jobId='string',
-              nonce='string'
+              jobId=\'string\',
+              nonce=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -39,7 +39,7 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'Created'|'Queued'|'Dispatched'|'InProgress'|'TimedOut'|'Succeeded'|'Failed'
+                \'status\': \'Created\'|\'Queued\'|\'Dispatched\'|\'InProgress\'|\'TimedOut\'|\'Succeeded\'|\'Failed\'
             }
           **Response Structure** 
         
@@ -63,9 +63,9 @@ class Client(BaseClient):
         ::
         
           response = client.acknowledge_third_party_job(
-              jobId='string',
-              nonce='string',
-              clientToken='string'
+              jobId=\'string\',
+              nonce=\'string\',
+              clientToken=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -90,7 +90,7 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'Created'|'Queued'|'Dispatched'|'InProgress'|'TimedOut'|'Succeeded'|'Failed'
+                \'status\': \'Created\'|\'Queued\'|\'Dispatched\'|\'InProgress\'|\'TimedOut\'|\'Succeeded\'|\'Failed\'
             }
           **Response Structure** 
         
@@ -111,10 +111,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -130,33 +130,33 @@ class Client(BaseClient):
         ::
         
           response = client.create_custom_action_type(
-              category='Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-              provider='string',
-              version='string',
+              category=\'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+              provider=\'string\',
+              version=\'string\',
               settings={
-                  'thirdPartyConfigurationUrl': 'string',
-                  'entityUrlTemplate': 'string',
-                  'executionUrlTemplate': 'string',
-                  'revisionUrlTemplate': 'string'
+                  \'thirdPartyConfigurationUrl\': \'string\',
+                  \'entityUrlTemplate\': \'string\',
+                  \'executionUrlTemplate\': \'string\',
+                  \'revisionUrlTemplate\': \'string\'
               },
               configurationProperties=[
                   {
-                      'name': 'string',
-                      'required': True|False,
-                      'key': True|False,
-                      'secret': True|False,
-                      'queryable': True|False,
-                      'description': 'string',
-                      'type': 'String'|'Number'|'Boolean'
+                      \'name\': \'string\',
+                      \'required\': True|False,
+                      \'key\': True|False,
+                      \'secret\': True|False,
+                      \'queryable\': True|False,
+                      \'description\': \'string\',
+                      \'type\': \'String\'|\'Number\'|\'Boolean\'
                   },
               ],
               inputArtifactDetails={
-                  'minimumCount': 123,
-                  'maximumCount': 123
+                  \'minimumCount\': 123,
+                  \'maximumCount\': 123
               },
               outputArtifactDetails={
-                  'minimumCount': 123,
-                  'maximumCount': 123
+                  \'minimumCount\': 123,
+                  \'maximumCount\': 123
               }
           )
         :type category: string
@@ -278,37 +278,37 @@ class Client(BaseClient):
           ::
         
             {
-                'actionType': {
-                    'id': {
-                        'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                        'owner': 'AWS'|'ThirdParty'|'Custom',
-                        'provider': 'string',
-                        'version': 'string'
+                \'actionType\': {
+                    \'id\': {
+                        \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                        \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                        \'provider\': \'string\',
+                        \'version\': \'string\'
                     },
-                    'settings': {
-                        'thirdPartyConfigurationUrl': 'string',
-                        'entityUrlTemplate': 'string',
-                        'executionUrlTemplate': 'string',
-                        'revisionUrlTemplate': 'string'
+                    \'settings\': {
+                        \'thirdPartyConfigurationUrl\': \'string\',
+                        \'entityUrlTemplate\': \'string\',
+                        \'executionUrlTemplate\': \'string\',
+                        \'revisionUrlTemplate\': \'string\'
                     },
-                    'actionConfigurationProperties': [
+                    \'actionConfigurationProperties\': [
                         {
-                            'name': 'string',
-                            'required': True|False,
-                            'key': True|False,
-                            'secret': True|False,
-                            'queryable': True|False,
-                            'description': 'string',
-                            'type': 'String'|'Number'|'Boolean'
+                            \'name\': \'string\',
+                            \'required\': True|False,
+                            \'key\': True|False,
+                            \'secret\': True|False,
+                            \'queryable\': True|False,
+                            \'description\': \'string\',
+                            \'type\': \'String\'|\'Number\'|\'Boolean\'
                         },
                     ],
-                    'inputArtifactDetails': {
-                        'minimumCount': 123,
-                        'maximumCount': 123
+                    \'inputArtifactDetails\': {
+                        \'minimumCount\': 123,
+                        \'maximumCount\': 123
                     },
-                    'outputArtifactDetails': {
-                        'minimumCount': 123,
-                        'maximumCount': 123
+                    \'outputArtifactDetails\': {
+                        \'minimumCount\': 123,
+                        \'maximumCount\': 123
                     }
                 }
             }
@@ -439,65 +439,65 @@ class Client(BaseClient):
         
           response = client.create_pipeline(
               pipeline={
-                  'name': 'string',
-                  'roleArn': 'string',
-                  'artifactStore': {
-                      'type': 'S3',
-                      'location': 'string',
-                      'encryptionKey': {
-                          'id': 'string',
-                          'type': 'KMS'
+                  \'name\': \'string\',
+                  \'roleArn\': \'string\',
+                  \'artifactStore\': {
+                      \'type\': \'S3\',
+                      \'location\': \'string\',
+                      \'encryptionKey\': {
+                          \'id\': \'string\',
+                          \'type\': \'KMS\'
                       }
                   },
-                  'artifactStores': {
-                      'string': {
-                          'type': 'S3',
-                          'location': 'string',
-                          'encryptionKey': {
-                              'id': 'string',
-                              'type': 'KMS'
+                  \'artifactStores\': {
+                      \'string\': {
+                          \'type\': \'S3\',
+                          \'location\': \'string\',
+                          \'encryptionKey\': {
+                              \'id\': \'string\',
+                              \'type\': \'KMS\'
                           }
                       }
                   },
-                  'stages': [
+                  \'stages\': [
                       {
-                          'name': 'string',
-                          'blockers': [
+                          \'name\': \'string\',
+                          \'blockers\': [
                               {
-                                  'name': 'string',
-                                  'type': 'Schedule'
+                                  \'name\': \'string\',
+                                  \'type\': \'Schedule\'
                               },
                           ],
-                          'actions': [
+                          \'actions\': [
                               {
-                                  'name': 'string',
-                                  'actionTypeId': {
-                                      'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                      'owner': 'AWS'|'ThirdParty'|'Custom',
-                                      'provider': 'string',
-                                      'version': 'string'
+                                  \'name\': \'string\',
+                                  \'actionTypeId\': {
+                                      \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                      \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                      \'provider\': \'string\',
+                                      \'version\': \'string\'
                                   },
-                                  'runOrder': 123,
-                                  'configuration': {
-                                      'string': 'string'
+                                  \'runOrder\': 123,
+                                  \'configuration\': {
+                                      \'string\': \'string\'
                                   },
-                                  'outputArtifacts': [
+                                  \'outputArtifacts\': [
                                       {
-                                          'name': 'string'
+                                          \'name\': \'string\'
                                       },
                                   ],
-                                  'inputArtifacts': [
+                                  \'inputArtifacts\': [
                                       {
-                                          'name': 'string'
+                                          \'name\': \'string\'
                                       },
                                   ],
-                                  'roleArn': 'string',
-                                  'region': 'string'
+                                  \'roleArn\': \'string\',
+                                  \'region\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'version': 123
+                  \'version\': 123
               }
           )
         :type pipeline: dict
@@ -535,7 +535,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* **[REQUIRED]** 
         
-                The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
           - **artifactStores** *(dict) --* 
         
@@ -567,7 +567,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* **[REQUIRED]** 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
           - **stages** *(list) --* **[REQUIRED]** 
         
@@ -607,7 +607,7 @@ class Client(BaseClient):
         
                   - **name** *(string) --* **[REQUIRED]** 
         
-                    The action declaration's name.
+                    The action declaration\'s name.
         
                   - **actionTypeId** *(dict) --* **[REQUIRED]** 
         
@@ -635,7 +635,7 @@ class Client(BaseClient):
         
                   - **configuration** *(dict) --* 
         
-                    The action declaration's configuration.
+                    The action declaration\'s configuration.
         
                     - *(string) --* 
         
@@ -651,7 +651,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* **[REQUIRED]** 
         
-                        The name of the output of an artifact, such as "My App".
+                        The name of the output of an artifact, such as \"My App\".
         
                         The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -667,7 +667,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* **[REQUIRED]** 
         
-                        The name of the artifact to be worked on, for example, "My App".
+                        The name of the artifact to be worked on, for example, \"My App\".
         
                         The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -677,7 +677,7 @@ class Client(BaseClient):
         
                   - **region** *(string) --* 
         
-                    The action declaration's AWS Region, such as us-east-1.
+                    The action declaration\'s AWS Region, such as us-east-1.
         
           - **version** *(integer) --* 
         
@@ -691,66 +691,66 @@ class Client(BaseClient):
           ::
         
             {
-                'pipeline': {
-                    'name': 'string',
-                    'roleArn': 'string',
-                    'artifactStore': {
-                        'type': 'S3',
-                        'location': 'string',
-                        'encryptionKey': {
-                            'id': 'string',
-                            'type': 'KMS'
+                \'pipeline\': {
+                    \'name\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'artifactStore\': {
+                        \'type\': \'S3\',
+                        \'location\': \'string\',
+                        \'encryptionKey\': {
+                            \'id\': \'string\',
+                            \'type\': \'KMS\'
                         }
                     },
-                    'artifactStores': {
-                        'string': {
-                            'type': 'S3',
-                            'location': 'string',
-                            'encryptionKey': {
-                                'id': 'string',
-                                'type': 'KMS'
+                    \'artifactStores\': {
+                        \'string\': {
+                            \'type\': \'S3\',
+                            \'location\': \'string\',
+                            \'encryptionKey\': {
+                                \'id\': \'string\',
+                                \'type\': \'KMS\'
                             }
                         }
                     },
-                    'stages': [
+                    \'stages\': [
                         {
-                            'name': 'string',
-                            'blockers': [
+                            \'name\': \'string\',
+                            \'blockers\': [
                                 {
-                                    'name': 'string',
-                                    'type': 'Schedule'
+                                    \'name\': \'string\',
+                                    \'type\': \'Schedule\'
                                 },
                             ],
-                            'actions': [
+                            \'actions\': [
                                 {
-                                    'name': 'string',
-                                    'actionTypeId': {
-                                        'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                        'owner': 'AWS'|'ThirdParty'|'Custom',
-                                        'provider': 'string',
-                                        'version': 'string'
+                                    \'name\': \'string\',
+                                    \'actionTypeId\': {
+                                        \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                        \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                        \'provider\': \'string\',
+                                        \'version\': \'string\'
                                     },
-                                    'runOrder': 123,
-                                    'configuration': {
-                                        'string': 'string'
+                                    \'runOrder\': 123,
+                                    \'configuration\': {
+                                        \'string\': \'string\'
                                     },
-                                    'outputArtifacts': [
+                                    \'outputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'inputArtifacts': [
+                                    \'inputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'roleArn': 'string',
-                                    'region': 'string'
+                                    \'roleArn\': \'string\',
+                                    \'region\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'version': 123
+                    \'version\': 123
                 }
             }
           **Response Structure** 
@@ -793,7 +793,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **artifactStores** *(dict) --* 
         
@@ -825,7 +825,7 @@ class Client(BaseClient):
         
                       - **type** *(string) --* 
         
-                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **stages** *(list) --* 
         
@@ -865,7 +865,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* 
         
-                        The action declaration's name.
+                        The action declaration\'s name.
         
                       - **actionTypeId** *(dict) --* 
         
@@ -893,7 +893,7 @@ class Client(BaseClient):
         
                       - **configuration** *(dict) --* 
         
-                        The action declaration's configuration.
+                        The action declaration\'s configuration.
         
                         - *(string) --* 
                           
@@ -909,7 +909,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the output of an artifact, such as "My App".
+                            The name of the output of an artifact, such as \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -925,7 +925,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the artifact to be worked on, for example, "My App".
+                            The name of the artifact to be worked on, for example, \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -935,7 +935,7 @@ class Client(BaseClient):
         
                       - **region** *(string) --* 
         
-                        The action declaration's AWS Region, such as us-east-1.
+                        The action declaration\'s AWS Region, such as us-east-1.
         
               - **version** *(integer) --* 
         
@@ -957,9 +957,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_custom_action_type(
-              category='Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-              provider='string',
-              version='string'
+              category=\'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+              provider=\'string\',
+              version=\'string\'
           )
         :type category: string
         :param category: **[REQUIRED]** 
@@ -989,7 +989,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_pipeline(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1009,7 +1009,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_webhook(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1039,7 +1039,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_webhook_with_third_party(
-              webhookName='string'
+              webhookName=\'string\'
           )
         :type webhookName: string
         :param webhookName: 
@@ -1069,10 +1069,10 @@ class Client(BaseClient):
         ::
         
           response = client.disable_stage_transition(
-              pipelineName='string',
-              stageName='string',
-              transitionType='Inbound'|'Outbound',
-              reason='string'
+              pipelineName=\'string\',
+              stageName=\'string\',
+              transitionType=\'Inbound\'|\'Outbound\',
+              reason=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -1107,9 +1107,9 @@ class Client(BaseClient):
         ::
         
           response = client.enable_stage_transition(
-              pipelineName='string',
-              stageName='string',
-              transitionType='Inbound'|'Outbound'
+              pipelineName=\'string\',
+              stageName=\'string\',
+              transitionType=\'Inbound\'|\'Outbound\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -1146,7 +1146,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1165,7 +1165,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_details(
-              jobId='string'
+              jobId=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -1180,67 +1180,67 @@ class Client(BaseClient):
           ::
         
             {
-                'jobDetails': {
-                    'id': 'string',
-                    'data': {
-                        'actionTypeId': {
-                            'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                            'owner': 'AWS'|'ThirdParty'|'Custom',
-                            'provider': 'string',
-                            'version': 'string'
+                \'jobDetails\': {
+                    \'id\': \'string\',
+                    \'data\': {
+                        \'actionTypeId\': {
+                            \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                            \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                            \'provider\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'actionConfiguration': {
-                            'configuration': {
-                                'string': 'string'
+                        \'actionConfiguration\': {
+                            \'configuration\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'pipelineContext': {
-                            'pipelineName': 'string',
-                            'stage': {
-                                'name': 'string'
+                        \'pipelineContext\': {
+                            \'pipelineName\': \'string\',
+                            \'stage\': {
+                                \'name\': \'string\'
                             },
-                            'action': {
-                                'name': 'string'
+                            \'action\': {
+                                \'name\': \'string\'
                             }
                         },
-                        'inputArtifacts': [
+                        \'inputArtifacts\': [
                             {
-                                'name': 'string',
-                                'revision': 'string',
-                                'location': {
-                                    'type': 'S3',
-                                    's3Location': {
-                                        'bucketName': 'string',
-                                        'objectKey': 'string'
+                                \'name\': \'string\',
+                                \'revision\': \'string\',
+                                \'location\': {
+                                    \'type\': \'S3\',
+                                    \'s3Location\': {
+                                        \'bucketName\': \'string\',
+                                        \'objectKey\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'outputArtifacts': [
+                        \'outputArtifacts\': [
                             {
-                                'name': 'string',
-                                'revision': 'string',
-                                'location': {
-                                    'type': 'S3',
-                                    's3Location': {
-                                        'bucketName': 'string',
-                                        'objectKey': 'string'
+                                \'name\': \'string\',
+                                \'revision\': \'string\',
+                                \'location\': {
+                                    \'type\': \'S3\',
+                                    \'s3Location\': {
+                                        \'bucketName\': \'string\',
+                                        \'objectKey\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'artifactCredentials': {
-                            'accessKeyId': 'string',
-                            'secretAccessKey': 'string',
-                            'sessionToken': 'string'
+                        \'artifactCredentials\': {
+                            \'accessKeyId\': \'string\',
+                            \'secretAccessKey\': \'string\',
+                            \'sessionToken\': \'string\'
                         },
-                        'continuationToken': 'string',
-                        'encryptionKey': {
-                            'id': 'string',
-                            'type': 'KMS'
+                        \'continuationToken\': \'string\',
+                        \'encryptionKey\': {
+                            \'id\': \'string\',
+                            \'type\': \'KMS\'
                         }
                     },
-                    'accountId': 'string'
+                    \'accountId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1331,11 +1331,11 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The artifact's name.
+                      The artifact\'s name.
         
                     - **revision** *(string) --* 
         
-                      The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                      The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                     - **location** *(dict) --* 
         
@@ -1367,11 +1367,11 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The artifact's name.
+                      The artifact\'s name.
         
                     - **revision** *(string) --* 
         
-                      The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                      The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                     - **location** *(dict) --* 
         
@@ -1423,7 +1423,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **accountId** *(string) --* 
         
@@ -1438,10 +1438,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1461,7 +1461,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_pipeline(
-              name='string',
+              name=\'string\',
               version=123
           )
         :type name: string
@@ -1482,71 +1482,71 @@ class Client(BaseClient):
           ::
         
             {
-                'pipeline': {
-                    'name': 'string',
-                    'roleArn': 'string',
-                    'artifactStore': {
-                        'type': 'S3',
-                        'location': 'string',
-                        'encryptionKey': {
-                            'id': 'string',
-                            'type': 'KMS'
+                \'pipeline\': {
+                    \'name\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'artifactStore\': {
+                        \'type\': \'S3\',
+                        \'location\': \'string\',
+                        \'encryptionKey\': {
+                            \'id\': \'string\',
+                            \'type\': \'KMS\'
                         }
                     },
-                    'artifactStores': {
-                        'string': {
-                            'type': 'S3',
-                            'location': 'string',
-                            'encryptionKey': {
-                                'id': 'string',
-                                'type': 'KMS'
+                    \'artifactStores\': {
+                        \'string\': {
+                            \'type\': \'S3\',
+                            \'location\': \'string\',
+                            \'encryptionKey\': {
+                                \'id\': \'string\',
+                                \'type\': \'KMS\'
                             }
                         }
                     },
-                    'stages': [
+                    \'stages\': [
                         {
-                            'name': 'string',
-                            'blockers': [
+                            \'name\': \'string\',
+                            \'blockers\': [
                                 {
-                                    'name': 'string',
-                                    'type': 'Schedule'
+                                    \'name\': \'string\',
+                                    \'type\': \'Schedule\'
                                 },
                             ],
-                            'actions': [
+                            \'actions\': [
                                 {
-                                    'name': 'string',
-                                    'actionTypeId': {
-                                        'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                        'owner': 'AWS'|'ThirdParty'|'Custom',
-                                        'provider': 'string',
-                                        'version': 'string'
+                                    \'name\': \'string\',
+                                    \'actionTypeId\': {
+                                        \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                        \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                        \'provider\': \'string\',
+                                        \'version\': \'string\'
                                     },
-                                    'runOrder': 123,
-                                    'configuration': {
-                                        'string': 'string'
+                                    \'runOrder\': 123,
+                                    \'configuration\': {
+                                        \'string\': \'string\'
                                     },
-                                    'outputArtifacts': [
+                                    \'outputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'inputArtifacts': [
+                                    \'inputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'roleArn': 'string',
-                                    'region': 'string'
+                                    \'roleArn\': \'string\',
+                                    \'region\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'version': 123
+                    \'version\': 123
                 },
-                'metadata': {
-                    'pipelineArn': 'string',
-                    'created': datetime(2015, 1, 1),
-                    'updated': datetime(2015, 1, 1)
+                \'metadata\': {
+                    \'pipelineArn\': \'string\',
+                    \'created\': datetime(2015, 1, 1),
+                    \'updated\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1589,7 +1589,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **artifactStores** *(dict) --* 
         
@@ -1621,7 +1621,7 @@ class Client(BaseClient):
         
                       - **type** *(string) --* 
         
-                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **stages** *(list) --* 
         
@@ -1661,7 +1661,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* 
         
-                        The action declaration's name.
+                        The action declaration\'s name.
         
                       - **actionTypeId** *(dict) --* 
         
@@ -1689,7 +1689,7 @@ class Client(BaseClient):
         
                       - **configuration** *(dict) --* 
         
-                        The action declaration's configuration.
+                        The action declaration\'s configuration.
         
                         - *(string) --* 
                           
@@ -1705,7 +1705,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the output of an artifact, such as "My App".
+                            The name of the output of an artifact, such as \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -1721,7 +1721,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the artifact to be worked on, for example, "My App".
+                            The name of the artifact to be worked on, for example, \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -1731,7 +1731,7 @@ class Client(BaseClient):
         
                       - **region** *(string) --* 
         
-                        The action declaration's AWS Region, such as us-east-1.
+                        The action declaration\'s AWS Region, such as us-east-1.
         
               - **version** *(integer) --* 
         
@@ -1765,8 +1765,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_pipeline_execution(
-              pipelineName='string',
-              pipelineExecutionId='string'
+              pipelineName=\'string\',
+              pipelineExecutionId=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -1786,19 +1786,19 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineExecution': {
-                    'pipelineName': 'string',
-                    'pipelineVersion': 123,
-                    'pipelineExecutionId': 'string',
-                    'status': 'InProgress'|'Succeeded'|'Superseded'|'Failed',
-                    'artifactRevisions': [
+                \'pipelineExecution\': {
+                    \'pipelineName\': \'string\',
+                    \'pipelineVersion\': 123,
+                    \'pipelineExecutionId\': \'string\',
+                    \'status\': \'InProgress\'|\'Succeeded\'|\'Superseded\'|\'Failed\',
+                    \'artifactRevisions\': [
                         {
-                            'name': 'string',
-                            'revisionId': 'string',
-                            'revisionChangeIdentifier': 'string',
-                            'revisionSummary': 'string',
-                            'created': datetime(2015, 1, 1),
-                            'revisionUrl': 'string'
+                            \'name\': \'string\',
+                            \'revisionId\': \'string\',
+                            \'revisionChangeIdentifier\': \'string\',
+                            \'revisionSummary\': \'string\',
+                            \'created\': datetime(2015, 1, 1),
+                            \'revisionUrl\': \'string\'
                         },
                     ]
                 }
@@ -1847,7 +1847,7 @@ class Client(BaseClient):
         
                   - **name** *(string) --* 
         
-                    The name of an artifact. This name might be system-generated, such as "MyApp", or might be defined by the user when an action is created.
+                    The name of an artifact. This name might be system-generated, such as \"MyApp\", or might be defined by the user when an action is created.
         
                   - **revisionId** *(string) --* 
         
@@ -1881,7 +1881,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_pipeline_state(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -1896,51 +1896,51 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineName': 'string',
-                'pipelineVersion': 123,
-                'stageStates': [
+                \'pipelineName\': \'string\',
+                \'pipelineVersion\': 123,
+                \'stageStates\': [
                     {
-                        'stageName': 'string',
-                        'inboundTransitionState': {
-                            'enabled': True|False,
-                            'lastChangedBy': 'string',
-                            'lastChangedAt': datetime(2015, 1, 1),
-                            'disabledReason': 'string'
+                        \'stageName\': \'string\',
+                        \'inboundTransitionState\': {
+                            \'enabled\': True|False,
+                            \'lastChangedBy\': \'string\',
+                            \'lastChangedAt\': datetime(2015, 1, 1),
+                            \'disabledReason\': \'string\'
                         },
-                        'actionStates': [
+                        \'actionStates\': [
                             {
-                                'actionName': 'string',
-                                'currentRevision': {
-                                    'revisionId': 'string',
-                                    'revisionChangeId': 'string',
-                                    'created': datetime(2015, 1, 1)
+                                \'actionName\': \'string\',
+                                \'currentRevision\': {
+                                    \'revisionId\': \'string\',
+                                    \'revisionChangeId\': \'string\',
+                                    \'created\': datetime(2015, 1, 1)
                                 },
-                                'latestExecution': {
-                                    'status': 'InProgress'|'Succeeded'|'Failed',
-                                    'summary': 'string',
-                                    'lastStatusChange': datetime(2015, 1, 1),
-                                    'token': 'string',
-                                    'lastUpdatedBy': 'string',
-                                    'externalExecutionId': 'string',
-                                    'externalExecutionUrl': 'string',
-                                    'percentComplete': 123,
-                                    'errorDetails': {
-                                        'code': 'string',
-                                        'message': 'string'
+                                \'latestExecution\': {
+                                    \'status\': \'InProgress\'|\'Succeeded\'|\'Failed\',
+                                    \'summary\': \'string\',
+                                    \'lastStatusChange\': datetime(2015, 1, 1),
+                                    \'token\': \'string\',
+                                    \'lastUpdatedBy\': \'string\',
+                                    \'externalExecutionId\': \'string\',
+                                    \'externalExecutionUrl\': \'string\',
+                                    \'percentComplete\': 123,
+                                    \'errorDetails\': {
+                                        \'code\': \'string\',
+                                        \'message\': \'string\'
                                     }
                                 },
-                                'entityUrl': 'string',
-                                'revisionUrl': 'string'
+                                \'entityUrl\': \'string\',
+                                \'revisionUrl\': \'string\'
                             },
                         ],
-                        'latestExecution': {
-                            'pipelineExecutionId': 'string',
-                            'status': 'InProgress'|'Failed'|'Succeeded'
+                        \'latestExecution\': {
+                            \'pipelineExecutionId\': \'string\',
+                            \'status\': \'InProgress\'|\'Failed\'|\'Succeeded\'
                         }
                     },
                 ],
-                'created': datetime(2015, 1, 1),
-                'updated': datetime(2015, 1, 1)
+                \'created\': datetime(2015, 1, 1),
+                \'updated\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2112,8 +2112,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_third_party_job_details(
-              jobId='string',
-              clientToken='string'
+              jobId=\'string\',
+              clientToken=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -2133,67 +2133,67 @@ class Client(BaseClient):
           ::
         
             {
-                'jobDetails': {
-                    'id': 'string',
-                    'data': {
-                        'actionTypeId': {
-                            'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                            'owner': 'AWS'|'ThirdParty'|'Custom',
-                            'provider': 'string',
-                            'version': 'string'
+                \'jobDetails\': {
+                    \'id\': \'string\',
+                    \'data\': {
+                        \'actionTypeId\': {
+                            \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                            \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                            \'provider\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'actionConfiguration': {
-                            'configuration': {
-                                'string': 'string'
+                        \'actionConfiguration\': {
+                            \'configuration\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'pipelineContext': {
-                            'pipelineName': 'string',
-                            'stage': {
-                                'name': 'string'
+                        \'pipelineContext\': {
+                            \'pipelineName\': \'string\',
+                            \'stage\': {
+                                \'name\': \'string\'
                             },
-                            'action': {
-                                'name': 'string'
+                            \'action\': {
+                                \'name\': \'string\'
                             }
                         },
-                        'inputArtifacts': [
+                        \'inputArtifacts\': [
                             {
-                                'name': 'string',
-                                'revision': 'string',
-                                'location': {
-                                    'type': 'S3',
-                                    's3Location': {
-                                        'bucketName': 'string',
-                                        'objectKey': 'string'
+                                \'name\': \'string\',
+                                \'revision\': \'string\',
+                                \'location\': {
+                                    \'type\': \'S3\',
+                                    \'s3Location\': {
+                                        \'bucketName\': \'string\',
+                                        \'objectKey\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'outputArtifacts': [
+                        \'outputArtifacts\': [
                             {
-                                'name': 'string',
-                                'revision': 'string',
-                                'location': {
-                                    'type': 'S3',
-                                    's3Location': {
-                                        'bucketName': 'string',
-                                        'objectKey': 'string'
+                                \'name\': \'string\',
+                                \'revision\': \'string\',
+                                \'location\': {
+                                    \'type\': \'S3\',
+                                    \'s3Location\': {
+                                        \'bucketName\': \'string\',
+                                        \'objectKey\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'artifactCredentials': {
-                            'accessKeyId': 'string',
-                            'secretAccessKey': 'string',
-                            'sessionToken': 'string'
+                        \'artifactCredentials\': {
+                            \'accessKeyId\': \'string\',
+                            \'secretAccessKey\': \'string\',
+                            \'sessionToken\': \'string\'
                         },
-                        'continuationToken': 'string',
-                        'encryptionKey': {
-                            'id': 'string',
-                            'type': 'KMS'
+                        \'continuationToken\': \'string\',
+                        \'encryptionKey\': {
+                            \'id\': \'string\',
+                            \'type\': \'KMS\'
                         }
                     },
-                    'nonce': 'string'
+                    \'nonce\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2272,7 +2272,7 @@ class Client(BaseClient):
         
                 - **inputArtifacts** *(list) --* 
         
-                  The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
+                  The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as \"MyApp\", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
         
                   - *(dict) --* 
         
@@ -2280,11 +2280,11 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The artifact's name.
+                      The artifact\'s name.
         
                     - **revision** *(string) --* 
         
-                      The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                      The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                     - **location** *(dict) --* 
         
@@ -2308,7 +2308,7 @@ class Client(BaseClient):
         
                 - **outputArtifacts** *(list) --* 
         
-                  The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
+                  The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or might be defined by the user when the action is created.
         
                   - *(dict) --* 
         
@@ -2316,11 +2316,11 @@ class Client(BaseClient):
         
                     - **name** *(string) --* 
         
-                      The artifact's name.
+                      The artifact\'s name.
         
                     - **revision** *(string) --* 
         
-                      The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                      The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                     - **location** *(dict) --* 
         
@@ -2372,7 +2372,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **nonce** *(string) --* 
         
@@ -2402,8 +2402,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_action_types(
-              actionOwnerFilter='AWS'|'ThirdParty'|'Custom',
-              nextToken='string'
+              actionOwnerFilter=\'AWS\'|\'ThirdParty\'|\'Custom\',
+              nextToken=\'string\'
           )
         :type actionOwnerFilter: string
         :param actionOwnerFilter: 
@@ -2423,42 +2423,42 @@ class Client(BaseClient):
           ::
         
             {
-                'actionTypes': [
+                \'actionTypes\': [
                     {
-                        'id': {
-                            'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                            'owner': 'AWS'|'ThirdParty'|'Custom',
-                            'provider': 'string',
-                            'version': 'string'
+                        \'id\': {
+                            \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                            \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                            \'provider\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'settings': {
-                            'thirdPartyConfigurationUrl': 'string',
-                            'entityUrlTemplate': 'string',
-                            'executionUrlTemplate': 'string',
-                            'revisionUrlTemplate': 'string'
+                        \'settings\': {
+                            \'thirdPartyConfigurationUrl\': \'string\',
+                            \'entityUrlTemplate\': \'string\',
+                            \'executionUrlTemplate\': \'string\',
+                            \'revisionUrlTemplate\': \'string\'
                         },
-                        'actionConfigurationProperties': [
+                        \'actionConfigurationProperties\': [
                             {
-                                'name': 'string',
-                                'required': True|False,
-                                'key': True|False,
-                                'secret': True|False,
-                                'queryable': True|False,
-                                'description': 'string',
-                                'type': 'String'|'Number'|'Boolean'
+                                \'name\': \'string\',
+                                \'required\': True|False,
+                                \'key\': True|False,
+                                \'secret\': True|False,
+                                \'queryable\': True|False,
+                                \'description\': \'string\',
+                                \'type\': \'String\'|\'Number\'|\'Boolean\'
                             },
                         ],
-                        'inputArtifactDetails': {
-                            'minimumCount': 123,
-                            'maximumCount': 123
+                        \'inputArtifactDetails\': {
+                            \'minimumCount\': 123,
+                            \'maximumCount\': 123
                         },
-                        'outputArtifactDetails': {
-                            'minimumCount': 123,
-                            'maximumCount': 123
+                        \'outputArtifactDetails\': {
+                            \'minimumCount\': 123,
+                            \'maximumCount\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2594,9 +2594,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_pipeline_executions(
-              pipelineName='string',
+              pipelineName=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -2621,23 +2621,23 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineExecutionSummaries': [
+                \'pipelineExecutionSummaries\': [
                     {
-                        'pipelineExecutionId': 'string',
-                        'status': 'InProgress'|'Succeeded'|'Superseded'|'Failed',
-                        'startTime': datetime(2015, 1, 1),
-                        'lastUpdateTime': datetime(2015, 1, 1),
-                        'sourceRevisions': [
+                        \'pipelineExecutionId\': \'string\',
+                        \'status\': \'InProgress\'|\'Succeeded\'|\'Superseded\'|\'Failed\',
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'lastUpdateTime\': datetime(2015, 1, 1),
+                        \'sourceRevisions\': [
                             {
-                                'actionName': 'string',
-                                'revisionId': 'string',
-                                'revisionSummary': 'string',
-                                'revisionUrl': 'string'
+                                \'actionName\': \'string\',
+                                \'revisionId\': \'string\',
+                                \'revisionSummary\': \'string\',
+                                \'revisionUrl\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2717,7 +2717,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_pipelines(
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -2732,15 +2732,15 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelines': [
+                \'pipelines\': [
                     {
-                        'name': 'string',
-                        'version': 123,
-                        'created': datetime(2015, 1, 1),
-                        'updated': datetime(2015, 1, 1)
+                        \'name\': \'string\',
+                        \'version\': 123,
+                        \'created\': datetime(2015, 1, 1),
+                        \'updated\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2788,7 +2788,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_webhooks(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -2809,32 +2809,32 @@ class Client(BaseClient):
           ::
         
             {
-                'webhooks': [
+                \'webhooks\': [
                     {
-                        'definition': {
-                            'name': 'string',
-                            'targetPipeline': 'string',
-                            'targetAction': 'string',
-                            'filters': [
+                        \'definition\': {
+                            \'name\': \'string\',
+                            \'targetPipeline\': \'string\',
+                            \'targetAction\': \'string\',
+                            \'filters\': [
                                 {
-                                    'jsonPath': 'string',
-                                    'matchEquals': 'string'
+                                    \'jsonPath\': \'string\',
+                                    \'matchEquals\': \'string\'
                                 },
                             ],
-                            'authentication': 'GITHUB_HMAC'|'IP'|'UNAUTHENTICATED',
-                            'authenticationConfiguration': {
-                                'AllowedIPRange': 'string',
-                                'SecretToken': 'string'
+                            \'authentication\': \'GITHUB_HMAC\'|\'IP\'|\'UNAUTHENTICATED\',
+                            \'authenticationConfiguration\': {
+                                \'AllowedIPRange\': \'string\',
+                                \'SecretToken\': \'string\'
                             }
                         },
-                        'url': 'string',
-                        'errorMessage': 'string',
-                        'errorCode': 'string',
-                        'lastTriggered': datetime(2015, 1, 1),
-                        'arn': 'string'
+                        \'url\': \'string\',
+                        \'errorMessage\': \'string\',
+                        \'errorCode\': \'string\',
+                        \'lastTriggered\': datetime(2015, 1, 1),
+                        \'arn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2878,7 +2878,7 @@ class Client(BaseClient):
         
                       - **matchEquals** *(string) --* 
         
-                        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value will be evaluated as \"refs/heads/master\". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
         
                   - **authentication** *(string) --* 
         
@@ -2943,14 +2943,14 @@ class Client(BaseClient):
         
           response = client.poll_for_jobs(
               actionTypeId={
-                  'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                  'owner': 'AWS'|'ThirdParty'|'Custom',
-                  'provider': 'string',
-                  'version': 'string'
+                  \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                  \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                  \'provider\': \'string\',
+                  \'version\': \'string\'
               },
               maxBatchSize=123,
               queryParam={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type actionTypeId: dict
@@ -2996,69 +2996,69 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'id': 'string',
-                        'data': {
-                            'actionTypeId': {
-                                'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                'owner': 'AWS'|'ThirdParty'|'Custom',
-                                'provider': 'string',
-                                'version': 'string'
+                        \'id\': \'string\',
+                        \'data\': {
+                            \'actionTypeId\': {
+                                \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                \'provider\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'actionConfiguration': {
-                                'configuration': {
-                                    'string': 'string'
+                            \'actionConfiguration\': {
+                                \'configuration\': {
+                                    \'string\': \'string\'
                                 }
                             },
-                            'pipelineContext': {
-                                'pipelineName': 'string',
-                                'stage': {
-                                    'name': 'string'
+                            \'pipelineContext\': {
+                                \'pipelineName\': \'string\',
+                                \'stage\': {
+                                    \'name\': \'string\'
                                 },
-                                'action': {
-                                    'name': 'string'
+                                \'action\': {
+                                    \'name\': \'string\'
                                 }
                             },
-                            'inputArtifacts': [
+                            \'inputArtifacts\': [
                                 {
-                                    'name': 'string',
-                                    'revision': 'string',
-                                    'location': {
-                                        'type': 'S3',
-                                        's3Location': {
-                                            'bucketName': 'string',
-                                            'objectKey': 'string'
+                                    \'name\': \'string\',
+                                    \'revision\': \'string\',
+                                    \'location\': {
+                                        \'type\': \'S3\',
+                                        \'s3Location\': {
+                                            \'bucketName\': \'string\',
+                                            \'objectKey\': \'string\'
                                         }
                                     }
                                 },
                             ],
-                            'outputArtifacts': [
+                            \'outputArtifacts\': [
                                 {
-                                    'name': 'string',
-                                    'revision': 'string',
-                                    'location': {
-                                        'type': 'S3',
-                                        's3Location': {
-                                            'bucketName': 'string',
-                                            'objectKey': 'string'
+                                    \'name\': \'string\',
+                                    \'revision\': \'string\',
+                                    \'location\': {
+                                        \'type\': \'S3\',
+                                        \'s3Location\': {
+                                            \'bucketName\': \'string\',
+                                            \'objectKey\': \'string\'
                                         }
                                     }
                                 },
                             ],
-                            'artifactCredentials': {
-                                'accessKeyId': 'string',
-                                'secretAccessKey': 'string',
-                                'sessionToken': 'string'
+                            \'artifactCredentials\': {
+                                \'accessKeyId\': \'string\',
+                                \'secretAccessKey\': \'string\',
+                                \'sessionToken\': \'string\'
                             },
-                            'continuationToken': 'string',
-                            'encryptionKey': {
-                                'id': 'string',
-                                'type': 'KMS'
+                            \'continuationToken\': \'string\',
+                            \'encryptionKey\': {
+                                \'id\': \'string\',
+                                \'type\': \'KMS\'
                             }
                         },
-                        'nonce': 'string',
-                        'accountId': 'string'
+                        \'nonce\': \'string\',
+                        \'accountId\': \'string\'
                     },
                 ]
             }
@@ -3150,11 +3150,11 @@ class Client(BaseClient):
         
                       - **name** *(string) --* 
         
-                        The artifact's name.
+                        The artifact\'s name.
         
                       - **revision** *(string) --* 
         
-                        The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                        The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                       - **location** *(dict) --* 
         
@@ -3186,11 +3186,11 @@ class Client(BaseClient):
         
                       - **name** *(string) --* 
         
-                        The artifact's name.
+                        The artifact\'s name.
         
                       - **revision** *(string) --* 
         
-                        The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+                        The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
         
                       - **location** *(dict) --* 
         
@@ -3242,7 +3242,7 @@ class Client(BaseClient):
         
                     - **type** *(string) --* 
         
-                      The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                      The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
                 - **nonce** *(string) --* 
         
@@ -3269,10 +3269,10 @@ class Client(BaseClient):
         
           response = client.poll_for_third_party_jobs(
               actionTypeId={
-                  'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                  'owner': 'AWS'|'ThirdParty'|'Custom',
-                  'provider': 'string',
-                  'version': 'string'
+                  \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                  \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                  \'provider\': \'string\',
+                  \'version\': \'string\'
               },
               maxBatchSize=123
           )
@@ -3310,10 +3310,10 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'clientId': 'string',
-                        'jobId': 'string'
+                        \'clientId\': \'string\',
+                        \'jobId\': \'string\'
                     },
                 ]
             }
@@ -3351,13 +3351,13 @@ class Client(BaseClient):
         ::
         
           response = client.put_action_revision(
-              pipelineName='string',
-              stageName='string',
-              actionName='string',
+              pipelineName=\'string\',
+              stageName=\'string\',
+              actionName=\'string\',
               actionRevision={
-                  'revisionId': 'string',
-                  'revisionChangeId': 'string',
-                  'created': datetime(2015, 1, 1)
+                  \'revisionId\': \'string\',
+                  \'revisionChangeId\': \'string\',
+                  \'created\': datetime(2015, 1, 1)
               }
           )
         :type pipelineName: string
@@ -3400,8 +3400,8 @@ class Client(BaseClient):
           ::
         
             {
-                'newRevision': True|False,
-                'pipelineExecutionId': 'string'
+                \'newRevision\': True|False,
+                \'pipelineExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -3429,14 +3429,14 @@ class Client(BaseClient):
         ::
         
           response = client.put_approval_result(
-              pipelineName='string',
-              stageName='string',
-              actionName='string',
+              pipelineName=\'string\',
+              stageName=\'string\',
+              actionName=\'string\',
               result={
-                  'summary': 'string',
-                  'status': 'Approved'|'Rejected'
+                  \'summary\': \'string\',
+                  \'status\': \'Approved\'|\'Rejected\'
               },
-              token='string'
+              token=\'string\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -3479,7 +3479,7 @@ class Client(BaseClient):
           ::
         
             {
-                'approvedAt': datetime(2015, 1, 1)
+                \'approvedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3503,11 +3503,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_job_failure_result(
-              jobId='string',
+              jobId=\'string\',
               failureDetails={
-                  'type': 'JobFailed'|'ConfigurationError'|'PermissionError'|'RevisionOutOfSync'|'RevisionUnavailable'|'SystemUnavailable',
-                  'message': 'string',
-                  'externalExecutionId': 'string'
+                  \'type\': \'JobFailed\'|\'ConfigurationError\'|\'PermissionError\'|\'RevisionOutOfSync\'|\'RevisionUnavailable\'|\'SystemUnavailable\',
+                  \'message\': \'string\',
+                  \'externalExecutionId\': \'string\'
               }
           )
         :type jobId: string
@@ -3545,18 +3545,18 @@ class Client(BaseClient):
         ::
         
           response = client.put_job_success_result(
-              jobId='string',
+              jobId=\'string\',
               currentRevision={
-                  'revision': 'string',
-                  'changeIdentifier': 'string',
-                  'created': datetime(2015, 1, 1),
-                  'revisionSummary': 'string'
+                  \'revision\': \'string\',
+                  \'changeIdentifier\': \'string\',
+                  \'created\': datetime(2015, 1, 1),
+                  \'revisionSummary\': \'string\'
               },
-              continuationToken='string',
+              continuationToken=\'string\',
               executionDetails={
-                  'summary': 'string',
-                  'externalExecutionId': 'string',
-                  'percentComplete': 123
+                  \'summary\': \'string\',
+                  \'externalExecutionId\': \'string\',
+                  \'percentComplete\': 123
               }
           )
         :type jobId: string
@@ -3620,12 +3620,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_third_party_job_failure_result(
-              jobId='string',
-              clientToken='string',
+              jobId=\'string\',
+              clientToken=\'string\',
               failureDetails={
-                  'type': 'JobFailed'|'ConfigurationError'|'PermissionError'|'RevisionOutOfSync'|'RevisionUnavailable'|'SystemUnavailable',
-                  'message': 'string',
-                  'externalExecutionId': 'string'
+                  \'type\': \'JobFailed\'|\'ConfigurationError\'|\'PermissionError\'|\'RevisionOutOfSync\'|\'RevisionUnavailable\'|\'SystemUnavailable\',
+                  \'message\': \'string\',
+                  \'externalExecutionId\': \'string\'
               }
           )
         :type jobId: string
@@ -3668,19 +3668,19 @@ class Client(BaseClient):
         ::
         
           response = client.put_third_party_job_success_result(
-              jobId='string',
-              clientToken='string',
+              jobId=\'string\',
+              clientToken=\'string\',
               currentRevision={
-                  'revision': 'string',
-                  'changeIdentifier': 'string',
-                  'created': datetime(2015, 1, 1),
-                  'revisionSummary': 'string'
+                  \'revision\': \'string\',
+                  \'changeIdentifier\': \'string\',
+                  \'created\': datetime(2015, 1, 1),
+                  \'revisionSummary\': \'string\'
               },
-              continuationToken='string',
+              continuationToken=\'string\',
               executionDetails={
-                  'summary': 'string',
-                  'externalExecutionId': 'string',
-                  'percentComplete': 123
+                  \'summary\': \'string\',
+                  \'externalExecutionId\': \'string\',
+                  \'percentComplete\': 123
               }
           )
         :type jobId: string
@@ -3750,26 +3750,26 @@ class Client(BaseClient):
         
           response = client.put_webhook(
               webhook={
-                  'name': 'string',
-                  'targetPipeline': 'string',
-                  'targetAction': 'string',
-                  'filters': [
+                  \'name\': \'string\',
+                  \'targetPipeline\': \'string\',
+                  \'targetAction\': \'string\',
+                  \'filters\': [
                       {
-                          'jsonPath': 'string',
-                          'matchEquals': 'string'
+                          \'jsonPath\': \'string\',
+                          \'matchEquals\': \'string\'
                       },
                   ],
-                  'authentication': 'GITHUB_HMAC'|'IP'|'UNAUTHENTICATED',
-                  'authenticationConfiguration': {
-                      'AllowedIPRange': 'string',
-                      'SecretToken': 'string'
+                  \'authentication\': \'GITHUB_HMAC\'|\'IP\'|\'UNAUTHENTICATED\',
+                  \'authenticationConfiguration\': {
+                      \'AllowedIPRange\': \'string\',
+                      \'SecretToken\': \'string\'
                   }
               }
           )
         :type webhook: dict
         :param webhook: **[REQUIRED]** 
         
-          The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name which identifies the webhook being defined. You may choose to name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
+          The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name which identifies the webhook being defined. You may choose to name the webhook after the pipeline and action it targets so that you can easily recognize what it\'s used for later.
         
           - **name** *(string) --* **[REQUIRED]** 
         
@@ -3797,7 +3797,7 @@ class Client(BaseClient):
         
               - **matchEquals** *(string) --* 
         
-                The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value will be evaluated as \"refs/heads/master\". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
         
           - **authentication** *(string) --* **[REQUIRED]** 
         
@@ -3829,28 +3829,28 @@ class Client(BaseClient):
           ::
         
             {
-                'webhook': {
-                    'definition': {
-                        'name': 'string',
-                        'targetPipeline': 'string',
-                        'targetAction': 'string',
-                        'filters': [
+                \'webhook\': {
+                    \'definition\': {
+                        \'name\': \'string\',
+                        \'targetPipeline\': \'string\',
+                        \'targetAction\': \'string\',
+                        \'filters\': [
                             {
-                                'jsonPath': 'string',
-                                'matchEquals': 'string'
+                                \'jsonPath\': \'string\',
+                                \'matchEquals\': \'string\'
                             },
                         ],
-                        'authentication': 'GITHUB_HMAC'|'IP'|'UNAUTHENTICATED',
-                        'authenticationConfiguration': {
-                            'AllowedIPRange': 'string',
-                            'SecretToken': 'string'
+                        \'authentication\': \'GITHUB_HMAC\'|\'IP\'|\'UNAUTHENTICATED\',
+                        \'authenticationConfiguration\': {
+                            \'AllowedIPRange\': \'string\',
+                            \'SecretToken\': \'string\'
                         }
                     },
-                    'url': 'string',
-                    'errorMessage': 'string',
-                    'errorCode': 'string',
-                    'lastTriggered': datetime(2015, 1, 1),
-                    'arn': 'string'
+                    \'url\': \'string\',
+                    \'errorMessage\': \'string\',
+                    \'errorCode\': \'string\',
+                    \'lastTriggered\': datetime(2015, 1, 1),
+                    \'arn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3891,7 +3891,7 @@ class Client(BaseClient):
         
                     - **matchEquals** *(string) --* 
         
-                      The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                      The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value will be evaluated as \"refs/heads/master\". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
         
                 - **authentication** *(string) --* 
         
@@ -3947,7 +3947,7 @@ class Client(BaseClient):
         ::
         
           response = client.register_webhook_with_third_party(
-              webhookName='string'
+              webhookName=\'string\'
           )
         :type webhookName: string
         :param webhookName: 
@@ -3977,10 +3977,10 @@ class Client(BaseClient):
         ::
         
           response = client.retry_stage_execution(
-              pipelineName='string',
-              stageName='string',
-              pipelineExecutionId='string',
-              retryMode='FAILED_ACTIONS'
+              pipelineName=\'string\',
+              stageName=\'string\',
+              pipelineExecutionId=\'string\',
+              retryMode=\'FAILED_ACTIONS\'
           )
         :type pipelineName: string
         :param pipelineName: **[REQUIRED]** 
@@ -4010,7 +4010,7 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineExecutionId': 'string'
+                \'pipelineExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -4034,8 +4034,8 @@ class Client(BaseClient):
         ::
         
           response = client.start_pipeline_execution(
-              name='string',
-              clientRequestToken='string'
+              name=\'string\',
+              clientRequestToken=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -4057,7 +4057,7 @@ class Client(BaseClient):
           ::
         
             {
-                'pipelineExecutionId': 'string'
+                \'pipelineExecutionId\': \'string\'
             }
           **Response Structure** 
         
@@ -4082,65 +4082,65 @@ class Client(BaseClient):
         
           response = client.update_pipeline(
               pipeline={
-                  'name': 'string',
-                  'roleArn': 'string',
-                  'artifactStore': {
-                      'type': 'S3',
-                      'location': 'string',
-                      'encryptionKey': {
-                          'id': 'string',
-                          'type': 'KMS'
+                  \'name\': \'string\',
+                  \'roleArn\': \'string\',
+                  \'artifactStore\': {
+                      \'type\': \'S3\',
+                      \'location\': \'string\',
+                      \'encryptionKey\': {
+                          \'id\': \'string\',
+                          \'type\': \'KMS\'
                       }
                   },
-                  'artifactStores': {
-                      'string': {
-                          'type': 'S3',
-                          'location': 'string',
-                          'encryptionKey': {
-                              'id': 'string',
-                              'type': 'KMS'
+                  \'artifactStores\': {
+                      \'string\': {
+                          \'type\': \'S3\',
+                          \'location\': \'string\',
+                          \'encryptionKey\': {
+                              \'id\': \'string\',
+                              \'type\': \'KMS\'
                           }
                       }
                   },
-                  'stages': [
+                  \'stages\': [
                       {
-                          'name': 'string',
-                          'blockers': [
+                          \'name\': \'string\',
+                          \'blockers\': [
                               {
-                                  'name': 'string',
-                                  'type': 'Schedule'
+                                  \'name\': \'string\',
+                                  \'type\': \'Schedule\'
                               },
                           ],
-                          'actions': [
+                          \'actions\': [
                               {
-                                  'name': 'string',
-                                  'actionTypeId': {
-                                      'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                      'owner': 'AWS'|'ThirdParty'|'Custom',
-                                      'provider': 'string',
-                                      'version': 'string'
+                                  \'name\': \'string\',
+                                  \'actionTypeId\': {
+                                      \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                      \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                      \'provider\': \'string\',
+                                      \'version\': \'string\'
                                   },
-                                  'runOrder': 123,
-                                  'configuration': {
-                                      'string': 'string'
+                                  \'runOrder\': 123,
+                                  \'configuration\': {
+                                      \'string\': \'string\'
                                   },
-                                  'outputArtifacts': [
+                                  \'outputArtifacts\': [
                                       {
-                                          'name': 'string'
+                                          \'name\': \'string\'
                                       },
                                   ],
-                                  'inputArtifacts': [
+                                  \'inputArtifacts\': [
                                       {
-                                          'name': 'string'
+                                          \'name\': \'string\'
                                       },
                                   ],
-                                  'roleArn': 'string',
-                                  'region': 'string'
+                                  \'roleArn\': \'string\',
+                                  \'region\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'version': 123
+                  \'version\': 123
               }
           )
         :type pipeline: dict
@@ -4178,7 +4178,7 @@ class Client(BaseClient):
         
               - **type** *(string) --* **[REQUIRED]** 
         
-                The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
           - **artifactStores** *(dict) --* 
         
@@ -4210,7 +4210,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* **[REQUIRED]** 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
           - **stages** *(list) --* **[REQUIRED]** 
         
@@ -4250,7 +4250,7 @@ class Client(BaseClient):
         
                   - **name** *(string) --* **[REQUIRED]** 
         
-                    The action declaration's name.
+                    The action declaration\'s name.
         
                   - **actionTypeId** *(dict) --* **[REQUIRED]** 
         
@@ -4278,7 +4278,7 @@ class Client(BaseClient):
         
                   - **configuration** *(dict) --* 
         
-                    The action declaration's configuration.
+                    The action declaration\'s configuration.
         
                     - *(string) --* 
         
@@ -4294,7 +4294,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* **[REQUIRED]** 
         
-                        The name of the output of an artifact, such as "My App".
+                        The name of the output of an artifact, such as \"My App\".
         
                         The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -4310,7 +4310,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* **[REQUIRED]** 
         
-                        The name of the artifact to be worked on, for example, "My App".
+                        The name of the artifact to be worked on, for example, \"My App\".
         
                         The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -4320,7 +4320,7 @@ class Client(BaseClient):
         
                   - **region** *(string) --* 
         
-                    The action declaration's AWS Region, such as us-east-1.
+                    The action declaration\'s AWS Region, such as us-east-1.
         
           - **version** *(integer) --* 
         
@@ -4334,66 +4334,66 @@ class Client(BaseClient):
           ::
         
             {
-                'pipeline': {
-                    'name': 'string',
-                    'roleArn': 'string',
-                    'artifactStore': {
-                        'type': 'S3',
-                        'location': 'string',
-                        'encryptionKey': {
-                            'id': 'string',
-                            'type': 'KMS'
+                \'pipeline\': {
+                    \'name\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'artifactStore\': {
+                        \'type\': \'S3\',
+                        \'location\': \'string\',
+                        \'encryptionKey\': {
+                            \'id\': \'string\',
+                            \'type\': \'KMS\'
                         }
                     },
-                    'artifactStores': {
-                        'string': {
-                            'type': 'S3',
-                            'location': 'string',
-                            'encryptionKey': {
-                                'id': 'string',
-                                'type': 'KMS'
+                    \'artifactStores\': {
+                        \'string\': {
+                            \'type\': \'S3\',
+                            \'location\': \'string\',
+                            \'encryptionKey\': {
+                                \'id\': \'string\',
+                                \'type\': \'KMS\'
                             }
                         }
                     },
-                    'stages': [
+                    \'stages\': [
                         {
-                            'name': 'string',
-                            'blockers': [
+                            \'name\': \'string\',
+                            \'blockers\': [
                                 {
-                                    'name': 'string',
-                                    'type': 'Schedule'
+                                    \'name\': \'string\',
+                                    \'type\': \'Schedule\'
                                 },
                             ],
-                            'actions': [
+                            \'actions\': [
                                 {
-                                    'name': 'string',
-                                    'actionTypeId': {
-                                        'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
-                                        'owner': 'AWS'|'ThirdParty'|'Custom',
-                                        'provider': 'string',
-                                        'version': 'string'
+                                    \'name\': \'string\',
+                                    \'actionTypeId\': {
+                                        \'category\': \'Source\'|\'Build\'|\'Deploy\'|\'Test\'|\'Invoke\'|\'Approval\',
+                                        \'owner\': \'AWS\'|\'ThirdParty\'|\'Custom\',
+                                        \'provider\': \'string\',
+                                        \'version\': \'string\'
                                     },
-                                    'runOrder': 123,
-                                    'configuration': {
-                                        'string': 'string'
+                                    \'runOrder\': 123,
+                                    \'configuration\': {
+                                        \'string\': \'string\'
                                     },
-                                    'outputArtifacts': [
+                                    \'outputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'inputArtifacts': [
+                                    \'inputArtifacts\': [
                                         {
-                                            'name': 'string'
+                                            \'name\': \'string\'
                                         },
                                     ],
-                                    'roleArn': 'string',
-                                    'region': 'string'
+                                    \'roleArn\': \'string\',
+                                    \'region\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'version': 123
+                    \'version\': 123
                 }
             }
           **Response Structure** 
@@ -4436,7 +4436,7 @@ class Client(BaseClient):
         
                   - **type** *(string) --* 
         
-                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                    The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **artifactStores** *(dict) --* 
         
@@ -4468,7 +4468,7 @@ class Client(BaseClient):
         
                       - **type** *(string) --* 
         
-                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
+                        The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
         
               - **stages** *(list) --* 
         
@@ -4508,7 +4508,7 @@ class Client(BaseClient):
         
                       - **name** *(string) --* 
         
-                        The action declaration's name.
+                        The action declaration\'s name.
         
                       - **actionTypeId** *(dict) --* 
         
@@ -4536,7 +4536,7 @@ class Client(BaseClient):
         
                       - **configuration** *(dict) --* 
         
-                        The action declaration's configuration.
+                        The action declaration\'s configuration.
         
                         - *(string) --* 
                           
@@ -4552,7 +4552,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the output of an artifact, such as "My App".
+                            The name of the output of an artifact, such as \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -4568,7 +4568,7 @@ class Client(BaseClient):
         
                           - **name** *(string) --* 
         
-                            The name of the artifact to be worked on, for example, "My App".
+                            The name of the artifact to be worked on, for example, \"My App\".
         
                             The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         
@@ -4578,7 +4578,7 @@ class Client(BaseClient):
         
                       - **region** *(string) --* 
         
-                        The action declaration's AWS Region, such as us-east-1.
+                        The action declaration\'s AWS Region, such as us-east-1.
         
               - **version** *(integer) --* 
         

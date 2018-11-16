@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -38,8 +38,8 @@ class Client(BaseClient):
         ::
         
           response = client.clone_receipt_rule_set(
-              RuleSetName='string',
-              OriginalRuleSetName='string'
+              RuleSetName=\'string\',
+              OriginalRuleSetName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -88,7 +88,7 @@ class Client(BaseClient):
         
           response = client.create_configuration_set(
               ConfigurationSet={
-                  'Name': 'string'
+                  \'Name\': \'string\'
               }
           )
         :type ConfigurationSet: dict
@@ -138,28 +138,28 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration_set_event_destination(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               EventDestination={
-                  'Name': 'string',
-                  'Enabled': True|False,
-                  'MatchingEventTypes': [
-                      'send'|'reject'|'bounce'|'complaint'|'delivery'|'open'|'click'|'renderingFailure',
+                  \'Name\': \'string\',
+                  \'Enabled\': True|False,
+                  \'MatchingEventTypes\': [
+                      \'send\'|\'reject\'|\'bounce\'|\'complaint\'|\'delivery\'|\'open\'|\'click\'|\'renderingFailure\',
                   ],
-                  'KinesisFirehoseDestination': {
-                      'IAMRoleARN': 'string',
-                      'DeliveryStreamARN': 'string'
+                  \'KinesisFirehoseDestination\': {
+                      \'IAMRoleARN\': \'string\',
+                      \'DeliveryStreamARN\': \'string\'
                   },
-                  'CloudWatchDestination': {
-                      'DimensionConfigurations': [
+                  \'CloudWatchDestination\': {
+                      \'DimensionConfigurations\': [
                           {
-                              'DimensionName': 'string',
-                              'DimensionValueSource': 'messageTag'|'emailHeader'|'linkTag',
-                              'DefaultDimensionValue': 'string'
+                              \'DimensionName\': \'string\',
+                              \'DimensionValueSource\': \'messageTag\'|\'emailHeader\'|\'linkTag\',
+                              \'DefaultDimensionValue\': \'string\'
                           },
                       ]
                   },
-                  'SNSDestination': {
-                      'TopicARN': 'string'
+                  \'SNSDestination\': {
+                      \'TopicARN\': \'string\'
                   }
               }
           )
@@ -273,9 +273,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration_set_tracking_options(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               TrackingOptions={
-                  'CustomRedirectDomain': 'string'
+                  \'CustomRedirectDomain\': \'string\'
               }
           )
         :type ConfigurationSetName: string
@@ -324,12 +324,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_custom_verification_email_template(
-              TemplateName='string',
-              FromEmailAddress='string',
-              TemplateSubject='string',
-              TemplateContent='string',
-              SuccessRedirectionURL='string',
-              FailureRedirectionURL='string'
+              TemplateName=\'string\',
+              FromEmailAddress=\'string\',
+              TemplateSubject=\'string\',
+              TemplateContent=\'string\',
+              SuccessRedirectionURL=\'string\',
+              FailureRedirectionURL=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -379,10 +379,10 @@ class Client(BaseClient):
         
           response = client.create_receipt_filter(
               Filter={
-                  'Name': 'string',
-                  'IpFilter': {
-                      'Policy': 'Block'|'Allow',
-                      'Cidr': 'string'
+                  \'Name\': \'string\',
+                  \'IpFilter\': {
+                      \'Policy\': \'Block\'|\'Allow\',
+                      \'Cidr\': \'string\'
                   }
               }
           )
@@ -443,54 +443,54 @@ class Client(BaseClient):
         ::
         
           response = client.create_receipt_rule(
-              RuleSetName='string',
-              After='string',
+              RuleSetName=\'string\',
+              After=\'string\',
               Rule={
-                  'Name': 'string',
-                  'Enabled': True|False,
-                  'TlsPolicy': 'Require'|'Optional',
-                  'Recipients': [
-                      'string',
+                  \'Name\': \'string\',
+                  \'Enabled\': True|False,
+                  \'TlsPolicy\': \'Require\'|\'Optional\',
+                  \'Recipients\': [
+                      \'string\',
                   ],
-                  'Actions': [
+                  \'Actions\': [
                       {
-                          'S3Action': {
-                              'TopicArn': 'string',
-                              'BucketName': 'string',
-                              'ObjectKeyPrefix': 'string',
-                              'KmsKeyArn': 'string'
+                          \'S3Action\': {
+                              \'TopicArn\': \'string\',
+                              \'BucketName\': \'string\',
+                              \'ObjectKeyPrefix\': \'string\',
+                              \'KmsKeyArn\': \'string\'
                           },
-                          'BounceAction': {
-                              'TopicArn': 'string',
-                              'SmtpReplyCode': 'string',
-                              'StatusCode': 'string',
-                              'Message': 'string',
-                              'Sender': 'string'
+                          \'BounceAction\': {
+                              \'TopicArn\': \'string\',
+                              \'SmtpReplyCode\': \'string\',
+                              \'StatusCode\': \'string\',
+                              \'Message\': \'string\',
+                              \'Sender\': \'string\'
                           },
-                          'WorkmailAction': {
-                              'TopicArn': 'string',
-                              'OrganizationArn': 'string'
+                          \'WorkmailAction\': {
+                              \'TopicArn\': \'string\',
+                              \'OrganizationArn\': \'string\'
                           },
-                          'LambdaAction': {
-                              'TopicArn': 'string',
-                              'FunctionArn': 'string',
-                              'InvocationType': 'Event'|'RequestResponse'
+                          \'LambdaAction\': {
+                              \'TopicArn\': \'string\',
+                              \'FunctionArn\': \'string\',
+                              \'InvocationType\': \'Event\'|\'RequestResponse\'
                           },
-                          'StopAction': {
-                              'Scope': 'RuleSet',
-                              'TopicArn': 'string'
+                          \'StopAction\': {
+                              \'Scope\': \'RuleSet\',
+                              \'TopicArn\': \'string\'
                           },
-                          'AddHeaderAction': {
-                              'HeaderName': 'string',
-                              'HeaderValue': 'string'
+                          \'AddHeaderAction\': {
+                              \'HeaderName\': \'string\',
+                              \'HeaderValue\': \'string\'
                           },
-                          'SNSAction': {
-                              'TopicArn': 'string',
-                              'Encoding': 'UTF-8'|'Base64'
+                          \'SNSAction\': {
+                              \'TopicArn\': \'string\',
+                              \'Encoding\': \'UTF-8\'|\'Base64\'
                           }
                       },
                   ],
-                  'ScanEnabled': True|False
+                  \'ScanEnabled\': True|False
               }
           )
         :type RuleSetName: string
@@ -506,7 +506,7 @@ class Client(BaseClient):
         :type Rule: dict
         :param Rule: **[REQUIRED]** 
         
-          A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+          A data structure that contains the specified rule\'s name, actions, recipients, domains, enabled status, scan status, and TLS policy.
         
           - **Name** *(string) --* **[REQUIRED]** 
         
@@ -562,9 +562,9 @@ class Client(BaseClient):
         
                   The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
         
-                  * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key. 
+                  * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key. 
                    
-                  * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
+                  * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
                    
                   For more information about key policies, see the `AWS KMS Developer Guide <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html>`__ . If you do not specify a master key, Amazon SES will not encrypt your emails.
         
@@ -650,7 +650,7 @@ class Client(BaseClient):
         
                 - **HeaderValue** *(string) --* **[REQUIRED]** 
         
-                  Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                  Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
               - **SNSAction** *(dict) --* 
         
@@ -698,7 +698,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_receipt_rule_set(
-              RuleSetName='string'
+              RuleSetName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -740,10 +740,10 @@ class Client(BaseClient):
         
           response = client.create_template(
               Template={
-                  'TemplateName': 'string',
-                  'SubjectPart': 'string',
-                  'TextPart': 'string',
-                  'HtmlPart': 'string'
+                  \'TemplateName\': \'string\',
+                  \'SubjectPart\': \'string\',
+                  \'TextPart\': \'string\',
+                  \'HtmlPart\': \'string\'
               }
           )
         :type Template: dict
@@ -792,7 +792,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_set(
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -827,8 +827,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_set_event_destination(
-              ConfigurationSetName='string',
-              EventDestinationName='string'
+              ConfigurationSetName=\'string\',
+              EventDestinationName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -872,7 +872,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_configuration_set_tracking_options(
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type ConfigurationSetName: string
         :param ConfigurationSetName: **[REQUIRED]** 
@@ -909,7 +909,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_custom_verification_email_template(
-              TemplateName='string'
+              TemplateName=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -931,7 +931,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_identity(
-              Identity='string'
+              Identity=\'string\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -972,8 +972,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_identity_policy(
-              Identity='string',
-              PolicyName='string'
+              Identity=\'string\',
+              PolicyName=\'string\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -1017,7 +1017,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_receipt_filter(
-              FilterName='string'
+              FilterName=\'string\'
           )
         :type FilterName: string
         :param FilterName: **[REQUIRED]** 
@@ -1054,8 +1054,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_receipt_rule(
-              RuleSetName='string',
-              RuleName='string'
+              RuleSetName=\'string\',
+              RuleName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -1101,7 +1101,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_receipt_rule_set(
-              RuleSetName='string'
+              RuleSetName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -1136,7 +1136,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_template(
-              TemplateName='string'
+              TemplateName=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -1166,7 +1166,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_verified_email_address(
-              EmailAddress='string'
+              EmailAddress=\'string\'
           )
         :type EmailAddress: string
         :param EmailAddress: **[REQUIRED]** 
@@ -1199,57 +1199,57 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Name': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1)
+                \'Metadata\': {
+                    \'Name\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1)
                 },
-                'Rules': [
+                \'Rules\': [
                     {
-                        'Name': 'string',
-                        'Enabled': True|False,
-                        'TlsPolicy': 'Require'|'Optional',
-                        'Recipients': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Enabled\': True|False,
+                        \'TlsPolicy\': \'Require\'|\'Optional\',
+                        \'Recipients\': [
+                            \'string\',
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'S3Action': {
-                                    'TopicArn': 'string',
-                                    'BucketName': 'string',
-                                    'ObjectKeyPrefix': 'string',
-                                    'KmsKeyArn': 'string'
+                                \'S3Action\': {
+                                    \'TopicArn\': \'string\',
+                                    \'BucketName\': \'string\',
+                                    \'ObjectKeyPrefix\': \'string\',
+                                    \'KmsKeyArn\': \'string\'
                                 },
-                                'BounceAction': {
-                                    'TopicArn': 'string',
-                                    'SmtpReplyCode': 'string',
-                                    'StatusCode': 'string',
-                                    'Message': 'string',
-                                    'Sender': 'string'
+                                \'BounceAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'SmtpReplyCode\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'Message\': \'string\',
+                                    \'Sender\': \'string\'
                                 },
-                                'WorkmailAction': {
-                                    'TopicArn': 'string',
-                                    'OrganizationArn': 'string'
+                                \'WorkmailAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'OrganizationArn\': \'string\'
                                 },
-                                'LambdaAction': {
-                                    'TopicArn': 'string',
-                                    'FunctionArn': 'string',
-                                    'InvocationType': 'Event'|'RequestResponse'
+                                \'LambdaAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'FunctionArn\': \'string\',
+                                    \'InvocationType\': \'Event\'|\'RequestResponse\'
                                 },
-                                'StopAction': {
-                                    'Scope': 'RuleSet',
-                                    'TopicArn': 'string'
+                                \'StopAction\': {
+                                    \'Scope\': \'RuleSet\',
+                                    \'TopicArn\': \'string\'
                                 },
-                                'AddHeaderAction': {
-                                    'HeaderName': 'string',
-                                    'HeaderValue': 'string'
+                                \'AddHeaderAction\': {
+                                    \'HeaderName\': \'string\',
+                                    \'HeaderValue\': \'string\'
                                 },
-                                'SNSAction': {
-                                    'TopicArn': 'string',
-                                    'Encoding': 'UTF-8'|'Base64'
+                                \'SNSAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'Encoding\': \'UTF-8\'|\'Base64\'
                                 }
                             },
                         ],
-                        'ScanEnabled': True|False
+                        \'ScanEnabled\': True|False
                     },
                 ]
             }
@@ -1285,7 +1285,7 @@ class Client(BaseClient):
         
                 Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
         
-                Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
+                Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule\'s actions on the message.
         
                 For information about setting up receipt rules, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html>`__ .
         
@@ -1343,9 +1343,9 @@ class Client(BaseClient):
         
                         The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
         
-                        * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key. 
+                        * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key. 
                          
-                        * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
+                        * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
                          
                         For more information about key policies, see the `AWS KMS Developer Guide <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html>`__ . If you do not specify a master key, Amazon SES will not encrypt your emails.
         
@@ -1431,7 +1431,7 @@ class Client(BaseClient):
         
                       - **HeaderValue** *(string) --* 
         
-                        Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                        Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
                     - **SNSAction** *(dict) --* 
         
@@ -1463,9 +1463,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration_set(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               ConfigurationSetAttributeNames=[
-                  'eventDestinations'|'trackingOptions'|'reputationOptions',
+                  \'eventDestinations\'|\'trackingOptions\'|\'reputationOptions\',
               ]
           )
         :type ConfigurationSetName: string
@@ -1488,41 +1488,41 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationSet': {
-                    'Name': 'string'
+                \'ConfigurationSet\': {
+                    \'Name\': \'string\'
                 },
-                'EventDestinations': [
+                \'EventDestinations\': [
                     {
-                        'Name': 'string',
-                        'Enabled': True|False,
-                        'MatchingEventTypes': [
-                            'send'|'reject'|'bounce'|'complaint'|'delivery'|'open'|'click'|'renderingFailure',
+                        \'Name\': \'string\',
+                        \'Enabled\': True|False,
+                        \'MatchingEventTypes\': [
+                            \'send\'|\'reject\'|\'bounce\'|\'complaint\'|\'delivery\'|\'open\'|\'click\'|\'renderingFailure\',
                         ],
-                        'KinesisFirehoseDestination': {
-                            'IAMRoleARN': 'string',
-                            'DeliveryStreamARN': 'string'
+                        \'KinesisFirehoseDestination\': {
+                            \'IAMRoleARN\': \'string\',
+                            \'DeliveryStreamARN\': \'string\'
                         },
-                        'CloudWatchDestination': {
-                            'DimensionConfigurations': [
+                        \'CloudWatchDestination\': {
+                            \'DimensionConfigurations\': [
                                 {
-                                    'DimensionName': 'string',
-                                    'DimensionValueSource': 'messageTag'|'emailHeader'|'linkTag',
-                                    'DefaultDimensionValue': 'string'
+                                    \'DimensionName\': \'string\',
+                                    \'DimensionValueSource\': \'messageTag\'|\'emailHeader\'|\'linkTag\',
+                                    \'DefaultDimensionValue\': \'string\'
                                 },
                             ]
                         },
-                        'SNSDestination': {
-                            'TopicARN': 'string'
+                        \'SNSDestination\': {
+                            \'TopicARN\': \'string\'
                         }
                     },
                 ],
-                'TrackingOptions': {
-                    'CustomRedirectDomain': 'string'
+                \'TrackingOptions\': {
+                    \'CustomRedirectDomain\': \'string\'
                 },
-                'ReputationOptions': {
-                    'SendingEnabled': True|False,
-                    'ReputationMetricsEnabled': True|False,
-                    'LastFreshStart': datetime(2015, 1, 1)
+                \'ReputationOptions\': {
+                    \'SendingEnabled\': True|False,
+                    \'ReputationMetricsEnabled\': True|False,
+                    \'LastFreshStart\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1675,8 +1675,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_receipt_rule(
-              RuleSetName='string',
-              RuleName='string'
+              RuleSetName=\'string\',
+              RuleName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -1696,52 +1696,52 @@ class Client(BaseClient):
           ::
         
             {
-                'Rule': {
-                    'Name': 'string',
-                    'Enabled': True|False,
-                    'TlsPolicy': 'Require'|'Optional',
-                    'Recipients': [
-                        'string',
+                \'Rule\': {
+                    \'Name\': \'string\',
+                    \'Enabled\': True|False,
+                    \'TlsPolicy\': \'Require\'|\'Optional\',
+                    \'Recipients\': [
+                        \'string\',
                     ],
-                    'Actions': [
+                    \'Actions\': [
                         {
-                            'S3Action': {
-                                'TopicArn': 'string',
-                                'BucketName': 'string',
-                                'ObjectKeyPrefix': 'string',
-                                'KmsKeyArn': 'string'
+                            \'S3Action\': {
+                                \'TopicArn\': \'string\',
+                                \'BucketName\': \'string\',
+                                \'ObjectKeyPrefix\': \'string\',
+                                \'KmsKeyArn\': \'string\'
                             },
-                            'BounceAction': {
-                                'TopicArn': 'string',
-                                'SmtpReplyCode': 'string',
-                                'StatusCode': 'string',
-                                'Message': 'string',
-                                'Sender': 'string'
+                            \'BounceAction\': {
+                                \'TopicArn\': \'string\',
+                                \'SmtpReplyCode\': \'string\',
+                                \'StatusCode\': \'string\',
+                                \'Message\': \'string\',
+                                \'Sender\': \'string\'
                             },
-                            'WorkmailAction': {
-                                'TopicArn': 'string',
-                                'OrganizationArn': 'string'
+                            \'WorkmailAction\': {
+                                \'TopicArn\': \'string\',
+                                \'OrganizationArn\': \'string\'
                             },
-                            'LambdaAction': {
-                                'TopicArn': 'string',
-                                'FunctionArn': 'string',
-                                'InvocationType': 'Event'|'RequestResponse'
+                            \'LambdaAction\': {
+                                \'TopicArn\': \'string\',
+                                \'FunctionArn\': \'string\',
+                                \'InvocationType\': \'Event\'|\'RequestResponse\'
                             },
-                            'StopAction': {
-                                'Scope': 'RuleSet',
-                                'TopicArn': 'string'
+                            \'StopAction\': {
+                                \'Scope\': \'RuleSet\',
+                                \'TopicArn\': \'string\'
                             },
-                            'AddHeaderAction': {
-                                'HeaderName': 'string',
-                                'HeaderValue': 'string'
+                            \'AddHeaderAction\': {
+                                \'HeaderName\': \'string\',
+                                \'HeaderValue\': \'string\'
                             },
-                            'SNSAction': {
-                                'TopicArn': 'string',
-                                'Encoding': 'UTF-8'|'Base64'
+                            \'SNSAction\': {
+                                \'TopicArn\': \'string\',
+                                \'Encoding\': \'UTF-8\'|\'Base64\'
                             }
                         },
                     ],
-                    'ScanEnabled': True|False
+                    \'ScanEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -1752,7 +1752,7 @@ class Client(BaseClient):
         
             - **Rule** *(dict) --* 
         
-              A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.
+              A data structure that contains the specified receipt rule\'s name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.
         
               - **Name** *(string) --* 
         
@@ -1808,9 +1808,9 @@ class Client(BaseClient):
         
                       The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
         
-                      * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key. 
+                      * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key. 
                        
-                      * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
+                      * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
                        
                       For more information about key policies, see the `AWS KMS Developer Guide <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html>`__ . If you do not specify a master key, Amazon SES will not encrypt your emails.
         
@@ -1896,7 +1896,7 @@ class Client(BaseClient):
         
                     - **HeaderValue** *(string) --* 
         
-                      Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                      Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
                   - **SNSAction** *(dict) --* 
         
@@ -1930,7 +1930,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_receipt_rule_set(
-              RuleSetName='string'
+              RuleSetName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -1945,57 +1945,57 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'Name': 'string',
-                    'CreatedTimestamp': datetime(2015, 1, 1)
+                \'Metadata\': {
+                    \'Name\': \'string\',
+                    \'CreatedTimestamp\': datetime(2015, 1, 1)
                 },
-                'Rules': [
+                \'Rules\': [
                     {
-                        'Name': 'string',
-                        'Enabled': True|False,
-                        'TlsPolicy': 'Require'|'Optional',
-                        'Recipients': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'Enabled\': True|False,
+                        \'TlsPolicy\': \'Require\'|\'Optional\',
+                        \'Recipients\': [
+                            \'string\',
                         ],
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'S3Action': {
-                                    'TopicArn': 'string',
-                                    'BucketName': 'string',
-                                    'ObjectKeyPrefix': 'string',
-                                    'KmsKeyArn': 'string'
+                                \'S3Action\': {
+                                    \'TopicArn\': \'string\',
+                                    \'BucketName\': \'string\',
+                                    \'ObjectKeyPrefix\': \'string\',
+                                    \'KmsKeyArn\': \'string\'
                                 },
-                                'BounceAction': {
-                                    'TopicArn': 'string',
-                                    'SmtpReplyCode': 'string',
-                                    'StatusCode': 'string',
-                                    'Message': 'string',
-                                    'Sender': 'string'
+                                \'BounceAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'SmtpReplyCode\': \'string\',
+                                    \'StatusCode\': \'string\',
+                                    \'Message\': \'string\',
+                                    \'Sender\': \'string\'
                                 },
-                                'WorkmailAction': {
-                                    'TopicArn': 'string',
-                                    'OrganizationArn': 'string'
+                                \'WorkmailAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'OrganizationArn\': \'string\'
                                 },
-                                'LambdaAction': {
-                                    'TopicArn': 'string',
-                                    'FunctionArn': 'string',
-                                    'InvocationType': 'Event'|'RequestResponse'
+                                \'LambdaAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'FunctionArn\': \'string\',
+                                    \'InvocationType\': \'Event\'|\'RequestResponse\'
                                 },
-                                'StopAction': {
-                                    'Scope': 'RuleSet',
-                                    'TopicArn': 'string'
+                                \'StopAction\': {
+                                    \'Scope\': \'RuleSet\',
+                                    \'TopicArn\': \'string\'
                                 },
-                                'AddHeaderAction': {
-                                    'HeaderName': 'string',
-                                    'HeaderValue': 'string'
+                                \'AddHeaderAction\': {
+                                    \'HeaderName\': \'string\',
+                                    \'HeaderValue\': \'string\'
                                 },
-                                'SNSAction': {
-                                    'TopicArn': 'string',
-                                    'Encoding': 'UTF-8'|'Base64'
+                                \'SNSAction\': {
+                                    \'TopicArn\': \'string\',
+                                    \'Encoding\': \'UTF-8\'|\'Base64\'
                                 }
                             },
                         ],
-                        'ScanEnabled': True|False
+                        \'ScanEnabled\': True|False
                     },
                 ]
             }
@@ -2031,7 +2031,7 @@ class Client(BaseClient):
         
                 Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
         
-                Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
+                Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule\'s actions on the message.
         
                 For information about setting up receipt rules, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html>`__ .
         
@@ -2089,9 +2089,9 @@ class Client(BaseClient):
         
                         The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
         
-                        * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key. 
+                        * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key. 
                          
-                        * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
+                        * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
                          
                         For more information about key policies, see the `AWS KMS Developer Guide <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html>`__ . If you do not specify a master key, Amazon SES will not encrypt your emails.
         
@@ -2177,7 +2177,7 @@ class Client(BaseClient):
         
                       - **HeaderValue** *(string) --* 
         
-                        Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                        Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
                     - **SNSAction** *(dict) --* 
         
@@ -2214,7 +2214,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2240,7 +2240,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Enabled': True|False
+                \'Enabled\': True|False
             }
           **Response Structure** 
         
@@ -2268,7 +2268,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_custom_verification_email_template(
-              TemplateName='string'
+              TemplateName=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -2283,12 +2283,12 @@ class Client(BaseClient):
           ::
         
             {
-                'TemplateName': 'string',
-                'FromEmailAddress': 'string',
-                'TemplateSubject': 'string',
-                'TemplateContent': 'string',
-                'SuccessRedirectionURL': 'string',
-                'FailureRedirectionURL': 'string'
+                \'TemplateName\': \'string\',
+                \'FromEmailAddress\': \'string\',
+                \'TemplateSubject\': \'string\',
+                \'TemplateContent\': \'string\',
+                \'SuccessRedirectionURL\': \'string\',
+                \'FailureRedirectionURL\': \'string\'
             }
           **Response Structure** 
         
@@ -2332,7 +2332,7 @@ class Client(BaseClient):
          
         * A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address. 
          
-        * Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses. 
+        * Whether Amazon SES has successfully verified the DKIM tokens published in the domain\'s DNS. This information is only returned for domain name identities, not for email addresses. 
          
         This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
         
@@ -2345,7 +2345,7 @@ class Client(BaseClient):
         
           response = client.get_identity_dkim_attributes(
               Identities=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Identities: list
@@ -2363,12 +2363,12 @@ class Client(BaseClient):
           ::
         
             {
-                'DkimAttributes': {
-                    'string': {
-                        'DkimEnabled': True|False,
-                        'DkimVerificationStatus': 'Pending'|'Success'|'Failed'|'TemporaryFailure'|'NotStarted',
-                        'DkimTokens': [
-                            'string',
+                \'DkimAttributes\': {
+                    \'string\': {
+                        \'DkimEnabled\': True|False,
+                        \'DkimVerificationStatus\': \'Pending\'|\'Success\'|\'Failed\'|\'TemporaryFailure\'|\'NotStarted\',
+                        \'DkimTokens\': [
+                            \'string\',
                         ]
                     }
                 }
@@ -2395,11 +2395,11 @@ class Client(BaseClient):
         
                   - **DkimVerificationStatus** *(string) --* 
         
-                    Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
+                    Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name\'s DNS. (This only applies to domain identities, not email address identities.)
         
                   - **DkimTokens** *(list) --* 
         
-                    A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
+                    A set of character strings that represent the domain\'s identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
         
                     For more information about creating DNS records using DKIM tokens, go to the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html>`__ .
         
@@ -2420,7 +2420,7 @@ class Client(BaseClient):
         
           response = client.get_identity_mail_from_domain_attributes(
               Identities=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Identities: list
@@ -2438,11 +2438,11 @@ class Client(BaseClient):
           ::
         
             {
-                'MailFromDomainAttributes': {
-                    'string': {
-                        'MailFromDomain': 'string',
-                        'MailFromDomainStatus': 'Pending'|'Success'|'Failed'|'TemporaryFailure',
-                        'BehaviorOnMXFailure': 'UseDefaultValue'|'RejectMessage'
+                \'MailFromDomainAttributes\': {
+                    \'string\': {
+                        \'MailFromDomain\': \'string\',
+                        \'MailFromDomainStatus\': \'Pending\'|\'Success\'|\'Failed\'|\'TemporaryFailure\',
+                        \'BehaviorOnMXFailure\': \'UseDefaultValue\'|\'RejectMessage\'
                     }
                 }
             }
@@ -2493,7 +2493,7 @@ class Client(BaseClient):
         
           response = client.get_identity_notification_attributes(
               Identities=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Identities: list
@@ -2511,15 +2511,15 @@ class Client(BaseClient):
           ::
         
             {
-                'NotificationAttributes': {
-                    'string': {
-                        'BounceTopic': 'string',
-                        'ComplaintTopic': 'string',
-                        'DeliveryTopic': 'string',
-                        'ForwardingEnabled': True|False,
-                        'HeadersInBounceNotificationsEnabled': True|False,
-                        'HeadersInComplaintNotificationsEnabled': True|False,
-                        'HeadersInDeliveryNotificationsEnabled': True|False
+                \'NotificationAttributes\': {
+                    \'string\': {
+                        \'BounceTopic\': \'string\',
+                        \'ComplaintTopic\': \'string\',
+                        \'DeliveryTopic\': \'string\',
+                        \'ForwardingEnabled\': True|False,
+                        \'HeadersInBounceNotificationsEnabled\': True|False,
+                        \'HeadersInComplaintNotificationsEnabled\': True|False,
+                        \'HeadersInDeliveryNotificationsEnabled\': True|False
                     }
                 }
             }
@@ -2587,9 +2587,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_identity_policies(
-              Identity='string',
+              Identity=\'string\',
               PolicyNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Identity: string
@@ -2614,8 +2614,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Policies': {
-                    'string': 'string'
+                \'Policies\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2638,9 +2638,9 @@ class Client(BaseClient):
     def get_identity_verification_attributes(self, Identities: List) -> Dict:
         """
         
-        The verification status of an email address is "Pending" until the email address owner clicks the link within the verification email that Amazon SES sent to that address. If the email address owner clicks the link within 24 hours, the verification status of the email address changes to "Success". If the link is not clicked within 24 hours, the verification status changes to "Failed." In that case, if you still want to verify the email address, you must restart the verification process from the beginning.
+        The verification status of an email address is \"Pending\" until the email address owner clicks the link within the verification email that Amazon SES sent to that address. If the email address owner clicks the link within 24 hours, the verification status of the email address changes to \"Success\". If the link is not clicked within 24 hours, the verification status changes to \"Failed.\" In that case, if you still want to verify the email address, you must restart the verification process from the beginning.
         
-        For domain identities, the domain's verification status is "Pending" as Amazon SES searches for the required TXT record in the DNS settings of the domain. When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
+        For domain identities, the domain\'s verification status is \"Pending\" as Amazon SES searches for the required TXT record in the DNS settings of the domain. When Amazon SES detects the record, the domain\'s verification status changes to \"Success\". If Amazon SES is unable to detect the record within 72 hours, the domain\'s verification status changes to \"Failed.\" In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
         
         This operation is throttled at one request per second and can only get verification attributes for up to 100 identities at a time.
         
@@ -2651,7 +2651,7 @@ class Client(BaseClient):
         
           response = client.get_identity_verification_attributes(
               Identities=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Identities: list
@@ -2669,10 +2669,10 @@ class Client(BaseClient):
           ::
         
             {
-                'VerificationAttributes': {
-                    'string': {
-                        'VerificationStatus': 'Pending'|'Success'|'Failed'|'TemporaryFailure'|'NotStarted',
-                        'VerificationToken': 'string'
+                \'VerificationAttributes\': {
+                    \'string\': {
+                        \'VerificationStatus\': \'Pending\'|\'Success\'|\'Failed\'|\'TemporaryFailure\'|\'NotStarted\',
+                        \'VerificationToken\': \'string\'
                     }
                 }
             }
@@ -2694,7 +2694,7 @@ class Client(BaseClient):
         
                   - **VerificationStatus** *(string) --* 
         
-                    The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
+                    The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".
         
                   - **VerificationToken** *(string) --* 
         
@@ -2709,10 +2709,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2743,9 +2743,9 @@ class Client(BaseClient):
           ::
         
             {
-                'Max24HourSend': 123.0,
-                'MaxSendRate': 123.0,
-                'SentLast24Hours': 123.0
+                \'Max24HourSend\': 123.0,
+                \'MaxSendRate\': 123.0,
+                \'SentLast24Hours\': 123.0
             }
           **Response Structure** 
         
@@ -2759,11 +2759,11 @@ class Client(BaseClient):
         
             - **MaxSendRate** *(float) --* 
         
-              The maximum number of emails that Amazon SES can accept from the user's account per second.
+              The maximum number of emails that Amazon SES can accept from the user\'s account per second.
         
               .. note::
         
-                The rate at which Amazon SES accepts the user's messages might be less than the maximum send rate.
+                The rate at which Amazon SES accepts the user\'s messages might be less than the maximum send rate.
         
             - **SentLast24Hours** *(float) --* 
         
@@ -2792,13 +2792,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SendDataPoints': [
+                \'SendDataPoints\': [
                     {
-                        'Timestamp': datetime(2015, 1, 1),
-                        'DeliveryAttempts': 123,
-                        'Bounces': 123,
-                        'Complaints': 123,
-                        'Rejects': 123
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'DeliveryAttempts\': 123,
+                        \'Bounces\': 123,
+                        \'Complaints\': 123,
+                        \'Rejects\': 123
                     },
                 ]
             }
@@ -2850,7 +2850,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_template(
-              TemplateName='string'
+              TemplateName=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -2865,11 +2865,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Template': {
-                    'TemplateName': 'string',
-                    'SubjectPart': 'string',
-                    'TextPart': 'string',
-                    'HtmlPart': 'string'
+                \'Template\': {
+                    \'TemplateName\': \'string\',
+                    \'SubjectPart\': \'string\',
+                    \'TextPart\': \'string\',
+                    \'HtmlPart\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2922,7 +2922,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_configuration_sets(
-              NextToken='string',
+              NextToken=\'string\',
               MaxItems=123
           )
         :type NextToken: string
@@ -2943,12 +2943,12 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationSets': [
+                \'ConfigurationSets\': [
                     {
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2994,7 +2994,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_custom_verification_email_templates(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -3015,16 +3015,16 @@ class Client(BaseClient):
           ::
         
             {
-                'CustomVerificationEmailTemplates': [
+                \'CustomVerificationEmailTemplates\': [
                     {
-                        'TemplateName': 'string',
-                        'FromEmailAddress': 'string',
-                        'TemplateSubject': 'string',
-                        'SuccessRedirectionURL': 'string',
-                        'FailureRedirectionURL': 'string'
+                        \'TemplateName\': \'string\',
+                        \'FromEmailAddress\': \'string\',
+                        \'TemplateSubject\': \'string\',
+                        \'SuccessRedirectionURL\': \'string\',
+                        \'FailureRedirectionURL\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3078,14 +3078,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_identities(
-              IdentityType='EmailAddress'|'Domain',
-              NextToken='string',
+              IdentityType=\'EmailAddress\'|\'Domain\',
+              NextToken=\'string\',
               MaxItems=123
           )
         :type IdentityType: string
         :param IdentityType: 
         
-          The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
+          The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.
         
         :type NextToken: string
         :param NextToken: 
@@ -3105,10 +3105,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Identities': [
-                    'string',
+                \'Identities\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3146,7 +3146,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_identity_policies(
-              Identity='string'
+              Identity=\'string\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -3163,8 +3163,8 @@ class Client(BaseClient):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3204,12 +3204,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Filters': [
+                \'Filters\': [
                     {
-                        'Name': 'string',
-                        'IpFilter': {
-                            'Policy': 'Block'|'Allow',
-                            'Cidr': 'string'
+                        \'Name\': \'string\',
+                        \'IpFilter\': {
+                            \'Policy\': \'Block\'|\'Allow\',
+                            \'Cidr\': \'string\'
                         }
                     },
                 ]
@@ -3268,7 +3268,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_receipt_rule_sets(
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -3283,13 +3283,13 @@ class Client(BaseClient):
           ::
         
             {
-                'RuleSets': [
+                \'RuleSets\': [
                     {
-                        'Name': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3305,7 +3305,7 @@ class Client(BaseClient):
         
                 Information about a receipt rule set.
         
-                A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account's verified domains.
+                A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account\'s verified domains.
         
                 For information about setting up receipt rule sets, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html>`__ .
         
@@ -3341,7 +3341,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_templates(
-              NextToken='string',
+              NextToken=\'string\',
               MaxItems=123
           )
         :type NextToken: string
@@ -3362,13 +3362,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TemplatesMetadata': [
+                \'TemplatesMetadata\': [
                     {
-                        'Name': 'string',
-                        'CreatedTimestamp': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'CreatedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3415,8 +3415,8 @@ class Client(BaseClient):
           ::
         
             {
-                'VerifiedEmailAddresses': [
-                    'string',
+                \'VerifiedEmailAddresses\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -3451,9 +3451,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_identity_policy(
-              Identity='string',
-              PolicyName='string',
-              Policy='string'
+              Identity=\'string\',
+              PolicyName=\'string\',
+              Policy=\'string\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -3498,7 +3498,7 @@ class Client(BaseClient):
         
         .. note::
         
-          All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.
+          All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn\'t explicitly position all of the rules.
         
         For information about managing receipt rule sets, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html>`__ .
         
@@ -3510,9 +3510,9 @@ class Client(BaseClient):
         ::
         
           response = client.reorder_receipt_rule_set(
-              RuleSetName='string',
+              RuleSetName=\'string\',
               RuleNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type RuleSetName: string
@@ -3523,7 +3523,7 @@ class Client(BaseClient):
         :type RuleNames: list
         :param RuleNames: **[REQUIRED]** 
         
-          A list of the specified receipt rule set's receipt rules in the order that you want to put them.
+          A list of the specified receipt rule set\'s receipt rules in the order that you want to put them.
         
           - *(string) --* 
         
@@ -3561,41 +3561,41 @@ class Client(BaseClient):
         ::
         
           response = client.send_bounce(
-              OriginalMessageId='string',
-              BounceSender='string',
-              Explanation='string',
+              OriginalMessageId=\'string\',
+              BounceSender=\'string\',
+              Explanation=\'string\',
               MessageDsn={
-                  'ReportingMta': 'string',
-                  'ArrivalDate': datetime(2015, 1, 1),
-                  'ExtensionFields': [
+                  \'ReportingMta\': \'string\',
+                  \'ArrivalDate\': datetime(2015, 1, 1),
+                  \'ExtensionFields\': [
                       {
-                          'Name': 'string',
-                          'Value': 'string'
+                          \'Name\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               BouncedRecipientInfoList=[
                   {
-                      'Recipient': 'string',
-                      'RecipientArn': 'string',
-                      'BounceType': 'DoesNotExist'|'MessageTooLarge'|'ExceededQuota'|'ContentRejected'|'Undefined'|'TemporaryFailure',
-                      'RecipientDsnFields': {
-                          'FinalRecipient': 'string',
-                          'Action': 'failed'|'delayed'|'delivered'|'relayed'|'expanded',
-                          'RemoteMta': 'string',
-                          'Status': 'string',
-                          'DiagnosticCode': 'string',
-                          'LastAttemptDate': datetime(2015, 1, 1),
-                          'ExtensionFields': [
+                      \'Recipient\': \'string\',
+                      \'RecipientArn\': \'string\',
+                      \'BounceType\': \'DoesNotExist\'|\'MessageTooLarge\'|\'ExceededQuota\'|\'ContentRejected\'|\'Undefined\'|\'TemporaryFailure\',
+                      \'RecipientDsnFields\': {
+                          \'FinalRecipient\': \'string\',
+                          \'Action\': \'failed\'|\'delayed\'|\'delivered\'|\'relayed\'|\'expanded\',
+                          \'RemoteMta\': \'string\',
+                          \'Status\': \'string\',
+                          \'DiagnosticCode\': \'string\',
+                          \'LastAttemptDate\': datetime(2015, 1, 1),
+                          \'ExtensionFields\': [
                               {
-                                  'Name': 'string',
-                                  'Value': 'string'
+                                  \'Name\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ]
                       }
                   },
               ],
-              BounceSenderArn='string'
+              BounceSenderArn=\'string\'
           )
         :type OriginalMessageId: string
         :param OriginalMessageId: **[REQUIRED]** 
@@ -3605,7 +3605,7 @@ class Client(BaseClient):
         :type BounceSender: string
         :param BounceSender: **[REQUIRED]** 
         
-          The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.
+          The address to use in the \"From\" header of the bounce message. This must be an identity that you have verified with Amazon SES.
         
         :type Explanation: string
         :param Explanation: 
@@ -3641,7 +3641,7 @@ class Client(BaseClient):
         
               - **Value** *(string) --* **[REQUIRED]** 
         
-                The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                The value of the header to add. Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
         :type BouncedRecipientInfoList: list
         :param BouncedRecipientInfoList: **[REQUIRED]** 
@@ -3714,12 +3714,12 @@ class Client(BaseClient):
         
                   - **Value** *(string) --* **[REQUIRED]** 
         
-                    The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                    The value of the header to add. Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
         :type BounceSenderArn: string
         :param BounceSenderArn: 
         
-          This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html>`__ .
+          This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the \"From\" header of the bounce. For more information about sending authorization, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html>`__ .
         
         :rtype: dict
         :returns: 
@@ -3729,7 +3729,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -3761,7 +3761,7 @@ class Client(BaseClient):
          
         * The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the ``SendBulkTemplatedEmail`` operation several times to send the message to each group. 
          
-        * The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate. 
+        * The number of destinations you can contact in a single call to the API may be limited by your account\'s maximum sending rate. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBulkTemplatedEmail>`_
         
@@ -3769,43 +3769,43 @@ class Client(BaseClient):
         ::
         
           response = client.send_bulk_templated_email(
-              Source='string',
-              SourceArn='string',
+              Source=\'string\',
+              SourceArn=\'string\',
               ReplyToAddresses=[
-                  'string',
+                  \'string\',
               ],
-              ReturnPath='string',
-              ReturnPathArn='string',
-              ConfigurationSetName='string',
+              ReturnPath=\'string\',
+              ReturnPathArn=\'string\',
+              ConfigurationSetName=\'string\',
               DefaultTags=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              Template='string',
-              TemplateArn='string',
-              DefaultTemplateData='string',
+              Template=\'string\',
+              TemplateArn=\'string\',
+              DefaultTemplateData=\'string\',
               Destinations=[
                   {
-                      'Destination': {
-                          'ToAddresses': [
-                              'string',
+                      \'Destination\': {
+                          \'ToAddresses\': [
+                              \'string\',
                           ],
-                          'CcAddresses': [
-                              'string',
+                          \'CcAddresses\': [
+                              \'string\',
                           ],
-                          'BccAddresses': [
-                              'string',
+                          \'BccAddresses\': [
+                              \'string\',
                           ]
                       },
-                      'ReplacementTags': [
+                      \'ReplacementTags\': [
                           {
-                              'Name': 'string',
-                              'Value': 'string'
+                              \'Name\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ],
-                      'ReplacementTemplateData': 'string'
+                      \'ReplacementTemplateData\': \'string\'
                   },
               ]
           )
@@ -3839,7 +3839,7 @@ class Client(BaseClient):
         :type ReturnPath: string
         :param ReturnPath: 
         
-          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
+          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient\'s ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
         
         :type ReturnPathArn: string
         :param ReturnPathArn: 
@@ -3972,11 +3972,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': [
+                \'Status\': [
                     {
-                        'Status': 'Success'|'MessageRejected'|'MailFromDomainNotVerified'|'ConfigurationSetDoesNotExist'|'TemplateDoesNotExist'|'AccountSuspended'|'AccountThrottled'|'AccountDailyQuotaExceeded'|'InvalidSendingPoolName'|'AccountSendingPaused'|'ConfigurationSetSendingPaused'|'InvalidParameterValue'|'TransientFailure'|'Failed',
-                        'Error': 'string',
-                        'MessageId': 'string'
+                        \'Status\': \'Success\'|\'MessageRejected\'|\'MailFromDomainNotVerified\'|\'ConfigurationSetDoesNotExist\'|\'TemplateDoesNotExist\'|\'AccountSuspended\'|\'AccountThrottled\'|\'AccountDailyQuotaExceeded\'|\'InvalidSendingPoolName\'|\'AccountSendingPaused\'|\'ConfigurationSetSendingPaused\'|\'InvalidParameterValue\'|\'TransientFailure\'|\'Failed\',
+                        \'Error\': \'string\',
+                        \'MessageId\': \'string\'
                     },
                 ]
             }
@@ -4002,7 +4002,7 @@ class Client(BaseClient):
                    
                   * ``MessageRejected`` : The message was rejected because it contained a virus. 
                    
-                  * ``MailFromDomainNotVerified`` : The sender's email address or domain was not verified. 
+                  * ``MailFromDomainNotVerified`` : The sender\'s email address or domain was not verified. 
                    
                   * ``ConfigurationSetDoesNotExist`` : The configuration set you specified does not exist. 
                    
@@ -4050,9 +4050,9 @@ class Client(BaseClient):
         ::
         
           response = client.send_custom_verification_email(
-              EmailAddress='string',
-              TemplateName='string',
-              ConfigurationSetName='string'
+              EmailAddress=\'string\',
+              TemplateName=\'string\',
+              ConfigurationSetName=\'string\'
           )
         :type EmailAddress: string
         :param EmailAddress: **[REQUIRED]** 
@@ -4077,7 +4077,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -4096,7 +4096,7 @@ class Client(BaseClient):
         """
         Composes an email message and immediately queues it for sending. In order to send email using the ``SendEmail`` operation, your message must meet the following requirements:
         
-        * The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error.  
+        * The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an \"Email address not verified\" error.  
          
         * If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see `Verifying Email Addresses and Domains <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html>`__ in the *Amazon SES Developer Guide.*   
          
@@ -4116,47 +4116,47 @@ class Client(BaseClient):
         ::
         
           response = client.send_email(
-              Source='string',
+              Source=\'string\',
               Destination={
-                  'ToAddresses': [
-                      'string',
+                  \'ToAddresses\': [
+                      \'string\',
                   ],
-                  'CcAddresses': [
-                      'string',
+                  \'CcAddresses\': [
+                      \'string\',
                   ],
-                  'BccAddresses': [
-                      'string',
+                  \'BccAddresses\': [
+                      \'string\',
                   ]
               },
               Message={
-                  'Subject': {
-                      'Data': 'string',
-                      'Charset': 'string'
+                  \'Subject\': {
+                      \'Data\': \'string\',
+                      \'Charset\': \'string\'
                   },
-                  'Body': {
-                      'Text': {
-                          'Data': 'string',
-                          'Charset': 'string'
+                  \'Body\': {
+                      \'Text\': {
+                          \'Data\': \'string\',
+                          \'Charset\': \'string\'
                       },
-                      'Html': {
-                          'Data': 'string',
-                          'Charset': 'string'
+                      \'Html\': {
+                          \'Data\': \'string\',
+                          \'Charset\': \'string\'
                       }
                   }
               },
               ReplyToAddresses=[
-                  'string',
+                  \'string\',
               ],
-              ReturnPath='string',
-              SourceArn='string',
-              ReturnPathArn='string',
+              ReturnPath=\'string\',
+              SourceArn=\'string\',
+              ReturnPathArn=\'string\',
               Tags=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type Source: string
         :param Source: **[REQUIRED]** 
@@ -4199,7 +4199,7 @@ class Client(BaseClient):
         
           - **Subject** *(dict) --* **[REQUIRED]** 
         
-            The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+            The subject of the message: A short summary of the content, which will appear in the recipient\'s inbox.
         
             - **Data** *(string) --* **[REQUIRED]** 
         
@@ -4247,7 +4247,7 @@ class Client(BaseClient):
         :type ReturnPath: string
         :param ReturnPath: 
         
-          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
+          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient\'s ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
         
         :type SourceArn: string
         :param SourceArn: 
@@ -4307,7 +4307,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -4329,7 +4329,7 @@ class Client(BaseClient):
         
         The ``SendRawEmail`` operation has the following requirements:
         
-        * You can only send email from `verified email addresses or domains <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html>`__ . If you try to send email from an address that isn't verified, the operation results in an "Email address not verified" error. 
+        * You can only send email from `verified email addresses or domains <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html>`__ . If you try to send email from an address that isn\'t verified, the operation results in an \"Email address not verified\" error. 
          
         * If your account is still in the `Amazon SES sandbox <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html>`__ , you can only send email to other verified addresses in your account, or to addresses that are associated with the `Amazon SES mailbox simulator <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html>`__ . 
          
@@ -4337,17 +4337,17 @@ class Client(BaseClient):
          
         * Each message has to include at least one recipient address. A recipient address includes any address on the To:, CC:, or BCC: lines. 
          
-        * If you send a single message to more than one recipient address, and one of the recipient addresses isn't in a valid format (that is, it's not in the format *UserName@[SubDomain.]Domain.TopLevelDomain* ), Amazon SES rejects the entire message, even if the other addresses are valid. 
+        * If you send a single message to more than one recipient address, and one of the recipient addresses isn\'t in a valid format (that is, it\'s not in the format *UserName@[SubDomain.]Domain.TopLevelDomain* ), Amazon SES rejects the entire message, even if the other addresses are valid. 
          
         * Each message can include up to 50 recipient addresses across the To:, CC:, or BCC: lines. If you need to send a single message to more than 50 recipients, you have to split the list of recipient addresses into groups of less than 50 recipients, and send separate messages to each group. 
          
-        * Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn't preserved. For this reason, we highly recommend that you encode all content that isn't 7-bit ASCII. For more information, see `MIME Encoding <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding>`__ in the *Amazon SES Developer Guide* . 
+        * Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn\'t preserved. For this reason, we highly recommend that you encode all content that isn\'t 7-bit ASCII. For more information, see `MIME Encoding <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding>`__ in the *Amazon SES Developer Guide* . 
          
         Additionally, keep the following considerations in mind when using the ``SendRawEmail`` operation:
         
         * Although you can customize the message headers when using the ``SendRawEmail`` operation, Amazon SES will automatically apply its own ``Message-ID`` and ``Date`` headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides. 
          
-        * If you are using sending authorization to send on behalf of another user, ``SendRawEmail`` enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters ``SourceArn`` , ``FromArn`` , and/or ``ReturnPathArn`` to the API, or you can include the following X-headers in the header of your raw email: 
+        * If you are using sending authorization to send on behalf of another user, ``SendRawEmail`` enables you to specify the cross-account identity for the email\'s Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters ``SourceArn`` , ``FromArn`` , and/or ``ReturnPathArn`` to the API, or you can include the following X-headers in the header of your raw email: 
         
           * ``X-SES-SOURCE-ARN``   
            
@@ -4369,28 +4369,28 @@ class Client(BaseClient):
         ::
         
           response = client.send_raw_email(
-              Source='string',
+              Source=\'string\',
               Destinations=[
-                  'string',
+                  \'string\',
               ],
               RawMessage={
-                  'Data': b'bytes'
+                  \'Data\': b\'bytes\'
               },
-              FromArn='string',
-              SourceArn='string',
-              ReturnPathArn='string',
+              FromArn=\'string\',
+              SourceArn=\'string\',
+              ReturnPathArn=\'string\',
               Tags=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ConfigurationSetName='string'
+              ConfigurationSetName=\'string\'
           )
         :type Source: string
         :param Source: 
         
-          The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)
+          The identity\'s email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)
         
           .. note::
         
@@ -4430,7 +4430,7 @@ class Client(BaseClient):
         
             The To:, CC:, and BCC: headers in the raw message can contain a group list.
         
-            If you are using ``SendRawEmail`` with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for ``SendRawEmail`` . 
+            If you are using ``SendRawEmail`` with sending authorization, you can include X-headers in the raw message to specify the \"Source,\" \"From,\" and \"Return-Path\" addresses. For more information, see the documentation for ``SendRawEmail`` . 
         
             .. warning::
         
@@ -4441,7 +4441,7 @@ class Client(BaseClient):
         :type FromArn: string
         :param FromArn: 
         
-          This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.
+          This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular \"From\" address in the header of the raw email.
         
           Instead of using this parameter, you can use the X-header ``X-SES-FROM-ARN`` in the raw message of the email. If you use both the ``FromArn`` parameter and the corresponding X-header, Amazon SES uses the value of the ``FromArn`` parameter.
         
@@ -4515,7 +4515,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -4549,7 +4549,7 @@ class Client(BaseClient):
          
         .. warning::
         
-          If your call to the ``SendTemplatedEmail`` operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can't render the email because the template contains errors, it doesn't send the email. Additionally, because it already accepted the message, Amazon SES doesn't return a message stating that it was unable to send the email.
+          If your call to the ``SendTemplatedEmail`` operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can\'t render the email because the template contains errors, it doesn\'t send the email. Additionally, because it already accepted the message, Amazon SES doesn\'t return a message stating that it was unable to send the email.
         
           For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see `Sending Personalized Email Using the Amazon SES API <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html>`__ in the *Amazon Simple Email Service Developer Guide* .
         
@@ -4559,34 +4559,34 @@ class Client(BaseClient):
         ::
         
           response = client.send_templated_email(
-              Source='string',
+              Source=\'string\',
               Destination={
-                  'ToAddresses': [
-                      'string',
+                  \'ToAddresses\': [
+                      \'string\',
                   ],
-                  'CcAddresses': [
-                      'string',
+                  \'CcAddresses\': [
+                      \'string\',
                   ],
-                  'BccAddresses': [
-                      'string',
+                  \'BccAddresses\': [
+                      \'string\',
                   ]
               },
               ReplyToAddresses=[
-                  'string',
+                  \'string\',
               ],
-              ReturnPath='string',
-              SourceArn='string',
-              ReturnPathArn='string',
+              ReturnPath=\'string\',
+              SourceArn=\'string\',
+              ReturnPathArn=\'string\',
               Tags=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              ConfigurationSetName='string',
-              Template='string',
-              TemplateArn='string',
-              TemplateData='string'
+              ConfigurationSetName=\'string\',
+              Template=\'string\',
+              TemplateArn=\'string\',
+              TemplateData=\'string\'
           )
         :type Source: string
         :param Source: **[REQUIRED]** 
@@ -4632,7 +4632,7 @@ class Client(BaseClient):
         :type ReturnPath: string
         :param ReturnPath: 
         
-          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
+          The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient\'s ISP; this message will then be forwarded to the email address specified by the ``ReturnPath`` parameter. The ``ReturnPath`` parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. 
         
         :type SourceArn: string
         :param SourceArn: 
@@ -4707,7 +4707,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MessageId': 'string'
+                \'MessageId\': \'string\'
             }
           **Response Structure** 
         
@@ -4737,7 +4737,7 @@ class Client(BaseClient):
         ::
         
           response = client.set_active_receipt_rule_set(
-              RuleSetName='string'
+              RuleSetName=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: 
@@ -4781,7 +4781,7 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_dkim_enabled(
-              Identity='string',
+              Identity=\'string\',
               DkimEnabled=True|False
           )
         :type Identity: string
@@ -4828,7 +4828,7 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_feedback_forwarding_enabled(
-              Identity='string',
+              Identity=\'string\',
               ForwardingEnabled=True|False
           )
         :type Identity: string
@@ -4871,8 +4871,8 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_headers_in_notifications_enabled(
-              Identity='string',
-              NotificationType='Bounce'|'Complaint'|'Delivery',
+              Identity=\'string\',
+              NotificationType=\'Bounce\'|\'Complaint\'|\'Delivery\',
               Enabled=True|False
           )
         :type Identity: string
@@ -4914,7 +4914,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html>`__ .
+          To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain\'s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html>`__ .
         
         You can execute this operation no more than once per second.
         
@@ -4924,9 +4924,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_mail_from_domain(
-              Identity='string',
-              MailFromDomain='string',
-              BehaviorOnMXFailure='UseDefaultValue'|'RejectMessage'
+              Identity=\'string\',
+              MailFromDomain=\'string\',
+              BehaviorOnMXFailure=\'UseDefaultValue\'|\'RejectMessage\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -4936,7 +4936,7 @@ class Client(BaseClient):
         :type MailFromDomain: string
         :param MailFromDomain: 
         
-          The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html>`__ ), and 3) not be used to receive emails. A value of ``null`` disables the custom MAIL FROM setting for the identity.
+          The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html>`__ ), and 3) not be used to receive emails. A value of ``null`` disables the custom MAIL FROM setting for the identity.
         
         :type BehaviorOnMXFailure: string
         :param BehaviorOnMXFailure: 
@@ -4975,9 +4975,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_identity_notification_topic(
-              Identity='string',
-              NotificationType='Bounce'|'Complaint'|'Delivery',
-              SnsTopic='string'
+              Identity=\'string\',
+              NotificationType=\'Bounce\'|\'Complaint\'|\'Delivery\',
+              SnsTopic=\'string\'
           )
         :type Identity: string
         :param Identity: **[REQUIRED]** 
@@ -5030,9 +5030,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_receipt_rule_position(
-              RuleSetName='string',
-              RuleName='string',
-              After='string'
+              RuleSetName=\'string\',
+              RuleName=\'string\',
+              After=\'string\'
           )
         :type RuleSetName: string
         :param RuleSetName: **[REQUIRED]** 
@@ -5077,8 +5077,8 @@ class Client(BaseClient):
         ::
         
           response = client.test_render_template(
-              TemplateName='string',
-              TemplateData='string'
+              TemplateName=\'string\',
+              TemplateData=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -5098,7 +5098,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RenderedTemplate': 'string'
+                \'RenderedTemplate\': \'string\'
             }
           **Response Structure** 
         
@@ -5148,28 +5148,28 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_set_event_destination(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               EventDestination={
-                  'Name': 'string',
-                  'Enabled': True|False,
-                  'MatchingEventTypes': [
-                      'send'|'reject'|'bounce'|'complaint'|'delivery'|'open'|'click'|'renderingFailure',
+                  \'Name\': \'string\',
+                  \'Enabled\': True|False,
+                  \'MatchingEventTypes\': [
+                      \'send\'|\'reject\'|\'bounce\'|\'complaint\'|\'delivery\'|\'open\'|\'click\'|\'renderingFailure\',
                   ],
-                  'KinesisFirehoseDestination': {
-                      'IAMRoleARN': 'string',
-                      'DeliveryStreamARN': 'string'
+                  \'KinesisFirehoseDestination\': {
+                      \'IAMRoleARN\': \'string\',
+                      \'DeliveryStreamARN\': \'string\'
                   },
-                  'CloudWatchDestination': {
-                      'DimensionConfigurations': [
+                  \'CloudWatchDestination\': {
+                      \'DimensionConfigurations\': [
                           {
-                              'DimensionName': 'string',
-                              'DimensionValueSource': 'messageTag'|'emailHeader'|'linkTag',
-                              'DefaultDimensionValue': 'string'
+                              \'DimensionName\': \'string\',
+                              \'DimensionValueSource\': \'messageTag\'|\'emailHeader\'|\'linkTag\',
+                              \'DefaultDimensionValue\': \'string\'
                           },
                       ]
                   },
-                  'SNSDestination': {
-                      'TopicARN': 'string'
+                  \'SNSDestination\': {
+                      \'TopicARN\': \'string\'
                   }
               }
           )
@@ -5283,7 +5283,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_set_reputation_metrics_enabled(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               Enabled=True|False
           )
         :type ConfigurationSetName: string
@@ -5311,7 +5311,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_set_sending_enabled(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               Enabled=True|False
           )
         :type ConfigurationSetName: string
@@ -5339,9 +5339,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration_set_tracking_options(
-              ConfigurationSetName='string',
+              ConfigurationSetName=\'string\',
               TrackingOptions={
-                  'CustomRedirectDomain': 'string'
+                  \'CustomRedirectDomain\': \'string\'
               }
           )
         :type ConfigurationSetName: string
@@ -5390,12 +5390,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_custom_verification_email_template(
-              TemplateName='string',
-              FromEmailAddress='string',
-              TemplateSubject='string',
-              TemplateContent='string',
-              SuccessRedirectionURL='string',
-              FailureRedirectionURL='string'
+              TemplateName=\'string\',
+              FromEmailAddress=\'string\',
+              TemplateSubject=\'string\',
+              TemplateContent=\'string\',
+              SuccessRedirectionURL=\'string\',
+              FailureRedirectionURL=\'string\'
           )
         :type TemplateName: string
         :param TemplateName: **[REQUIRED]** 
@@ -5444,53 +5444,53 @@ class Client(BaseClient):
         ::
         
           response = client.update_receipt_rule(
-              RuleSetName='string',
+              RuleSetName=\'string\',
               Rule={
-                  'Name': 'string',
-                  'Enabled': True|False,
-                  'TlsPolicy': 'Require'|'Optional',
-                  'Recipients': [
-                      'string',
+                  \'Name\': \'string\',
+                  \'Enabled\': True|False,
+                  \'TlsPolicy\': \'Require\'|\'Optional\',
+                  \'Recipients\': [
+                      \'string\',
                   ],
-                  'Actions': [
+                  \'Actions\': [
                       {
-                          'S3Action': {
-                              'TopicArn': 'string',
-                              'BucketName': 'string',
-                              'ObjectKeyPrefix': 'string',
-                              'KmsKeyArn': 'string'
+                          \'S3Action\': {
+                              \'TopicArn\': \'string\',
+                              \'BucketName\': \'string\',
+                              \'ObjectKeyPrefix\': \'string\',
+                              \'KmsKeyArn\': \'string\'
                           },
-                          'BounceAction': {
-                              'TopicArn': 'string',
-                              'SmtpReplyCode': 'string',
-                              'StatusCode': 'string',
-                              'Message': 'string',
-                              'Sender': 'string'
+                          \'BounceAction\': {
+                              \'TopicArn\': \'string\',
+                              \'SmtpReplyCode\': \'string\',
+                              \'StatusCode\': \'string\',
+                              \'Message\': \'string\',
+                              \'Sender\': \'string\'
                           },
-                          'WorkmailAction': {
-                              'TopicArn': 'string',
-                              'OrganizationArn': 'string'
+                          \'WorkmailAction\': {
+                              \'TopicArn\': \'string\',
+                              \'OrganizationArn\': \'string\'
                           },
-                          'LambdaAction': {
-                              'TopicArn': 'string',
-                              'FunctionArn': 'string',
-                              'InvocationType': 'Event'|'RequestResponse'
+                          \'LambdaAction\': {
+                              \'TopicArn\': \'string\',
+                              \'FunctionArn\': \'string\',
+                              \'InvocationType\': \'Event\'|\'RequestResponse\'
                           },
-                          'StopAction': {
-                              'Scope': 'RuleSet',
-                              'TopicArn': 'string'
+                          \'StopAction\': {
+                              \'Scope\': \'RuleSet\',
+                              \'TopicArn\': \'string\'
                           },
-                          'AddHeaderAction': {
-                              'HeaderName': 'string',
-                              'HeaderValue': 'string'
+                          \'AddHeaderAction\': {
+                              \'HeaderName\': \'string\',
+                              \'HeaderValue\': \'string\'
                           },
-                          'SNSAction': {
-                              'TopicArn': 'string',
-                              'Encoding': 'UTF-8'|'Base64'
+                          \'SNSAction\': {
+                              \'TopicArn\': \'string\',
+                              \'Encoding\': \'UTF-8\'|\'Base64\'
                           }
                       },
                   ],
-                  'ScanEnabled': True|False
+                  \'ScanEnabled\': True|False
               }
           )
         :type RuleSetName: string
@@ -5557,9 +5557,9 @@ class Client(BaseClient):
         
                   The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
         
-                  * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key. 
+                  * To use the default master key, provide an ARN in the form of ``arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses`` . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be ``arn:aws:kms:us-west-2:123456789012:alias/aws/ses`` . If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key. 
                    
-                  * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
+                  * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the `Amazon SES Developer Guide <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html>`__ . 
                    
                   For more information about key policies, see the `AWS KMS Developer Guide <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html>`__ . If you do not specify a master key, Amazon SES will not encrypt your emails.
         
@@ -5645,7 +5645,7 @@ class Client(BaseClient):
         
                 - **HeaderValue** *(string) --* **[REQUIRED]** 
         
-                  Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+                  Must be less than 2048 characters, and must not contain newline characters (\"\r\" or \"\n\").
         
               - **SNSAction** *(dict) --* 
         
@@ -5692,10 +5692,10 @@ class Client(BaseClient):
         
           response = client.update_template(
               Template={
-                  'TemplateName': 'string',
-                  'SubjectPart': 'string',
-                  'TextPart': 'string',
-                  'HtmlPart': 'string'
+                  \'TemplateName\': \'string\',
+                  \'SubjectPart\': \'string\',
+                  \'TextPart\': \'string\',
+                  \'HtmlPart\': \'string\'
               }
           )
         :type Template: dict
@@ -5748,7 +5748,7 @@ class Client(BaseClient):
         ::
         
           response = client.verify_domain_dkim(
-              Domain='string'
+              Domain=\'string\'
           )
         :type Domain: string
         :param Domain: **[REQUIRED]** 
@@ -5763,8 +5763,8 @@ class Client(BaseClient):
           ::
         
             {
-                'DkimTokens': [
-                    'string',
+                \'DkimTokens\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -5775,7 +5775,7 @@ class Client(BaseClient):
         
             - **DkimTokens** *(list) --* 
         
-              A set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.
+              A set of character strings that represent the domain\'s identity. If the identity is an email address, the tokens represent the domain of that address.
         
               Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.
         
@@ -5797,7 +5797,7 @@ class Client(BaseClient):
         ::
         
           response = client.verify_domain_identity(
-              Domain='string'
+              Domain=\'string\'
           )
         :type Domain: string
         :param Domain: **[REQUIRED]** 
@@ -5812,7 +5812,7 @@ class Client(BaseClient):
           ::
         
             {
-                'VerificationToken': 'string'
+                \'VerificationToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5824,7 +5824,7 @@ class Client(BaseClient):
         
               A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.
         
-              As Amazon SES searches for the TXT record, the domain's verification status is "Pending". When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
+              As Amazon SES searches for the TXT record, the domain\'s verification status is \"Pending\". When Amazon SES detects the record, the domain\'s verification status changes to \"Success\". If Amazon SES is unable to detect the record within 72 hours, the domain\'s verification status changes to \"Failed.\" In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
         
         """
         pass
@@ -5838,7 +5838,7 @@ class Client(BaseClient):
         ::
         
           response = client.verify_email_address(
-              EmailAddress='string'
+              EmailAddress=\'string\'
           )
         :type EmailAddress: string
         :param EmailAddress: **[REQUIRED]** 
@@ -5860,7 +5860,7 @@ class Client(BaseClient):
         ::
         
           response = client.verify_email_identity(
-              EmailAddress='string'
+              EmailAddress=\'string\'
           )
         :type EmailAddress: string
         :param EmailAddress: **[REQUIRED]** 

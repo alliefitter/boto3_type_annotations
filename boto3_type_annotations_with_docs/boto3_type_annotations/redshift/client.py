@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -19,8 +19,8 @@ class Client(BaseClient):
         ::
         
           response = client.accept_reserved_node_exchange(
-              ReservedNodeId='string',
-              TargetReservedNodeOfferingId='string'
+              ReservedNodeId=\'string\',
+              TargetReservedNodeOfferingId=\'string\'
           )
         :type ReservedNodeId: string
         :param ReservedNodeId: **[REQUIRED]** 
@@ -40,25 +40,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ExchangedReservedNode': {
-                    'ReservedNodeId': 'string',
-                    'ReservedNodeOfferingId': 'string',
-                    'NodeType': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'Duration': 123,
-                    'FixedPrice': 123.0,
-                    'UsagePrice': 123.0,
-                    'CurrencyCode': 'string',
-                    'NodeCount': 123,
-                    'State': 'string',
-                    'OfferingType': 'string',
-                    'RecurringCharges': [
+                \'ExchangedReservedNode\': {
+                    \'ReservedNodeId\': \'string\',
+                    \'ReservedNodeOfferingId\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'Duration\': 123,
+                    \'FixedPrice\': 123.0,
+                    \'UsagePrice\': 123.0,
+                    \'CurrencyCode\': \'string\',
+                    \'NodeCount\': 123,
+                    \'State\': \'string\',
+                    \'OfferingType\': \'string\',
+                    \'RecurringCharges\': [
                         {
-                            'RecurringChargeAmount': 123.0,
-                            'RecurringChargeFrequency': 'string'
+                            \'RecurringChargeAmount\': 123.0,
+                            \'RecurringChargeFrequency\': \'string\'
                         },
                     ],
-                    'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                    \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                 }
             }
           **Response Structure** 
@@ -161,10 +161,10 @@ class Client(BaseClient):
         ::
         
           response = client.authorize_cluster_security_group_ingress(
-              ClusterSecurityGroupName='string',
-              CIDRIP='string',
-              EC2SecurityGroupName='string',
-              EC2SecurityGroupOwnerId='string'
+              ClusterSecurityGroupName=\'string\',
+              CIDRIP=\'string\',
+              EC2SecurityGroupName=\'string\',
+              EC2SecurityGroupOwnerId=\'string\'
           )
         :type ClusterSecurityGroupName: string
         :param ClusterSecurityGroupName: **[REQUIRED]** 
@@ -196,38 +196,38 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterSecurityGroup': {
-                    'ClusterSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'ClusterSecurityGroup\': {
+                    \'ClusterSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'IPRanges': [
+                    \'IPRanges\': [
                         {
-                            'Status': 'string',
-                            'CIDRIP': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'CIDRIP\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -294,7 +294,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the IP range, for example, "authorized".
+                    The status of the IP range, for example, \"authorized\".
         
                   - **CIDRIP** *(string) --* 
         
@@ -346,9 +346,9 @@ class Client(BaseClient):
         ::
         
           response = client.authorize_snapshot_access(
-              SnapshotIdentifier='string',
-              SnapshotClusterIdentifier='string',
-              AccountWithRestoreAccess='string'
+              SnapshotIdentifier=\'string\',
+              SnapshotClusterIdentifier=\'string\',
+              AccountWithRestoreAccess=\'string\'
           )
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier: **[REQUIRED]** 
@@ -375,49 +375,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotIdentifier': 'string',
-                    'ClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Status': 'string',
-                    'Port': 123,
-                    'AvailabilityZone': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'ClusterVersion': 'string',
-                    'SnapshotType': 'string',
-                    'NodeType': 'string',
-                    'NumberOfNodes': 123,
-                    'DBName': 'string',
-                    'VpcId': 'string',
-                    'Encrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'EncryptedWithHSM': True|False,
-                    'AccountsWithRestoreAccess': [
+                \'Snapshot\': {
+                    \'SnapshotIdentifier\': \'string\',
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'ClusterVersion\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'DBName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Encrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'EncryptedWithHSM\': True|False,
+                    \'AccountsWithRestoreAccess\': [
                         {
-                            'AccountId': 'string',
-                            'AccountAlias': 'string'
+                            \'AccountId\': \'string\',
+                            \'AccountAlias\': \'string\'
                         },
                     ],
-                    'OwnerAccount': 'string',
-                    'TotalBackupSizeInMegaBytes': 123.0,
-                    'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                    'BackupProgressInMegaBytes': 123.0,
-                    'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                    'EstimatedSecondsToCompletion': 123,
-                    'ElapsedTimeInSeconds': 123,
-                    'SourceRegion': 'string',
-                    'Tags': [
+                    \'OwnerAccount\': \'string\',
+                    \'TotalBackupSizeInMegaBytes\': 123.0,
+                    \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                    \'BackupProgressInMegaBytes\': 123.0,
+                    \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                    \'EstimatedSecondsToCompletion\': 123,
+                    \'ElapsedTimeInSeconds\': 123,
+                    \'SourceRegion\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'RestorableNodeTypes': [
-                        'string',
+                    \'RestorableNodeTypes\': [
+                        \'string\',
                     ],
-                    'EnhancedVpcRouting': True|False,
-                    'MaintenanceTrackName': 'string'
+                    \'EnhancedVpcRouting\': True|False,
+                    \'MaintenanceTrackName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -444,11 +444,11 @@ class Client(BaseClient):
         
                 The snapshot status. The value of the status depends on the API operation used. 
         
-                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                  
-                *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                  
-                *  DeleteClusterSnapshot returns status as "deleted". 
+                *  DeleteClusterSnapshot returns status as \"deleted\". 
                  
               - **Port** *(integer) --* 
         
@@ -472,7 +472,7 @@ class Client(BaseClient):
         
               - **SnapshotType** *(string) --* 
         
-                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
               - **NodeType** *(string) --* 
         
@@ -593,10 +593,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -616,9 +616,9 @@ class Client(BaseClient):
         ::
         
           response = client.copy_cluster_snapshot(
-              SourceSnapshotIdentifier='string',
-              SourceSnapshotClusterIdentifier='string',
-              TargetSnapshotIdentifier='string'
+              SourceSnapshotIdentifier=\'string\',
+              SourceSnapshotClusterIdentifier=\'string\',
+              TargetSnapshotIdentifier=\'string\'
           )
         :type SourceSnapshotIdentifier: string
         :param SourceSnapshotIdentifier: **[REQUIRED]** 
@@ -663,49 +663,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotIdentifier': 'string',
-                    'ClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Status': 'string',
-                    'Port': 123,
-                    'AvailabilityZone': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'ClusterVersion': 'string',
-                    'SnapshotType': 'string',
-                    'NodeType': 'string',
-                    'NumberOfNodes': 123,
-                    'DBName': 'string',
-                    'VpcId': 'string',
-                    'Encrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'EncryptedWithHSM': True|False,
-                    'AccountsWithRestoreAccess': [
+                \'Snapshot\': {
+                    \'SnapshotIdentifier\': \'string\',
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'ClusterVersion\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'DBName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Encrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'EncryptedWithHSM\': True|False,
+                    \'AccountsWithRestoreAccess\': [
                         {
-                            'AccountId': 'string',
-                            'AccountAlias': 'string'
+                            \'AccountId\': \'string\',
+                            \'AccountAlias\': \'string\'
                         },
                     ],
-                    'OwnerAccount': 'string',
-                    'TotalBackupSizeInMegaBytes': 123.0,
-                    'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                    'BackupProgressInMegaBytes': 123.0,
-                    'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                    'EstimatedSecondsToCompletion': 123,
-                    'ElapsedTimeInSeconds': 123,
-                    'SourceRegion': 'string',
-                    'Tags': [
+                    \'OwnerAccount\': \'string\',
+                    \'TotalBackupSizeInMegaBytes\': 123.0,
+                    \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                    \'BackupProgressInMegaBytes\': 123.0,
+                    \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                    \'EstimatedSecondsToCompletion\': 123,
+                    \'ElapsedTimeInSeconds\': 123,
+                    \'SourceRegion\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'RestorableNodeTypes': [
-                        'string',
+                    \'RestorableNodeTypes\': [
+                        \'string\',
                     ],
-                    'EnhancedVpcRouting': True|False,
-                    'MaintenanceTrackName': 'string'
+                    \'EnhancedVpcRouting\': True|False,
+                    \'MaintenanceTrackName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -732,11 +732,11 @@ class Client(BaseClient):
         
                 The snapshot status. The value of the status depends on the API operation used. 
         
-                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                  
-                *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                  
-                *  DeleteClusterSnapshot returns status as "deleted". 
+                *  DeleteClusterSnapshot returns status as \"deleted\". 
                  
               - **Port** *(integer) --* 
         
@@ -760,7 +760,7 @@ class Client(BaseClient):
         
               - **SnapshotType** *(string) --* 
         
-                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
               - **NodeType** *(string) --* 
         
@@ -886,45 +886,45 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster(
-              DBName='string',
-              ClusterIdentifier='string',
-              ClusterType='string',
-              NodeType='string',
-              MasterUsername='string',
-              MasterUserPassword='string',
+              DBName=\'string\',
+              ClusterIdentifier=\'string\',
+              ClusterType=\'string\',
+              NodeType=\'string\',
+              MasterUsername=\'string\',
+              MasterUserPassword=\'string\',
               ClusterSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              ClusterSubnetGroupName='string',
-              AvailabilityZone='string',
-              PreferredMaintenanceWindow='string',
-              ClusterParameterGroupName='string',
+              ClusterSubnetGroupName=\'string\',
+              AvailabilityZone=\'string\',
+              PreferredMaintenanceWindow=\'string\',
+              ClusterParameterGroupName=\'string\',
               AutomatedSnapshotRetentionPeriod=123,
               Port=123,
-              ClusterVersion='string',
+              ClusterVersion=\'string\',
               AllowVersionUpgrade=True|False,
               NumberOfNodes=123,
               PubliclyAccessible=True|False,
               Encrypted=True|False,
-              HsmClientCertificateIdentifier='string',
-              HsmConfigurationIdentifier='string',
-              ElasticIp='string',
+              HsmClientCertificateIdentifier=\'string\',
+              HsmConfigurationIdentifier=\'string\',
+              ElasticIp=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               EnhancedVpcRouting=True|False,
-              AdditionalInfo='string',
+              AdditionalInfo=\'string\',
               IamRoles=[
-                  'string',
+                  \'string\',
               ],
-              MaintenanceTrackName='string'
+              MaintenanceTrackName=\'string\'
           )
         :type DBName: string
         :param DBName: 
@@ -989,7 +989,7 @@ class Client(BaseClient):
         
           Constraints:
         
-          * Must be 1 - 128 alphanumeric characters. The user name can't be ``PUBLIC`` . 
+          * Must be 1 - 128 alphanumeric characters. The user name can\'t be ``PUBLIC`` . 
            
           * First character must be a letter. 
            
@@ -1010,7 +1010,7 @@ class Client(BaseClient):
            
           * Must contain one number. 
            
-          * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space. 
+          * Can be any printable ASCII character (ASCII code 33 to 126) except \' (single quote), \" (double quote), \, /, @, or space. 
            
         :type ClusterSecurityGroups: list
         :param ClusterSecurityGroups: 
@@ -1123,7 +1123,7 @@ class Client(BaseClient):
         
           For information about determining how many nodes you need, go to `Working with Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes>`__ in the *Amazon Redshift Cluster Management Guide* . 
         
-          If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.
+          If you don\'t specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.
         
           Default: ``1``  
         
@@ -1206,7 +1206,7 @@ class Client(BaseClient):
         :type MaintenanceTrackName: string
         :param MaintenanceTrackName: 
         
-          An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the ``current`` track.
+          An optional parameter for the name of the maintenance track for the cluster. If you don\'t provide a maintenance track name, the cluster is assigned to the ``current`` track.
         
         :rtype: dict
         :returns: 
@@ -1216,116 +1216,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1526,7 +1526,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -1734,7 +1734,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -1774,13 +1774,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster_parameter_group(
-              ParameterGroupName='string',
-              ParameterGroupFamily='string',
-              Description='string',
+              ParameterGroupName=\'string\',
+              ParameterGroupFamily=\'string\',
+              Description=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1808,7 +1808,7 @@ class Client(BaseClient):
         
           The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
         
-          To get a list of valid parameter group family names, you can call  DescribeClusterParameterGroups . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0". 
+          To get a list of valid parameter group family names, you can call  DescribeClusterParameterGroups . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is \"redshift-1.0\". 
         
         :type Description: string
         :param Description: **[REQUIRED]** 
@@ -1840,14 +1840,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterParameterGroup': {
-                    'ParameterGroupName': 'string',
-                    'ParameterGroupFamily': 'string',
-                    'Description': 'string',
-                    'Tags': [
+                \'ClusterParameterGroup\': {
+                    \'ParameterGroupName\': \'string\',
+                    \'ParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -1902,12 +1902,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster_security_group(
-              ClusterSecurityGroupName='string',
-              Description='string',
+              ClusterSecurityGroupName=\'string\',
+              Description=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1920,7 +1920,7 @@ class Client(BaseClient):
         
           * Must contain no more than 255 alphanumeric characters or hyphens. 
            
-          * Must not be "Default". 
+          * Must not be \"Default\". 
            
           * Must be unique for all security groups that are created by your AWS account. 
            
@@ -1956,38 +1956,38 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterSecurityGroup': {
-                    'ClusterSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'ClusterSecurityGroup\': {
+                    \'ClusterSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'IPRanges': [
+                    \'IPRanges\': [
                         {
-                            'Status': 'string',
-                            'CIDRIP': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'CIDRIP\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -2054,7 +2054,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the IP range, for example, "authorized".
+                    The status of the IP range, for example, \"authorized\".
         
                   - **CIDRIP** *(string) --* 
         
@@ -2106,12 +2106,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster_snapshot(
-              SnapshotIdentifier='string',
-              ClusterIdentifier='string',
+              SnapshotIdentifier=\'string\',
+              ClusterIdentifier=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2162,49 +2162,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotIdentifier': 'string',
-                    'ClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Status': 'string',
-                    'Port': 123,
-                    'AvailabilityZone': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'ClusterVersion': 'string',
-                    'SnapshotType': 'string',
-                    'NodeType': 'string',
-                    'NumberOfNodes': 123,
-                    'DBName': 'string',
-                    'VpcId': 'string',
-                    'Encrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'EncryptedWithHSM': True|False,
-                    'AccountsWithRestoreAccess': [
+                \'Snapshot\': {
+                    \'SnapshotIdentifier\': \'string\',
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'ClusterVersion\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'DBName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Encrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'EncryptedWithHSM\': True|False,
+                    \'AccountsWithRestoreAccess\': [
                         {
-                            'AccountId': 'string',
-                            'AccountAlias': 'string'
+                            \'AccountId\': \'string\',
+                            \'AccountAlias\': \'string\'
                         },
                     ],
-                    'OwnerAccount': 'string',
-                    'TotalBackupSizeInMegaBytes': 123.0,
-                    'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                    'BackupProgressInMegaBytes': 123.0,
-                    'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                    'EstimatedSecondsToCompletion': 123,
-                    'ElapsedTimeInSeconds': 123,
-                    'SourceRegion': 'string',
-                    'Tags': [
+                    \'OwnerAccount\': \'string\',
+                    \'TotalBackupSizeInMegaBytes\': 123.0,
+                    \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                    \'BackupProgressInMegaBytes\': 123.0,
+                    \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                    \'EstimatedSecondsToCompletion\': 123,
+                    \'ElapsedTimeInSeconds\': 123,
+                    \'SourceRegion\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'RestorableNodeTypes': [
-                        'string',
+                    \'RestorableNodeTypes\': [
+                        \'string\',
                     ],
-                    'EnhancedVpcRouting': True|False,
-                    'MaintenanceTrackName': 'string'
+                    \'EnhancedVpcRouting\': True|False,
+                    \'MaintenanceTrackName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2231,11 +2231,11 @@ class Client(BaseClient):
         
                 The snapshot status. The value of the status depends on the API operation used. 
         
-                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                  
-                *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                  
-                *  DeleteClusterSnapshot returns status as "deleted". 
+                *  DeleteClusterSnapshot returns status as \"deleted\". 
                  
               - **Port** *(integer) --* 
         
@@ -2259,7 +2259,7 @@ class Client(BaseClient):
         
               - **SnapshotType** *(string) --* 
         
-                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
               - **NodeType** *(string) --* 
         
@@ -2385,15 +2385,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster_subnet_group(
-              ClusterSubnetGroupName='string',
-              Description='string',
+              ClusterSubnetGroupName=\'string\',
+              Description=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2406,7 +2406,7 @@ class Client(BaseClient):
         
           * Must contain no more than 255 alphanumeric characters or hyphens. 
            
-          * Must not be "Default". 
+          * Must not be \"Default\". 
            
           * Must be unique for all subnet groups that are created by your AWS account. 
            
@@ -2449,29 +2449,29 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterSubnetGroup': {
-                    'ClusterSubnetGroupName': 'string',
-                    'Description': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'ClusterSubnetGroup\': {
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string',
-                                'SupportedPlatforms': [
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\',
+                                \'SupportedPlatforms\': [
                                     {
-                                        'Name': 'string'
+                                        \'Name\': \'string\'
                                     },
                                 ]
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -2564,21 +2564,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               SourceIds=[
-                  'string',
+                  \'string\',
               ],
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
-              Severity='string',
+              Severity=\'string\',
               Enabled=True|False,
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2666,25 +2666,25 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': datetime(2015, 1, 1),
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': datetime(2015, 1, 1),
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Severity': 'string',
-                    'Enabled': True|False,
-                    'Tags': [
+                    \'Severity\': \'string\',
+                    \'Enabled\': True|False,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -2717,7 +2717,7 @@ class Client(BaseClient):
         
                 * Can be one of the following: active | no-permission | topic-not-exist 
                  
-                * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. 
+                * The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created. 
                  
               - **SubscriptionCreationTime** *(datetime) --* 
         
@@ -2781,11 +2781,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_hsm_client_certificate(
-              HsmClientCertificateIdentifier='string',
+              HsmClientCertificateIdentifier=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2819,13 +2819,13 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmClientCertificate': {
-                    'HsmClientCertificateIdentifier': 'string',
-                    'HsmClientCertificatePublicKey': 'string',
-                    'Tags': [
+                \'HsmClientCertificate\': {
+                    \'HsmClientCertificateIdentifier\': \'string\',
+                    \'HsmClientCertificatePublicKey\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -2876,16 +2876,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_hsm_configuration(
-              HsmConfigurationIdentifier='string',
-              Description='string',
-              HsmIpAddress='string',
-              HsmPartitionName='string',
-              HsmPartitionPassword='string',
-              HsmServerPublicCertificate='string',
+              HsmConfigurationIdentifier=\'string\',
+              Description=\'string\',
+              HsmIpAddress=\'string\',
+              HsmPartitionName=\'string\',
+              HsmPartitionPassword=\'string\',
+              HsmServerPublicCertificate=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2944,15 +2944,15 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmConfiguration': {
-                    'HsmConfigurationIdentifier': 'string',
-                    'Description': 'string',
-                    'HsmIpAddress': 'string',
-                    'HsmPartitionName': 'string',
-                    'Tags': [
+                \'HsmConfiguration\': {
+                    \'HsmConfigurationIdentifier\': \'string\',
+                    \'Description\': \'string\',
+                    \'HsmIpAddress\': \'string\',
+                    \'HsmPartitionName\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3011,12 +3011,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot_copy_grant(
-              SnapshotCopyGrantName='string',
-              KmsKeyId='string',
+              SnapshotCopyGrantName=\'string\',
+              KmsKeyId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3067,13 +3067,13 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotCopyGrant': {
-                    'SnapshotCopyGrantName': 'string',
-                    'KmsKeyId': 'string',
-                    'Tags': [
+                \'SnapshotCopyGrant\': {
+                    \'SnapshotCopyGrantName\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3128,11 +3128,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_tags(
-              ResourceName='string',
+              ResourceName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3144,7 +3144,7 @@ class Client(BaseClient):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter ``Key`` and the corresponding value is passed in with the parameter ``Value`` . The ``Key`` and ``Value`` parameters are separated by a comma (,). Separate multiple tags with a space. For example, ``--tags "Key"="owner","Value"="admin" "Key"="environment","Value"="test" "Key"="version","Value"="1.0"`` . 
+          One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter ``Key`` and the corresponding value is passed in with the parameter ``Value`` . The ``Key`` and ``Value`` parameters are separated by a comma (,). Separate multiple tags with a space. For example, ``--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"`` . 
         
           - *(dict) --* 
         
@@ -3165,7 +3165,7 @@ class Client(BaseClient):
     def delete_cluster(self, ClusterIdentifier: str, SkipFinalClusterSnapshot: bool = None, FinalClusterSnapshotIdentifier: str = None) -> Dict:
         """
         
-        If you want to shut down the cluster and retain it for future use, set *SkipFinalClusterSnapshot* to ``false`` and specify a name for *FinalClusterSnapshotIdentifier* . You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be "final-snapshot" while the snapshot is being taken, then it's "deleting" once Amazon Redshift begins deleting the cluster. 
+        If you want to shut down the cluster and retain it for future use, set *SkipFinalClusterSnapshot* to ``false`` and specify a name for *FinalClusterSnapshotIdentifier* . You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be \"final-snapshot\" while the snapshot is being taken, then it\'s \"deleting\" once Amazon Redshift begins deleting the cluster. 
         
         For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         
@@ -3175,9 +3175,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               SkipFinalClusterSnapshot=True|False,
-              FinalClusterSnapshotIdentifier='string'
+              FinalClusterSnapshotIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -3226,116 +3226,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3536,7 +3536,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -3744,7 +3744,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -3784,7 +3784,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster_parameter_group(
-              ParameterGroupName='string'
+              ParameterGroupName=\'string\'
           )
         :type ParameterGroupName: string
         :param ParameterGroupName: **[REQUIRED]** 
@@ -3816,7 +3816,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster_security_group(
-              ClusterSecurityGroupName='string'
+              ClusterSecurityGroupName=\'string\'
           )
         :type ClusterSecurityGroupName: string
         :param ClusterSecurityGroupName: **[REQUIRED]** 
@@ -3838,8 +3838,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster_snapshot(
-              SnapshotIdentifier='string',
-              SnapshotClusterIdentifier='string'
+              SnapshotIdentifier=\'string\',
+              SnapshotClusterIdentifier=\'string\'
           )
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier: **[REQUIRED]** 
@@ -3863,49 +3863,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotIdentifier': 'string',
-                    'ClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Status': 'string',
-                    'Port': 123,
-                    'AvailabilityZone': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'ClusterVersion': 'string',
-                    'SnapshotType': 'string',
-                    'NodeType': 'string',
-                    'NumberOfNodes': 123,
-                    'DBName': 'string',
-                    'VpcId': 'string',
-                    'Encrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'EncryptedWithHSM': True|False,
-                    'AccountsWithRestoreAccess': [
+                \'Snapshot\': {
+                    \'SnapshotIdentifier\': \'string\',
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'ClusterVersion\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'DBName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Encrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'EncryptedWithHSM\': True|False,
+                    \'AccountsWithRestoreAccess\': [
                         {
-                            'AccountId': 'string',
-                            'AccountAlias': 'string'
+                            \'AccountId\': \'string\',
+                            \'AccountAlias\': \'string\'
                         },
                     ],
-                    'OwnerAccount': 'string',
-                    'TotalBackupSizeInMegaBytes': 123.0,
-                    'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                    'BackupProgressInMegaBytes': 123.0,
-                    'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                    'EstimatedSecondsToCompletion': 123,
-                    'ElapsedTimeInSeconds': 123,
-                    'SourceRegion': 'string',
-                    'Tags': [
+                    \'OwnerAccount\': \'string\',
+                    \'TotalBackupSizeInMegaBytes\': 123.0,
+                    \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                    \'BackupProgressInMegaBytes\': 123.0,
+                    \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                    \'EstimatedSecondsToCompletion\': 123,
+                    \'ElapsedTimeInSeconds\': 123,
+                    \'SourceRegion\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'RestorableNodeTypes': [
-                        'string',
+                    \'RestorableNodeTypes\': [
+                        \'string\',
                     ],
-                    'EnhancedVpcRouting': True|False,
-                    'MaintenanceTrackName': 'string'
+                    \'EnhancedVpcRouting\': True|False,
+                    \'MaintenanceTrackName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3932,11 +3932,11 @@ class Client(BaseClient):
         
                 The snapshot status. The value of the status depends on the API operation used. 
         
-                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                  
-                *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                  
-                *  DeleteClusterSnapshot returns status as "deleted". 
+                *  DeleteClusterSnapshot returns status as \"deleted\". 
                  
               - **Port** *(integer) --* 
         
@@ -3960,7 +3960,7 @@ class Client(BaseClient):
         
               - **SnapshotType** *(string) --* 
         
-                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
               - **NodeType** *(string) --* 
         
@@ -4084,7 +4084,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster_subnet_group(
-              ClusterSubnetGroupName='string'
+              ClusterSubnetGroupName=\'string\'
           )
         :type ClusterSubnetGroupName: string
         :param ClusterSubnetGroupName: **[REQUIRED]** 
@@ -4104,7 +4104,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_event_subscription(
-              SubscriptionName='string'
+              SubscriptionName=\'string\'
           )
         :type SubscriptionName: string
         :param SubscriptionName: **[REQUIRED]** 
@@ -4124,7 +4124,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hsm_client_certificate(
-              HsmClientCertificateIdentifier='string'
+              HsmClientCertificateIdentifier=\'string\'
           )
         :type HsmClientCertificateIdentifier: string
         :param HsmClientCertificateIdentifier: **[REQUIRED]** 
@@ -4144,7 +4144,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hsm_configuration(
-              HsmConfigurationIdentifier='string'
+              HsmConfigurationIdentifier=\'string\'
           )
         :type HsmConfigurationIdentifier: string
         :param HsmConfigurationIdentifier: **[REQUIRED]** 
@@ -4164,7 +4164,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_snapshot_copy_grant(
-              SnapshotCopyGrantName='string'
+              SnapshotCopyGrantName=\'string\'
           )
         :type SnapshotCopyGrantName: string
         :param SnapshotCopyGrantName: **[REQUIRED]** 
@@ -4184,9 +4184,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tags(
-              ResourceName='string',
+              ResourceName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceName: string
@@ -4214,9 +4214,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_db_revisions(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: 
@@ -4247,17 +4247,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ClusterDbRevisions': [
+                \'Marker\': \'string\',
+                \'ClusterDbRevisions\': [
                     {
-                        'ClusterIdentifier': 'string',
-                        'CurrentDatabaseRevision': 'string',
-                        'DatabaseRevisionReleaseDate': datetime(2015, 1, 1),
-                        'RevisionTargets': [
+                        \'ClusterIdentifier\': \'string\',
+                        \'CurrentDatabaseRevision\': \'string\',
+                        \'DatabaseRevisionReleaseDate\': datetime(2015, 1, 1),
+                        \'RevisionTargets\': [
                             {
-                                'DatabaseRevision': 'string',
-                                'Description': 'string',
-                                'DatabaseRevisionReleaseDate': datetime(2015, 1, 1)
+                                \'DatabaseRevision\': \'string\',
+                                \'Description\': \'string\',
+                                \'DatabaseRevisionReleaseDate\': datetime(2015, 1, 1)
                             },
                         ]
                     },
@@ -4329,14 +4329,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_parameter_groups(
-              ParameterGroupName='string',
+              ParameterGroupName=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ParameterGroupName: string
@@ -4380,16 +4380,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ParameterGroups': [
+                \'Marker\': \'string\',
+                \'ParameterGroups\': [
                     {
-                        'ParameterGroupName': 'string',
-                        'ParameterGroupFamily': 'string',
-                        'Description': 'string',
-                        'Tags': [
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -4457,10 +4457,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_parameters(
-              ParameterGroupName='string',
-              Source='string',
+              ParameterGroupName=\'string\',
+              Source=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ParameterGroupName: string
         :param ParameterGroupName: **[REQUIRED]** 
@@ -4498,20 +4498,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Parameters': [
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'ApplyType': 'static'|'dynamic',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'ApplyType\': \'static\'|\'dynamic\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -4541,7 +4541,7 @@ class Client(BaseClient):
         
                 - **Source** *(string) --* 
         
-                  The source of the parameter value, such as "engine-default" or "user".
+                  The source of the parameter value, such as \"engine-default\" or \"user\".
         
                 - **DataType** *(string) --* 
         
@@ -4585,14 +4585,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_security_groups(
-              ClusterSecurityGroupName='string',
+              ClusterSecurityGroupName=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterSecurityGroupName: string
@@ -4640,40 +4640,40 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ClusterSecurityGroups': [
+                \'Marker\': \'string\',
+                \'ClusterSecurityGroups\': [
                     {
-                        'ClusterSecurityGroupName': 'string',
-                        'Description': 'string',
-                        'EC2SecurityGroups': [
+                        \'ClusterSecurityGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EC2SecurityGroups\': [
                             {
-                                'Status': 'string',
-                                'EC2SecurityGroupName': 'string',
-                                'EC2SecurityGroupOwnerId': 'string',
-                                'Tags': [
+                                \'Status\': \'string\',
+                                \'EC2SecurityGroupName\': \'string\',
+                                \'EC2SecurityGroupOwnerId\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'IPRanges': [
+                        \'IPRanges\': [
                             {
-                                'Status': 'string',
-                                'CIDRIP': 'string',
-                                'Tags': [
+                                \'Status\': \'string\',
+                                \'CIDRIP\': \'string\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -4749,7 +4749,7 @@ class Client(BaseClient):
         
                     - **Status** *(string) --* 
         
-                      The status of the IP range, for example, "authorized".
+                      The status of the IP range, for example, \"authorized\".
         
                     - **CIDRIP** *(string) --* 
         
@@ -4803,19 +4803,19 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_snapshots(
-              ClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              SnapshotType='string',
+              ClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               MaxRecords=123,
-              Marker='string',
-              OwnerAccount='string',
+              Marker=\'string\',
+              OwnerAccount=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ],
               ClusterExists=True|False
           )
@@ -4896,51 +4896,51 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Snapshots': [
+                \'Marker\': \'string\',
+                \'Snapshots\': [
                     {
-                        'SnapshotIdentifier': 'string',
-                        'ClusterIdentifier': 'string',
-                        'SnapshotCreateTime': datetime(2015, 1, 1),
-                        'Status': 'string',
-                        'Port': 123,
-                        'AvailabilityZone': 'string',
-                        'ClusterCreateTime': datetime(2015, 1, 1),
-                        'MasterUsername': 'string',
-                        'ClusterVersion': 'string',
-                        'SnapshotType': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'DBName': 'string',
-                        'VpcId': 'string',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'EncryptedWithHSM': True|False,
-                        'AccountsWithRestoreAccess': [
+                        \'SnapshotIdentifier\': \'string\',
+                        \'ClusterIdentifier\': \'string\',
+                        \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'string\',
+                        \'Port\': 123,
+                        \'AvailabilityZone\': \'string\',
+                        \'ClusterCreateTime\': datetime(2015, 1, 1),
+                        \'MasterUsername\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'SnapshotType\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'DBName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'EncryptedWithHSM\': True|False,
+                        \'AccountsWithRestoreAccess\': [
                             {
-                                'AccountId': 'string',
-                                'AccountAlias': 'string'
+                                \'AccountId\': \'string\',
+                                \'AccountAlias\': \'string\'
                             },
                         ],
-                        'OwnerAccount': 'string',
-                        'TotalBackupSizeInMegaBytes': 123.0,
-                        'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                        'BackupProgressInMegaBytes': 123.0,
-                        'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                        'EstimatedSecondsToCompletion': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'SourceRegion': 'string',
-                        'Tags': [
+                        \'OwnerAccount\': \'string\',
+                        \'TotalBackupSizeInMegaBytes\': 123.0,
+                        \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                        \'BackupProgressInMegaBytes\': 123.0,
+                        \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                        \'EstimatedSecondsToCompletion\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'SourceRegion\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'RestorableNodeTypes': [
-                            'string',
+                        \'RestorableNodeTypes\': [
+                            \'string\',
                         ],
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string'
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\'
                     },
                 ]
             }
@@ -4978,11 +4978,11 @@ class Client(BaseClient):
         
                   The snapshot status. The value of the status depends on the API operation used. 
         
-                  *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                  *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                    
-                  *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                  *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                    
-                  *  DeleteClusterSnapshot returns status as "deleted". 
+                  *  DeleteClusterSnapshot returns status as \"deleted\". 
                    
                 - **Port** *(integer) --* 
         
@@ -5006,7 +5006,7 @@ class Client(BaseClient):
         
                 - **SnapshotType** *(string) --* 
         
-                  The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                  The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
                 - **NodeType** *(string) --* 
         
@@ -5134,14 +5134,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_subnet_groups(
-              ClusterSubnetGroupName='string',
+              ClusterSubnetGroupName=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterSubnetGroupName: string
@@ -5185,31 +5185,31 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ClusterSubnetGroups': [
+                \'Marker\': \'string\',
+                \'ClusterSubnetGroups\': [
                     {
-                        'ClusterSubnetGroupName': 'string',
-                        'Description': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'ClusterSubnetGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string',
-                                    'SupportedPlatforms': [
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\',
+                                    \'SupportedPlatforms\': [
                                         {
-                                            'Name': 'string'
+                                            \'Name\': \'string\'
                                         },
                                     ]
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -5309,9 +5309,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_tracks(
-              MaintenanceTrackName='string',
+              MaintenanceTrackName=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type MaintenanceTrackName: string
         :param MaintenanceTrackName: 
@@ -5336,19 +5336,19 @@ class Client(BaseClient):
           ::
         
             {
-                'MaintenanceTracks': [
+                \'MaintenanceTracks\': [
                     {
-                        'MaintenanceTrackName': 'string',
-                        'DatabaseVersion': 'string',
-                        'UpdateTargets': [
+                        \'MaintenanceTrackName\': \'string\',
+                        \'DatabaseVersion\': \'string\',
+                        \'UpdateTargets\': [
                             {
-                                'MaintenanceTrackName': 'string',
-                                'DatabaseVersion': 'string'
+                                \'MaintenanceTrackName\': \'string\',
+                                \'DatabaseVersion\': \'string\'
                             },
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -5402,10 +5402,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster_versions(
-              ClusterVersion='string',
-              ClusterParameterGroupFamily='string',
+              ClusterVersion=\'string\',
+              ClusterParameterGroupFamily=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterVersion: string
         :param ClusterVersion: 
@@ -5449,12 +5449,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ClusterVersions': [
+                \'Marker\': \'string\',
+                \'ClusterVersions\': [
                     {
-                        'ClusterVersion': 'string',
-                        'ClusterParameterGroupFamily': 'string',
-                        'Description': 'string'
+                        \'ClusterVersion\': \'string\',
+                        \'ClusterParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -5504,14 +5504,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_clusters(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterIdentifier: string
@@ -5559,118 +5559,118 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Clusters': [
+                \'Marker\': \'string\',
+                \'Clusters\': [
                     {
-                        'ClusterIdentifier': 'string',
-                        'NodeType': 'string',
-                        'ClusterStatus': 'string',
-                        'ModifyStatus': 'string',
-                        'MasterUsername': 'string',
-                        'DBName': 'string',
-                        'Endpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'ClusterIdentifier\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'ClusterStatus\': \'string\',
+                        \'ModifyStatus\': \'string\',
+                        \'MasterUsername\': \'string\',
+                        \'DBName\': \'string\',
+                        \'Endpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'ClusterCreateTime': datetime(2015, 1, 1),
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterSecurityGroups': [
+                        \'ClusterCreateTime\': datetime(2015, 1, 1),
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterSecurityGroups\': [
                             {
-                                'ClusterSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'ClusterSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'VpcSecurityGroups': [
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'ClusterParameterGroups': [
+                        \'ClusterParameterGroups\': [
                             {
-                                'ParameterGroupName': 'string',
-                                'ParameterApplyStatus': 'string',
-                                'ClusterParameterStatusList': [
+                                \'ParameterGroupName\': \'string\',
+                                \'ParameterApplyStatus\': \'string\',
+                                \'ClusterParameterStatusList\': [
                                     {
-                                        'ParameterName': 'string',
-                                        'ParameterApplyStatus': 'string',
-                                        'ParameterApplyErrorDescription': 'string'
+                                        \'ParameterName\': \'string\',
+                                        \'ParameterApplyStatus\': \'string\',
+                                        \'ParameterApplyErrorDescription\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'ClusterSubnetGroupName': 'string',
-                        'VpcId': 'string',
-                        'AvailabilityZone': 'string',
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'MasterUserPassword': 'string',
-                            'NodeType': 'string',
-                            'NumberOfNodes': 123,
-                            'ClusterType': 'string',
-                            'ClusterVersion': 'string',
-                            'AutomatedSnapshotRetentionPeriod': 123,
-                            'ClusterIdentifier': 'string',
-                            'PubliclyAccessible': True|False,
-                            'EnhancedVpcRouting': True|False,
-                            'MaintenanceTrackName': 'string',
-                            'EncryptionType': 'string'
+                        \'ClusterSubnetGroupName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'MasterUserPassword\': \'string\',
+                            \'NodeType\': \'string\',
+                            \'NumberOfNodes\': 123,
+                            \'ClusterType\': \'string\',
+                            \'ClusterVersion\': \'string\',
+                            \'AutomatedSnapshotRetentionPeriod\': 123,
+                            \'ClusterIdentifier\': \'string\',
+                            \'PubliclyAccessible\': True|False,
+                            \'EnhancedVpcRouting\': True|False,
+                            \'MaintenanceTrackName\': \'string\',
+                            \'EncryptionType\': \'string\'
                         },
-                        'ClusterVersion': 'string',
-                        'AllowVersionUpgrade': True|False,
-                        'NumberOfNodes': 123,
-                        'PubliclyAccessible': True|False,
-                        'Encrypted': True|False,
-                        'RestoreStatus': {
-                            'Status': 'string',
-                            'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                            'SnapshotSizeInMegaBytes': 123,
-                            'ProgressInMegaBytes': 123,
-                            'ElapsedTimeInSeconds': 123,
-                            'EstimatedTimeToCompletionInSeconds': 123
+                        \'ClusterVersion\': \'string\',
+                        \'AllowVersionUpgrade\': True|False,
+                        \'NumberOfNodes\': 123,
+                        \'PubliclyAccessible\': True|False,
+                        \'Encrypted\': True|False,
+                        \'RestoreStatus\': {
+                            \'Status\': \'string\',
+                            \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                            \'SnapshotSizeInMegaBytes\': 123,
+                            \'ProgressInMegaBytes\': 123,
+                            \'ElapsedTimeInSeconds\': 123,
+                            \'EstimatedTimeToCompletionInSeconds\': 123
                         },
-                        'HsmStatus': {
-                            'HsmClientCertificateIdentifier': 'string',
-                            'HsmConfigurationIdentifier': 'string',
-                            'Status': 'string'
+                        \'HsmStatus\': {
+                            \'HsmClientCertificateIdentifier\': \'string\',
+                            \'HsmConfigurationIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'ClusterSnapshotCopyStatus': {
-                            'DestinationRegion': 'string',
-                            'RetentionPeriod': 123,
-                            'SnapshotCopyGrantName': 'string'
+                        \'ClusterSnapshotCopyStatus\': {
+                            \'DestinationRegion\': \'string\',
+                            \'RetentionPeriod\': 123,
+                            \'SnapshotCopyGrantName\': \'string\'
                         },
-                        'ClusterPublicKey': 'string',
-                        'ClusterNodes': [
+                        \'ClusterPublicKey\': \'string\',
+                        \'ClusterNodes\': [
                             {
-                                'NodeRole': 'string',
-                                'PrivateIPAddress': 'string',
-                                'PublicIPAddress': 'string'
+                                \'NodeRole\': \'string\',
+                                \'PrivateIPAddress\': \'string\',
+                                \'PublicIPAddress\': \'string\'
                             },
                         ],
-                        'ElasticIpStatus': {
-                            'ElasticIp': 'string',
-                            'Status': 'string'
+                        \'ElasticIpStatus\': {
+                            \'ElasticIp\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'ClusterRevisionNumber': 'string',
-                        'Tags': [
+                        \'ClusterRevisionNumber\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'KmsKeyId': 'string',
-                        'EnhancedVpcRouting': True|False,
-                        'IamRoles': [
+                        \'KmsKeyId\': \'string\',
+                        \'EnhancedVpcRouting\': True|False,
+                        \'IamRoles\': [
                             {
-                                'IamRoleArn': 'string',
-                                'ApplyStatus': 'string'
+                                \'IamRoleArn\': \'string\',
+                                \'ApplyStatus\': \'string\'
                             },
                         ],
-                        'PendingActions': [
-                            'string',
+                        \'PendingActions\': [
+                            \'string\',
                         ],
-                        'MaintenanceTrackName': 'string',
-                        'ElasticResizeNumberOfNodeOptions': 'string'
+                        \'MaintenanceTrackName\': \'string\',
+                        \'ElasticResizeNumberOfNodeOptions\': \'string\'
                     },
                 ]
             }
@@ -5882,7 +5882,7 @@ class Client(BaseClient):
         
                   - **NodeType** *(string) --* 
         
-                    The pending or in-progress change of the cluster's node type.
+                    The pending or in-progress change of the cluster\'s node type.
         
                   - **NumberOfNodes** *(integer) --* 
         
@@ -6090,7 +6090,7 @@ class Client(BaseClient):
         
                     - **ApplyStatus** *(string) --* 
         
-                      A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                      A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                       The following are possible statuses and descriptions.
         
@@ -6128,9 +6128,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_default_cluster_parameters(
-              ParameterGroupFamily='string',
+              ParameterGroupFamily=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ParameterGroupFamily: string
         :param ParameterGroupFamily: **[REQUIRED]** 
@@ -6159,20 +6159,20 @@ class Client(BaseClient):
           ::
         
             {
-                'DefaultClusterParameters': {
-                    'ParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'DefaultClusterParameters\': {
+                    \'ParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'ApplyType': 'static'|'dynamic',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'ApplyType\': \'static\'|\'dynamic\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\'
                         },
                     ]
                 }
@@ -6215,7 +6215,7 @@ class Client(BaseClient):
         
                   - **Source** *(string) --* 
         
-                    The source of the parameter value, such as "engine-default" or "user".
+                    The source of the parameter value, such as \"engine-default\" or \"user\".
         
                   - **DataType** *(string) --* 
         
@@ -6249,7 +6249,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_categories(
-              SourceType='string'
+              SourceType=\'string\'
           )
         :type SourceType: string
         :param SourceType: 
@@ -6266,17 +6266,17 @@ class Client(BaseClient):
           ::
         
             {
-                'EventCategoriesMapList': [
+                \'EventCategoriesMapList\': [
                     {
-                        'SourceType': 'string',
-                        'Events': [
+                        \'SourceType\': \'string\',
+                        \'Events\': [
                             {
-                                'EventId': 'string',
-                                'EventCategories': [
-                                    'string',
+                                \'EventId\': \'string\',
+                                \'EventCategories\': [
+                                    \'string\',
                                 ],
-                                'EventDescription': 'string',
-                                'Severity': 'string'
+                                \'EventDescription\': \'string\',
+                                \'Severity\': \'string\'
                             },
                         ]
                     },
@@ -6342,14 +6342,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_subscriptions(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SubscriptionName: string
@@ -6393,27 +6393,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'EventSubscriptionsList': [
+                \'Marker\': \'string\',
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': datetime(2015, 1, 1),
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': datetime(2015, 1, 1),
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Severity': 'string',
-                        'Enabled': True|False,
-                        'Tags': [
+                        \'Severity\': \'string\',
+                        \'Enabled\': True|False,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -6455,7 +6455,7 @@ class Client(BaseClient):
         
                   * Can be one of the following: active | no-permission | topic-not-exist 
                    
-                  * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. 
+                  * The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created. 
                    
                 - **SubscriptionCreationTime** *(datetime) --* 
         
@@ -6517,13 +6517,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              SourceIdentifier='string',
-              SourceType='cluster'|'cluster-parameter-group'|'cluster-security-group'|'cluster-snapshot',
+              SourceIdentifier=\'string\',
+              SourceType=\'cluster\'|\'cluster-parameter-group\'|\'cluster-security-group\'|\'cluster-snapshot\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SourceIdentifier: string
         :param SourceIdentifier: 
@@ -6602,18 +6602,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Events': [
+                \'Marker\': \'string\',
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'cluster'|'cluster-parameter-group'|'cluster-security-group'|'cluster-snapshot',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'cluster\'|\'cluster-parameter-group\'|\'cluster-security-group\'|\'cluster-snapshot\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Severity': 'string',
-                        'Date': datetime(2015, 1, 1),
-                        'EventId': 'string'
+                        \'Severity\': \'string\',
+                        \'Date\': datetime(2015, 1, 1),
+                        \'EventId\': \'string\'
                     },
                 ]
             }
@@ -6683,14 +6683,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hsm_client_certificates(
-              HsmClientCertificateIdentifier='string',
+              HsmClientCertificateIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type HsmClientCertificateIdentifier: string
@@ -6734,15 +6734,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'HsmClientCertificates': [
+                \'Marker\': \'string\',
+                \'HsmClientCertificates\': [
                     {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmClientCertificatePublicKey': 'string',
-                        'Tags': [
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmClientCertificatePublicKey\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -6804,14 +6804,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hsm_configurations(
-              HsmConfigurationIdentifier='string',
+              HsmConfigurationIdentifier=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type HsmConfigurationIdentifier: string
@@ -6855,17 +6855,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'HsmConfigurations': [
+                \'Marker\': \'string\',
+                \'HsmConfigurations\': [
                     {
-                        'HsmConfigurationIdentifier': 'string',
-                        'Description': 'string',
-                        'HsmIpAddress': 'string',
-                        'HsmPartitionName': 'string',
-                        'Tags': [
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Description\': \'string\',
+                        \'HsmIpAddress\': \'string\',
+                        \'HsmPartitionName\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -6931,7 +6931,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_logging_status(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -6948,12 +6948,12 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingEnabled': True|False,
-                'BucketName': 'string',
-                'S3KeyPrefix': 'string',
-                'LastSuccessfulDeliveryTime': datetime(2015, 1, 1),
-                'LastFailureTime': datetime(2015, 1, 1),
-                'LastFailureMessage': 'string'
+                \'LoggingEnabled\': True|False,
+                \'BucketName\': \'string\',
+                \'S3KeyPrefix\': \'string\',
+                \'LastSuccessfulDeliveryTime\': datetime(2015, 1, 1),
+                \'LastFailureTime\': datetime(2015, 1, 1),
+                \'LastFailureMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -6997,10 +6997,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_orderable_cluster_options(
-              ClusterVersion='string',
-              NodeType='string',
+              ClusterVersion=\'string\',
+              NodeType=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterVersion: string
         :param ClusterVersion: 
@@ -7038,24 +7038,24 @@ class Client(BaseClient):
           ::
         
             {
-                'OrderableClusterOptions': [
+                \'OrderableClusterOptions\': [
                     {
-                        'ClusterVersion': 'string',
-                        'ClusterType': 'string',
-                        'NodeType': 'string',
-                        'AvailabilityZones': [
+                        \'ClusterVersion\': \'string\',
+                        \'ClusterType\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'AvailabilityZones\': [
                             {
-                                'Name': 'string',
-                                'SupportedPlatforms': [
+                                \'Name\': \'string\',
+                                \'SupportedPlatforms\': [
                                     {
-                                        'Name': 'string'
+                                        \'Name\': \'string\'
                                     },
                                 ]
                             },
                         ]
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7121,9 +7121,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_node_offerings(
-              ReservedNodeOfferingId='string',
+              ReservedNodeOfferingId=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReservedNodeOfferingId: string
         :param ReservedNodeOfferingId: 
@@ -7152,23 +7152,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReservedNodeOfferings': [
+                \'Marker\': \'string\',
+                \'ReservedNodeOfferings\': [
                     {
-                        'ReservedNodeOfferingId': 'string',
-                        'NodeType': 'string',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedNodeOfferingId\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                        \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                     },
                 ]
             }
@@ -7246,9 +7246,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_nodes(
-              ReservedNodeId='string',
+              ReservedNodeId=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReservedNodeId: string
         :param ReservedNodeId: 
@@ -7277,27 +7277,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReservedNodes': [
+                \'Marker\': \'string\',
+                \'ReservedNodes\': [
                     {
-                        'ReservedNodeId': 'string',
-                        'ReservedNodeOfferingId': 'string',
-                        'NodeType': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'NodeCount': 123,
-                        'State': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedNodeId\': \'string\',
+                        \'ReservedNodeOfferingId\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'NodeCount\': 123,
+                        \'State\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                        \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                     },
                 ]
             }
@@ -7405,7 +7405,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_resize(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -7422,27 +7422,27 @@ class Client(BaseClient):
           ::
         
             {
-                'TargetNodeType': 'string',
-                'TargetNumberOfNodes': 123,
-                'TargetClusterType': 'string',
-                'Status': 'string',
-                'ImportTablesCompleted': [
-                    'string',
+                \'TargetNodeType\': \'string\',
+                \'TargetNumberOfNodes\': 123,
+                \'TargetClusterType\': \'string\',
+                \'Status\': \'string\',
+                \'ImportTablesCompleted\': [
+                    \'string\',
                 ],
-                'ImportTablesInProgress': [
-                    'string',
+                \'ImportTablesInProgress\': [
+                    \'string\',
                 ],
-                'ImportTablesNotStarted': [
-                    'string',
+                \'ImportTablesNotStarted\': [
+                    \'string\',
                 ],
-                'AvgResizeRateInMegaBytesPerSecond': 123.0,
-                'TotalResizeDataInMegaBytes': 123,
-                'ProgressInMegaBytes': 123,
-                'ElapsedTimeInSeconds': 123,
-                'EstimatedTimeToCompletionInSeconds': 123,
-                'ResizeType': 'string',
-                'Message': 'string',
-                'TargetEncryptionType': 'string'
+                \'AvgResizeRateInMegaBytesPerSecond\': 123.0,
+                \'TotalResizeDataInMegaBytes\': 123,
+                \'ProgressInMegaBytes\': 123,
+                \'ElapsedTimeInSeconds\': 123,
+                \'EstimatedTimeToCompletionInSeconds\': 123,
+                \'ResizeType\': \'string\',
+                \'Message\': \'string\',
+                \'TargetEncryptionType\': \'string\'
             }
           **Response Structure** 
         
@@ -7542,14 +7542,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_snapshot_copy_grants(
-              SnapshotCopyGrantName='string',
+              SnapshotCopyGrantName=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SnapshotCopyGrantName: string
@@ -7595,15 +7595,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'SnapshotCopyGrants': [
+                \'Marker\': \'string\',
+                \'SnapshotCopyGrants\': [
                     {
-                        'SnapshotCopyGrantName': 'string',
-                        'KmsKeyId': 'string',
-                        'Tags': [
+                        \'SnapshotCopyGrantName\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -7665,10 +7665,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_table_restore_status(
-              ClusterIdentifier='string',
-              TableRestoreRequestId='string',
+              ClusterIdentifier=\'string\',
+              TableRestoreRequestId=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: 
@@ -7678,7 +7678,7 @@ class Client(BaseClient):
         :type TableRestoreRequestId: string
         :param TableRestoreRequestId: 
         
-          The identifier of the table restore request to return status for. If you don't specify a ``TableRestoreRequestId`` value, then ``DescribeTableRestoreStatus`` returns the status of all in-progress table restore requests.
+          The identifier of the table restore request to return status for. If you don\'t specify a ``TableRestoreRequestId`` value, then ``DescribeTableRestoreStatus`` returns the status of all in-progress table restore requests.
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -7698,25 +7698,25 @@ class Client(BaseClient):
           ::
         
             {
-                'TableRestoreStatusDetails': [
+                \'TableRestoreStatusDetails\': [
                     {
-                        'TableRestoreRequestId': 'string',
-                        'Status': 'PENDING'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'CANCELED',
-                        'Message': 'string',
-                        'RequestTime': datetime(2015, 1, 1),
-                        'ProgressInMegaBytes': 123,
-                        'TotalDataInMegaBytes': 123,
-                        'ClusterIdentifier': 'string',
-                        'SnapshotIdentifier': 'string',
-                        'SourceDatabaseName': 'string',
-                        'SourceSchemaName': 'string',
-                        'SourceTableName': 'string',
-                        'TargetDatabaseName': 'string',
-                        'TargetSchemaName': 'string',
-                        'NewTableName': 'string'
+                        \'TableRestoreRequestId\': \'string\',
+                        \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'CANCELED\',
+                        \'Message\': \'string\',
+                        \'RequestTime\': datetime(2015, 1, 1),
+                        \'ProgressInMegaBytes\': 123,
+                        \'TotalDataInMegaBytes\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'SnapshotIdentifier\': \'string\',
+                        \'SourceDatabaseName\': \'string\',
+                        \'SourceSchemaName\': \'string\',
+                        \'SourceTableName\': \'string\',
+                        \'TargetDatabaseName\': \'string\',
+                        \'TargetSchemaName\': \'string\',
+                        \'NewTableName\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7816,15 +7816,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tags(
-              ResourceName='string',
-              ResourceType='string',
+              ResourceName=\'string\',
+              ResourceType=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ],
               TagValues=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceName: string
@@ -7891,17 +7891,17 @@ class Client(BaseClient):
           ::
         
             {
-                'TaggedResources': [
+                \'TaggedResources\': [
                     {
-                        'Tag': {
-                            'Key': 'string',
-                            'Value': 'string'
+                        \'Tag\': {
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
-                        'ResourceName': 'string',
-                        'ResourceType': 'string'
+                        \'ResourceName\': \'string\',
+                        \'ResourceType\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -7971,7 +7971,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_logging(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -7988,12 +7988,12 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingEnabled': True|False,
-                'BucketName': 'string',
-                'S3KeyPrefix': 'string',
-                'LastSuccessfulDeliveryTime': datetime(2015, 1, 1),
-                'LastFailureTime': datetime(2015, 1, 1),
-                'LastFailureMessage': 'string'
+                \'LoggingEnabled\': True|False,
+                \'BucketName\': \'string\',
+                \'S3KeyPrefix\': \'string\',
+                \'LastSuccessfulDeliveryTime\': datetime(2015, 1, 1),
+                \'LastFailureTime\': datetime(2015, 1, 1),
+                \'LastFailureMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -8039,7 +8039,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_snapshot_copy(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -8056,116 +8056,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8366,7 +8366,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -8574,7 +8574,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -8610,9 +8610,9 @@ class Client(BaseClient):
         ::
         
           response = client.enable_logging(
-              ClusterIdentifier='string',
-              BucketName='string',
-              S3KeyPrefix='string'
+              ClusterIdentifier=\'string\',
+              BucketName=\'string\',
+              S3KeyPrefix=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -8641,7 +8641,7 @@ class Client(BaseClient):
         
           * Cannot exceed 512 characters 
            
-          * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:  
+          * Cannot contain spaces( ), double quotes (\"), single quotes (\'), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:  
         
             * x00 to x20 
              
@@ -8661,12 +8661,12 @@ class Client(BaseClient):
           ::
         
             {
-                'LoggingEnabled': True|False,
-                'BucketName': 'string',
-                'S3KeyPrefix': 'string',
-                'LastSuccessfulDeliveryTime': datetime(2015, 1, 1),
-                'LastFailureTime': datetime(2015, 1, 1),
-                'LastFailureMessage': 'string'
+                \'LoggingEnabled\': True|False,
+                \'BucketName\': \'string\',
+                \'S3KeyPrefix\': \'string\',
+                \'LastSuccessfulDeliveryTime\': datetime(2015, 1, 1),
+                \'LastFailureTime\': datetime(2015, 1, 1),
+                \'LastFailureMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -8710,10 +8710,10 @@ class Client(BaseClient):
         ::
         
           response = client.enable_snapshot_copy(
-              ClusterIdentifier='string',
-              DestinationRegion='string',
+              ClusterIdentifier=\'string\',
+              DestinationRegion=\'string\',
               RetentionPeriod=123,
-              SnapshotCopyGrantName='string'
+              SnapshotCopyGrantName=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -8751,116 +8751,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9061,7 +9061,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -9269,7 +9269,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -9312,7 +9312,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -9335,25 +9335,25 @@ class Client(BaseClient):
         ::
         
           response = client.get_cluster_credentials(
-              DbUser='string',
-              DbName='string',
-              ClusterIdentifier='string',
+              DbUser=\'string\',
+              DbName=\'string\',
+              ClusterIdentifier=\'string\',
               DurationSeconds=123,
               AutoCreate=True|False,
               DbGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DbUser: string
         :param DbUser: **[REQUIRED]** 
         
-          The name of a database user. If a user name matching ``DbUser`` exists in the database, the temporary user credentials have the same permissions as the existing user. If ``DbUser`` doesn't exist in the database and ``Autocreate`` is ``True`` , a new user is created using the value for ``DbUser`` with PUBLIC permissions. If a database user matching the value for ``DbUser`` doesn't exist and ``Autocreate`` is ``False`` , then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
+          The name of a database user. If a user name matching ``DbUser`` exists in the database, the temporary user credentials have the same permissions as the existing user. If ``DbUser`` doesn\'t exist in the database and ``Autocreate`` is ``True`` , a new user is created using the value for ``DbUser`` with PUBLIC permissions. If a database user matching the value for ``DbUser`` doesn\'t exist and ``Autocreate`` is ``False`` , then the command succeeds but the connection attempt will fail because the user doesn\'t exist in the database.
         
           For more information, see `CREATE USER <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html>`__ in the Amazon Redshift Database Developer Guide. 
         
           Constraints:
         
-          * Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be ``PUBLIC`` . 
+          * Must be 1 to 64 alphanumeric characters or hyphens. The user name can\'t be ``PUBLIC`` . 
            
           * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen. 
            
@@ -9426,9 +9426,9 @@ class Client(BaseClient):
           ::
         
             {
-                'DbUser': 'string',
-                'DbPassword': 'string',
-                'Expiration': datetime(2015, 1, 1)
+                \'DbUser\': \'string\',
+                \'DbPassword\': \'string\',
+                \'Expiration\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -9457,10 +9457,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -9480,9 +9480,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_reserved_node_exchange_offerings(
-              ReservedNodeId='string',
+              ReservedNodeId=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReservedNodeId: string
         :param ReservedNodeId: **[REQUIRED]** 
@@ -9507,23 +9507,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReservedNodeOfferings': [
+                \'Marker\': \'string\',
+                \'ReservedNodeOfferings\': [
                     {
-                        'ReservedNodeOfferingId': 'string',
-                        'NodeType': 'string',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CurrencyCode': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedNodeOfferingId\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CurrencyCode\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                        \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                     },
                 ]
             }
@@ -9615,31 +9615,31 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cluster(
-              ClusterIdentifier='string',
-              ClusterType='string',
-              NodeType='string',
+              ClusterIdentifier=\'string\',
+              ClusterType=\'string\',
+              NodeType=\'string\',
               NumberOfNodes=123,
               ClusterSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              MasterUserPassword='string',
-              ClusterParameterGroupName='string',
+              MasterUserPassword=\'string\',
+              ClusterParameterGroupName=\'string\',
               AutomatedSnapshotRetentionPeriod=123,
-              PreferredMaintenanceWindow='string',
-              ClusterVersion='string',
+              PreferredMaintenanceWindow=\'string\',
+              ClusterVersion=\'string\',
               AllowVersionUpgrade=True|False,
-              HsmClientCertificateIdentifier='string',
-              HsmConfigurationIdentifier='string',
-              NewClusterIdentifier='string',
+              HsmClientCertificateIdentifier=\'string\',
+              HsmConfigurationIdentifier=\'string\',
+              NewClusterIdentifier=\'string\',
               PubliclyAccessible=True|False,
-              ElasticIp='string',
+              ElasticIp=\'string\',
               EnhancedVpcRouting=True|False,
-              MaintenanceTrackName='string',
+              MaintenanceTrackName=\'string\',
               Encrypted=True|False,
-              KmsKeyId='string'
+              KmsKeyId=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -9720,7 +9720,7 @@ class Client(BaseClient):
            
           * Must contain one number. 
            
-          * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space. 
+          * Can be any printable ASCII character (ASCII code 33 to 126) except \' (single quote), \" (double quote), \, /, @, or space. 
            
         :type ClusterParameterGroupName: string
         :param ClusterParameterGroupName: 
@@ -9831,7 +9831,7 @@ class Client(BaseClient):
         :type Encrypted: boolean
         :param Encrypted: 
         
-          Indicates whether the cluster is encrypted. If the cluster is encrypted and you provide a value for the ``KmsKeyId`` parameter, we will encrypt the cluster with the provided ``KmsKeyId`` . If you don't provide a ``KmsKeyId`` , we will encrypt with the default key. In the China region we will use legacy encryption if you specify that the cluster is encrypted.
+          Indicates whether the cluster is encrypted. If the cluster is encrypted and you provide a value for the ``KmsKeyId`` parameter, we will encrypt the cluster with the provided ``KmsKeyId`` . If you don\'t provide a ``KmsKeyId`` , we will encrypt with the default key. In the China region we will use legacy encryption if you specify that the cluster is encrypted.
         
         :type KmsKeyId: string
         :param KmsKeyId: 
@@ -9846,116 +9846,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10156,7 +10156,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -10364,7 +10364,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -10400,8 +10400,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cluster_db_revision(
-              ClusterIdentifier='string',
-              RevisionTarget='string'
+              ClusterIdentifier=\'string\',
+              RevisionTarget=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -10423,116 +10423,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10733,7 +10733,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -10941,7 +10941,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -10979,12 +10979,12 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cluster_iam_roles(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               AddIamRoles=[
-                  'string',
+                  \'string\',
               ],
               RemoveIamRoles=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterIdentifier: string
@@ -11014,116 +11014,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -11324,7 +11324,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -11532,7 +11532,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -11570,18 +11570,18 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cluster_parameter_group(
-              ParameterGroupName='string',
+              ParameterGroupName=\'string\',
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'ApplyType': 'static'|'dynamic',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'ApplyType\': \'static\'|\'dynamic\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\'
                   },
               ]
           )
@@ -11617,7 +11617,7 @@ class Client(BaseClient):
         
             - **Source** *(string) --* 
         
-              The source of the parameter value, such as "engine-default" or "user".
+              The source of the parameter value, such as \"engine-default\" or \"user\".
         
             - **DataType** *(string) --* 
         
@@ -11647,8 +11647,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ParameterGroupName': 'string',
-                'ParameterGroupStatus': 'string'
+                \'ParameterGroupName\': \'string\',
+                \'ParameterGroupStatus\': \'string\'
             }
           **Response Structure** 
         
@@ -11674,10 +11674,10 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cluster_subnet_group(
-              ClusterSubnetGroupName='string',
-              Description='string',
+              ClusterSubnetGroupName=\'string\',
+              Description=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterSubnetGroupName: string
@@ -11705,29 +11705,29 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterSubnetGroup': {
-                    'ClusterSubnetGroupName': 'string',
-                    'Description': 'string',
-                    'VpcId': 'string',
-                    'SubnetGroupStatus': 'string',
-                    'Subnets': [
+                \'ClusterSubnetGroup\': {
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'SubnetGroupStatus\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string',
-                                'SupportedPlatforms': [
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\',
+                                \'SupportedPlatforms\': [
                                     {
-                                        'Name': 'string'
+                                        \'Name\': \'string\'
                                     },
                                 ]
                             },
-                            'SubnetStatus': 'string'
+                            \'SubnetStatus\': \'string\'
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -11816,16 +11816,16 @@ class Client(BaseClient):
         ::
         
           response = client.modify_event_subscription(
-              SubscriptionName='string',
-              SnsTopicArn='string',
-              SourceType='string',
+              SubscriptionName=\'string\',
+              SnsTopicArn=\'string\',
+              SourceType=\'string\',
               SourceIds=[
-                  'string',
+                  \'string\',
               ],
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
-              Severity='string',
+              Severity=\'string\',
               Enabled=True|False
           )
         :type SubscriptionName: string
@@ -11885,25 +11885,25 @@ class Client(BaseClient):
           ::
         
             {
-                'EventSubscription': {
-                    'CustomerAwsId': 'string',
-                    'CustSubscriptionId': 'string',
-                    'SnsTopicArn': 'string',
-                    'Status': 'string',
-                    'SubscriptionCreationTime': datetime(2015, 1, 1),
-                    'SourceType': 'string',
-                    'SourceIdsList': [
-                        'string',
+                \'EventSubscription\': {
+                    \'CustomerAwsId\': \'string\',
+                    \'CustSubscriptionId\': \'string\',
+                    \'SnsTopicArn\': \'string\',
+                    \'Status\': \'string\',
+                    \'SubscriptionCreationTime\': datetime(2015, 1, 1),
+                    \'SourceType\': \'string\',
+                    \'SourceIdsList\': [
+                        \'string\',
                     ],
-                    'EventCategoriesList': [
-                        'string',
+                    \'EventCategoriesList\': [
+                        \'string\',
                     ],
-                    'Severity': 'string',
-                    'Enabled': True|False,
-                    'Tags': [
+                    \'Severity\': \'string\',
+                    \'Enabled\': True|False,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -11936,7 +11936,7 @@ class Client(BaseClient):
         
                 * Can be one of the following: active | no-permission | topic-not-exist 
                  
-                * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. 
+                * The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created. 
                  
               - **SubscriptionCreationTime** *(datetime) --* 
         
@@ -11998,7 +11998,7 @@ class Client(BaseClient):
         ::
         
           response = client.modify_snapshot_copy_retention_period(
-              ClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
               RetentionPeriod=123
           )
         :type ClusterIdentifier: string
@@ -12025,116 +12025,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -12335,7 +12335,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -12543,7 +12543,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -12581,7 +12581,7 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_reserved_node_offering(
-              ReservedNodeOfferingId='string',
+              ReservedNodeOfferingId=\'string\',
               NodeCount=123
           )
         :type ReservedNodeOfferingId: string
@@ -12604,25 +12604,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedNode': {
-                    'ReservedNodeId': 'string',
-                    'ReservedNodeOfferingId': 'string',
-                    'NodeType': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'Duration': 123,
-                    'FixedPrice': 123.0,
-                    'UsagePrice': 123.0,
-                    'CurrencyCode': 'string',
-                    'NodeCount': 123,
-                    'State': 'string',
-                    'OfferingType': 'string',
-                    'RecurringCharges': [
+                \'ReservedNode\': {
+                    \'ReservedNodeId\': \'string\',
+                    \'ReservedNodeOfferingId\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'Duration\': 123,
+                    \'FixedPrice\': 123.0,
+                    \'UsagePrice\': 123.0,
+                    \'CurrencyCode\': \'string\',
+                    \'NodeCount\': 123,
+                    \'State\': \'string\',
+                    \'OfferingType\': \'string\',
+                    \'RecurringCharges\': [
                         {
-                            'RecurringChargeAmount': 123.0,
-                            'RecurringChargeFrequency': 'string'
+                            \'RecurringChargeAmount\': 123.0,
+                            \'RecurringChargeFrequency\': \'string\'
                         },
                     ],
-                    'ReservedNodeOfferingType': 'Regular'|'Upgradable'
+                    \'ReservedNodeOfferingType\': \'Regular\'|\'Upgradable\'
                 }
             }
           **Response Structure** 
@@ -12719,7 +12719,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_cluster(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -12734,116 +12734,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -13044,7 +13044,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -13252,7 +13252,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -13288,19 +13288,19 @@ class Client(BaseClient):
         ::
         
           response = client.reset_cluster_parameter_group(
-              ParameterGroupName='string',
+              ParameterGroupName=\'string\',
               ResetAllParameters=True|False,
               Parameters=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string',
-                      'Description': 'string',
-                      'Source': 'string',
-                      'DataType': 'string',
-                      'AllowedValues': 'string',
-                      'ApplyType': 'static'|'dynamic',
-                      'IsModifiable': True|False,
-                      'MinimumEngineVersion': 'string'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\',
+                      \'Description\': \'string\',
+                      \'Source\': \'string\',
+                      \'DataType\': \'string\',
+                      \'AllowedValues\': \'string\',
+                      \'ApplyType\': \'static\'|\'dynamic\',
+                      \'IsModifiable\': True|False,
+                      \'MinimumEngineVersion\': \'string\'
                   },
               ]
           )
@@ -13341,7 +13341,7 @@ class Client(BaseClient):
         
             - **Source** *(string) --* 
         
-              The source of the parameter value, such as "engine-default" or "user".
+              The source of the parameter value, such as \"engine-default\" or \"user\".
         
             - **DataType** *(string) --* 
         
@@ -13371,8 +13371,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ParameterGroupName': 'string',
-                'ParameterGroupStatus': 'string'
+                \'ParameterGroupName\': \'string\',
+                \'ParameterGroupStatus\': \'string\'
             }
           **Response Structure** 
         
@@ -13412,9 +13412,9 @@ class Client(BaseClient):
         ::
         
           response = client.resize_cluster(
-              ClusterIdentifier='string',
-              ClusterType='string',
-              NodeType='string',
+              ClusterIdentifier=\'string\',
+              ClusterType=\'string\',
+              NodeType=\'string\',
               NumberOfNodes=123,
               Classic=True|False
           )
@@ -13441,7 +13441,7 @@ class Client(BaseClient):
         :type Classic: boolean
         :param Classic: 
         
-          A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to ``false`` the resize type is elastic. 
+          A boolean value indicating whether the resize operation is using the classic resize process. If you don\'t provide this parameter or set the value to ``false`` the resize type is elastic. 
         
         :rtype: dict
         :returns: 
@@ -13451,116 +13451,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -13761,7 +13761,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -13969,7 +13969,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -14009,35 +14009,35 @@ class Client(BaseClient):
         ::
         
           response = client.restore_from_cluster_snapshot(
-              ClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              SnapshotClusterIdentifier='string',
+              ClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              SnapshotClusterIdentifier=\'string\',
               Port=123,
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               AllowVersionUpgrade=True|False,
-              ClusterSubnetGroupName='string',
+              ClusterSubnetGroupName=\'string\',
               PubliclyAccessible=True|False,
-              OwnerAccount='string',
-              HsmClientCertificateIdentifier='string',
-              HsmConfigurationIdentifier='string',
-              ElasticIp='string',
-              ClusterParameterGroupName='string',
+              OwnerAccount=\'string\',
+              HsmClientCertificateIdentifier=\'string\',
+              HsmConfigurationIdentifier=\'string\',
+              ElasticIp=\'string\',
+              ClusterParameterGroupName=\'string\',
               ClusterSecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               VpcSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              PreferredMaintenanceWindow='string',
+              PreferredMaintenanceWindow=\'string\',
               AutomatedSnapshotRetentionPeriod=123,
-              KmsKeyId='string',
-              NodeType='string',
+              KmsKeyId=\'string\',
+              NodeType=\'string\',
               EnhancedVpcRouting=True|False,
-              AdditionalInfo='string',
+              AdditionalInfo=\'string\',
               IamRoles=[
-                  'string',
+                  \'string\',
               ],
-              MaintenanceTrackName='string'
+              MaintenanceTrackName=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -14059,7 +14059,7 @@ class Client(BaseClient):
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier: **[REQUIRED]** 
         
-          The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+          The name of the snapshot from which to create the new cluster. This parameter isn\'t case sensitive.
         
           Example: ``my-snapshot-id``  
         
@@ -14194,7 +14194,7 @@ class Client(BaseClient):
         
           The node type that the restored cluster will be provisioned with.
         
-          Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see `About Clusters and Nodes <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes>`__ in the *Amazon Redshift Cluster Management Guide* . 
+          Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can\'t restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see `About Clusters and Nodes <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes>`__ in the *Amazon Redshift Cluster Management Guide* . 
         
         :type EnhancedVpcRouting: boolean
         :param EnhancedVpcRouting: 
@@ -14232,116 +14232,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -14542,7 +14542,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -14750,7 +14750,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         
@@ -14788,14 +14788,14 @@ class Client(BaseClient):
         ::
         
           response = client.restore_table_from_cluster_snapshot(
-              ClusterIdentifier='string',
-              SnapshotIdentifier='string',
-              SourceDatabaseName='string',
-              SourceSchemaName='string',
-              SourceTableName='string',
-              TargetDatabaseName='string',
-              TargetSchemaName='string',
-              NewTableName='string'
+              ClusterIdentifier=\'string\',
+              SnapshotIdentifier=\'string\',
+              SourceDatabaseName=\'string\',
+              SourceSchemaName=\'string\',
+              SourceTableName=\'string\',
+              TargetDatabaseName=\'string\',
+              TargetSchemaName=\'string\',
+              NewTableName=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -14845,21 +14845,21 @@ class Client(BaseClient):
           ::
         
             {
-                'TableRestoreStatus': {
-                    'TableRestoreRequestId': 'string',
-                    'Status': 'PENDING'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'CANCELED',
-                    'Message': 'string',
-                    'RequestTime': datetime(2015, 1, 1),
-                    'ProgressInMegaBytes': 123,
-                    'TotalDataInMegaBytes': 123,
-                    'ClusterIdentifier': 'string',
-                    'SnapshotIdentifier': 'string',
-                    'SourceDatabaseName': 'string',
-                    'SourceSchemaName': 'string',
-                    'SourceTableName': 'string',
-                    'TargetDatabaseName': 'string',
-                    'TargetSchemaName': 'string',
-                    'NewTableName': 'string'
+                \'TableRestoreStatus\': {
+                    \'TableRestoreRequestId\': \'string\',
+                    \'Status\': \'PENDING\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'CANCELED\',
+                    \'Message\': \'string\',
+                    \'RequestTime\': datetime(2015, 1, 1),
+                    \'ProgressInMegaBytes\': 123,
+                    \'TotalDataInMegaBytes\': 123,
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotIdentifier\': \'string\',
+                    \'SourceDatabaseName\': \'string\',
+                    \'SourceSchemaName\': \'string\',
+                    \'SourceTableName\': \'string\',
+                    \'TargetDatabaseName\': \'string\',
+                    \'TargetSchemaName\': \'string\',
+                    \'NewTableName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -14940,10 +14940,10 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_cluster_security_group_ingress(
-              ClusterSecurityGroupName='string',
-              CIDRIP='string',
-              EC2SecurityGroupName='string',
-              EC2SecurityGroupOwnerId='string'
+              ClusterSecurityGroupName=\'string\',
+              CIDRIP=\'string\',
+              EC2SecurityGroupName=\'string\',
+              EC2SecurityGroupOwnerId=\'string\'
           )
         :type ClusterSecurityGroupName: string
         :param ClusterSecurityGroupName: **[REQUIRED]** 
@@ -14975,38 +14975,38 @@ class Client(BaseClient):
           ::
         
             {
-                'ClusterSecurityGroup': {
-                    'ClusterSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'ClusterSecurityGroup\': {
+                    \'ClusterSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'IPRanges': [
+                    \'IPRanges\': [
                         {
-                            'Status': 'string',
-                            'CIDRIP': 'string',
-                            'Tags': [
+                            \'Status\': \'string\',
+                            \'CIDRIP\': \'string\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -15073,7 +15073,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The status of the IP range, for example, "authorized".
+                    The status of the IP range, for example, \"authorized\".
         
                   - **CIDRIP** *(string) --* 
         
@@ -15125,9 +15125,9 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_snapshot_access(
-              SnapshotIdentifier='string',
-              SnapshotClusterIdentifier='string',
-              AccountWithRestoreAccess='string'
+              SnapshotIdentifier=\'string\',
+              SnapshotClusterIdentifier=\'string\',
+              AccountWithRestoreAccess=\'string\'
           )
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier: **[REQUIRED]** 
@@ -15152,49 +15152,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotIdentifier': 'string',
-                    'ClusterIdentifier': 'string',
-                    'SnapshotCreateTime': datetime(2015, 1, 1),
-                    'Status': 'string',
-                    'Port': 123,
-                    'AvailabilityZone': 'string',
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'MasterUsername': 'string',
-                    'ClusterVersion': 'string',
-                    'SnapshotType': 'string',
-                    'NodeType': 'string',
-                    'NumberOfNodes': 123,
-                    'DBName': 'string',
-                    'VpcId': 'string',
-                    'Encrypted': True|False,
-                    'KmsKeyId': 'string',
-                    'EncryptedWithHSM': True|False,
-                    'AccountsWithRestoreAccess': [
+                \'Snapshot\': {
+                    \'SnapshotIdentifier\': \'string\',
+                    \'ClusterIdentifier\': \'string\',
+                    \'SnapshotCreateTime\': datetime(2015, 1, 1),
+                    \'Status\': \'string\',
+                    \'Port\': 123,
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'MasterUsername\': \'string\',
+                    \'ClusterVersion\': \'string\',
+                    \'SnapshotType\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'NumberOfNodes\': 123,
+                    \'DBName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Encrypted\': True|False,
+                    \'KmsKeyId\': \'string\',
+                    \'EncryptedWithHSM\': True|False,
+                    \'AccountsWithRestoreAccess\': [
                         {
-                            'AccountId': 'string',
-                            'AccountAlias': 'string'
+                            \'AccountId\': \'string\',
+                            \'AccountAlias\': \'string\'
                         },
                     ],
-                    'OwnerAccount': 'string',
-                    'TotalBackupSizeInMegaBytes': 123.0,
-                    'ActualIncrementalBackupSizeInMegaBytes': 123.0,
-                    'BackupProgressInMegaBytes': 123.0,
-                    'CurrentBackupRateInMegaBytesPerSecond': 123.0,
-                    'EstimatedSecondsToCompletion': 123,
-                    'ElapsedTimeInSeconds': 123,
-                    'SourceRegion': 'string',
-                    'Tags': [
+                    \'OwnerAccount\': \'string\',
+                    \'TotalBackupSizeInMegaBytes\': 123.0,
+                    \'ActualIncrementalBackupSizeInMegaBytes\': 123.0,
+                    \'BackupProgressInMegaBytes\': 123.0,
+                    \'CurrentBackupRateInMegaBytesPerSecond\': 123.0,
+                    \'EstimatedSecondsToCompletion\': 123,
+                    \'ElapsedTimeInSeconds\': 123,
+                    \'SourceRegion\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'RestorableNodeTypes': [
-                        'string',
+                    \'RestorableNodeTypes\': [
+                        \'string\',
                     ],
-                    'EnhancedVpcRouting': True|False,
-                    'MaintenanceTrackName': 'string'
+                    \'EnhancedVpcRouting\': True|False,
+                    \'MaintenanceTrackName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -15221,11 +15221,11 @@ class Client(BaseClient):
         
                 The snapshot status. The value of the status depends on the API operation used. 
         
-                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as "creating".  
+                *  CreateClusterSnapshot and  CopyClusterSnapshot returns status as \"creating\".  
                  
-                *  DescribeClusterSnapshots returns status as "creating", "available", "final snapshot", or "failed". 
+                *  DescribeClusterSnapshots returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\". 
                  
-                *  DeleteClusterSnapshot returns status as "deleted". 
+                *  DeleteClusterSnapshot returns status as \"deleted\". 
                  
               - **Port** *(integer) --* 
         
@@ -15249,7 +15249,7 @@ class Client(BaseClient):
         
               - **SnapshotType** *(string) --* 
         
-                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type "manual". 
+                The snapshot type. Snapshots created using  CreateClusterSnapshot and  CopyClusterSnapshot will be of type \"manual\". 
         
               - **NodeType** *(string) --* 
         
@@ -15373,7 +15373,7 @@ class Client(BaseClient):
         ::
         
           response = client.rotate_encryption_key(
-              ClusterIdentifier='string'
+              ClusterIdentifier=\'string\'
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]** 
@@ -15390,116 +15390,116 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterIdentifier': 'string',
-                    'NodeType': 'string',
-                    'ClusterStatus': 'string',
-                    'ModifyStatus': 'string',
-                    'MasterUsername': 'string',
-                    'DBName': 'string',
-                    'Endpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterIdentifier\': \'string\',
+                    \'NodeType\': \'string\',
+                    \'ClusterStatus\': \'string\',
+                    \'ModifyStatus\': \'string\',
+                    \'MasterUsername\': \'string\',
+                    \'DBName\': \'string\',
+                    \'Endpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClusterCreateTime': datetime(2015, 1, 1),
-                    'AutomatedSnapshotRetentionPeriod': 123,
-                    'ClusterSecurityGroups': [
+                    \'ClusterCreateTime\': datetime(2015, 1, 1),
+                    \'AutomatedSnapshotRetentionPeriod\': 123,
+                    \'ClusterSecurityGroups\': [
                         {
-                            'ClusterSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'ClusterSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'VpcSecurityGroups': [
+                    \'VpcSecurityGroups\': [
                         {
-                            'VpcSecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'VpcSecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ClusterParameterGroups': [
+                    \'ClusterParameterGroups\': [
                         {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'ClusterParameterStatusList': [
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'ClusterParameterStatusList\': [
                                 {
-                                    'ParameterName': 'string',
-                                    'ParameterApplyStatus': 'string',
-                                    'ParameterApplyErrorDescription': 'string'
+                                    \'ParameterName\': \'string\',
+                                    \'ParameterApplyStatus\': \'string\',
+                                    \'ParameterApplyErrorDescription\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ClusterSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AvailabilityZone': 'string',
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'MasterUserPassword': 'string',
-                        'NodeType': 'string',
-                        'NumberOfNodes': 123,
-                        'ClusterType': 'string',
-                        'ClusterVersion': 'string',
-                        'AutomatedSnapshotRetentionPeriod': 123,
-                        'ClusterIdentifier': 'string',
-                        'PubliclyAccessible': True|False,
-                        'EnhancedVpcRouting': True|False,
-                        'MaintenanceTrackName': 'string',
-                        'EncryptionType': 'string'
+                    \'ClusterSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AvailabilityZone\': \'string\',
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'MasterUserPassword\': \'string\',
+                        \'NodeType\': \'string\',
+                        \'NumberOfNodes\': 123,
+                        \'ClusterType\': \'string\',
+                        \'ClusterVersion\': \'string\',
+                        \'AutomatedSnapshotRetentionPeriod\': 123,
+                        \'ClusterIdentifier\': \'string\',
+                        \'PubliclyAccessible\': True|False,
+                        \'EnhancedVpcRouting\': True|False,
+                        \'MaintenanceTrackName\': \'string\',
+                        \'EncryptionType\': \'string\'
                     },
-                    'ClusterVersion': 'string',
-                    'AllowVersionUpgrade': True|False,
-                    'NumberOfNodes': 123,
-                    'PubliclyAccessible': True|False,
-                    'Encrypted': True|False,
-                    'RestoreStatus': {
-                        'Status': 'string',
-                        'CurrentRestoreRateInMegaBytesPerSecond': 123.0,
-                        'SnapshotSizeInMegaBytes': 123,
-                        'ProgressInMegaBytes': 123,
-                        'ElapsedTimeInSeconds': 123,
-                        'EstimatedTimeToCompletionInSeconds': 123
+                    \'ClusterVersion\': \'string\',
+                    \'AllowVersionUpgrade\': True|False,
+                    \'NumberOfNodes\': 123,
+                    \'PubliclyAccessible\': True|False,
+                    \'Encrypted\': True|False,
+                    \'RestoreStatus\': {
+                        \'Status\': \'string\',
+                        \'CurrentRestoreRateInMegaBytesPerSecond\': 123.0,
+                        \'SnapshotSizeInMegaBytes\': 123,
+                        \'ProgressInMegaBytes\': 123,
+                        \'ElapsedTimeInSeconds\': 123,
+                        \'EstimatedTimeToCompletionInSeconds\': 123
                     },
-                    'HsmStatus': {
-                        'HsmClientCertificateIdentifier': 'string',
-                        'HsmConfigurationIdentifier': 'string',
-                        'Status': 'string'
+                    \'HsmStatus\': {
+                        \'HsmClientCertificateIdentifier\': \'string\',
+                        \'HsmConfigurationIdentifier\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterSnapshotCopyStatus': {
-                        'DestinationRegion': 'string',
-                        'RetentionPeriod': 123,
-                        'SnapshotCopyGrantName': 'string'
+                    \'ClusterSnapshotCopyStatus\': {
+                        \'DestinationRegion\': \'string\',
+                        \'RetentionPeriod\': 123,
+                        \'SnapshotCopyGrantName\': \'string\'
                     },
-                    'ClusterPublicKey': 'string',
-                    'ClusterNodes': [
+                    \'ClusterPublicKey\': \'string\',
+                    \'ClusterNodes\': [
                         {
-                            'NodeRole': 'string',
-                            'PrivateIPAddress': 'string',
-                            'PublicIPAddress': 'string'
+                            \'NodeRole\': \'string\',
+                            \'PrivateIPAddress\': \'string\',
+                            \'PublicIPAddress\': \'string\'
                         },
                     ],
-                    'ElasticIpStatus': {
-                        'ElasticIp': 'string',
-                        'Status': 'string'
+                    \'ElasticIpStatus\': {
+                        \'ElasticIp\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'ClusterRevisionNumber': 'string',
-                    'Tags': [
+                    \'ClusterRevisionNumber\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'KmsKeyId': 'string',
-                    'EnhancedVpcRouting': True|False,
-                    'IamRoles': [
+                    \'KmsKeyId\': \'string\',
+                    \'EnhancedVpcRouting\': True|False,
+                    \'IamRoles\': [
                         {
-                            'IamRoleArn': 'string',
-                            'ApplyStatus': 'string'
+                            \'IamRoleArn\': \'string\',
+                            \'ApplyStatus\': \'string\'
                         },
                     ],
-                    'PendingActions': [
-                        'string',
+                    \'PendingActions\': [
+                        \'string\',
                     ],
-                    'MaintenanceTrackName': 'string',
-                    'ElasticResizeNumberOfNodeOptions': 'string'
+                    \'MaintenanceTrackName\': \'string\',
+                    \'ElasticResizeNumberOfNodeOptions\': \'string\'
                 }
             }
           **Response Structure** 
@@ -15700,7 +15700,7 @@ class Client(BaseClient):
         
                 - **NodeType** *(string) --* 
         
-                  The pending or in-progress change of the cluster's node type.
+                  The pending or in-progress change of the cluster\'s node type.
         
                 - **NumberOfNodes** *(integer) --* 
         
@@ -15908,7 +15908,7 @@ class Client(BaseClient):
         
                   - **ApplyStatus** *(string) --* 
         
-                    A value that describes the status of the IAM role's association with an Amazon Redshift cluster.
+                    A value that describes the status of the IAM role\'s association with an Amazon Redshift cluster.
         
                     The following are possible statuses and descriptions.
         

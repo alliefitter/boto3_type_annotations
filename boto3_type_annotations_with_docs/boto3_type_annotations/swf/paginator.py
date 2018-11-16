@@ -12,16 +12,16 @@ class GetWorkflowExecutionHistory(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
+              domain=\'string\',
               execution={
-                  'workflowId': 'string',
-                  'runId': 'string'
+                  \'workflowId\': \'string\',
+                  \'runId\': \'string\'
               },
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -72,423 +72,423 @@ class GetWorkflowExecutionHistory(Paginator):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'eventTimestamp': datetime(2015, 1, 1),
-                        'eventType': 'WorkflowExecutionStarted'|'WorkflowExecutionCancelRequested'|'WorkflowExecutionCompleted'|'CompleteWorkflowExecutionFailed'|'WorkflowExecutionFailed'|'FailWorkflowExecutionFailed'|'WorkflowExecutionTimedOut'|'WorkflowExecutionCanceled'|'CancelWorkflowExecutionFailed'|'WorkflowExecutionContinuedAsNew'|'ContinueAsNewWorkflowExecutionFailed'|'WorkflowExecutionTerminated'|'DecisionTaskScheduled'|'DecisionTaskStarted'|'DecisionTaskCompleted'|'DecisionTaskTimedOut'|'ActivityTaskScheduled'|'ScheduleActivityTaskFailed'|'ActivityTaskStarted'|'ActivityTaskCompleted'|'ActivityTaskFailed'|'ActivityTaskTimedOut'|'ActivityTaskCanceled'|'ActivityTaskCancelRequested'|'RequestCancelActivityTaskFailed'|'WorkflowExecutionSignaled'|'MarkerRecorded'|'RecordMarkerFailed'|'TimerStarted'|'StartTimerFailed'|'TimerFired'|'TimerCanceled'|'CancelTimerFailed'|'StartChildWorkflowExecutionInitiated'|'StartChildWorkflowExecutionFailed'|'ChildWorkflowExecutionStarted'|'ChildWorkflowExecutionCompleted'|'ChildWorkflowExecutionFailed'|'ChildWorkflowExecutionTimedOut'|'ChildWorkflowExecutionCanceled'|'ChildWorkflowExecutionTerminated'|'SignalExternalWorkflowExecutionInitiated'|'SignalExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionSignaled'|'RequestCancelExternalWorkflowExecutionInitiated'|'RequestCancelExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionCancelRequested'|'LambdaFunctionScheduled'|'LambdaFunctionStarted'|'LambdaFunctionCompleted'|'LambdaFunctionFailed'|'LambdaFunctionTimedOut'|'ScheduleLambdaFunctionFailed'|'StartLambdaFunctionFailed',
-                        'eventId': 123,
-                        'workflowExecutionStartedEventAttributes': {
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskList': {
-                                'name': 'string'
+                        \'eventTimestamp\': datetime(2015, 1, 1),
+                        \'eventType\': \'WorkflowExecutionStarted\'|\'WorkflowExecutionCancelRequested\'|\'WorkflowExecutionCompleted\'|\'CompleteWorkflowExecutionFailed\'|\'WorkflowExecutionFailed\'|\'FailWorkflowExecutionFailed\'|\'WorkflowExecutionTimedOut\'|\'WorkflowExecutionCanceled\'|\'CancelWorkflowExecutionFailed\'|\'WorkflowExecutionContinuedAsNew\'|\'ContinueAsNewWorkflowExecutionFailed\'|\'WorkflowExecutionTerminated\'|\'DecisionTaskScheduled\'|\'DecisionTaskStarted\'|\'DecisionTaskCompleted\'|\'DecisionTaskTimedOut\'|\'ActivityTaskScheduled\'|\'ScheduleActivityTaskFailed\'|\'ActivityTaskStarted\'|\'ActivityTaskCompleted\'|\'ActivityTaskFailed\'|\'ActivityTaskTimedOut\'|\'ActivityTaskCanceled\'|\'ActivityTaskCancelRequested\'|\'RequestCancelActivityTaskFailed\'|\'WorkflowExecutionSignaled\'|\'MarkerRecorded\'|\'RecordMarkerFailed\'|\'TimerStarted\'|\'StartTimerFailed\'|\'TimerFired\'|\'TimerCanceled\'|\'CancelTimerFailed\'|\'StartChildWorkflowExecutionInitiated\'|\'StartChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionStarted\'|\'ChildWorkflowExecutionCompleted\'|\'ChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionTimedOut\'|\'ChildWorkflowExecutionCanceled\'|\'ChildWorkflowExecutionTerminated\'|\'SignalExternalWorkflowExecutionInitiated\'|\'SignalExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionSignaled\'|\'RequestCancelExternalWorkflowExecutionInitiated\'|\'RequestCancelExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionCancelRequested\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStarted\'|\'LambdaFunctionCompleted\'|\'LambdaFunctionFailed\'|\'LambdaFunctionTimedOut\'|\'ScheduleLambdaFunctionFailed\'|\'StartLambdaFunctionFailed\',
+                        \'eventId\': 123,
+                        \'workflowExecutionStartedEventAttributes\': {
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'taskPriority\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'tagList': [
-                                'string',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'continuedExecutionRunId': 'string',
-                            'parentWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                            \'continuedExecutionRunId\': \'string\',
+                            \'parentWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'parentInitiatedEventId': 123,
-                            'lambdaRole': 'string'
+                            \'parentInitiatedEventId\': 123,
+                            \'lambdaRole\': \'string\'
                         },
-                        'workflowExecutionCompletedEventAttributes': {
-                            'result': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'completeWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'completeWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'failWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'failWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON'
+                        \'workflowExecutionTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\'
                         },
-                        'workflowExecutionCanceledEventAttributes': {
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionContinuedAsNewEventAttributes': {
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'newExecutionRunId': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                        \'workflowExecutionContinuedAsNewEventAttributes\': {
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'newExecutionRunId\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'continueAsNewWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'WORKFLOW_TYPE_DEPRECATED'|'WORKFLOW_TYPE_DOES_NOT_EXIST'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'continueAsNewWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTerminatedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'cause': 'CHILD_POLICY_APPLIED'|'EVENT_LIMIT_EXCEEDED'|'OPERATOR_INITIATED'
+                        \'workflowExecutionTerminatedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'cause\': \'CHILD_POLICY_APPLIED\'|\'EVENT_LIMIT_EXCEEDED\'|\'OPERATOR_INITIATED\'
                         },
-                        'workflowExecutionCancelRequestedEventAttributes': {
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionCancelRequestedEventAttributes\': {
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123,
-                            'cause': 'CHILD_POLICY_APPLIED'
+                            \'externalInitiatedEventId\': 123,
+                            \'cause\': \'CHILD_POLICY_APPLIED\'
                         },
-                        'decisionTaskScheduledEventAttributes': {
-                            'taskList': {
-                                'name': 'string'
+                        \'decisionTaskScheduledEventAttributes\': {
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'startToCloseTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'startToCloseTimeout\': \'string\'
                         },
-                        'decisionTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'decisionTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'decisionTaskCompletedEventAttributes': {
-                            'executionContext': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskCompletedEventAttributes\': {
+                            \'executionContext\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'decisionTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskScheduledEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'activityTaskScheduledEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'input': 'string',
-                            'control': 'string',
-                            'scheduleToStartTimeout': 'string',
-                            'scheduleToCloseTimeout': 'string',
-                            'startToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'activityId\': \'string\',
+                            \'input\': \'string\',
+                            \'control\': \'string\',
+                            \'scheduleToStartTimeout\': \'string\',
+                            \'scheduleToCloseTimeout\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'heartbeatTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'heartbeatTimeout\': \'string\'
                         },
-                        'activityTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'activityTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'activityTaskCompletedEventAttributes': {
-                            'result': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE'|'SCHEDULE_TO_START'|'SCHEDULE_TO_CLOSE'|'HEARTBEAT',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'details': 'string'
+                        \'activityTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\'|\'SCHEDULE_TO_START\'|\'SCHEDULE_TO_CLOSE\'|\'HEARTBEAT\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'details\': \'string\'
                         },
-                        'activityTaskCanceledEventAttributes': {
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'latestCancelRequestedEventId': 123
+                        \'activityTaskCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'latestCancelRequestedEventId\': 123
                         },
-                        'activityTaskCancelRequestedEventAttributes': {
-                            'decisionTaskCompletedEventId': 123,
-                            'activityId': 'string'
+                        \'activityTaskCancelRequestedEventAttributes\': {
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'activityId\': \'string\'
                         },
-                        'workflowExecutionSignaledEventAttributes': {
-                            'signalName': 'string',
-                            'input': 'string',
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionSignaledEventAttributes\': {
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123
+                            \'externalInitiatedEventId\': 123
                         },
-                        'markerRecordedEventAttributes': {
-                            'markerName': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'markerRecordedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'recordMarkerFailedEventAttributes': {
-                            'markerName': 'string',
-                            'cause': 'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'recordMarkerFailedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'cause\': \'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerStartedEventAttributes': {
-                            'timerId': 'string',
-                            'control': 'string',
-                            'startToFireTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'timerStartedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'control\': \'string\',
+                            \'startToFireTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerFiredEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123
+                        \'timerFiredEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123
                         },
-                        'timerCanceledEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123,
-                            'decisionTaskCompletedEventId': 123
+                        \'timerCanceledEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'control': 'string',
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskStartToCloseTimeout': 'string',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'childWorkflowExecutionStartedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionStartedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'childWorkflowExecutionCompletedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCompletedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'result': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'result\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionFailedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'reason': 'string',
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTimedOutEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTimedOutEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'timeoutType': 'START_TO_CLOSE',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionCanceledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCanceledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTerminatedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTerminatedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'signalName': 'string',
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionSignaledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionSignaledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionCancelRequestedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionCancelRequestedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'requestCancelExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'requestCancelExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'scheduleActivityTaskFailedEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'scheduleActivityTaskFailedEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_TYPE_DEPRECATED'|'ACTIVITY_TYPE_DOES_NOT_EXIST'|'ACTIVITY_ID_ALREADY_IN_USE'|'OPEN_ACTIVITIES_LIMIT_EXCEEDED'|'ACTIVITY_CREATION_RATE_EXCEEDED'|'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED'|'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_TYPE_DEPRECATED\'|\'ACTIVITY_TYPE_DOES_NOT_EXIST\'|\'ACTIVITY_ID_ALREADY_IN_USE\'|\'OPEN_ACTIVITIES_LIMIT_EXCEEDED\'|\'ACTIVITY_CREATION_RATE_EXCEEDED\'|\'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED\'|\'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'requestCancelActivityTaskFailedEventAttributes': {
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'requestCancelActivityTaskFailedEventAttributes\': {
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_ALREADY_IN_USE'|'OPEN_TIMERS_LIMIT_EXCEEDED'|'TIMER_CREATION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'startTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_ALREADY_IN_USE\'|\'OPEN_TIMERS_LIMIT_EXCEEDED\'|\'TIMER_CREATION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionFailedEventAttributes': {
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'cause': 'WORKFLOW_TYPE_DOES_NOT_EXIST'|'WORKFLOW_TYPE_DEPRECATED'|'OPEN_CHILDREN_LIMIT_EXCEEDED'|'OPEN_WORKFLOWS_LIMIT_EXCEEDED'|'CHILD_CREATION_RATE_EXCEEDED'|'WORKFLOW_ALREADY_RUNNING'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'workflowId': 'string',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                            \'cause\': \'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'OPEN_CHILDREN_LIMIT_EXCEEDED\'|\'OPEN_WORKFLOWS_LIMIT_EXCEEDED\'|\'CHILD_CREATION_RATE_EXCEEDED\'|\'WORKFLOW_ALREADY_RUNNING\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'workflowId\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'control': 'string',
-                            'input': 'string',
-                            'startToCloseTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'lambdaFunctionScheduledEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'lambdaFunctionStartedEventAttributes': {
-                            'scheduledEventId': 123
+                        \'lambdaFunctionStartedEventAttributes\': {
+                            \'scheduledEventId\': 123
                         },
-                        'lambdaFunctionCompletedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'result': 'string'
+                        \'lambdaFunctionCompletedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'result\': \'string\'
                         },
-                        'lambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'reason': 'string',
-                            'details': 'string'
+                        \'lambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'reason\': \'string\',
+                            \'details\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'timeoutType': 'START_TO_CLOSE'
+                        \'lambdaFunctionTimedOutEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'timeoutType\': \'START_TO_CLOSE\'
                         },
-                        'scheduleLambdaFunctionFailedEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'cause': 'ID_ALREADY_IN_USE'|'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED'|'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED'|'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION',
-                            'decisionTaskCompletedEventId': 123
+                        \'scheduleLambdaFunctionFailedEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'cause\': \'ID_ALREADY_IN_USE\'|\'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED\'|\'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED\'|\'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startLambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'cause': 'ASSUME_ROLE_FAILED',
-                            'message': 'string'
+                        \'startLambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'cause\': \'ASSUME_ROLE_FAILED\',
+                            \'message\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -518,7 +518,7 @@ class GetWorkflowExecutionHistory(Paginator):
                  
                 * ``ActivityTaskTimedOut`` – The activity task timed out. 
                  
-                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id. 
+                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn\'t configured properly, for example no timer exists with the specified timer Id. 
                  
                 * ``CancelWorkflowExecutionFailed`` – A request to cancel a workflow execution failed. 
                  
@@ -556,13 +556,13 @@ class GetWorkflowExecutionHistory(Paginator):
                  
                 * ``RecordMarkerFailed`` – A ``RecordMarker`` decision was returned as failed. 
                  
-                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly. 
+                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn\'t configured properly. 
                  
                 * ``RequestCancelExternalWorkflowExecutionFailed`` – Request to cancel an external workflow execution failed. 
                  
                 * ``RequestCancelExternalWorkflowExecutionInitiated`` – A request was made to request the cancellation of an external workflow execution. 
                  
-                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered. 
+                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn\'t configured properly, for example the activity type specified isn\'t registered. 
                  
                 * ``SignalExternalWorkflowExecutionFailed`` – The request to signal an external workflow execution failed. 
                  
@@ -570,11 +570,11 @@ class GetWorkflowExecutionHistory(Paginator):
                  
                 * ``StartActivityTaskFailed`` – A scheduled activity task failed to start. 
                  
-                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered. 
+                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn\'t configured properly, for example the workflow type specified isn\'t registered. 
                  
                 * ``StartChildWorkflowExecutionInitiated`` – A request was made to start a child workflow execution. 
                  
-                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id. 
+                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn\'t configured properly, for example a timer already exists with the specified timer Id. 
                  
                 * ``TimerCanceled`` – A timer, previously started for this workflow execution, was successfully canceled. 
                  
@@ -614,7 +614,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -688,7 +688,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **parentWorkflowExecution** *(dict) --* 
         
-                    The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.
+                    The source workflow execution that started this workflow execution. The member isn\'t set if the workflow execution was not started by a workflow.
         
                     - **workflowId** *(string) --* 
         
@@ -708,7 +708,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -720,7 +720,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **completeWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -736,7 +736,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -752,7 +752,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **failWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -768,7 +768,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -788,7 +788,7 @@ class GetWorkflowExecutionHistory(Paginator):
                      
                 - **workflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -800,7 +800,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **cancelWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -816,7 +816,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionContinuedAsNewEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -898,7 +898,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **continueAsNewWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -914,7 +914,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -942,7 +942,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **externalWorkflowExecution** *(dict) --* 
         
@@ -966,7 +966,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **decisionTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **taskList** *(dict) --* 
         
@@ -978,19 +978,19 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **taskPriority** *(string) --* 
         
-                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
                   - **startToCloseTimeout** *(string) --* 
         
-                    The maximum duration for this decision task. The task is considered timed out if it doesn't completed within this duration.
+                    The maximum duration for this decision task. The task is considered timed out if it doesn\'t completed within this duration.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
                 - **decisionTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -1002,7 +1002,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **decisionTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **executionContext** *(string) --* 
         
@@ -1018,7 +1018,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **decisionTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -1034,7 +1034,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -1066,7 +1066,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the activity.
         
                   - **scheduleToStartTimeout** *(string) --* 
         
@@ -1092,7 +1092,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                     The priority to assign to the scheduled activity task. If set, this overrides any default priority value that was assigned when the activity type was registered.
         
-                    Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -1106,7 +1106,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -1118,7 +1118,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -1134,7 +1134,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -1154,7 +1154,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -1174,7 +1174,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -1194,7 +1194,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **activityTaskCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -1206,7 +1206,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **workflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **signalName** *(string) --* 
         
@@ -1234,7 +1234,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **markerRecordedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
@@ -1250,11 +1250,11 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **recordMarkerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
-                    The marker's name.
+                    The marker\'s name.
         
                   - **cause** *(string) --* 
         
@@ -1270,7 +1270,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **timerStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -1292,7 +1292,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **timerFiredEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -1304,7 +1304,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **timerCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -1320,7 +1320,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **startChildWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -1348,7 +1348,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn\'t sent to the activity.
         
                   - **input** *(string) --* 
         
@@ -1356,7 +1356,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **executionStartToCloseTimeout** *(string) --* 
         
-                    The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
+                    The maximum duration for the child workflow execution. If the workflow execution isn\'t closed within this duration, it is timed out and force-terminated.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
@@ -1370,7 +1370,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **taskPriority** *(string) --* 
         
-                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -1408,7 +1408,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1448,7 +1448,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1496,7 +1496,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1548,7 +1548,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1596,7 +1596,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1644,7 +1644,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **childWorkflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1688,7 +1688,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **signalExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -1716,7 +1716,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **externalWorkflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1736,7 +1736,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **signalExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -1764,11 +1764,11 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **externalWorkflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types. 
+                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types. 
         
                   - **workflowExecution** *(dict) --* 
         
@@ -1788,7 +1788,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **requestCancelExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -1808,7 +1808,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **requestCancelExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -1836,11 +1836,11 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **scheduleActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -1880,7 +1880,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **requestCancelActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityId** *(string) --* 
         
@@ -1900,7 +1900,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **startTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -1920,7 +1920,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **cancelTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -1940,7 +1940,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **startChildWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowType** *(dict) --* 
         
@@ -1978,7 +1978,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                     When the ``cause`` is ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is the ID of the ``StartChildWorkflowExecutionInitiated`` event that corresponds to the ``StartChildWorkflowExecution``   Decision to start the workflow execution. You can use this information to diagnose problems by tracing back the chain of events leading up to this event.
         
-                    When the ``cause`` isn't ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn't exist.
+                    When the ``cause`` isn\'t ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn\'t exist.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -1986,11 +1986,11 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the child workflow execution.
         
                 - **lambdaFunctionScheduledEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -2002,7 +2002,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the Lambda task.
         
                   - **input** *(string) --* 
         
@@ -2018,7 +2018,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **lambdaFunctionStartedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionStarted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionStarted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -2026,7 +2026,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **lambdaFunctionCompletedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -2042,7 +2042,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **lambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -2062,7 +2062,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **lambdaFunctionTimedOutEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -2078,7 +2078,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **scheduleLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -2102,7 +2102,7 @@ class GetWorkflowExecutionHistory(Paginator):
         
                 - **startLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -2138,14 +2138,14 @@ class ListActivityTypes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
-              name='string',
-              registrationStatus='REGISTERED'|'DEPRECATED',
+              domain=\'string\',
+              name=\'string\',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -2193,19 +2193,19 @@ class ListActivityTypes(Paginator):
           ::
         
             {
-                'typeInfos': [
+                \'typeInfos\': [
                     {
-                        'activityType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'activityType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string',
-                        'creationDate': datetime(2015, 1, 1),
-                        'deprecationDate': datetime(2015, 1, 1)
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1),
+                        \'deprecationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2275,33 +2275,33 @@ class ListClosedWorkflowExecutions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               closeTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               },
               closeStatusFilter={
-                  'status': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT'
+                  \'status\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\'
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -2429,31 +2429,31 @@ class ListClosedWorkflowExecutions(Paginator):
           ::
         
             {
-                'executionInfos': [
+                \'executionInfos\': [
                     {
-                        'execution': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'execution\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'startTimestamp': datetime(2015, 1, 1),
-                        'closeTimestamp': datetime(2015, 1, 1),
-                        'executionStatus': 'OPEN'|'CLOSED',
-                        'closeStatus': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT',
-                        'parent': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'startTimestamp\': datetime(2015, 1, 1),
+                        \'closeTimestamp\': datetime(2015, 1, 1),
+                        \'executionStatus\': \'OPEN\'|\'CLOSED\',
+                        \'closeStatus\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\',
+                        \'parent\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'tagList': [
-                            'string',
+                        \'tagList\': [
+                            \'string\',
                         ],
-                        'cancelRequested': True|False
+                        \'cancelRequested\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2569,12 +2569,12 @@ class ListDomains(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              registrationStatus='REGISTERED'|'DEPRECATED',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type registrationStatus: string
@@ -2612,14 +2612,14 @@ class ListDomains(Paginator):
           ::
         
             {
-                'domainInfos': [
+                \'domainInfos\': [
                     {
-                        'name': 'string',
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string'
+                        \'name\': \'string\',
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2669,26 +2669,26 @@ class ListOpenWorkflowExecutions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
+              domain=\'string\',
               startTimeFilter={
-                  'oldestDate': datetime(2015, 1, 1),
-                  'latestDate': datetime(2015, 1, 1)
+                  \'oldestDate\': datetime(2015, 1, 1),
+                  \'latestDate\': datetime(2015, 1, 1)
               },
               typeFilter={
-                  'name': 'string',
-                  'version': 'string'
+                  \'name\': \'string\',
+                  \'version\': \'string\'
               },
               tagFilter={
-                  'tag': 'string'
+                  \'tag\': \'string\'
               },
               reverseOrder=True|False,
               executionFilter={
-                  'workflowId': 'string'
+                  \'workflowId\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -2782,31 +2782,31 @@ class ListOpenWorkflowExecutions(Paginator):
           ::
         
             {
-                'executionInfos': [
+                \'executionInfos\': [
                     {
-                        'execution': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'execution\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'startTimestamp': datetime(2015, 1, 1),
-                        'closeTimestamp': datetime(2015, 1, 1),
-                        'executionStatus': 'OPEN'|'CLOSED',
-                        'closeStatus': 'COMPLETED'|'FAILED'|'CANCELED'|'TERMINATED'|'CONTINUED_AS_NEW'|'TIMED_OUT',
-                        'parent': {
-                            'workflowId': 'string',
-                            'runId': 'string'
+                        \'startTimestamp\': datetime(2015, 1, 1),
+                        \'closeTimestamp\': datetime(2015, 1, 1),
+                        \'executionStatus\': \'OPEN\'|\'CLOSED\',
+                        \'closeStatus\': \'COMPLETED\'|\'FAILED\'|\'CANCELED\'|\'TERMINATED\'|\'CONTINUED_AS_NEW\'|\'TIMED_OUT\',
+                        \'parent\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\'
                         },
-                        'tagList': [
-                            'string',
+                        \'tagList\': [
+                            \'string\',
                         ],
-                        'cancelRequested': True|False
+                        \'cancelRequested\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2922,14 +2922,14 @@ class ListWorkflowTypes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
-              name='string',
-              registrationStatus='REGISTERED'|'DEPRECATED',
+              domain=\'string\',
+              name=\'string\',
+              registrationStatus=\'REGISTERED\'|\'DEPRECATED\',
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -2977,19 +2977,19 @@ class ListWorkflowTypes(Paginator):
           ::
         
             {
-                'typeInfos': [
+                \'typeInfos\': [
                     {
-                        'workflowType': {
-                            'name': 'string',
-                            'version': 'string'
+                        \'workflowType\': {
+                            \'name\': \'string\',
+                            \'version\': \'string\'
                         },
-                        'status': 'REGISTERED'|'DEPRECATED',
-                        'description': 'string',
-                        'creationDate': datetime(2015, 1, 1),
-                        'deprecationDate': datetime(2015, 1, 1)
+                        \'status\': \'REGISTERED\'|\'DEPRECATED\',
+                        \'description\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1),
+                        \'deprecationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3059,16 +3059,16 @@ class PollForDecisionTask(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              domain='string',
+              domain=\'string\',
               taskList={
-                  'name': 'string'
+                  \'name\': \'string\'
               },
-              identity='string',
+              identity=\'string\',
               reverseOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type domain: string
@@ -3122,434 +3122,434 @@ class PollForDecisionTask(Paginator):
           ::
         
             {
-                'taskToken': 'string',
-                'startedEventId': 123,
-                'workflowExecution': {
-                    'workflowId': 'string',
-                    'runId': 'string'
+                \'taskToken\': \'string\',
+                \'startedEventId\': 123,
+                \'workflowExecution\': {
+                    \'workflowId\': \'string\',
+                    \'runId\': \'string\'
                 },
-                'workflowType': {
-                    'name': 'string',
-                    'version': 'string'
+                \'workflowType\': {
+                    \'name\': \'string\',
+                    \'version\': \'string\'
                 },
-                'events': [
+                \'events\': [
                     {
-                        'eventTimestamp': datetime(2015, 1, 1),
-                        'eventType': 'WorkflowExecutionStarted'|'WorkflowExecutionCancelRequested'|'WorkflowExecutionCompleted'|'CompleteWorkflowExecutionFailed'|'WorkflowExecutionFailed'|'FailWorkflowExecutionFailed'|'WorkflowExecutionTimedOut'|'WorkflowExecutionCanceled'|'CancelWorkflowExecutionFailed'|'WorkflowExecutionContinuedAsNew'|'ContinueAsNewWorkflowExecutionFailed'|'WorkflowExecutionTerminated'|'DecisionTaskScheduled'|'DecisionTaskStarted'|'DecisionTaskCompleted'|'DecisionTaskTimedOut'|'ActivityTaskScheduled'|'ScheduleActivityTaskFailed'|'ActivityTaskStarted'|'ActivityTaskCompleted'|'ActivityTaskFailed'|'ActivityTaskTimedOut'|'ActivityTaskCanceled'|'ActivityTaskCancelRequested'|'RequestCancelActivityTaskFailed'|'WorkflowExecutionSignaled'|'MarkerRecorded'|'RecordMarkerFailed'|'TimerStarted'|'StartTimerFailed'|'TimerFired'|'TimerCanceled'|'CancelTimerFailed'|'StartChildWorkflowExecutionInitiated'|'StartChildWorkflowExecutionFailed'|'ChildWorkflowExecutionStarted'|'ChildWorkflowExecutionCompleted'|'ChildWorkflowExecutionFailed'|'ChildWorkflowExecutionTimedOut'|'ChildWorkflowExecutionCanceled'|'ChildWorkflowExecutionTerminated'|'SignalExternalWorkflowExecutionInitiated'|'SignalExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionSignaled'|'RequestCancelExternalWorkflowExecutionInitiated'|'RequestCancelExternalWorkflowExecutionFailed'|'ExternalWorkflowExecutionCancelRequested'|'LambdaFunctionScheduled'|'LambdaFunctionStarted'|'LambdaFunctionCompleted'|'LambdaFunctionFailed'|'LambdaFunctionTimedOut'|'ScheduleLambdaFunctionFailed'|'StartLambdaFunctionFailed',
-                        'eventId': 123,
-                        'workflowExecutionStartedEventAttributes': {
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskList': {
-                                'name': 'string'
+                        \'eventTimestamp\': datetime(2015, 1, 1),
+                        \'eventType\': \'WorkflowExecutionStarted\'|\'WorkflowExecutionCancelRequested\'|\'WorkflowExecutionCompleted\'|\'CompleteWorkflowExecutionFailed\'|\'WorkflowExecutionFailed\'|\'FailWorkflowExecutionFailed\'|\'WorkflowExecutionTimedOut\'|\'WorkflowExecutionCanceled\'|\'CancelWorkflowExecutionFailed\'|\'WorkflowExecutionContinuedAsNew\'|\'ContinueAsNewWorkflowExecutionFailed\'|\'WorkflowExecutionTerminated\'|\'DecisionTaskScheduled\'|\'DecisionTaskStarted\'|\'DecisionTaskCompleted\'|\'DecisionTaskTimedOut\'|\'ActivityTaskScheduled\'|\'ScheduleActivityTaskFailed\'|\'ActivityTaskStarted\'|\'ActivityTaskCompleted\'|\'ActivityTaskFailed\'|\'ActivityTaskTimedOut\'|\'ActivityTaskCanceled\'|\'ActivityTaskCancelRequested\'|\'RequestCancelActivityTaskFailed\'|\'WorkflowExecutionSignaled\'|\'MarkerRecorded\'|\'RecordMarkerFailed\'|\'TimerStarted\'|\'StartTimerFailed\'|\'TimerFired\'|\'TimerCanceled\'|\'CancelTimerFailed\'|\'StartChildWorkflowExecutionInitiated\'|\'StartChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionStarted\'|\'ChildWorkflowExecutionCompleted\'|\'ChildWorkflowExecutionFailed\'|\'ChildWorkflowExecutionTimedOut\'|\'ChildWorkflowExecutionCanceled\'|\'ChildWorkflowExecutionTerminated\'|\'SignalExternalWorkflowExecutionInitiated\'|\'SignalExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionSignaled\'|\'RequestCancelExternalWorkflowExecutionInitiated\'|\'RequestCancelExternalWorkflowExecutionFailed\'|\'ExternalWorkflowExecutionCancelRequested\'|\'LambdaFunctionScheduled\'|\'LambdaFunctionStarted\'|\'LambdaFunctionCompleted\'|\'LambdaFunctionFailed\'|\'LambdaFunctionTimedOut\'|\'ScheduleLambdaFunctionFailed\'|\'StartLambdaFunctionFailed\',
+                        \'eventId\': 123,
+                        \'workflowExecutionStartedEventAttributes\': {
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'taskPriority\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'tagList': [
-                                'string',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'continuedExecutionRunId': 'string',
-                            'parentWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                            \'continuedExecutionRunId\': \'string\',
+                            \'parentWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'parentInitiatedEventId': 123,
-                            'lambdaRole': 'string'
+                            \'parentInitiatedEventId\': 123,
+                            \'lambdaRole\': \'string\'
                         },
-                        'workflowExecutionCompletedEventAttributes': {
-                            'result': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'completeWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'completeWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'failWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'failWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON'
+                        \'workflowExecutionTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\'
                         },
-                        'workflowExecutionCanceledEventAttributes': {
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'workflowExecutionCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionContinuedAsNewEventAttributes': {
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'newExecutionRunId': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                        \'workflowExecutionContinuedAsNewEventAttributes\': {
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'newExecutionRunId\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'taskStartToCloseTimeout': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'continueAsNewWorkflowExecutionFailedEventAttributes': {
-                            'cause': 'UNHANDLED_DECISION'|'WORKFLOW_TYPE_DEPRECATED'|'WORKFLOW_TYPE_DOES_NOT_EXIST'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'continueAsNewWorkflowExecutionFailedEventAttributes\': {
+                            \'cause\': \'UNHANDLED_DECISION\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'workflowExecutionTerminatedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'cause': 'CHILD_POLICY_APPLIED'|'EVENT_LIMIT_EXCEEDED'|'OPERATOR_INITIATED'
+                        \'workflowExecutionTerminatedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'cause\': \'CHILD_POLICY_APPLIED\'|\'EVENT_LIMIT_EXCEEDED\'|\'OPERATOR_INITIATED\'
                         },
-                        'workflowExecutionCancelRequestedEventAttributes': {
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionCancelRequestedEventAttributes\': {
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123,
-                            'cause': 'CHILD_POLICY_APPLIED'
+                            \'externalInitiatedEventId\': 123,
+                            \'cause\': \'CHILD_POLICY_APPLIED\'
                         },
-                        'decisionTaskScheduledEventAttributes': {
-                            'taskList': {
-                                'name': 'string'
+                        \'decisionTaskScheduledEventAttributes\': {
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'startToCloseTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'startToCloseTimeout\': \'string\'
                         },
-                        'decisionTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'decisionTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'decisionTaskCompletedEventAttributes': {
-                            'executionContext': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskCompletedEventAttributes\': {
+                            \'executionContext\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'decisionTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'decisionTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskScheduledEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'activityTaskScheduledEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'input': 'string',
-                            'control': 'string',
-                            'scheduleToStartTimeout': 'string',
-                            'scheduleToCloseTimeout': 'string',
-                            'startToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'activityId\': \'string\',
+                            \'input\': \'string\',
+                            \'control\': \'string\',
+                            \'scheduleToStartTimeout\': \'string\',
+                            \'scheduleToCloseTimeout\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'heartbeatTimeout': 'string'
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'heartbeatTimeout\': \'string\'
                         },
-                        'activityTaskStartedEventAttributes': {
-                            'identity': 'string',
-                            'scheduledEventId': 123
+                        \'activityTaskStartedEventAttributes\': {
+                            \'identity\': \'string\',
+                            \'scheduledEventId\': 123
                         },
-                        'activityTaskCompletedEventAttributes': {
-                            'result': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskCompletedEventAttributes\': {
+                            \'result\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskFailedEventAttributes': {
-                            'reason': 'string',
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123
+                        \'activityTaskFailedEventAttributes\': {
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'activityTaskTimedOutEventAttributes': {
-                            'timeoutType': 'START_TO_CLOSE'|'SCHEDULE_TO_START'|'SCHEDULE_TO_CLOSE'|'HEARTBEAT',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'details': 'string'
+                        \'activityTaskTimedOutEventAttributes\': {
+                            \'timeoutType\': \'START_TO_CLOSE\'|\'SCHEDULE_TO_START\'|\'SCHEDULE_TO_CLOSE\'|\'HEARTBEAT\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'details\': \'string\'
                         },
-                        'activityTaskCanceledEventAttributes': {
-                            'details': 'string',
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'latestCancelRequestedEventId': 123
+                        \'activityTaskCanceledEventAttributes\': {
+                            \'details\': \'string\',
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'latestCancelRequestedEventId\': 123
                         },
-                        'activityTaskCancelRequestedEventAttributes': {
-                            'decisionTaskCompletedEventId': 123,
-                            'activityId': 'string'
+                        \'activityTaskCancelRequestedEventAttributes\': {
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'activityId\': \'string\'
                         },
-                        'workflowExecutionSignaledEventAttributes': {
-                            'signalName': 'string',
-                            'input': 'string',
-                            'externalWorkflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'workflowExecutionSignaledEventAttributes\': {
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'externalWorkflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'externalInitiatedEventId': 123
+                            \'externalInitiatedEventId\': 123
                         },
-                        'markerRecordedEventAttributes': {
-                            'markerName': 'string',
-                            'details': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'markerRecordedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'details\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'recordMarkerFailedEventAttributes': {
-                            'markerName': 'string',
-                            'cause': 'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'recordMarkerFailedEventAttributes\': {
+                            \'markerName\': \'string\',
+                            \'cause\': \'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerStartedEventAttributes': {
-                            'timerId': 'string',
-                            'control': 'string',
-                            'startToFireTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'timerStartedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'control\': \'string\',
+                            \'startToFireTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'timerFiredEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123
+                        \'timerFiredEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123
                         },
-                        'timerCanceledEventAttributes': {
-                            'timerId': 'string',
-                            'startedEventId': 123,
-                            'decisionTaskCompletedEventId': 123
+                        \'timerCanceledEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'startedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'control': 'string',
-                            'input': 'string',
-                            'executionStartToCloseTimeout': 'string',
-                            'taskList': {
-                                'name': 'string'
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'executionStartToCloseTimeout\': \'string\',
+                            \'taskList\': {
+                                \'name\': \'string\'
                             },
-                            'taskPriority': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'childPolicy': 'TERMINATE'|'REQUEST_CANCEL'|'ABANDON',
-                            'taskStartToCloseTimeout': 'string',
-                            'tagList': [
-                                'string',
+                            \'taskPriority\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'childPolicy\': \'TERMINATE\'|\'REQUEST_CANCEL\'|\'ABANDON\',
+                            \'taskStartToCloseTimeout\': \'string\',
+                            \'tagList\': [
+                                \'string\',
                             ],
-                            'lambdaRole': 'string'
+                            \'lambdaRole\': \'string\'
                         },
-                        'childWorkflowExecutionStartedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionStartedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'childWorkflowExecutionCompletedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCompletedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'result': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'result\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionFailedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'reason': 'string',
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'reason\': \'string\',
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTimedOutEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTimedOutEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'timeoutType': 'START_TO_CLOSE',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'timeoutType\': \'START_TO_CLOSE\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionCanceledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionCanceledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'details': 'string',
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'details\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'childWorkflowExecutionTerminatedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'childWorkflowExecutionTerminatedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'initiatedEventId': 123,
-                            'startedEventId': 123
+                            \'initiatedEventId\': 123,
+                            \'startedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'signalName': 'string',
-                            'input': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'signalName\': \'string\',
+                            \'input\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionSignaledEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionSignaledEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'signalExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'signalExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'externalWorkflowExecutionCancelRequestedEventAttributes': {
-                            'workflowExecution': {
-                                'workflowId': 'string',
-                                'runId': 'string'
+                        \'externalWorkflowExecutionCancelRequestedEventAttributes\': {
+                            \'workflowExecution\': {
+                                \'workflowId\': \'string\',
+                                \'runId\': \'string\'
                             },
-                            'initiatedEventId': 123
+                            \'initiatedEventId\': 123
                         },
-                        'requestCancelExternalWorkflowExecutionInitiatedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionInitiatedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'requestCancelExternalWorkflowExecutionFailedEventAttributes': {
-                            'workflowId': 'string',
-                            'runId': 'string',
-                            'cause': 'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION'|'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                        \'requestCancelExternalWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowId\': \'string\',
+                            \'runId\': \'string\',
+                            \'cause\': \'UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION\'|\'REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'scheduleActivityTaskFailedEventAttributes': {
-                            'activityType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'scheduleActivityTaskFailedEventAttributes\': {
+                            \'activityType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_TYPE_DEPRECATED'|'ACTIVITY_TYPE_DOES_NOT_EXIST'|'ACTIVITY_ID_ALREADY_IN_USE'|'OPEN_ACTIVITIES_LIMIT_EXCEEDED'|'ACTIVITY_CREATION_RATE_EXCEEDED'|'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED'|'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_TYPE_DEPRECATED\'|\'ACTIVITY_TYPE_DOES_NOT_EXIST\'|\'ACTIVITY_ID_ALREADY_IN_USE\'|\'OPEN_ACTIVITIES_LIMIT_EXCEEDED\'|\'ACTIVITY_CREATION_RATE_EXCEEDED\'|\'DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED\'|\'DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'requestCancelActivityTaskFailedEventAttributes': {
-                            'activityId': 'string',
-                            'cause': 'ACTIVITY_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'requestCancelActivityTaskFailedEventAttributes\': {
+                            \'activityId\': \'string\',
+                            \'cause\': \'ACTIVITY_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_ALREADY_IN_USE'|'OPEN_TIMERS_LIMIT_EXCEEDED'|'TIMER_CREATION_RATE_EXCEEDED'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'startTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_ALREADY_IN_USE\'|\'OPEN_TIMERS_LIMIT_EXCEEDED\'|\'TIMER_CREATION_RATE_EXCEEDED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'cancelTimerFailedEventAttributes': {
-                            'timerId': 'string',
-                            'cause': 'TIMER_ID_UNKNOWN'|'OPERATION_NOT_PERMITTED',
-                            'decisionTaskCompletedEventId': 123
+                        \'cancelTimerFailedEventAttributes\': {
+                            \'timerId\': \'string\',
+                            \'cause\': \'TIMER_ID_UNKNOWN\'|\'OPERATION_NOT_PERMITTED\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startChildWorkflowExecutionFailedEventAttributes': {
-                            'workflowType': {
-                                'name': 'string',
-                                'version': 'string'
+                        \'startChildWorkflowExecutionFailedEventAttributes\': {
+                            \'workflowType\': {
+                                \'name\': \'string\',
+                                \'version\': \'string\'
                             },
-                            'cause': 'WORKFLOW_TYPE_DOES_NOT_EXIST'|'WORKFLOW_TYPE_DEPRECATED'|'OPEN_CHILDREN_LIMIT_EXCEEDED'|'OPEN_WORKFLOWS_LIMIT_EXCEEDED'|'CHILD_CREATION_RATE_EXCEEDED'|'WORKFLOW_ALREADY_RUNNING'|'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_TASK_LIST_UNDEFINED'|'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED'|'DEFAULT_CHILD_POLICY_UNDEFINED'|'OPERATION_NOT_PERMITTED',
-                            'workflowId': 'string',
-                            'initiatedEventId': 123,
-                            'decisionTaskCompletedEventId': 123,
-                            'control': 'string'
+                            \'cause\': \'WORKFLOW_TYPE_DOES_NOT_EXIST\'|\'WORKFLOW_TYPE_DEPRECATED\'|\'OPEN_CHILDREN_LIMIT_EXCEEDED\'|\'OPEN_WORKFLOWS_LIMIT_EXCEEDED\'|\'CHILD_CREATION_RATE_EXCEEDED\'|\'WORKFLOW_ALREADY_RUNNING\'|\'DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_TASK_LIST_UNDEFINED\'|\'DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED\'|\'DEFAULT_CHILD_POLICY_UNDEFINED\'|\'OPERATION_NOT_PERMITTED\',
+                            \'workflowId\': \'string\',
+                            \'initiatedEventId\': 123,
+                            \'decisionTaskCompletedEventId\': 123,
+                            \'control\': \'string\'
                         },
-                        'lambdaFunctionScheduledEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'control': 'string',
-                            'input': 'string',
-                            'startToCloseTimeout': 'string',
-                            'decisionTaskCompletedEventId': 123
+                        \'lambdaFunctionScheduledEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'control\': \'string\',
+                            \'input\': \'string\',
+                            \'startToCloseTimeout\': \'string\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'lambdaFunctionStartedEventAttributes': {
-                            'scheduledEventId': 123
+                        \'lambdaFunctionStartedEventAttributes\': {
+                            \'scheduledEventId\': 123
                         },
-                        'lambdaFunctionCompletedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'result': 'string'
+                        \'lambdaFunctionCompletedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'result\': \'string\'
                         },
-                        'lambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'reason': 'string',
-                            'details': 'string'
+                        \'lambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'reason\': \'string\',
+                            \'details\': \'string\'
                         },
-                        'lambdaFunctionTimedOutEventAttributes': {
-                            'scheduledEventId': 123,
-                            'startedEventId': 123,
-                            'timeoutType': 'START_TO_CLOSE'
+                        \'lambdaFunctionTimedOutEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'startedEventId\': 123,
+                            \'timeoutType\': \'START_TO_CLOSE\'
                         },
-                        'scheduleLambdaFunctionFailedEventAttributes': {
-                            'id': 'string',
-                            'name': 'string',
-                            'cause': 'ID_ALREADY_IN_USE'|'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED'|'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED'|'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION',
-                            'decisionTaskCompletedEventId': 123
+                        \'scheduleLambdaFunctionFailedEventAttributes\': {
+                            \'id\': \'string\',
+                            \'name\': \'string\',
+                            \'cause\': \'ID_ALREADY_IN_USE\'|\'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED\'|\'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED\'|\'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION\',
+                            \'decisionTaskCompletedEventId\': 123
                         },
-                        'startLambdaFunctionFailedEventAttributes': {
-                            'scheduledEventId': 123,
-                            'cause': 'ASSUME_ROLE_FAILED',
-                            'message': 'string'
+                        \'startLambdaFunctionFailedEventAttributes\': {
+                            \'scheduledEventId\': 123,
+                            \'cause\': \'ASSUME_ROLE_FAILED\',
+                            \'message\': \'string\'
                         }
                     },
                 ],
-                'previousStartedEventId': 123,
-                'NextToken': 'string'
+                \'previousStartedEventId\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3619,7 +3619,7 @@ class PollForDecisionTask(Paginator):
                  
                 * ``ActivityTaskTimedOut`` – The activity task timed out. 
                  
-                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn't configured properly, for example no timer exists with the specified timer Id. 
+                * ``CancelTimerFailed`` – Failed to process CancelTimer decision. This happens when the decision isn\'t configured properly, for example no timer exists with the specified timer Id. 
                  
                 * ``CancelWorkflowExecutionFailed`` – A request to cancel a workflow execution failed. 
                  
@@ -3657,13 +3657,13 @@ class PollForDecisionTask(Paginator):
                  
                 * ``RecordMarkerFailed`` – A ``RecordMarker`` decision was returned as failed. 
                  
-                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn't configured properly. 
+                * ``RequestCancelActivityTaskFailed`` – Failed to process RequestCancelActivityTask decision. This happens when the decision isn\'t configured properly. 
                  
                 * ``RequestCancelExternalWorkflowExecutionFailed`` – Request to cancel an external workflow execution failed. 
                  
                 * ``RequestCancelExternalWorkflowExecutionInitiated`` – A request was made to request the cancellation of an external workflow execution. 
                  
-                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn't configured properly, for example the activity type specified isn't registered. 
+                * ``ScheduleActivityTaskFailed`` – Failed to process ScheduleActivityTask decision. This happens when the decision isn\'t configured properly, for example the activity type specified isn\'t registered. 
                  
                 * ``SignalExternalWorkflowExecutionFailed`` – The request to signal an external workflow execution failed. 
                  
@@ -3671,11 +3671,11 @@ class PollForDecisionTask(Paginator):
                  
                 * ``StartActivityTaskFailed`` – A scheduled activity task failed to start. 
                  
-                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn't configured properly, for example the workflow type specified isn't registered. 
+                * ``StartChildWorkflowExecutionFailed`` – Failed to process StartChildWorkflowExecution decision. This happens when the decision isn\'t configured properly, for example the workflow type specified isn\'t registered. 
                  
                 * ``StartChildWorkflowExecutionInitiated`` – A request was made to start a child workflow execution. 
                  
-                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn't configured properly, for example a timer already exists with the specified timer Id. 
+                * ``StartTimerFailed`` – Failed to process StartTimer decision. This happens when the decision isn\'t configured properly, for example a timer already exists with the specified timer Id. 
                  
                 * ``TimerCanceled`` – A timer, previously started for this workflow execution, was successfully canceled. 
                  
@@ -3715,7 +3715,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -3789,7 +3789,7 @@ class PollForDecisionTask(Paginator):
         
                   - **parentWorkflowExecution** *(dict) --* 
         
-                    The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.
+                    The source workflow execution that started this workflow execution. The member isn\'t set if the workflow execution was not started by a workflow.
         
                     - **workflowId** *(string) --* 
         
@@ -3809,7 +3809,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -3821,7 +3821,7 @@ class PollForDecisionTask(Paginator):
         
                 - **completeWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CompleteWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -3837,7 +3837,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -3853,7 +3853,7 @@ class PollForDecisionTask(Paginator):
         
                 - **failWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``FailWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -3869,7 +3869,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -3889,7 +3889,7 @@ class PollForDecisionTask(Paginator):
                      
                 - **workflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -3901,7 +3901,7 @@ class PollForDecisionTask(Paginator):
         
                 - **cancelWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -3917,7 +3917,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionContinuedAsNewEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionContinuedAsNew`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **input** *(string) --* 
         
@@ -3999,7 +3999,7 @@ class PollForDecisionTask(Paginator):
         
                 - **continueAsNewWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ContinueAsNewWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **cause** *(string) --* 
         
@@ -4015,7 +4015,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -4043,7 +4043,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **externalWorkflowExecution** *(dict) --* 
         
@@ -4067,7 +4067,7 @@ class PollForDecisionTask(Paginator):
         
                 - **decisionTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **taskList** *(dict) --* 
         
@@ -4079,19 +4079,19 @@ class PollForDecisionTask(Paginator):
         
                   - **taskPriority** *(string) --* 
         
-                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
                   - **startToCloseTimeout** *(string) --* 
         
-                    The maximum duration for this decision task. The task is considered timed out if it doesn't completed within this duration.
+                    The maximum duration for this decision task. The task is considered timed out if it doesn\'t completed within this duration.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
                 - **decisionTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -4103,7 +4103,7 @@ class PollForDecisionTask(Paginator):
         
                 - **decisionTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **executionContext** *(string) --* 
         
@@ -4119,7 +4119,7 @@ class PollForDecisionTask(Paginator):
         
                 - **decisionTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -4135,7 +4135,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskScheduledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskScheduled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -4167,7 +4167,7 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn\'t sent to the activity.
         
                   - **scheduleToStartTimeout** *(string) --* 
         
@@ -4193,7 +4193,7 @@ class PollForDecisionTask(Paginator):
         
                     The priority to assign to the scheduled activity task. If set, this overrides any default priority value that was assigned when the activity type was registered.
         
-                    Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -4207,7 +4207,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **identity** *(string) --* 
         
@@ -4219,7 +4219,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **result** *(string) --* 
         
@@ -4235,7 +4235,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **reason** *(string) --* 
         
@@ -4255,7 +4255,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timeoutType** *(string) --* 
         
@@ -4275,7 +4275,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **details** *(string) --* 
         
@@ -4295,7 +4295,7 @@ class PollForDecisionTask(Paginator):
         
                 - **activityTaskCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ActivityTaskcancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -4307,7 +4307,7 @@ class PollForDecisionTask(Paginator):
         
                 - **workflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``WorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **signalName** *(string) --* 
         
@@ -4335,7 +4335,7 @@ class PollForDecisionTask(Paginator):
         
                 - **markerRecordedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``MarkerRecorded`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
@@ -4351,11 +4351,11 @@ class PollForDecisionTask(Paginator):
         
                 - **recordMarkerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``DecisionTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **markerName** *(string) --* 
         
-                    The marker's name.
+                    The marker\'s name.
         
                   - **cause** *(string) --* 
         
@@ -4371,7 +4371,7 @@ class PollForDecisionTask(Paginator):
         
                 - **timerStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -4393,7 +4393,7 @@ class PollForDecisionTask(Paginator):
         
                 - **timerFiredEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerFired`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -4405,7 +4405,7 @@ class PollForDecisionTask(Paginator):
         
                 - **timerCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``TimerCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -4421,7 +4421,7 @@ class PollForDecisionTask(Paginator):
         
                 - **startChildWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -4449,7 +4449,7 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+                    Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn\'t sent to the activity.
         
                   - **input** *(string) --* 
         
@@ -4457,7 +4457,7 @@ class PollForDecisionTask(Paginator):
         
                   - **executionStartToCloseTimeout** *(string) --* 
         
-                    The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
+                    The maximum duration for the child workflow execution. If the workflow execution isn\'t closed within this duration, it is timed out and force-terminated.
         
                     The duration is specified in seconds, an integer greater than or equal to ``0`` . You can use ``NONE`` to specify unlimited duration.
         
@@ -4471,7 +4471,7 @@ class PollForDecisionTask(Paginator):
         
                   - **taskPriority** *(string) --* 
         
-                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
+                    The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java\'s ``Integer.MIN_VALUE`` (-2147483648) to ``Integer.MAX_VALUE`` (2147483647). Higher numbers indicate higher priority.
         
                     For more information about setting task priority, see `Setting Task Priority <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html>`__ in the *Amazon SWF Developer Guide* .
         
@@ -4509,7 +4509,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionStartedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionStarted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4549,7 +4549,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionCompletedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCompleted`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4597,7 +4597,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4649,7 +4649,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionTimedOutEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTimedOut`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4697,7 +4697,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionCanceledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionCanceled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4745,7 +4745,7 @@ class PollForDecisionTask(Paginator):
         
                 - **childWorkflowExecutionTerminatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ChildWorkflowExecutionTerminated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4789,7 +4789,7 @@ class PollForDecisionTask(Paginator):
         
                 - **signalExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -4817,7 +4817,7 @@ class PollForDecisionTask(Paginator):
         
                 - **externalWorkflowExecutionSignaledEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ExternalWorkflowExecutionSignaled`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4837,7 +4837,7 @@ class PollForDecisionTask(Paginator):
         
                 - **signalExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``SignalExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -4865,11 +4865,11 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **externalWorkflowExecutionCancelRequestedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn't set for other event types. 
+                  If the event is of type ``ExternalWorkflowExecutionCancelRequested`` then this member is set and provides detailed information about the event. It isn\'t set for other event types. 
         
                   - **workflowExecution** *(dict) --* 
         
@@ -4889,7 +4889,7 @@ class PollForDecisionTask(Paginator):
         
                 - **requestCancelExternalWorkflowExecutionInitiatedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionInitiated`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -4909,7 +4909,7 @@ class PollForDecisionTask(Paginator):
         
                 - **requestCancelExternalWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelExternalWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowId** *(string) --* 
         
@@ -4937,11 +4937,11 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the workflow execution.
         
                 - **scheduleActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``ScheduleActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityType** *(dict) --* 
         
@@ -4981,7 +4981,7 @@ class PollForDecisionTask(Paginator):
         
                 - **requestCancelActivityTaskFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``RequestCancelActivityTaskFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **activityId** *(string) --* 
         
@@ -5001,7 +5001,7 @@ class PollForDecisionTask(Paginator):
         
                 - **startTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -5021,7 +5021,7 @@ class PollForDecisionTask(Paginator):
         
                 - **cancelTimerFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``CancelTimerFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **timerId** *(string) --* 
         
@@ -5041,7 +5041,7 @@ class PollForDecisionTask(Paginator):
         
                 - **startChildWorkflowExecutionFailedEventAttributes** *(dict) --* 
         
-                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn't set for other event types.
+                  If the event is of type ``StartChildWorkflowExecutionFailed`` then this member is set and provides detailed information about the event. It isn\'t set for other event types.
         
                   - **workflowType** *(dict) --* 
         
@@ -5079,7 +5079,7 @@ class PollForDecisionTask(Paginator):
         
                     When the ``cause`` is ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is the ID of the ``StartChildWorkflowExecutionInitiated`` event that corresponds to the ``StartChildWorkflowExecution``   Decision to start the workflow execution. You can use this information to diagnose problems by tracing back the chain of events leading up to this event.
         
-                    When the ``cause`` isn't ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn't exist.
+                    When the ``cause`` isn\'t ``WORKFLOW_ALREADY_RUNNING`` , ``initiatedEventId`` is set to ``0`` because the ``StartChildWorkflowExecutionInitiated`` event doesn\'t exist.
         
                   - **decisionTaskCompletedEventId** *(integer) --* 
         
@@ -5087,11 +5087,11 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+                    The data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the child workflow execution.
         
                 - **lambdaFunctionScheduledEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionScheduled`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -5103,7 +5103,7 @@ class PollForDecisionTask(Paginator):
         
                   - **control** *(string) --* 
         
-                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+                    Data attached to the event that the decider can use in subsequent workflow tasks. This data isn\'t sent to the Lambda task.
         
                   - **input** *(string) --* 
         
@@ -5119,7 +5119,7 @@ class PollForDecisionTask(Paginator):
         
                 - **lambdaFunctionStartedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionStarted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionStarted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -5127,7 +5127,7 @@ class PollForDecisionTask(Paginator):
         
                 - **lambdaFunctionCompletedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionCompleted`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -5143,7 +5143,7 @@ class PollForDecisionTask(Paginator):
         
                 - **lambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -5163,7 +5163,7 @@ class PollForDecisionTask(Paginator):
         
                 - **lambdaFunctionTimedOutEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn't set for other event types.
+                  Provides the details of the ``LambdaFunctionTimedOut`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         
@@ -5179,7 +5179,7 @@ class PollForDecisionTask(Paginator):
         
                 - **scheduleLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``ScheduleLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **id** *(string) --* 
         
@@ -5203,7 +5203,7 @@ class PollForDecisionTask(Paginator):
         
                 - **startLambdaFunctionFailedEventAttributes** *(dict) --* 
         
-                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn't set for other event types.
+                  Provides the details of the ``StartLambdaFunctionFailed`` event. It isn\'t set for other event types.
         
                   - **scheduledEventId** *(integer) --* 
         

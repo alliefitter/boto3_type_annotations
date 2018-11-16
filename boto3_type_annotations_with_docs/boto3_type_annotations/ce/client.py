@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -41,7 +41,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -57,41 +57,41 @@ class Client(BaseClient):
         
           response = client.get_cost_and_usage(
               TimePeriod={
-                  'Start': 'string',
-                  'End': 'string'
+                  \'Start\': \'string\',
+                  \'End\': \'string\'
               },
-              Granularity='DAILY'|'MONTHLY'|'HOURLY',
+              Granularity=\'DAILY\'|\'MONTHLY\'|\'HOURLY\',
               Filter={
-                  'Or': [
-                      {'... recursive ...'},
+                  \'Or\': [
+                      {\'... recursive ...\'},
                   ],
-                  'And': [
-                      {'... recursive ...'},
+                  \'And\': [
+                      {\'... recursive ...\'},
                   ],
-                  'Not': {'... recursive ...'},
-                  'Dimensions': {
-                      'Key': 'AZ'|'INSTANCE_TYPE'|'LINKED_ACCOUNT'|'OPERATION'|'PURCHASE_TYPE'|'REGION'|'SERVICE'|'USAGE_TYPE'|'USAGE_TYPE_GROUP'|'RECORD_TYPE'|'OPERATING_SYSTEM'|'TENANCY'|'SCOPE'|'PLATFORM'|'SUBSCRIPTION_ID'|'LEGAL_ENTITY_NAME'|'DEPLOYMENT_OPTION'|'DATABASE_ENGINE'|'CACHE_ENGINE'|'INSTANCE_TYPE_FAMILY'|'BILLING_ENTITY'|'RESERVATION_ID',
-                      'Values': [
-                          'string',
+                  \'Not\': {\'... recursive ...\'},
+                  \'Dimensions\': {
+                      \'Key\': \'AZ\'|\'INSTANCE_TYPE\'|\'LINKED_ACCOUNT\'|\'OPERATION\'|\'PURCHASE_TYPE\'|\'REGION\'|\'SERVICE\'|\'USAGE_TYPE\'|\'USAGE_TYPE_GROUP\'|\'RECORD_TYPE\'|\'OPERATING_SYSTEM\'|\'TENANCY\'|\'SCOPE\'|\'PLATFORM\'|\'SUBSCRIPTION_ID\'|\'LEGAL_ENTITY_NAME\'|\'DEPLOYMENT_OPTION\'|\'DATABASE_ENGINE\'|\'CACHE_ENGINE\'|\'INSTANCE_TYPE_FAMILY\'|\'BILLING_ENTITY\'|\'RESERVATION_ID\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
-                  'Tags': {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                  \'Tags\': {
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   }
               },
               Metrics=[
-                  'string',
+                  \'string\',
               ],
               GroupBy=[
                   {
-                      'Type': 'DIMENSION'|'TAG',
-                      'Key': 'string'
+                      \'Type\': \'DIMENSION\'|\'TAG\',
+                      \'Key\': \'string\'
                   },
               ],
-              NextPageToken='string'
+              NextPageToken=\'string\'
           )
         :type TimePeriod: dict
         :param TimePeriod: 
@@ -109,12 +109,12 @@ class Client(BaseClient):
         :type Granularity: string
         :param Granularity: 
         
-          Sets the AWS cost granularity to ``MONTHLY`` or ``DAILY`` . If ``Granularity`` isn't set, the response object doesn't include the ``Granularity`` , either ``MONTHLY`` or ``DAILY`` . 
+          Sets the AWS cost granularity to ``MONTHLY`` or ``DAILY`` . If ``Granularity`` isn\'t set, the response object doesn\'t include the ``Granularity`` , either ``MONTHLY`` or ``DAILY`` . 
         
         :type Filter: dict
         :param Filter: 
         
-          Filters AWS costs by different dimensions. For example, you can specify ``SERVICE`` and ``LINKED_ACCOUNT`` and get the costs that are associated with that account's usage of that service. You can nest ``Expression`` objects to define any combination of dimension filters. For more information, see `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ . 
+          Filters AWS costs by different dimensions. For example, you can specify ``SERVICE`` and ``LINKED_ACCOUNT`` and get the costs that are associated with that account\'s usage of that service. You can nest ``Expression`` objects to define any combination of dimension filters. For more information, see `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ . 
         
           - **Or** *(list) --* 
         
@@ -124,15 +124,15 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **And** *(list) --* 
         
@@ -142,19 +142,19 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **Not** *(dict) --* 
         
-            Return results that don't match a ``Dimension`` object.
+            Return results that don\'t match a ``Dimension`` object.
         
           - **Dimensions** *(dict) --* 
         
@@ -189,13 +189,13 @@ class Client(BaseClient):
         :type Metrics: list
         :param Metrics: 
         
-          Which metrics are returned in the query. For more information about blended and unblended rates, see `Why does the "blended" annotation appear on some line items in my bill? <https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/>`__ . 
+          Which metrics are returned in the query. For more information about blended and unblended rates, see `Why does the \"blended\" annotation appear on some line items in my bill? <https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/>`__ . 
         
           Valid values are ``AmortizedCost`` , ``BlendedCost`` , ``NetAmortizedCost`` , ``NetUnblendedCost`` , ``NormalizedUsageAmount`` , ``UnblendedCost`` , and ``UsageQuantity`` . 
         
           .. note::
         
-            If you return the ``UsageQuantity`` metric, the service aggregates all usage numbers without taking into account the units. For example, if you aggregate ``usageQuantity`` across all of EC2, the results aren't meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs. GB). To get more meaningful ``UsageQuantity`` metrics, filter by ``UsageType`` or ``UsageTypeGroups`` . 
+            If you return the ``UsageQuantity`` metric, the service aggregates all usage numbers without taking into account the units. For example, if you aggregate ``usageQuantity`` across all of EC2, the results aren\'t meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs. GB). To get more meaningful ``UsageQuantity`` metrics, filter by ``UsageType`` or ``UsageTypeGroups`` . 
         
            ``Metrics`` is required for ``GetCostAndUsage`` requests.
         
@@ -235,39 +235,39 @@ class Client(BaseClient):
           ::
         
             {
-                'NextPageToken': 'string',
-                'GroupDefinitions': [
+                \'NextPageToken\': \'string\',
+                \'GroupDefinitions\': [
                     {
-                        'Type': 'DIMENSION'|'TAG',
-                        'Key': 'string'
+                        \'Type\': \'DIMENSION\'|\'TAG\',
+                        \'Key\': \'string\'
                     },
                 ],
-                'ResultsByTime': [
+                \'ResultsByTime\': [
                     {
-                        'TimePeriod': {
-                            'Start': 'string',
-                            'End': 'string'
+                        \'TimePeriod\': {
+                            \'Start\': \'string\',
+                            \'End\': \'string\'
                         },
-                        'Total': {
-                            'string': {
-                                'Amount': 'string',
-                                'Unit': 'string'
+                        \'Total\': {
+                            \'string\': {
+                                \'Amount\': \'string\',
+                                \'Unit\': \'string\'
                             }
                         },
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'Keys': [
-                                    'string',
+                                \'Keys\': [
+                                    \'string\',
                                 ],
-                                'Metrics': {
-                                    'string': {
-                                        'Amount': 'string',
-                                        'Unit': 'string'
+                                \'Metrics\': {
+                                    \'string\': {
+                                        \'Amount\': \'string\',
+                                        \'Unit\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'Estimated': True|False
+                        \'Estimated\': True|False
                     },
                 ]
             }
@@ -381,14 +381,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_dimension_values(
-              SearchString='string',
+              SearchString=\'string\',
               TimePeriod={
-                  'Start': 'string',
-                  'End': 'string'
+                  \'Start\': \'string\',
+                  \'End\': \'string\'
               },
-              Dimension='AZ'|'INSTANCE_TYPE'|'LINKED_ACCOUNT'|'OPERATION'|'PURCHASE_TYPE'|'REGION'|'SERVICE'|'USAGE_TYPE'|'USAGE_TYPE_GROUP'|'RECORD_TYPE'|'OPERATING_SYSTEM'|'TENANCY'|'SCOPE'|'PLATFORM'|'SUBSCRIPTION_ID'|'LEGAL_ENTITY_NAME'|'DEPLOYMENT_OPTION'|'DATABASE_ENGINE'|'CACHE_ENGINE'|'INSTANCE_TYPE_FAMILY'|'BILLING_ENTITY'|'RESERVATION_ID',
-              Context='COST_AND_USAGE'|'RESERVATIONS',
-              NextPageToken='string'
+              Dimension=\'AZ\'|\'INSTANCE_TYPE\'|\'LINKED_ACCOUNT\'|\'OPERATION\'|\'PURCHASE_TYPE\'|\'REGION\'|\'SERVICE\'|\'USAGE_TYPE\'|\'USAGE_TYPE_GROUP\'|\'RECORD_TYPE\'|\'OPERATING_SYSTEM\'|\'TENANCY\'|\'SCOPE\'|\'PLATFORM\'|\'SUBSCRIPTION_ID\'|\'LEGAL_ENTITY_NAME\'|\'DEPLOYMENT_OPTION\'|\'DATABASE_ENGINE\'|\'CACHE_ENGINE\'|\'INSTANCE_TYPE_FAMILY\'|\'BILLING_ENTITY\'|\'RESERVATION_ID\',
+              Context=\'COST_AND_USAGE\'|\'RESERVATIONS\',
+              NextPageToken=\'string\'
           )
         :type SearchString: string
         :param SearchString: 
@@ -481,17 +481,17 @@ class Client(BaseClient):
           ::
         
             {
-                'DimensionValues': [
+                \'DimensionValues\': [
                     {
-                        'Value': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'Value\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'ReturnSize': 123,
-                'TotalSize': 123,
-                'NextPageToken': 'string'
+                \'ReturnSize\': 123,
+                \'TotalSize\': 123,
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -588,10 +588,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -604,7 +604,7 @@ class Client(BaseClient):
 
     def get_reservation_coverage(self, TimePeriod: Dict, GroupBy: List = None, Granularity: str = None, Filter: Dict = None, NextPageToken: str = None) -> Dict:
         """
-        Retrieves the reservation coverage for your account. This allows you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is covered by a reservation. An organization's master account can see the coverage of the associated member accounts. For any time period, you can filter data about reservation usage by the following dimensions:
+        Retrieves the reservation coverage for your account. This allows you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is covered by a reservation. An organization\'s master account can see the coverage of the associated member accounts. For any time period, you can filter data about reservation usage by the following dimensions:
         
         * AZ 
          
@@ -639,38 +639,38 @@ class Client(BaseClient):
         
           response = client.get_reservation_coverage(
               TimePeriod={
-                  'Start': 'string',
-                  'End': 'string'
+                  \'Start\': \'string\',
+                  \'End\': \'string\'
               },
               GroupBy=[
                   {
-                      'Type': 'DIMENSION'|'TAG',
-                      'Key': 'string'
+                      \'Type\': \'DIMENSION\'|\'TAG\',
+                      \'Key\': \'string\'
                   },
               ],
-              Granularity='DAILY'|'MONTHLY'|'HOURLY',
+              Granularity=\'DAILY\'|\'MONTHLY\'|\'HOURLY\',
               Filter={
-                  'Or': [
-                      {'... recursive ...'},
+                  \'Or\': [
+                      {\'... recursive ...\'},
                   ],
-                  'And': [
-                      {'... recursive ...'},
+                  \'And\': [
+                      {\'... recursive ...\'},
                   ],
-                  'Not': {'... recursive ...'},
-                  'Dimensions': {
-                      'Key': 'AZ'|'INSTANCE_TYPE'|'LINKED_ACCOUNT'|'OPERATION'|'PURCHASE_TYPE'|'REGION'|'SERVICE'|'USAGE_TYPE'|'USAGE_TYPE_GROUP'|'RECORD_TYPE'|'OPERATING_SYSTEM'|'TENANCY'|'SCOPE'|'PLATFORM'|'SUBSCRIPTION_ID'|'LEGAL_ENTITY_NAME'|'DEPLOYMENT_OPTION'|'DATABASE_ENGINE'|'CACHE_ENGINE'|'INSTANCE_TYPE_FAMILY'|'BILLING_ENTITY'|'RESERVATION_ID',
-                      'Values': [
-                          'string',
+                  \'Not\': {\'... recursive ...\'},
+                  \'Dimensions\': {
+                      \'Key\': \'AZ\'|\'INSTANCE_TYPE\'|\'LINKED_ACCOUNT\'|\'OPERATION\'|\'PURCHASE_TYPE\'|\'REGION\'|\'SERVICE\'|\'USAGE_TYPE\'|\'USAGE_TYPE_GROUP\'|\'RECORD_TYPE\'|\'OPERATING_SYSTEM\'|\'TENANCY\'|\'SCOPE\'|\'PLATFORM\'|\'SUBSCRIPTION_ID\'|\'LEGAL_ENTITY_NAME\'|\'DEPLOYMENT_OPTION\'|\'DATABASE_ENGINE\'|\'CACHE_ENGINE\'|\'INSTANCE_TYPE_FAMILY\'|\'BILLING_ENTITY\'|\'RESERVATION_ID\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
-                  'Tags': {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                  \'Tags\': {
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   }
               },
-              NextPageToken='string'
+              NextPageToken=\'string\'
           )
         :type TimePeriod: dict
         :param TimePeriod: **[REQUIRED]** 
@@ -729,7 +729,7 @@ class Client(BaseClient):
         
           The granularity of the AWS cost data for the reservation. Valid values are ``MONTHLY`` and ``DAILY`` .
         
-          If ``GroupBy`` is set, ``Granularity`` can't be set. If ``Granularity`` isn't set, the response object doesn't include ``Granularity`` , either ``MONTHLY`` or ``DAILY`` .
+          If ``GroupBy`` is set, ``Granularity`` can\'t be set. If ``Granularity`` isn\'t set, the response object doesn\'t include ``Granularity`` , either ``MONTHLY`` or ``DAILY`` .
         
         :type Filter: dict
         :param Filter: 
@@ -760,9 +760,9 @@ class Client(BaseClient):
            
           * TENANCY 
            
-           ``GetReservationCoverage`` uses the same `` `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ `` object as the other operations, but only ``AND`` is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together.
+           ``GetReservationCoverage`` uses the same `` `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ `` object as the other operations, but only ``AND`` is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR\'d together.
         
-          If you don't provide a ``SERVICE`` filter, Cost Explorer defaults to EC2.
+          If you don\'t provide a ``SERVICE`` filter, Cost Explorer defaults to EC2.
         
           - **Or** *(list) --* 
         
@@ -772,15 +772,15 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **And** *(list) --* 
         
@@ -790,19 +790,19 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **Not** *(dict) --* 
         
-            Return results that don't match a ``Dimension`` object.
+            Return results that don\'t match a ``Dimension`` object.
         
           - **Dimensions** *(dict) --* 
         
@@ -847,46 +847,46 @@ class Client(BaseClient):
           ::
         
             {
-                'CoveragesByTime': [
+                \'CoveragesByTime\': [
                     {
-                        'TimePeriod': {
-                            'Start': 'string',
-                            'End': 'string'
+                        \'TimePeriod\': {
+                            \'Start\': \'string\',
+                            \'End\': \'string\'
                         },
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'Attributes': {
-                                    'string': 'string'
+                                \'Attributes\': {
+                                    \'string\': \'string\'
                                 },
-                                'Coverage': {
-                                    'CoverageHours': {
-                                        'OnDemandHours': 'string',
-                                        'ReservedHours': 'string',
-                                        'TotalRunningHours': 'string',
-                                        'CoverageHoursPercentage': 'string'
+                                \'Coverage\': {
+                                    \'CoverageHours\': {
+                                        \'OnDemandHours\': \'string\',
+                                        \'ReservedHours\': \'string\',
+                                        \'TotalRunningHours\': \'string\',
+                                        \'CoverageHoursPercentage\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'Total': {
-                            'CoverageHours': {
-                                'OnDemandHours': 'string',
-                                'ReservedHours': 'string',
-                                'TotalRunningHours': 'string',
-                                'CoverageHoursPercentage': 'string'
+                        \'Total\': {
+                            \'CoverageHours\': {
+                                \'OnDemandHours\': \'string\',
+                                \'ReservedHours\': \'string\',
+                                \'TotalRunningHours\': \'string\',
+                                \'CoverageHoursPercentage\': \'string\'
                             }
                         }
                     },
                 ],
-                'Total': {
-                    'CoverageHours': {
-                        'OnDemandHours': 'string',
-                        'ReservedHours': 'string',
-                        'TotalRunningHours': 'string',
-                        'CoverageHoursPercentage': 'string'
+                \'Total\': {
+                    \'CoverageHours\': {
+                        \'OnDemandHours\': \'string\',
+                        \'ReservedHours\': \'string\',
+                        \'TotalRunningHours\': \'string\',
+                        \'CoverageHoursPercentage\': \'string\'
                     }
                 },
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1020,19 +1020,19 @@ class Client(BaseClient):
         ::
         
           response = client.get_reservation_purchase_recommendation(
-              AccountId='string',
-              Service='string',
-              AccountScope='PAYER'|'LINKED',
-              LookbackPeriodInDays='SEVEN_DAYS'|'THIRTY_DAYS'|'SIXTY_DAYS',
-              TermInYears='ONE_YEAR'|'THREE_YEARS',
-              PaymentOption='NO_UPFRONT'|'PARTIAL_UPFRONT'|'ALL_UPFRONT'|'LIGHT_UTILIZATION'|'MEDIUM_UTILIZATION'|'HEAVY_UTILIZATION',
+              AccountId=\'string\',
+              Service=\'string\',
+              AccountScope=\'PAYER\'|\'LINKED\',
+              LookbackPeriodInDays=\'SEVEN_DAYS\'|\'THIRTY_DAYS\'|\'SIXTY_DAYS\',
+              TermInYears=\'ONE_YEAR\'|\'THREE_YEARS\',
+              PaymentOption=\'NO_UPFRONT\'|\'PARTIAL_UPFRONT\'|\'ALL_UPFRONT\'|\'LIGHT_UTILIZATION\'|\'MEDIUM_UTILIZATION\'|\'HEAVY_UTILIZATION\',
               ServiceSpecification={
-                  'EC2Specification': {
-                      'OfferingClass': 'STANDARD'|'CONVERTIBLE'
+                  \'EC2Specification\': {
+                      \'OfferingClass\': \'STANDARD\'|\'CONVERTIBLE\'
                   }
               },
               PageSize=123,
-              NextPageToken='string'
+              NextPageToken=\'string\'
           )
         :type AccountId: string
         :param AccountId: 
@@ -1097,96 +1097,96 @@ class Client(BaseClient):
           ::
         
             {
-                'Metadata': {
-                    'RecommendationId': 'string',
-                    'GenerationTimestamp': 'string'
+                \'Metadata\': {
+                    \'RecommendationId\': \'string\',
+                    \'GenerationTimestamp\': \'string\'
                 },
-                'Recommendations': [
+                \'Recommendations\': [
                     {
-                        'AccountScope': 'PAYER'|'LINKED',
-                        'LookbackPeriodInDays': 'SEVEN_DAYS'|'THIRTY_DAYS'|'SIXTY_DAYS',
-                        'TermInYears': 'ONE_YEAR'|'THREE_YEARS',
-                        'PaymentOption': 'NO_UPFRONT'|'PARTIAL_UPFRONT'|'ALL_UPFRONT'|'LIGHT_UTILIZATION'|'MEDIUM_UTILIZATION'|'HEAVY_UTILIZATION',
-                        'ServiceSpecification': {
-                            'EC2Specification': {
-                                'OfferingClass': 'STANDARD'|'CONVERTIBLE'
+                        \'AccountScope\': \'PAYER\'|\'LINKED\',
+                        \'LookbackPeriodInDays\': \'SEVEN_DAYS\'|\'THIRTY_DAYS\'|\'SIXTY_DAYS\',
+                        \'TermInYears\': \'ONE_YEAR\'|\'THREE_YEARS\',
+                        \'PaymentOption\': \'NO_UPFRONT\'|\'PARTIAL_UPFRONT\'|\'ALL_UPFRONT\'|\'LIGHT_UTILIZATION\'|\'MEDIUM_UTILIZATION\'|\'HEAVY_UTILIZATION\',
+                        \'ServiceSpecification\': {
+                            \'EC2Specification\': {
+                                \'OfferingClass\': \'STANDARD\'|\'CONVERTIBLE\'
                             }
                         },
-                        'RecommendationDetails': [
+                        \'RecommendationDetails\': [
                             {
-                                'AccountId': 'string',
-                                'InstanceDetails': {
-                                    'EC2InstanceDetails': {
-                                        'Family': 'string',
-                                        'InstanceType': 'string',
-                                        'Region': 'string',
-                                        'AvailabilityZone': 'string',
-                                        'Platform': 'string',
-                                        'Tenancy': 'string',
-                                        'CurrentGeneration': True|False,
-                                        'SizeFlexEligible': True|False
+                                \'AccountId\': \'string\',
+                                \'InstanceDetails\': {
+                                    \'EC2InstanceDetails\': {
+                                        \'Family\': \'string\',
+                                        \'InstanceType\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'AvailabilityZone\': \'string\',
+                                        \'Platform\': \'string\',
+                                        \'Tenancy\': \'string\',
+                                        \'CurrentGeneration\': True|False,
+                                        \'SizeFlexEligible\': True|False
                                     },
-                                    'RDSInstanceDetails': {
-                                        'Family': 'string',
-                                        'InstanceType': 'string',
-                                        'Region': 'string',
-                                        'DatabaseEngine': 'string',
-                                        'DatabaseEdition': 'string',
-                                        'DeploymentOption': 'string',
-                                        'LicenseModel': 'string',
-                                        'CurrentGeneration': True|False,
-                                        'SizeFlexEligible': True|False
+                                    \'RDSInstanceDetails\': {
+                                        \'Family\': \'string\',
+                                        \'InstanceType\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'DatabaseEngine\': \'string\',
+                                        \'DatabaseEdition\': \'string\',
+                                        \'DeploymentOption\': \'string\',
+                                        \'LicenseModel\': \'string\',
+                                        \'CurrentGeneration\': True|False,
+                                        \'SizeFlexEligible\': True|False
                                     },
-                                    'RedshiftInstanceDetails': {
-                                        'Family': 'string',
-                                        'NodeType': 'string',
-                                        'Region': 'string',
-                                        'CurrentGeneration': True|False,
-                                        'SizeFlexEligible': True|False
+                                    \'RedshiftInstanceDetails\': {
+                                        \'Family\': \'string\',
+                                        \'NodeType\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'CurrentGeneration\': True|False,
+                                        \'SizeFlexEligible\': True|False
                                     },
-                                    'ElastiCacheInstanceDetails': {
-                                        'Family': 'string',
-                                        'NodeType': 'string',
-                                        'Region': 'string',
-                                        'ProductDescription': 'string',
-                                        'CurrentGeneration': True|False,
-                                        'SizeFlexEligible': True|False
+                                    \'ElastiCacheInstanceDetails\': {
+                                        \'Family\': \'string\',
+                                        \'NodeType\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'ProductDescription\': \'string\',
+                                        \'CurrentGeneration\': True|False,
+                                        \'SizeFlexEligible\': True|False
                                     },
-                                    'ESInstanceDetails': {
-                                        'InstanceClass': 'string',
-                                        'InstanceSize': 'string',
-                                        'Region': 'string',
-                                        'CurrentGeneration': True|False,
-                                        'SizeFlexEligible': True|False
+                                    \'ESInstanceDetails\': {
+                                        \'InstanceClass\': \'string\',
+                                        \'InstanceSize\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'CurrentGeneration\': True|False,
+                                        \'SizeFlexEligible\': True|False
                                     }
                                 },
-                                'RecommendedNumberOfInstancesToPurchase': 'string',
-                                'RecommendedNormalizedUnitsToPurchase': 'string',
-                                'MinimumNumberOfInstancesUsedPerHour': 'string',
-                                'MinimumNormalizedUnitsUsedPerHour': 'string',
-                                'MaximumNumberOfInstancesUsedPerHour': 'string',
-                                'MaximumNormalizedUnitsUsedPerHour': 'string',
-                                'AverageNumberOfInstancesUsedPerHour': 'string',
-                                'AverageNormalizedUnitsUsedPerHour': 'string',
-                                'AverageUtilization': 'string',
-                                'EstimatedBreakEvenInMonths': 'string',
-                                'CurrencyCode': 'string',
-                                'EstimatedMonthlySavingsAmount': 'string',
-                                'EstimatedMonthlySavingsPercentage': 'string',
-                                'EstimatedMonthlyOnDemandCost': 'string',
-                                'EstimatedReservationCostForLookbackPeriod': 'string',
-                                'UpfrontCost': 'string',
-                                'RecurringStandardMonthlyCost': 'string'
+                                \'RecommendedNumberOfInstancesToPurchase\': \'string\',
+                                \'RecommendedNormalizedUnitsToPurchase\': \'string\',
+                                \'MinimumNumberOfInstancesUsedPerHour\': \'string\',
+                                \'MinimumNormalizedUnitsUsedPerHour\': \'string\',
+                                \'MaximumNumberOfInstancesUsedPerHour\': \'string\',
+                                \'MaximumNormalizedUnitsUsedPerHour\': \'string\',
+                                \'AverageNumberOfInstancesUsedPerHour\': \'string\',
+                                \'AverageNormalizedUnitsUsedPerHour\': \'string\',
+                                \'AverageUtilization\': \'string\',
+                                \'EstimatedBreakEvenInMonths\': \'string\',
+                                \'CurrencyCode\': \'string\',
+                                \'EstimatedMonthlySavingsAmount\': \'string\',
+                                \'EstimatedMonthlySavingsPercentage\': \'string\',
+                                \'EstimatedMonthlyOnDemandCost\': \'string\',
+                                \'EstimatedReservationCostForLookbackPeriod\': \'string\',
+                                \'UpfrontCost\': \'string\',
+                                \'RecurringStandardMonthlyCost\': \'string\'
                             },
                         ],
-                        'RecommendationSummary': {
-                            'TotalEstimatedMonthlySavingsAmount': 'string',
-                            'TotalEstimatedMonthlySavingsPercentage': 'string',
-                            'CurrencyCode': 'string'
+                        \'RecommendationSummary\': {
+                            \'TotalEstimatedMonthlySavingsAmount\': \'string\',
+                            \'TotalEstimatedMonthlySavingsPercentage\': \'string\',
+                            \'CurrencyCode\': \'string\'
                         }
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1507,38 +1507,38 @@ class Client(BaseClient):
         
           response = client.get_reservation_utilization(
               TimePeriod={
-                  'Start': 'string',
-                  'End': 'string'
+                  \'Start\': \'string\',
+                  \'End\': \'string\'
               },
               GroupBy=[
                   {
-                      'Type': 'DIMENSION'|'TAG',
-                      'Key': 'string'
+                      \'Type\': \'DIMENSION\'|\'TAG\',
+                      \'Key\': \'string\'
                   },
               ],
-              Granularity='DAILY'|'MONTHLY'|'HOURLY',
+              Granularity=\'DAILY\'|\'MONTHLY\'|\'HOURLY\',
               Filter={
-                  'Or': [
-                      {'... recursive ...'},
+                  \'Or\': [
+                      {\'... recursive ...\'},
                   ],
-                  'And': [
-                      {'... recursive ...'},
+                  \'And\': [
+                      {\'... recursive ...\'},
                   ],
-                  'Not': {'... recursive ...'},
-                  'Dimensions': {
-                      'Key': 'AZ'|'INSTANCE_TYPE'|'LINKED_ACCOUNT'|'OPERATION'|'PURCHASE_TYPE'|'REGION'|'SERVICE'|'USAGE_TYPE'|'USAGE_TYPE_GROUP'|'RECORD_TYPE'|'OPERATING_SYSTEM'|'TENANCY'|'SCOPE'|'PLATFORM'|'SUBSCRIPTION_ID'|'LEGAL_ENTITY_NAME'|'DEPLOYMENT_OPTION'|'DATABASE_ENGINE'|'CACHE_ENGINE'|'INSTANCE_TYPE_FAMILY'|'BILLING_ENTITY'|'RESERVATION_ID',
-                      'Values': [
-                          'string',
+                  \'Not\': {\'... recursive ...\'},
+                  \'Dimensions\': {
+                      \'Key\': \'AZ\'|\'INSTANCE_TYPE\'|\'LINKED_ACCOUNT\'|\'OPERATION\'|\'PURCHASE_TYPE\'|\'REGION\'|\'SERVICE\'|\'USAGE_TYPE\'|\'USAGE_TYPE_GROUP\'|\'RECORD_TYPE\'|\'OPERATING_SYSTEM\'|\'TENANCY\'|\'SCOPE\'|\'PLATFORM\'|\'SUBSCRIPTION_ID\'|\'LEGAL_ENTITY_NAME\'|\'DEPLOYMENT_OPTION\'|\'DATABASE_ENGINE\'|\'CACHE_ENGINE\'|\'INSTANCE_TYPE_FAMILY\'|\'BILLING_ENTITY\'|\'RESERVATION_ID\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
-                  'Tags': {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                  \'Tags\': {
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   }
               },
-              NextPageToken='string'
+              NextPageToken=\'string\'
           )
         :type TimePeriod: dict
         :param TimePeriod: **[REQUIRED]** 
@@ -1573,7 +1573,7 @@ class Client(BaseClient):
         :type Granularity: string
         :param Granularity: 
         
-          If ``GroupBy`` is set, ``Granularity`` can't be set. If ``Granularity`` isn't set, the response object doesn't include ``Granularity`` , either ``MONTHLY`` or ``DAILY`` . If both ``GroupBy`` and ``Granularity`` aren't set, ``GetReservationUtilization`` defaults to ``DAILY`` .
+          If ``GroupBy`` is set, ``Granularity`` can\'t be set. If ``Granularity`` isn\'t set, the response object doesn\'t include ``Granularity`` , either ``MONTHLY`` or ``DAILY`` . If both ``GroupBy`` and ``Granularity`` aren\'t set, ``GetReservationUtilization`` defaults to ``DAILY`` .
         
         :type Filter: dict
         :param Filter: 
@@ -1604,7 +1604,7 @@ class Client(BaseClient):
            
           * TENANCY 
            
-           ``GetReservationUtilization`` uses the same `` `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ `` object as the other operations, but only ``AND`` is supported among each dimension, and nesting is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
+           ``GetReservationUtilization`` uses the same `` `Expression <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html>`__ `` object as the other operations, but only ``AND`` is supported among each dimension, and nesting is supported up to only one level deep. If there are multiple values for a dimension, they are OR\'d together.
         
           - **Or** *(list) --* 
         
@@ -1614,15 +1614,15 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **And** *(list) --* 
         
@@ -1632,19 +1632,19 @@ class Client(BaseClient):
         
               Use ``Expression`` to filter by cost or by usage. There are two patterns: 
         
-              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }``   The list of dimension values are OR'd together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
+              * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for ``INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large`` . The ``Expression`` for that looks like this:  ``{ \"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.xlarge\", “c4.large” ] } }``   The list of dimension values are OR\'d together to retrieve cost or usage data. You can create ``Expression`` and ``DimensionValues`` objects using either ``with*`` methods or ``set*`` methods in multiple lines.  
                
-              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] }``   
+              * Compound dimension values with logical operations - You can use multiple ``Expression`` types and the logical operators ``AND/OR/NOT`` to create a list of one or more ``Expression`` objects. This allows you to filter on more advanced options. For example, you can filter on ``((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)`` . The ``Expression`` for that looks like this:  ``{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"INSTANCE_TYPE\", \"Values\": [ \"m4.x.large\", \"c4.large\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] }``   
         
               .. note::
         
                  Because each ``Expression`` can have only one operator, the service returns an error if more than one is specified. The following example shows an ``Expression`` object that creates an error. 
         
-                ``{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } }``   
+                ``{ \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } }``   
                
           - **Not** *(dict) --* 
         
-            Return results that don't match a ``Dimension`` object.
+            Return results that don\'t match a ``Dimension`` object.
         
           - **Dimensions** *(dict) --* 
         
@@ -1689,60 +1689,60 @@ class Client(BaseClient):
           ::
         
             {
-                'UtilizationsByTime': [
+                \'UtilizationsByTime\': [
                     {
-                        'TimePeriod': {
-                            'Start': 'string',
-                            'End': 'string'
+                        \'TimePeriod\': {
+                            \'Start\': \'string\',
+                            \'End\': \'string\'
                         },
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string',
-                                'Attributes': {
-                                    'string': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\',
+                                \'Attributes\': {
+                                    \'string\': \'string\'
                                 },
-                                'Utilization': {
-                                    'UtilizationPercentage': 'string',
-                                    'PurchasedHours': 'string',
-                                    'TotalActualHours': 'string',
-                                    'UnusedHours': 'string',
-                                    'OnDemandCostOfRIHoursUsed': 'string',
-                                    'NetRISavings': 'string',
-                                    'TotalPotentialRISavings': 'string',
-                                    'AmortizedUpfrontFee': 'string',
-                                    'AmortizedRecurringFee': 'string',
-                                    'TotalAmortizedFee': 'string'
+                                \'Utilization\': {
+                                    \'UtilizationPercentage\': \'string\',
+                                    \'PurchasedHours\': \'string\',
+                                    \'TotalActualHours\': \'string\',
+                                    \'UnusedHours\': \'string\',
+                                    \'OnDemandCostOfRIHoursUsed\': \'string\',
+                                    \'NetRISavings\': \'string\',
+                                    \'TotalPotentialRISavings\': \'string\',
+                                    \'AmortizedUpfrontFee\': \'string\',
+                                    \'AmortizedRecurringFee\': \'string\',
+                                    \'TotalAmortizedFee\': \'string\'
                                 }
                             },
                         ],
-                        'Total': {
-                            'UtilizationPercentage': 'string',
-                            'PurchasedHours': 'string',
-                            'TotalActualHours': 'string',
-                            'UnusedHours': 'string',
-                            'OnDemandCostOfRIHoursUsed': 'string',
-                            'NetRISavings': 'string',
-                            'TotalPotentialRISavings': 'string',
-                            'AmortizedUpfrontFee': 'string',
-                            'AmortizedRecurringFee': 'string',
-                            'TotalAmortizedFee': 'string'
+                        \'Total\': {
+                            \'UtilizationPercentage\': \'string\',
+                            \'PurchasedHours\': \'string\',
+                            \'TotalActualHours\': \'string\',
+                            \'UnusedHours\': \'string\',
+                            \'OnDemandCostOfRIHoursUsed\': \'string\',
+                            \'NetRISavings\': \'string\',
+                            \'TotalPotentialRISavings\': \'string\',
+                            \'AmortizedUpfrontFee\': \'string\',
+                            \'AmortizedRecurringFee\': \'string\',
+                            \'TotalAmortizedFee\': \'string\'
                         }
                     },
                 ],
-                'Total': {
-                    'UtilizationPercentage': 'string',
-                    'PurchasedHours': 'string',
-                    'TotalActualHours': 'string',
-                    'UnusedHours': 'string',
-                    'OnDemandCostOfRIHoursUsed': 'string',
-                    'NetRISavings': 'string',
-                    'TotalPotentialRISavings': 'string',
-                    'AmortizedUpfrontFee': 'string',
-                    'AmortizedRecurringFee': 'string',
-                    'TotalAmortizedFee': 'string'
+                \'Total\': {
+                    \'UtilizationPercentage\': \'string\',
+                    \'PurchasedHours\': \'string\',
+                    \'TotalActualHours\': \'string\',
+                    \'UnusedHours\': \'string\',
+                    \'OnDemandCostOfRIHoursUsed\': \'string\',
+                    \'NetRISavings\': \'string\',
+                    \'TotalPotentialRISavings\': \'string\',
+                    \'AmortizedUpfrontFee\': \'string\',
+                    \'AmortizedRecurringFee\': \'string\',
+                    \'TotalAmortizedFee\': \'string\'
                 },
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1810,7 +1810,7 @@ class Client(BaseClient):
         
                       - **UnusedHours** *(string) --* 
         
-                        The number of RI hours that you didn't use.
+                        The number of RI hours that you didn\'t use.
         
                       - **OnDemandCostOfRIHoursUsed** *(string) --* 
         
@@ -1854,7 +1854,7 @@ class Client(BaseClient):
         
                   - **UnusedHours** *(string) --* 
         
-                    The number of RI hours that you didn't use.
+                    The number of RI hours that you didn\'t use.
         
                   - **OnDemandCostOfRIHoursUsed** *(string) --* 
         
@@ -1898,7 +1898,7 @@ class Client(BaseClient):
         
               - **UnusedHours** *(string) --* 
         
-                The number of RI hours that you didn't use.
+                The number of RI hours that you didn\'t use.
         
               - **OnDemandCostOfRIHoursUsed** *(string) --* 
         
@@ -1940,13 +1940,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_tags(
-              SearchString='string',
+              SearchString=\'string\',
               TimePeriod={
-                  'Start': 'string',
-                  'End': 'string'
+                  \'Start\': \'string\',
+                  \'End\': \'string\'
               },
-              TagKey='string',
-              NextPageToken='string'
+              TagKey=\'string\',
+              NextPageToken=\'string\'
           )
         :type SearchString: string
         :param SearchString: 
@@ -1984,12 +1984,12 @@ class Client(BaseClient):
           ::
         
             {
-                'NextPageToken': 'string',
-                'Tags': [
-                    'string',
+                \'NextPageToken\': \'string\',
+                \'Tags\': [
+                    \'string\',
                 ],
-                'ReturnSize': 123,
-                'TotalSize': 123
+                \'ReturnSize\': 123,
+                \'TotalSize\': 123
             }
           **Response Structure** 
         

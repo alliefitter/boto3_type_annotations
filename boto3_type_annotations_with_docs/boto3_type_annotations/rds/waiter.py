@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -14,26 +14,26 @@ class DBInstanceAvailable(Waiter):
         ::
         
           waiter.wait(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -122,26 +122,26 @@ class DBInstanceDeleted(Waiter):
         ::
         
           waiter.wait(
-              DBInstanceIdentifier='string',
+              DBInstanceIdentifier=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+          The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
         
           Constraints:
         
@@ -230,30 +230,30 @@ class DBSnapshotAvailable(Waiter):
         ::
         
           waiter.wait(
-              DBInstanceIdentifier='string',
-              DBSnapshotIdentifier='string',
-              SnapshotType='string',
+              DBInstanceIdentifier=\'string\',
+              DBSnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               IncludeShared=True|False,
               IncludePublic=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
+          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can\'t be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
         
           Constraints:
         
@@ -262,7 +262,7 @@ class DBSnapshotAvailable(Waiter):
         :type DBSnapshotIdentifier: string
         :param DBSnapshotIdentifier: 
         
-          A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
+          A specific DB snapshot identifier to describe. This parameter can\'t be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
         
           Constraints:
         
@@ -283,9 +283,9 @@ class DBSnapshotAvailable(Waiter):
            
           * ``public`` - Return all DB snapshots that have been marked as public. 
            
-          If you don't specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
+          If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
         
-          The ``IncludeShared`` and ``IncludePublic`` parameters don't apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn't apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn't apply when ``SnapshotType`` is set to ``public`` .
+          The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         
         :type Filters: list
         :param Filters: 
@@ -378,30 +378,30 @@ class DBSnapshotCompleted(Waiter):
         ::
         
           waiter.wait(
-              DBInstanceIdentifier='string',
-              DBSnapshotIdentifier='string',
-              SnapshotType='string',
+              DBInstanceIdentifier=\'string\',
+              DBSnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               IncludeShared=True|False,
               IncludePublic=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
+          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can\'t be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
         
           Constraints:
         
@@ -410,7 +410,7 @@ class DBSnapshotCompleted(Waiter):
         :type DBSnapshotIdentifier: string
         :param DBSnapshotIdentifier: 
         
-          A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
+          A specific DB snapshot identifier to describe. This parameter can\'t be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
         
           Constraints:
         
@@ -431,9 +431,9 @@ class DBSnapshotCompleted(Waiter):
            
           * ``public`` - Return all DB snapshots that have been marked as public. 
            
-          If you don't specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
+          If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
         
-          The ``IncludeShared`` and ``IncludePublic`` parameters don't apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn't apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn't apply when ``SnapshotType`` is set to ``public`` .
+          The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         
         :type Filters: list
         :param Filters: 
@@ -526,30 +526,30 @@ class DBSnapshotDeleted(Waiter):
         ::
         
           waiter.wait(
-              DBInstanceIdentifier='string',
-              DBSnapshotIdentifier='string',
-              SnapshotType='string',
+              DBInstanceIdentifier=\'string\',
+              DBSnapshotIdentifier=\'string\',
+              SnapshotType=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               IncludeShared=True|False,
               IncludePublic=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: 
         
-          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
+          The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can\'t be used in conjunction with ``DBSnapshotIdentifier`` . This parameter is not case-sensitive. 
         
           Constraints:
         
@@ -558,7 +558,7 @@ class DBSnapshotDeleted(Waiter):
         :type DBSnapshotIdentifier: string
         :param DBSnapshotIdentifier: 
         
-          A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
+          A specific DB snapshot identifier to describe. This parameter can\'t be used in conjunction with ``DBInstanceIdentifier`` . This value is stored as a lowercase string. 
         
           Constraints:
         
@@ -579,9 +579,9 @@ class DBSnapshotDeleted(Waiter):
            
           * ``public`` - Return all DB snapshots that have been marked as public. 
            
-          If you don't specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
+          If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
         
-          The ``IncludeShared`` and ``IncludePublic`` parameters don't apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn't apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn't apply when ``SnapshotType`` is set to ``public`` .
+          The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         
         :type Filters: list
         :param Filters: 

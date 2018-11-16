@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,22 +34,22 @@ class Client(BaseClient):
         ::
         
           response = client.create_application(
-              Author='string',
-              Description='string',
-              HomePageUrl='string',
+              Author=\'string\',
+              Description=\'string\',
+              HomePageUrl=\'string\',
               Labels=[
-                  'string',
+                  \'string\',
               ],
-              LicenseBody='string',
-              LicenseUrl='string',
-              Name='string',
-              ReadmeBody='string',
-              ReadmeUrl='string',
-              SemanticVersion='string',
-              SourceCodeUrl='string',
-              SpdxLicenseId='string',
-              TemplateBody='string',
-              TemplateUrl='string'
+              LicenseBody=\'string\',
+              LicenseUrl=\'string\',
+              Name=\'string\',
+              ReadmeBody=\'string\',
+              ReadmeUrl=\'string\',
+              SemanticVersion=\'string\',
+              SourceCodeUrl=\'string\',
+              SpdxLicenseId=\'string\',
+              TemplateBody=\'string\',
+              TemplateUrl=\'string\'
           )
         :type Author: string
         :param Author: **[REQUIRED]** 
@@ -58,7 +58,7 @@ class Client(BaseClient):
         
           Minimum length=1. Maximum length=127.
         
-          Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+          Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
         :type Description: string
         :param Description: **[REQUIRED]** 
@@ -79,7 +79,7 @@ class Client(BaseClient):
         
           Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-          Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+          Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
           - *(string) --* 
         
@@ -108,7 +108,7 @@ class Client(BaseClient):
         
           Minimum length=1. Maximum length=140
         
-          Pattern: "[a-zA-Z0-9\\-]+";
+          Pattern: \"[a-zA-Z0-9\\-]+\";
         
         :type ReadmeBody: string
         :param ReadmeBody: 
@@ -167,49 +167,49 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'Author': 'string',
-                'CreationTime': 'string',
-                'Description': 'string',
-                'HomePageUrl': 'string',
-                'Labels': [
-                    'string',
+                \'ApplicationId\': \'string\',
+                \'Author\': \'string\',
+                \'CreationTime\': \'string\',
+                \'Description\': \'string\',
+                \'HomePageUrl\': \'string\',
+                \'Labels\': [
+                    \'string\',
                 ],
-                'LicenseUrl': 'string',
-                'Name': 'string',
-                'ReadmeUrl': 'string',
-                'SpdxLicenseId': 'string',
-                'Version': {
-                    'ApplicationId': 'string',
-                    'CreationTime': 'string',
-                    'ParameterDefinitions': [
+                \'LicenseUrl\': \'string\',
+                \'Name\': \'string\',
+                \'ReadmeUrl\': \'string\',
+                \'SpdxLicenseId\': \'string\',
+                \'Version\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationTime\': \'string\',
+                    \'ParameterDefinitions\': [
                         {
-                            'AllowedPattern': 'string',
-                            'AllowedValues': [
-                                'string',
+                            \'AllowedPattern\': \'string\',
+                            \'AllowedValues\': [
+                                \'string\',
                             ],
-                            'ConstraintDescription': 'string',
-                            'DefaultValue': 'string',
-                            'Description': 'string',
-                            'MaxLength': 123,
-                            'MaxValue': 123,
-                            'MinLength': 123,
-                            'MinValue': 123,
-                            'Name': 'string',
-                            'NoEcho': True|False,
-                            'ReferencedByResources': [
-                                'string',
+                            \'ConstraintDescription\': \'string\',
+                            \'DefaultValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'MaxLength\': 123,
+                            \'MaxValue\': 123,
+                            \'MinLength\': 123,
+                            \'MinValue\': 123,
+                            \'Name\': \'string\',
+                            \'NoEcho\': True|False,
+                            \'ReferencedByResources\': [
+                                \'string\',
                             ],
-                            'Type': 'string'
+                            \'Type\': \'string\'
                         },
                     ],
-                    'RequiredCapabilities': [
-                        'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM'|'CAPABILITY_AUTO_EXPAND'|'CAPABILITY_RESOURCE_POLICY',
+                    \'RequiredCapabilities\': [
+                        \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\'|\'CAPABILITY_AUTO_EXPAND\'|\'CAPABILITY_RESOURCE_POLICY\',
                     ],
-                    'ResourcesSupported': True|False,
-                    'SemanticVersion': 'string',
-                    'SourceCodeUrl': 'string',
-                    'TemplateUrl': 'string'
+                    \'ResourcesSupported\': True|False,
+                    \'SemanticVersion\': \'string\',
+                    \'SourceCodeUrl\': \'string\',
+                    \'TemplateUrl\': \'string\'
                 }
             }
           **Response Structure** 
@@ -228,7 +228,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127.
         
-              Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+              Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
             - **CreationTime** *(string) --* 
         
@@ -250,7 +250,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-              Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+              Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
               - *(string) --* 
           
@@ -266,7 +266,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=140
         
-              Pattern: "[a-zA-Z0-9\\-]+";
+              Pattern: \"[a-zA-Z0-9\\-]+\";
         
             - **ReadmeUrl** *(string) --* 
         
@@ -314,7 +314,7 @@ class Client(BaseClient):
         
                     Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+ 
         
-                    By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers," you can display the following customized error message:
+                    By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display the following customized error message:
         
                     Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers. 
         
@@ -364,19 +364,19 @@ class Client(BaseClient):
         
                     String: A literal string.
         
-                    For example, users can specify "MyUserName".
+                    For example, users can specify \"MyUserName\".
         
                     Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.
         
-                    For example, users might specify "8888".
+                    For example, users might specify \"8888\".
         
                     List<Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.
         
-                    For example, users might specify "80,20", and then Ref results in ["80","20"].
+                    For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].
         
                     CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas. Also, each member string is space-trimmed.
         
-                    For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+                    For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].
         
               - **RequiredCapabilities** *(list) --* 
         
@@ -388,7 +388,7 @@ class Client(BaseClient):
         
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
         
-                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
+                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
         
                 Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
         
@@ -424,11 +424,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_application_version(
-              ApplicationId='string',
-              SemanticVersion='string',
-              SourceCodeUrl='string',
-              TemplateBody='string',
-              TemplateUrl='string'
+              ApplicationId=\'string\',
+              SemanticVersion=\'string\',
+              SourceCodeUrl=\'string\',
+              TemplateBody=\'string\',
+              TemplateUrl=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -463,36 +463,36 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'CreationTime': 'string',
-                'ParameterDefinitions': [
+                \'ApplicationId\': \'string\',
+                \'CreationTime\': \'string\',
+                \'ParameterDefinitions\': [
                     {
-                        'AllowedPattern': 'string',
-                        'AllowedValues': [
-                            'string',
+                        \'AllowedPattern\': \'string\',
+                        \'AllowedValues\': [
+                            \'string\',
                         ],
-                        'ConstraintDescription': 'string',
-                        'DefaultValue': 'string',
-                        'Description': 'string',
-                        'MaxLength': 123,
-                        'MaxValue': 123,
-                        'MinLength': 123,
-                        'MinValue': 123,
-                        'Name': 'string',
-                        'NoEcho': True|False,
-                        'ReferencedByResources': [
-                            'string',
+                        \'ConstraintDescription\': \'string\',
+                        \'DefaultValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'MaxLength\': 123,
+                        \'MaxValue\': 123,
+                        \'MinLength\': 123,
+                        \'MinValue\': 123,
+                        \'Name\': \'string\',
+                        \'NoEcho\': True|False,
+                        \'ReferencedByResources\': [
+                            \'string\',
                         ],
-                        'Type': 'string'
+                        \'Type\': \'string\'
                     },
                 ],
-                'RequiredCapabilities': [
-                    'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM'|'CAPABILITY_AUTO_EXPAND'|'CAPABILITY_RESOURCE_POLICY',
+                \'RequiredCapabilities\': [
+                    \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\'|\'CAPABILITY_AUTO_EXPAND\'|\'CAPABILITY_RESOURCE_POLICY\',
                 ],
-                'ResourcesSupported': True|False,
-                'SemanticVersion': 'string',
-                'SourceCodeUrl': 'string',
-                'TemplateUrl': 'string'
+                \'ResourcesSupported\': True|False,
+                \'SemanticVersion\': \'string\',
+                \'SourceCodeUrl\': \'string\',
+                \'TemplateUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -532,7 +532,7 @@ class Client(BaseClient):
         
                   Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+ 
         
-                  By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers," you can display the following customized error message:
+                  By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display the following customized error message:
         
                   Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers. 
         
@@ -582,19 +582,19 @@ class Client(BaseClient):
         
                   String: A literal string.
         
-                  For example, users can specify "MyUserName".
+                  For example, users can specify \"MyUserName\".
         
                   Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.
         
-                  For example, users might specify "8888".
+                  For example, users might specify \"8888\".
         
                   List<Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.
         
-                  For example, users might specify "80,20", and then Ref results in ["80","20"].
+                  For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].
         
                   CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas. Also, each member string is space-trimmed.
         
-                  For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+                  For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].
         
             - **RequiredCapabilities** *(list) --* 
         
@@ -606,7 +606,7 @@ class Client(BaseClient):
         
               The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
         
-              If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
+              If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
         
               Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
         
@@ -642,43 +642,43 @@ class Client(BaseClient):
         ::
         
           response = client.create_cloud_formation_change_set(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               Capabilities=[
-                  'string',
+                  \'string\',
               ],
-              ChangeSetName='string',
-              ClientToken='string',
-              Description='string',
+              ChangeSetName=\'string\',
+              ClientToken=\'string\',
+              Description=\'string\',
               NotificationArns=[
-                  'string',
+                  \'string\',
               ],
               ParameterOverrides=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               ResourceTypes=[
-                  'string',
+                  \'string\',
               ],
               RollbackConfiguration={
-                  'MonitoringTimeInMinutes': 123,
-                  'RollbackTriggers': [
+                  \'MonitoringTimeInMinutes\': 123,
+                  \'RollbackTriggers\': [
                       {
-                          'Arn': 'string',
-                          'Type': 'string'
+                          \'Arn\': \'string\',
+                          \'Type\': \'string\'
                       },
                   ]
               },
-              SemanticVersion='string',
-              StackName='string',
+              SemanticVersion=\'string\',
+              StackName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              TemplateId='string'
+              TemplateId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -696,7 +696,7 @@ class Client(BaseClient):
         
           The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
         
-          If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
+          If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
         
           Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
         
@@ -735,7 +735,7 @@ class Client(BaseClient):
         
             - **Name** *(string) --* **[REQUIRED]** 
         
-              The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+              The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
             - **Value** *(string) --* **[REQUIRED]** 
         
@@ -817,10 +817,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'ChangeSetId': 'string',
-                'SemanticVersion': 'string',
-                'StackId': 'string'
+                \'ApplicationId\': \'string\',
+                \'ChangeSetId\': \'string\',
+                \'SemanticVersion\': \'string\',
+                \'StackId\': \'string\'
             }
           **Response Structure** 
         
@@ -862,8 +862,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_cloud_formation_template(
-              ApplicationId='string',
-              SemanticVersion='string'
+              ApplicationId=\'string\',
+              SemanticVersion=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -885,13 +885,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'CreationTime': 'string',
-                'ExpirationTime': 'string',
-                'SemanticVersion': 'string',
-                'Status': 'PREPARING'|'ACTIVE'|'EXPIRED',
-                'TemplateId': 'string',
-                'TemplateUrl': 'string'
+                \'ApplicationId\': \'string\',
+                \'CreationTime\': \'string\',
+                \'ExpirationTime\': \'string\',
+                \'SemanticVersion\': \'string\',
+                \'Status\': \'PREPARING\'|\'ACTIVE\'|\'EXPIRED\',
+                \'TemplateId\': \'string\',
+                \'TemplateUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -945,7 +945,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_application(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -972,7 +972,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -987,8 +987,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_application(
-              ApplicationId='string',
-              SemanticVersion='string'
+              ApplicationId=\'string\',
+              SemanticVersion=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -1008,49 +1008,49 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'Author': 'string',
-                'CreationTime': 'string',
-                'Description': 'string',
-                'HomePageUrl': 'string',
-                'Labels': [
-                    'string',
+                \'ApplicationId\': \'string\',
+                \'Author\': \'string\',
+                \'CreationTime\': \'string\',
+                \'Description\': \'string\',
+                \'HomePageUrl\': \'string\',
+                \'Labels\': [
+                    \'string\',
                 ],
-                'LicenseUrl': 'string',
-                'Name': 'string',
-                'ReadmeUrl': 'string',
-                'SpdxLicenseId': 'string',
-                'Version': {
-                    'ApplicationId': 'string',
-                    'CreationTime': 'string',
-                    'ParameterDefinitions': [
+                \'LicenseUrl\': \'string\',
+                \'Name\': \'string\',
+                \'ReadmeUrl\': \'string\',
+                \'SpdxLicenseId\': \'string\',
+                \'Version\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationTime\': \'string\',
+                    \'ParameterDefinitions\': [
                         {
-                            'AllowedPattern': 'string',
-                            'AllowedValues': [
-                                'string',
+                            \'AllowedPattern\': \'string\',
+                            \'AllowedValues\': [
+                                \'string\',
                             ],
-                            'ConstraintDescription': 'string',
-                            'DefaultValue': 'string',
-                            'Description': 'string',
-                            'MaxLength': 123,
-                            'MaxValue': 123,
-                            'MinLength': 123,
-                            'MinValue': 123,
-                            'Name': 'string',
-                            'NoEcho': True|False,
-                            'ReferencedByResources': [
-                                'string',
+                            \'ConstraintDescription\': \'string\',
+                            \'DefaultValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'MaxLength\': 123,
+                            \'MaxValue\': 123,
+                            \'MinLength\': 123,
+                            \'MinValue\': 123,
+                            \'Name\': \'string\',
+                            \'NoEcho\': True|False,
+                            \'ReferencedByResources\': [
+                                \'string\',
                             ],
-                            'Type': 'string'
+                            \'Type\': \'string\'
                         },
                     ],
-                    'RequiredCapabilities': [
-                        'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM'|'CAPABILITY_AUTO_EXPAND'|'CAPABILITY_RESOURCE_POLICY',
+                    \'RequiredCapabilities\': [
+                        \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\'|\'CAPABILITY_AUTO_EXPAND\'|\'CAPABILITY_RESOURCE_POLICY\',
                     ],
-                    'ResourcesSupported': True|False,
-                    'SemanticVersion': 'string',
-                    'SourceCodeUrl': 'string',
-                    'TemplateUrl': 'string'
+                    \'ResourcesSupported\': True|False,
+                    \'SemanticVersion\': \'string\',
+                    \'SourceCodeUrl\': \'string\',
+                    \'TemplateUrl\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1069,7 +1069,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127.
         
-              Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+              Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
             - **CreationTime** *(string) --* 
         
@@ -1091,7 +1091,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-              Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+              Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
               - *(string) --* 
           
@@ -1107,7 +1107,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=140
         
-              Pattern: "[a-zA-Z0-9\\-]+";
+              Pattern: \"[a-zA-Z0-9\\-]+\";
         
             - **ReadmeUrl** *(string) --* 
         
@@ -1155,7 +1155,7 @@ class Client(BaseClient):
         
                     Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+ 
         
-                    By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers," you can display the following customized error message:
+                    By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display the following customized error message:
         
                     Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers. 
         
@@ -1205,19 +1205,19 @@ class Client(BaseClient):
         
                     String: A literal string.
         
-                    For example, users can specify "MyUserName".
+                    For example, users can specify \"MyUserName\".
         
                     Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.
         
-                    For example, users might specify "8888".
+                    For example, users might specify \"8888\".
         
                     List<Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.
         
-                    For example, users might specify "80,20", and then Ref results in ["80","20"].
+                    For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].
         
                     CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas. Also, each member string is space-trimmed.
         
-                    For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+                    For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].
         
               - **RequiredCapabilities** *(list) --* 
         
@@ -1229,7 +1229,7 @@ class Client(BaseClient):
         
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
         
-                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
+                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
         
                 Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
         
@@ -1265,7 +1265,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_application_policy(
-              ApplicationId='string'
+              ApplicationId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -1280,15 +1280,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Statements': [
+                \'Statements\': [
                     {
-                        'Actions': [
-                            'string',
+                        \'Actions\': [
+                            \'string\',
                         ],
-                        'Principals': [
-                            'string',
+                        \'Principals\': [
+                            \'string\',
                         ],
-                        'StatementId': 'string'
+                        \'StatementId\': \'string\'
                     },
                 ]
             }
@@ -1334,8 +1334,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_cloud_formation_template(
-              ApplicationId='string',
-              TemplateId='string'
+              ApplicationId=\'string\',
+              TemplateId=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -1357,13 +1357,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'CreationTime': 'string',
-                'ExpirationTime': 'string',
-                'SemanticVersion': 'string',
-                'Status': 'PREPARING'|'ACTIVE'|'EXPIRED',
-                'TemplateId': 'string',
-                'TemplateUrl': 'string'
+                \'ApplicationId\': \'string\',
+                \'CreationTime\': \'string\',
+                \'ExpirationTime\': \'string\',
+                \'SemanticVersion\': \'string\',
+                \'Status\': \'PREPARING\'|\'ACTIVE\'|\'EXPIRED\',
+                \'TemplateId\': \'string\',
+                \'TemplateUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -1414,10 +1414,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1449,9 +1449,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_application_versions(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               MaxItems=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -1476,13 +1476,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Versions': [
+                \'NextToken\': \'string\',
+                \'Versions\': [
                     {
-                        'ApplicationId': 'string',
-                        'CreationTime': 'string',
-                        'SemanticVersion': 'string',
-                        'SourceCodeUrl': 'string'
+                        \'ApplicationId\': \'string\',
+                        \'CreationTime\': \'string\',
+                        \'SemanticVersion\': \'string\',
+                        \'SourceCodeUrl\': \'string\'
                     },
                 ]
             }
@@ -1535,7 +1535,7 @@ class Client(BaseClient):
         
           response = client.list_applications(
               MaxItems=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxItems: integer
         :param MaxItems: 
@@ -1555,21 +1555,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Applications': [
+                \'Applications\': [
                     {
-                        'ApplicationId': 'string',
-                        'Author': 'string',
-                        'CreationTime': 'string',
-                        'Description': 'string',
-                        'HomePageUrl': 'string',
-                        'Labels': [
-                            'string',
+                        \'ApplicationId\': \'string\',
+                        \'Author\': \'string\',
+                        \'CreationTime\': \'string\',
+                        \'Description\': \'string\',
+                        \'HomePageUrl\': \'string\',
+                        \'Labels\': [
+                            \'string\',
                         ],
-                        'Name': 'string',
-                        'SpdxLicenseId': 'string'
+                        \'Name\': \'string\',
+                        \'SpdxLicenseId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1595,7 +1595,7 @@ class Client(BaseClient):
         
                   Minimum length=1. Maximum length=127.
         
-                  Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+                  Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
                 - **CreationTime** *(string) --* 
         
@@ -1617,7 +1617,7 @@ class Client(BaseClient):
         
                   Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-                  Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+                  Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
                   - *(string) --* 
               
@@ -1627,7 +1627,7 @@ class Client(BaseClient):
         
                   Minimum length=1. Maximum length=140
         
-                  Pattern: "[a-zA-Z0-9\\-]+";
+                  Pattern: \"[a-zA-Z0-9\\-]+\";
         
                 - **SpdxLicenseId** *(string) --* 
         
@@ -1649,16 +1649,16 @@ class Client(BaseClient):
         ::
         
           response = client.put_application_policy(
-              ApplicationId='string',
+              ApplicationId=\'string\',
               Statements=[
                   {
-                      'Actions': [
-                          'string',
+                      \'Actions\': [
+                          \'string\',
                       ],
-                      'Principals': [
-                          'string',
+                      \'Principals\': [
+                          \'string\',
                       ],
-                      'StatementId': 'string'
+                      \'StatementId\': \'string\'
                   },
               ]
           )
@@ -1700,15 +1700,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Statements': [
+                \'Statements\': [
                     {
-                        'Actions': [
-                            'string',
+                        \'Actions\': [
+                            \'string\',
                         ],
-                        'Principals': [
-                            'string',
+                        \'Principals\': [
+                            \'string\',
                         ],
-                        'StatementId': 'string'
+                        \'StatementId\': \'string\'
                     },
                 ]
             }
@@ -1754,15 +1754,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_application(
-              ApplicationId='string',
-              Author='string',
-              Description='string',
-              HomePageUrl='string',
+              ApplicationId=\'string\',
+              Author=\'string\',
+              Description=\'string\',
+              HomePageUrl=\'string\',
               Labels=[
-                  'string',
+                  \'string\',
               ],
-              ReadmeBody='string',
-              ReadmeUrl='string'
+              ReadmeBody=\'string\',
+              ReadmeUrl=\'string\'
           )
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]** 
@@ -1776,7 +1776,7 @@ class Client(BaseClient):
         
           Minimum length=1. Maximum length=127.
         
-          Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+          Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
         :type Description: string
         :param Description: 
@@ -1797,7 +1797,7 @@ class Client(BaseClient):
         
           Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-          Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+          Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
           - *(string) --* 
         
@@ -1823,49 +1823,49 @@ class Client(BaseClient):
           ::
         
             {
-                'ApplicationId': 'string',
-                'Author': 'string',
-                'CreationTime': 'string',
-                'Description': 'string',
-                'HomePageUrl': 'string',
-                'Labels': [
-                    'string',
+                \'ApplicationId\': \'string\',
+                \'Author\': \'string\',
+                \'CreationTime\': \'string\',
+                \'Description\': \'string\',
+                \'HomePageUrl\': \'string\',
+                \'Labels\': [
+                    \'string\',
                 ],
-                'LicenseUrl': 'string',
-                'Name': 'string',
-                'ReadmeUrl': 'string',
-                'SpdxLicenseId': 'string',
-                'Version': {
-                    'ApplicationId': 'string',
-                    'CreationTime': 'string',
-                    'ParameterDefinitions': [
+                \'LicenseUrl\': \'string\',
+                \'Name\': \'string\',
+                \'ReadmeUrl\': \'string\',
+                \'SpdxLicenseId\': \'string\',
+                \'Version\': {
+                    \'ApplicationId\': \'string\',
+                    \'CreationTime\': \'string\',
+                    \'ParameterDefinitions\': [
                         {
-                            'AllowedPattern': 'string',
-                            'AllowedValues': [
-                                'string',
+                            \'AllowedPattern\': \'string\',
+                            \'AllowedValues\': [
+                                \'string\',
                             ],
-                            'ConstraintDescription': 'string',
-                            'DefaultValue': 'string',
-                            'Description': 'string',
-                            'MaxLength': 123,
-                            'MaxValue': 123,
-                            'MinLength': 123,
-                            'MinValue': 123,
-                            'Name': 'string',
-                            'NoEcho': True|False,
-                            'ReferencedByResources': [
-                                'string',
+                            \'ConstraintDescription\': \'string\',
+                            \'DefaultValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'MaxLength\': 123,
+                            \'MaxValue\': 123,
+                            \'MinLength\': 123,
+                            \'MinValue\': 123,
+                            \'Name\': \'string\',
+                            \'NoEcho\': True|False,
+                            \'ReferencedByResources\': [
+                                \'string\',
                             ],
-                            'Type': 'string'
+                            \'Type\': \'string\'
                         },
                     ],
-                    'RequiredCapabilities': [
-                        'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM'|'CAPABILITY_AUTO_EXPAND'|'CAPABILITY_RESOURCE_POLICY',
+                    \'RequiredCapabilities\': [
+                        \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\'|\'CAPABILITY_AUTO_EXPAND\'|\'CAPABILITY_RESOURCE_POLICY\',
                     ],
-                    'ResourcesSupported': True|False,
-                    'SemanticVersion': 'string',
-                    'SourceCodeUrl': 'string',
-                    'TemplateUrl': 'string'
+                    \'ResourcesSupported\': True|False,
+                    \'SemanticVersion\': \'string\',
+                    \'SourceCodeUrl\': \'string\',
+                    \'TemplateUrl\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1884,7 +1884,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127.
         
-              Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+              Pattern \"^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$\";
         
             - **CreationTime** *(string) --* 
         
@@ -1906,7 +1906,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=127. Maximum number of labels: 10
         
-              Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+              Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";
         
               - *(string) --* 
           
@@ -1922,7 +1922,7 @@ class Client(BaseClient):
         
               Minimum length=1. Maximum length=140
         
-              Pattern: "[a-zA-Z0-9\\-]+";
+              Pattern: \"[a-zA-Z0-9\\-]+\";
         
             - **ReadmeUrl** *(string) --* 
         
@@ -1970,7 +1970,7 @@ class Client(BaseClient):
         
                     Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+ 
         
-                    By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers," you can display the following customized error message:
+                    By adding a constraint description, such as \"must contain only uppercase and lowercase letters and numbers,\" you can display the following customized error message:
         
                     Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers. 
         
@@ -2020,19 +2020,19 @@ class Client(BaseClient):
         
                     String: A literal string.
         
-                    For example, users can specify "MyUserName".
+                    For example, users can specify \"MyUserName\".
         
                     Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.
         
-                    For example, users might specify "8888".
+                    For example, users might specify \"8888\".
         
                     List<Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.
         
-                    For example, users might specify "80,20", and then Ref results in ["80","20"].
+                    For example, users might specify \"80,20\", and then Ref results in [\"80\",\"20\"].
         
                     CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas. Also, each member string is space-trimmed.
         
-                    For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+                    For example, users might specify \"test,dev,prod\", and then Ref results in [\"test\",\"dev\",\"prod\"].
         
               - **RequiredCapabilities** *(list) --* 
         
@@ -2044,7 +2044,7 @@ class Client(BaseClient):
         
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
         
-                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
+                If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
         
                 Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
         

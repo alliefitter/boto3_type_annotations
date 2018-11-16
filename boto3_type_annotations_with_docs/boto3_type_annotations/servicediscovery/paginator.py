@@ -13,11 +13,11 @@ class ListInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceId='string',
+              ServiceId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceId: string
@@ -50,11 +50,11 @@ class ListInstances(Paginator):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'Id': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
@@ -116,17 +116,17 @@ class ListNamespaces(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'TYPE',
-                      'Values': [
-                          'string',
+                      \'Name\': \'TYPE\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -187,12 +187,12 @@ class ListNamespaces(Paginator):
           ::
         
             {
-                'Namespaces': [
+                \'Namespaces\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Type': 'DNS_PUBLIC'|'DNS_PRIVATE'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'DNS_PUBLIC\'|\'DNS_PRIVATE\'
                     },
                 ],
                 
@@ -241,17 +241,17 @@ class ListOperations(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'NAMESPACE_ID'|'SERVICE_ID'|'STATUS'|'TYPE'|'UPDATE_DATE',
-                      'Values': [
-                          'string',
+                      \'Name\': \'NAMESPACE_ID\'|\'SERVICE_ID\'|\'STATUS\'|\'TYPE\'|\'UPDATE_DATE\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -330,10 +330,10 @@ class ListOperations(Paginator):
           ::
         
             {
-                'Operations': [
+                \'Operations\': [
                     {
-                        'Id': 'string',
-                        'Status': 'SUBMITTED'|'PENDING'|'SUCCESS'|'FAIL'
+                        \'Id\': \'string\',
+                        \'Status\': \'SUBMITTED\'|\'PENDING\'|\'SUCCESS\'|\'FAIL\'
                     },
                 ],
                 
@@ -382,17 +382,17 @@ class ListServices(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'NAMESPACE_ID',
-                      'Values': [
-                          'string',
+                      \'Name\': \'NAMESPACE_ID\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -451,13 +451,13 @@ class ListServices(Paginator):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'InstanceCount': 123
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'InstanceCount\': 123
                     },
                 ],
                 

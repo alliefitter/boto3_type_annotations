@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -16,10 +16,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,8 +35,8 @@ class Client(BaseClient):
         ::
         
           response = client.check_domain_availability(
-              DomainName='string',
-              IdnLangCode='string'
+              DomainName=\'string\',
+              IdnLangCode=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -58,7 +58,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Availability': 'AVAILABLE'|'AVAILABLE_RESERVED'|'AVAILABLE_PREORDER'|'UNAVAILABLE'|'UNAVAILABLE_PREMIUM'|'UNAVAILABLE_RESTRICTED'|'RESERVED'|'DONT_KNOW'
+                \'Availability\': \'AVAILABLE\'|\'AVAILABLE_RESERVED\'|\'AVAILABLE_PREORDER\'|\'UNAVAILABLE\'|\'UNAVAILABLE_PREMIUM\'|\'UNAVAILABLE_RESTRICTED\'|\'RESERVED\'|\'DONT_KNOW\'
             }
           **Response Structure** 
         
@@ -90,11 +90,11 @@ class Client(BaseClient):
         
                 DONT_KNOW  
         
-              The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
+              The TLD registry didn\'t reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
         
                 PENDING  
         
-              The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
+              The TLD registry didn\'t return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
         
                 RESERVED  
         
@@ -124,8 +124,8 @@ class Client(BaseClient):
         ::
         
           response = client.check_domain_transferability(
-              DomainName='string',
-              AuthCode='string'
+              DomainName=\'string\',
+              AuthCode=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -147,8 +147,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Transferability': {
-                    'Transferable': 'TRANSFERABLE'|'UNTRANSFERABLE'|'DONT_KNOW'
+                \'Transferability\': {
+                    \'Transferable\': \'TRANSFERABLE\'|\'UNTRANSFERABLE\'|\'DONT_KNOW\'
                 }
             }
           **Response Structure** 
@@ -177,7 +177,7 @@ class Client(BaseClient):
         
                   UNTRANSFERRABLE  
         
-                The domain name can't be transferred to Amazon Route 53.
+                The domain name can\'t be transferred to Amazon Route 53.
         
                   DONT_KNOW  
         
@@ -197,9 +197,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tags_for_domain(
-              DomainName='string',
+              DomainName=\'string\',
               TagsToDelete=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DomainName: string
@@ -237,7 +237,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_domain_auto_renew(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -267,7 +267,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_domain_transfer_lock(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -282,7 +282,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -300,7 +300,7 @@ class Client(BaseClient):
     def enable_domain_auto_renew(self, DomainName: str) -> Dict:
         """
         
-        The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see `"Renewal, restoration, and deletion times" <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times>`__ on the website for our registrar associate, Gandi. Amazon Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
+        The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see `\"Renewal, restoration, and deletion times\" <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times>`__ on the website for our registrar associate, Gandi. Amazon Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/EnableDomainAutoRenew>`_
         
@@ -308,7 +308,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_domain_auto_renew(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -338,7 +338,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_domain_transfer_lock(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -353,7 +353,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -384,7 +384,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -401,7 +401,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_contact_reachability_status(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: 
@@ -416,8 +416,8 @@ class Client(BaseClient):
           ::
         
             {
-                'domainName': 'string',
-                'status': 'PENDING'|'DONE'|'EXPIRED'
+                \'domainName\': \'string\',
+                \'status\': \'PENDING\'|\'DONE\'|\'EXPIRED\'
             }
           **Response Structure** 
         
@@ -433,7 +433,7 @@ class Client(BaseClient):
         
                 PENDING  
         
-              We sent the confirmation email and haven't received a response yet.
+              We sent the confirmation email and haven\'t received a response yet.
         
                 DONE  
         
@@ -455,7 +455,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domain_detail(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -470,95 +470,95 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainName': 'string',
-                'Nameservers': [
+                \'DomainName\': \'string\',
+                \'Nameservers\': [
                     {
-                        'Name': 'string',
-                        'GlueIps': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'GlueIps\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'AutoRenew': True|False,
-                'AdminContact': {
-                    'FirstName': 'string',
-                    'LastName': 'string',
-                    'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                    'OrganizationName': 'string',
-                    'AddressLine1': 'string',
-                    'AddressLine2': 'string',
-                    'City': 'string',
-                    'State': 'string',
-                    'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                    'ZipCode': 'string',
-                    'PhoneNumber': 'string',
-                    'Email': 'string',
-                    'Fax': 'string',
-                    'ExtraParams': [
+                \'AutoRenew\': True|False,
+                \'AdminContact\': {
+                    \'FirstName\': \'string\',
+                    \'LastName\': \'string\',
+                    \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                    \'OrganizationName\': \'string\',
+                    \'AddressLine1\': \'string\',
+                    \'AddressLine2\': \'string\',
+                    \'City\': \'string\',
+                    \'State\': \'string\',
+                    \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                    \'ZipCode\': \'string\',
+                    \'PhoneNumber\': \'string\',
+                    \'Email\': \'string\',
+                    \'Fax\': \'string\',
+                    \'ExtraParams\': [
                         {
-                            'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                            'Value': 'string'
+                            \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                            \'Value\': \'string\'
                         },
                     ]
                 },
-                'RegistrantContact': {
-                    'FirstName': 'string',
-                    'LastName': 'string',
-                    'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                    'OrganizationName': 'string',
-                    'AddressLine1': 'string',
-                    'AddressLine2': 'string',
-                    'City': 'string',
-                    'State': 'string',
-                    'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                    'ZipCode': 'string',
-                    'PhoneNumber': 'string',
-                    'Email': 'string',
-                    'Fax': 'string',
-                    'ExtraParams': [
+                \'RegistrantContact\': {
+                    \'FirstName\': \'string\',
+                    \'LastName\': \'string\',
+                    \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                    \'OrganizationName\': \'string\',
+                    \'AddressLine1\': \'string\',
+                    \'AddressLine2\': \'string\',
+                    \'City\': \'string\',
+                    \'State\': \'string\',
+                    \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                    \'ZipCode\': \'string\',
+                    \'PhoneNumber\': \'string\',
+                    \'Email\': \'string\',
+                    \'Fax\': \'string\',
+                    \'ExtraParams\': [
                         {
-                            'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                            'Value': 'string'
+                            \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                            \'Value\': \'string\'
                         },
                     ]
                 },
-                'TechContact': {
-                    'FirstName': 'string',
-                    'LastName': 'string',
-                    'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                    'OrganizationName': 'string',
-                    'AddressLine1': 'string',
-                    'AddressLine2': 'string',
-                    'City': 'string',
-                    'State': 'string',
-                    'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                    'ZipCode': 'string',
-                    'PhoneNumber': 'string',
-                    'Email': 'string',
-                    'Fax': 'string',
-                    'ExtraParams': [
+                \'TechContact\': {
+                    \'FirstName\': \'string\',
+                    \'LastName\': \'string\',
+                    \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                    \'OrganizationName\': \'string\',
+                    \'AddressLine1\': \'string\',
+                    \'AddressLine2\': \'string\',
+                    \'City\': \'string\',
+                    \'State\': \'string\',
+                    \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                    \'ZipCode\': \'string\',
+                    \'PhoneNumber\': \'string\',
+                    \'Email\': \'string\',
+                    \'Fax\': \'string\',
+                    \'ExtraParams\': [
                         {
-                            'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                            'Value': 'string'
+                            \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                            \'Value\': \'string\'
                         },
                     ]
                 },
-                'AdminPrivacy': True|False,
-                'RegistrantPrivacy': True|False,
-                'TechPrivacy': True|False,
-                'RegistrarName': 'string',
-                'WhoIsServer': 'string',
-                'RegistrarUrl': 'string',
-                'AbuseContactEmail': 'string',
-                'AbuseContactPhone': 'string',
-                'RegistryDomainId': 'string',
-                'CreationDate': datetime(2015, 1, 1),
-                'UpdatedDate': datetime(2015, 1, 1),
-                'ExpirationDate': datetime(2015, 1, 1),
-                'Reseller': 'string',
-                'DnsSec': 'string',
-                'StatusList': [
-                    'string',
+                \'AdminPrivacy\': True|False,
+                \'RegistrantPrivacy\': True|False,
+                \'TechPrivacy\': True|False,
+                \'RegistrarName\': \'string\',
+                \'WhoIsServer\': \'string\',
+                \'RegistrarUrl\': \'string\',
+                \'AbuseContactEmail\': \'string\',
+                \'AbuseContactPhone\': \'string\',
+                \'RegistryDomainId\': \'string\',
+                \'CreationDate\': datetime(2015, 1, 1),
+                \'UpdatedDate\': datetime(2015, 1, 1),
+                \'ExpirationDate\': datetime(2015, 1, 1),
+                \'Reseller\': \'string\',
+                \'DnsSec\': \'string\',
+                \'StatusList\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -611,7 +611,7 @@ class Client(BaseClient):
         
               - **ContactType** *(string) --* 
         
-                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
               - **OrganizationName** *(string) --* 
         
@@ -619,33 +619,33 @@ class Client(BaseClient):
         
               - **AddressLine1** *(string) --* 
         
-                First line of the contact's address.
+                First line of the contact\'s address.
         
               - **AddressLine2** *(string) --* 
         
-                Second line of contact's address, if any.
+                Second line of contact\'s address, if any.
         
               - **City** *(string) --* 
         
-                The city of the contact's address.
+                The city of the contact\'s address.
         
               - **State** *(string) --* 
         
-                The state or province of the contact's city.
+                The state or province of the contact\'s city.
         
               - **CountryCode** *(string) --* 
         
-                Code for the country of the contact's address.
+                Code for the country of the contact\'s address.
         
               - **ZipCode** *(string) --* 
         
-                The zip or postal code of the contact's address.
+                The zip or postal code of the contact\'s address.
         
               - **PhoneNumber** *(string) --* 
         
                 The phone number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **Email** *(string) --* 
         
@@ -655,7 +655,7 @@ class Client(BaseClient):
         
                 Fax number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **ExtraParams** *(list) --* 
         
@@ -709,7 +709,7 @@ class Client(BaseClient):
         
               - **ContactType** *(string) --* 
         
-                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
               - **OrganizationName** *(string) --* 
         
@@ -717,33 +717,33 @@ class Client(BaseClient):
         
               - **AddressLine1** *(string) --* 
         
-                First line of the contact's address.
+                First line of the contact\'s address.
         
               - **AddressLine2** *(string) --* 
         
-                Second line of contact's address, if any.
+                Second line of contact\'s address, if any.
         
               - **City** *(string) --* 
         
-                The city of the contact's address.
+                The city of the contact\'s address.
         
               - **State** *(string) --* 
         
-                The state or province of the contact's city.
+                The state or province of the contact\'s city.
         
               - **CountryCode** *(string) --* 
         
-                Code for the country of the contact's address.
+                Code for the country of the contact\'s address.
         
               - **ZipCode** *(string) --* 
         
-                The zip or postal code of the contact's address.
+                The zip or postal code of the contact\'s address.
         
               - **PhoneNumber** *(string) --* 
         
                 The phone number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **Email** *(string) --* 
         
@@ -753,7 +753,7 @@ class Client(BaseClient):
         
                 Fax number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **ExtraParams** *(list) --* 
         
@@ -807,7 +807,7 @@ class Client(BaseClient):
         
               - **ContactType** *(string) --* 
         
-                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+                Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
               - **OrganizationName** *(string) --* 
         
@@ -815,33 +815,33 @@ class Client(BaseClient):
         
               - **AddressLine1** *(string) --* 
         
-                First line of the contact's address.
+                First line of the contact\'s address.
         
               - **AddressLine2** *(string) --* 
         
-                Second line of contact's address, if any.
+                Second line of contact\'s address, if any.
         
               - **City** *(string) --* 
         
-                The city of the contact's address.
+                The city of the contact\'s address.
         
               - **State** *(string) --* 
         
-                The state or province of the contact's city.
+                The state or province of the contact\'s city.
         
               - **CountryCode** *(string) --* 
         
-                Code for the country of the contact's address.
+                Code for the country of the contact\'s address.
         
               - **ZipCode** *(string) --* 
         
-                The zip or postal code of the contact's address.
+                The zip or postal code of the contact\'s address.
         
               - **PhoneNumber** *(string) --* 
         
                 The phone number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **Email** *(string) --* 
         
@@ -851,7 +851,7 @@ class Client(BaseClient):
         
                 Fax number of the contact.
         
-                Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+                Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
               - **ExtraParams** *(list) --* 
         
@@ -893,19 +893,19 @@ class Client(BaseClient):
         
             - **AdminPrivacy** *(boolean) --* 
         
-              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the admin contact.
+              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the admin contact.
         
             - **RegistrantPrivacy** *(boolean) --* 
         
-              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
         
             - **TechPrivacy** *(boolean) --* 
         
-              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the technical contact.
+              Specifies whether contact information is concealed from WHOIS queries. If the value is ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is ``false`` , WHOIS queries return the information that you entered for the technical contact.
         
             - **RegistrarName** *(string) --* 
         
-              Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by Gandi is ``"GANDI SAS"`` . 
+              Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by Gandi is ``\"GANDI SAS\"`` . 
         
             - **WhoIsServer** *(string) --* 
         
@@ -941,7 +941,7 @@ class Client(BaseClient):
         
             - **Reseller** *(string) --* 
         
-              Reseller of the domain. Domains registered or transferred using Amazon Route 53 domains will have ``"Amazon"`` as the reseller. 
+              Reseller of the domain. Domains registered or transferred using Amazon Route 53 domains will have ``\"Amazon\"`` as the reseller. 
         
             - **DnsSec** *(string) --* 
         
@@ -969,7 +969,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_domain_suggestions(
-              DomainName='string',
+              DomainName=\'string\',
               SuggestionCount=123,
               OnlyAvailable=True|False
           )
@@ -986,7 +986,7 @@ class Client(BaseClient):
         :type OnlyAvailable: boolean
         :param OnlyAvailable: **[REQUIRED]** 
         
-          If ``OnlyAvailable`` is ``true`` , Amazon Route 53 returns only domain names that are available. If ``OnlyAvailable`` is ``false`` , Amazon Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call ``checkDomainAvailability`` for each suggestion.
+          If ``OnlyAvailable`` is ``true`` , Amazon Route 53 returns only domain names that are available. If ``OnlyAvailable`` is ``false`` , Amazon Route 53 returns domain names without checking whether they\'re available to be registered. To determine whether the domain is available, you can call ``checkDomainAvailability`` for each suggestion.
         
         :rtype: dict
         :returns: 
@@ -996,10 +996,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SuggestionsList': [
+                \'SuggestionsList\': [
                     {
-                        'DomainName': 'string',
-                        'Availability': 'string'
+                        \'DomainName\': \'string\',
+                        \'Availability\': \'string\'
                     },
                 ]
             }
@@ -1043,11 +1043,11 @@ class Client(BaseClient):
         
                     DONT_KNOW  
         
-                  The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
+                  The TLD registry didn\'t reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
         
                     PENDING  
         
-                  The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
+                  The TLD registry didn\'t return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
         
                     RESERVED  
         
@@ -1077,7 +1077,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_operation_detail(
-              OperationId='string'
+              OperationId=\'string\'
           )
         :type OperationId: string
         :param OperationId: **[REQUIRED]** 
@@ -1092,12 +1092,12 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string',
-                'Status': 'SUBMITTED'|'IN_PROGRESS'|'ERROR'|'SUCCESSFUL'|'FAILED',
-                'Message': 'string',
-                'DomainName': 'string',
-                'Type': 'REGISTER_DOMAIN'|'DELETE_DOMAIN'|'TRANSFER_IN_DOMAIN'|'UPDATE_DOMAIN_CONTACT'|'UPDATE_NAMESERVER'|'CHANGE_PRIVACY_PROTECTION'|'DOMAIN_LOCK'|'ENABLE_AUTORENEW'|'DISABLE_AUTORENEW'|'ADD_DNSSEC'|'REMOVE_DNSSEC'|'EXPIRE_DOMAIN'|'TRANSFER_OUT_DOMAIN'|'CHANGE_DOMAIN_OWNER'|'RENEW_DOMAIN'|'PUSH_DOMAIN',
-                'SubmittedDate': datetime(2015, 1, 1)
+                \'OperationId\': \'string\',
+                \'Status\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'ERROR\'|\'SUCCESSFUL\'|\'FAILED\',
+                \'Message\': \'string\',
+                \'DomainName\': \'string\',
+                \'Type\': \'REGISTER_DOMAIN\'|\'DELETE_DOMAIN\'|\'TRANSFER_IN_DOMAIN\'|\'UPDATE_DOMAIN_CONTACT\'|\'UPDATE_NAMESERVER\'|\'CHANGE_PRIVACY_PROTECTION\'|\'DOMAIN_LOCK\'|\'ENABLE_AUTORENEW\'|\'DISABLE_AUTORENEW\'|\'ADD_DNSSEC\'|\'REMOVE_DNSSEC\'|\'EXPIRE_DOMAIN\'|\'TRANSFER_OUT_DOMAIN\'|\'CHANGE_DOMAIN_OWNER\'|\'RENEW_DOMAIN\'|\'PUSH_DOMAIN\',
+                \'SubmittedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1138,10 +1138,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1173,7 +1173,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_domains(
-              Marker='string',
+              Marker=\'string\',
               MaxItems=123
           )
         :type Marker: string
@@ -1198,15 +1198,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Domains': [
+                \'Domains\': [
                     {
-                        'DomainName': 'string',
-                        'AutoRenew': True|False,
-                        'TransferLock': True|False,
-                        'Expiry': datetime(2015, 1, 1)
+                        \'DomainName\': \'string\',
+                        \'AutoRenew\': True|False,
+                        \'TransferLock\': True|False,
+                        \'Expiry\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextPageMarker': 'string'
+                \'NextPageMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -1255,7 +1255,7 @@ class Client(BaseClient):
         
           response = client.list_operations(
               SubmittedSince=datetime(2015, 1, 1),
-              Marker='string',
+              Marker=\'string\',
               MaxItems=123
           )
         :type SubmittedSince: datetime
@@ -1283,15 +1283,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Operations': [
+                \'Operations\': [
                     {
-                        'OperationId': 'string',
-                        'Status': 'SUBMITTED'|'IN_PROGRESS'|'ERROR'|'SUCCESSFUL'|'FAILED',
-                        'Type': 'REGISTER_DOMAIN'|'DELETE_DOMAIN'|'TRANSFER_IN_DOMAIN'|'UPDATE_DOMAIN_CONTACT'|'UPDATE_NAMESERVER'|'CHANGE_PRIVACY_PROTECTION'|'DOMAIN_LOCK'|'ENABLE_AUTORENEW'|'DISABLE_AUTORENEW'|'ADD_DNSSEC'|'REMOVE_DNSSEC'|'EXPIRE_DOMAIN'|'TRANSFER_OUT_DOMAIN'|'CHANGE_DOMAIN_OWNER'|'RENEW_DOMAIN'|'PUSH_DOMAIN',
-                        'SubmittedDate': datetime(2015, 1, 1)
+                        \'OperationId\': \'string\',
+                        \'Status\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'ERROR\'|\'SUCCESSFUL\'|\'FAILED\',
+                        \'Type\': \'REGISTER_DOMAIN\'|\'DELETE_DOMAIN\'|\'TRANSFER_IN_DOMAIN\'|\'UPDATE_DOMAIN_CONTACT\'|\'UPDATE_NAMESERVER\'|\'CHANGE_PRIVACY_PROTECTION\'|\'DOMAIN_LOCK\'|\'ENABLE_AUTORENEW\'|\'DISABLE_AUTORENEW\'|\'ADD_DNSSEC\'|\'REMOVE_DNSSEC\'|\'EXPIRE_DOMAIN\'|\'TRANSFER_OUT_DOMAIN\'|\'CHANGE_DOMAIN_OWNER\'|\'RENEW_DOMAIN\'|\'PUSH_DOMAIN\',
+                        \'SubmittedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextPageMarker': 'string'
+                \'NextPageMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -1341,7 +1341,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_domain(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1356,10 +1356,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -1381,7 +1381,7 @@ class Client(BaseClient):
         
                   The key (name) of a tag.
         
-                  Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+                  Valid values: A-Z, a-z, 0-9, space, \".:/=+\-@\"
         
                   Constraints: Each key can be 1-128 characters long.
         
@@ -1389,7 +1389,7 @@ class Client(BaseClient):
         
                   The value of a tag.
         
-                  Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+                  Valid values: A-Z, a-z, 0-9, space, \".:/=+\-@\"
         
                   Constraints: Each value can be 0-256 characters long.
         
@@ -1403,9 +1403,9 @@ class Client(BaseClient):
         
         * Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon Route 53 assigns four name servers to your hosted zone and automatically updates your domain registration with the names of these name servers. 
          
-        * Enables autorenew, so your domain registration will renew automatically each year. We'll notify you in advance of the renewal date so you can choose whether to renew the registration. 
+        * Enables autorenew, so your domain registration will renew automatically each year. We\'ll notify you in advance of the renewal date so you can choose whether to renew the registration. 
          
-        * Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don't enable privacy protection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts. 
+        * Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don\'t enable privacy protection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts. 
          
         * If registration is successful, returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant is notified by email. 
          
@@ -1417,70 +1417,70 @@ class Client(BaseClient):
         ::
         
           response = client.register_domain(
-              DomainName='string',
-              IdnLangCode='string',
+              DomainName=\'string\',
+              IdnLangCode=\'string\',
               DurationInYears=123,
               AutoRenew=True|False,
               AdminContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               RegistrantContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               TechContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
@@ -1529,7 +1529,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -1537,33 +1537,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -1573,7 +1573,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -1628,7 +1628,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -1636,33 +1636,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -1672,7 +1672,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -1727,7 +1727,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -1735,33 +1735,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -1771,7 +1771,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -1814,21 +1814,21 @@ class Client(BaseClient):
         :type PrivacyProtectAdminContact: boolean
         :param PrivacyProtectAdminContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
         
           Default: ``true``  
         
         :type PrivacyProtectRegistrantContact: boolean
         :param PrivacyProtectRegistrantContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
         
           Default: ``true``  
         
         :type PrivacyProtectTechContact: boolean
         :param PrivacyProtectTechContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
         
           Default: ``true``  
         
@@ -1840,7 +1840,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -1858,7 +1858,7 @@ class Client(BaseClient):
     def renew_domain(self, DomainName: str, CurrentExpiryYear: int, DurationInYears: int = None) -> Dict:
         """
         
-        We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see `Renewing Registration for a Domain <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html>`__ in the Amazon Route 53 Developer Guide.
+        We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven\'t renewed far enough in advance. For more information about renewing domain registration, see `Renewing Registration for a Domain <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html>`__ in the Amazon Route 53 Developer Guide.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/RenewDomain>`_
         
@@ -1866,7 +1866,7 @@ class Client(BaseClient):
         ::
         
           response = client.renew_domain(
-              DomainName='string',
+              DomainName=\'string\',
               DurationInYears=123,
               CurrentExpiryYear=123
           )
@@ -1895,7 +1895,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -1917,7 +1917,7 @@ class Client(BaseClient):
         ::
         
           response = client.resend_contact_reachability_email(
-              domainName='string'
+              domainName=\'string\'
           )
         :type domainName: string
         :param domainName: 
@@ -1932,9 +1932,9 @@ class Client(BaseClient):
           ::
         
             {
-                'domainName': 'string',
-                'emailAddress': 'string',
-                'isAlreadyVerified': True|False
+                \'domainName\': \'string\',
+                \'emailAddress\': \'string\',
+                \'isAlreadyVerified\': True|False
             }
           **Response Structure** 
         
@@ -1950,7 +1950,7 @@ class Client(BaseClient):
         
             - **isAlreadyVerified** *(boolean) --* 
         
-               ``True`` if the email address for the registrant contact has already been verified, and ``false`` otherwise. If the email address has already been verified, we don't send another confirmation email.
+               ``True`` if the email address for the registrant contact has already been verified, and ``false`` otherwise. If the email address has already been verified, we don\'t send another confirmation email.
         
         """
         pass
@@ -1964,7 +1964,7 @@ class Client(BaseClient):
         ::
         
           response = client.retrieve_domain_auth_code(
-              DomainName='string'
+              DomainName=\'string\'
           )
         :type DomainName: string
         :param DomainName: **[REQUIRED]** 
@@ -1979,7 +1979,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AuthCode': 'string'
+                \'AuthCode\': \'string\'
             }
           **Response Structure** 
         
@@ -2003,9 +2003,9 @@ class Client(BaseClient):
         
         .. warning::
         
-          If the registrar for your domain is also the DNS service provider for the domain and you don't transfer DNS service to another provider, your website, email, and the web applications associated with the domain might become unavailable.
+          If the registrar for your domain is also the DNS service provider for the domain and you don\'t transfer DNS service to another provider, your website, email, and the web applications associated with the domain might become unavailable.
         
-        If the transfer is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the transfer doesn't complete successfully, the domain registrant will be notified by email.
+        If the transfer is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the transfer doesn\'t complete successfully, the domain registrant will be notified by email.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/TransferDomain>`_
         
@@ -2013,79 +2013,79 @@ class Client(BaseClient):
         ::
         
           response = client.transfer_domain(
-              DomainName='string',
-              IdnLangCode='string',
+              DomainName=\'string\',
+              IdnLangCode=\'string\',
               DurationInYears=123,
               Nameservers=[
                   {
-                      'Name': 'string',
-                      'GlueIps': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'GlueIps\': [
+                          \'string\',
                       ]
                   },
               ],
-              AuthCode='string',
+              AuthCode=\'string\',
               AutoRenew=True|False,
               AdminContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               RegistrantContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               TechContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
@@ -2162,7 +2162,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2170,33 +2170,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2206,7 +2206,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2261,7 +2261,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2269,33 +2269,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2305,7 +2305,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2360,7 +2360,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2368,33 +2368,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2404,7 +2404,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2447,21 +2447,21 @@ class Client(BaseClient):
         :type PrivacyProtectAdminContact: boolean
         :param PrivacyProtectAdminContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
         
           Default: ``true``  
         
         :type PrivacyProtectRegistrantContact: boolean
         :param PrivacyProtectRegistrantContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
         
           Default: ``true``  
         
         :type PrivacyProtectTechContact: boolean
         :param PrivacyProtectTechContact: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
         
           Default: ``true``  
         
@@ -2473,7 +2473,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2499,67 +2499,67 @@ class Client(BaseClient):
         ::
         
           response = client.update_domain_contact(
-              DomainName='string',
+              DomainName=\'string\',
               AdminContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               RegistrantContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               },
               TechContact={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'ContactType': 'PERSON'|'COMPANY'|'ASSOCIATION'|'PUBLIC_BODY'|'RESELLER',
-                  'OrganizationName': 'string',
-                  'AddressLine1': 'string',
-                  'AddressLine2': 'string',
-                  'City': 'string',
-                  'State': 'string',
-                  'CountryCode': 'AD'|'AE'|'AF'|'AG'|'AI'|'AL'|'AM'|'AN'|'AO'|'AQ'|'AR'|'AS'|'AT'|'AU'|'AW'|'AZ'|'BA'|'BB'|'BD'|'BE'|'BF'|'BG'|'BH'|'BI'|'BJ'|'BL'|'BM'|'BN'|'BO'|'BR'|'BS'|'BT'|'BW'|'BY'|'BZ'|'CA'|'CC'|'CD'|'CF'|'CG'|'CH'|'CI'|'CK'|'CL'|'CM'|'CN'|'CO'|'CR'|'CU'|'CV'|'CX'|'CY'|'CZ'|'DE'|'DJ'|'DK'|'DM'|'DO'|'DZ'|'EC'|'EE'|'EG'|'ER'|'ES'|'ET'|'FI'|'FJ'|'FK'|'FM'|'FO'|'FR'|'GA'|'GB'|'GD'|'GE'|'GH'|'GI'|'GL'|'GM'|'GN'|'GQ'|'GR'|'GT'|'GU'|'GW'|'GY'|'HK'|'HN'|'HR'|'HT'|'HU'|'ID'|'IE'|'IL'|'IM'|'IN'|'IQ'|'IR'|'IS'|'IT'|'JM'|'JO'|'JP'|'KE'|'KG'|'KH'|'KI'|'KM'|'KN'|'KP'|'KR'|'KW'|'KY'|'KZ'|'LA'|'LB'|'LC'|'LI'|'LK'|'LR'|'LS'|'LT'|'LU'|'LV'|'LY'|'MA'|'MC'|'MD'|'ME'|'MF'|'MG'|'MH'|'MK'|'ML'|'MM'|'MN'|'MO'|'MP'|'MR'|'MS'|'MT'|'MU'|'MV'|'MW'|'MX'|'MY'|'MZ'|'NA'|'NC'|'NE'|'NG'|'NI'|'NL'|'NO'|'NP'|'NR'|'NU'|'NZ'|'OM'|'PA'|'PE'|'PF'|'PG'|'PH'|'PK'|'PL'|'PM'|'PN'|'PR'|'PT'|'PW'|'PY'|'QA'|'RO'|'RS'|'RU'|'RW'|'SA'|'SB'|'SC'|'SD'|'SE'|'SG'|'SH'|'SI'|'SK'|'SL'|'SM'|'SN'|'SO'|'SR'|'ST'|'SV'|'SY'|'SZ'|'TC'|'TD'|'TG'|'TH'|'TJ'|'TK'|'TL'|'TM'|'TN'|'TO'|'TR'|'TT'|'TV'|'TW'|'TZ'|'UA'|'UG'|'US'|'UY'|'UZ'|'VA'|'VC'|'VE'|'VG'|'VI'|'VN'|'VU'|'WF'|'WS'|'YE'|'YT'|'ZA'|'ZM'|'ZW',
-                  'ZipCode': 'string',
-                  'PhoneNumber': 'string',
-                  'Email': 'string',
-                  'Fax': 'string',
-                  'ExtraParams': [
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'ContactType\': \'PERSON\'|\'COMPANY\'|\'ASSOCIATION\'|\'PUBLIC_BODY\'|\'RESELLER\',
+                  \'OrganizationName\': \'string\',
+                  \'AddressLine1\': \'string\',
+                  \'AddressLine2\': \'string\',
+                  \'City\': \'string\',
+                  \'State\': \'string\',
+                  \'CountryCode\': \'AD\'|\'AE\'|\'AF\'|\'AG\'|\'AI\'|\'AL\'|\'AM\'|\'AN\'|\'AO\'|\'AQ\'|\'AR\'|\'AS\'|\'AT\'|\'AU\'|\'AW\'|\'AZ\'|\'BA\'|\'BB\'|\'BD\'|\'BE\'|\'BF\'|\'BG\'|\'BH\'|\'BI\'|\'BJ\'|\'BL\'|\'BM\'|\'BN\'|\'BO\'|\'BR\'|\'BS\'|\'BT\'|\'BW\'|\'BY\'|\'BZ\'|\'CA\'|\'CC\'|\'CD\'|\'CF\'|\'CG\'|\'CH\'|\'CI\'|\'CK\'|\'CL\'|\'CM\'|\'CN\'|\'CO\'|\'CR\'|\'CU\'|\'CV\'|\'CX\'|\'CY\'|\'CZ\'|\'DE\'|\'DJ\'|\'DK\'|\'DM\'|\'DO\'|\'DZ\'|\'EC\'|\'EE\'|\'EG\'|\'ER\'|\'ES\'|\'ET\'|\'FI\'|\'FJ\'|\'FK\'|\'FM\'|\'FO\'|\'FR\'|\'GA\'|\'GB\'|\'GD\'|\'GE\'|\'GH\'|\'GI\'|\'GL\'|\'GM\'|\'GN\'|\'GQ\'|\'GR\'|\'GT\'|\'GU\'|\'GW\'|\'GY\'|\'HK\'|\'HN\'|\'HR\'|\'HT\'|\'HU\'|\'ID\'|\'IE\'|\'IL\'|\'IM\'|\'IN\'|\'IQ\'|\'IR\'|\'IS\'|\'IT\'|\'JM\'|\'JO\'|\'JP\'|\'KE\'|\'KG\'|\'KH\'|\'KI\'|\'KM\'|\'KN\'|\'KP\'|\'KR\'|\'KW\'|\'KY\'|\'KZ\'|\'LA\'|\'LB\'|\'LC\'|\'LI\'|\'LK\'|\'LR\'|\'LS\'|\'LT\'|\'LU\'|\'LV\'|\'LY\'|\'MA\'|\'MC\'|\'MD\'|\'ME\'|\'MF\'|\'MG\'|\'MH\'|\'MK\'|\'ML\'|\'MM\'|\'MN\'|\'MO\'|\'MP\'|\'MR\'|\'MS\'|\'MT\'|\'MU\'|\'MV\'|\'MW\'|\'MX\'|\'MY\'|\'MZ\'|\'NA\'|\'NC\'|\'NE\'|\'NG\'|\'NI\'|\'NL\'|\'NO\'|\'NP\'|\'NR\'|\'NU\'|\'NZ\'|\'OM\'|\'PA\'|\'PE\'|\'PF\'|\'PG\'|\'PH\'|\'PK\'|\'PL\'|\'PM\'|\'PN\'|\'PR\'|\'PT\'|\'PW\'|\'PY\'|\'QA\'|\'RO\'|\'RS\'|\'RU\'|\'RW\'|\'SA\'|\'SB\'|\'SC\'|\'SD\'|\'SE\'|\'SG\'|\'SH\'|\'SI\'|\'SK\'|\'SL\'|\'SM\'|\'SN\'|\'SO\'|\'SR\'|\'ST\'|\'SV\'|\'SY\'|\'SZ\'|\'TC\'|\'TD\'|\'TG\'|\'TH\'|\'TJ\'|\'TK\'|\'TL\'|\'TM\'|\'TN\'|\'TO\'|\'TR\'|\'TT\'|\'TV\'|\'TW\'|\'TZ\'|\'UA\'|\'UG\'|\'US\'|\'UY\'|\'UZ\'|\'VA\'|\'VC\'|\'VE\'|\'VG\'|\'VI\'|\'VN\'|\'VU\'|\'WF\'|\'WS\'|\'YE\'|\'YT\'|\'ZA\'|\'ZM\'|\'ZW\',
+                  \'ZipCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'Email\': \'string\',
+                  \'Fax\': \'string\',
+                  \'ExtraParams\': [
                       {
-                          'Name': 'DUNS_NUMBER'|'BRAND_NUMBER'|'BIRTH_DEPARTMENT'|'BIRTH_DATE_IN_YYYY_MM_DD'|'BIRTH_COUNTRY'|'BIRTH_CITY'|'DOCUMENT_NUMBER'|'AU_ID_NUMBER'|'AU_ID_TYPE'|'CA_LEGAL_TYPE'|'CA_BUSINESS_ENTITY_TYPE'|'ES_IDENTIFICATION'|'ES_IDENTIFICATION_TYPE'|'ES_LEGAL_FORM'|'FI_BUSINESS_NUMBER'|'FI_ID_NUMBER'|'FI_NATIONALITY'|'FI_ORGANIZATION_TYPE'|'IT_PIN'|'IT_REGISTRANT_ENTITY_TYPE'|'RU_PASSPORT_DATA'|'SE_ID_NUMBER'|'SG_ID_NUMBER'|'VAT_NUMBER'|'UK_CONTACT_TYPE'|'UK_COMPANY_NUMBER',
-                          'Value': 'string'
+                          \'Name\': \'DUNS_NUMBER\'|\'BRAND_NUMBER\'|\'BIRTH_DEPARTMENT\'|\'BIRTH_DATE_IN_YYYY_MM_DD\'|\'BIRTH_COUNTRY\'|\'BIRTH_CITY\'|\'DOCUMENT_NUMBER\'|\'AU_ID_NUMBER\'|\'AU_ID_TYPE\'|\'CA_LEGAL_TYPE\'|\'CA_BUSINESS_ENTITY_TYPE\'|\'ES_IDENTIFICATION\'|\'ES_IDENTIFICATION_TYPE\'|\'ES_LEGAL_FORM\'|\'FI_BUSINESS_NUMBER\'|\'FI_ID_NUMBER\'|\'FI_NATIONALITY\'|\'FI_ORGANIZATION_TYPE\'|\'IT_PIN\'|\'IT_REGISTRANT_ENTITY_TYPE\'|\'RU_PASSPORT_DATA\'|\'SE_ID_NUMBER\'|\'SG_ID_NUMBER\'|\'VAT_NUMBER\'|\'UK_CONTACT_TYPE\'|\'UK_COMPANY_NUMBER\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -2584,7 +2584,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2592,33 +2592,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2628,7 +2628,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2683,7 +2683,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2691,33 +2691,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2727,7 +2727,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2782,7 +2782,7 @@ class Client(BaseClient):
         
           - **ContactType** *(string) --* 
         
-            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can't enable privacy protection for the contact.
+            Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than ``PERSON`` , you must enter an organization name, and you can\'t enable privacy protection for the contact.
         
           - **OrganizationName** *(string) --* 
         
@@ -2790,33 +2790,33 @@ class Client(BaseClient):
         
           - **AddressLine1** *(string) --* 
         
-            First line of the contact's address.
+            First line of the contact\'s address.
         
           - **AddressLine2** *(string) --* 
         
-            Second line of contact's address, if any.
+            Second line of contact\'s address, if any.
         
           - **City** *(string) --* 
         
-            The city of the contact's address.
+            The city of the contact\'s address.
         
           - **State** *(string) --* 
         
-            The state or province of the contact's city.
+            The state or province of the contact\'s city.
         
           - **CountryCode** *(string) --* 
         
-            Code for the country of the contact's address.
+            Code for the country of the contact\'s address.
         
           - **ZipCode** *(string) --* 
         
-            The zip or postal code of the contact's address.
+            The zip or postal code of the contact\'s address.
         
           - **PhoneNumber** *(string) --* 
         
             The phone number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **Email** *(string) --* 
         
@@ -2826,7 +2826,7 @@ class Client(BaseClient):
         
             Fax number of the contact.
         
-            Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as ``"+1.1234567890"`` .
+            Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as ``\"+1.1234567890\"`` .
         
           - **ExtraParams** *(list) --* 
         
@@ -2874,7 +2874,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2892,7 +2892,7 @@ class Client(BaseClient):
     def update_domain_contact_privacy(self, DomainName: str, AdminPrivacy: bool = None, RegistrantPrivacy: bool = None, TechPrivacy: bool = None) -> Dict:
         """
         
-        This operation affects only the contact information for the specified contact type (registrant, administrator, or tech). If the request succeeds, Amazon Route 53 returns an operation ID that you can use with  GetOperationDetail to track the progress and completion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.
+        This operation affects only the contact information for the specified contact type (registrant, administrator, or tech). If the request succeeds, Amazon Route 53 returns an operation ID that you can use with  GetOperationDetail to track the progress and completion of the action. If the request doesn\'t complete successfully, the domain registrant will be notified by email.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/UpdateDomainContactPrivacy>`_
         
@@ -2900,7 +2900,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_domain_contact_privacy(
-              DomainName='string',
+              DomainName=\'string\',
               AdminPrivacy=True|False,
               RegistrantPrivacy=True|False,
               TechPrivacy=True|False
@@ -2913,17 +2913,17 @@ class Client(BaseClient):
         :type AdminPrivacy: boolean
         :param AdminPrivacy: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the admin contact.
         
         :type RegistrantPrivacy: boolean
         :param RegistrantPrivacy: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the registrant contact (domain owner).
         
         :type TechPrivacy: boolean
         :param TechPrivacy: 
         
-          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
+          Whether you want to conceal contact information from WHOIS queries. If you specify ``true`` , WHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify ``false`` , WHOIS queries return the information that you entered for the technical contact.
         
         :rtype: dict
         :returns: 
@@ -2933,7 +2933,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2959,13 +2959,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_domain_nameservers(
-              DomainName='string',
-              FIAuthKey='string',
+              DomainName=\'string\',
+              FIAuthKey=\'string\',
               Nameservers=[
                   {
-                      'Name': 'string',
-                      'GlueIps': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'GlueIps\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -3011,7 +3011,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -3037,11 +3037,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_tags_for_domain(
-              DomainName='string',
+              DomainName=\'string\',
               TagsToUpdate=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3063,7 +3063,7 @@ class Client(BaseClient):
         
               The key (name) of a tag.
         
-              Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+              Valid values: A-Z, a-z, 0-9, space, \".:/=+\-@\"
         
               Constraints: Each key can be 1-128 characters long.
         
@@ -3071,7 +3071,7 @@ class Client(BaseClient):
         
               The value of a tag.
         
-              Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+              Valid values: A-Z, a-z, 0-9, space, \".:/=+\-@\"
         
               Constraints: Each value can be 0-256 characters long.
         
@@ -3100,7 +3100,7 @@ class Client(BaseClient):
           response = client.view_billing(
               Start=datetime(2015, 1, 1),
               End=datetime(2015, 1, 1),
-              Marker='string',
+              Marker=\'string\',
               MaxItems=123
           )
         :type Start: datetime
@@ -3135,14 +3135,14 @@ class Client(BaseClient):
           ::
         
             {
-                'NextPageMarker': 'string',
-                'BillingRecords': [
+                \'NextPageMarker\': \'string\',
+                \'BillingRecords\': [
                     {
-                        'DomainName': 'string',
-                        'Operation': 'REGISTER_DOMAIN'|'DELETE_DOMAIN'|'TRANSFER_IN_DOMAIN'|'UPDATE_DOMAIN_CONTACT'|'UPDATE_NAMESERVER'|'CHANGE_PRIVACY_PROTECTION'|'DOMAIN_LOCK'|'ENABLE_AUTORENEW'|'DISABLE_AUTORENEW'|'ADD_DNSSEC'|'REMOVE_DNSSEC'|'EXPIRE_DOMAIN'|'TRANSFER_OUT_DOMAIN'|'CHANGE_DOMAIN_OWNER'|'RENEW_DOMAIN'|'PUSH_DOMAIN',
-                        'InvoiceId': 'string',
-                        'BillDate': datetime(2015, 1, 1),
-                        'Price': 123.0
+                        \'DomainName\': \'string\',
+                        \'Operation\': \'REGISTER_DOMAIN\'|\'DELETE_DOMAIN\'|\'TRANSFER_IN_DOMAIN\'|\'UPDATE_DOMAIN_CONTACT\'|\'UPDATE_NAMESERVER\'|\'CHANGE_PRIVACY_PROTECTION\'|\'DOMAIN_LOCK\'|\'ENABLE_AUTORENEW\'|\'DISABLE_AUTORENEW\'|\'ADD_DNSSEC\'|\'REMOVE_DNSSEC\'|\'EXPIRE_DOMAIN\'|\'TRANSFER_OUT_DOMAIN\'|\'CHANGE_DOMAIN_OWNER\'|\'RENEW_DOMAIN\'|\'PUSH_DOMAIN\',
+                        \'InvoiceId\': \'string\',
+                        \'BillDate\': datetime(2015, 1, 1),
+                        \'Price\': 123.0
                     },
                 ]
             }

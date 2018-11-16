@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,7 +18,7 @@ class Client(BaseClient):
         ::
         
           response = client.associate_member_account(
-              memberAccountId='string'
+              memberAccountId=\'string\'
           )
         :type memberAccountId: string
         :param memberAccountId: **[REQUIRED]** 
@@ -38,14 +38,14 @@ class Client(BaseClient):
         ::
         
           response = client.associate_s3_resources(
-              memberAccountId='string',
+              memberAccountId=\'string\',
               s3Resources=[
                   {
-                      'bucketName': 'string',
-                      'prefix': 'string',
-                      'classificationType': {
-                          'oneTime': 'FULL'|'NONE',
-                          'continuous': 'FULL'
+                      \'bucketName\': \'string\',
+                      \'prefix\': \'string\',
+                      \'classificationType\': {
+                          \'oneTime\': \'FULL\'|\'NONE\',
+                          \'continuous\': \'FULL\'
                       }
                   },
               ]
@@ -92,14 +92,14 @@ class Client(BaseClient):
           ::
         
             {
-                'failedS3Resources': [
+                \'failedS3Resources\': [
                     {
-                        'failedItem': {
-                            'bucketName': 'string',
-                            'prefix': 'string'
+                        \'failedItem\': {
+                            \'bucketName\': \'string\',
+                            \'prefix\': \'string\'
                         },
-                        'errorCode': 'string',
-                        'errorMessage': 'string'
+                        \'errorCode\': \'string\',
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }
@@ -109,7 +109,7 @@ class Client(BaseClient):
             
             - **failedS3Resources** *(list) --* 
         
-              S3 resources that couldn't be associated with Amazon Macie. An error code and an error message are provided for each failed item. 
+              S3 resources that couldn\'t be associated with Amazon Macie. An error code and an error message are provided for each failed item. 
         
               - *(dict) --* 
         
@@ -144,10 +144,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -163,7 +163,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_member_account(
-              memberAccountId='string'
+              memberAccountId=\'string\'
           )
         :type memberAccountId: string
         :param memberAccountId: **[REQUIRED]** 
@@ -183,11 +183,11 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_s3_resources(
-              memberAccountId='string',
+              memberAccountId=\'string\',
               associatedS3Resources=[
                   {
-                      'bucketName': 'string',
-                      'prefix': 'string'
+                      \'bucketName\': \'string\',
+                      \'prefix\': \'string\'
                   },
               ]
           )
@@ -221,14 +221,14 @@ class Client(BaseClient):
           ::
         
             {
-                'failedS3Resources': [
+                \'failedS3Resources\': [
                     {
-                        'failedItem': {
-                            'bucketName': 'string',
-                            'prefix': 'string'
+                        \'failedItem\': {
+                            \'bucketName\': \'string\',
+                            \'prefix\': \'string\'
                         },
-                        'errorCode': 'string',
-                        'errorMessage': 'string'
+                        \'errorCode\': \'string\',
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }
@@ -238,7 +238,7 @@ class Client(BaseClient):
             
             - **failedS3Resources** *(list) --* 
         
-              S3 resources that couldn't be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item. 
+              S3 resources that couldn\'t be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item. 
         
               - *(dict) --* 
         
@@ -283,7 +283,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -295,10 +295,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -330,7 +330,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_member_accounts(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -351,12 +351,12 @@ class Client(BaseClient):
           ::
         
             {
-                'memberAccounts': [
+                \'memberAccounts\': [
                     {
-                        'accountId': 'string'
+                        \'accountId\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -390,8 +390,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_s3_resources(
-              memberAccountId='string',
-              nextToken='string',
+              memberAccountId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type memberAccountId: string
@@ -417,17 +417,17 @@ class Client(BaseClient):
           ::
         
             {
-                's3Resources': [
+                \'s3Resources\': [
                     {
-                        'bucketName': 'string',
-                        'prefix': 'string',
-                        'classificationType': {
-                            'oneTime': 'FULL'|'NONE',
-                            'continuous': 'FULL'
+                        \'bucketName\': \'string\',
+                        \'prefix\': \'string\',
+                        \'classificationType\': {
+                            \'oneTime\': \'FULL\'|\'NONE\',
+                            \'continuous\': \'FULL\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -477,14 +477,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_s3_resources(
-              memberAccountId='string',
+              memberAccountId=\'string\',
               s3ResourcesUpdate=[
                   {
-                      'bucketName': 'string',
-                      'prefix': 'string',
-                      'classificationTypeUpdate': {
-                          'oneTime': 'FULL'|'NONE',
-                          'continuous': 'FULL'
+                      \'bucketName\': \'string\',
+                      \'prefix\': \'string\',
+                      \'classificationTypeUpdate\': {
+                          \'oneTime\': \'FULL\'|\'NONE\',
+                          \'continuous\': \'FULL\'
                       }
                   },
               ]
@@ -492,7 +492,7 @@ class Client(BaseClient):
         :type memberAccountId: string
         :param memberAccountId: 
         
-          The AWS ID of the Amazon Macie member account whose S3 resources' classification types you want to update. 
+          The AWS ID of the Amazon Macie member account whose S3 resources\' classification types you want to update. 
         
         :type s3ResourcesUpdate: list
         :param s3ResourcesUpdate: **[REQUIRED]** 
@@ -531,14 +531,14 @@ class Client(BaseClient):
           ::
         
             {
-                'failedS3Resources': [
+                \'failedS3Resources\': [
                     {
-                        'failedItem': {
-                            'bucketName': 'string',
-                            'prefix': 'string'
+                        \'failedItem\': {
+                            \'bucketName\': \'string\',
+                            \'prefix\': \'string\'
                         },
-                        'errorCode': 'string',
-                        'errorMessage': 'string'
+                        \'errorCode\': \'string\',
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }
@@ -548,7 +548,7 @@ class Client(BaseClient):
             
             - **failedS3Resources** *(list) --* 
         
-              The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item. 
+              The S3 resources whose classification types can\'t be updated. An error code and an error message are provided for each failed item. 
         
               - *(dict) --* 
         

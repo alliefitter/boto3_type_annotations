@@ -14,12 +14,12 @@ class GetAccountAuthorizationDetails(Paginator):
         
           response_iterator = paginator.paginate(
               Filter=[
-                  'User'|'Role'|'Group'|'LocalManagedPolicy'|'AWSManagedPolicy',
+                  \'User\'|\'Role\'|\'Group\'|\'LocalManagedPolicy\'|\'AWSManagedPolicy\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filter: list
@@ -56,131 +56,131 @@ class GetAccountAuthorizationDetails(Paginator):
           ::
         
             {
-                'UserDetailList': [
+                \'UserDetailList\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UserPolicyList': [
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UserPolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'GroupList': [
-                            'string',
+                        \'GroupList\': [
+                            \'string\',
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ],
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'GroupDetailList': [
+                \'GroupDetailList\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'GroupPolicyList': [
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'GroupPolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ]
                     },
                 ],
-                'RoleDetailList': [
+                \'RoleDetailList\': [
                     {
-                        'Path': 'string',
-                        'RoleName': 'string',
-                        'RoleId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'AssumeRolePolicyDocument': 'string',
-                        'InstanceProfileList': [
+                        \'Path\': \'string\',
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'AssumeRolePolicyDocument\': \'string\',
+                        \'InstanceProfileList\': [
                             {
-                                'Path': 'string',
-                                'InstanceProfileName': 'string',
-                                'InstanceProfileId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'Roles': [
+                                \'Path\': \'string\',
+                                \'InstanceProfileName\': \'string\',
+                                \'InstanceProfileId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'Roles\': [
                                     {
-                                        'Path': 'string',
-                                        'RoleName': 'string',
-                                        'RoleId': 'string',
-                                        'Arn': 'string',
-                                        'CreateDate': datetime(2015, 1, 1),
-                                        'AssumeRolePolicyDocument': 'string',
-                                        'Description': 'string',
-                                        'MaxSessionDuration': 123,
-                                        'PermissionsBoundary': {
-                                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                            'PermissionsBoundaryArn': 'string'
+                                        \'Path\': \'string\',
+                                        \'RoleName\': \'string\',
+                                        \'RoleId\': \'string\',
+                                        \'Arn\': \'string\',
+                                        \'CreateDate\': datetime(2015, 1, 1),
+                                        \'AssumeRolePolicyDocument\': \'string\',
+                                        \'Description\': \'string\',
+                                        \'MaxSessionDuration\': 123,
+                                        \'PermissionsBoundary\': {
+                                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                            \'PermissionsBoundaryArn\': \'string\'
                                         }
                                     },
                                 ]
                             },
                         ],
-                        'RolePolicyList': [
+                        \'RolePolicyList\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyDocument': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyDocument\': \'string\'
                             },
                         ],
-                        'AttachedManagedPolicies': [
+                        \'AttachedManagedPolicies\': [
                             {
-                                'PolicyName': 'string',
-                                'PolicyArn': 'string'
+                                \'PolicyName\': \'string\',
+                                \'PolicyArn\': \'string\'
                             },
                         ],
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'Policies': [
+                \'Policies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyId': 'string',
-                        'Arn': 'string',
-                        'Path': 'string',
-                        'DefaultVersionId': 'string',
-                        'AttachmentCount': 123,
-                        'PermissionsBoundaryUsageCount': 123,
-                        'IsAttachable': True|False,
-                        'Description': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1),
-                        'PolicyVersionList': [
+                        \'PolicyName\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Path\': \'string\',
+                        \'DefaultVersionId\': \'string\',
+                        \'AttachmentCount\': 123,
+                        \'PermissionsBoundaryUsageCount\': 123,
+                        \'IsAttachable\': True|False,
+                        \'Description\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1),
+                        \'PolicyVersionList\': [
                             {
-                                'Document': 'string',
-                                'VersionId': 'string',
-                                'IsDefaultVersion': True|False,
-                                'CreateDate': datetime(2015, 1, 1)
+                                \'Document\': \'string\',
+                                \'VersionId\': \'string\',
+                                \'IsDefaultVersion\': True|False,
+                                \'CreateDate\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -194,7 +194,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
               - *(dict) --* 
         
-                Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
+                Contains information about an IAM user, including all the user\'s policies and all the IAM groups the user is in.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -286,7 +286,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
               - *(dict) --* 
         
-                Contains information about an IAM group, including all of the group's policies.
+                Contains information about an IAM group, including all of the group\'s policies.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -358,7 +358,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
               - *(dict) --* 
         
-                Contains information about an IAM role, including all of the role's policies.
+                Contains information about an IAM role, including all of the role\'s policies.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -482,7 +482,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
                 - **RolePolicyList** *(list) --* 
         
-                  A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
+                  A list of inline policies embedded in the role. These policies are the role\'s access (permissions) policies.
         
                   - *(dict) --* 
         
@@ -500,7 +500,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
                 - **AttachedManagedPolicies** *(list) --* 
         
-                  A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
+                  A list of managed policies attached to the role. These policies are the role\'s access (permissions) policies.
         
                   - *(dict) --* 
         
@@ -540,7 +540,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
               - *(dict) --* 
         
-                Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
+                Contains information about a managed policy, including the policy\'s ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
         
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
         
@@ -630,7 +630,7 @@ class GetAccountAuthorizationDetails(Paginator):
         
                     - **IsDefaultVersion** *(boolean) --* 
         
-                      Specifies whether the policy version is set as the policy's default version.
+                      Specifies whether the policy version is set as the policy\'s default version.
         
                     - **CreateDate** *(datetime) --* 
         
@@ -658,11 +658,11 @@ class GetGroup(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GroupName='string',
+              GroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GroupName: string
@@ -697,29 +697,29 @@ class GetGroup(Paginator):
           ::
         
             {
-                'Group': {
-                    'Path': 'string',
-                    'GroupName': 'string',
-                    'GroupId': 'string',
-                    'Arn': 'string',
-                    'CreateDate': datetime(2015, 1, 1)
+                \'Group\': {
+                    \'Path\': \'string\',
+                    \'GroupName\': \'string\',
+                    \'GroupId\': \'string\',
+                    \'Arn\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1)
                 },
-                'Users': [
+                \'Users\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'PasswordLastUsed': datetime(2015, 1, 1),
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'PasswordLastUsed\': datetime(2015, 1, 1),
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -789,7 +789,7 @@ class GetGroup(Paginator):
         
                 - **PasswordLastUsed** *(datetime) --* 
         
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                   * The user never had a password. 
                    
@@ -835,11 +835,11 @@ class ListAccessKeys(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -874,16 +874,16 @@ class ListAccessKeys(Paginator):
           ::
         
             {
-                'AccessKeyMetadata': [
+                \'AccessKeyMetadata\': [
                     {
-                        'UserName': 'string',
-                        'AccessKeyId': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'AccessKeyId\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -940,9 +940,9 @@ class ListAccountAliases(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -970,11 +970,11 @@ class ListAccountAliases(Paginator):
           ::
         
             {
-                'AccountAliases': [
-                    'string',
+                \'AccountAliases\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1010,12 +1010,12 @@ class ListAttachedGroupPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GroupName='string',
-              PathPrefix='string',
+              GroupName=\'string\',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GroupName: string
@@ -1057,14 +1057,14 @@ class ListAttachedGroupPolicies(Paginator):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1116,12 +1116,12 @@ class ListAttachedRolePolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              RoleName='string',
-              PathPrefix='string',
+              RoleName=\'string\',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type RoleName: string
@@ -1163,14 +1163,14 @@ class ListAttachedRolePolicies(Paginator):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1222,12 +1222,12 @@ class ListAttachedUserPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
-              PathPrefix='string',
+              UserName=\'string\',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -1269,14 +1269,14 @@ class ListAttachedUserPolicies(Paginator):
           ::
         
             {
-                'AttachedPolicies': [
+                \'AttachedPolicies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyArn': 'string'
+                        \'PolicyName\': \'string\',
+                        \'PolicyArn\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1328,14 +1328,14 @@ class ListEntitiesForPolicy(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PolicyArn='string',
-              EntityFilter='User'|'Role'|'Group'|'LocalManagedPolicy'|'AWSManagedPolicy',
-              PathPrefix='string',
-              PolicyUsageFilter='PermissionsPolicy'|'PermissionsBoundary',
+              PolicyArn=\'string\',
+              EntityFilter=\'User\'|\'Role\'|\'Group\'|\'LocalManagedPolicy\'|\'AWSManagedPolicy\',
+              PathPrefix=\'string\',
+              PolicyUsageFilter=\'PermissionsPolicy\'|\'PermissionsBoundary\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicyArn: string
@@ -1393,26 +1393,26 @@ class ListEntitiesForPolicy(Paginator):
           ::
         
             {
-                'PolicyGroups': [
+                \'PolicyGroups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'PolicyUsers': [
+                \'PolicyUsers\': [
                     {
-                        'UserName': 'string',
-                        'UserId': 'string'
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'PolicyRoles': [
+                \'PolicyRoles\': [
                     {
-                        'RoleName': 'string',
-                        'RoleId': 'string'
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1502,11 +1502,11 @@ class ListGroupPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GroupName='string',
+              GroupName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GroupName: string
@@ -1541,11 +1541,11 @@ class ListGroupPolicies(Paginator):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1583,11 +1583,11 @@ class ListGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PathPrefix='string',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PathPrefix: string
@@ -1622,17 +1622,17 @@ class ListGroups(Paginator):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1698,11 +1698,11 @@ class ListGroupsForUser(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -1737,17 +1737,17 @@ class ListGroupsForUser(Paginator):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Path': 'string',
-                        'GroupName': 'string',
-                        'GroupId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1813,11 +1813,11 @@ class ListInstanceProfiles(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PathPrefix='string',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PathPrefix: string
@@ -1852,33 +1852,33 @@ class ListInstanceProfiles(Paginator):
           ::
         
             {
-                'InstanceProfiles': [
+                \'InstanceProfiles\': [
                     {
-                        'Path': 'string',
-                        'InstanceProfileName': 'string',
-                        'InstanceProfileId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'Roles': [
+                        \'Path\': \'string\',
+                        \'InstanceProfileName\': \'string\',
+                        \'InstanceProfileId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'Roles\': [
                             {
-                                'Path': 'string',
-                                'RoleName': 'string',
-                                'RoleId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'AssumeRolePolicyDocument': 'string',
-                                'Description': 'string',
-                                'MaxSessionDuration': 123,
-                                'PermissionsBoundary': {
-                                    'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                    'PermissionsBoundaryArn': 'string'
+                                \'Path\': \'string\',
+                                \'RoleName\': \'string\',
+                                \'RoleId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'AssumeRolePolicyDocument\': \'string\',
+                                \'Description\': \'string\',
+                                \'MaxSessionDuration\': 123,
+                                \'PermissionsBoundary\': {
+                                    \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                    \'PermissionsBoundaryArn\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2000,11 +2000,11 @@ class ListInstanceProfilesForRole(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              RoleName='string',
+              RoleName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type RoleName: string
@@ -2039,33 +2039,33 @@ class ListInstanceProfilesForRole(Paginator):
           ::
         
             {
-                'InstanceProfiles': [
+                \'InstanceProfiles\': [
                     {
-                        'Path': 'string',
-                        'InstanceProfileName': 'string',
-                        'InstanceProfileId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'Roles': [
+                        \'Path\': \'string\',
+                        \'InstanceProfileName\': \'string\',
+                        \'InstanceProfileId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'Roles\': [
                             {
-                                'Path': 'string',
-                                'RoleName': 'string',
-                                'RoleId': 'string',
-                                'Arn': 'string',
-                                'CreateDate': datetime(2015, 1, 1),
-                                'AssumeRolePolicyDocument': 'string',
-                                'Description': 'string',
-                                'MaxSessionDuration': 123,
-                                'PermissionsBoundary': {
-                                    'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                    'PermissionsBoundaryArn': 'string'
+                                \'Path\': \'string\',
+                                \'RoleName\': \'string\',
+                                \'RoleId\': \'string\',
+                                \'Arn\': \'string\',
+                                \'CreateDate\': datetime(2015, 1, 1),
+                                \'AssumeRolePolicyDocument\': \'string\',
+                                \'Description\': \'string\',
+                                \'MaxSessionDuration\': 123,
+                                \'PermissionsBoundary\': {
+                                    \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                    \'PermissionsBoundaryArn\': \'string\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2187,11 +2187,11 @@ class ListMFADevices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -2226,15 +2226,15 @@ class ListMFADevices(Paginator):
           ::
         
             {
-                'MFADevices': [
+                \'MFADevices\': [
                     {
-                        'UserName': 'string',
-                        'SerialNumber': 'string',
-                        'EnableDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'SerialNumber\': \'string\',
+                        \'EnableDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2286,14 +2286,14 @@ class ListPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Scope='All'|'AWS'|'Local',
+              Scope=\'All\'|\'AWS\'|\'Local\',
               OnlyAttached=True|False,
-              PathPrefix='string',
-              PolicyUsageFilter='PermissionsPolicy'|'PermissionsBoundary',
+              PathPrefix=\'string\',
+              PolicyUsageFilter=\'PermissionsPolicy\'|\'PermissionsBoundary\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Scope: string
@@ -2351,23 +2351,23 @@ class ListPolicies(Paginator):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'PolicyName': 'string',
-                        'PolicyId': 'string',
-                        'Arn': 'string',
-                        'Path': 'string',
-                        'DefaultVersionId': 'string',
-                        'AttachmentCount': 123,
-                        'PermissionsBoundaryUsageCount': 123,
-                        'IsAttachable': True|False,
-                        'Description': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'PolicyName\': \'string\',
+                        \'PolicyId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Path\': \'string\',
+                        \'DefaultVersionId\': \'string\',
+                        \'AttachmentCount\': 123,
+                        \'PermissionsBoundaryUsageCount\': 123,
+                        \'IsAttachable\': True|False,
+                        \'Description\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2465,11 +2465,11 @@ class ListPolicyVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PolicyArn='string',
+              PolicyArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicyArn: string
@@ -2504,16 +2504,16 @@ class ListPolicyVersions(Paginator):
           ::
         
             {
-                'Versions': [
+                \'Versions\': [
                     {
-                        'Document': 'string',
-                        'VersionId': 'string',
-                        'IsDefaultVersion': True|False,
-                        'CreateDate': datetime(2015, 1, 1)
+                        \'Document\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsDefaultVersion\': True|False,
+                        \'CreateDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2551,7 +2551,7 @@ class ListPolicyVersions(Paginator):
         
                 - **IsDefaultVersion** *(boolean) --* 
         
-                  Specifies whether the policy version is set as the policy's default version.
+                  Specifies whether the policy version is set as the policy\'s default version.
         
                 - **CreateDate** *(datetime) --* 
         
@@ -2579,11 +2579,11 @@ class ListRolePolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              RoleName='string',
+              RoleName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type RoleName: string
@@ -2618,11 +2618,11 @@ class ListRolePolicies(Paginator):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2658,11 +2658,11 @@ class ListRoles(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PathPrefix='string',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PathPrefix: string
@@ -2697,24 +2697,24 @@ class ListRoles(Paginator):
           ::
         
             {
-                'Roles': [
+                \'Roles\': [
                     {
-                        'Path': 'string',
-                        'RoleName': 'string',
-                        'RoleId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'AssumeRolePolicyDocument': 'string',
-                        'Description': 'string',
-                        'MaxSessionDuration': 123,
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'RoleName\': \'string\',
+                        \'RoleId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'AssumeRolePolicyDocument\': \'string\',
+                        \'Description\': \'string\',
+                        \'MaxSessionDuration\': 123,
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2798,11 +2798,11 @@ class ListSSHPublicKeys(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -2837,16 +2837,16 @@ class ListSSHPublicKeys(Paginator):
           ::
         
             {
-                'SSHPublicKeys': [
+                \'SSHPublicKeys\': [
                     {
-                        'UserName': 'string',
-                        'SSHPublicKeyId': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'UploadDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'SSHPublicKeyId\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'UploadDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2860,7 +2860,7 @@ class ListSSHPublicKeys(Paginator):
         
               - *(dict) --* 
         
-                Contains information about an SSH public key, without the key's body or fingerprint.
+                Contains information about an SSH public key, without the key\'s body or fingerprint.
         
                 This data type is used as a response element in the  ListSSHPublicKeys operation.
         
@@ -2902,11 +2902,11 @@ class ListServerCertificates(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PathPrefix='string',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PathPrefix: string
@@ -2941,18 +2941,18 @@ class ListServerCertificates(Paginator):
           ::
         
             {
-                'ServerCertificateMetadataList': [
+                \'ServerCertificateMetadataList\': [
                     {
-                        'Path': 'string',
-                        'ServerCertificateName': 'string',
-                        'ServerCertificateId': 'string',
-                        'Arn': 'string',
-                        'UploadDate': datetime(2015, 1, 1),
-                        'Expiration': datetime(2015, 1, 1)
+                        \'Path\': \'string\',
+                        \'ServerCertificateName\': \'string\',
+                        \'ServerCertificateId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'UploadDate\': datetime(2015, 1, 1),
+                        \'Expiration\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3016,11 +3016,11 @@ class ListSigningCertificates(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -3055,17 +3055,17 @@ class ListSigningCertificates(Paginator):
           ::
         
             {
-                'Certificates': [
+                \'Certificates\': [
                     {
-                        'UserName': 'string',
-                        'CertificateId': 'string',
-                        'CertificateBody': 'string',
-                        'Status': 'Active'|'Inactive',
-                        'UploadDate': datetime(2015, 1, 1)
+                        \'UserName\': \'string\',
+                        \'CertificateId\': \'string\',
+                        \'CertificateBody\': \'string\',
+                        \'Status\': \'Active\'|\'Inactive\',
+                        \'UploadDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3075,7 +3075,7 @@ class ListSigningCertificates(Paginator):
         
             - **Certificates** *(list) --* 
         
-              A list of the user's signing certificate information.
+              A list of the user\'s signing certificate information.
         
               - *(dict) --* 
         
@@ -3125,11 +3125,11 @@ class ListUserPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              UserName='string',
+              UserName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type UserName: string
@@ -3164,11 +3164,11 @@ class ListUserPolicies(Paginator):
           ::
         
             {
-                'PolicyNames': [
-                    'string',
+                \'PolicyNames\': [
+                    \'string\',
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3204,11 +3204,11 @@ class ListUsers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PathPrefix='string',
+              PathPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PathPrefix: string
@@ -3243,22 +3243,22 @@ class ListUsers(Paginator):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Path': 'string',
-                        'UserName': 'string',
-                        'UserId': 'string',
-                        'Arn': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'PasswordLastUsed': datetime(2015, 1, 1),
-                        'PermissionsBoundary': {
-                            'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                            'PermissionsBoundaryArn': 'string'
+                        \'Path\': \'string\',
+                        \'UserName\': \'string\',
+                        \'UserId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'PasswordLastUsed\': datetime(2015, 1, 1),
+                        \'PermissionsBoundary\': {
+                            \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                            \'PermissionsBoundaryArn\': \'string\'
                         }
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3304,7 +3304,7 @@ class ListUsers(Paginator):
         
                 - **PasswordLastUsed** *(datetime) --* 
         
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                   * The user never had a password. 
                    
@@ -3350,11 +3350,11 @@ class ListVirtualMFADevices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AssignmentStatus='Assigned'|'Unassigned'|'Any',
+              AssignmentStatus=\'Assigned\'|\'Unassigned\'|\'Any\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AssignmentStatus: string
@@ -3387,28 +3387,28 @@ class ListVirtualMFADevices(Paginator):
           ::
         
             {
-                'VirtualMFADevices': [
+                \'VirtualMFADevices\': [
                     {
-                        'SerialNumber': 'string',
-                        'Base32StringSeed': b'bytes',
-                        'QRCodePNG': b'bytes',
-                        'User': {
-                            'Path': 'string',
-                            'UserName': 'string',
-                            'UserId': 'string',
-                            'Arn': 'string',
-                            'CreateDate': datetime(2015, 1, 1),
-                            'PasswordLastUsed': datetime(2015, 1, 1),
-                            'PermissionsBoundary': {
-                                'PermissionsBoundaryType': 'PermissionsBoundaryPolicy',
-                                'PermissionsBoundaryArn': 'string'
+                        \'SerialNumber\': \'string\',
+                        \'Base32StringSeed\': b\'bytes\',
+                        \'QRCodePNG\': b\'bytes\',
+                        \'User\': {
+                            \'Path\': \'string\',
+                            \'UserName\': \'string\',
+                            \'UserId\': \'string\',
+                            \'Arn\': \'string\',
+                            \'CreateDate\': datetime(2015, 1, 1),
+                            \'PasswordLastUsed\': datetime(2015, 1, 1),
+                            \'PermissionsBoundary\': {
+                                \'PermissionsBoundaryType\': \'PermissionsBoundaryPolicy\',
+                                \'PermissionsBoundaryArn\': \'string\'
                             }
                         },
-                        'EnableDate': datetime(2015, 1, 1)
+                        \'EnableDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3462,7 +3462,7 @@ class ListVirtualMFADevices(Paginator):
         
                   - **PasswordLastUsed** *(datetime) --* 
         
-                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
+                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:
         
                     * The user never had a password. 
                      
@@ -3513,37 +3513,37 @@ class SimulateCustomPolicy(Paginator):
         
           response_iterator = paginator.paginate(
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ],
               ActionNames=[
-                  'string',
+                  \'string\',
               ],
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
-              ResourcePolicy='string',
-              ResourceOwner='string',
-              CallerArn='string',
+              ResourcePolicy=\'string\',
+              ResourceOwner=\'string\',
+              CallerArn=\'string\',
               ContextEntries=[
                   {
-                      'ContextKeyName': 'string',
-                      'ContextKeyValues': [
-                          'string',
+                      \'ContextKeyName\': \'string\',
+                      \'ContextKeyValues\': [
+                          \'string\',
                       ],
-                      'ContextKeyType': 'string'|'stringList'|'numeric'|'numericList'|'boolean'|'booleanList'|'ip'|'ipList'|'binary'|'binaryList'|'date'|'dateList'
+                      \'ContextKeyType\': \'string\'|\'stringList\'|\'numeric\'|\'numericList\'|\'boolean\'|\'booleanList\'|\'ip\'|\'ipList\'|\'binary\'|\'binaryList\'|\'date\'|\'dateList\'
                   },
               ],
-              ResourceHandlingOption='string',
+              ResourceHandlingOption=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicyInputList: list
         :param PolicyInputList: **[REQUIRED]** 
         
-          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be "scope-down" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
+          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ used to validate this parameter is a string of characters consisting of the following:
         
@@ -3598,7 +3598,7 @@ class SimulateCustomPolicy(Paginator):
         :type CallerArn: string
         :param CallerArn: 
         
-          The ARN of the IAM user that you want to use as the simulated caller of the API operations. ``CallerArn`` is required if you include a ``ResourcePolicy`` so that the policy's ``Principal`` element has a value to use in evaluating the policy.
+          The ARN of the IAM user that you want to use as the simulated caller of the API operations. ``CallerArn`` is required if you include a ``ResourcePolicy`` so that the policy\'s ``Principal`` element has a value to use in evaluating the policy.
         
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         
@@ -3671,64 +3671,64 @@ class SimulateCustomPolicy(Paginator):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvalActionName': 'string',
-                        'EvalResourceName': 'string',
-                        'EvalDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                        'MatchedStatements': [
+                        \'EvalActionName\': \'string\',
+                        \'EvalResourceName\': \'string\',
+                        \'EvalDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                        \'MatchedStatements\': [
                             {
-                                'SourcePolicyId': 'string',
-                                'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                'StartPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'SourcePolicyId\': \'string\',
+                                \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                \'StartPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 },
-                                'EndPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'EndPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 }
                             },
                         ],
-                        'MissingContextValues': [
-                            'string',
+                        \'MissingContextValues\': [
+                            \'string\',
                         ],
-                        'OrganizationsDecisionDetail': {
-                            'AllowedByOrganizations': True|False
+                        \'OrganizationsDecisionDetail\': {
+                            \'AllowedByOrganizations\': True|False
                         },
-                        'EvalDecisionDetails': {
-                            'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                        \'EvalDecisionDetails\': {
+                            \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                         },
-                        'ResourceSpecificResults': [
+                        \'ResourceSpecificResults\': [
                             {
-                                'EvalResourceName': 'string',
-                                'EvalResourceDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                                'MatchedStatements': [
+                                \'EvalResourceName\': \'string\',
+                                \'EvalResourceDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                                \'MatchedStatements\': [
                                     {
-                                        'SourcePolicyId': 'string',
-                                        'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                        'StartPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'SourcePolicyId\': \'string\',
+                                        \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                        \'StartPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         },
-                                        'EndPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'EndPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         }
                                     },
                                 ],
-                                'MissingContextValues': [
-                                    'string',
+                                \'MissingContextValues\': [
+                                    \'string\',
                                 ],
-                                'EvalDecisionDetails': {
-                                    'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                                \'EvalDecisionDetails\': {
+                                    \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3802,21 +3802,21 @@ class SimulateCustomPolicy(Paginator):
         
                 - **MissingContextValues** *(list) --* 
         
-                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                   - *(string) --* 
               
                 - **OrganizationsDecisionDetail** *(dict) --* 
         
-                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user\'s account is part of an organization.
         
                   - **AllowedByOrganizations** *(boolean) --* 
         
-                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user\'s account.
         
                 - **EvalDecisionDetails** *(dict) --* 
         
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
         
                   - *(string) --* 
                     
@@ -3884,13 +3884,13 @@ class SimulateCustomPolicy(Paginator):
         
                     - **MissingContextValues** *(list) --* 
         
-                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of "*". If you do not specify individual resources, by setting ``ResourceArns`` to "*" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of \"*\". If you do not specify individual resources, by setting ``ResourceArns`` to \"*\" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                       - *(string) --* 
                   
                     - **EvalDecisionDetails** *(dict) --* 
         
-                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
+                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access.
         
                       - *(string) --* 
                         
@@ -3918,33 +3918,33 @@ class SimulatePrincipalPolicy(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              PolicySourceArn='string',
+              PolicySourceArn=\'string\',
               PolicyInputList=[
-                  'string',
+                  \'string\',
               ],
               ActionNames=[
-                  'string',
+                  \'string\',
               ],
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
-              ResourcePolicy='string',
-              ResourceOwner='string',
-              CallerArn='string',
+              ResourcePolicy=\'string\',
+              ResourceOwner=\'string\',
+              CallerArn=\'string\',
               ContextEntries=[
                   {
-                      'ContextKeyName': 'string',
-                      'ContextKeyValues': [
-                          'string',
+                      \'ContextKeyName\': \'string\',
+                      \'ContextKeyValues\': [
+                          \'string\',
                       ],
-                      'ContextKeyType': 'string'|'stringList'|'numeric'|'numericList'|'boolean'|'booleanList'|'ip'|'ipList'|'binary'|'binaryList'|'date'|'dateList'
+                      \'ContextKeyType\': \'string\'|\'stringList\'|\'numeric\'|\'numericList\'|\'boolean\'|\'booleanList\'|\'ip\'|\'ipList\'|\'binary\'|\'binaryList\'|\'date\'|\'dateList\'
                   },
               ],
-              ResourceHandlingOption='string',
+              ResourceHandlingOption=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicySourceArn: string
@@ -4008,11 +4008,11 @@ class SimulatePrincipalPolicy(Paginator):
         :type CallerArn: string
         :param CallerArn: 
         
-          The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.
+          The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David\'s policies.
         
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         
-           ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy's ``Principal`` element has a value to use in evaluating the policy.
+           ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy\'s ``Principal`` element has a value to use in evaluating the policy.
         
           For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         
@@ -4085,64 +4085,64 @@ class SimulatePrincipalPolicy(Paginator):
           ::
         
             {
-                'EvaluationResults': [
+                \'EvaluationResults\': [
                     {
-                        'EvalActionName': 'string',
-                        'EvalResourceName': 'string',
-                        'EvalDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                        'MatchedStatements': [
+                        \'EvalActionName\': \'string\',
+                        \'EvalResourceName\': \'string\',
+                        \'EvalDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                        \'MatchedStatements\': [
                             {
-                                'SourcePolicyId': 'string',
-                                'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                'StartPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'SourcePolicyId\': \'string\',
+                                \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                \'StartPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 },
-                                'EndPosition': {
-                                    'Line': 123,
-                                    'Column': 123
+                                \'EndPosition\': {
+                                    \'Line\': 123,
+                                    \'Column\': 123
                                 }
                             },
                         ],
-                        'MissingContextValues': [
-                            'string',
+                        \'MissingContextValues\': [
+                            \'string\',
                         ],
-                        'OrganizationsDecisionDetail': {
-                            'AllowedByOrganizations': True|False
+                        \'OrganizationsDecisionDetail\': {
+                            \'AllowedByOrganizations\': True|False
                         },
-                        'EvalDecisionDetails': {
-                            'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                        \'EvalDecisionDetails\': {
+                            \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                         },
-                        'ResourceSpecificResults': [
+                        \'ResourceSpecificResults\': [
                             {
-                                'EvalResourceName': 'string',
-                                'EvalResourceDecision': 'allowed'|'explicitDeny'|'implicitDeny',
-                                'MatchedStatements': [
+                                \'EvalResourceName\': \'string\',
+                                \'EvalResourceDecision\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\',
+                                \'MatchedStatements\': [
                                     {
-                                        'SourcePolicyId': 'string',
-                                        'SourcePolicyType': 'user'|'group'|'role'|'aws-managed'|'user-managed'|'resource'|'none',
-                                        'StartPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'SourcePolicyId\': \'string\',
+                                        \'SourcePolicyType\': \'user\'|\'group\'|\'role\'|\'aws-managed\'|\'user-managed\'|\'resource\'|\'none\',
+                                        \'StartPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         },
-                                        'EndPosition': {
-                                            'Line': 123,
-                                            'Column': 123
+                                        \'EndPosition\': {
+                                            \'Line\': 123,
+                                            \'Column\': 123
                                         }
                                     },
                                 ],
-                                'MissingContextValues': [
-                                    'string',
+                                \'MissingContextValues\': [
+                                    \'string\',
                                 ],
-                                'EvalDecisionDetails': {
-                                    'string': 'allowed'|'explicitDeny'|'implicitDeny'
+                                \'EvalDecisionDetails\': {
+                                    \'string\': \'allowed\'|\'explicitDeny\'|\'implicitDeny\'
                                 }
                             },
                         ]
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4216,21 +4216,21 @@ class SimulatePrincipalPolicy(Paginator):
         
                 - **MissingContextValues** *(list) --* 
         
-                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                  A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the ``ResourceArns`` parameter blank. If you include a list of resources, then any missing context values are instead included under the ``ResourceSpecificResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                   - *(string) --* 
               
                 - **OrganizationsDecisionDetail** *(dict) --* 
         
-                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+                  A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user\'s account is part of an organization.
         
                   - **AllowedByOrganizations** *(boolean) --* 
         
-                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+                    Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user\'s account.
         
                 - **EvalDecisionDetails** *(dict) --* 
         
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
         
                   - *(string) --* 
                     
@@ -4298,13 +4298,13 @@ class SimulatePrincipalPolicy(Paginator):
         
                     - **MissingContextValues** *(list) --* 
         
-                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of "*". If you do not specify individual resources, by setting ``ResourceArns`` to "*" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
+                      A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ``ResourceArns`` parameter instead of \"*\". If you do not specify individual resources, by setting ``ResourceArns`` to \"*\" or by not including the ``ResourceArns`` parameter, then any missing context values are instead included under the ``EvaluationResults`` section. To discover the context keys used by a set of policies, you can call  GetContextKeysForCustomPolicy or  GetContextKeysForPrincipalPolicy .
         
                       - *(string) --* 
                   
                     - **EvalDecisionDetails** *(dict) --* 
         
-                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
+                      Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access.
         
                       - *(string) --* 
                         

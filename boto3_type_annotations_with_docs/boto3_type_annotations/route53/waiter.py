@@ -13,10 +13,10 @@ class ResourceRecordSetsChanged(Waiter):
         ::
         
           waiter.wait(
-              Id='string',
+              Id=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Id: string

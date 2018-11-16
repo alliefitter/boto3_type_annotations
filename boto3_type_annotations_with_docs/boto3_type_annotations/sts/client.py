@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,27 +15,27 @@ class Client(BaseClient):
         
         For cross-account access, imagine that you own multiple accounts and need to access resources in each account. You could create long-term credentials in each account to access those resources. However, managing all those credentials and remembering which one can access which account can be time consuming. Instead, you can create one set of long-term credentials in one account and then use temporary security credentials to access all the other accounts by assuming roles in those accounts. For more information about roles, see `IAM Roles (Delegation and Federation) <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ in the *IAM User Guide* . 
         
-        For federation, you can, for example, grant single sign-on access to the AWS Management Console. If you already have an identity and authentication system in your corporate network, you don't have to recreate user identities in AWS in order to grant those user identities access to AWS. Instead, after a user has been authenticated, you call ``AssumeRole`` (and specify the role with the appropriate permissions) to get temporary security credentials for that user. With those temporary security credentials, you construct a sign-in URL that users can use to access the console. For more information, see `Common Scenarios for Temporary Credentials <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction>`__ in the *IAM User Guide* .
+        For federation, you can, for example, grant single sign-on access to the AWS Management Console. If you already have an identity and authentication system in your corporate network, you don\'t have to recreate user identities in AWS in order to grant those user identities access to AWS. Instead, after a user has been authenticated, you call ``AssumeRole`` (and specify the role with the appropriate permissions) to get temporary security credentials for that user. With those temporary security credentials, you construct a sign-in URL that users can use to access the console. For more information, see `Common Scenarios for Temporary Credentials <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction>`__ in the *IAM User Guide* .
         
         By default, the temporary security credentials created by ``AssumeRole`` last for one hour. However, you can use the optional ``DurationSeconds`` parameter to specify the duration of your session. You can provide a value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* . The maximum session duration limit applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         
-        The temporary security credentials created by ``AssumeRole`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service's ``GetFederationToken`` or ``GetSessionToken`` APIs.
+        The temporary security credentials created by ``AssumeRole`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service\'s ``GetFederationToken`` or ``GetSessionToken`` APIs.
         
         Optionally, you can pass an IAM access policy to this operation. If you choose not to pass a policy, the temporary security credentials that are returned by the operation have the permissions that are defined in the access policy of the role that is being assumed. If you pass a policy to this operation, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, * **and** * the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see `Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html>`__ in the *IAM User Guide* .
         
-        To assume a role, your AWS account must be trusted by the role. The trust relationship is defined in the role's trust policy when the role is created. That trust policy states which accounts are allowed to delegate access to this account's role. 
+        To assume a role, your AWS account must be trusted by the role. The trust relationship is defined in the role\'s trust policy when the role is created. That trust policy states which accounts are allowed to delegate access to this account\'s role. 
         
-        The user who wants to access the role must also have permissions delegated from the role's administrator. If the user is in a different account than the role, then the user's administrator must attach a policy that allows the user to call AssumeRole on the ARN of the role in the other account. If the user is in the same account as the role, then you can either attach a policy to the user (identical to the previous different account user), or you can add the user as a principal directly in the role's trust policy. In this case, the trust policy acts as the only resource-based policy in IAM, and users in the same account as the role do not need explicit permission to assume the role. For more information about trust policies and resource-based policies, see `IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>`__ in the *IAM User Guide* .
+        The user who wants to access the role must also have permissions delegated from the role\'s administrator. If the user is in a different account than the role, then the user\'s administrator must attach a policy that allows the user to call AssumeRole on the ARN of the role in the other account. If the user is in the same account as the role, then you can either attach a policy to the user (identical to the previous different account user), or you can add the user as a principal directly in the role\'s trust policy. In this case, the trust policy acts as the only resource-based policy in IAM, and users in the same account as the role do not need explicit permission to assume the role. For more information about trust policies and resource-based policies, see `IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>`__ in the *IAM User Guide* .
         
          **Using MFA with AssumeRole**  
         
         You can optionally include multi-factor authentication (MFA) information when you call ``AssumeRole`` . This is useful for cross-account scenarios in which you want to make sure that the user who is assuming the role has been authenticated using an AWS MFA device. In that scenario, the trust policy of the role being assumed includes a condition that tests for MFA authentication; if the caller does not include valid MFA information, the request to assume the role is denied. The condition in a trust policy that tests for MFA authentication might look like the following example.
         
-         ``"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}``  
+         ``\"Condition\": {\"Bool\": {\"aws:MultiFactorAuthPresent\": true}}``  
         
         For more information, see `Configuring MFA-Protected API Access <http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html>`__ in the *IAM User Guide* guide.
         
-        To use MFA with ``AssumeRole`` , you pass values for the ``SerialNumber`` and ``TokenCode`` parameters. The ``SerialNumber`` value identifies the user's hardware or virtual MFA device. The ``TokenCode`` is the time-based one-time password (TOTP) that the MFA devices produces. 
+        To use MFA with ``AssumeRole`` , you pass values for the ``SerialNumber`` and ``TokenCode`` parameters. The ``SerialNumber`` value identifies the user\'s hardware or virtual MFA device. The ``TokenCode`` is the time-based one-time password (TOTP) that the MFA devices produces. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sts-2011-06-15/AssumeRole>`_
         
@@ -43,13 +43,13 @@ class Client(BaseClient):
         ::
         
           response = client.assume_role(
-              RoleArn='string',
-              RoleSessionName='string',
-              Policy='string',
+              RoleArn=\'string\',
+              RoleSessionName=\'string\',
+              Policy=\'string\',
               DurationSeconds=123,
-              ExternalId='string',
-              SerialNumber='string',
-              TokenCode='string'
+              ExternalId=\'string\',
+              SerialNumber=\'string\',
+              TokenCode=\'string\'
           )
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]** 
@@ -92,7 +92,7 @@ class Client(BaseClient):
         :type ExternalId: string
         :param ExternalId: 
         
-          A unique identifier that is used by third parties when assuming roles in their customers' accounts. For each role that the third party can assume, they should instruct their customers to ensure the role's trust policy checks for the external ID that the third party generated. Each time the third party assumes the role, they should pass the customer's external ID. The external ID is useful in order to help third parties bind a role to the customer who created it. For more information about the external ID, see `How to Use an External ID When Granting Access to Your AWS Resources to a Third Party <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html>`__ in the *IAM User Guide* .
+          A unique identifier that is used by third parties when assuming roles in their customers\' accounts. For each role that the third party can assume, they should instruct their customers to ensure the role\'s trust policy checks for the external ID that the third party generated. Each time the third party assumes the role, they should pass the customer\'s external ID. The external ID is useful in order to help third parties bind a role to the customer who created it. For more information about the external ID, see `How to Use an External ID When Granting Access to Your AWS Resources to a Third Party <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html>`__ in the *IAM User Guide* .
         
           The regex used to validated this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
         
@@ -106,7 +106,7 @@ class Client(BaseClient):
         :type TokenCode: string
         :param TokenCode: 
         
-          The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the ``TokenCode`` value is missing or expired, the ``AssumeRole`` call returns an "access denied" error.
+          The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the ``TokenCode`` value is missing or expired, the ``AssumeRole`` call returns an \"access denied\" error.
         
           The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
         
@@ -118,17 +118,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 },
-                'AssumedRoleUser': {
-                    'AssumedRoleId': 'string',
-                    'Arn': 'string'
+                \'AssumedRoleUser\': {
+                    \'AssumedRoleId\': \'string\',
+                    \'Arn\': \'string\'
                 },
-                'PackedPolicySize': 123
+                \'PackedPolicySize\': 123
             }
           **Response Structure** 
         
@@ -182,9 +182,9 @@ class Client(BaseClient):
         
         The temporary security credentials returned by this operation consist of an access key ID, a secret access key, and a security token. Applications can use these temporary security credentials to sign calls to AWS services.
         
-        By default, the temporary security credentials created by ``AssumeRoleWithSAML`` last for one hour. However, you can use the optional ``DurationSeconds`` parameter to specify the duration of your session. Your role session lasts for the duration that you specify, or until the time specified in the SAML authentication response's ``SessionNotOnOrAfter`` value, whichever is shorter. You can provide a ``DurationSeconds`` value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* . The maximum session duration limit applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+        By default, the temporary security credentials created by ``AssumeRoleWithSAML`` last for one hour. However, you can use the optional ``DurationSeconds`` parameter to specify the duration of your session. Your role session lasts for the duration that you specify, or until the time specified in the SAML authentication response\'s ``SessionNotOnOrAfter`` value, whichever is shorter. You can provide a ``DurationSeconds`` value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* . The maximum session duration limit applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         
-        The temporary security credentials created by ``AssumeRoleWithSAML`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service's ``GetFederationToken`` or ``GetSessionToken`` APIs.
+        The temporary security credentials created by ``AssumeRoleWithSAML`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service\'s ``GetFederationToken`` or ``GetSessionToken`` APIs.
         
         Optionally, you can pass an IAM access policy to this operation. If you choose not to pass a policy, the temporary security credentials that are returned by the operation have the permissions that are defined in the access policy of the role that is being assumed. If you pass a policy to this operation, the temporary security credentials that are returned by the operation have the permissions that are allowed by the intersection of both the access policy of the role that is being assumed, * **and** * the policy that you pass. This means that both policies must grant the permission for the action to be allowed. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see `Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html>`__ in the *IAM User Guide* .
         
@@ -212,10 +212,10 @@ class Client(BaseClient):
         ::
         
           response = client.assume_role_with_saml(
-              RoleArn='string',
-              PrincipalArn='string',
-              SAMLAssertion='string',
-              Policy='string',
+              RoleArn=\'string\',
+              PrincipalArn=\'string\',
+              SAMLAssertion=\'string\',
+              Policy=\'string\',
               DurationSeconds=123
           )
         :type RoleArn: string
@@ -251,7 +251,7 @@ class Client(BaseClient):
         :type DurationSeconds: integer
         :param DurationSeconds: 
         
-          The duration, in seconds, of the role session. Your role session lasts for the duration that you specify for the ``DurationSeconds`` parameter, or until the time specified in the SAML authentication response's ``SessionNotOnOrAfter`` value, whichever is shorter. You can provide a ``DurationSeconds`` value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* .
+          The duration, in seconds, of the role session. Your role session lasts for the duration that you specify for the ``DurationSeconds`` parameter, or until the time specified in the SAML authentication response\'s ``SessionNotOnOrAfter`` value, whichever is shorter. You can provide a ``DurationSeconds`` value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* .
         
           By default, the value is set to 3600 seconds. 
         
@@ -267,22 +267,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 },
-                'AssumedRoleUser': {
-                    'AssumedRoleId': 'string',
-                    'Arn': 'string'
+                \'AssumedRoleUser\': {
+                    \'AssumedRoleId\': \'string\',
+                    \'Arn\': \'string\'
                 },
-                'PackedPolicySize': 123,
-                'Subject': 'string',
-                'SubjectType': 'string',
-                'Issuer': 'string',
-                'Audience': 'string',
-                'NameQualifier': 'string'
+                \'PackedPolicySize\': 123,
+                \'Subject\': \'string\',
+                \'SubjectType\': \'string\',
+                \'Issuer\': \'string\',
+                \'Audience\': \'string\',
+                \'NameQualifier\': \'string\'
             }
           **Response Structure** 
         
@@ -352,7 +352,7 @@ class Client(BaseClient):
         
               The following pseudocode shows how the hash value is calculated:
         
-               ``BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )``  
+               ``BASE64 ( SHA1 ( \"https://example.com/saml\" + \"123456789012\" + \"/MySAMLIdP\" ) )``  
         
         """
         pass
@@ -372,11 +372,11 @@ class Client(BaseClient):
         
         By default, the temporary security credentials created by ``AssumeRoleWithWebIdentity`` last for one hour. However, you can use the optional ``DurationSeconds`` parameter to specify the duration of your session. You can provide a value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. To learn how to view the maximum value for your role, see `View the Maximum Session Duration Setting for a Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session>`__ in the *IAM User Guide* . The maximum session duration limit applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* . 
         
-        The temporary security credentials created by ``AssumeRoleWithWebIdentity`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service's ``GetFederationToken`` or ``GetSessionToken`` APIs.
+        The temporary security credentials created by ``AssumeRoleWithWebIdentity`` can be used to make API calls to any AWS service with the following exception: you cannot call the STS service\'s ``GetFederationToken`` or ``GetSessionToken`` APIs.
         
         Optionally, you can pass an IAM access policy to this operation. If you choose not to pass a policy, the temporary security credentials that are returned by the operation have the permissions that are defined in the access policy of the role that is being assumed. If you pass a policy to this operation, the temporary security credentials that are returned by the operation have the permissions that are allowed by both the access policy of the role that is being assumed, * **and** * the policy that you pass. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use the passed policy to grant permissions that are in excess of those allowed by the access policy of the role that is being assumed. For more information, see `Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html>`__ in the *IAM User Guide* .
         
-        Before your application can call ``AssumeRoleWithWebIdentity`` , you must have an identity token from a supported identity provider and create a role that the application can assume. The role that your application assumes must trust the identity provider that is associated with the identity token. In other words, the identity provider must be specified in the role's trust policy. 
+        Before your application can call ``AssumeRoleWithWebIdentity`` , you must have an identity token from a supported identity provider and create a role that the application can assume. The role that your application assumes must trust the identity provider that is associated with the identity token. In other words, the identity provider must be specified in the role\'s trust policy. 
         
         .. warning::
         
@@ -398,11 +398,11 @@ class Client(BaseClient):
         ::
         
           response = client.assume_role_with_web_identity(
-              RoleArn='string',
-              RoleSessionName='string',
-              WebIdentityToken='string',
-              ProviderId='string',
-              Policy='string',
+              RoleArn=\'string\',
+              RoleSessionName=\'string\',
+              WebIdentityToken=\'string\',
+              ProviderId=\'string\',
+              Policy=\'string\',
               DurationSeconds=123
           )
         :type RoleArn: string
@@ -463,20 +463,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 },
-                'SubjectFromWebIdentityToken': 'string',
-                'AssumedRoleUser': {
-                    'AssumedRoleId': 'string',
-                    'Arn': 'string'
+                \'SubjectFromWebIdentityToken\': \'string\',
+                \'AssumedRoleUser\': {
+                    \'AssumedRoleId\': \'string\',
+                    \'Arn\': \'string\'
                 },
-                'PackedPolicySize': 123,
-                'Provider': 'string',
-                'Audience': 'string'
+                \'PackedPolicySize\': 123,
+                \'Provider\': \'string\',
+                \'Audience\': \'string\'
             }
           **Response Structure** 
         
@@ -508,7 +508,7 @@ class Client(BaseClient):
         
             - **SubjectFromWebIdentityToken** *(string) --* 
         
-              The unique user identifier that is returned by the identity provider. This identifier is associated with the ``WebIdentityToken`` that was submitted with the ``AssumeRoleWithWebIdentity`` call. The identifier is typically unique to the user and the application that acquired the ``WebIdentityToken`` (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's ``sub`` (Subject) claim. 
+              The unique user identifier that is returned by the identity provider. This identifier is associated with the ``WebIdentityToken`` that was submitted with the ``AssumeRoleWithWebIdentity`` call. The identifier is typically unique to the user and the application that acquired the ``WebIdentityToken`` (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token\'s ``sub`` (Subject) claim. 
         
             - **AssumedRoleUser** *(dict) --* 
         
@@ -543,10 +543,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -574,7 +574,7 @@ class Client(BaseClient):
          
         * The requested resource. 
          
-        * The values of condition keys in the context of the user's request. 
+        * The values of condition keys in the context of the user\'s request. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sts-2011-06-15/DecodeAuthorizationMessage>`_
         
@@ -582,7 +582,7 @@ class Client(BaseClient):
         ::
         
           response = client.decode_authorization_message(
-              EncodedMessage='string'
+              EncodedMessage=\'string\'
           )
         :type EncodedMessage: string
         :param EncodedMessage: **[REQUIRED]** 
@@ -597,7 +597,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DecodedMessage': 'string'
+                \'DecodedMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -628,7 +628,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -652,9 +652,9 @@ class Client(BaseClient):
           ::
         
             {
-                'UserId': 'string',
-                'Account': 'string',
-                'Arn': 'string'
+                \'UserId\': \'string\',
+                \'Account\': \'string\',
+                \'Arn\': \'string\'
             }
           **Response Structure** 
         
@@ -702,9 +702,9 @@ class Client(BaseClient):
          
         * The policy that is passed as a parameter in the call. 
          
-        The passed policy is attached to the temporary security credentials that result from the ``GetFederationToken`` API call--that is, to the *federated user* . When the federated user makes an AWS request, AWS evaluates the policy attached to the federated user in combination with the policy or policies attached to the IAM user whose credentials were used to call ``GetFederationToken`` . AWS allows the federated user's request only when both the federated user * **and** * the IAM user are explicitly allowed to perform the requested action. The passed policy cannot grant more permissions than those that are defined in the IAM user policy.
+        The passed policy is attached to the temporary security credentials that result from the ``GetFederationToken`` API call--that is, to the *federated user* . When the federated user makes an AWS request, AWS evaluates the policy attached to the federated user in combination with the policy or policies attached to the IAM user whose credentials were used to call ``GetFederationToken`` . AWS allows the federated user\'s request only when both the federated user * **and** * the IAM user are explicitly allowed to perform the requested action. The passed policy cannot grant more permissions than those that are defined in the IAM user policy.
         
-        A typical use case is that the permissions of the IAM user whose credentials are used to call ``GetFederationToken`` are designed to allow access to all the actions and resources that any federated user will need. Then, for individual users, you pass a policy to the operation that scopes down the permissions to a level that's appropriate to that individual user, using a policy that allows only a subset of permissions that are granted to the IAM user. 
+        A typical use case is that the permissions of the IAM user whose credentials are used to call ``GetFederationToken`` are designed to allow access to all the actions and resources that any federated user will need. Then, for individual users, you pass a policy to the operation that scopes down the permissions to a level that\'s appropriate to that individual user, using a policy that allows only a subset of permissions that are granted to the IAM user. 
         
         If you do not pass a policy, the resulting temporary security credentials have no effective permissions. The only exception is when the temporary security credentials are used to access a resource that has a resource-based policy that specifically allows the federated user to access the resource.
         
@@ -716,8 +716,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_federation_token(
-              Name='string',
-              Policy='string',
+              Name=\'string\',
+              Policy=\'string\',
               DurationSeconds=123
           )
         :type Name: string
@@ -755,17 +755,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 },
-                'FederatedUser': {
-                    'FederatedUserId': 'string',
-                    'Arn': 'string'
+                \'FederatedUser\': {
+                    \'FederatedUserId\': \'string\',
+                    \'Arn\': \'string\'
                 },
-                'PackedPolicySize': 123
+                \'PackedPolicySize\': 123
             }
           **Response Structure** 
         
@@ -797,7 +797,7 @@ class Client(BaseClient):
         
             - **FederatedUser** *(dict) --* 
         
-              Identifiers for the federated user associated with the credentials (such as ``arn:aws:sts::123456789012:federated-user/Bob`` or ``123456789012:Bob`` ). You can use the federated user's ARN in your resource-based policies, such as an Amazon S3 bucket policy. 
+              Identifiers for the federated user associated with the credentials (such as ``arn:aws:sts::123456789012:federated-user/Bob`` or ``123456789012:Bob`` ). You can use the federated user\'s ARN in your resource-based policies, such as an Amazon S3 bucket policy. 
         
               - **FederatedUserId** *(string) --* 
         
@@ -820,10 +820,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -860,8 +860,8 @@ class Client(BaseClient):
         
           response = client.get_session_token(
               DurationSeconds=123,
-              SerialNumber='string',
-              TokenCode='string'
+              SerialNumber=\'string\',
+              TokenCode=\'string\'
           )
         :type DurationSeconds: integer
         :param DurationSeconds: 
@@ -871,14 +871,14 @@ class Client(BaseClient):
         :type SerialNumber: string
         :param SerialNumber: 
         
-          The identification number of the MFA device that is associated with the IAM user who is making the ``GetSessionToken`` call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as ``GAHT12345678`` ) or an Amazon Resource Name (ARN) for a virtual device (such as ``arn:aws:iam::123456789012:mfa/user`` ). You can find the device for an IAM user by going to the AWS Management Console and viewing the user's security credentials. 
+          The identification number of the MFA device that is associated with the IAM user who is making the ``GetSessionToken`` call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as ``GAHT12345678`` ) or an Amazon Resource Name (ARN) for a virtual device (such as ``arn:aws:iam::123456789012:mfa/user`` ). You can find the device for an IAM user by going to the AWS Management Console and viewing the user\'s security credentials. 
         
           The regex used to validated this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
         
         :type TokenCode: string
         :param TokenCode: 
         
-          The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an "access denied" response when requesting resources that require MFA authentication.
+          The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an \"access denied\" response when requesting resources that require MFA authentication.
         
           The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
         
@@ -890,11 +890,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessKeyId': 'string',
-                    'SecretAccessKey': 'string',
-                    'SessionToken': 'string',
-                    'Expiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessKeyId\': \'string\',
+                    \'SecretAccessKey\': \'string\',
+                    \'SessionToken\': \'string\',
+                    \'Expiration\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 

@@ -13,15 +13,15 @@ class DescribeEnvironmentMemberships(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              userArn='string',
-              environmentId='string',
+              userArn=\'string\',
+              environmentId=\'string\',
               permissions=[
-                  'owner'|'read-write'|'read-only',
+                  \'owner\'|\'read-write\'|\'read-only\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type userArn: string
@@ -74,16 +74,16 @@ class DescribeEnvironmentMemberships(Paginator):
           ::
         
             {
-                'memberships': [
+                \'memberships\': [
                     {
-                        'permissions': 'owner'|'read-write'|'read-only',
-                        'userId': 'string',
-                        'userArn': 'string',
-                        'environmentId': 'string',
-                        'lastAccess': datetime(2015, 1, 1)
+                        \'permissions\': \'owner\'|\'read-write\'|\'read-only\',
+                        \'userId\': \'string\',
+                        \'userArn\': \'string\',
+                        \'environmentId\': \'string\',
+                        \'lastAccess\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -142,9 +142,9 @@ class ListEnvironments(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -172,10 +172,10 @@ class ListEnvironments(Paginator):
           ::
         
             {
-                'environmentIds': [
-                    'string',
+                \'environmentIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

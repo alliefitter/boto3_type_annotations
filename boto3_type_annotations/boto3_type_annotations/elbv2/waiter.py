@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 

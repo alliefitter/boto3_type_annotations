@@ -12,13 +12,13 @@ class DescribePullRequestEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              pullRequestId='string',
-              pullRequestEventType='PULL_REQUEST_CREATED'|'PULL_REQUEST_STATUS_CHANGED'|'PULL_REQUEST_SOURCE_REFERENCE_UPDATED'|'PULL_REQUEST_MERGE_STATE_CHANGED',
-              actorArn='string',
+              pullRequestId=\'string\',
+              pullRequestEventType=\'PULL_REQUEST_CREATED\'|\'PULL_REQUEST_STATUS_CHANGED\'|\'PULL_REQUEST_SOURCE_REFERENCE_UPDATED\'|\'PULL_REQUEST_MERGE_STATE_CHANGED\',
+              actorArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type pullRequestId: string
@@ -61,38 +61,38 @@ class DescribePullRequestEvents(Paginator):
           ::
         
             {
-                'pullRequestEvents': [
+                \'pullRequestEvents\': [
                     {
-                        'pullRequestId': 'string',
-                        'eventDate': datetime(2015, 1, 1),
-                        'pullRequestEventType': 'PULL_REQUEST_CREATED'|'PULL_REQUEST_STATUS_CHANGED'|'PULL_REQUEST_SOURCE_REFERENCE_UPDATED'|'PULL_REQUEST_MERGE_STATE_CHANGED',
-                        'actorArn': 'string',
-                        'pullRequestCreatedEventMetadata': {
-                            'repositoryName': 'string',
-                            'sourceCommitId': 'string',
-                            'destinationCommitId': 'string',
-                            'mergeBase': 'string'
+                        \'pullRequestId\': \'string\',
+                        \'eventDate\': datetime(2015, 1, 1),
+                        \'pullRequestEventType\': \'PULL_REQUEST_CREATED\'|\'PULL_REQUEST_STATUS_CHANGED\'|\'PULL_REQUEST_SOURCE_REFERENCE_UPDATED\'|\'PULL_REQUEST_MERGE_STATE_CHANGED\',
+                        \'actorArn\': \'string\',
+                        \'pullRequestCreatedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'sourceCommitId\': \'string\',
+                            \'destinationCommitId\': \'string\',
+                            \'mergeBase\': \'string\'
                         },
-                        'pullRequestStatusChangedEventMetadata': {
-                            'pullRequestStatus': 'OPEN'|'CLOSED'
+                        \'pullRequestStatusChangedEventMetadata\': {
+                            \'pullRequestStatus\': \'OPEN\'|\'CLOSED\'
                         },
-                        'pullRequestSourceReferenceUpdatedEventMetadata': {
-                            'repositoryName': 'string',
-                            'beforeCommitId': 'string',
-                            'afterCommitId': 'string',
-                            'mergeBase': 'string'
+                        \'pullRequestSourceReferenceUpdatedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'beforeCommitId\': \'string\',
+                            \'afterCommitId\': \'string\',
+                            \'mergeBase\': \'string\'
                         },
-                        'pullRequestMergedStateChangedEventMetadata': {
-                            'repositoryName': 'string',
-                            'destinationReference': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                        \'pullRequestMergedStateChangedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -212,13 +212,13 @@ class GetCommentsForComparedCommit(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type repositoryName: string
@@ -229,12 +229,12 @@ class GetCommentsForComparedCommit(Paginator):
         :type beforeCommitId: string
         :param beforeCommitId: 
         
-          To establish the directionality of the comparison, the full commit ID of the 'before' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'before\' commit.
         
         :type afterCommitId: string
         :param afterCommitId: **[REQUIRED]** 
         
-          To establish the directionality of the comparison, the full commit ID of the 'after' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'after\' commit.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -261,33 +261,33 @@ class GetCommentsForComparedCommit(Paginator):
           ::
         
             {
-                'commentsForComparedCommitData': [
+                \'commentsForComparedCommitData\': [
                     {
-                        'repositoryName': 'string',
-                        'beforeCommitId': 'string',
-                        'afterCommitId': 'string',
-                        'beforeBlobId': 'string',
-                        'afterBlobId': 'string',
-                        'location': {
-                            'filePath': 'string',
-                            'filePosition': 123,
-                            'relativeFileVersion': 'BEFORE'|'AFTER'
+                        \'repositoryName\': \'string\',
+                        \'beforeCommitId\': \'string\',
+                        \'afterCommitId\': \'string\',
+                        \'beforeBlobId\': \'string\',
+                        \'afterBlobId\': \'string\',
+                        \'location\': {
+                            \'filePath\': \'string\',
+                            \'filePosition\': 123,
+                            \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                         },
-                        'comments': [
+                        \'comments\': [
                             {
-                                'commentId': 'string',
-                                'content': 'string',
-                                'inReplyTo': 'string',
-                                'creationDate': datetime(2015, 1, 1),
-                                'lastModifiedDate': datetime(2015, 1, 1),
-                                'authorArn': 'string',
-                                'deleted': True|False,
-                                'clientRequestToken': 'string'
+                                \'commentId\': \'string\',
+                                \'content\': \'string\',
+                                \'inReplyTo\': \'string\',
+                                \'creationDate\': datetime(2015, 1, 1),
+                                \'lastModifiedDate\': datetime(2015, 1, 1),
+                                \'authorArn\': \'string\',
+                                \'deleted\': True|False,
+                                \'clientRequestToken\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -307,23 +307,23 @@ class GetCommentsForComparedCommit(Paginator):
         
                 - **beforeCommitId** *(string) --* 
         
-                  The full commit ID of the commit used to establish the 'before' of the comparison.
+                  The full commit ID of the commit used to establish the \'before\' of the comparison.
         
                 - **afterCommitId** *(string) --* 
         
-                  The full commit ID of the commit used to establish the 'after' of the comparison.
+                  The full commit ID of the commit used to establish the \'after\' of the comparison.
         
                 - **beforeBlobId** *(string) --* 
         
-                  The full blob ID of the commit used to establish the 'before' of the comparison.
+                  The full blob ID of the commit used to establish the \'before\' of the comparison.
         
                 - **afterBlobId** *(string) --* 
         
-                  The full blob ID of the commit used to establish the 'after' of the comparison.
+                  The full blob ID of the commit used to establish the \'after\' of the comparison.
         
                 - **location** *(dict) --* 
         
-                  Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is 'BEFORE' or 'AFTER'.
+                  Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is \'BEFORE\' or \'AFTER\'.
         
                   - **filePath** *(string) --* 
         
@@ -335,7 +335,7 @@ class GetCommentsForComparedCommit(Paginator):
         
                   - **relativeFileVersion** *(string) --* 
         
-                    In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                    In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
                 - **comments** *(list) --* 
         
@@ -395,14 +395,14 @@ class GetCommentsForPullRequest(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              pullRequestId='string',
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
+              pullRequestId=\'string\',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type pullRequestId: string
@@ -450,34 +450,34 @@ class GetCommentsForPullRequest(Paginator):
           ::
         
             {
-                'commentsForPullRequestData': [
+                \'commentsForPullRequestData\': [
                     {
-                        'pullRequestId': 'string',
-                        'repositoryName': 'string',
-                        'beforeCommitId': 'string',
-                        'afterCommitId': 'string',
-                        'beforeBlobId': 'string',
-                        'afterBlobId': 'string',
-                        'location': {
-                            'filePath': 'string',
-                            'filePosition': 123,
-                            'relativeFileVersion': 'BEFORE'|'AFTER'
+                        \'pullRequestId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'beforeCommitId\': \'string\',
+                        \'afterCommitId\': \'string\',
+                        \'beforeBlobId\': \'string\',
+                        \'afterBlobId\': \'string\',
+                        \'location\': {
+                            \'filePath\': \'string\',
+                            \'filePosition\': 123,
+                            \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                         },
-                        'comments': [
+                        \'comments\': [
                             {
-                                'commentId': 'string',
-                                'content': 'string',
-                                'inReplyTo': 'string',
-                                'creationDate': datetime(2015, 1, 1),
-                                'lastModifiedDate': datetime(2015, 1, 1),
-                                'authorArn': 'string',
-                                'deleted': True|False,
-                                'clientRequestToken': 'string'
+                                \'commentId\': \'string\',
+                                \'content\': \'string\',
+                                \'inReplyTo\': \'string\',
+                                \'creationDate\': datetime(2015, 1, 1),
+                                \'lastModifiedDate\': datetime(2015, 1, 1),
+                                \'authorArn\': \'string\',
+                                \'deleted\': True|False,
+                                \'clientRequestToken\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -517,7 +517,7 @@ class GetCommentsForPullRequest(Paginator):
         
                 - **location** *(dict) --* 
         
-                  Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is 'BEFORE' (destination branch) or 'AFTER' (source branch).
+                  Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is \'BEFORE\' (destination branch) or \'AFTER\' (source branch).
         
                   - **filePath** *(string) --* 
         
@@ -529,7 +529,7 @@ class GetCommentsForPullRequest(Paginator):
         
                   - **relativeFileVersion** *(string) --* 
         
-                    In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                    In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
                 - **comments** *(list) --* 
         
@@ -589,15 +589,15 @@ class GetDifferences(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              repositoryName='string',
-              beforeCommitSpecifier='string',
-              afterCommitSpecifier='string',
-              beforePath='string',
-              afterPath='string',
+              repositoryName=\'string\',
+              beforeCommitSpecifier=\'string\',
+              afterCommitSpecifier=\'string\',
+              beforePath=\'string\',
+              afterPath=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type repositoryName: string
@@ -650,19 +650,19 @@ class GetDifferences(Paginator):
           ::
         
             {
-                'differences': [
+                \'differences\': [
                     {
-                        'beforeBlob': {
-                            'blobId': 'string',
-                            'path': 'string',
-                            'mode': 'string'
+                        \'beforeBlob\': {
+                            \'blobId\': \'string\',
+                            \'path\': \'string\',
+                            \'mode\': \'string\'
                         },
-                        'afterBlob': {
-                            'blobId': 'string',
-                            'path': 'string',
-                            'mode': 'string'
+                        \'afterBlob\': {
+                            \'blobId\': \'string\',
+                            \'path\': \'string\',
+                            \'mode\': \'string\'
                         },
-                        'changeType': 'A'|'M'|'D'
+                        \'changeType\': \'A\'|\'M\'|\'D\'
                     },
                 ],
                 
@@ -745,11 +745,11 @@ class ListBranches(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              repositoryName='string',
+              repositoryName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type repositoryName: string
@@ -782,10 +782,10 @@ class ListBranches(Paginator):
           ::
         
             {
-                'branches': [
-                    'string',
+                \'branches\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -817,13 +817,13 @@ class ListPullRequests(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              repositoryName='string',
-              authorArn='string',
-              pullRequestStatus='OPEN'|'CLOSED',
+              repositoryName=\'string\',
+              authorArn=\'string\',
+              pullRequestStatus=\'OPEN\'|\'CLOSED\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type repositoryName: string
@@ -866,10 +866,10 @@ class ListPullRequests(Paginator):
           ::
         
             {
-                'pullRequestIds': [
-                    'string',
+                \'pullRequestIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -899,12 +899,12 @@ class ListRepositories(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              sortBy='repositoryName'|'lastModifiedDate',
-              order='ascending'|'descending',
+              sortBy=\'repositoryName\'|\'lastModifiedDate\',
+              order=\'ascending\'|\'descending\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type sortBy: string
@@ -942,13 +942,13 @@ class ListRepositories(Paginator):
           ::
         
             {
-                'repositories': [
+                \'repositories\': [
                     {
-                        'repositoryName': 'string',
-                        'repositoryId': 'string'
+                        \'repositoryName\': \'string\',
+                        \'repositoryId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

@@ -13,17 +13,17 @@ class DescribeDestinations(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DestinationNamePrefix='string',
+              DestinationNamePrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DestinationNamePrefix: string
         :param DestinationNamePrefix: 
         
-          The prefix to match. If you don't specify a value, no prefix filter is applied.
+          The prefix to match. If you don\'t specify a value, no prefix filter is applied.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -50,17 +50,17 @@ class DescribeDestinations(Paginator):
           ::
         
             {
-                'destinations': [
+                \'destinations\': [
                     {
-                        'destinationName': 'string',
-                        'targetArn': 'string',
-                        'roleArn': 'string',
-                        'accessPolicy': 'string',
-                        'arn': 'string',
-                        'creationTime': 123
+                        \'destinationName\': \'string\',
+                        \'targetArn\': \'string\',
+                        \'roleArn\': \'string\',
+                        \'accessPolicy\': \'string\',
+                        \'arn\': \'string\',
+                        \'creationTime\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -116,11 +116,11 @@ class DescribeLogGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              logGroupNamePrefix='string',
+              logGroupNamePrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type logGroupNamePrefix: string
@@ -153,18 +153,18 @@ class DescribeLogGroups(Paginator):
           ::
         
             {
-                'logGroups': [
+                \'logGroups\': [
                     {
-                        'logGroupName': 'string',
-                        'creationTime': 123,
-                        'retentionInDays': 123,
-                        'metricFilterCount': 123,
-                        'arn': 'string',
-                        'storedBytes': 123,
-                        'kmsKeyId': 'string'
+                        \'logGroupName\': \'string\',
+                        \'creationTime\': 123,
+                        \'retentionInDays\': 123,
+                        \'metricFilterCount\': 123,
+                        \'arn\': \'string\',
+                        \'storedBytes\': 123,
+                        \'kmsKeyId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -224,14 +224,14 @@ class DescribeLogStreams(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              logGroupName='string',
-              logStreamNamePrefix='string',
-              orderBy='LogStreamName'|'LastEventTime',
+              logGroupName=\'string\',
+              logStreamNamePrefix=\'string\',
+              orderBy=\'LogStreamName\'|\'LastEventTime\',
               descending=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type logGroupName: string
@@ -285,19 +285,19 @@ class DescribeLogStreams(Paginator):
           ::
         
             {
-                'logStreams': [
+                \'logStreams\': [
                     {
-                        'logStreamName': 'string',
-                        'creationTime': 123,
-                        'firstEventTimestamp': 123,
-                        'lastEventTimestamp': 123,
-                        'lastIngestionTime': 123,
-                        'uploadSequenceToken': 'string',
-                        'arn': 'string',
-                        'storedBytes': 123
+                        \'logStreamName\': \'string\',
+                        \'creationTime\': 123,
+                        \'firstEventTimestamp\': 123,
+                        \'lastEventTimestamp\': 123,
+                        \'lastIngestionTime\': 123,
+                        \'uploadSequenceToken\': \'string\',
+                        \'arn\': \'string\',
+                        \'storedBytes\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -361,14 +361,14 @@ class DescribeMetricFilters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              logGroupName='string',
-              filterNamePrefix='string',
-              metricName='string',
-              metricNamespace='string',
+              logGroupName=\'string\',
+              filterNamePrefix=\'string\',
+              metricName=\'string\',
+              metricNamespace=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type logGroupName: string
@@ -416,23 +416,23 @@ class DescribeMetricFilters(Paginator):
           ::
         
             {
-                'metricFilters': [
+                \'metricFilters\': [
                     {
-                        'filterName': 'string',
-                        'filterPattern': 'string',
-                        'metricTransformations': [
+                        \'filterName\': \'string\',
+                        \'filterPattern\': \'string\',
+                        \'metricTransformations\': [
                             {
-                                'metricName': 'string',
-                                'metricNamespace': 'string',
-                                'metricValue': 'string',
-                                'defaultValue': 123.0
+                                \'metricName\': \'string\',
+                                \'metricNamespace\': \'string\',
+                                \'metricValue\': \'string\',
+                                \'defaultValue\': 123.0
                             },
                         ],
-                        'creationTime': 123,
-                        'logGroupName': 'string'
+                        \'creationTime\': 123,
+                        \'logGroupName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -504,12 +504,12 @@ class DescribeSubscriptionFilters(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              logGroupName='string',
-              filterNamePrefix='string',
+              logGroupName=\'string\',
+              filterNamePrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type logGroupName: string
@@ -520,7 +520,7 @@ class DescribeSubscriptionFilters(Paginator):
         :type filterNamePrefix: string
         :param filterNamePrefix: 
         
-          The prefix to match. If you don't specify a value, no prefix filter is applied.
+          The prefix to match. If you don\'t specify a value, no prefix filter is applied.
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -547,18 +547,18 @@ class DescribeSubscriptionFilters(Paginator):
           ::
         
             {
-                'subscriptionFilters': [
+                \'subscriptionFilters\': [
                     {
-                        'filterName': 'string',
-                        'logGroupName': 'string',
-                        'filterPattern': 'string',
-                        'destinationArn': 'string',
-                        'roleArn': 'string',
-                        'distribution': 'Random'|'ByLogStream',
-                        'creationTime': 123
+                        \'filterName\': \'string\',
+                        \'logGroupName\': \'string\',
+                        \'filterPattern\': \'string\',
+                        \'destinationArn\': \'string\',
+                        \'roleArn\': \'string\',
+                        \'distribution\': \'Random\'|\'ByLogStream\',
+                        \'creationTime\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -616,19 +616,19 @@ class FilterLogEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              logGroupName='string',
+              logGroupName=\'string\',
               logStreamNames=[
-                  'string',
+                  \'string\',
               ],
-              logStreamNamePrefix='string',
+              logStreamNamePrefix=\'string\',
               startTime=123,
               endTime=123,
-              filterPattern='string',
+              filterPattern=\'string\',
               interleaved=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type logGroupName: string
@@ -699,22 +699,22 @@ class FilterLogEvents(Paginator):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'logStreamName': 'string',
-                        'timestamp': 123,
-                        'message': 'string',
-                        'ingestionTime': 123,
-                        'eventId': 'string'
+                        \'logStreamName\': \'string\',
+                        \'timestamp\': 123,
+                        \'message\': \'string\',
+                        \'ingestionTime\': 123,
+                        \'eventId\': \'string\'
                     },
                 ],
-                'searchedLogStreams': [
+                \'searchedLogStreams\': [
                     {
-                        'logStreamName': 'string',
-                        'searchedCompletely': True|False
+                        \'logStreamName\': \'string\',
+                        \'searchedCompletely\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

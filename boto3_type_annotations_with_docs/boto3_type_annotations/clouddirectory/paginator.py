@@ -13,12 +13,12 @@ class ListAppliedSchemaArns(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
-              SchemaArn='string',
+              DirectoryArn=\'string\',
+              SchemaArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -56,8 +56,8 @@ class ListAppliedSchemaArns(Paginator):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
                 
             }
@@ -85,15 +85,15 @@ class ListAttachedIndices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               TargetReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -146,25 +146,25 @@ class ListAttachedIndices(Paginator):
           ::
         
             {
-                'IndexAttachments': [
+                \'IndexAttachments\': [
                     {
-                        'IndexedAttributes': [
+                        \'IndexedAttributes\': [
                             {
-                                'Key': {
-                                    'SchemaArn': 'string',
-                                    'FacetName': 'string',
-                                    'Name': 'string'
+                                \'Key\': {
+                                    \'SchemaArn\': \'string\',
+                                    \'FacetName\': \'string\',
+                                    \'Name\': \'string\'
                                 },
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ],
-                        'ObjectIdentifier': 'string'
+                        \'ObjectIdentifier\': \'string\'
                     },
                 ],
                 
@@ -248,9 +248,9 @@ class ListDevelopmentSchemaArns(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -278,8 +278,8 @@ class ListDevelopmentSchemaArns(Paginator):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
                 
             }
@@ -307,11 +307,11 @@ class ListDirectories(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              state='ENABLED'|'DISABLED'|'DELETED',
+              state=\'ENABLED\'|\'DISABLED\'|\'DELETED\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type state: string
@@ -344,12 +344,12 @@ class ListDirectories(Paginator):
           ::
         
             {
-                'Directories': [
+                \'Directories\': [
                     {
-                        'Name': 'string',
-                        'DirectoryArn': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'CreationDateTime': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'DirectoryArn\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'CreationDateTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -396,12 +396,12 @@ class ListFacetAttributes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SchemaArn='string',
-              Name='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SchemaArn: string
@@ -439,33 +439,33 @@ class ListFacetAttributes(Paginator):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Name': 'string',
-                        'AttributeDefinition': {
-                            'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                            'DefaultValue': {
-                                'StringValue': 'string',
-                                'BinaryValue': b'bytes',
-                                'BooleanValue': True|False,
-                                'NumberValue': 'string',
-                                'DatetimeValue': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'AttributeDefinition\': {
+                            \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                            \'DefaultValue\': {
+                                \'StringValue\': \'string\',
+                                \'BinaryValue\': b\'bytes\',
+                                \'BooleanValue\': True|False,
+                                \'NumberValue\': \'string\',
+                                \'DatetimeValue\': datetime(2015, 1, 1)
                             },
-                            'IsImmutable': True|False,
-                            'Rules': {
-                                'string': {
-                                    'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                    'Parameters': {
-                                        'string': 'string'
+                            \'IsImmutable\': True|False,
+                            \'Rules\': {
+                                \'string\': {
+                                    \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                    \'Parameters\': {
+                                        \'string\': \'string\'
                                     }
                                 }
                             }
                         },
-                        'AttributeReference': {
-                            'TargetFacetName': 'string',
-                            'TargetAttributeName': 'string'
+                        \'AttributeReference\': {
+                            \'TargetFacetName\': \'string\',
+                            \'TargetAttributeName\': \'string\'
                         },
-                        'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                        \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                     },
                 ],
                 
@@ -574,11 +574,11 @@ class ListFacetNames(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SchemaArn='string',
+              SchemaArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SchemaArn: string
@@ -611,8 +611,8 @@ class ListFacetNames(Paginator):
           ::
         
             {
-                'FacetNames': [
-                    'string',
+                \'FacetNames\': [
+                    \'string\',
                 ],
                 
             }
@@ -640,42 +640,42 @@ class ListIndex(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               RangesOnIndexedValues=[
                   {
-                      'AttributeKey': {
-                          'SchemaArn': 'string',
-                          'FacetName': 'string',
-                          'Name': 'string'
+                      \'AttributeKey\': {
+                          \'SchemaArn\': \'string\',
+                          \'FacetName\': \'string\',
+                          \'Name\': \'string\'
                       },
-                      'Range': {
-                          'StartMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'StartValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                      \'Range\': {
+                          \'StartMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'StartValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           },
-                          'EndMode': 'FIRST'|'LAST'|'LAST_BEFORE_MISSING_VALUES'|'INCLUSIVE'|'EXCLUSIVE',
-                          'EndValue': {
-                              'StringValue': 'string',
-                              'BinaryValue': b'bytes',
-                              'BooleanValue': True|False,
-                              'NumberValue': 'string',
-                              'DatetimeValue': datetime(2015, 1, 1)
+                          \'EndMode\': \'FIRST\'|\'LAST\'|\'LAST_BEFORE_MISSING_VALUES\'|\'INCLUSIVE\'|\'EXCLUSIVE\',
+                          \'EndValue\': {
+                              \'StringValue\': \'string\',
+                              \'BinaryValue\': b\'bytes\',
+                              \'BooleanValue\': True|False,
+                              \'NumberValue\': \'string\',
+                              \'DatetimeValue\': datetime(2015, 1, 1)
                           }
                       }
                   },
               ],
               IndexReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -813,25 +813,25 @@ class ListIndex(Paginator):
           ::
         
             {
-                'IndexAttachments': [
+                \'IndexAttachments\': [
                     {
-                        'IndexedAttributes': [
+                        \'IndexedAttributes\': [
                             {
-                                'Key': {
-                                    'SchemaArn': 'string',
-                                    'FacetName': 'string',
-                                    'Name': 'string'
+                                \'Key\': {
+                                    \'SchemaArn\': \'string\',
+                                    \'FacetName\': \'string\',
+                                    \'Name\': \'string\'
                                 },
-                                'Value': {
-                                    'StringValue': 'string',
-                                    'BinaryValue': b'bytes',
-                                    'BooleanValue': True|False,
-                                    'NumberValue': 'string',
-                                    'DatetimeValue': datetime(2015, 1, 1)
+                                \'Value\': {
+                                    \'StringValue\': \'string\',
+                                    \'BinaryValue\': b\'bytes\',
+                                    \'BooleanValue\': True|False,
+                                    \'NumberValue\': \'string\',
+                                    \'DatetimeValue\': datetime(2015, 1, 1)
                                 }
                             },
                         ],
-                        'ObjectIdentifier': 'string'
+                        \'ObjectIdentifier\': \'string\'
                     },
                 ],
                 
@@ -914,19 +914,19 @@ class ListObjectAttributes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               FacetFilter={
-                  'SchemaArn': 'string',
-                  'FacetName': 'string'
+                  \'SchemaArn\': \'string\',
+                  \'FacetName\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -992,19 +992,19 @@ class ListObjectAttributes(Paginator):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Key': {
-                            'SchemaArn': 'string',
-                            'FacetName': 'string',
-                            'Name': 'string'
+                        \'Key\': {
+                            \'SchemaArn\': \'string\',
+                            \'FacetName\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'Value': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Value\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         }
                     },
                 ],
@@ -1076,14 +1076,14 @@ class ListObjectParentPaths(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -1131,11 +1131,11 @@ class ListObjectParentPaths(Paginator):
           ::
         
             {
-                'PathToObjectIdentifiersList': [
+                \'PathToObjectIdentifiersList\': [
                     {
-                        'Path': 'string',
-                        'ObjectIdentifiers': [
-                            'string',
+                        \'Path\': \'string\',
+                        \'ObjectIdentifiers\': [
+                            \'string\',
                         ]
                     },
                 ],
@@ -1177,15 +1177,15 @@ class ListObjectPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -1238,8 +1238,8 @@ class ListObjectPolicies(Paginator):
           ::
         
             {
-                'AttachedPolicyIds': [
-                    'string',
+                \'AttachedPolicyIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -1267,15 +1267,15 @@ class ListPolicyAttachments(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               PolicyReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
-              ConsistencyLevel='SERIALIZABLE'|'EVENTUAL',
+              ConsistencyLevel=\'SERIALIZABLE\'|\'EVENTUAL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -1328,8 +1328,8 @@ class ListPolicyAttachments(Paginator):
           ::
         
             {
-                'ObjectIdentifiers': [
-                    'string',
+                \'ObjectIdentifiers\': [
+                    \'string\',
                 ],
                 
             }
@@ -1357,11 +1357,11 @@ class ListPublishedSchemaArns(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SchemaArn='string',
+              SchemaArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SchemaArn: string
@@ -1394,8 +1394,8 @@ class ListPublishedSchemaArns(Paginator):
           ::
         
             {
-                'SchemaArns': [
-                    'string',
+                \'SchemaArns\': [
+                    \'string\',
                 ],
                 
             }
@@ -1423,11 +1423,11 @@ class ListTagsForResource(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ResourceArn: string
@@ -1460,10 +1460,10 @@ class ListTagsForResource(Paginator):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
                 
@@ -1502,12 +1502,12 @@ class ListTypedLinkFacetAttributes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SchemaArn='string',
-              Name='string',
+              SchemaArn=\'string\',
+              Name=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SchemaArn: string
@@ -1545,27 +1545,27 @@ class ListTypedLinkFacetAttributes(Paginator):
           ::
         
             {
-                'Attributes': [
+                \'Attributes\': [
                     {
-                        'Name': 'string',
-                        'Type': 'STRING'|'BINARY'|'BOOLEAN'|'NUMBER'|'DATETIME'|'VARIANT',
-                        'DefaultValue': {
-                            'StringValue': 'string',
-                            'BinaryValue': b'bytes',
-                            'BooleanValue': True|False,
-                            'NumberValue': 'string',
-                            'DatetimeValue': datetime(2015, 1, 1)
+                        \'Name\': \'string\',
+                        \'Type\': \'STRING\'|\'BINARY\'|\'BOOLEAN\'|\'NUMBER\'|\'DATETIME\'|\'VARIANT\',
+                        \'DefaultValue\': {
+                            \'StringValue\': \'string\',
+                            \'BinaryValue\': b\'bytes\',
+                            \'BooleanValue\': True|False,
+                            \'NumberValue\': \'string\',
+                            \'DatetimeValue\': datetime(2015, 1, 1)
                         },
-                        'IsImmutable': True|False,
-                        'Rules': {
-                            'string': {
-                                'Type': 'BINARY_LENGTH'|'NUMBER_COMPARISON'|'STRING_FROM_SET'|'STRING_LENGTH',
-                                'Parameters': {
-                                    'string': 'string'
+                        \'IsImmutable\': True|False,
+                        \'Rules\': {
+                            \'string\': {
+                                \'Type\': \'BINARY_LENGTH\'|\'NUMBER_COMPARISON\'|\'STRING_FROM_SET\'|\'STRING_LENGTH\',
+                                \'Parameters\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         },
-                        'RequiredBehavior': 'REQUIRED_ALWAYS'|'NOT_REQUIRED'
+                        \'RequiredBehavior\': \'REQUIRED_ALWAYS\'|\'NOT_REQUIRED\'
                     },
                 ],
                 
@@ -1658,11 +1658,11 @@ class ListTypedLinkFacetNames(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SchemaArn='string',
+              SchemaArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SchemaArn: string
@@ -1695,8 +1695,8 @@ class ListTypedLinkFacetNames(Paginator):
           ::
         
             {
-                'FacetNames': [
-                    'string',
+                \'FacetNames\': [
+                    \'string\',
                 ],
                 
             }
@@ -1724,14 +1724,14 @@ class LookupPolicy(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DirectoryArn='string',
+              DirectoryArn=\'string\',
               ObjectReference={
-                  'Selector': 'string'
+                  \'Selector\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DirectoryArn: string
@@ -1779,14 +1779,14 @@ class LookupPolicy(Paginator):
           ::
         
             {
-                'PolicyToPathList': [
+                \'PolicyToPathList\': [
                     {
-                        'Path': 'string',
-                        'Policies': [
+                        \'Path\': \'string\',
+                        \'Policies\': [
                             {
-                                'PolicyId': 'string',
-                                'ObjectIdentifier': 'string',
-                                'PolicyType': 'string'
+                                \'PolicyId\': \'string\',
+                                \'ObjectIdentifier\': \'string\',
+                                \'PolicyType\': \'string\'
                             },
                         ]
                     },

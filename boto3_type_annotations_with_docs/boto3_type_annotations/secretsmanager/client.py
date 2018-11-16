@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -32,7 +32,7 @@ class Client(BaseClient):
         
         .. note::
         
-          If you cancel a rotation that is in progress, it can leave the ``VersionStage`` labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label ``AWSPENDING`` from the partially created version, specified by the ``VersionId`` response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's ``VersionStage`` field.
+          If you cancel a rotation that is in progress, it can leave the ``VersionStage`` labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label ``AWSPENDING`` from the partially created version, specified by the ``VersionId`` response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version\'s ``VersionStage`` field.
         
         To successfully start a rotation, the staging label ``AWSPENDING`` must be in one of the following states:
         
@@ -64,7 +64,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_rotate_secret(
-              SecretId='string'
+              SecretId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -83,9 +83,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -109,15 +109,15 @@ class Client(BaseClient):
     def create_secret(self, Name: str, ClientRequestToken: str = None, Description: str = None, KmsKeyId: str = None, SecretBinary: bytes = None, SecretString: str = None, Tags: List = None) -> Dict:
         """
         
-        Secrets Manager stores the encrypted secret data in one of a collection of "versions" associated with the secret. Each version contains a copy of the encrypted secret data. Each version is associated with one or more "staging labels" that identify where the version is in the rotation cycle. The ``SecretVersionsToStages`` field of the secret contains the mapping of staging labels to the active versions of the secret. Versions without a staging label are considered deprecated and are not included in the list.
+        Secrets Manager stores the encrypted secret data in one of a collection of \"versions\" associated with the secret. Each version contains a copy of the encrypted secret data. Each version is associated with one or more \"staging labels\" that identify where the version is in the rotation cycle. The ``SecretVersionsToStages`` field of the secret contains the mapping of staging labels to the active versions of the secret. Versions without a staging label are considered deprecated and are not included in the list.
         
         You provide the secret data to be encrypted by putting text in either the ``SecretString`` parameter or binary data in the ``SecretBinary`` parameter, but not both. If you include ``SecretString`` or ``SecretBinary`` then Secrets Manager also creates an initial secret version and automatically attaches the staging label ``AWSCURRENT`` to the new version.
         
         .. note::
         
-          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn't already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
+          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn\'t specify a AWS KMS encryption key, Secrets Manager uses the account\'s default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn\'t already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account\'s AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
            
-          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
+          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can\'t access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account\'s user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
            
          **Minimum permissions**  
         
@@ -125,9 +125,9 @@ class Client(BaseClient):
         
         * secretsmanager:CreateSecret 
          
-        * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager. 
+        * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s default AWS managed CMK for Secrets Manager. 
          
-        * kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager. 
+        * kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s default AWS managed CMK for Secrets Manager. 
          
         * secretsmanager:TagResource - needed only if you include the ``Tags`` parameter.  
          
@@ -151,16 +151,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_secret(
-              Name='string',
-              ClientRequestToken='string',
-              Description='string',
-              KmsKeyId='string',
-              SecretBinary=b'bytes',
-              SecretString='string',
+              Name=\'string\',
+              ClientRequestToken=\'string\',
+              Description=\'string\',
+              KmsKeyId=\'string\',
+              SecretBinary=b\'bytes\',
+              SecretString=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -173,7 +173,7 @@ class Client(BaseClient):
         
           .. note::
         
-            Don't end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. This is because Secrets Manager automatically adds a hyphen and six random characters at the end of the ARN.
+            Don\'t end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. This is because Secrets Manager automatically adds a hyphen and six random characters at the end of the ARN.
         
         :type ClientRequestToken: string
         :param ClientRequestToken: 
@@ -182,15 +182,15 @@ class Client(BaseClient):
         
           .. note::
         
-            If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for the new version and include that value in the request.
+            If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. If you don\'t use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for the new version and include that value in the request.
         
           This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value to ensure uniqueness of your versions within the specified secret. 
         
-          * If the ``ClientRequestToken`` value isn't already associated with a version of the secret then a new version of the secret is created.  
+          * If the ``ClientRequestToken`` value isn\'t already associated with a version of the secret then a new version of the secret is created.  
            
-          * If a version with this value already exists and that version's ``SecretString`` and ``SecretBinary`` values are the same as those in the request, then the request is ignored (the operation is idempotent). 
+          * If a version with this value already exists and that version\'s ``SecretString`` and ``SecretBinary`` values are the same as those in the request, then the request is ignored (the operation is idempotent). 
            
-          * If a version with this value already exists and that version's ``SecretString`` and ``SecretBinary`` values are different from those in the request then the request fails because you cannot modify an existing version. Instead, use  PutSecretValue to create a new version. 
+          * If a version with this value already exists and that version\'s ``SecretString`` and ``SecretBinary`` values are different from those in the request then the request fails because you cannot modify an existing version. Instead, use  PutSecretValue to create a new version. 
            
           This value becomes the ``VersionId`` of the new version.
         
@@ -208,11 +208,11 @@ class Client(BaseClient):
         
           You can specify any of the supported ways to identify a AWS KMS key ID. If you need to reference a CMK in a different account, you can use only the key ARN or the alias ARN.
         
-          If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named ``aws/secretsmanager`` ). If a AWS KMS CMK with that name doesn't yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's ``SecretString`` or ``SecretBinary`` fields.
+          If you don\'t specify this value, then Secrets Manager defaults to using the AWS account\'s default CMK (the one named ``aws/secretsmanager`` ). If a AWS KMS CMK with that name doesn\'t yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version\'s ``SecretString`` or ``SecretBinary`` fields.
         
           .. warning::
         
-            You can use the account's default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and specify the ARN in this field. 
+            You can use the account\'s default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and specify the ARN in this field. 
         
         :type SecretBinary: bytes
         :param SecretBinary: 
@@ -234,24 +234,24 @@ class Client(BaseClient):
         
           For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* . For example:
         
-           ``[{"username":"bob"},{"password":"abc123xyz456"}]``  
+           ``[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]``  
         
           If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. 
         
         :type Tags: list
         :param Tags: 
         
-          (Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag is a "Key" and "Value" pair of strings. This operation only appends tags to the existing list of tags. To remove tags, you must use  UntagResource .
+          (Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag is a \"Key\" and \"Value\" pair of strings. This operation only appends tags to the existing list of tags. To remove tags, you must use  UntagResource .
         
           .. warning::
         
-            * Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc". 
+            * Secrets Manager tag key names are case sensitive. A tag with the key \"ABC\" is a different tag from one with key \"abc\". 
              
             * If you check tags in IAM policy ``Condition`` elements as part of your security strategy, then adding or removing a tag can change permissions. If the successful completion of this operation would result in you losing your permissions for this secret, then this operation is blocked and returns an ``Access Denied`` error. 
              
           This parameter requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* . For example:
         
-           ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``  
+           ``[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]``  
         
           If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. 
         
@@ -265,7 +265,7 @@ class Client(BaseClient):
            
           * Tag keys and values are case sensitive. 
            
-          * Do not use the ``aws:`` prefix in your tag names or values because it is reserved for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit. 
+          * Do not use the ``aws:`` prefix in your tag names or values because it is reserved for AWS use. You can\'t edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit. 
            
           * If your tagging schema will be used across multiple services and resources, remember that other services might have restrictions on allowed characters. Generally allowed characters are: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @. 
            
@@ -279,7 +279,7 @@ class Client(BaseClient):
         
             - **Value** *(string) --* 
         
-              The string value that's associated with the key of the tag.
+              The string value that\'s associated with the key of the tag.
         
         :rtype: dict
         :returns: 
@@ -289,9 +289,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -303,7 +303,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don't* automatically get access to the new secret because the ARNs are different.
+                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don\'t* automatically get access to the new secret because the ARNs are different.
         
             - **Name** *(string) --* 
         
@@ -311,7 +311,7 @@ class Client(BaseClient):
         
             - **VersionId** *(string) --* 
         
-              The unique identifier that's associated with the version of the secret you just created.
+              The unique identifier that\'s associated with the version of the secret you just created.
         
         """
         pass
@@ -329,7 +329,7 @@ class Client(BaseClient):
         
         * To attach a resource policy to a secret, use  PutResourcePolicy . 
          
-        * To retrieve the current resource-based policy that's attached to a secret, use  GetResourcePolicy . 
+        * To retrieve the current resource-based policy that\'s attached to a secret, use  GetResourcePolicy . 
          
         * To list all of the currently available secrets, use  ListSecrets . 
          
@@ -339,7 +339,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_resource_policy(
-              SecretId='string'
+              SecretId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -358,8 +358,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -407,7 +407,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_secret(
-              SecretId='string',
+              SecretId=\'string\',
               RecoveryWindowInDays=123,
               ForceDeleteWithoutRecovery=True|False
           )
@@ -423,14 +423,14 @@ class Client(BaseClient):
         :type RecoveryWindowInDays: integer
         :param RecoveryWindowInDays: 
         
-          (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the ``ForceDeleteWithoutRecovery`` parameter in the same API call.
+          (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can\'t use both this parameter and the ``ForceDeleteWithoutRecovery`` parameter in the same API call.
         
           This value can range from 7 to 30 days. The default value is 30.
         
         :type ForceDeleteWithoutRecovery: boolean
         :param ForceDeleteWithoutRecovery: 
         
-          (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the ``RecoveryWindowInDays`` parameter in the same API call.
+          (Optional) Specifies that the secret is to be deleted without any recovery window. You can\'t use both this parameter and the ``RecoveryWindowInDays`` parameter in the same API call.
         
           An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic.
         
@@ -446,9 +446,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'DeletionDate': datetime(2015, 1, 1)
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'DeletionDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -494,7 +494,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_secret(
-              SecretId='string'
+              SecretId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -513,28 +513,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'Description': 'string',
-                'KmsKeyId': 'string',
-                'RotationEnabled': True|False,
-                'RotationLambdaARN': 'string',
-                'RotationRules': {
-                    'AutomaticallyAfterDays': 123
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'Description\': \'string\',
+                \'KmsKeyId\': \'string\',
+                \'RotationEnabled\': True|False,
+                \'RotationLambdaARN\': \'string\',
+                \'RotationRules\': {
+                    \'AutomaticallyAfterDays\': 123
                 },
-                'LastRotatedDate': datetime(2015, 1, 1),
-                'LastChangedDate': datetime(2015, 1, 1),
-                'LastAccessedDate': datetime(2015, 1, 1),
-                'DeletedDate': datetime(2015, 1, 1),
-                'Tags': [
+                \'LastRotatedDate\': datetime(2015, 1, 1),
+                \'LastChangedDate\': datetime(2015, 1, 1),
+                \'LastAccessedDate\': datetime(2015, 1, 1),
+                \'DeletedDate\': datetime(2015, 1, 1),
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'VersionIdsToStages': {
-                    'string': [
-                        'string',
+                \'VersionIdsToStages\': {
+                    \'string\': [
+                        \'string\',
                     ]
                 }
             }
@@ -556,7 +556,7 @@ class Client(BaseClient):
         
             - **KmsKeyId** *(string) --* 
         
-              The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the ``SecretString`` or ``SecretBinary`` fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named ``awssecretsmanager`` ) for this account.
+              The ARN or alias of the AWS KMS customer master key (CMK) that\'s used to encrypt the ``SecretString`` or ``SecretBinary`` fields in each version of the secret. If you don\'t provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named ``awssecretsmanager`` ) for this account.
         
             - **RotationEnabled** *(boolean) --* 
         
@@ -566,7 +566,7 @@ class Client(BaseClient):
         
             - **RotationLambdaARN** *(string) --* 
         
-              The ARN of a Lambda function that's invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to ``RotateSecret`` .
+              The ARN of a Lambda function that\'s invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to ``RotateSecret`` .
         
             - **RotationRules** *(dict) --* 
         
@@ -610,7 +610,7 @@ class Client(BaseClient):
         
                 - **Value** *(string) --* 
         
-                  The string value that's associated with the key of the tag.
+                  The string value that\'s associated with the key of the tag.
         
             - **VersionIdsToStages** *(dict) --* 
         
@@ -645,7 +645,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -657,10 +657,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -687,7 +687,7 @@ class Client(BaseClient):
         
           response = client.get_random_password(
               PasswordLength=123,
-              ExcludeCharacters='string',
+              ExcludeCharacters=\'string\',
               ExcludeNumbers=True|False,
               ExcludePunctuation=True|False,
               ExcludeUppercase=True|False,
@@ -715,9 +715,9 @@ class Client(BaseClient):
         
           Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
         
-          The following are the punctuation characters that *can* be included in the generated password if you don't explicitly exclude them with ``ExcludeCharacters`` or ``ExcludePunctuation`` :
+          The following are the punctuation characters that *can* be included in the generated password if you don\'t explicitly exclude them with ``ExcludeCharacters`` or ``ExcludePunctuation`` :
         
-           ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~``  
+           ``! \" # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~``  
         
         :type ExcludeUppercase: boolean
         :param ExcludeUppercase: 
@@ -747,7 +747,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RandomPassword': 'string'
+                \'RandomPassword\': \'string\'
             }
           **Response Structure** 
         
@@ -773,7 +773,7 @@ class Client(BaseClient):
         
         * To attach a resource policy to a secret, use  PutResourcePolicy . 
          
-        * To delete the resource-based policy that's attached to a secret, use  DeleteResourcePolicy . 
+        * To delete the resource-based policy that\'s attached to a secret, use  DeleteResourcePolicy . 
          
         * To list all of the currently available secrets, use  ListSecrets . 
          
@@ -783,7 +783,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource_policy(
-              SecretId='string'
+              SecretId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -802,9 +802,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'ResourcePolicy': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'ResourcePolicy\': \'string\'
             }
           **Response Structure** 
         
@@ -834,7 +834,7 @@ class Client(BaseClient):
         
         * secretsmanager:GetSecretValue 
          
-        * kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager. 
+        * kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s default AWS managed CMK for Secrets Manager. 
          
          **Related operations**  
         
@@ -848,9 +848,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_secret_value(
-              SecretId='string',
-              VersionId='string',
-              VersionStage='string'
+              SecretId=\'string\',
+              VersionId=\'string\',
+              VersionStage=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -864,7 +864,7 @@ class Client(BaseClient):
         :type VersionId: string
         :param VersionId: 
         
-          Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify ``VersionStage`` . If you don't specify either a ``VersionStage`` or ``VersionId`` then the default is to perform the operation on the version with the ``VersionStage`` value of ``AWSCURRENT`` .
+          Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don\'t specify ``VersionStage`` . If you don\'t specify either a ``VersionStage`` or ``VersionId`` then the default is to perform the operation on the version with the ``VersionStage`` value of ``AWSCURRENT`` .
         
           This value is typically a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value with 32 hexadecimal digits.
         
@@ -873,7 +873,7 @@ class Client(BaseClient):
         
           Specifies the secret version that you want to retrieve by the staging label attached to the version.
         
-          Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify ``VersionId`` . If you don't specify either a ``VersionStage`` or ``VersionId`` , then the default is to perform the operation on the version with the ``VersionStage`` value of ``AWSCURRENT`` .
+          Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don\'t specify ``VersionId`` . If you don\'t specify either a ``VersionStage`` or ``VersionId`` , then the default is to perform the operation on the version with the ``VersionStage`` value of ``AWSCURRENT`` .
         
         :rtype: dict
         :returns: 
@@ -883,15 +883,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string',
-                'SecretBinary': b'bytes',
-                'SecretString': 'string',
-                'VersionStages': [
-                    'string',
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\',
+                \'SecretBinary\': b\'bytes\',
+                \'SecretString\': \'string\',
+                \'VersionStages\': [
+                    \'string\',
                 ],
-                'CreatedDate': datetime(2015, 1, 1)
+                \'CreatedDate\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -973,9 +973,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_secret_version_ids(
-              SecretId='string',
+              SecretId=\'string\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               IncludeDeprecated=True|False
           )
         :type SecretId: string
@@ -990,12 +990,12 @@ class Client(BaseClient):
         :type MaxResults: integer
         :param MaxResults: 
         
-          (Optional) Limits the number of results that you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the ``NextToken`` response element is present and has a value (isn't null). Include that value as the ``NextToken`` request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check ``NextToken`` after every operation to ensure that you receive all of the results.
+          (Optional) Limits the number of results that you want to include in the response. If you don\'t include this parameter, it defaults to a value that\'s specific to the operation. If additional items exist beyond the maximum you specify, the ``NextToken`` response element is present and has a value (isn\'t null). Include that value as the ``NextToken`` request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check ``NextToken`` after every operation to ensure that you receive all of the results.
         
         :type NextToken: string
         :param NextToken: 
         
-          (Optional) Use this parameter in a request if you receive a ``NextToken`` response in a previous request that indicates that there's more output available. In a subsequent call, set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          (Optional) Use this parameter in a request if you receive a ``NextToken`` response in a previous request that indicates that there\'s more output available. In a subsequent call, set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type IncludeDeprecated: boolean
         :param IncludeDeprecated: 
@@ -1010,19 +1010,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Versions': [
+                \'Versions\': [
                     {
-                        'VersionId': 'string',
-                        'VersionStages': [
-                            'string',
+                        \'VersionId\': \'string\',
+                        \'VersionStages\': [
+                            \'string\',
                         ],
-                        'LastAccessedDate': datetime(2015, 1, 1),
-                        'CreatedDate': datetime(2015, 1, 1)
+                        \'LastAccessedDate\': datetime(2015, 1, 1),
+                        \'CreatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string',
-                'ARN': 'string',
-                'Name': 'string'
+                \'NextToken\': \'string\',
+                \'ARN\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1056,7 +1056,7 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If present in the response, this value indicates that there's more output available than what's included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the ``NextToken`` request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the ``NextToken`` response element comes back empty (as ``null`` ).
+              If present in the response, this value indicates that there\'s more output available than what\'s included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the ``NextToken`` request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the ``NextToken`` response element comes back empty (as ``null`` ).
         
             - **ARN** *(string) --* 
         
@@ -1064,7 +1064,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don't* automatically get access to the new secret because the ARNs are different.
+                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don\'t* automatically get access to the new secret because the ARNs are different.
         
             - **Name** *(string) --* 
         
@@ -1097,17 +1097,17 @@ class Client(BaseClient):
         
           response = client.list_secrets(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
         
-          (Optional) Limits the number of results that you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the ``NextToken`` response element is present and has a value (isn't null). Include that value as the ``NextToken`` request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check ``NextToken`` after every operation to ensure that you receive all of the results.
+          (Optional) Limits the number of results that you want to include in the response. If you don\'t include this parameter, it defaults to a value that\'s specific to the operation. If additional items exist beyond the maximum you specify, the ``NextToken`` response element is present and has a value (isn\'t null). Include that value as the ``NextToken`` request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check ``NextToken`` after every operation to ensure that you receive all of the results.
         
         :type NextToken: string
         :param NextToken: 
         
-          (Optional) Use this parameter in a request if you receive a ``NextToken`` response in a previous request that indicates that there's more output available. In a subsequent call, set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          (Optional) Use this parameter in a request if you receive a ``NextToken`` response in a previous request that indicates that there\'s more output available. In a subsequent call, set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :rtype: dict
         :returns: 
@@ -1117,35 +1117,35 @@ class Client(BaseClient):
           ::
         
             {
-                'SecretList': [
+                \'SecretList\': [
                     {
-                        'ARN': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'KmsKeyId': 'string',
-                        'RotationEnabled': True|False,
-                        'RotationLambdaARN': 'string',
-                        'RotationRules': {
-                            'AutomaticallyAfterDays': 123
+                        \'ARN\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'RotationEnabled\': True|False,
+                        \'RotationLambdaARN\': \'string\',
+                        \'RotationRules\': {
+                            \'AutomaticallyAfterDays\': 123
                         },
-                        'LastRotatedDate': datetime(2015, 1, 1),
-                        'LastChangedDate': datetime(2015, 1, 1),
-                        'LastAccessedDate': datetime(2015, 1, 1),
-                        'DeletedDate': datetime(2015, 1, 1),
-                        'Tags': [
+                        \'LastRotatedDate\': datetime(2015, 1, 1),
+                        \'LastChangedDate\': datetime(2015, 1, 1),
+                        \'LastAccessedDate\': datetime(2015, 1, 1),
+                        \'DeletedDate\': datetime(2015, 1, 1),
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'SecretVersionsToStages': {
-                            'string': [
-                                'string',
+                        \'SecretVersionsToStages\': {
+                            \'string\': [
+                                \'string\',
                             ]
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1175,7 +1175,7 @@ class Client(BaseClient):
         
                 - **KmsKeyId** *(string) --* 
         
-                  The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the ``SecretString`` and ``SecretBinary`` fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK (the one named ``awssecretsmanager`` ) for this account.
+                  The ARN or alias of the AWS KMS customer master key (CMK) that\'s used to encrypt the ``SecretString`` and ``SecretBinary`` fields in each version of the secret. If you don\'t provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK (the one named ``awssecretsmanager`` ) for this account.
         
                 - **RotationEnabled** *(boolean) --* 
         
@@ -1183,7 +1183,7 @@ class Client(BaseClient):
         
                 - **RotationLambdaARN** *(string) --* 
         
-                  The ARN of an AWS Lambda function that's invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to  RotateSecret .
+                  The ARN of an AWS Lambda function that\'s invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to  RotateSecret .
         
                 - **RotationRules** *(dict) --* 
         
@@ -1225,7 +1225,7 @@ class Client(BaseClient):
         
                     - **Value** *(string) --* 
         
-                      The string value that's associated with the key of the tag.
+                      The string value that\'s associated with the key of the tag.
         
                 - **SecretVersionsToStages** *(dict) --* 
         
@@ -1243,7 +1243,7 @@ class Client(BaseClient):
                   
             - **NextToken** *(string) --* 
         
-              If present in the response, this value indicates that there's more output available than what's included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the ``NextToken`` request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the ``NextToken`` response element comes back empty (as ``null`` ).
+              If present in the response, this value indicates that there\'s more output available than what\'s included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the ``NextToken`` request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the ``NextToken`` response element comes back empty (as ``null`` ).
         
         """
         pass
@@ -1259,9 +1259,9 @@ class Client(BaseClient):
          
          **Related operations**  
         
-        * To retrieve the resource policy that's attached to a secret, use  GetResourcePolicy . 
+        * To retrieve the resource policy that\'s attached to a secret, use  GetResourcePolicy . 
          
-        * To delete the resource-based policy that's attached to a secret, use  DeleteResourcePolicy . 
+        * To delete the resource-based policy that\'s attached to a secret, use  DeleteResourcePolicy . 
          
         * To list all of the currently available secrets, use  ListSecrets . 
          
@@ -1271,8 +1271,8 @@ class Client(BaseClient):
         ::
         
           response = client.put_resource_policy(
-              SecretId='string',
-              ResourcePolicy='string'
+              SecretId=\'string\',
+              ResourcePolicy=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -1286,7 +1286,7 @@ class Client(BaseClient):
         :type ResourcePolicy: string
         :param ResourcePolicy: **[REQUIRED]** 
         
-          A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* .
+          A JSON-formatted string that\'s constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* .
         
         :rtype: dict
         :returns: 
@@ -1296,8 +1296,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1331,9 +1331,9 @@ class Client(BaseClient):
          
         .. note::
         
-          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn't already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
+          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn\'t specify a AWS KMS encryption key, Secrets Manager uses the account\'s default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn\'t already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account\'s AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
            
-          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
+          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can\'t access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account\'s user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
            
          **Minimum permissions**  
         
@@ -1341,7 +1341,7 @@ class Client(BaseClient):
         
         * secretsmanager:PutSecretValue 
          
-        * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager. 
+        * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s default AWS managed CMK for Secrets Manager. 
          
          **Related operations**  
         
@@ -1359,12 +1359,12 @@ class Client(BaseClient):
         ::
         
           response = client.put_secret_value(
-              SecretId='string',
-              ClientRequestToken='string',
-              SecretBinary=b'bytes',
-              SecretString='string',
+              SecretId=\'string\',
+              ClientRequestToken=\'string\',
+              SecretBinary=b\'bytes\',
+              SecretString=\'string\',
               VersionStages=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SecretId: string
@@ -1383,15 +1383,15 @@ class Client(BaseClient):
         
           .. note::
         
-            If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request. 
+            If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don\'t use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request. 
         
-          This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value to ensure uniqueness within the specified secret. 
+          This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function\'s processing. We recommend that you generate a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value to ensure uniqueness within the specified secret. 
         
-          * If the ``ClientRequestToken`` value isn't already associated with a version of the secret then a new version of the secret is created.  
+          * If the ``ClientRequestToken`` value isn\'t already associated with a version of the secret then a new version of the secret is created.  
            
-          * If a version with this value already exists and that version's ``SecretString`` or ``SecretBinary`` values are the same as those in the request then the request is ignored (the operation is idempotent).  
+          * If a version with this value already exists and that version\'s ``SecretString`` or ``SecretBinary`` values are the same as those in the request then the request is ignored (the operation is idempotent).  
            
-          * If a version with this value already exists and that version's ``SecretString`` and ``SecretBinary`` values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values. 
+          * If a version with this value already exists and that version\'s ``SecretString`` and ``SecretBinary`` values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values. 
            
           This value becomes the ``VersionId`` of the new version.
         
@@ -1415,7 +1415,7 @@ class Client(BaseClient):
         
           For example:
         
-           ``[{"username":"bob"},{"password":"abc123xyz456"}]``  
+           ``[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]``  
         
           If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
         
@@ -1424,7 +1424,7 @@ class Client(BaseClient):
         
           (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
         
-          A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
+          A staging label must be unique to a single version of the secret. If you specify a staging label that\'s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
         
           If you do not specify a value for ``VersionStages`` then Secrets Manager automatically moves the staging label ``AWSCURRENT`` to this new version.
         
@@ -1438,11 +1438,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string',
-                'VersionStages': [
-                    'string',
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\',
+                \'VersionStages\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -1489,7 +1489,7 @@ class Client(BaseClient):
         ::
         
           response = client.restore_secret(
-              SecretId='string'
+              SecretId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -1508,8 +1508,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -1547,7 +1547,7 @@ class Client(BaseClient):
         
         * secretsmanager:RotateSecret 
          
-        * lambda:InvokeFunction (on the function specified in the secret's metadata) 
+        * lambda:InvokeFunction (on the function specified in the secret\'s metadata) 
          
          **Related operations**  
         
@@ -1565,11 +1565,11 @@ class Client(BaseClient):
         ::
         
           response = client.rotate_secret(
-              SecretId='string',
-              ClientRequestToken='string',
-              RotationLambdaARN='string',
+              SecretId=\'string\',
+              ClientRequestToken=\'string\',
+              RotationLambdaARN=\'string\',
               RotationRules={
-                  'AutomaticallyAfterDays': 123
+                  \'AutomaticallyAfterDays\': 123
               }
           )
         :type SecretId: string
@@ -1586,11 +1586,11 @@ class Client(BaseClient):
         
           (Optional) Specifies a unique identifier for the new version of the secret that helps ensure idempotency. 
         
-          If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request.
+          If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request for this parameter. If you don\'t use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request.
         
           You only need to specify your own value if you are implementing your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value to ensure uniqueness within the specified secret. 
         
-          Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function's processing. This value becomes the ``VersionId`` of the new version.
+          Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function\'s processing. This value becomes the ``VersionId`` of the new version.
         
           This field is autopopulated if not provided.
         
@@ -1618,9 +1618,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1654,7 +1654,7 @@ class Client(BaseClient):
          
         * Tag keys and values are case sensitive. 
          
-        * Do not use the ``aws:`` prefix in your tag names or values because it is reserved for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit. 
+        * Do not use the ``aws:`` prefix in your tag names or values because it is reserved for AWS use. You can\'t edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit. 
          
         * If your tagging schema will be used across multiple services and resources, remember that other services might have restrictions on allowed characters. Generally allowed characters are: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @. 
          
@@ -1680,11 +1680,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              SecretId='string',
+              SecretId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1702,7 +1702,7 @@ class Client(BaseClient):
         
           The tags to attach to the secret. Each element in the list consists of a ``Key`` and a ``Value`` .
         
-          This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* . For the AWS CLI, you can also use the syntax: ``--Tags Key="Key1",Value="Value1",Key="Key2",Value="Value2"[,…]``  
+          This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* . For the AWS CLI, you can also use the syntax: ``--Tags Key=\"Key1\",Value=\"Value1\",Key=\"Key2\",Value=\"Value2\"[,…]``  
         
           - *(dict) --* 
         
@@ -1714,7 +1714,7 @@ class Client(BaseClient):
         
             - **Value** *(string) --* 
         
-              The string value that's associated with the key of the tag.
+              The string value that\'s associated with the key of the tag.
         
         :returns: None
         """
@@ -1747,9 +1747,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              SecretId='string',
+              SecretId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SecretId: string
@@ -1764,7 +1764,7 @@ class Client(BaseClient):
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]** 
         
-          A list of tag key names to remove from the secret. You don't specify the value. Both the key and its associated value are removed.
+          A list of tag key names to remove from the secret. You don\'t specify the value. Both the key and its associated value are removed.
         
           This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* .
         
@@ -1789,9 +1789,9 @@ class Client(BaseClient):
          
         .. note::
         
-          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn't already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
+          * If you call an operation that needs to encrypt or decrypt the ``SecretString`` or ``SecretBinary`` for a secret in the same account as the calling user and that secret doesn\'t specify a AWS KMS encryption key, Secrets Manager uses the account\'s default AWS managed customer master key (CMK) with the alias ``aws/secretsmanager`` . If this key doesn\'t already exist in your account then Secrets Manager creates it for you automatically. All users and roles in the same AWS account automatically have access to use the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account\'s AWS-managed CMK, it can result in a one-time significant delay in returning the result. 
            
-          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account's user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
+          * If the secret is in a different AWS account from the credentials calling an API that requires encryption or decryption of the secret value then you must create and use a custom AWS KMS CMK because you can\'t access the default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when you create the secret or when you update it by including it in the ``KMSKeyId`` . If you call an API that must encrypt or decrypt ``SecretString`` or ``SecretBinary`` using credentials from a different account then the AWS KMS key policy must grant cross-account access to that other account\'s user or role for both the kms:GenerateDataKey and kms:Decrypt operations. 
            
          **Minimum permissions**  
         
@@ -1799,9 +1799,9 @@ class Client(BaseClient):
         
         * secretsmanager:UpdateSecret 
          
-        * kms:GenerateDataKey - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager. 
+        * kms:GenerateDataKey - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s AWS managed CMK for Secrets Manager. 
          
-        * kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager. 
+        * kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account\'s AWS managed CMK for Secrets Manager. 
          
          **Related operations**  
         
@@ -1819,12 +1819,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_secret(
-              SecretId='string',
-              ClientRequestToken='string',
-              Description='string',
-              KmsKeyId='string',
-              SecretBinary=b'bytes',
-              SecretString='string'
+              SecretId=\'string\',
+              ClientRequestToken=\'string\',
+              Description=\'string\',
+              KmsKeyId=\'string\',
+              SecretBinary=b\'bytes\',
+              SecretString=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -1840,17 +1840,17 @@ class Client(BaseClient):
         
           (Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency. 
         
-          If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request.
+          If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don\'t use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a ``ClientRequestToken`` yourself for new versions and include that value in the request.
         
           You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a `UUID-type <https://wikipedia.org/wiki/Universally_unique_identifier>`__ value to ensure uniqueness within the specified secret. 
         
-          Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.
+          Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function\'s processing.
         
-          * If the ``ClientRequestToken`` value isn't already associated with a version of the secret then a new version of the secret is created.  
+          * If the ``ClientRequestToken`` value isn\'t already associated with a version of the secret then a new version of the secret is created.  
            
-          * If a version with this value already exists and that version's ``SecretString`` and ``SecretBinary`` values are the same as those in the request then the request is ignored (the operation is idempotent).  
+          * If a version with this value already exists and that version\'s ``SecretString`` and ``SecretBinary`` values are the same as those in the request then the request is ignored (the operation is idempotent).  
            
-          * If a version with this value already exists and that version's ``SecretString`` and ``SecretBinary`` values are different from the request then an error occurs because you cannot modify an existing secret value. 
+          * If a version with this value already exists and that version\'s ``SecretString`` and ``SecretBinary`` values are different from the request then an error occurs because you cannot modify an existing secret value. 
            
           This value becomes the ``VersionId`` of the new version.
         
@@ -1868,7 +1868,7 @@ class Client(BaseClient):
         
           .. warning::
         
-            You can only use the account's default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN of that CMK in this field. The user making the call must have permissions to both the secret and the CMK in their respective accounts.
+            You can only use the account\'s default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN of that CMK in this field. The user making the call must have permissions to both the secret and the CMK in their respective accounts.
         
         :type SecretBinary: bytes
         :param SecretBinary: 
@@ -1886,11 +1886,11 @@ class Client(BaseClient):
         
           For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see `Using JSON for Parameters <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json>`__ in the *AWS CLI User Guide* . For example:
         
-           ``[{"username":"bob"},{"password":"abc123xyz456"}]``  
+           ``[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]``  
         
-          If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. You can also 'escape' the double quote character in the embedded JSON text by prefacing each with a backslash. For example, the following string is surrounded by double-quotes. All of the embedded double quotes are escaped:
+          If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. You can also \'escape\' the double quote character in the embedded JSON text by prefacing each with a backslash. For example, the following string is surrounded by double-quotes. All of the embedded double quotes are escaped:
         
-           ``"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"``  
+           ``\"[{\\"username\\":\\"bob\\"},{\\"password\\":\\"abc123xyz456\\"}]\"``  
         
         :rtype: dict
         :returns: 
@@ -1900,9 +1900,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string',
-                'VersionId': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\',
+                \'VersionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1914,7 +1914,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don't* automatically get access to the new secret because the ARNs are different.
+                Secrets Manager automatically adds several random characters to the name at the end of the ARN when you initially create a secret. This affects only the ARN and not the actual friendly name. This ensures that if you create a new secret with the same name as an old secret that you previously deleted, then users with access to the old secret *don\'t* automatically get access to the new secret because the ARNs are different.
         
             - **Name** *(string) --* 
         
@@ -1930,7 +1930,7 @@ class Client(BaseClient):
     def update_secret_version_stage(self, SecretId: str, VersionStage: str, RemoveFromVersionId: str = None, MoveToVersionId: str = None) -> Dict:
         """
         
-        The staging labels that you specify in the ``VersionStage`` parameter are added to the existing list of staging labels--they don't replace it.
+        The staging labels that you specify in the ``VersionStage`` parameter are added to the existing list of staging labels--they don\'t replace it.
         
         You can move the ``AWSCURRENT`` staging label to this version by including it in this call.
         
@@ -1938,7 +1938,7 @@ class Client(BaseClient):
         
           Whenever you move ``AWSCURRENT`` , Secrets Manager automatically moves the label ``AWSPREVIOUS`` to the version that ``AWSCURRENT`` was removed from.
         
-        If this action results in the last label being removed from a version, then the version is considered to be 'deprecated' and can be deleted by Secrets Manager.
+        If this action results in the last label being removed from a version, then the version is considered to be \'deprecated\' and can be deleted by Secrets Manager.
         
          **Minimum permissions**  
         
@@ -1956,10 +1956,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_secret_version_stage(
-              SecretId='string',
-              VersionStage='string',
-              RemoveFromVersionId='string',
-              MoveToVersionId='string'
+              SecretId=\'string\',
+              VersionStage=\'string\',
+              RemoveFromVersionId=\'string\',
+              MoveToVersionId=\'string\'
           )
         :type SecretId: string
         :param SecretId: **[REQUIRED]** 
@@ -1995,8 +1995,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ARN': 'string',
-                'Name': 'string'
+                \'ARN\': \'string\',
+                \'Name\': \'string\'
             }
           **Response Structure** 
         

@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,7 +33,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_signing_profile(
-              profileName='string'
+              profileName=\'string\'
           )
         :type profileName: string
         :param profileName: **[REQUIRED]** 
@@ -53,7 +53,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_signing_job(
-              jobId='string'
+              jobId=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -68,37 +68,37 @@ class Client(BaseClient):
           ::
         
             {
-                'jobId': 'string',
-                'source': {
-                    's3': {
-                        'bucketName': 'string',
-                        'key': 'string',
-                        'version': 'string'
+                \'jobId\': \'string\',
+                \'source\': {
+                    \'s3\': {
+                        \'bucketName\': \'string\',
+                        \'key\': \'string\',
+                        \'version\': \'string\'
                     }
                 },
-                'signingMaterial': {
-                    'certificateArn': 'string'
+                \'signingMaterial\': {
+                    \'certificateArn\': \'string\'
                 },
-                'platformId': 'string',
-                'profileName': 'string',
-                'overrides': {
-                    'signingConfiguration': {
-                        'encryptionAlgorithm': 'RSA'|'ECDSA',
-                        'hashAlgorithm': 'SHA1'|'SHA256'
+                \'platformId\': \'string\',
+                \'profileName\': \'string\',
+                \'overrides\': {
+                    \'signingConfiguration\': {
+                        \'encryptionAlgorithm\': \'RSA\'|\'ECDSA\',
+                        \'hashAlgorithm\': \'SHA1\'|\'SHA256\'
                     }
                 },
-                'signingParameters': {
-                    'string': 'string'
+                \'signingParameters\': {
+                    \'string\': \'string\'
                 },
-                'createdAt': datetime(2015, 1, 1),
-                'completedAt': datetime(2015, 1, 1),
-                'requestedBy': 'string',
-                'status': 'InProgress'|'Failed'|'Succeeded',
-                'statusReason': 'string',
-                'signedObject': {
-                    's3': {
-                        'bucketName': 'string',
-                        'key': 'string'
+                \'createdAt\': datetime(2015, 1, 1),
+                \'completedAt\': datetime(2015, 1, 1),
+                \'requestedBy\': \'string\',
+                \'status\': \'InProgress\'|\'Failed\'|\'Succeeded\',
+                \'statusReason\': \'string\',
+                \'signedObject\': {
+                    \'s3\': {
+                        \'bucketName\': \'string\',
+                        \'key\': \'string\'
                     }
                 }
             }
@@ -225,7 +225,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -237,10 +237,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -260,7 +260,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_signing_platform(
-              platformId='string'
+              platformId=\'string\'
           )
         :type platformId: string
         :param platformId: **[REQUIRED]** 
@@ -275,32 +275,32 @@ class Client(BaseClient):
           ::
         
             {
-                'platformId': 'string',
-                'displayName': 'string',
-                'partner': 'string',
-                'target': 'string',
-                'category': 'AWSIoT',
-                'signingConfiguration': {
-                    'encryptionAlgorithmOptions': {
-                        'allowedValues': [
-                            'RSA'|'ECDSA',
+                \'platformId\': \'string\',
+                \'displayName\': \'string\',
+                \'partner\': \'string\',
+                \'target\': \'string\',
+                \'category\': \'AWSIoT\',
+                \'signingConfiguration\': {
+                    \'encryptionAlgorithmOptions\': {
+                        \'allowedValues\': [
+                            \'RSA\'|\'ECDSA\',
                         ],
-                        'defaultValue': 'RSA'|'ECDSA'
+                        \'defaultValue\': \'RSA\'|\'ECDSA\'
                     },
-                    'hashAlgorithmOptions': {
-                        'allowedValues': [
-                            'SHA1'|'SHA256',
+                    \'hashAlgorithmOptions\': {
+                        \'allowedValues\': [
+                            \'SHA1\'|\'SHA256\',
                         ],
-                        'defaultValue': 'SHA1'|'SHA256'
+                        \'defaultValue\': \'SHA1\'|\'SHA256\'
                     }
                 },
-                'signingImageFormat': {
-                    'supportedFormats': [
-                        'JSON',
+                \'signingImageFormat\': {
+                    \'supportedFormats\': [
+                        \'JSON\',
                     ],
-                    'defaultFormat': 'JSON'
+                    \'defaultFormat\': \'JSON\'
                 },
-                'maxSizeInMB': 123
+                \'maxSizeInMB\': 123
             }
           **Response Structure** 
         
@@ -360,7 +360,7 @@ class Client(BaseClient):
         
             - **signingImageFormat** *(dict) --* 
         
-              The format of the target platform's signing image.
+              The format of the target platform\'s signing image.
         
               - **supportedFormats** *(list) --* 
         
@@ -388,7 +388,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_signing_profile(
-              profileName='string'
+              profileName=\'string\'
           )
         :type profileName: string
         :param profileName: **[REQUIRED]** 
@@ -403,21 +403,21 @@ class Client(BaseClient):
           ::
         
             {
-                'profileName': 'string',
-                'signingMaterial': {
-                    'certificateArn': 'string'
+                \'profileName\': \'string\',
+                \'signingMaterial\': {
+                    \'certificateArn\': \'string\'
                 },
-                'platformId': 'string',
-                'overrides': {
-                    'signingConfiguration': {
-                        'encryptionAlgorithm': 'RSA'|'ECDSA',
-                        'hashAlgorithm': 'SHA1'|'SHA256'
+                \'platformId\': \'string\',
+                \'overrides\': {
+                    \'signingConfiguration\': {
+                        \'encryptionAlgorithm\': \'RSA\'|\'ECDSA\',
+                        \'hashAlgorithm\': \'SHA1\'|\'SHA256\'
                     }
                 },
-                'signingParameters': {
-                    'string': 'string'
+                \'signingParameters\': {
+                    \'string\': \'string\'
                 },
-                'status': 'Active'|'Canceled'
+                \'status\': \'Active\'|\'Canceled\'
             }
           **Response Structure** 
         
@@ -491,11 +491,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_signing_jobs(
-              status='InProgress'|'Failed'|'Succeeded',
-              platformId='string',
-              requestedBy='string',
+              status=\'InProgress\'|\'Failed\'|\'Succeeded\',
+              platformId=\'string\',
+              requestedBy=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type status: string
         :param status: 
@@ -530,30 +530,30 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'jobId': 'string',
-                        'source': {
-                            's3': {
-                                'bucketName': 'string',
-                                'key': 'string',
-                                'version': 'string'
+                        \'jobId\': \'string\',
+                        \'source\': {
+                            \'s3\': {
+                                \'bucketName\': \'string\',
+                                \'key\': \'string\',
+                                \'version\': \'string\'
                             }
                         },
-                        'signedObject': {
-                            's3': {
-                                'bucketName': 'string',
-                                'key': 'string'
+                        \'signedObject\': {
+                            \'s3\': {
+                                \'bucketName\': \'string\',
+                                \'key\': \'string\'
                             }
                         },
-                        'signingMaterial': {
-                            'certificateArn': 'string'
+                        \'signingMaterial\': {
+                            \'certificateArn\': \'string\'
                         },
-                        'createdAt': datetime(2015, 1, 1),
-                        'status': 'InProgress'|'Failed'|'Succeeded'
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'status\': \'InProgress\'|\'Failed\'|\'Succeeded\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -573,7 +573,7 @@ class Client(BaseClient):
         
                 - **source** *(dict) --* 
         
-                  A ``Source`` that contains information about a signing job's code image source.
+                  A ``Source`` that contains information about a signing job\'s code image source.
         
                   - **s3** *(dict) --* 
         
@@ -593,7 +593,7 @@ class Client(BaseClient):
         
                 - **signedObject** *(dict) --* 
         
-                  A ``SignedObject`` structure that contains information about a signing job's signed code image.
+                  A ``SignedObject`` structure that contains information about a signing job\'s signed code image.
         
                   - **s3** *(dict) --* 
         
@@ -639,11 +639,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_signing_platforms(
-              category='string',
-              partner='string',
-              target='string',
+              category=\'string\',
+              partner=\'string\',
+              target=\'string\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type category: string
         :param category: 
@@ -678,37 +678,37 @@ class Client(BaseClient):
           ::
         
             {
-                'platforms': [
+                \'platforms\': [
                     {
-                        'platformId': 'string',
-                        'displayName': 'string',
-                        'partner': 'string',
-                        'target': 'string',
-                        'category': 'AWSIoT',
-                        'signingConfiguration': {
-                            'encryptionAlgorithmOptions': {
-                                'allowedValues': [
-                                    'RSA'|'ECDSA',
+                        \'platformId\': \'string\',
+                        \'displayName\': \'string\',
+                        \'partner\': \'string\',
+                        \'target\': \'string\',
+                        \'category\': \'AWSIoT\',
+                        \'signingConfiguration\': {
+                            \'encryptionAlgorithmOptions\': {
+                                \'allowedValues\': [
+                                    \'RSA\'|\'ECDSA\',
                                 ],
-                                'defaultValue': 'RSA'|'ECDSA'
+                                \'defaultValue\': \'RSA\'|\'ECDSA\'
                             },
-                            'hashAlgorithmOptions': {
-                                'allowedValues': [
-                                    'SHA1'|'SHA256',
+                            \'hashAlgorithmOptions\': {
+                                \'allowedValues\': [
+                                    \'SHA1\'|\'SHA256\',
                                 ],
-                                'defaultValue': 'SHA1'|'SHA256'
+                                \'defaultValue\': \'SHA1\'|\'SHA256\'
                             }
                         },
-                        'signingImageFormat': {
-                            'supportedFormats': [
-                                'JSON',
+                        \'signingImageFormat\': {
+                            \'supportedFormats\': [
+                                \'JSON\',
                             ],
-                            'defaultFormat': 'JSON'
+                            \'defaultFormat\': \'JSON\'
                         },
-                        'maxSizeInMB': 123
+                        \'maxSizeInMB\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -810,7 +810,7 @@ class Client(BaseClient):
           response = client.list_signing_profiles(
               includeCanceled=True|False,
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type includeCanceled: boolean
         :param includeCanceled: 
@@ -835,20 +835,20 @@ class Client(BaseClient):
           ::
         
             {
-                'profiles': [
+                \'profiles\': [
                     {
-                        'profileName': 'string',
-                        'signingMaterial': {
-                            'certificateArn': 'string'
+                        \'profileName\': \'string\',
+                        \'signingMaterial\': {
+                            \'certificateArn\': \'string\'
                         },
-                        'platformId': 'string',
-                        'signingParameters': {
-                            'string': 'string'
+                        \'platformId\': \'string\',
+                        \'signingParameters\': {
+                            \'string\': \'string\'
                         },
-                        'status': 'Active'|'Canceled'
+                        \'status\': \'Active\'|\'Canceled\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -906,19 +906,19 @@ class Client(BaseClient):
         ::
         
           response = client.put_signing_profile(
-              profileName='string',
+              profileName=\'string\',
               signingMaterial={
-                  'certificateArn': 'string'
+                  \'certificateArn\': \'string\'
               },
-              platformId='string',
+              platformId=\'string\',
               overrides={
-                  'signingConfiguration': {
-                      'encryptionAlgorithm': 'RSA'|'ECDSA',
-                      'hashAlgorithm': 'SHA1'|'SHA256'
+                  \'signingConfiguration\': {
+                      \'encryptionAlgorithm\': \'RSA\'|\'ECDSA\',
+                      \'hashAlgorithm\': \'SHA1\'|\'SHA256\'
                   }
               },
               signingParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type profileName: string
@@ -974,7 +974,7 @@ class Client(BaseClient):
           ::
         
             {
-                'arn': 'string'
+                \'arn\': \'string\'
             }
           **Response Structure** 
         
@@ -1011,20 +1011,20 @@ class Client(BaseClient):
         
           response = client.start_signing_job(
               source={
-                  's3': {
-                      'bucketName': 'string',
-                      'key': 'string',
-                      'version': 'string'
+                  \'s3\': {
+                      \'bucketName\': \'string\',
+                      \'key\': \'string\',
+                      \'version\': \'string\'
                   }
               },
               destination={
-                  's3': {
-                      'bucketName': 'string',
-                      'prefix': 'string'
+                  \'s3\': {
+                      \'bucketName\': \'string\',
+                      \'prefix\': \'string\'
                   }
               },
-              profileName='string',
-              clientRequestToken='string'
+              profileName=\'string\',
+              clientRequestToken=\'string\'
           )
         :type source: dict
         :param source: **[REQUIRED]** 
@@ -1084,7 +1084,7 @@ class Client(BaseClient):
           ::
         
             {
-                'jobId': 'string'
+                \'jobId\': \'string\'
             }
           **Response Structure** 
         

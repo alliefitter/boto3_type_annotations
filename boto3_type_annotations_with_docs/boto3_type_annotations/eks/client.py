@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -29,7 +29,7 @@ class Client(BaseClient):
         
         The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, like ``etcd`` and the API server. The control plane runs in an account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server endpoint.
         
-        Amazon EKS worker nodes run in your AWS account and connect to your cluster's control plane via the Kubernetes API server endpoint and a certificate file that is created for your cluster.
+        Amazon EKS worker nodes run in your AWS account and connect to your cluster\'s control plane via the Kubernetes API server endpoint and a certificate file that is created for your cluster.
         
         The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the worker nodes (for example, to support ``kubectl exec`` , ``logs`` , and ``proxy`` data flows).
         
@@ -41,18 +41,18 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster(
-              name='string',
-              version='string',
-              roleArn='string',
+              name=\'string\',
+              version=\'string\',
+              roleArn=\'string\',
               resourcesVpcConfig={
-                  'subnetIds': [
-                      'string',
+                  \'subnetIds\': [
+                      \'string\',
                   ],
-                  'securityGroupIds': [
-                      'string',
+                  \'securityGroupIds\': [
+                      \'string\',
                   ]
               },
-              clientRequestToken='string'
+              clientRequestToken=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -101,28 +101,28 @@ class Client(BaseClient):
           ::
         
             {
-                'cluster': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'version': 'string',
-                    'endpoint': 'string',
-                    'roleArn': 'string',
-                    'resourcesVpcConfig': {
-                        'subnetIds': [
-                            'string',
+                \'cluster\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'version\': \'string\',
+                    \'endpoint\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'resourcesVpcConfig\': {
+                        \'subnetIds\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ],
-                        'vpcId': 'string'
+                        \'vpcId\': \'string\'
                     },
-                    'status': 'CREATING'|'ACTIVE'|'DELETING'|'FAILED',
-                    'certificateAuthority': {
-                        'data': 'string'
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\'|\'FAILED\',
+                    \'certificateAuthority\': {
+                        \'data\': \'string\'
                     },
-                    'clientRequestToken': 'string',
-                    'platformVersion': 'string'
+                    \'clientRequestToken\': \'string\',
+                    \'platformVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -213,7 +213,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -228,28 +228,28 @@ class Client(BaseClient):
           ::
         
             {
-                'cluster': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'version': 'string',
-                    'endpoint': 'string',
-                    'roleArn': 'string',
-                    'resourcesVpcConfig': {
-                        'subnetIds': [
-                            'string',
+                \'cluster\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'version\': \'string\',
+                    \'endpoint\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'resourcesVpcConfig\': {
+                        \'subnetIds\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ],
-                        'vpcId': 'string'
+                        \'vpcId\': \'string\'
                     },
-                    'status': 'CREATING'|'ACTIVE'|'DELETING'|'FAILED',
-                    'certificateAuthority': {
-                        'data': 'string'
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\'|\'FAILED\',
+                    \'certificateAuthority\': {
+                        \'data\': \'string\'
                     },
-                    'clientRequestToken': 'string',
-                    'platformVersion': 'string'
+                    \'clientRequestToken\': \'string\',
+                    \'platformVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -342,7 +342,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cluster(
-              name='string'
+              name=\'string\'
           )
         :type name: string
         :param name: **[REQUIRED]** 
@@ -357,28 +357,28 @@ class Client(BaseClient):
           ::
         
             {
-                'cluster': {
-                    'name': 'string',
-                    'arn': 'string',
-                    'createdAt': datetime(2015, 1, 1),
-                    'version': 'string',
-                    'endpoint': 'string',
-                    'roleArn': 'string',
-                    'resourcesVpcConfig': {
-                        'subnetIds': [
-                            'string',
+                \'cluster\': {
+                    \'name\': \'string\',
+                    \'arn\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1),
+                    \'version\': \'string\',
+                    \'endpoint\': \'string\',
+                    \'roleArn\': \'string\',
+                    \'resourcesVpcConfig\': {
+                        \'subnetIds\': [
+                            \'string\',
                         ],
-                        'securityGroupIds': [
-                            'string',
+                        \'securityGroupIds\': [
+                            \'string\',
                         ],
-                        'vpcId': 'string'
+                        \'vpcId\': \'string\'
                     },
-                    'status': 'CREATING'|'ACTIVE'|'DELETING'|'FAILED',
-                    'certificateAuthority': {
-                        'data': 'string'
+                    \'status\': \'CREATING\'|\'ACTIVE\'|\'DELETING\'|\'FAILED\',
+                    \'certificateAuthority\': {
+                        \'data\': \'string\'
                     },
-                    'clientRequestToken': 'string',
-                    'platformVersion': 'string'
+                    \'clientRequestToken\': \'string\',
+                    \'platformVersion\': \'string\'
                 }
             }
           **Response Structure** 
@@ -472,7 +472,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -484,10 +484,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -520,7 +520,7 @@ class Client(BaseClient):
         
           response = client.list_clusters(
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type maxResults: integer
         :param maxResults: 
@@ -544,10 +544,10 @@ class Client(BaseClient):
           ::
         
             {
-                'clusters': [
-                    'string',
+                \'clusters\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         

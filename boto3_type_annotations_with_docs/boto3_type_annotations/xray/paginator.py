@@ -15,12 +15,12 @@ class BatchGetTraces(Paginator):
         
           response_iterator = paginator.paginate(
               TraceIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TraceIds: list
@@ -55,20 +55,20 @@ class BatchGetTraces(Paginator):
           ::
         
             {
-                'Traces': [
+                \'Traces\': [
                     {
-                        'Id': 'string',
-                        'Duration': 123.0,
-                        'Segments': [
+                        \'Id\': \'string\',
+                        \'Duration\': 123.0,
+                        \'Segments\': [
                             {
-                                'Id': 'string',
-                                'Document': 'string'
+                                \'Id\': \'string\',
+                                \'Document\': \'string\'
                             },
                         ]
                     },
                 ],
-                'UnprocessedTraceIds': [
-                    'string',
+                \'UnprocessedTraceIds\': [
+                    \'string\',
                 ],
                 
             }
@@ -86,7 +86,7 @@ class BatchGetTraces(Paginator):
         
                 - **Id** *(string) --* 
         
-                  The unique identifier for the request that generated the trace's segments and subsegments.
+                  The unique identifier for the request that generated the trace\'s segments and subsegments.
         
                 - **Duration** *(float) --* 
         
@@ -104,7 +104,7 @@ class BatchGetTraces(Paginator):
         
                     - **Id** *(string) --* 
         
-                      The segment's ID.
+                      The segment\'s ID.
         
                     - **Document** *(string) --* 
         
@@ -112,7 +112,7 @@ class BatchGetTraces(Paginator):
         
             - **UnprocessedTraceIds** *(list) --* 
         
-              Trace IDs of requests that haven't been processed.
+              Trace IDs of requests that haven\'t been processed.
         
               - *(string) --* 
           
@@ -133,9 +133,9 @@ class GetServiceGraph(Paginator):
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StartTime: datetime
@@ -173,81 +173,81 @@ class GetServiceGraph(Paginator):
           ::
         
             {
-                'StartTime': datetime(2015, 1, 1),
-                'EndTime': datetime(2015, 1, 1),
-                'Services': [
+                \'StartTime\': datetime(2015, 1, 1),
+                \'EndTime\': datetime(2015, 1, 1),
+                \'Services\': [
                     {
-                        'ReferenceId': 123,
-                        'Name': 'string',
-                        'Names': [
-                            'string',
+                        \'ReferenceId\': 123,
+                        \'Name\': \'string\',
+                        \'Names\': [
+                            \'string\',
                         ],
-                        'Root': True|False,
-                        'AccountId': 'string',
-                        'Type': 'string',
-                        'State': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Edges': [
+                        \'Root\': True|False,
+                        \'AccountId\': \'string\',
+                        \'Type\': \'string\',
+                        \'State\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Edges\': [
                             {
-                                'ReferenceId': 123,
-                                'StartTime': datetime(2015, 1, 1),
-                                'EndTime': datetime(2015, 1, 1),
-                                'SummaryStatistics': {
-                                    'OkCount': 123,
-                                    'ErrorStatistics': {
-                                        'ThrottleCount': 123,
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                \'ReferenceId\': 123,
+                                \'StartTime\': datetime(2015, 1, 1),
+                                \'EndTime\': datetime(2015, 1, 1),
+                                \'SummaryStatistics\': {
+                                    \'OkCount\': 123,
+                                    \'ErrorStatistics\': {
+                                        \'ThrottleCount\': 123,
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'FaultStatistics': {
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                    \'FaultStatistics\': {
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'TotalCount': 123,
-                                    'TotalResponseTime': 123.0
+                                    \'TotalCount\': 123,
+                                    \'TotalResponseTime\': 123.0
                                 },
-                                'ResponseTimeHistogram': [
+                                \'ResponseTimeHistogram\': [
                                     {
-                                        'Value': 123.0,
-                                        'Count': 123
+                                        \'Value\': 123.0,
+                                        \'Count\': 123
                                     },
                                 ],
-                                'Aliases': [
+                                \'Aliases\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'Type': 'string'
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SummaryStatistics': {
-                            'OkCount': 123,
-                            'ErrorStatistics': {
-                                'ThrottleCount': 123,
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                        \'SummaryStatistics\': {
+                            \'OkCount\': 123,
+                            \'ErrorStatistics\': {
+                                \'ThrottleCount\': 123,
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'FaultStatistics': {
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                            \'FaultStatistics\': {
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'TotalCount': 123,
-                            'TotalResponseTime': 123.0
+                            \'TotalCount\': 123,
+                            \'TotalResponseTime\': 123.0
                         },
-                        'DurationHistogram': [
+                        \'DurationHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ],
-                        'ResponseTimeHistogram': [
+                        \'ResponseTimeHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ]
                     },
@@ -302,7 +302,7 @@ class GetServiceGraph(Paginator):
         
                   * AWS Resource - The type of an AWS resource. For example, ``AWS::EC2::Instance`` for a application running on Amazon EC2 or ``AWS::DynamoDB::Table`` for an Amazon DynamoDB table that the application used. 
                    
-                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn't target a specific table. 
+                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn\'t target a specific table. 
                    
                   * ``client`` - Represents the clients that sent requests to a root service. 
                    
@@ -310,7 +310,7 @@ class GetServiceGraph(Paginator):
                    
                 - **State** *(string) --* 
         
-                  The service's state.
+                  The service\'s state.
         
                 - **StartTime** *(datetime) --* 
         
@@ -513,12 +513,12 @@ class GetTraceGraph(Paginator):
         
           response_iterator = paginator.paginate(
               TraceIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TraceIds: list
@@ -553,79 +553,79 @@ class GetTraceGraph(Paginator):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'ReferenceId': 123,
-                        'Name': 'string',
-                        'Names': [
-                            'string',
+                        \'ReferenceId\': 123,
+                        \'Name\': \'string\',
+                        \'Names\': [
+                            \'string\',
                         ],
-                        'Root': True|False,
-                        'AccountId': 'string',
-                        'Type': 'string',
-                        'State': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'Edges': [
+                        \'Root\': True|False,
+                        \'AccountId\': \'string\',
+                        \'Type\': \'string\',
+                        \'State\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'Edges\': [
                             {
-                                'ReferenceId': 123,
-                                'StartTime': datetime(2015, 1, 1),
-                                'EndTime': datetime(2015, 1, 1),
-                                'SummaryStatistics': {
-                                    'OkCount': 123,
-                                    'ErrorStatistics': {
-                                        'ThrottleCount': 123,
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                \'ReferenceId\': 123,
+                                \'StartTime\': datetime(2015, 1, 1),
+                                \'EndTime\': datetime(2015, 1, 1),
+                                \'SummaryStatistics\': {
+                                    \'OkCount\': 123,
+                                    \'ErrorStatistics\': {
+                                        \'ThrottleCount\': 123,
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'FaultStatistics': {
-                                        'OtherCount': 123,
-                                        'TotalCount': 123
+                                    \'FaultStatistics\': {
+                                        \'OtherCount\': 123,
+                                        \'TotalCount\': 123
                                     },
-                                    'TotalCount': 123,
-                                    'TotalResponseTime': 123.0
+                                    \'TotalCount\': 123,
+                                    \'TotalResponseTime\': 123.0
                                 },
-                                'ResponseTimeHistogram': [
+                                \'ResponseTimeHistogram\': [
                                     {
-                                        'Value': 123.0,
-                                        'Count': 123
+                                        \'Value\': 123.0,
+                                        \'Count\': 123
                                     },
                                 ],
-                                'Aliases': [
+                                \'Aliases\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'Type': 'string'
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SummaryStatistics': {
-                            'OkCount': 123,
-                            'ErrorStatistics': {
-                                'ThrottleCount': 123,
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                        \'SummaryStatistics\': {
+                            \'OkCount\': 123,
+                            \'ErrorStatistics\': {
+                                \'ThrottleCount\': 123,
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'FaultStatistics': {
-                                'OtherCount': 123,
-                                'TotalCount': 123
+                            \'FaultStatistics\': {
+                                \'OtherCount\': 123,
+                                \'TotalCount\': 123
                             },
-                            'TotalCount': 123,
-                            'TotalResponseTime': 123.0
+                            \'TotalCount\': 123,
+                            \'TotalResponseTime\': 123.0
                         },
-                        'DurationHistogram': [
+                        \'DurationHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ],
-                        'ResponseTimeHistogram': [
+                        \'ResponseTimeHistogram\': [
                             {
-                                'Value': 123.0,
-                                'Count': 123
+                                \'Value\': 123.0,
+                                \'Count\': 123
                             },
                         ]
                     },
@@ -672,7 +672,7 @@ class GetTraceGraph(Paginator):
         
                   * AWS Resource - The type of an AWS resource. For example, ``AWS::EC2::Instance`` for a application running on Amazon EC2 or ``AWS::DynamoDB::Table`` for an Amazon DynamoDB table that the application used. 
                    
-                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn't target a specific table. 
+                  * AWS Service - The type of an AWS service. For example, ``AWS::DynamoDB`` for downstream calls to Amazon DynamoDB that didn\'t target a specific table. 
                    
                   * ``client`` - Represents the clients that sent requests to a root service. 
                    
@@ -680,7 +680,7 @@ class GetTraceGraph(Paginator):
                    
                 - **State** *(string) --* 
         
-                  The service's state.
+                  The service\'s state.
         
                 - **StartTime** *(datetime) --* 
         
@@ -885,11 +885,11 @@ class GetTraceSummaries(Paginator):
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Sampling=True|False,
-              FilterExpression='string',
+              FilterExpression=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StartTime: datetime
@@ -937,72 +937,72 @@ class GetTraceSummaries(Paginator):
           ::
         
             {
-                'TraceSummaries': [
+                \'TraceSummaries\': [
                     {
-                        'Id': 'string',
-                        'Duration': 123.0,
-                        'ResponseTime': 123.0,
-                        'HasFault': True|False,
-                        'HasError': True|False,
-                        'HasThrottle': True|False,
-                        'IsPartial': True|False,
-                        'Http': {
-                            'HttpURL': 'string',
-                            'HttpStatus': 123,
-                            'HttpMethod': 'string',
-                            'UserAgent': 'string',
-                            'ClientIp': 'string'
+                        \'Id\': \'string\',
+                        \'Duration\': 123.0,
+                        \'ResponseTime\': 123.0,
+                        \'HasFault\': True|False,
+                        \'HasError\': True|False,
+                        \'HasThrottle\': True|False,
+                        \'IsPartial\': True|False,
+                        \'Http\': {
+                            \'HttpURL\': \'string\',
+                            \'HttpStatus\': 123,
+                            \'HttpMethod\': \'string\',
+                            \'UserAgent\': \'string\',
+                            \'ClientIp\': \'string\'
                         },
-                        'Annotations': {
-                            'string': [
+                        \'Annotations\': {
+                            \'string\': [
                                 {
-                                    'AnnotationValue': {
-                                        'NumberValue': 123.0,
-                                        'BooleanValue': True|False,
-                                        'StringValue': 'string'
+                                    \'AnnotationValue\': {
+                                        \'NumberValue\': 123.0,
+                                        \'BooleanValue\': True|False,
+                                        \'StringValue\': \'string\'
                                     },
-                                    'ServiceIds': [
+                                    \'ServiceIds\': [
                                         {
-                                            'Name': 'string',
-                                            'Names': [
-                                                'string',
+                                            \'Name\': \'string\',
+                                            \'Names\': [
+                                                \'string\',
                                             ],
-                                            'AccountId': 'string',
-                                            'Type': 'string'
+                                            \'AccountId\': \'string\',
+                                            \'Type\': \'string\'
                                         },
                                     ]
                                 },
                             ]
                         },
-                        'Users': [
+                        \'Users\': [
                             {
-                                'UserName': 'string',
-                                'ServiceIds': [
+                                \'UserName\': \'string\',
+                                \'ServiceIds\': [
                                     {
-                                        'Name': 'string',
-                                        'Names': [
-                                            'string',
+                                        \'Name\': \'string\',
+                                        \'Names\': [
+                                            \'string\',
                                         ],
-                                        'AccountId': 'string',
-                                        'Type': 'string'
+                                        \'AccountId\': \'string\',
+                                        \'Type\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'ServiceIds': [
+                        \'ServiceIds\': [
                             {
-                                'Name': 'string',
-                                'Names': [
-                                    'string',
+                                \'Name\': \'string\',
+                                \'Names\': [
+                                    \'string\',
                                 ],
-                                'AccountId': 'string',
-                                'Type': 'string'
+                                \'AccountId\': \'string\',
+                                \'Type\': \'string\'
                             },
                         ]
                     },
                 ],
-                'ApproximateTime': datetime(2015, 1, 1),
-                'TracesProcessedCount': 123,
+                \'ApproximateTime\': datetime(2015, 1, 1),
+                \'TracesProcessedCount\': 123,
                 
             }
           **Response Structure** 
@@ -1019,7 +1019,7 @@ class GetTraceSummaries(Paginator):
         
                 - **Id** *(string) --* 
         
-                  The unique identifier for the request that generated the trace's segments and subsegments.
+                  The unique identifier for the request that generated the trace\'s segments and subsegments.
         
                 - **Duration** *(float) --* 
         
@@ -1063,7 +1063,7 @@ class GetTraceSummaries(Paginator):
         
                   - **UserAgent** *(string) --* 
         
-                    The request's user agent string.
+                    The request\'s user agent string.
         
                   - **ClientIp** *(string) --* 
         
@@ -1071,7 +1071,7 @@ class GetTraceSummaries(Paginator):
         
                 - **Annotations** *(dict) --* 
         
-                  Annotations from the trace's segment documents.
+                  Annotations from the trace\'s segment documents.
         
                   - *(string) --* 
                     
@@ -1115,7 +1115,7 @@ class GetTraceSummaries(Paginator):
         
                 - **Users** *(list) --* 
         
-                  Users from the trace's segment documents.
+                  Users from the trace\'s segment documents.
         
                   - *(dict) --* 
         
@@ -1123,11 +1123,11 @@ class GetTraceSummaries(Paginator):
         
                     - **UserName** *(string) --* 
         
-                      The user's name.
+                      The user\'s name.
         
                     - **ServiceIds** *(list) --* 
         
-                      Services that the user's request hit.
+                      Services that the user\'s request hit.
         
                       - *(dict) --* 
         
@@ -1143,7 +1143,7 @@ class GetTraceSummaries(Paginator):
         
                 - **ServiceIds** *(list) --* 
         
-                  Service IDs from the trace's segment documents.
+                  Service IDs from the trace\'s segment documents.
         
                   - *(dict) --* 
         

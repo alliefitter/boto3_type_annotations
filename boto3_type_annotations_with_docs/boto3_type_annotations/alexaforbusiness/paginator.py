@@ -13,13 +13,13 @@ class ListSkills(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SkillGroupArn='string',
-              EnablementType='ENABLED'|'PENDING',
-              SkillType='PUBLIC'|'PRIVATE'|'ALL',
+              SkillGroupArn=\'string\',
+              EnablementType=\'ENABLED\'|\'PENDING\',
+              SkillType=\'PUBLIC\'|\'PRIVATE\'|\'ALL\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SkillGroupArn: string
@@ -30,7 +30,7 @@ class ListSkills(Paginator):
         :type EnablementType: string
         :param EnablementType: 
         
-          Whether the skill is enabled under the user's account, or if it requires linking to be used.
+          Whether the skill is enabled under the user\'s account, or if it requires linking to be used.
         
         :type SkillType: string
         :param SkillType: 
@@ -62,13 +62,13 @@ class ListSkills(Paginator):
           ::
         
             {
-                'SkillSummaries': [
+                \'SkillSummaries\': [
                     {
-                        'SkillId': 'string',
-                        'SkillName': 'string',
-                        'SupportsLinking': True|False,
-                        'EnablementType': 'ENABLED'|'PENDING',
-                        'SkillType': 'PUBLIC'|'PRIVATE'
+                        \'SkillId\': \'string\',
+                        \'SkillName\': \'string\',
+                        \'SupportsLinking\': True|False,
+                        \'EnablementType\': \'ENABLED\'|\'PENDING\',
+                        \'SkillType\': \'PUBLIC\'|\'PRIVATE\'
                     },
                 ],
                 
@@ -99,7 +99,7 @@ class ListSkills(Paginator):
         
                 - **EnablementType** *(string) --* 
         
-                  Whether the skill is enabled under the user's account, or if it requires linking to be used.
+                  Whether the skill is enabled under the user\'s account, or if it requires linking to be used.
         
                 - **SkillType** *(string) --* 
         
@@ -119,11 +119,11 @@ class ListTags(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Arn='string',
+              Arn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Arn: string
@@ -156,10 +156,10 @@ class ListTags(Paginator):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
                 
@@ -200,22 +200,22 @@ class SearchDevices(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -279,28 +279,28 @@ class SearchDevices(Paginator):
           ::
         
             {
-                'Devices': [
+                \'Devices\': [
                     {
-                        'DeviceArn': 'string',
-                        'DeviceSerialNumber': 'string',
-                        'DeviceType': 'string',
-                        'DeviceName': 'string',
-                        'SoftwareVersion': 'string',
-                        'MacAddress': 'string',
-                        'DeviceStatus': 'READY'|'PENDING'|'WAS_OFFLINE'|'DEREGISTERED',
-                        'RoomArn': 'string',
-                        'RoomName': 'string',
-                        'DeviceStatusInfo': {
-                            'DeviceStatusDetails': [
+                        \'DeviceArn\': \'string\',
+                        \'DeviceSerialNumber\': \'string\',
+                        \'DeviceType\': \'string\',
+                        \'DeviceName\': \'string\',
+                        \'SoftwareVersion\': \'string\',
+                        \'MacAddress\': \'string\',
+                        \'DeviceStatus\': \'READY\'|\'PENDING\'|\'WAS_OFFLINE\'|\'DEREGISTERED\',
+                        \'RoomArn\': \'string\',
+                        \'RoomName\': \'string\',
+                        \'DeviceStatusInfo\': {
+                            \'DeviceStatusDetails\': [
                                 {
-                                    'Code': 'DEVICE_SOFTWARE_UPDATE_NEEDED'|'DEVICE_WAS_OFFLINE'
+                                    \'Code\': \'DEVICE_SOFTWARE_UPDATE_NEEDED\'|\'DEVICE_WAS_OFFLINE\'
                                 },
                             ],
-                            'ConnectionStatus': 'ONLINE'|'OFFLINE'
+                            \'ConnectionStatus\': \'ONLINE\'|\'OFFLINE\'
                         }
                     },
                 ],
-                'TotalCount': 123
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -352,7 +352,7 @@ class SearchDevices(Paginator):
         
                 - **DeviceStatusInfo** *(dict) --* 
         
-                  Detailed information about a device's status.
+                  Detailed information about a device\'s status.
         
                   - **DeviceStatusDetails** *(list) --* 
         
@@ -390,22 +390,22 @@ class SearchProfiles(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -469,19 +469,19 @@ class SearchProfiles(Paginator):
           ::
         
             {
-                'Profiles': [
+                \'Profiles\': [
                     {
-                        'ProfileArn': 'string',
-                        'ProfileName': 'string',
-                        'IsDefault': True|False,
-                        'Address': 'string',
-                        'Timezone': 'string',
-                        'DistanceUnit': 'METRIC'|'IMPERIAL',
-                        'TemperatureUnit': 'FAHRENHEIT'|'CELSIUS',
-                        'WakeWord': 'ALEXA'|'AMAZON'|'ECHO'|'COMPUTER'
+                        \'ProfileArn\': \'string\',
+                        \'ProfileName\': \'string\',
+                        \'IsDefault\': True|False,
+                        \'Address\': \'string\',
+                        \'Timezone\': \'string\',
+                        \'DistanceUnit\': \'METRIC\'|\'IMPERIAL\',
+                        \'TemperatureUnit\': \'FAHRENHEIT\'|\'CELSIUS\',
+                        \'WakeWord\': \'ALEXA\'|\'AMAZON\'|\'ECHO\'|\'COMPUTER\'
                     },
                 ],
-                'TotalCount': 123
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -547,22 +547,22 @@ class SearchRooms(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -626,17 +626,17 @@ class SearchRooms(Paginator):
           ::
         
             {
-                'Rooms': [
+                \'Rooms\': [
                     {
-                        'RoomArn': 'string',
-                        'RoomName': 'string',
-                        'Description': 'string',
-                        'ProviderCalendarId': 'string',
-                        'ProfileArn': 'string',
-                        'ProfileName': 'string'
+                        \'RoomArn\': \'string\',
+                        \'RoomName\': \'string\',
+                        \'Description\': \'string\',
+                        \'ProviderCalendarId\': \'string\',
+                        \'ProfileArn\': \'string\',
+                        \'ProfileName\': \'string\'
                     },
                 ],
-                'TotalCount': 123
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -694,22 +694,22 @@ class SearchSkillGroups(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -773,14 +773,14 @@ class SearchSkillGroups(Paginator):
           ::
         
             {
-                'SkillGroups': [
+                \'SkillGroups\': [
                     {
-                        'SkillGroupArn': 'string',
-                        'SkillGroupName': 'string',
-                        'Description': 'string'
+                        \'SkillGroupArn\': \'string\',
+                        \'SkillGroupName\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'TotalCount': 123
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -826,22 +826,22 @@ class SearchUsers(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -905,17 +905,17 @@ class SearchUsers(Paginator):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'UserArn': 'string',
-                        'FirstName': 'string',
-                        'LastName': 'string',
-                        'Email': 'string',
-                        'EnrollmentStatus': 'INITIALIZED'|'PENDING'|'REGISTERED'|'DISASSOCIATING'|'DEREGISTERING',
-                        'EnrollmentId': 'string'
+                        \'UserArn\': \'string\',
+                        \'FirstName\': \'string\',
+                        \'LastName\': \'string\',
+                        \'Email\': \'string\',
+                        \'EnrollmentStatus\': \'INITIALIZED\'|\'PENDING\'|\'REGISTERED\'|\'DISASSOCIATING\'|\'DEREGISTERING\',
+                        \'EnrollmentId\': \'string\'
                     },
                 ],
-                'TotalCount': 123
+                \'TotalCount\': 123
             }
           **Response Structure** 
         

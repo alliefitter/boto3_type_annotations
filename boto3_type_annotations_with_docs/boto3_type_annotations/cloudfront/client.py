@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,8 +34,8 @@ class Client(BaseClient):
         
           response = client.create_cloud_front_origin_access_identity(
               CloudFrontOriginAccessIdentityConfig={
-                  'CallerReference': 'string',
-                  'Comment': 'string'
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\'
               }
           )
         :type CloudFrontOriginAccessIdentityConfig: dict
@@ -45,7 +45,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
             If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -65,16 +65,16 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontOriginAccessIdentity': {
-                    'Id': 'string',
-                    'S3CanonicalUserId': 'string',
-                    'CloudFrontOriginAccessIdentityConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string'
+                \'CloudFrontOriginAccessIdentity\': {
+                    \'Id\': \'string\',
+                    \'S3CanonicalUserId\': \'string\',
+                    \'CloudFrontOriginAccessIdentityConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -84,7 +84,7 @@ class Client(BaseClient):
         
             - **CloudFrontOriginAccessIdentity** *(dict) --* 
         
-              The origin access identity's information.
+              The origin access identity\'s information.
         
               - **Id** *(string) --* 
         
@@ -100,7 +100,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                   If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -130,7 +130,7 @@ class Client(BaseClient):
         
           When you update a distribution, there are more required fields than when you create a distribution. When you update your distribution by using  UpdateDistribution , follow the steps included in the documentation to get the current configuration and then make your updates. This helps to make sure that you include all of the required fields. To view a summary, see `Required Fields for Create Distribution and Update Distribution <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-        If you are using Adobe Flash Media Server's RTMP protocol, you set up a different kind of CloudFront distribution. For more information, see  CreateStreamingDistribution .
+        If you are using Adobe Flash Media Server\'s RTMP protocol, you set up a different kind of CloudFront distribution. For more information, see  CreateStreamingDistribution .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/CreateDistribution>`_
         
@@ -139,232 +139,232 @@ class Client(BaseClient):
         
           response = client.create_distribution(
               DistributionConfig={
-                  'CallerReference': 'string',
-                  'Aliases': {
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'CallerReference\': \'string\',
+                  \'Aliases\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'DefaultRootObject': 'string',
-                  'Origins': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'DefaultRootObject\': \'string\',
+                  \'Origins\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'Id': 'string',
-                              'DomainName': 'string',
-                              'OriginPath': 'string',
-                              'CustomHeaders': {
-                                  'Quantity': 123,
-                                  'Items': [
+                              \'Id\': \'string\',
+                              \'DomainName\': \'string\',
+                              \'OriginPath\': \'string\',
+                              \'CustomHeaders\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
                                       {
-                                          'HeaderName': 'string',
-                                          'HeaderValue': 'string'
+                                          \'HeaderName\': \'string\',
+                                          \'HeaderValue\': \'string\'
                                       },
                                   ]
                               },
-                              'S3OriginConfig': {
-                                  'OriginAccessIdentity': 'string'
+                              \'S3OriginConfig\': {
+                                  \'OriginAccessIdentity\': \'string\'
                               },
-                              'CustomOriginConfig': {
-                                  'HTTPPort': 123,
-                                  'HTTPSPort': 123,
-                                  'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                  'OriginSslProtocols': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                              \'CustomOriginConfig\': {
+                                  \'HTTPPort\': 123,
+                                  \'HTTPSPort\': 123,
+                                  \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                  \'OriginSslProtocols\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                       ]
                                   },
-                                  'OriginReadTimeout': 123,
-                                  'OriginKeepaliveTimeout': 123
+                                  \'OriginReadTimeout\': 123,
+                                  \'OriginKeepaliveTimeout\': 123
                               }
                           },
                       ]
                   },
-                  'DefaultCacheBehavior': {
-                      'TargetOriginId': 'string',
-                      'ForwardedValues': {
-                          'QueryString': True|False,
-                          'Cookies': {
-                              'Forward': 'none'|'whitelist'|'all',
-                              'WhitelistedNames': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                  \'DefaultCacheBehavior\': {
+                      \'TargetOriginId\': \'string\',
+                      \'ForwardedValues\': {
+                          \'QueryString\': True|False,
+                          \'Cookies\': {
+                              \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                              \'WhitelistedNames\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               }
                           },
-                          'Headers': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                          \'Headers\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           },
-                          'QueryStringCacheKeys': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                          \'QueryStringCacheKeys\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'TrustedSigners': {
-                          'Enabled': True|False,
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                      \'TrustedSigners\': {
+                          \'Enabled\': True|False,
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       },
-                      'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                      'MinTTL': 123,
-                      'AllowedMethods': {
-                          'Quantity': 123,
-                          'Items': [
-                              'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                      \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                      \'MinTTL\': 123,
+                      \'AllowedMethods\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                           ],
-                          'CachedMethods': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                          \'CachedMethods\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                               ]
                           }
                       },
-                      'SmoothStreaming': True|False,
-                      'DefaultTTL': 123,
-                      'MaxTTL': 123,
-                      'Compress': True|False,
-                      'LambdaFunctionAssociations': {
-                          'Quantity': 123,
-                          'Items': [
+                      \'SmoothStreaming\': True|False,
+                      \'DefaultTTL\': 123,
+                      \'MaxTTL\': 123,
+                      \'Compress\': True|False,
+                      \'LambdaFunctionAssociations\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'LambdaFunctionARN': 'string',
-                                  'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                  'IncludeBody': True|False
+                                  \'LambdaFunctionARN\': \'string\',
+                                  \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                  \'IncludeBody\': True|False
                               },
                           ]
                       },
-                      'FieldLevelEncryptionId': 'string'
+                      \'FieldLevelEncryptionId\': \'string\'
                   },
-                  'CacheBehaviors': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'CacheBehaviors\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'PathPattern': 'string',
-                              'TargetOriginId': 'string',
-                              'ForwardedValues': {
-                                  'QueryString': True|False,
-                                  'Cookies': {
-                                      'Forward': 'none'|'whitelist'|'all',
-                                      'WhitelistedNames': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'string',
+                              \'PathPattern\': \'string\',
+                              \'TargetOriginId\': \'string\',
+                              \'ForwardedValues\': {
+                                  \'QueryString\': True|False,
+                                  \'Cookies\': {
+                                      \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                      \'WhitelistedNames\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'string\',
                                           ]
                                       }
                                   },
-                                  'Headers': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                                  \'Headers\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   },
-                                  'QueryStringCacheKeys': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                                  \'QueryStringCacheKeys\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   }
                               },
-                              'TrustedSigners': {
-                                  'Enabled': True|False,
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'TrustedSigners\': {
+                                  \'Enabled\': True|False,
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               },
-                              'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                              'MinTTL': 123,
-                              'AllowedMethods': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                              \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                              \'MinTTL\': 123,
+                              \'AllowedMethods\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                   ],
-                                  'CachedMethods': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                  \'CachedMethods\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                       ]
                                   }
                               },
-                              'SmoothStreaming': True|False,
-                              'DefaultTTL': 123,
-                              'MaxTTL': 123,
-                              'Compress': True|False,
-                              'LambdaFunctionAssociations': {
-                                  'Quantity': 123,
-                                  'Items': [
+                              \'SmoothStreaming\': True|False,
+                              \'DefaultTTL\': 123,
+                              \'MaxTTL\': 123,
+                              \'Compress\': True|False,
+                              \'LambdaFunctionAssociations\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
                                       {
-                                          'LambdaFunctionARN': 'string',
-                                          'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                          'IncludeBody': True|False
+                                          \'LambdaFunctionARN\': \'string\',
+                                          \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                          \'IncludeBody\': True|False
                                       },
                                   ]
                               },
-                              'FieldLevelEncryptionId': 'string'
+                              \'FieldLevelEncryptionId\': \'string\'
                           },
                       ]
                   },
-                  'CustomErrorResponses': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'CustomErrorResponses\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'ErrorCode': 123,
-                              'ResponsePagePath': 'string',
-                              'ResponseCode': 'string',
-                              'ErrorCachingMinTTL': 123
+                              \'ErrorCode\': 123,
+                              \'ResponsePagePath\': \'string\',
+                              \'ResponseCode\': \'string\',
+                              \'ErrorCachingMinTTL\': 123
                           },
                       ]
                   },
-                  'Comment': 'string',
-                  'Logging': {
-                      'Enabled': True|False,
-                      'IncludeCookies': True|False,
-                      'Bucket': 'string',
-                      'Prefix': 'string'
+                  \'Comment\': \'string\',
+                  \'Logging\': {
+                      \'Enabled\': True|False,
+                      \'IncludeCookies\': True|False,
+                      \'Bucket\': \'string\',
+                      \'Prefix\': \'string\'
                   },
-                  'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                  'Enabled': True|False,
-                  'ViewerCertificate': {
-                      'CloudFrontDefaultCertificate': True|False,
-                      'IAMCertificateId': 'string',
-                      'ACMCertificateArn': 'string',
-                      'SSLSupportMethod': 'sni-only'|'vip',
-                      'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                      'Certificate': 'string',
-                      'CertificateSource': 'cloudfront'|'iam'|'acm'
+                  \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                  \'Enabled\': True|False,
+                  \'ViewerCertificate\': {
+                      \'CloudFrontDefaultCertificate\': True|False,
+                      \'IAMCertificateId\': \'string\',
+                      \'ACMCertificateArn\': \'string\',
+                      \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                      \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                      \'Certificate\': \'string\',
+                      \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                   },
-                  'Restrictions': {
-                      'GeoRestriction': {
-                          'RestrictionType': 'blacklist'|'whitelist'|'none',
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                  \'Restrictions\': {
+                      \'GeoRestriction\': {
+                          \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       }
                   },
-                  'WebACLId': 'string',
-                  'HttpVersion': 'http1.1'|'http2',
-                  'IsIPV6Enabled': True|False
+                  \'WebACLId\': \'string\',
+                  \'HttpVersion\': \'http1.1\'|\'http2\',
+                  \'IsIPV6Enabled\': True|False
               }
           )
         :type DistributionConfig: dict
         :param DistributionConfig: **[REQUIRED]** 
         
-          The distribution's configuration information.
+          The distribution\'s configuration information.
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+            A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
             If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -390,9 +390,9 @@ class Client(BaseClient):
         
             The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-            Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+            Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-            If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+            If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
             To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -430,7 +430,7 @@ class Client(BaseClient):
         
                   Constraints for Amazon S3 origins: 
         
-                  * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                  * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                    
                   * The bucket name must be between 3 and 63 characters long (inclusive). 
                    
@@ -450,7 +450,7 @@ class Client(BaseClient):
         
                   An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                  For example, suppose you've specified the following values for your distribution:
+                  For example, suppose you\'ve specified the following values for your distribution:
         
                   * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                    
@@ -550,7 +550,7 @@ class Client(BaseClient):
         
           - **DefaultCacheBehavior** *(dict) --* **[REQUIRED]** 
         
-            A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+            A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
             - **TargetOriginId** *(string) --* **[REQUIRED]** 
         
@@ -564,11 +564,11 @@ class Client(BaseClient):
         
                 Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                 If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                 For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -580,13 +580,13 @@ class Client(BaseClient):
         
                   Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                  Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                  Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                 - **WhitelistedNames** *(dict) --* 
         
                   Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                  If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                  If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                   For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -612,11 +612,11 @@ class Client(BaseClient):
         
                   .. warning::
         
-                     CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                     CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                   * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                    
-                  * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                  * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                    
                   Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -650,9 +650,9 @@ class Client(BaseClient):
         
               If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-              If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+              If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-              To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+              To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
               - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -682,7 +682,7 @@ class Client(BaseClient):
         
               .. note::
         
-                The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
             - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -700,7 +700,7 @@ class Client(BaseClient):
                
               * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                
-              If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+              If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
               - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -764,7 +764,7 @@ class Client(BaseClient):
         
                   - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                    The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                    The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                   - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -772,11 +772,11 @@ class Client(BaseClient):
         
                     * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                      
-                    * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                    * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                      
-                    * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                    * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                      
-                    * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                    * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                      
                   - **IncludeBody** *(boolean) --* 
         
@@ -806,7 +806,7 @@ class Client(BaseClient):
         
                 For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                 To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -838,11 +838,11 @@ class Client(BaseClient):
         
                     Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                    If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                    If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                     If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                    If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                    If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                     For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -854,13 +854,13 @@ class Client(BaseClient):
         
                       Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                      Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                      Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                     - **WhitelistedNames** *(dict) --* 
         
                       Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                       For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -886,11 +886,11 @@ class Client(BaseClient):
         
                       .. warning::
         
-                         CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                         CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                       * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                        
-                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                        
                       Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -924,9 +924,9 @@ class Client(BaseClient):
         
                   If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                  If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                  If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                   - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -956,7 +956,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                 - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -974,7 +974,7 @@ class Client(BaseClient):
                    
                   * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                    
-                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                   - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -1040,7 +1040,7 @@ class Client(BaseClient):
         
                       - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                        The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                        The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                       - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -1048,11 +1048,11 @@ class Client(BaseClient):
         
                         * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                          
-                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                          
-                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
-                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
                       - **IncludeBody** *(boolean) --* 
         
@@ -1102,27 +1102,27 @@ class Client(BaseClient):
                    
                   * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                    
-                  If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                  If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                 - **ResponseCode** *(string) --* 
         
                   The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                  * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                  * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                    
-                  * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                  * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                    
-                  * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                  * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                    
-                  If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                  If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                 - **ErrorCachingMinTTL** *(integer) --* 
         
                   The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                  If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                  If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                   For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -1130,7 +1130,7 @@ class Client(BaseClient):
         
             Any comments you want to include about the distribution.
         
-            If you don't want to specify a comment, include an empty ``Comment`` element.
+            If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
             To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -1144,11 +1144,11 @@ class Client(BaseClient):
         
             - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
             - **IncludeCookies** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+              Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
             - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -1156,7 +1156,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* **[REQUIRED]** 
         
-              An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+              An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
           - **PriceClass** *(string) --* 
         
@@ -1176,9 +1176,9 @@ class Client(BaseClient):
         
             * Whether you want viewers to use HTTP or HTTPS to request your objects. 
              
-            * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+            * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
              
-            * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+            * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
              
             You must specify only one of the following values: 
         
@@ -1188,7 +1188,7 @@ class Client(BaseClient):
              
             *  ViewerCertificate$CloudFrontDefaultCertificate   
              
-            Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+            Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
              **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -1196,9 +1196,9 @@ class Client(BaseClient):
         
             In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-             **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+             **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-            * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+            * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
               * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                
@@ -1206,13 +1206,13 @@ class Client(BaseClient):
                
             If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-            If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+            If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
               * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                
               * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                
-            * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+            * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
              
             If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -1246,7 +1246,7 @@ class Client(BaseClient):
         
               * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                
-              * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+              * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                 * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                  
@@ -1256,7 +1256,7 @@ class Client(BaseClient):
                  
                 * Use HTTP instead of HTTPS. 
                  
-              Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+              Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
               For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -1276,9 +1276,9 @@ class Client(BaseClient):
         
               When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-              * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+              * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                
-              * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+              * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                
               If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -1318,7 +1318,7 @@ class Client(BaseClient):
         
                 * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                  
-                * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                  
                 * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                  
@@ -1344,27 +1344,27 @@ class Client(BaseClient):
         
           - **HttpVersion** *(string) --* 
         
-            (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+            (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
             For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-            In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+            In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
           - **IsIPV6Enabled** *(boolean) --* 
         
             If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-            In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+            In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-            If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+            If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
             * You enable IPv6 for the distribution 
              
-            * You're using alternate domain names in the URLs for your objects 
+            * You\'re using alternate domain names in the URLs for your objects 
              
             For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-            If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+            If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
         :rtype: dict
         :returns: 
@@ -1374,249 +1374,249 @@ class Client(BaseClient):
           ::
         
             {
-                'Distribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'InProgressInvalidationBatches': 123,
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'Distribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'InProgressInvalidationBatches\': 123,
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'DistributionConfig': {
-                        'CallerReference': 'string',
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                    \'DistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'DefaultRootObject': 'string',
-                        'Origins': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'DefaultRootObject\': \'string\',
+                        \'Origins\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'Id': 'string',
-                                    'DomainName': 'string',
-                                    'OriginPath': 'string',
-                                    'CustomHeaders': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'Id\': \'string\',
+                                    \'DomainName\': \'string\',
+                                    \'OriginPath\': \'string\',
+                                    \'CustomHeaders\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'HeaderName': 'string',
-                                                'HeaderValue': 'string'
+                                                \'HeaderName\': \'string\',
+                                                \'HeaderValue\': \'string\'
                                             },
                                         ]
                                     },
-                                    'S3OriginConfig': {
-                                        'OriginAccessIdentity': 'string'
+                                    \'S3OriginConfig\': {
+                                        \'OriginAccessIdentity\': \'string\'
                                     },
-                                    'CustomOriginConfig': {
-                                        'HTTPPort': 123,
-                                        'HTTPSPort': 123,
-                                        'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                        'OriginSslProtocols': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                    \'CustomOriginConfig\': {
+                                        \'HTTPPort\': 123,
+                                        \'HTTPSPort\': 123,
+                                        \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                        \'OriginSslProtocols\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                             ]
                                         },
-                                        'OriginReadTimeout': 123,
-                                        'OriginKeepaliveTimeout': 123
+                                        \'OriginReadTimeout\': 123,
+                                        \'OriginKeepaliveTimeout\': 123
                                     }
                                 },
                             ]
                         },
-                        'DefaultCacheBehavior': {
-                            'TargetOriginId': 'string',
-                            'ForwardedValues': {
-                                'QueryString': True|False,
-                                'Cookies': {
-                                    'Forward': 'none'|'whitelist'|'all',
-                                    'WhitelistedNames': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                        \'DefaultCacheBehavior\': {
+                            \'TargetOriginId\': \'string\',
+                            \'ForwardedValues\': {
+                                \'QueryString\': True|False,
+                                \'Cookies\': {
+                                    \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                    \'WhitelistedNames\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Headers': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'Headers\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'QueryStringCacheKeys': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'QueryStringCacheKeys\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                            'MinTTL': 123,
-                            'AllowedMethods': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                            \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                            \'MinTTL\': 123,
+                            \'AllowedMethods\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                 ],
-                                'CachedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'CachedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ]
                                 }
                             },
-                            'SmoothStreaming': True|False,
-                            'DefaultTTL': 123,
-                            'MaxTTL': 123,
-                            'Compress': True|False,
-                            'LambdaFunctionAssociations': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'SmoothStreaming\': True|False,
+                            \'DefaultTTL\': 123,
+                            \'MaxTTL\': 123,
+                            \'Compress\': True|False,
+                            \'LambdaFunctionAssociations\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'LambdaFunctionARN': 'string',
-                                        'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                        'IncludeBody': True|False
+                                        \'LambdaFunctionARN\': \'string\',
+                                        \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                        \'IncludeBody\': True|False
                                     },
                                 ]
                             },
-                            'FieldLevelEncryptionId': 'string'
+                            \'FieldLevelEncryptionId\': \'string\'
                         },
-                        'CacheBehaviors': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CacheBehaviors\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PathPattern': 'string',
-                                    'TargetOriginId': 'string',
-                                    'ForwardedValues': {
-                                        'QueryString': True|False,
-                                        'Cookies': {
-                                            'Forward': 'none'|'whitelist'|'all',
-                                            'WhitelistedNames': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                    \'PathPattern\': \'string\',
+                                    \'TargetOriginId\': \'string\',
+                                    \'ForwardedValues\': {
+                                        \'QueryString\': True|False,
+                                        \'Cookies\': {
+                                            \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                            \'WhitelistedNames\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Headers': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'Headers\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'QueryStringCacheKeys': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'QueryStringCacheKeys\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'TrustedSigners': {
-                                        'Enabled': True|False,
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'TrustedSigners\': {
+                                        \'Enabled\': True|False,
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                    'MinTTL': 123,
-                                    'AllowedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                    \'MinTTL\': 123,
+                                    \'AllowedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ],
-                                        'CachedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'CachedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ]
                                         }
                                     },
-                                    'SmoothStreaming': True|False,
-                                    'DefaultTTL': 123,
-                                    'MaxTTL': 123,
-                                    'Compress': True|False,
-                                    'LambdaFunctionAssociations': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'SmoothStreaming\': True|False,
+                                    \'DefaultTTL\': 123,
+                                    \'MaxTTL\': 123,
+                                    \'Compress\': True|False,
+                                    \'LambdaFunctionAssociations\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'LambdaFunctionARN': 'string',
-                                                'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                'IncludeBody': True|False
+                                                \'LambdaFunctionARN\': \'string\',
+                                                \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                \'IncludeBody\': True|False
                                             },
                                         ]
                                     },
-                                    'FieldLevelEncryptionId': 'string'
+                                    \'FieldLevelEncryptionId\': \'string\'
                                 },
                             ]
                         },
-                        'CustomErrorResponses': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CustomErrorResponses\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'ErrorCode': 123,
-                                    'ResponsePagePath': 'string',
-                                    'ResponseCode': 'string',
-                                    'ErrorCachingMinTTL': 123
+                                    \'ErrorCode\': 123,
+                                    \'ResponsePagePath\': \'string\',
+                                    \'ResponseCode\': \'string\',
+                                    \'ErrorCachingMinTTL\': 123
                                 },
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'IncludeCookies': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'IncludeCookies\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False,
-                        'ViewerCertificate': {
-                            'CloudFrontDefaultCertificate': True|False,
-                            'IAMCertificateId': 'string',
-                            'ACMCertificateArn': 'string',
-                            'SSLSupportMethod': 'sni-only'|'vip',
-                            'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                            'Certificate': 'string',
-                            'CertificateSource': 'cloudfront'|'iam'|'acm'
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False,
+                        \'ViewerCertificate\': {
+                            \'CloudFrontDefaultCertificate\': True|False,
+                            \'IAMCertificateId\': \'string\',
+                            \'ACMCertificateArn\': \'string\',
+                            \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                            \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                            \'Certificate\': \'string\',
+                            \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                         },
-                        'Restrictions': {
-                            'GeoRestriction': {
-                                'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                        \'Restrictions\': {
+                            \'GeoRestriction\': {
+                                \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'WebACLId': 'string',
-                        'HttpVersion': 'http1.1'|'http2',
-                        'IsIPV6Enabled': True|False
+                        \'WebACLId\': \'string\',
+                        \'HttpVersion\': \'http1.1\'|\'http2\',
+                        \'IsIPV6Enabled\': True|False
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -1626,7 +1626,7 @@ class Client(BaseClient):
         
             - **Distribution** *(dict) --* 
         
-              The distribution's information.
+              The distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -1638,7 +1638,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* 
         
-                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated to all CloudFront edge locations. 
+                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated to all CloudFront edge locations. 
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -1654,7 +1654,7 @@ class Client(BaseClient):
         
               - **ActiveTrustedSigners** *(dict) --* 
         
-                CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create working signed URLs.
+                CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create working signed URLs.
         
                 - **Enabled** *(boolean) --* 
         
@@ -1710,7 +1710,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+                  A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
                   If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -1736,9 +1736,9 @@ class Client(BaseClient):
         
                   The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-                  Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+                  Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-                  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                  If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
                   To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -1776,7 +1776,7 @@ class Client(BaseClient):
         
                         Constraints for Amazon S3 origins: 
         
-                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                          
                         * The bucket name must be between 3 and 63 characters long (inclusive). 
                          
@@ -1796,7 +1796,7 @@ class Client(BaseClient):
         
                         An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                        For example, suppose you've specified the following values for your distribution:
+                        For example, suppose you\'ve specified the following values for your distribution:
         
                         * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                          
@@ -1896,7 +1896,7 @@ class Client(BaseClient):
         
                 - **DefaultCacheBehavior** *(dict) --* 
         
-                  A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                  A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                   - **TargetOriginId** *(string) --* 
         
@@ -1910,11 +1910,11 @@ class Client(BaseClient):
         
                       Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                      If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                      If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                       If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                      If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                      If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                       For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -1926,13 +1926,13 @@ class Client(BaseClient):
         
                         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                        Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                        Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                       - **WhitelistedNames** *(dict) --* 
         
                         Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                         For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -1958,11 +1958,11 @@ class Client(BaseClient):
         
                         .. warning::
         
-                           CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                           CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                         * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                          
-                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                          
                         Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -1996,9 +1996,9 @@ class Client(BaseClient):
         
                     If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                    If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                    If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         
@@ -2028,7 +2028,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                   - **MinTTL** *(integer) --* 
         
@@ -2046,7 +2046,7 @@ class Client(BaseClient):
                      
                     * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                      
-                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                     - **Quantity** *(integer) --* 
         
@@ -2110,7 +2110,7 @@ class Client(BaseClient):
         
                         - **LambdaFunctionARN** *(string) --* 
         
-                          The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                          The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                         - **EventType** *(string) --* 
         
@@ -2118,11 +2118,11 @@ class Client(BaseClient):
         
                           * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                            
-                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                            
-                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
-                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
                         - **IncludeBody** *(boolean) --* 
         
@@ -2152,7 +2152,7 @@ class Client(BaseClient):
         
                       For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                      If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                      If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                       To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -2184,11 +2184,11 @@ class Client(BaseClient):
         
                           Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                          If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                          If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                           If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                          If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                          If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                           For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -2200,13 +2200,13 @@ class Client(BaseClient):
         
                             Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                            Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                            Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                           - **WhitelistedNames** *(dict) --* 
         
                             Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                             For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -2232,11 +2232,11 @@ class Client(BaseClient):
         
                             .. warning::
         
-                               CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                               CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                             * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                              
-                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                              
                             Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -2270,9 +2270,9 @@ class Client(BaseClient):
         
                         If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                        If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                        If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                         - **Enabled** *(boolean) --* 
         
@@ -2302,7 +2302,7 @@ class Client(BaseClient):
         
                         .. note::
         
-                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                       - **MinTTL** *(integer) --* 
         
@@ -2320,7 +2320,7 @@ class Client(BaseClient):
                          
                         * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                          
-                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                         - **Quantity** *(integer) --* 
         
@@ -2386,7 +2386,7 @@ class Client(BaseClient):
         
                             - **LambdaFunctionARN** *(string) --* 
         
-                              The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                              The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                             - **EventType** *(string) --* 
         
@@ -2394,11 +2394,11 @@ class Client(BaseClient):
         
                               * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                
-                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                
-                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
-                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
                             - **IncludeBody** *(boolean) --* 
         
@@ -2448,27 +2448,27 @@ class Client(BaseClient):
                          
                         * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                          
-                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                       - **ResponseCode** *(string) --* 
         
                         The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                          
-                        * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                        * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                          
-                        * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                        * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                          
-                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                       - **ErrorCachingMinTTL** *(integer) --* 
         
                         The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                        If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                        If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                         For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -2476,7 +2476,7 @@ class Client(BaseClient):
         
                   Any comments you want to include about the distribution.
         
-                  If you don't want to specify a comment, include an empty ``Comment`` element.
+                  If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
                   To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -2490,11 +2490,11 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
                   - **IncludeCookies** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
                   - **Bucket** *(string) --* 
         
@@ -2502,7 +2502,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **PriceClass** *(string) --* 
         
@@ -2522,9 +2522,9 @@ class Client(BaseClient):
         
                   * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                    
-                  * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                  * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                    
-                  * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                  * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                    
                   You must specify only one of the following values: 
         
@@ -2534,7 +2534,7 @@ class Client(BaseClient):
                    
                   *  ViewerCertificate$CloudFrontDefaultCertificate   
                    
-                  Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                  Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                    **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -2542,9 +2542,9 @@ class Client(BaseClient):
         
                   In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                  * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                  * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                     * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                      
@@ -2552,13 +2552,13 @@ class Client(BaseClient):
                      
                   If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                     * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                      
                     * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                      
-                  * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                  * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                    
                   If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -2592,7 +2592,7 @@ class Client(BaseClient):
         
                     * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                      
-                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                       * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                        
@@ -2602,7 +2602,7 @@ class Client(BaseClient):
                        
                       * Use HTTP instead of HTTPS. 
                        
-                    Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                    Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                     For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -2622,9 +2622,9 @@ class Client(BaseClient):
         
                     When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                    * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                    * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                      
-                    * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                    * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                      
                     If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -2664,7 +2664,7 @@ class Client(BaseClient):
         
                       * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                        
-                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                        
                       * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                        
@@ -2690,27 +2690,27 @@ class Client(BaseClient):
         
                 - **HttpVersion** *(string) --* 
         
-                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
                   For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
                 - **IsIPV6Enabled** *(boolean) --* 
         
                   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-                  If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+                  If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
                   * You enable IPv6 for the distribution 
                    
-                  * You're using alternate domain names in the URLs for your objects 
+                  * You\'re using alternate domain names in the URLs for your objects 
                    
                   For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
             - **Location** *(string) --* 
         
@@ -2733,229 +2733,229 @@ class Client(BaseClient):
         
           response = client.create_distribution_with_tags(
               DistributionConfigWithTags={
-                  'DistributionConfig': {
-                      'CallerReference': 'string',
-                      'Aliases': {
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                  \'DistributionConfig\': {
+                      \'CallerReference\': \'string\',
+                      \'Aliases\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       },
-                      'DefaultRootObject': 'string',
-                      'Origins': {
-                          'Quantity': 123,
-                          'Items': [
+                      \'DefaultRootObject\': \'string\',
+                      \'Origins\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'Id': 'string',
-                                  'DomainName': 'string',
-                                  'OriginPath': 'string',
-                                  'CustomHeaders': {
-                                      'Quantity': 123,
-                                      'Items': [
+                                  \'Id\': \'string\',
+                                  \'DomainName\': \'string\',
+                                  \'OriginPath\': \'string\',
+                                  \'CustomHeaders\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
                                           {
-                                              'HeaderName': 'string',
-                                              'HeaderValue': 'string'
+                                              \'HeaderName\': \'string\',
+                                              \'HeaderValue\': \'string\'
                                           },
                                       ]
                                   },
-                                  'S3OriginConfig': {
-                                      'OriginAccessIdentity': 'string'
+                                  \'S3OriginConfig\': {
+                                      \'OriginAccessIdentity\': \'string\'
                                   },
-                                  'CustomOriginConfig': {
-                                      'HTTPPort': 123,
-                                      'HTTPSPort': 123,
-                                      'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                      'OriginSslProtocols': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                  \'CustomOriginConfig\': {
+                                      \'HTTPPort\': 123,
+                                      \'HTTPSPort\': 123,
+                                      \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                      \'OriginSslProtocols\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                           ]
                                       },
-                                      'OriginReadTimeout': 123,
-                                      'OriginKeepaliveTimeout': 123
+                                      \'OriginReadTimeout\': 123,
+                                      \'OriginKeepaliveTimeout\': 123
                                   }
                               },
                           ]
                       },
-                      'DefaultCacheBehavior': {
-                          'TargetOriginId': 'string',
-                          'ForwardedValues': {
-                              'QueryString': True|False,
-                              'Cookies': {
-                                  'Forward': 'none'|'whitelist'|'all',
-                                  'WhitelistedNames': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                      \'DefaultCacheBehavior\': {
+                          \'TargetOriginId\': \'string\',
+                          \'ForwardedValues\': {
+                              \'QueryString\': True|False,
+                              \'Cookies\': {
+                                  \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                  \'WhitelistedNames\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   }
                               },
-                              'Headers': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'Headers\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               },
-                              'QueryStringCacheKeys': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'QueryStringCacheKeys\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               }
                           },
-                          'TrustedSigners': {
-                              'Enabled': True|False,
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                          \'TrustedSigners\': {
+                              \'Enabled\': True|False,
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           },
-                          'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                          'MinTTL': 123,
-                          'AllowedMethods': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                          \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                          \'MinTTL\': 123,
+                          \'AllowedMethods\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                               ],
-                              'CachedMethods': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                              \'CachedMethods\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                   ]
                               }
                           },
-                          'SmoothStreaming': True|False,
-                          'DefaultTTL': 123,
-                          'MaxTTL': 123,
-                          'Compress': True|False,
-                          'LambdaFunctionAssociations': {
-                              'Quantity': 123,
-                              'Items': [
+                          \'SmoothStreaming\': True|False,
+                          \'DefaultTTL\': 123,
+                          \'MaxTTL\': 123,
+                          \'Compress\': True|False,
+                          \'LambdaFunctionAssociations\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
                                   {
-                                      'LambdaFunctionARN': 'string',
-                                      'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                      'IncludeBody': True|False
+                                      \'LambdaFunctionARN\': \'string\',
+                                      \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                      \'IncludeBody\': True|False
                                   },
                               ]
                           },
-                          'FieldLevelEncryptionId': 'string'
+                          \'FieldLevelEncryptionId\': \'string\'
                       },
-                      'CacheBehaviors': {
-                          'Quantity': 123,
-                          'Items': [
+                      \'CacheBehaviors\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'PathPattern': 'string',
-                                  'TargetOriginId': 'string',
-                                  'ForwardedValues': {
-                                      'QueryString': True|False,
-                                      'Cookies': {
-                                          'Forward': 'none'|'whitelist'|'all',
-                                          'WhitelistedNames': {
-                                              'Quantity': 123,
-                                              'Items': [
-                                                  'string',
+                                  \'PathPattern\': \'string\',
+                                  \'TargetOriginId\': \'string\',
+                                  \'ForwardedValues\': {
+                                      \'QueryString\': True|False,
+                                      \'Cookies\': {
+                                          \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                          \'WhitelistedNames\': {
+                                              \'Quantity\': 123,
+                                              \'Items\': [
+                                                  \'string\',
                                               ]
                                           }
                                       },
-                                      'Headers': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'string',
+                                      \'Headers\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'string\',
                                           ]
                                       },
-                                      'QueryStringCacheKeys': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'string',
+                                      \'QueryStringCacheKeys\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'string\',
                                           ]
                                       }
                                   },
-                                  'TrustedSigners': {
-                                      'Enabled': True|False,
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                                  \'TrustedSigners\': {
+                                      \'Enabled\': True|False,
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   },
-                                  'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                  'MinTTL': 123,
-                                  'AllowedMethods': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                  \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                  \'MinTTL\': 123,
+                                  \'AllowedMethods\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                       ],
-                                      'CachedMethods': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                      \'CachedMethods\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                           ]
                                       }
                                   },
-                                  'SmoothStreaming': True|False,
-                                  'DefaultTTL': 123,
-                                  'MaxTTL': 123,
-                                  'Compress': True|False,
-                                  'LambdaFunctionAssociations': {
-                                      'Quantity': 123,
-                                      'Items': [
+                                  \'SmoothStreaming\': True|False,
+                                  \'DefaultTTL\': 123,
+                                  \'MaxTTL\': 123,
+                                  \'Compress\': True|False,
+                                  \'LambdaFunctionAssociations\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
                                           {
-                                              'LambdaFunctionARN': 'string',
-                                              'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                              'IncludeBody': True|False
+                                              \'LambdaFunctionARN\': \'string\',
+                                              \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                              \'IncludeBody\': True|False
                                           },
                                       ]
                                   },
-                                  'FieldLevelEncryptionId': 'string'
+                                  \'FieldLevelEncryptionId\': \'string\'
                               },
                           ]
                       },
-                      'CustomErrorResponses': {
-                          'Quantity': 123,
-                          'Items': [
+                      \'CustomErrorResponses\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'ErrorCode': 123,
-                                  'ResponsePagePath': 'string',
-                                  'ResponseCode': 'string',
-                                  'ErrorCachingMinTTL': 123
+                                  \'ErrorCode\': 123,
+                                  \'ResponsePagePath\': \'string\',
+                                  \'ResponseCode\': \'string\',
+                                  \'ErrorCachingMinTTL\': 123
                               },
                           ]
                       },
-                      'Comment': 'string',
-                      'Logging': {
-                          'Enabled': True|False,
-                          'IncludeCookies': True|False,
-                          'Bucket': 'string',
-                          'Prefix': 'string'
+                      \'Comment\': \'string\',
+                      \'Logging\': {
+                          \'Enabled\': True|False,
+                          \'IncludeCookies\': True|False,
+                          \'Bucket\': \'string\',
+                          \'Prefix\': \'string\'
                       },
-                      'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                      'Enabled': True|False,
-                      'ViewerCertificate': {
-                          'CloudFrontDefaultCertificate': True|False,
-                          'IAMCertificateId': 'string',
-                          'ACMCertificateArn': 'string',
-                          'SSLSupportMethod': 'sni-only'|'vip',
-                          'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                          'Certificate': 'string',
-                          'CertificateSource': 'cloudfront'|'iam'|'acm'
+                      \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                      \'Enabled\': True|False,
+                      \'ViewerCertificate\': {
+                          \'CloudFrontDefaultCertificate\': True|False,
+                          \'IAMCertificateId\': \'string\',
+                          \'ACMCertificateArn\': \'string\',
+                          \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                          \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                          \'Certificate\': \'string\',
+                          \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                       },
-                      'Restrictions': {
-                          'GeoRestriction': {
-                              'RestrictionType': 'blacklist'|'whitelist'|'none',
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                      \'Restrictions\': {
+                          \'GeoRestriction\': {
+                              \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'WebACLId': 'string',
-                      'HttpVersion': 'http1.1'|'http2',
-                      'IsIPV6Enabled': True|False
+                      \'WebACLId\': \'string\',
+                      \'HttpVersion\': \'http1.1\'|\'http2\',
+                      \'IsIPV6Enabled\': True|False
                   },
-                  'Tags': {
-                      'Items': [
+                  \'Tags\': {
+                      \'Items\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   }
@@ -2964,7 +2964,7 @@ class Client(BaseClient):
         :type DistributionConfigWithTags: dict
         :param DistributionConfigWithTags: **[REQUIRED]** 
         
-          The distribution's configuration information. 
+          The distribution\'s configuration information. 
         
           - **DistributionConfig** *(dict) --* **[REQUIRED]** 
         
@@ -2972,7 +2972,7 @@ class Client(BaseClient):
         
             - **CallerReference** *(string) --* **[REQUIRED]** 
         
-              A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+              A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
               If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -2998,9 +2998,9 @@ class Client(BaseClient):
         
               The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-              Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+              Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-              If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+              If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
               To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -3038,7 +3038,7 @@ class Client(BaseClient):
         
                     Constraints for Amazon S3 origins: 
         
-                    * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                    * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                      
                     * The bucket name must be between 3 and 63 characters long (inclusive). 
                      
@@ -3058,7 +3058,7 @@ class Client(BaseClient):
         
                     An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                    For example, suppose you've specified the following values for your distribution:
+                    For example, suppose you\'ve specified the following values for your distribution:
         
                     * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                      
@@ -3158,7 +3158,7 @@ class Client(BaseClient):
         
             - **DefaultCacheBehavior** *(dict) --* **[REQUIRED]** 
         
-              A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+              A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
               - **TargetOriginId** *(string) --* **[REQUIRED]** 
         
@@ -3172,11 +3172,11 @@ class Client(BaseClient):
         
                   Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                  If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                  If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                   If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                  If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                  If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                   For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -3188,13 +3188,13 @@ class Client(BaseClient):
         
                     Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                    Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                    Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                   - **WhitelistedNames** *(dict) --* 
         
                     Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                    If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                    If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                     For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -3220,11 +3220,11 @@ class Client(BaseClient):
         
                     .. warning::
         
-                       CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                       CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                     * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                      
-                    * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                    * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                      
                     Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -3258,9 +3258,9 @@ class Client(BaseClient):
         
                 If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                 - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -3290,7 +3290,7 @@ class Client(BaseClient):
         
                 .. note::
         
-                  The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                  The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
               - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -3308,7 +3308,7 @@ class Client(BaseClient):
                  
                 * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                  
-                If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                 - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -3372,7 +3372,7 @@ class Client(BaseClient):
         
                     - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                      The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                      The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                     - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -3380,11 +3380,11 @@ class Client(BaseClient):
         
                       * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                        
-                      * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                      * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                        
-                      * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                      * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                        
-                      * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                      * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                        
                     - **IncludeBody** *(boolean) --* 
         
@@ -3414,7 +3414,7 @@ class Client(BaseClient):
         
                   For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                  If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                   To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -3446,11 +3446,11 @@ class Client(BaseClient):
         
                       Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                      If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                      If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                       If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                      If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                      If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                       For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -3462,13 +3462,13 @@ class Client(BaseClient):
         
                         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                        Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                        Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                       - **WhitelistedNames** *(dict) --* 
         
                         Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                         For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -3494,11 +3494,11 @@ class Client(BaseClient):
         
                         .. warning::
         
-                           CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                           CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                         * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                          
-                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                          
                         Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -3532,9 +3532,9 @@ class Client(BaseClient):
         
                     If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                    If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                    If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -3564,7 +3564,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                   - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -3582,7 +3582,7 @@ class Client(BaseClient):
                      
                     * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                      
-                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                     - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -3648,7 +3648,7 @@ class Client(BaseClient):
         
                         - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                          The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                          The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                         - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -3656,11 +3656,11 @@ class Client(BaseClient):
         
                           * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                            
-                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                            
-                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
-                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
                         - **IncludeBody** *(boolean) --* 
         
@@ -3710,27 +3710,27 @@ class Client(BaseClient):
                      
                     * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                      
-                    If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                    If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                    We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                    We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                   - **ResponseCode** *(string) --* 
         
                     The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                    * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                    * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                      
-                    * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                    * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                      
-                    * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                    * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                      
-                    If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                    If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                   - **ErrorCachingMinTTL** *(integer) --* 
         
                     The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                    If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                    If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                     For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -3738,7 +3738,7 @@ class Client(BaseClient):
         
               Any comments you want to include about the distribution.
         
-              If you don't want to specify a comment, include an empty ``Comment`` element.
+              If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
               To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -3752,11 +3752,11 @@ class Client(BaseClient):
         
               - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-                Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
               - **IncludeCookies** *(boolean) --* **[REQUIRED]** 
         
-                Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
               - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -3764,7 +3764,7 @@ class Client(BaseClient):
         
               - **Prefix** *(string) --* **[REQUIRED]** 
         
-                An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
             - **PriceClass** *(string) --* 
         
@@ -3784,9 +3784,9 @@ class Client(BaseClient):
         
               * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                
-              * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+              * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                
-              * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+              * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                
               You must specify only one of the following values: 
         
@@ -3796,7 +3796,7 @@ class Client(BaseClient):
                
               *  ViewerCertificate$CloudFrontDefaultCertificate   
                
-              Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+              Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -3804,9 +3804,9 @@ class Client(BaseClient):
         
               In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-               **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+               **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-              * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+              * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                 * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                  
@@ -3814,13 +3814,13 @@ class Client(BaseClient):
                  
               If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-              If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+              If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                 * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                  
                 * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                  
-              * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+              * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                
               If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -3854,7 +3854,7 @@ class Client(BaseClient):
         
                 * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                  
-                * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                   * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                    
@@ -3864,7 +3864,7 @@ class Client(BaseClient):
                    
                   * Use HTTP instead of HTTPS. 
                    
-                Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                 For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -3884,9 +3884,9 @@ class Client(BaseClient):
         
                 When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                  
-                * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                  
                 If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -3926,7 +3926,7 @@ class Client(BaseClient):
         
                   * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                    
-                  * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                  * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                    
                   * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                    
@@ -3952,27 +3952,27 @@ class Client(BaseClient):
         
             - **HttpVersion** *(string) --* 
         
-              (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+              (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
               For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-              In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+              In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
             - **IsIPV6Enabled** *(boolean) --* 
         
               If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-              In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+              In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-              If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+              If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
               * You enable IPv6 for the distribution 
                
-              * You're using alternate domain names in the URLs for your objects 
+              * You\'re using alternate domain names in the URLs for your objects 
                
               For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-              If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+              If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
           - **Tags** *(dict) --* **[REQUIRED]** 
         
@@ -4006,249 +4006,249 @@ class Client(BaseClient):
           ::
         
             {
-                'Distribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'InProgressInvalidationBatches': 123,
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'Distribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'InProgressInvalidationBatches\': 123,
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'DistributionConfig': {
-                        'CallerReference': 'string',
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                    \'DistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'DefaultRootObject': 'string',
-                        'Origins': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'DefaultRootObject\': \'string\',
+                        \'Origins\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'Id': 'string',
-                                    'DomainName': 'string',
-                                    'OriginPath': 'string',
-                                    'CustomHeaders': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'Id\': \'string\',
+                                    \'DomainName\': \'string\',
+                                    \'OriginPath\': \'string\',
+                                    \'CustomHeaders\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'HeaderName': 'string',
-                                                'HeaderValue': 'string'
+                                                \'HeaderName\': \'string\',
+                                                \'HeaderValue\': \'string\'
                                             },
                                         ]
                                     },
-                                    'S3OriginConfig': {
-                                        'OriginAccessIdentity': 'string'
+                                    \'S3OriginConfig\': {
+                                        \'OriginAccessIdentity\': \'string\'
                                     },
-                                    'CustomOriginConfig': {
-                                        'HTTPPort': 123,
-                                        'HTTPSPort': 123,
-                                        'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                        'OriginSslProtocols': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                    \'CustomOriginConfig\': {
+                                        \'HTTPPort\': 123,
+                                        \'HTTPSPort\': 123,
+                                        \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                        \'OriginSslProtocols\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                             ]
                                         },
-                                        'OriginReadTimeout': 123,
-                                        'OriginKeepaliveTimeout': 123
+                                        \'OriginReadTimeout\': 123,
+                                        \'OriginKeepaliveTimeout\': 123
                                     }
                                 },
                             ]
                         },
-                        'DefaultCacheBehavior': {
-                            'TargetOriginId': 'string',
-                            'ForwardedValues': {
-                                'QueryString': True|False,
-                                'Cookies': {
-                                    'Forward': 'none'|'whitelist'|'all',
-                                    'WhitelistedNames': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                        \'DefaultCacheBehavior\': {
+                            \'TargetOriginId\': \'string\',
+                            \'ForwardedValues\': {
+                                \'QueryString\': True|False,
+                                \'Cookies\': {
+                                    \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                    \'WhitelistedNames\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Headers': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'Headers\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'QueryStringCacheKeys': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'QueryStringCacheKeys\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                            'MinTTL': 123,
-                            'AllowedMethods': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                            \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                            \'MinTTL\': 123,
+                            \'AllowedMethods\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                 ],
-                                'CachedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'CachedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ]
                                 }
                             },
-                            'SmoothStreaming': True|False,
-                            'DefaultTTL': 123,
-                            'MaxTTL': 123,
-                            'Compress': True|False,
-                            'LambdaFunctionAssociations': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'SmoothStreaming\': True|False,
+                            \'DefaultTTL\': 123,
+                            \'MaxTTL\': 123,
+                            \'Compress\': True|False,
+                            \'LambdaFunctionAssociations\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'LambdaFunctionARN': 'string',
-                                        'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                        'IncludeBody': True|False
+                                        \'LambdaFunctionARN\': \'string\',
+                                        \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                        \'IncludeBody\': True|False
                                     },
                                 ]
                             },
-                            'FieldLevelEncryptionId': 'string'
+                            \'FieldLevelEncryptionId\': \'string\'
                         },
-                        'CacheBehaviors': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CacheBehaviors\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PathPattern': 'string',
-                                    'TargetOriginId': 'string',
-                                    'ForwardedValues': {
-                                        'QueryString': True|False,
-                                        'Cookies': {
-                                            'Forward': 'none'|'whitelist'|'all',
-                                            'WhitelistedNames': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                    \'PathPattern\': \'string\',
+                                    \'TargetOriginId\': \'string\',
+                                    \'ForwardedValues\': {
+                                        \'QueryString\': True|False,
+                                        \'Cookies\': {
+                                            \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                            \'WhitelistedNames\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Headers': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'Headers\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'QueryStringCacheKeys': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'QueryStringCacheKeys\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'TrustedSigners': {
-                                        'Enabled': True|False,
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'TrustedSigners\': {
+                                        \'Enabled\': True|False,
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                    'MinTTL': 123,
-                                    'AllowedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                    \'MinTTL\': 123,
+                                    \'AllowedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ],
-                                        'CachedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'CachedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ]
                                         }
                                     },
-                                    'SmoothStreaming': True|False,
-                                    'DefaultTTL': 123,
-                                    'MaxTTL': 123,
-                                    'Compress': True|False,
-                                    'LambdaFunctionAssociations': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'SmoothStreaming\': True|False,
+                                    \'DefaultTTL\': 123,
+                                    \'MaxTTL\': 123,
+                                    \'Compress\': True|False,
+                                    \'LambdaFunctionAssociations\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'LambdaFunctionARN': 'string',
-                                                'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                'IncludeBody': True|False
+                                                \'LambdaFunctionARN\': \'string\',
+                                                \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                \'IncludeBody\': True|False
                                             },
                                         ]
                                     },
-                                    'FieldLevelEncryptionId': 'string'
+                                    \'FieldLevelEncryptionId\': \'string\'
                                 },
                             ]
                         },
-                        'CustomErrorResponses': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CustomErrorResponses\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'ErrorCode': 123,
-                                    'ResponsePagePath': 'string',
-                                    'ResponseCode': 'string',
-                                    'ErrorCachingMinTTL': 123
+                                    \'ErrorCode\': 123,
+                                    \'ResponsePagePath\': \'string\',
+                                    \'ResponseCode\': \'string\',
+                                    \'ErrorCachingMinTTL\': 123
                                 },
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'IncludeCookies': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'IncludeCookies\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False,
-                        'ViewerCertificate': {
-                            'CloudFrontDefaultCertificate': True|False,
-                            'IAMCertificateId': 'string',
-                            'ACMCertificateArn': 'string',
-                            'SSLSupportMethod': 'sni-only'|'vip',
-                            'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                            'Certificate': 'string',
-                            'CertificateSource': 'cloudfront'|'iam'|'acm'
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False,
+                        \'ViewerCertificate\': {
+                            \'CloudFrontDefaultCertificate\': True|False,
+                            \'IAMCertificateId\': \'string\',
+                            \'ACMCertificateArn\': \'string\',
+                            \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                            \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                            \'Certificate\': \'string\',
+                            \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                         },
-                        'Restrictions': {
-                            'GeoRestriction': {
-                                'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                        \'Restrictions\': {
+                            \'GeoRestriction\': {
+                                \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'WebACLId': 'string',
-                        'HttpVersion': 'http1.1'|'http2',
-                        'IsIPV6Enabled': True|False
+                        \'WebACLId\': \'string\',
+                        \'HttpVersion\': \'http1.1\'|\'http2\',
+                        \'IsIPV6Enabled\': True|False
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -4258,7 +4258,7 @@ class Client(BaseClient):
         
             - **Distribution** *(dict) --* 
         
-              The distribution's information. 
+              The distribution\'s information. 
         
               - **Id** *(string) --* 
         
@@ -4270,7 +4270,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* 
         
-                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated to all CloudFront edge locations. 
+                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated to all CloudFront edge locations. 
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -4286,7 +4286,7 @@ class Client(BaseClient):
         
               - **ActiveTrustedSigners** *(dict) --* 
         
-                CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create working signed URLs.
+                CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create working signed URLs.
         
                 - **Enabled** *(boolean) --* 
         
@@ -4342,7 +4342,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+                  A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
                   If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -4368,9 +4368,9 @@ class Client(BaseClient):
         
                   The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-                  Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+                  Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-                  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                  If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
                   To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -4408,7 +4408,7 @@ class Client(BaseClient):
         
                         Constraints for Amazon S3 origins: 
         
-                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                          
                         * The bucket name must be between 3 and 63 characters long (inclusive). 
                          
@@ -4428,7 +4428,7 @@ class Client(BaseClient):
         
                         An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                        For example, suppose you've specified the following values for your distribution:
+                        For example, suppose you\'ve specified the following values for your distribution:
         
                         * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                          
@@ -4528,7 +4528,7 @@ class Client(BaseClient):
         
                 - **DefaultCacheBehavior** *(dict) --* 
         
-                  A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                  A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                   - **TargetOriginId** *(string) --* 
         
@@ -4542,11 +4542,11 @@ class Client(BaseClient):
         
                       Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                      If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                      If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                       If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                      If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                      If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                       For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -4558,13 +4558,13 @@ class Client(BaseClient):
         
                         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                        Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                        Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                       - **WhitelistedNames** *(dict) --* 
         
                         Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                         For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -4590,11 +4590,11 @@ class Client(BaseClient):
         
                         .. warning::
         
-                           CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                           CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                         * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                          
-                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                          
                         Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -4628,9 +4628,9 @@ class Client(BaseClient):
         
                     If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                    If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                    If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         
@@ -4660,7 +4660,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                   - **MinTTL** *(integer) --* 
         
@@ -4678,7 +4678,7 @@ class Client(BaseClient):
                      
                     * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                      
-                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                     - **Quantity** *(integer) --* 
         
@@ -4742,7 +4742,7 @@ class Client(BaseClient):
         
                         - **LambdaFunctionARN** *(string) --* 
         
-                          The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                          The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                         - **EventType** *(string) --* 
         
@@ -4750,11 +4750,11 @@ class Client(BaseClient):
         
                           * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                            
-                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                            
-                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
-                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
                         - **IncludeBody** *(boolean) --* 
         
@@ -4784,7 +4784,7 @@ class Client(BaseClient):
         
                       For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                      If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                      If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                       To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -4816,11 +4816,11 @@ class Client(BaseClient):
         
                           Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                          If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                          If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                           If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                          If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                          If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                           For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -4832,13 +4832,13 @@ class Client(BaseClient):
         
                             Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                            Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                            Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                           - **WhitelistedNames** *(dict) --* 
         
                             Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                             For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -4864,11 +4864,11 @@ class Client(BaseClient):
         
                             .. warning::
         
-                               CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                               CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                             * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                              
-                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                              
                             Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -4902,9 +4902,9 @@ class Client(BaseClient):
         
                         If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                        If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                        If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                         - **Enabled** *(boolean) --* 
         
@@ -4934,7 +4934,7 @@ class Client(BaseClient):
         
                         .. note::
         
-                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                       - **MinTTL** *(integer) --* 
         
@@ -4952,7 +4952,7 @@ class Client(BaseClient):
                          
                         * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                          
-                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                         - **Quantity** *(integer) --* 
         
@@ -5018,7 +5018,7 @@ class Client(BaseClient):
         
                             - **LambdaFunctionARN** *(string) --* 
         
-                              The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                              The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                             - **EventType** *(string) --* 
         
@@ -5026,11 +5026,11 @@ class Client(BaseClient):
         
                               * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                
-                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                
-                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
-                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
                             - **IncludeBody** *(boolean) --* 
         
@@ -5080,27 +5080,27 @@ class Client(BaseClient):
                          
                         * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                          
-                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                       - **ResponseCode** *(string) --* 
         
                         The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                          
-                        * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                        * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                          
-                        * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                        * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                          
-                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                       - **ErrorCachingMinTTL** *(integer) --* 
         
                         The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                        If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                        If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                         For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -5108,7 +5108,7 @@ class Client(BaseClient):
         
                   Any comments you want to include about the distribution.
         
-                  If you don't want to specify a comment, include an empty ``Comment`` element.
+                  If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
                   To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -5122,11 +5122,11 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
                   - **IncludeCookies** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
                   - **Bucket** *(string) --* 
         
@@ -5134,7 +5134,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **PriceClass** *(string) --* 
         
@@ -5154,9 +5154,9 @@ class Client(BaseClient):
         
                   * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                    
-                  * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                  * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                    
-                  * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                  * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                    
                   You must specify only one of the following values: 
         
@@ -5166,7 +5166,7 @@ class Client(BaseClient):
                    
                   *  ViewerCertificate$CloudFrontDefaultCertificate   
                    
-                  Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                  Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                    **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -5174,9 +5174,9 @@ class Client(BaseClient):
         
                   In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                  * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                  * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                     * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                      
@@ -5184,13 +5184,13 @@ class Client(BaseClient):
                      
                   If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                     * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                      
                     * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                      
-                  * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                  * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                    
                   If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -5224,7 +5224,7 @@ class Client(BaseClient):
         
                     * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                      
-                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                       * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                        
@@ -5234,7 +5234,7 @@ class Client(BaseClient):
                        
                       * Use HTTP instead of HTTPS. 
                        
-                    Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                    Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                     For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -5254,9 +5254,9 @@ class Client(BaseClient):
         
                     When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                    * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                    * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                      
-                    * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                    * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                      
                     If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -5296,7 +5296,7 @@ class Client(BaseClient):
         
                       * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                        
-                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                        
                       * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                        
@@ -5322,27 +5322,27 @@ class Client(BaseClient):
         
                 - **HttpVersion** *(string) --* 
         
-                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
                   For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
                 - **IsIPV6Enabled** *(boolean) --* 
         
                   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-                  If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+                  If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
                   * You enable IPv6 for the distribution 
                    
-                  * You're using alternate domain names in the URLs for your objects 
+                  * You\'re using alternate domain names in the URLs for your objects 
                    
                   For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
             - **Location** *(string) --* 
         
@@ -5365,29 +5365,29 @@ class Client(BaseClient):
         
           response = client.create_field_level_encryption_config(
               FieldLevelEncryptionConfig={
-                  'CallerReference': 'string',
-                  'Comment': 'string',
-                  'QueryArgProfileConfig': {
-                      'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                      'QueryArgProfiles': {
-                          'Quantity': 123,
-                          'Items': [
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\',
+                  \'QueryArgProfileConfig\': {
+                      \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                      \'QueryArgProfiles\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'QueryArg': 'string',
-                                  'ProfileId': 'string'
+                                  \'QueryArg\': \'string\',
+                                  \'ProfileId\': \'string\'
                               },
                           ]
                       }
                   },
-                  'ContentTypeProfileConfig': {
-                      'ForwardWhenContentTypeIsUnknown': True|False,
-                      'ContentTypeProfiles': {
-                          'Quantity': 123,
-                          'Items': [
+                  \'ContentTypeProfileConfig\': {
+                      \'ForwardWhenContentTypeIsUnknown\': True|False,
+                      \'ContentTypeProfiles\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'Format': 'URLEncoded',
-                                  'ProfileId': 'string',
-                                  'ContentType': 'string'
+                                  \'Format\': \'URLEncoded\',
+                                  \'ProfileId\': \'string\',
+                                  \'ContentType\': \'string\'
                               },
                           ]
                       }
@@ -5401,7 +5401,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Comment** *(string) --* 
         
@@ -5409,7 +5409,7 @@ class Client(BaseClient):
         
           - **QueryArgProfileConfig** *(dict) --* 
         
-            A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+            A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
             - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* **[REQUIRED]** 
         
@@ -5441,7 +5441,7 @@ class Client(BaseClient):
         
           - **ContentTypeProfileConfig** *(dict) --* 
         
-            A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+            A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
             - **ForwardWhenContentTypeIsUnknown** *(boolean) --* **[REQUIRED]** 
         
@@ -5483,41 +5483,41 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryption': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'QueryArgProfileConfig': {
-                            'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                            'QueryArgProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                \'FieldLevelEncryption\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'QueryArgProfileConfig\': {
+                            \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                            \'QueryArgProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'QueryArg': 'string',
-                                        'ProfileId': 'string'
+                                        \'QueryArg\': \'string\',
+                                        \'ProfileId\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'ContentTypeProfileConfig': {
-                            'ForwardWhenContentTypeIsUnknown': True|False,
-                            'ContentTypeProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                        \'ContentTypeProfileConfig\': {
+                            \'ForwardWhenContentTypeIsUnknown\': True|False,
+                            \'ContentTypeProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Format': 'URLEncoded',
-                                        'ProfileId': 'string',
-                                        'ContentType': 'string'
+                                        \'Format\': \'URLEncoded\',
+                                        \'ProfileId\': \'string\',
+                                        \'ContentType\': \'string\'
                                     },
                                 ]
                             }
                         }
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -5541,7 +5541,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -5549,7 +5549,7 @@ class Client(BaseClient):
         
                 - **QueryArgProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+                  A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
                   - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* 
         
@@ -5581,7 +5581,7 @@ class Client(BaseClient):
         
                 - **ContentTypeProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+                  A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
                   - **ForwardWhenContentTypeIsUnknown** *(boolean) --* 
         
@@ -5636,19 +5636,19 @@ class Client(BaseClient):
         
           response = client.create_field_level_encryption_profile(
               FieldLevelEncryptionProfileConfig={
-                  'Name': 'string',
-                  'CallerReference': 'string',
-                  'Comment': 'string',
-                  'EncryptionEntities': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'Name\': \'string\',
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\',
+                  \'EncryptionEntities\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'PublicKeyId': 'string',
-                              'ProviderId': 'string',
-                              'FieldPatterns': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'PublicKeyId\': \'string\',
+                              \'ProviderId\': \'string\',
+                              \'FieldPatterns\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               }
                           },
@@ -5667,7 +5667,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Comment** *(string) --* 
         
@@ -5699,7 +5699,7 @@ class Client(BaseClient):
         
                 - **FieldPatterns** *(dict) --* **[REQUIRED]** 
         
-                  Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                  Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                   - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -5719,23 +5719,23 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionProfile': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionProfileConfig': {
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'EncryptionEntities': {
-                            'Quantity': 123,
-                            'Items': [
+                \'FieldLevelEncryptionProfile\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionProfileConfig\': {
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'EncryptionEntities\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PublicKeyId': 'string',
-                                    'ProviderId': 'string',
-                                    'FieldPatterns': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'PublicKeyId\': \'string\',
+                                    \'ProviderId\': \'string\',
+                                    \'FieldPatterns\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
@@ -5743,8 +5743,8 @@ class Client(BaseClient):
                         }
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -5772,7 +5772,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -5804,7 +5804,7 @@ class Client(BaseClient):
         
                       - **FieldPatterns** *(dict) --* 
         
-                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                         - **Quantity** *(integer) --* 
         
@@ -5836,21 +5836,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_invalidation(
-              DistributionId='string',
+              DistributionId=\'string\',
               InvalidationBatch={
-                  'Paths': {
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'Paths\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'CallerReference': 'string'
+                  \'CallerReference\': \'string\'
               }
           )
         :type DistributionId: string
         :param DistributionId: **[REQUIRED]** 
         
-          The distribution's id.
+          The distribution\'s id.
         
         :type InvalidationBatch: dict
         :param InvalidationBatch: **[REQUIRED]** 
@@ -5875,7 +5875,7 @@ class Client(BaseClient):
         
             A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for ``CallerReference`` and change other values in the request as applicable. One way to ensure that the value of ``CallerReference`` is unique is to use a ``timestamp`` , for example, ``20120301090000`` .
         
-            If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn't create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
+            If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn\'t create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
         
             If ``CallerReference`` is a value you already sent in a previous invalidation batch request but the content of any ``Path`` is different from the original request, CloudFront returns an ``InvalidationBatchAlreadyExists`` error.
         
@@ -5887,19 +5887,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Location': 'string',
-                'Invalidation': {
-                    'Id': 'string',
-                    'Status': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'InvalidationBatch': {
-                        'Paths': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                \'Location\': \'string\',
+                \'Invalidation\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'InvalidationBatch\': {
+                        \'Paths\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'CallerReference': 'string'
+                        \'CallerReference\': \'string\'
                     }
                 }
             }
@@ -5915,7 +5915,7 @@ class Client(BaseClient):
         
             - **Invalidation** *(dict) --* 
         
-              The invalidation's information.
+              The invalidation\'s information.
         
               - **Id** *(string) --* 
         
@@ -5951,7 +5951,7 @@ class Client(BaseClient):
         
                   A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for ``CallerReference`` and change other values in the request as applicable. One way to ensure that the value of ``CallerReference`` is unique is to use a ``timestamp`` , for example, ``20120301090000`` .
         
-                  If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn't create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
+                  If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn\'t create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
         
                   If ``CallerReference`` is a value you already sent in a previous invalidation batch request but the content of any ``Path`` is different from the original request, CloudFront returns an ``InvalidationBatchAlreadyExists`` error.
         
@@ -5968,10 +5968,10 @@ class Client(BaseClient):
         
           response = client.create_public_key(
               PublicKeyConfig={
-                  'CallerReference': 'string',
-                  'Name': 'string',
-                  'EncodedKey': 'string',
-                  'Comment': 'string'
+                  \'CallerReference\': \'string\',
+                  \'Name\': \'string\',
+                  \'EncodedKey\': \'string\',
+                  \'Comment\': \'string\'
               }
           )
         :type PublicKeyConfig: dict
@@ -5981,7 +5981,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Name** *(string) --* **[REQUIRED]** 
         
@@ -6003,18 +6003,18 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKey': {
-                    'Id': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'PublicKeyConfig': {
-                        'CallerReference': 'string',
-                        'Name': 'string',
-                        'EncodedKey': 'string',
-                        'Comment': 'string'
+                \'PublicKey\': {
+                    \'Id\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'PublicKeyConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Name\': \'string\',
+                        \'EncodedKey\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -6026,7 +6026,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                A unique ID assigned to a public key you've added to CloudFront.
+                A unique ID assigned to a public key you\'ve added to CloudFront.
         
               - **CreatedTime** *(datetime) --* 
         
@@ -6038,7 +6038,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Name** *(string) --* 
         
@@ -6074,7 +6074,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a web distribution or an RTMP distribution, and when you invalidate objects. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there's a mismatch between the number of values you say you're specifying in the ``Quantity`` element and the number of values specified.
+          Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a web distribution or an RTMP distribution, and when you invalidate objects. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there\'s a mismatch between the number of values you say you\'re specifying in the ``Quantity`` element and the number of values specified.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/CreateStreamingDistribution>`_
         
@@ -6083,42 +6083,42 @@ class Client(BaseClient):
         
           response = client.create_streaming_distribution(
               StreamingDistributionConfig={
-                  'CallerReference': 'string',
-                  'S3Origin': {
-                      'DomainName': 'string',
-                      'OriginAccessIdentity': 'string'
+                  \'CallerReference\': \'string\',
+                  \'S3Origin\': {
+                      \'DomainName\': \'string\',
+                      \'OriginAccessIdentity\': \'string\'
                   },
-                  'Aliases': {
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'Aliases\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'Comment': 'string',
-                  'Logging': {
-                      'Enabled': True|False,
-                      'Bucket': 'string',
-                      'Prefix': 'string'
+                  \'Comment\': \'string\',
+                  \'Logging\': {
+                      \'Enabled\': True|False,
+                      \'Bucket\': \'string\',
+                      \'Prefix\': \'string\'
                   },
-                  'TrustedSigners': {
-                      'Enabled': True|False,
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'TrustedSigners\': {
+                      \'Enabled\': True|False,
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                  'Enabled': True|False
+                  \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                  \'Enabled\': True|False
               }
           )
         :type StreamingDistributionConfig: dict
         :param StreamingDistributionConfig: **[REQUIRED]** 
         
-          The streaming distribution's configuration information.
+          The streaming distribution\'s configuration information.
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+            A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
           - **S3Origin** *(dict) --* **[REQUIRED]** 
         
@@ -6164,7 +6164,7 @@ class Client(BaseClient):
         
             - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
             - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -6172,7 +6172,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* **[REQUIRED]** 
         
-              An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+              An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
           - **TrustedSigners** *(dict) --* **[REQUIRED]** 
         
@@ -6208,58 +6208,58 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'StreamingDistribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'StreamingDistributionConfig': {
-                        'CallerReference': 'string',
-                        'S3Origin': {
-                            'DomainName': 'string',
-                            'OriginAccessIdentity': 'string'
+                    \'StreamingDistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'S3Origin\': {
+                            \'DomainName\': \'string\',
+                            \'OriginAccessIdentity\': \'string\'
                         },
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'TrustedSigners': {
-                            'Enabled': True|False,
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'TrustedSigners\': {
+                            \'Enabled\': True|False,
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -6269,7 +6269,7 @@ class Client(BaseClient):
         
             - **StreamingDistribution** *(dict) --* 
         
-              The streaming distribution's information.
+              The streaming distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -6279,7 +6279,7 @@ class Client(BaseClient):
               
               - **Status** *(string) --* 
         
-                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -6293,7 +6293,7 @@ class Client(BaseClient):
         
                 A complex type that lists the AWS accounts, if any, that you included in the ``TrustedSigners`` complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
         
-                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create signed URLs.
+                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create signed URLs.
         
                 For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon CloudFront Developer Guide* . 
         
@@ -6351,7 +6351,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+                  A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
                 - **S3Origin** *(dict) --* 
         
@@ -6397,7 +6397,7 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
                   - **Bucket** *(string) --* 
         
@@ -6405,7 +6405,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **TrustedSigners** *(dict) --* 
         
@@ -6454,39 +6454,39 @@ class Client(BaseClient):
         
           response = client.create_streaming_distribution_with_tags(
               StreamingDistributionConfigWithTags={
-                  'StreamingDistributionConfig': {
-                      'CallerReference': 'string',
-                      'S3Origin': {
-                          'DomainName': 'string',
-                          'OriginAccessIdentity': 'string'
+                  \'StreamingDistributionConfig\': {
+                      \'CallerReference\': \'string\',
+                      \'S3Origin\': {
+                          \'DomainName\': \'string\',
+                          \'OriginAccessIdentity\': \'string\'
                       },
-                      'Aliases': {
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                      \'Aliases\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       },
-                      'Comment': 'string',
-                      'Logging': {
-                          'Enabled': True|False,
-                          'Bucket': 'string',
-                          'Prefix': 'string'
+                      \'Comment\': \'string\',
+                      \'Logging\': {
+                          \'Enabled\': True|False,
+                          \'Bucket\': \'string\',
+                          \'Prefix\': \'string\'
                       },
-                      'TrustedSigners': {
-                          'Enabled': True|False,
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                      \'TrustedSigners\': {
+                          \'Enabled\': True|False,
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       },
-                      'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                      'Enabled': True|False
+                      \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                      \'Enabled\': True|False
                   },
-                  'Tags': {
-                      'Items': [
+                  \'Tags\': {
+                      \'Items\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   }
@@ -6495,7 +6495,7 @@ class Client(BaseClient):
         :type StreamingDistributionConfigWithTags: dict
         :param StreamingDistributionConfigWithTags: **[REQUIRED]** 
         
-          The streaming distribution's configuration information. 
+          The streaming distribution\'s configuration information. 
         
           - **StreamingDistributionConfig** *(dict) --* **[REQUIRED]** 
         
@@ -6503,7 +6503,7 @@ class Client(BaseClient):
         
             - **CallerReference** *(string) --* **[REQUIRED]** 
         
-              A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+              A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
             - **S3Origin** *(dict) --* **[REQUIRED]** 
         
@@ -6549,7 +6549,7 @@ class Client(BaseClient):
         
               - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-                Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
               - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -6557,7 +6557,7 @@ class Client(BaseClient):
         
               - **Prefix** *(string) --* **[REQUIRED]** 
         
-                An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
             - **TrustedSigners** *(dict) --* **[REQUIRED]** 
         
@@ -6617,58 +6617,58 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'StreamingDistribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'StreamingDistributionConfig': {
-                        'CallerReference': 'string',
-                        'S3Origin': {
-                            'DomainName': 'string',
-                            'OriginAccessIdentity': 'string'
+                    \'StreamingDistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'S3Origin\': {
+                            \'DomainName\': \'string\',
+                            \'OriginAccessIdentity\': \'string\'
                         },
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'TrustedSigners': {
-                            'Enabled': True|False,
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'TrustedSigners\': {
+                            \'Enabled\': True|False,
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False
                     }
                 },
-                'Location': 'string',
-                'ETag': 'string'
+                \'Location\': \'string\',
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -6678,7 +6678,7 @@ class Client(BaseClient):
         
             - **StreamingDistribution** *(dict) --* 
         
-              The streaming distribution's information. 
+              The streaming distribution\'s information. 
         
               - **Id** *(string) --* 
         
@@ -6688,7 +6688,7 @@ class Client(BaseClient):
               
               - **Status** *(string) --* 
         
-                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -6702,7 +6702,7 @@ class Client(BaseClient):
         
                 A complex type that lists the AWS accounts, if any, that you included in the ``TrustedSigners`` complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
         
-                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create signed URLs.
+                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create signed URLs.
         
                 For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon CloudFront Developer Guide* . 
         
@@ -6760,7 +6760,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+                  A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
                 - **S3Origin** *(dict) --* 
         
@@ -6806,7 +6806,7 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
                   - **Bucket** *(string) --* 
         
@@ -6814,7 +6814,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **TrustedSigners** *(dict) --* 
         
@@ -6859,13 +6859,13 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cloud_front_origin_access_identity(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The origin access identity's ID.
+          The origin access identity\'s ID.
         
         :type IfMatch: string
         :param IfMatch: 
@@ -6885,8 +6885,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_distribution(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -6911,8 +6911,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_field_level_encryption_config(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -6937,8 +6937,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_field_level_encryption_profile(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -6963,8 +6963,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_public_key(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -7009,8 +7009,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_streaming_distribution(
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -7042,7 +7042,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -7057,12 +7057,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_cloud_front_origin_access_identity(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The identity's ID.
+          The identity\'s ID.
         
         :rtype: dict
         :returns: 
@@ -7072,15 +7072,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontOriginAccessIdentity': {
-                    'Id': 'string',
-                    'S3CanonicalUserId': 'string',
-                    'CloudFrontOriginAccessIdentityConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string'
+                \'CloudFrontOriginAccessIdentity\': {
+                    \'Id\': \'string\',
+                    \'S3CanonicalUserId\': \'string\',
+                    \'CloudFrontOriginAccessIdentityConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -7090,7 +7090,7 @@ class Client(BaseClient):
         
             - **CloudFrontOriginAccessIdentity** *(dict) --* 
         
-              The origin access identity's information.
+              The origin access identity\'s information.
         
               - **Id** *(string) --* 
         
@@ -7106,7 +7106,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                   If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -7120,7 +7120,7 @@ class Client(BaseClient):
         
             - **ETag** *(string) --* 
         
-              The current version of the origin access identity's information. For example: ``E2QWRUHAPOMQZL`` .
+              The current version of the origin access identity\'s information. For example: ``E2QWRUHAPOMQZL`` .
         
         """
         pass
@@ -7134,12 +7134,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_cloud_front_origin_access_identity_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The identity's ID. 
+          The identity\'s ID. 
         
         :rtype: dict
         :returns: 
@@ -7149,11 +7149,11 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontOriginAccessIdentityConfig': {
-                    'CallerReference': 'string',
-                    'Comment': 'string'
+                \'CloudFrontOriginAccessIdentityConfig\': {
+                    \'CallerReference\': \'string\',
+                    \'Comment\': \'string\'
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -7163,11 +7163,11 @@ class Client(BaseClient):
         
             - **CloudFrontOriginAccessIdentityConfig** *(dict) --* 
         
-              The origin access identity's configuration information. 
+              The origin access identity\'s configuration information. 
         
               - **CallerReference** *(string) --* 
         
-                A unique number that ensures the request can't be replayed.
+                A unique number that ensures the request can\'t be replayed.
         
                 If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -7195,12 +7195,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_distribution(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :rtype: dict
         :returns: 
@@ -7210,248 +7210,248 @@ class Client(BaseClient):
           ::
         
             {
-                'Distribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'InProgressInvalidationBatches': 123,
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'Distribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'InProgressInvalidationBatches\': 123,
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'DistributionConfig': {
-                        'CallerReference': 'string',
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                    \'DistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'DefaultRootObject': 'string',
-                        'Origins': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'DefaultRootObject\': \'string\',
+                        \'Origins\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'Id': 'string',
-                                    'DomainName': 'string',
-                                    'OriginPath': 'string',
-                                    'CustomHeaders': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'Id\': \'string\',
+                                    \'DomainName\': \'string\',
+                                    \'OriginPath\': \'string\',
+                                    \'CustomHeaders\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'HeaderName': 'string',
-                                                'HeaderValue': 'string'
+                                                \'HeaderName\': \'string\',
+                                                \'HeaderValue\': \'string\'
                                             },
                                         ]
                                     },
-                                    'S3OriginConfig': {
-                                        'OriginAccessIdentity': 'string'
+                                    \'S3OriginConfig\': {
+                                        \'OriginAccessIdentity\': \'string\'
                                     },
-                                    'CustomOriginConfig': {
-                                        'HTTPPort': 123,
-                                        'HTTPSPort': 123,
-                                        'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                        'OriginSslProtocols': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                    \'CustomOriginConfig\': {
+                                        \'HTTPPort\': 123,
+                                        \'HTTPSPort\': 123,
+                                        \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                        \'OriginSslProtocols\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                             ]
                                         },
-                                        'OriginReadTimeout': 123,
-                                        'OriginKeepaliveTimeout': 123
+                                        \'OriginReadTimeout\': 123,
+                                        \'OriginKeepaliveTimeout\': 123
                                     }
                                 },
                             ]
                         },
-                        'DefaultCacheBehavior': {
-                            'TargetOriginId': 'string',
-                            'ForwardedValues': {
-                                'QueryString': True|False,
-                                'Cookies': {
-                                    'Forward': 'none'|'whitelist'|'all',
-                                    'WhitelistedNames': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                        \'DefaultCacheBehavior\': {
+                            \'TargetOriginId\': \'string\',
+                            \'ForwardedValues\': {
+                                \'QueryString\': True|False,
+                                \'Cookies\': {
+                                    \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                    \'WhitelistedNames\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Headers': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'Headers\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'QueryStringCacheKeys': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'QueryStringCacheKeys\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                            'MinTTL': 123,
-                            'AllowedMethods': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                            \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                            \'MinTTL\': 123,
+                            \'AllowedMethods\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                 ],
-                                'CachedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'CachedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ]
                                 }
                             },
-                            'SmoothStreaming': True|False,
-                            'DefaultTTL': 123,
-                            'MaxTTL': 123,
-                            'Compress': True|False,
-                            'LambdaFunctionAssociations': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'SmoothStreaming\': True|False,
+                            \'DefaultTTL\': 123,
+                            \'MaxTTL\': 123,
+                            \'Compress\': True|False,
+                            \'LambdaFunctionAssociations\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'LambdaFunctionARN': 'string',
-                                        'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                        'IncludeBody': True|False
+                                        \'LambdaFunctionARN\': \'string\',
+                                        \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                        \'IncludeBody\': True|False
                                     },
                                 ]
                             },
-                            'FieldLevelEncryptionId': 'string'
+                            \'FieldLevelEncryptionId\': \'string\'
                         },
-                        'CacheBehaviors': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CacheBehaviors\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PathPattern': 'string',
-                                    'TargetOriginId': 'string',
-                                    'ForwardedValues': {
-                                        'QueryString': True|False,
-                                        'Cookies': {
-                                            'Forward': 'none'|'whitelist'|'all',
-                                            'WhitelistedNames': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                    \'PathPattern\': \'string\',
+                                    \'TargetOriginId\': \'string\',
+                                    \'ForwardedValues\': {
+                                        \'QueryString\': True|False,
+                                        \'Cookies\': {
+                                            \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                            \'WhitelistedNames\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Headers': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'Headers\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'QueryStringCacheKeys': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'QueryStringCacheKeys\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'TrustedSigners': {
-                                        'Enabled': True|False,
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'TrustedSigners\': {
+                                        \'Enabled\': True|False,
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                    'MinTTL': 123,
-                                    'AllowedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                    \'MinTTL\': 123,
+                                    \'AllowedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ],
-                                        'CachedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'CachedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ]
                                         }
                                     },
-                                    'SmoothStreaming': True|False,
-                                    'DefaultTTL': 123,
-                                    'MaxTTL': 123,
-                                    'Compress': True|False,
-                                    'LambdaFunctionAssociations': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'SmoothStreaming\': True|False,
+                                    \'DefaultTTL\': 123,
+                                    \'MaxTTL\': 123,
+                                    \'Compress\': True|False,
+                                    \'LambdaFunctionAssociations\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'LambdaFunctionARN': 'string',
-                                                'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                'IncludeBody': True|False
+                                                \'LambdaFunctionARN\': \'string\',
+                                                \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                \'IncludeBody\': True|False
                                             },
                                         ]
                                     },
-                                    'FieldLevelEncryptionId': 'string'
+                                    \'FieldLevelEncryptionId\': \'string\'
                                 },
                             ]
                         },
-                        'CustomErrorResponses': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CustomErrorResponses\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'ErrorCode': 123,
-                                    'ResponsePagePath': 'string',
-                                    'ResponseCode': 'string',
-                                    'ErrorCachingMinTTL': 123
+                                    \'ErrorCode\': 123,
+                                    \'ResponsePagePath\': \'string\',
+                                    \'ResponseCode\': \'string\',
+                                    \'ErrorCachingMinTTL\': 123
                                 },
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'IncludeCookies': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'IncludeCookies\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False,
-                        'ViewerCertificate': {
-                            'CloudFrontDefaultCertificate': True|False,
-                            'IAMCertificateId': 'string',
-                            'ACMCertificateArn': 'string',
-                            'SSLSupportMethod': 'sni-only'|'vip',
-                            'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                            'Certificate': 'string',
-                            'CertificateSource': 'cloudfront'|'iam'|'acm'
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False,
+                        \'ViewerCertificate\': {
+                            \'CloudFrontDefaultCertificate\': True|False,
+                            \'IAMCertificateId\': \'string\',
+                            \'ACMCertificateArn\': \'string\',
+                            \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                            \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                            \'Certificate\': \'string\',
+                            \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                         },
-                        'Restrictions': {
-                            'GeoRestriction': {
-                                'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                        \'Restrictions\': {
+                            \'GeoRestriction\': {
+                                \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'WebACLId': 'string',
-                        'HttpVersion': 'http1.1'|'http2',
-                        'IsIPV6Enabled': True|False
+                        \'WebACLId\': \'string\',
+                        \'HttpVersion\': \'http1.1\'|\'http2\',
+                        \'IsIPV6Enabled\': True|False
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -7461,7 +7461,7 @@ class Client(BaseClient):
         
             - **Distribution** *(dict) --* 
         
-              The distribution's information.
+              The distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -7473,7 +7473,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* 
         
-                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated to all CloudFront edge locations. 
+                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated to all CloudFront edge locations. 
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -7489,7 +7489,7 @@ class Client(BaseClient):
         
               - **ActiveTrustedSigners** *(dict) --* 
         
-                CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create working signed URLs.
+                CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create working signed URLs.
         
                 - **Enabled** *(boolean) --* 
         
@@ -7545,7 +7545,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+                  A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
                   If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -7571,9 +7571,9 @@ class Client(BaseClient):
         
                   The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-                  Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+                  Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-                  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                  If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
                   To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -7611,7 +7611,7 @@ class Client(BaseClient):
         
                         Constraints for Amazon S3 origins: 
         
-                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                          
                         * The bucket name must be between 3 and 63 characters long (inclusive). 
                          
@@ -7631,7 +7631,7 @@ class Client(BaseClient):
         
                         An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                        For example, suppose you've specified the following values for your distribution:
+                        For example, suppose you\'ve specified the following values for your distribution:
         
                         * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                          
@@ -7731,7 +7731,7 @@ class Client(BaseClient):
         
                 - **DefaultCacheBehavior** *(dict) --* 
         
-                  A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                  A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                   - **TargetOriginId** *(string) --* 
         
@@ -7745,11 +7745,11 @@ class Client(BaseClient):
         
                       Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                      If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                      If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                       If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                      If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                      If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                       For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -7761,13 +7761,13 @@ class Client(BaseClient):
         
                         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                        Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                        Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                       - **WhitelistedNames** *(dict) --* 
         
                         Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                         For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -7793,11 +7793,11 @@ class Client(BaseClient):
         
                         .. warning::
         
-                           CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                           CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                         * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                          
-                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                          
                         Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -7831,9 +7831,9 @@ class Client(BaseClient):
         
                     If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                    If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                    If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         
@@ -7863,7 +7863,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                   - **MinTTL** *(integer) --* 
         
@@ -7881,7 +7881,7 @@ class Client(BaseClient):
                      
                     * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                      
-                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                     - **Quantity** *(integer) --* 
         
@@ -7945,7 +7945,7 @@ class Client(BaseClient):
         
                         - **LambdaFunctionARN** *(string) --* 
         
-                          The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                          The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                         - **EventType** *(string) --* 
         
@@ -7953,11 +7953,11 @@ class Client(BaseClient):
         
                           * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                            
-                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                            
-                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
-                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
                         - **IncludeBody** *(boolean) --* 
         
@@ -7987,7 +7987,7 @@ class Client(BaseClient):
         
                       For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                      If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                      If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                       To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -8019,11 +8019,11 @@ class Client(BaseClient):
         
                           Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                          If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                          If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                           If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                          If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                          If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                           For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -8035,13 +8035,13 @@ class Client(BaseClient):
         
                             Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                            Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                            Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                           - **WhitelistedNames** *(dict) --* 
         
                             Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                             For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -8067,11 +8067,11 @@ class Client(BaseClient):
         
                             .. warning::
         
-                               CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                               CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                             * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                              
-                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                              
                             Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -8105,9 +8105,9 @@ class Client(BaseClient):
         
                         If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                        If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                        If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                         - **Enabled** *(boolean) --* 
         
@@ -8137,7 +8137,7 @@ class Client(BaseClient):
         
                         .. note::
         
-                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                       - **MinTTL** *(integer) --* 
         
@@ -8155,7 +8155,7 @@ class Client(BaseClient):
                          
                         * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                          
-                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                         - **Quantity** *(integer) --* 
         
@@ -8221,7 +8221,7 @@ class Client(BaseClient):
         
                             - **LambdaFunctionARN** *(string) --* 
         
-                              The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                              The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                             - **EventType** *(string) --* 
         
@@ -8229,11 +8229,11 @@ class Client(BaseClient):
         
                               * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                
-                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                
-                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
-                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
                             - **IncludeBody** *(boolean) --* 
         
@@ -8283,27 +8283,27 @@ class Client(BaseClient):
                          
                         * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                          
-                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                       - **ResponseCode** *(string) --* 
         
                         The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                          
-                        * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                        * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                          
-                        * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                        * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                          
-                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                       - **ErrorCachingMinTTL** *(integer) --* 
         
                         The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                        If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                        If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                         For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -8311,7 +8311,7 @@ class Client(BaseClient):
         
                   Any comments you want to include about the distribution.
         
-                  If you don't want to specify a comment, include an empty ``Comment`` element.
+                  If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
                   To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -8325,11 +8325,11 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
                   - **IncludeCookies** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
                   - **Bucket** *(string) --* 
         
@@ -8337,7 +8337,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **PriceClass** *(string) --* 
         
@@ -8357,9 +8357,9 @@ class Client(BaseClient):
         
                   * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                    
-                  * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                  * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                    
-                  * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                  * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                    
                   You must specify only one of the following values: 
         
@@ -8369,7 +8369,7 @@ class Client(BaseClient):
                    
                   *  ViewerCertificate$CloudFrontDefaultCertificate   
                    
-                  Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                  Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                    **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -8377,9 +8377,9 @@ class Client(BaseClient):
         
                   In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                  * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                  * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                     * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                      
@@ -8387,13 +8387,13 @@ class Client(BaseClient):
                      
                   If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                     * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                      
                     * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                      
-                  * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                  * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                    
                   If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -8427,7 +8427,7 @@ class Client(BaseClient):
         
                     * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                      
-                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                       * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                        
@@ -8437,7 +8437,7 @@ class Client(BaseClient):
                        
                       * Use HTTP instead of HTTPS. 
                        
-                    Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                    Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                     For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -8457,9 +8457,9 @@ class Client(BaseClient):
         
                     When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                    * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                    * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                      
-                    * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                    * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                      
                     If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -8499,7 +8499,7 @@ class Client(BaseClient):
         
                       * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                        
-                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                        
                       * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                        
@@ -8525,31 +8525,31 @@ class Client(BaseClient):
         
                 - **HttpVersion** *(string) --* 
         
-                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
                   For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
                 - **IsIPV6Enabled** *(boolean) --* 
         
                   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-                  If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+                  If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
                   * You enable IPv6 for the distribution 
                    
-                  * You're using alternate domain names in the URLs for your objects 
+                  * You\'re using alternate domain names in the URLs for your objects 
                    
                   For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
             - **ETag** *(string) --* 
         
-              The current version of the distribution's information. For example: ``E2QWRUHAPOMQZL`` .
+              The current version of the distribution\'s information. For example: ``E2QWRUHAPOMQZL`` .
         
         """
         pass
@@ -8563,12 +8563,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_distribution_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :rtype: dict
         :returns: 
@@ -8578,225 +8578,225 @@ class Client(BaseClient):
           ::
         
             {
-                'DistributionConfig': {
-                    'CallerReference': 'string',
-                    'Aliases': {
-                        'Quantity': 123,
-                        'Items': [
-                            'string',
+                \'DistributionConfig\': {
+                    \'CallerReference\': \'string\',
+                    \'Aliases\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
+                            \'string\',
                         ]
                     },
-                    'DefaultRootObject': 'string',
-                    'Origins': {
-                        'Quantity': 123,
-                        'Items': [
+                    \'DefaultRootObject\': \'string\',
+                    \'Origins\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'Id': 'string',
-                                'DomainName': 'string',
-                                'OriginPath': 'string',
-                                'CustomHeaders': {
-                                    'Quantity': 123,
-                                    'Items': [
+                                \'Id\': \'string\',
+                                \'DomainName\': \'string\',
+                                \'OriginPath\': \'string\',
+                                \'CustomHeaders\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'HeaderName': 'string',
-                                            'HeaderValue': 'string'
+                                            \'HeaderName\': \'string\',
+                                            \'HeaderValue\': \'string\'
                                         },
                                     ]
                                 },
-                                'S3OriginConfig': {
-                                    'OriginAccessIdentity': 'string'
+                                \'S3OriginConfig\': {
+                                    \'OriginAccessIdentity\': \'string\'
                                 },
-                                'CustomOriginConfig': {
-                                    'HTTPPort': 123,
-                                    'HTTPSPort': 123,
-                                    'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                    'OriginSslProtocols': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                \'CustomOriginConfig\': {
+                                    \'HTTPPort\': 123,
+                                    \'HTTPSPort\': 123,
+                                    \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                    \'OriginSslProtocols\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                         ]
                                     },
-                                    'OriginReadTimeout': 123,
-                                    'OriginKeepaliveTimeout': 123
+                                    \'OriginReadTimeout\': 123,
+                                    \'OriginKeepaliveTimeout\': 123
                                 }
                             },
                         ]
                     },
-                    'DefaultCacheBehavior': {
-                        'TargetOriginId': 'string',
-                        'ForwardedValues': {
-                            'QueryString': True|False,
-                            'Cookies': {
-                                'Forward': 'none'|'whitelist'|'all',
-                                'WhitelistedNames': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                    \'DefaultCacheBehavior\': {
+                        \'TargetOriginId\': \'string\',
+                        \'ForwardedValues\': {
+                            \'QueryString\': True|False,
+                            \'Cookies\': {
+                                \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                \'WhitelistedNames\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'Headers': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Headers\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'QueryStringCacheKeys': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'QueryStringCacheKeys\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'TrustedSigners': {
-                            'Enabled': True|False,
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'TrustedSigners\': {
+                            \'Enabled\': True|False,
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                        'MinTTL': 123,
-                        'AllowedMethods': {
-                            'Quantity': 123,
-                            'Items': [
-                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                        \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                        \'MinTTL\': 123,
+                        \'AllowedMethods\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                             ],
-                            'CachedMethods': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                            \'CachedMethods\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                 ]
                             }
                         },
-                        'SmoothStreaming': True|False,
-                        'DefaultTTL': 123,
-                        'MaxTTL': 123,
-                        'Compress': True|False,
-                        'LambdaFunctionAssociations': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'SmoothStreaming\': True|False,
+                        \'DefaultTTL\': 123,
+                        \'MaxTTL\': 123,
+                        \'Compress\': True|False,
+                        \'LambdaFunctionAssociations\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'LambdaFunctionARN': 'string',
-                                    'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                    'IncludeBody': True|False
+                                    \'LambdaFunctionARN\': \'string\',
+                                    \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                    \'IncludeBody\': True|False
                                 },
                             ]
                         },
-                        'FieldLevelEncryptionId': 'string'
+                        \'FieldLevelEncryptionId\': \'string\'
                     },
-                    'CacheBehaviors': {
-                        'Quantity': 123,
-                        'Items': [
+                    \'CacheBehaviors\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'PathPattern': 'string',
-                                'TargetOriginId': 'string',
-                                'ForwardedValues': {
-                                    'QueryString': True|False,
-                                    'Cookies': {
-                                        'Forward': 'none'|'whitelist'|'all',
-                                        'WhitelistedNames': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                \'PathPattern\': \'string\',
+                                \'TargetOriginId\': \'string\',
+                                \'ForwardedValues\': {
+                                    \'QueryString\': True|False,
+                                    \'Cookies\': {
+                                        \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                        \'WhitelistedNames\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'Headers': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'Headers\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'QueryStringCacheKeys': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'QueryStringCacheKeys\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'TrustedSigners': {
-                                    'Enabled': True|False,
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'TrustedSigners\': {
+                                    \'Enabled\': True|False,
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                'MinTTL': 123,
-                                'AllowedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                \'MinTTL\': 123,
+                                \'AllowedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ],
-                                    'CachedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'CachedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ]
                                     }
                                 },
-                                'SmoothStreaming': True|False,
-                                'DefaultTTL': 123,
-                                'MaxTTL': 123,
-                                'Compress': True|False,
-                                'LambdaFunctionAssociations': {
-                                    'Quantity': 123,
-                                    'Items': [
+                                \'SmoothStreaming\': True|False,
+                                \'DefaultTTL\': 123,
+                                \'MaxTTL\': 123,
+                                \'Compress\': True|False,
+                                \'LambdaFunctionAssociations\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'LambdaFunctionARN': 'string',
-                                            'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                            'IncludeBody': True|False
+                                            \'LambdaFunctionARN\': \'string\',
+                                            \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                            \'IncludeBody\': True|False
                                         },
                                     ]
                                 },
-                                'FieldLevelEncryptionId': 'string'
+                                \'FieldLevelEncryptionId\': \'string\'
                             },
                         ]
                     },
-                    'CustomErrorResponses': {
-                        'Quantity': 123,
-                        'Items': [
+                    \'CustomErrorResponses\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'ErrorCode': 123,
-                                'ResponsePagePath': 'string',
-                                'ResponseCode': 'string',
-                                'ErrorCachingMinTTL': 123
+                                \'ErrorCode\': 123,
+                                \'ResponsePagePath\': \'string\',
+                                \'ResponseCode\': \'string\',
+                                \'ErrorCachingMinTTL\': 123
                             },
                         ]
                     },
-                    'Comment': 'string',
-                    'Logging': {
-                        'Enabled': True|False,
-                        'IncludeCookies': True|False,
-                        'Bucket': 'string',
-                        'Prefix': 'string'
+                    \'Comment\': \'string\',
+                    \'Logging\': {
+                        \'Enabled\': True|False,
+                        \'IncludeCookies\': True|False,
+                        \'Bucket\': \'string\',
+                        \'Prefix\': \'string\'
                     },
-                    'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                    'Enabled': True|False,
-                    'ViewerCertificate': {
-                        'CloudFrontDefaultCertificate': True|False,
-                        'IAMCertificateId': 'string',
-                        'ACMCertificateArn': 'string',
-                        'SSLSupportMethod': 'sni-only'|'vip',
-                        'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                        'Certificate': 'string',
-                        'CertificateSource': 'cloudfront'|'iam'|'acm'
+                    \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                    \'Enabled\': True|False,
+                    \'ViewerCertificate\': {
+                        \'CloudFrontDefaultCertificate\': True|False,
+                        \'IAMCertificateId\': \'string\',
+                        \'ACMCertificateArn\': \'string\',
+                        \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                        \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                        \'Certificate\': \'string\',
+                        \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                     },
-                    'Restrictions': {
-                        'GeoRestriction': {
-                            'RestrictionType': 'blacklist'|'whitelist'|'none',
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                    \'Restrictions\': {
+                        \'GeoRestriction\': {
+                            \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         }
                     },
-                    'WebACLId': 'string',
-                    'HttpVersion': 'http1.1'|'http2',
-                    'IsIPV6Enabled': True|False
+                    \'WebACLId\': \'string\',
+                    \'HttpVersion\': \'http1.1\'|\'http2\',
+                    \'IsIPV6Enabled\': True|False
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -8806,11 +8806,11 @@ class Client(BaseClient):
         
             - **DistributionConfig** *(dict) --* 
         
-              The distribution's configuration information.
+              The distribution\'s configuration information.
         
               - **CallerReference** *(string) --* 
         
-                A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+                A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
                 If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -8836,9 +8836,9 @@ class Client(BaseClient):
         
                 The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-                Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+                Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-                If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
                 To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -8876,7 +8876,7 @@ class Client(BaseClient):
         
                       Constraints for Amazon S3 origins: 
         
-                      * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                      * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                        
                       * The bucket name must be between 3 and 63 characters long (inclusive). 
                        
@@ -8896,7 +8896,7 @@ class Client(BaseClient):
         
                       An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                      For example, suppose you've specified the following values for your distribution:
+                      For example, suppose you\'ve specified the following values for your distribution:
         
                       * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                        
@@ -8996,7 +8996,7 @@ class Client(BaseClient):
         
               - **DefaultCacheBehavior** *(dict) --* 
         
-                A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                 - **TargetOriginId** *(string) --* 
         
@@ -9010,11 +9010,11 @@ class Client(BaseClient):
         
                     Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                    If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                    If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                     If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                    If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                    If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                     For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -9026,13 +9026,13 @@ class Client(BaseClient):
         
                       Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                      Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                      Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                     - **WhitelistedNames** *(dict) --* 
         
                       Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                       For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -9058,11 +9058,11 @@ class Client(BaseClient):
         
                       .. warning::
         
-                         CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                         CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                       * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                        
-                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                        
                       Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -9096,9 +9096,9 @@ class Client(BaseClient):
         
                   If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                  If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                  If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                   - **Enabled** *(boolean) --* 
         
@@ -9128,7 +9128,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                 - **MinTTL** *(integer) --* 
         
@@ -9146,7 +9146,7 @@ class Client(BaseClient):
                    
                   * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                    
-                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                   - **Quantity** *(integer) --* 
         
@@ -9210,7 +9210,7 @@ class Client(BaseClient):
         
                       - **LambdaFunctionARN** *(string) --* 
         
-                        The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                        The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                       - **EventType** *(string) --* 
         
@@ -9218,11 +9218,11 @@ class Client(BaseClient):
         
                         * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                          
-                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                          
-                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
-                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
                       - **IncludeBody** *(boolean) --* 
         
@@ -9252,7 +9252,7 @@ class Client(BaseClient):
         
                     For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                    If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                    If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                     To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -9284,11 +9284,11 @@ class Client(BaseClient):
         
                         Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                        If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                        If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                         If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                        If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                        If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                         For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -9300,13 +9300,13 @@ class Client(BaseClient):
         
                           Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                          Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                          Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                         - **WhitelistedNames** *(dict) --* 
         
                           Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                           For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -9332,11 +9332,11 @@ class Client(BaseClient):
         
                           .. warning::
         
-                             CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                             CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                           * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                            
-                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                            
                           Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -9370,9 +9370,9 @@ class Client(BaseClient):
         
                       If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                      If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                      If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                       - **Enabled** *(boolean) --* 
         
@@ -9402,7 +9402,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                     - **MinTTL** *(integer) --* 
         
@@ -9420,7 +9420,7 @@ class Client(BaseClient):
                        
                       * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                        
-                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                       - **Quantity** *(integer) --* 
         
@@ -9486,7 +9486,7 @@ class Client(BaseClient):
         
                           - **LambdaFunctionARN** *(string) --* 
         
-                            The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                            The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                           - **EventType** *(string) --* 
         
@@ -9494,11 +9494,11 @@ class Client(BaseClient):
         
                             * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                              
-                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                              
-                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
-                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
                           - **IncludeBody** *(boolean) --* 
         
@@ -9548,27 +9548,27 @@ class Client(BaseClient):
                        
                       * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                        
-                      If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                      If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                      We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                      We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                     - **ResponseCode** *(string) --* 
         
                       The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                      * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                      * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                        
-                      * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                      * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                        
-                      * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                      * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                        
-                      If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                      If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                     - **ErrorCachingMinTTL** *(integer) --* 
         
                       The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                      If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                      If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                       For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -9576,7 +9576,7 @@ class Client(BaseClient):
         
                 Any comments you want to include about the distribution.
         
-                If you don't want to specify a comment, include an empty ``Comment`` element.
+                If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
                 To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -9590,11 +9590,11 @@ class Client(BaseClient):
         
                 - **Enabled** *(boolean) --* 
         
-                  Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                  Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
                 - **IncludeCookies** *(boolean) --* 
         
-                  Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                  Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
                 - **Bucket** *(string) --* 
         
@@ -9602,7 +9602,7 @@ class Client(BaseClient):
         
                 - **Prefix** *(string) --* 
         
-                  An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                  An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
               - **PriceClass** *(string) --* 
         
@@ -9622,9 +9622,9 @@ class Client(BaseClient):
         
                 * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                  
-                * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                  
-                * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                  
                 You must specify only one of the following values: 
         
@@ -9634,7 +9634,7 @@ class Client(BaseClient):
                  
                 *  ViewerCertificate$CloudFrontDefaultCertificate   
                  
-                Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                  **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -9642,9 +9642,9 @@ class Client(BaseClient):
         
                 In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                 **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                 **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                   * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                    
@@ -9652,13 +9652,13 @@ class Client(BaseClient):
                    
                 If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                   * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                    
                   * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                    
-                * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                  
                 If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -9692,7 +9692,7 @@ class Client(BaseClient):
         
                   * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                    
-                  * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                  * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                     * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                      
@@ -9702,7 +9702,7 @@ class Client(BaseClient):
                      
                     * Use HTTP instead of HTTPS. 
                      
-                  Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                  Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                   For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -9722,9 +9722,9 @@ class Client(BaseClient):
         
                   When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                  * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                  * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                    
-                  * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                  * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                    
                   If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -9764,7 +9764,7 @@ class Client(BaseClient):
         
                     * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                      
-                    * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                    * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                      
                     * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                      
@@ -9790,27 +9790,27 @@ class Client(BaseClient):
         
               - **HttpVersion** *(string) --* 
         
-                (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+                (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
                 For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-                In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+                In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
               - **IsIPV6Enabled** *(boolean) --* 
         
                 If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-                In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+                In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-                If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+                If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
                 * You enable IPv6 for the distribution 
                  
-                * You're using alternate domain names in the URLs for your objects 
+                * You\'re using alternate domain names in the URLs for your objects 
                  
                 For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+                If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
             - **ETag** *(string) --* 
         
@@ -9828,7 +9828,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_field_level_encryption(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -9843,40 +9843,40 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryption': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'QueryArgProfileConfig': {
-                            'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                            'QueryArgProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                \'FieldLevelEncryption\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'QueryArgProfileConfig\': {
+                            \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                            \'QueryArgProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'QueryArg': 'string',
-                                        'ProfileId': 'string'
+                                        \'QueryArg\': \'string\',
+                                        \'ProfileId\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'ContentTypeProfileConfig': {
-                            'ForwardWhenContentTypeIsUnknown': True|False,
-                            'ContentTypeProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                        \'ContentTypeProfileConfig\': {
+                            \'ForwardWhenContentTypeIsUnknown\': True|False,
+                            \'ContentTypeProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Format': 'URLEncoded',
-                                        'ProfileId': 'string',
-                                        'ContentType': 'string'
+                                        \'Format\': \'URLEncoded\',
+                                        \'ProfileId\': \'string\',
+                                        \'ContentType\': \'string\'
                                     },
                                 ]
                             }
                         }
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -9900,7 +9900,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -9908,7 +9908,7 @@ class Client(BaseClient):
         
                 - **QueryArgProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+                  A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
                   - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* 
         
@@ -9940,7 +9940,7 @@ class Client(BaseClient):
         
                 - **ContentTypeProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+                  A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
                   - **ForwardWhenContentTypeIsUnknown** *(boolean) --* 
         
@@ -9990,7 +9990,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_field_level_encryption_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10005,36 +10005,36 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionConfig': {
-                    'CallerReference': 'string',
-                    'Comment': 'string',
-                    'QueryArgProfileConfig': {
-                        'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                        'QueryArgProfiles': {
-                            'Quantity': 123,
-                            'Items': [
+                \'FieldLevelEncryptionConfig\': {
+                    \'CallerReference\': \'string\',
+                    \'Comment\': \'string\',
+                    \'QueryArgProfileConfig\': {
+                        \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                        \'QueryArgProfiles\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'QueryArg': 'string',
-                                    'ProfileId': 'string'
+                                    \'QueryArg\': \'string\',
+                                    \'ProfileId\': \'string\'
                                 },
                             ]
                         }
                     },
-                    'ContentTypeProfileConfig': {
-                        'ForwardWhenContentTypeIsUnknown': True|False,
-                        'ContentTypeProfiles': {
-                            'Quantity': 123,
-                            'Items': [
+                    \'ContentTypeProfileConfig\': {
+                        \'ForwardWhenContentTypeIsUnknown\': True|False,
+                        \'ContentTypeProfiles\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'Format': 'URLEncoded',
-                                    'ProfileId': 'string',
-                                    'ContentType': 'string'
+                                    \'Format\': \'URLEncoded\',
+                                    \'ProfileId\': \'string\',
+                                    \'ContentType\': \'string\'
                                 },
                             ]
                         }
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10046,7 +10046,7 @@ class Client(BaseClient):
         
               - **CallerReference** *(string) --* 
         
-                A unique number that ensures the request can't be replayed.
+                A unique number that ensures the request can\'t be replayed.
         
               - **Comment** *(string) --* 
         
@@ -10054,7 +10054,7 @@ class Client(BaseClient):
         
               - **QueryArgProfileConfig** *(dict) --* 
         
-                A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+                A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
                 - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* 
         
@@ -10086,7 +10086,7 @@ class Client(BaseClient):
         
               - **ContentTypeProfileConfig** *(dict) --* 
         
-                A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+                A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
                 - **ForwardWhenContentTypeIsUnknown** *(boolean) --* 
         
@@ -10136,7 +10136,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_field_level_encryption_profile(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10151,23 +10151,23 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionProfile': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionProfileConfig': {
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'EncryptionEntities': {
-                            'Quantity': 123,
-                            'Items': [
+                \'FieldLevelEncryptionProfile\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionProfileConfig\': {
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'EncryptionEntities\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PublicKeyId': 'string',
-                                    'ProviderId': 'string',
-                                    'FieldPatterns': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'PublicKeyId\': \'string\',
+                                    \'ProviderId\': \'string\',
+                                    \'FieldPatterns\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
@@ -10175,7 +10175,7 @@ class Client(BaseClient):
                         }
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10203,7 +10203,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -10235,7 +10235,7 @@ class Client(BaseClient):
         
                       - **FieldPatterns** *(dict) --* 
         
-                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                         - **Quantity** *(integer) --* 
         
@@ -10263,7 +10263,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_field_level_encryption_profile_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10278,27 +10278,27 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionProfileConfig': {
-                    'Name': 'string',
-                    'CallerReference': 'string',
-                    'Comment': 'string',
-                    'EncryptionEntities': {
-                        'Quantity': 123,
-                        'Items': [
+                \'FieldLevelEncryptionProfileConfig\': {
+                    \'Name\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'Comment\': \'string\',
+                    \'EncryptionEntities\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'PublicKeyId': 'string',
-                                'ProviderId': 'string',
-                                'FieldPatterns': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'PublicKeyId\': \'string\',
+                                \'ProviderId\': \'string\',
+                                \'FieldPatterns\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10314,7 +10314,7 @@ class Client(BaseClient):
         
               - **CallerReference** *(string) --* 
         
-                A unique number that ensures the request can't be replayed.
+                A unique number that ensures the request can\'t be replayed.
         
               - **Comment** *(string) --* 
         
@@ -10346,7 +10346,7 @@ class Client(BaseClient):
         
                     - **FieldPatterns** *(dict) --* 
         
-                      Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                      Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                       - **Quantity** *(integer) --* 
         
@@ -10374,13 +10374,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_invalidation(
-              DistributionId='string',
-              Id='string'
+              DistributionId=\'string\',
+              Id=\'string\'
           )
         :type DistributionId: string
         :param DistributionId: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10395,18 +10395,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Invalidation': {
-                    'Id': 'string',
-                    'Status': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'InvalidationBatch': {
-                        'Paths': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                \'Invalidation\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'InvalidationBatch\': {
+                        \'Paths\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'CallerReference': 'string'
+                        \'CallerReference\': \'string\'
                     }
                 }
             }
@@ -10418,7 +10418,7 @@ class Client(BaseClient):
         
             - **Invalidation** *(dict) --* 
         
-              The invalidation's information. For more information, see `Invalidation Complex Type <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html>`__ . 
+              The invalidation\'s information. For more information, see `Invalidation Complex Type <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html>`__ . 
         
               - **Id** *(string) --* 
         
@@ -10454,7 +10454,7 @@ class Client(BaseClient):
         
                   A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for ``CallerReference`` and change other values in the request as applicable. One way to ensure that the value of ``CallerReference`` is unique is to use a ``timestamp`` , for example, ``20120301090000`` .
         
-                  If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn't create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
+                  If you make a second invalidation request with the same value for ``CallerReference`` , and if the rest of the request is the same, CloudFront doesn\'t create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same ``CallerReference`` .
         
                   If ``CallerReference`` is a value you already sent in a previous invalidation batch request but the content of any ``Path`` is different from the original request, CloudFront returns an ``InvalidationBatchAlreadyExists`` error.
         
@@ -10467,10 +10467,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -10490,7 +10490,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_public_key(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10505,17 +10505,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKey': {
-                    'Id': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'PublicKeyConfig': {
-                        'CallerReference': 'string',
-                        'Name': 'string',
-                        'EncodedKey': 'string',
-                        'Comment': 'string'
+                \'PublicKey\': {
+                    \'Id\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'PublicKeyConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Name\': \'string\',
+                        \'EncodedKey\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10527,7 +10527,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                A unique ID assigned to a public key you've added to CloudFront.
+                A unique ID assigned to a public key you\'ve added to CloudFront.
         
               - **CreatedTime** *(datetime) --* 
         
@@ -10539,7 +10539,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Name** *(string) --* 
         
@@ -10569,7 +10569,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_public_key_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -10584,13 +10584,13 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKeyConfig': {
-                    'CallerReference': 'string',
-                    'Name': 'string',
-                    'EncodedKey': 'string',
-                    'Comment': 'string'
+                \'PublicKeyConfig\': {
+                    \'CallerReference\': \'string\',
+                    \'Name\': \'string\',
+                    \'EncodedKey\': \'string\',
+                    \'Comment\': \'string\'
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10602,7 +10602,7 @@ class Client(BaseClient):
         
               - **CallerReference** *(string) --* 
         
-                A unique number that ensures the request can't be replayed.
+                A unique number that ensures the request can\'t be replayed.
         
               - **Name** *(string) --* 
         
@@ -10632,12 +10632,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_streaming_distribution(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The streaming distribution's ID.
+          The streaming distribution\'s ID.
         
         :rtype: dict
         :returns: 
@@ -10647,57 +10647,57 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'StreamingDistribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'StreamingDistributionConfig': {
-                        'CallerReference': 'string',
-                        'S3Origin': {
-                            'DomainName': 'string',
-                            'OriginAccessIdentity': 'string'
+                    \'StreamingDistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'S3Origin\': {
+                            \'DomainName\': \'string\',
+                            \'OriginAccessIdentity\': \'string\'
                         },
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'TrustedSigners': {
-                            'Enabled': True|False,
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'TrustedSigners\': {
+                            \'Enabled\': True|False,
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10707,7 +10707,7 @@ class Client(BaseClient):
         
             - **StreamingDistribution** *(dict) --* 
         
-              The streaming distribution's information.
+              The streaming distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -10717,7 +10717,7 @@ class Client(BaseClient):
               
               - **Status** *(string) --* 
         
-                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -10731,7 +10731,7 @@ class Client(BaseClient):
         
                 A complex type that lists the AWS accounts, if any, that you included in the ``TrustedSigners`` complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
         
-                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create signed URLs.
+                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create signed URLs.
         
                 For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon CloudFront Developer Guide* . 
         
@@ -10789,7 +10789,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+                  A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
                 - **S3Origin** *(dict) --* 
         
@@ -10835,7 +10835,7 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
                   - **Bucket** *(string) --* 
         
@@ -10843,7 +10843,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **TrustedSigners** *(dict) --* 
         
@@ -10873,7 +10873,7 @@ class Client(BaseClient):
         
             - **ETag** *(string) --* 
         
-              The current version of the streaming distribution's information. For example: ``E2QWRUHAPOMQZL`` .
+              The current version of the streaming distribution\'s information. For example: ``E2QWRUHAPOMQZL`` .
         
         """
         pass
@@ -10887,12 +10887,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_streaming_distribution_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The streaming distribution's ID.
+          The streaming distribution\'s ID.
         
         :rtype: dict
         :returns: 
@@ -10902,35 +10902,35 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistributionConfig': {
-                    'CallerReference': 'string',
-                    'S3Origin': {
-                        'DomainName': 'string',
-                        'OriginAccessIdentity': 'string'
+                \'StreamingDistributionConfig\': {
+                    \'CallerReference\': \'string\',
+                    \'S3Origin\': {
+                        \'DomainName\': \'string\',
+                        \'OriginAccessIdentity\': \'string\'
                     },
-                    'Aliases': {
-                        'Quantity': 123,
-                        'Items': [
-                            'string',
+                    \'Aliases\': {
+                        \'Quantity\': 123,
+                        \'Items\': [
+                            \'string\',
                         ]
                     },
-                    'Comment': 'string',
-                    'Logging': {
-                        'Enabled': True|False,
-                        'Bucket': 'string',
-                        'Prefix': 'string'
+                    \'Comment\': \'string\',
+                    \'Logging\': {
+                        \'Enabled\': True|False,
+                        \'Bucket\': \'string\',
+                        \'Prefix\': \'string\'
                     },
-                    'TrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
-                            'string',
+                    \'TrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
+                            \'string\',
                         ]
                     },
-                    'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                    'Enabled': True|False
+                    \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                    \'Enabled\': True|False
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -10940,11 +10940,11 @@ class Client(BaseClient):
         
             - **StreamingDistributionConfig** *(dict) --* 
         
-              The streaming distribution's configuration information.
+              The streaming distribution\'s configuration information.
         
               - **CallerReference** *(string) --* 
         
-                A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+                A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
               - **S3Origin** *(dict) --* 
         
@@ -10990,7 +10990,7 @@ class Client(BaseClient):
         
                 - **Enabled** *(boolean) --* 
         
-                  Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                  Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
                 - **Bucket** *(string) --* 
         
@@ -10998,7 +10998,7 @@ class Client(BaseClient):
         
                 - **Prefix** *(string) --* 
         
-                  An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                  An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
               - **TrustedSigners** *(dict) --* 
         
@@ -11054,13 +11054,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_cloud_front_origin_access_identities(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
         
-          Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last identity on that page).
+          Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last identity on that page).
         
         :type MaxItems: string
         :param MaxItems: 
@@ -11075,17 +11075,17 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontOriginAccessIdentityList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'CloudFrontOriginAccessIdentityList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'S3CanonicalUserId': 'string',
-                            'Comment': 'string'
+                            \'Id\': \'string\',
+                            \'S3CanonicalUserId\': \'string\',
+                            \'Comment\': \'string\'
                         },
                     ]
                 }
@@ -11102,7 +11102,7 @@ class Client(BaseClient):
         
               - **Marker** *(string) --* 
         
-                Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last identity on that page). 
+                Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last identity on that page). 
         
               - **NextMarker** *(string) --* 
         
@@ -11152,13 +11152,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_distributions(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
         
-          Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last distribution on that page).
+          Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last distribution on that page).
         
         :type MaxItems: string
         :param MaxItems: 
@@ -11173,227 +11173,227 @@ class Client(BaseClient):
           ::
         
             {
-                'DistributionList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'DistributionList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'ARN': 'string',
-                            'Status': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'DomainName': 'string',
-                            'Aliases': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Id\': \'string\',
+                            \'ARN\': \'string\',
+                            \'Status\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'DomainName\': \'string\',
+                            \'Aliases\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'Origins': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'Origins\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Id': 'string',
-                                        'DomainName': 'string',
-                                        'OriginPath': 'string',
-                                        'CustomHeaders': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'Id\': \'string\',
+                                        \'DomainName\': \'string\',
+                                        \'OriginPath\': \'string\',
+                                        \'CustomHeaders\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'HeaderName': 'string',
-                                                    'HeaderValue': 'string'
+                                                    \'HeaderName\': \'string\',
+                                                    \'HeaderValue\': \'string\'
                                                 },
                                             ]
                                         },
-                                        'S3OriginConfig': {
-                                            'OriginAccessIdentity': 'string'
+                                        \'S3OriginConfig\': {
+                                            \'OriginAccessIdentity\': \'string\'
                                         },
-                                        'CustomOriginConfig': {
-                                            'HTTPPort': 123,
-                                            'HTTPSPort': 123,
-                                            'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                            'OriginSslProtocols': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                        \'CustomOriginConfig\': {
+                                            \'HTTPPort\': 123,
+                                            \'HTTPSPort\': 123,
+                                            \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                            \'OriginSslProtocols\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                                 ]
                                             },
-                                            'OriginReadTimeout': 123,
-                                            'OriginKeepaliveTimeout': 123
+                                            \'OriginReadTimeout\': 123,
+                                            \'OriginKeepaliveTimeout\': 123
                                         }
                                     },
                                 ]
                             },
-                            'DefaultCacheBehavior': {
-                                'TargetOriginId': 'string',
-                                'ForwardedValues': {
-                                    'QueryString': True|False,
-                                    'Cookies': {
-                                        'Forward': 'none'|'whitelist'|'all',
-                                        'WhitelistedNames': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                            \'DefaultCacheBehavior\': {
+                                \'TargetOriginId\': \'string\',
+                                \'ForwardedValues\': {
+                                    \'QueryString\': True|False,
+                                    \'Cookies\': {
+                                        \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                        \'WhitelistedNames\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'Headers': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'Headers\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'QueryStringCacheKeys': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'QueryStringCacheKeys\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'TrustedSigners': {
-                                    'Enabled': True|False,
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'TrustedSigners\': {
+                                    \'Enabled\': True|False,
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                'MinTTL': 123,
-                                'AllowedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                \'MinTTL\': 123,
+                                \'AllowedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ],
-                                    'CachedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'CachedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ]
                                     }
                                 },
-                                'SmoothStreaming': True|False,
-                                'DefaultTTL': 123,
-                                'MaxTTL': 123,
-                                'Compress': True|False,
-                                'LambdaFunctionAssociations': {
-                                    'Quantity': 123,
-                                    'Items': [
+                                \'SmoothStreaming\': True|False,
+                                \'DefaultTTL\': 123,
+                                \'MaxTTL\': 123,
+                                \'Compress\': True|False,
+                                \'LambdaFunctionAssociations\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'LambdaFunctionARN': 'string',
-                                            'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                            'IncludeBody': True|False
+                                            \'LambdaFunctionARN\': \'string\',
+                                            \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                            \'IncludeBody\': True|False
                                         },
                                     ]
                                 },
-                                'FieldLevelEncryptionId': 'string'
+                                \'FieldLevelEncryptionId\': \'string\'
                             },
-                            'CacheBehaviors': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CacheBehaviors\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'PathPattern': 'string',
-                                        'TargetOriginId': 'string',
-                                        'ForwardedValues': {
-                                            'QueryString': True|False,
-                                            'Cookies': {
-                                                'Forward': 'none'|'whitelist'|'all',
-                                                'WhitelistedNames': {
-                                                    'Quantity': 123,
-                                                    'Items': [
-                                                        'string',
+                                        \'PathPattern\': \'string\',
+                                        \'TargetOriginId\': \'string\',
+                                        \'ForwardedValues\': {
+                                            \'QueryString\': True|False,
+                                            \'Cookies\': {
+                                                \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                                \'WhitelistedNames\': {
+                                                    \'Quantity\': 123,
+                                                    \'Items\': [
+                                                        \'string\',
                                                     ]
                                                 }
                                             },
-                                            'Headers': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'Headers\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'QueryStringCacheKeys': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'QueryStringCacheKeys\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'TrustedSigners': {
-                                            'Enabled': True|False,
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'TrustedSigners\': {
+                                            \'Enabled\': True|False,
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                        'MinTTL': 123,
-                                        'AllowedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                        \'MinTTL\': 123,
+                                        \'AllowedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ],
-                                            'CachedMethods': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                            \'CachedMethods\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                                 ]
                                             }
                                         },
-                                        'SmoothStreaming': True|False,
-                                        'DefaultTTL': 123,
-                                        'MaxTTL': 123,
-                                        'Compress': True|False,
-                                        'LambdaFunctionAssociations': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'SmoothStreaming\': True|False,
+                                        \'DefaultTTL\': 123,
+                                        \'MaxTTL\': 123,
+                                        \'Compress\': True|False,
+                                        \'LambdaFunctionAssociations\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'LambdaFunctionARN': 'string',
-                                                    'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                    'IncludeBody': True|False
+                                                    \'LambdaFunctionARN\': \'string\',
+                                                    \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                    \'IncludeBody\': True|False
                                                 },
                                             ]
                                         },
-                                        'FieldLevelEncryptionId': 'string'
+                                        \'FieldLevelEncryptionId\': \'string\'
                                     },
                                 ]
                             },
-                            'CustomErrorResponses': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CustomErrorResponses\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'ErrorCode': 123,
-                                        'ResponsePagePath': 'string',
-                                        'ResponseCode': 'string',
-                                        'ErrorCachingMinTTL': 123
+                                        \'ErrorCode\': 123,
+                                        \'ResponsePagePath\': \'string\',
+                                        \'ResponseCode\': \'string\',
+                                        \'ErrorCachingMinTTL\': 123
                                     },
                                 ]
                             },
-                            'Comment': 'string',
-                            'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                            'Enabled': True|False,
-                            'ViewerCertificate': {
-                                'CloudFrontDefaultCertificate': True|False,
-                                'IAMCertificateId': 'string',
-                                'ACMCertificateArn': 'string',
-                                'SSLSupportMethod': 'sni-only'|'vip',
-                                'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                                'Certificate': 'string',
-                                'CertificateSource': 'cloudfront'|'iam'|'acm'
+                            \'Comment\': \'string\',
+                            \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                            \'Enabled\': True|False,
+                            \'ViewerCertificate\': {
+                                \'CloudFrontDefaultCertificate\': True|False,
+                                \'IAMCertificateId\': \'string\',
+                                \'ACMCertificateArn\': \'string\',
+                                \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                                \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                                \'Certificate\': \'string\',
+                                \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                             },
-                            'Restrictions': {
-                                'GeoRestriction': {
-                                    'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                            \'Restrictions\': {
+                                \'GeoRestriction\': {
+                                    \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'WebACLId': 'string',
-                            'HttpVersion': 'http1.1'|'http2',
-                            'IsIPV6Enabled': True|False
+                            \'WebACLId\': \'string\',
+                            \'HttpVersion\': \'http1.1\'|\'http2\',
+                            \'IsIPV6Enabled\': True|False
                         },
                     ]
                 }
@@ -11446,7 +11446,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The current status of the distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                    The current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
                   - **LastModifiedTime** *(datetime) --* 
         
@@ -11500,7 +11500,7 @@ class Client(BaseClient):
         
                           Constraints for Amazon S3 origins: 
         
-                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                            
                           * The bucket name must be between 3 and 63 characters long (inclusive). 
                            
@@ -11520,7 +11520,7 @@ class Client(BaseClient):
         
                           An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                          For example, suppose you've specified the following values for your distribution:
+                          For example, suppose you\'ve specified the following values for your distribution:
         
                           * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                            
@@ -11620,7 +11620,7 @@ class Client(BaseClient):
         
                   - **DefaultCacheBehavior** *(dict) --* 
         
-                    A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                    A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                     - **TargetOriginId** *(string) --* 
         
@@ -11634,11 +11634,11 @@ class Client(BaseClient):
         
                         Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                        If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                        If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                         If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                        If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                        If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                         For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -11650,13 +11650,13 @@ class Client(BaseClient):
         
                           Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                          Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                          Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                         - **WhitelistedNames** *(dict) --* 
         
                           Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                           For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -11682,11 +11682,11 @@ class Client(BaseClient):
         
                           .. warning::
         
-                             CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                             CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                           * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                            
-                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                            
                           Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -11720,9 +11720,9 @@ class Client(BaseClient):
         
                       If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                      If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                      If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                       - **Enabled** *(boolean) --* 
         
@@ -11752,7 +11752,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                     - **MinTTL** *(integer) --* 
         
@@ -11770,7 +11770,7 @@ class Client(BaseClient):
                        
                       * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                        
-                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                       - **Quantity** *(integer) --* 
         
@@ -11834,7 +11834,7 @@ class Client(BaseClient):
         
                           - **LambdaFunctionARN** *(string) --* 
         
-                            The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                            The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                           - **EventType** *(string) --* 
         
@@ -11842,11 +11842,11 @@ class Client(BaseClient):
         
                             * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                              
-                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                              
-                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
-                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
                           - **IncludeBody** *(boolean) --* 
         
@@ -11876,7 +11876,7 @@ class Client(BaseClient):
         
                         For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                        If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                        If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                         To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -11908,11 +11908,11 @@ class Client(BaseClient):
         
                             Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                            If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                            If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                             If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                            If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                            If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                             For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -11924,13 +11924,13 @@ class Client(BaseClient):
         
                               Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                              Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                              Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                             - **WhitelistedNames** *(dict) --* 
         
                               Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                               For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -11956,11 +11956,11 @@ class Client(BaseClient):
         
                               .. warning::
         
-                                 CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                                 CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                               * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                                
-                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                                
                               Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -11994,9 +11994,9 @@ class Client(BaseClient):
         
                           If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                          If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                          If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                           - **Enabled** *(boolean) --* 
         
@@ -12026,7 +12026,7 @@ class Client(BaseClient):
         
                           .. note::
         
-                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                         - **MinTTL** *(integer) --* 
         
@@ -12044,7 +12044,7 @@ class Client(BaseClient):
                            
                           * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                            
-                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                           - **Quantity** *(integer) --* 
         
@@ -12110,7 +12110,7 @@ class Client(BaseClient):
         
                               - **LambdaFunctionARN** *(string) --* 
         
-                                The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                                The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                               - **EventType** *(string) --* 
         
@@ -12118,11 +12118,11 @@ class Client(BaseClient):
         
                                 * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                  
-                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                  
-                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
-                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
                               - **IncludeBody** *(boolean) --* 
         
@@ -12166,27 +12166,27 @@ class Client(BaseClient):
                            
                           * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                            
-                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                         - **ResponseCode** *(string) --* 
         
                           The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                            
-                          * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                          * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                            
-                          * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                          * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                            
-                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                         - **ErrorCachingMinTTL** *(integer) --* 
         
                           The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                          If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                          If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                           For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -12206,9 +12206,9 @@ class Client(BaseClient):
         
                     * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                      
-                    * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                    * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                      
-                    * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                    * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                      
                     You must specify only one of the following values: 
         
@@ -12218,7 +12218,7 @@ class Client(BaseClient):
                      
                     *  ViewerCertificate$CloudFrontDefaultCertificate   
                      
-                    Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                    Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                      **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -12226,9 +12226,9 @@ class Client(BaseClient):
         
                     In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                    * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                    * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                       * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                        
@@ -12236,13 +12236,13 @@ class Client(BaseClient):
                        
                     If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                       * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                        
                       * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                        
-                    * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                    * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                      
                     If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -12276,7 +12276,7 @@ class Client(BaseClient):
         
                       * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                        
-                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                         * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                          
@@ -12286,7 +12286,7 @@ class Client(BaseClient):
                          
                         * Use HTTP instead of HTTPS. 
                          
-                      Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                      Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                       For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -12306,9 +12306,9 @@ class Client(BaseClient):
         
                       When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                      * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                      * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                        
-                      * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                      * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                        
                       If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -12348,7 +12348,7 @@ class Client(BaseClient):
         
                         * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                          
-                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                          
                         * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                          
@@ -12372,7 +12372,7 @@ class Client(BaseClient):
         
                   - **HttpVersion** *(string) --* 
         
-                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don't support ``HTTP/2`` will automatically use an earlier version.
+                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don\'t support ``HTTP/2`` will automatically use an earlier version.
         
                   - **IsIPV6Enabled** *(boolean) --* 
         
@@ -12390,9 +12390,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_distributions_by_web_acl_id(
-              Marker='string',
-              MaxItems='string',
-              WebACLId='string'
+              Marker=\'string\',
+              MaxItems=\'string\',
+              WebACLId=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -12407,7 +12407,7 @@ class Client(BaseClient):
         :type WebACLId: string
         :param WebACLId: **[REQUIRED]** 
         
-          The ID of the AWS WAF web ACL that you want to list the associated distributions. If you specify "null" for the ID, the request returns a list of the distributions that aren't associated with a web ACL. 
+          The ID of the AWS WAF web ACL that you want to list the associated distributions. If you specify \"null\" for the ID, the request returns a list of the distributions that aren\'t associated with a web ACL. 
         
         :rtype: dict
         :returns: 
@@ -12417,227 +12417,227 @@ class Client(BaseClient):
           ::
         
             {
-                'DistributionList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'DistributionList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'ARN': 'string',
-                            'Status': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'DomainName': 'string',
-                            'Aliases': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Id\': \'string\',
+                            \'ARN\': \'string\',
+                            \'Status\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'DomainName\': \'string\',
+                            \'Aliases\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'Origins': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'Origins\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Id': 'string',
-                                        'DomainName': 'string',
-                                        'OriginPath': 'string',
-                                        'CustomHeaders': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'Id\': \'string\',
+                                        \'DomainName\': \'string\',
+                                        \'OriginPath\': \'string\',
+                                        \'CustomHeaders\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'HeaderName': 'string',
-                                                    'HeaderValue': 'string'
+                                                    \'HeaderName\': \'string\',
+                                                    \'HeaderValue\': \'string\'
                                                 },
                                             ]
                                         },
-                                        'S3OriginConfig': {
-                                            'OriginAccessIdentity': 'string'
+                                        \'S3OriginConfig\': {
+                                            \'OriginAccessIdentity\': \'string\'
                                         },
-                                        'CustomOriginConfig': {
-                                            'HTTPPort': 123,
-                                            'HTTPSPort': 123,
-                                            'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                            'OriginSslProtocols': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                        \'CustomOriginConfig\': {
+                                            \'HTTPPort\': 123,
+                                            \'HTTPSPort\': 123,
+                                            \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                            \'OriginSslProtocols\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                                 ]
                                             },
-                                            'OriginReadTimeout': 123,
-                                            'OriginKeepaliveTimeout': 123
+                                            \'OriginReadTimeout\': 123,
+                                            \'OriginKeepaliveTimeout\': 123
                                         }
                                     },
                                 ]
                             },
-                            'DefaultCacheBehavior': {
-                                'TargetOriginId': 'string',
-                                'ForwardedValues': {
-                                    'QueryString': True|False,
-                                    'Cookies': {
-                                        'Forward': 'none'|'whitelist'|'all',
-                                        'WhitelistedNames': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                            \'DefaultCacheBehavior\': {
+                                \'TargetOriginId\': \'string\',
+                                \'ForwardedValues\': {
+                                    \'QueryString\': True|False,
+                                    \'Cookies\': {
+                                        \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                        \'WhitelistedNames\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'Headers': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'Headers\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'QueryStringCacheKeys': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'QueryStringCacheKeys\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'TrustedSigners': {
-                                    'Enabled': True|False,
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'TrustedSigners\': {
+                                    \'Enabled\': True|False,
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                'MinTTL': 123,
-                                'AllowedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                \'MinTTL\': 123,
+                                \'AllowedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ],
-                                    'CachedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'CachedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ]
                                     }
                                 },
-                                'SmoothStreaming': True|False,
-                                'DefaultTTL': 123,
-                                'MaxTTL': 123,
-                                'Compress': True|False,
-                                'LambdaFunctionAssociations': {
-                                    'Quantity': 123,
-                                    'Items': [
+                                \'SmoothStreaming\': True|False,
+                                \'DefaultTTL\': 123,
+                                \'MaxTTL\': 123,
+                                \'Compress\': True|False,
+                                \'LambdaFunctionAssociations\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'LambdaFunctionARN': 'string',
-                                            'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                            'IncludeBody': True|False
+                                            \'LambdaFunctionARN\': \'string\',
+                                            \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                            \'IncludeBody\': True|False
                                         },
                                     ]
                                 },
-                                'FieldLevelEncryptionId': 'string'
+                                \'FieldLevelEncryptionId\': \'string\'
                             },
-                            'CacheBehaviors': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CacheBehaviors\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'PathPattern': 'string',
-                                        'TargetOriginId': 'string',
-                                        'ForwardedValues': {
-                                            'QueryString': True|False,
-                                            'Cookies': {
-                                                'Forward': 'none'|'whitelist'|'all',
-                                                'WhitelistedNames': {
-                                                    'Quantity': 123,
-                                                    'Items': [
-                                                        'string',
+                                        \'PathPattern\': \'string\',
+                                        \'TargetOriginId\': \'string\',
+                                        \'ForwardedValues\': {
+                                            \'QueryString\': True|False,
+                                            \'Cookies\': {
+                                                \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                                \'WhitelistedNames\': {
+                                                    \'Quantity\': 123,
+                                                    \'Items\': [
+                                                        \'string\',
                                                     ]
                                                 }
                                             },
-                                            'Headers': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'Headers\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             },
-                                            'QueryStringCacheKeys': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                            \'QueryStringCacheKeys\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'TrustedSigners': {
-                                            'Enabled': True|False,
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'TrustedSigners\': {
+                                            \'Enabled\': True|False,
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                        'MinTTL': 123,
-                                        'AllowedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                        \'MinTTL\': 123,
+                                        \'AllowedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ],
-                                            'CachedMethods': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                            \'CachedMethods\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                                 ]
                                             }
                                         },
-                                        'SmoothStreaming': True|False,
-                                        'DefaultTTL': 123,
-                                        'MaxTTL': 123,
-                                        'Compress': True|False,
-                                        'LambdaFunctionAssociations': {
-                                            'Quantity': 123,
-                                            'Items': [
+                                        \'SmoothStreaming\': True|False,
+                                        \'DefaultTTL\': 123,
+                                        \'MaxTTL\': 123,
+                                        \'Compress\': True|False,
+                                        \'LambdaFunctionAssociations\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
                                                 {
-                                                    'LambdaFunctionARN': 'string',
-                                                    'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                    'IncludeBody': True|False
+                                                    \'LambdaFunctionARN\': \'string\',
+                                                    \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                    \'IncludeBody\': True|False
                                                 },
                                             ]
                                         },
-                                        'FieldLevelEncryptionId': 'string'
+                                        \'FieldLevelEncryptionId\': \'string\'
                                     },
                                 ]
                             },
-                            'CustomErrorResponses': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'CustomErrorResponses\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'ErrorCode': 123,
-                                        'ResponsePagePath': 'string',
-                                        'ResponseCode': 'string',
-                                        'ErrorCachingMinTTL': 123
+                                        \'ErrorCode\': 123,
+                                        \'ResponsePagePath\': \'string\',
+                                        \'ResponseCode\': \'string\',
+                                        \'ErrorCachingMinTTL\': 123
                                     },
                                 ]
                             },
-                            'Comment': 'string',
-                            'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                            'Enabled': True|False,
-                            'ViewerCertificate': {
-                                'CloudFrontDefaultCertificate': True|False,
-                                'IAMCertificateId': 'string',
-                                'ACMCertificateArn': 'string',
-                                'SSLSupportMethod': 'sni-only'|'vip',
-                                'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                                'Certificate': 'string',
-                                'CertificateSource': 'cloudfront'|'iam'|'acm'
+                            \'Comment\': \'string\',
+                            \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                            \'Enabled\': True|False,
+                            \'ViewerCertificate\': {
+                                \'CloudFrontDefaultCertificate\': True|False,
+                                \'IAMCertificateId\': \'string\',
+                                \'ACMCertificateArn\': \'string\',
+                                \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                                \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                                \'Certificate\': \'string\',
+                                \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                             },
-                            'Restrictions': {
-                                'GeoRestriction': {
-                                    'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                            \'Restrictions\': {
+                                \'GeoRestriction\': {
+                                    \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'WebACLId': 'string',
-                            'HttpVersion': 'http1.1'|'http2',
-                            'IsIPV6Enabled': True|False
+                            \'WebACLId\': \'string\',
+                            \'HttpVersion\': \'http1.1\'|\'http2\',
+                            \'IsIPV6Enabled\': True|False
                         },
                     ]
                 }
@@ -12690,7 +12690,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    The current status of the distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                    The current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
                   - **LastModifiedTime** *(datetime) --* 
         
@@ -12744,7 +12744,7 @@ class Client(BaseClient):
         
                           Constraints for Amazon S3 origins: 
         
-                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                          * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                            
                           * The bucket name must be between 3 and 63 characters long (inclusive). 
                            
@@ -12764,7 +12764,7 @@ class Client(BaseClient):
         
                           An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                          For example, suppose you've specified the following values for your distribution:
+                          For example, suppose you\'ve specified the following values for your distribution:
         
                           * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                            
@@ -12864,7 +12864,7 @@ class Client(BaseClient):
         
                   - **DefaultCacheBehavior** *(dict) --* 
         
-                    A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                    A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                     - **TargetOriginId** *(string) --* 
         
@@ -12878,11 +12878,11 @@ class Client(BaseClient):
         
                         Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                        If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                        If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                         If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                        If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                        If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                         For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -12894,13 +12894,13 @@ class Client(BaseClient):
         
                           Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                          Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                          Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                         - **WhitelistedNames** *(dict) --* 
         
                           Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                          If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                           For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -12926,11 +12926,11 @@ class Client(BaseClient):
         
                           .. warning::
         
-                             CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                             CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                           * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                            
-                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                          * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                            
                           Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -12964,9 +12964,9 @@ class Client(BaseClient):
         
                       If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                      If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                      If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                      To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                       - **Enabled** *(boolean) --* 
         
@@ -12996,7 +12996,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                        The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                     - **MinTTL** *(integer) --* 
         
@@ -13014,7 +13014,7 @@ class Client(BaseClient):
                        
                       * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                        
-                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                      If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                       - **Quantity** *(integer) --* 
         
@@ -13078,7 +13078,7 @@ class Client(BaseClient):
         
                           - **LambdaFunctionARN** *(string) --* 
         
-                            The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                            The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                           - **EventType** *(string) --* 
         
@@ -13086,11 +13086,11 @@ class Client(BaseClient):
         
                             * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                              
-                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                            * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                              
-                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
-                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                            * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                              
                           - **IncludeBody** *(boolean) --* 
         
@@ -13120,7 +13120,7 @@ class Client(BaseClient):
         
                         For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                        If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                        If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                         To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -13152,11 +13152,11 @@ class Client(BaseClient):
         
                             Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                            If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                            If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                             If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                            If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                            If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                             For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -13168,13 +13168,13 @@ class Client(BaseClient):
         
                               Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                              Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                              Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                             - **WhitelistedNames** *(dict) --* 
         
                               Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                              If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                               For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -13200,11 +13200,11 @@ class Client(BaseClient):
         
                               .. warning::
         
-                                 CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                                 CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                               * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                                
-                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                              * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                                
                               Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -13238,9 +13238,9 @@ class Client(BaseClient):
         
                           If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                          If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                          If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                          To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                           - **Enabled** *(boolean) --* 
         
@@ -13270,7 +13270,7 @@ class Client(BaseClient):
         
                           .. note::
         
-                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                            The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                         - **MinTTL** *(integer) --* 
         
@@ -13288,7 +13288,7 @@ class Client(BaseClient):
                            
                           * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                            
-                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                          If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                           - **Quantity** *(integer) --* 
         
@@ -13354,7 +13354,7 @@ class Client(BaseClient):
         
                               - **LambdaFunctionARN** *(string) --* 
         
-                                The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                                The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                               - **EventType** *(string) --* 
         
@@ -13362,11 +13362,11 @@ class Client(BaseClient):
         
                                 * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                  
-                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                                * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                  
-                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
-                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                                * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                  
                               - **IncludeBody** *(boolean) --* 
         
@@ -13410,27 +13410,27 @@ class Client(BaseClient):
                            
                           * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                            
-                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                          If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                          We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                         - **ResponseCode** *(string) --* 
         
                           The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                          * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                            
-                          * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                          * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                            
-                          * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                          * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                            
-                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                          If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                         - **ErrorCachingMinTTL** *(integer) --* 
         
                           The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                          If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                          If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                           For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -13450,9 +13450,9 @@ class Client(BaseClient):
         
                     * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                      
-                    * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                    * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                      
-                    * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                    * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                      
                     You must specify only one of the following values: 
         
@@ -13462,7 +13462,7 @@ class Client(BaseClient):
                      
                     *  ViewerCertificate$CloudFrontDefaultCertificate   
                      
-                    Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                    Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                      **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -13470,9 +13470,9 @@ class Client(BaseClient):
         
                     In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                     **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                    * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                    * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                       * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                        
@@ -13480,13 +13480,13 @@ class Client(BaseClient):
                        
                     If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                    If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                       * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                        
                       * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                        
-                    * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                    * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                      
                     If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -13520,7 +13520,7 @@ class Client(BaseClient):
         
                       * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                        
-                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                      * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                         * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                          
@@ -13530,7 +13530,7 @@ class Client(BaseClient):
                          
                         * Use HTTP instead of HTTPS. 
                          
-                      Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                      Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                       For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -13550,9 +13550,9 @@ class Client(BaseClient):
         
                       When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                      * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                      * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                        
-                      * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                      * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                        
                       If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -13592,7 +13592,7 @@ class Client(BaseClient):
         
                         * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                          
-                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                        * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                          
                         * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                          
@@ -13616,7 +13616,7 @@ class Client(BaseClient):
         
                   - **HttpVersion** *(string) --* 
         
-                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don't support ``HTTP/2`` will automatically use an earlier version.
+                    Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is ``http2`` . Viewers that don\'t support ``HTTP/2`` will automatically use an earlier version.
         
                   - **IsIPV6Enabled** *(boolean) --* 
         
@@ -13634,13 +13634,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_field_level_encryption_configs(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
         
-          Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last configuration on that page). 
+          Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last configuration on that page). 
         
         :type MaxItems: string
         :param MaxItems: 
@@ -13655,36 +13655,36 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionList': {
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'Quantity': 123,
-                    'Items': [
+                \'FieldLevelEncryptionList\': {
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'Comment': 'string',
-                            'QueryArgProfileConfig': {
-                                'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                                'QueryArgProfiles': {
-                                    'Quantity': 123,
-                                    'Items': [
+                            \'Id\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'Comment\': \'string\',
+                            \'QueryArgProfileConfig\': {
+                                \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                                \'QueryArgProfiles\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'QueryArg': 'string',
-                                            'ProfileId': 'string'
+                                            \'QueryArg\': \'string\',
+                                            \'ProfileId\': \'string\'
                                         },
                                     ]
                                 }
                             },
-                            'ContentTypeProfileConfig': {
-                                'ForwardWhenContentTypeIsUnknown': True|False,
-                                'ContentTypeProfiles': {
-                                    'Quantity': 123,
-                                    'Items': [
+                            \'ContentTypeProfileConfig\': {
+                                \'ForwardWhenContentTypeIsUnknown\': True|False,
+                                \'ContentTypeProfiles\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
                                         {
-                                            'Format': 'URLEncoded',
-                                            'ProfileId': 'string',
-                                            'ContentType': 'string'
+                                            \'Format\': \'URLEncoded\',
+                                            \'ProfileId\': \'string\',
+                                            \'ContentType\': \'string\'
                                         },
                                     ]
                                 }
@@ -13813,13 +13813,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_field_level_encryption_profiles(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
         
-          Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last profile on that page). 
+          Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last profile on that page). 
         
         :type MaxItems: string
         :param MaxItems: 
@@ -13834,31 +13834,31 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionProfileList': {
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'Quantity': 123,
-                    'Items': [
+                \'FieldLevelEncryptionProfileList\': {
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'Name': 'string',
-                            'EncryptionEntities': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'Id\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'Name\': \'string\',
+                            \'EncryptionEntities\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'PublicKeyId': 'string',
-                                        'ProviderId': 'string',
-                                        'FieldPatterns': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'PublicKeyId\': \'string\',
+                                        \'ProviderId\': \'string\',
+                                        \'FieldPatterns\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
                                 ]
                             },
-                            'Comment': 'string'
+                            \'Comment\': \'string\'
                         },
                     ]
                 }
@@ -13929,7 +13929,7 @@ class Client(BaseClient):
         
                         - **FieldPatterns** *(dict) --* 
         
-                          Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                          Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                           - **Quantity** *(integer) --* 
         
@@ -13957,19 +13957,19 @@ class Client(BaseClient):
         ::
         
           response = client.list_invalidations(
-              DistributionId='string',
-              Marker='string',
-              MaxItems='string'
+              DistributionId=\'string\',
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type DistributionId: string
         :param DistributionId: **[REQUIRED]** 
         
-          The distribution's ID.
+          The distribution\'s ID.
         
         :type Marker: string
         :param Marker: 
         
-          Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set ``Marker`` to the value of the ``NextMarker`` from the current page's response. This value is the same as the ID of the last invalidation batch on that page. 
+          Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set ``Marker`` to the value of the ``NextMarker`` from the current page\'s response. This value is the same as the ID of the last invalidation batch on that page. 
         
         :type MaxItems: string
         :param MaxItems: 
@@ -13984,17 +13984,17 @@ class Client(BaseClient):
           ::
         
             {
-                'InvalidationList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'InvalidationList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'CreateTime': datetime(2015, 1, 1),
-                            'Status': 'string'
+                            \'Id\': \'string\',
+                            \'CreateTime\': datetime(2015, 1, 1),
+                            \'Status\': \'string\'
                         },
                     ]
                 }
@@ -14059,13 +14059,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_public_keys(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
         
-          Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page's response (which is also the ID of the last public key on that page). 
+          Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the ``Marker`` to the value of the ``NextMarker`` from the current page\'s response (which is also the ID of the last public key on that page). 
         
         :type MaxItems: string
         :param MaxItems: 
@@ -14080,17 +14080,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKeyList': {
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'Quantity': 123,
-                    'Items': [
+                \'PublicKeyList\': {
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'Name': 'string',
-                            'CreatedTime': datetime(2015, 1, 1),
-                            'EncodedKey': 'string',
-                            'Comment': 'string'
+                            \'Id\': \'string\',
+                            \'Name\': \'string\',
+                            \'CreatedTime\': datetime(2015, 1, 1),
+                            \'EncodedKey\': \'string\',
+                            \'Comment\': \'string\'
                         },
                     ]
                 }
@@ -14155,8 +14155,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_streaming_distributions(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -14176,39 +14176,39 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistributionList': {
-                    'Marker': 'string',
-                    'NextMarker': 'string',
-                    'MaxItems': 123,
-                    'IsTruncated': True|False,
-                    'Quantity': 123,
-                    'Items': [
+                \'StreamingDistributionList\': {
+                    \'Marker\': \'string\',
+                    \'NextMarker\': \'string\',
+                    \'MaxItems\': 123,
+                    \'IsTruncated\': True|False,
+                    \'Quantity\': 123,
+                    \'Items\': [
                         {
-                            'Id': 'string',
-                            'ARN': 'string',
-                            'Status': 'string',
-                            'LastModifiedTime': datetime(2015, 1, 1),
-                            'DomainName': 'string',
-                            'S3Origin': {
-                                'DomainName': 'string',
-                                'OriginAccessIdentity': 'string'
+                            \'Id\': \'string\',
+                            \'ARN\': \'string\',
+                            \'Status\': \'string\',
+                            \'LastModifiedTime\': datetime(2015, 1, 1),
+                            \'DomainName\': \'string\',
+                            \'S3Origin\': {
+                                \'DomainName\': \'string\',
+                                \'OriginAccessIdentity\': \'string\'
                             },
-                            'Aliases': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'Aliases\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'Comment': 'string',
-                            'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                            'Enabled': True|False
+                            \'Comment\': \'string\',
+                            \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                            \'Enabled\': True|False
                         },
                     ]
                 }
@@ -14261,7 +14261,7 @@ class Client(BaseClient):
         
                   - **Status** *(string) --* 
         
-                    Indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated throughout the Amazon CloudFront system.
+                    Indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
         
                   - **LastModifiedTime** *(datetime) --* 
         
@@ -14307,7 +14307,7 @@ class Client(BaseClient):
                   
                   - **TrustedSigners** *(dict) --* 
         
-                    A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` .If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` . To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` .If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` . To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         
@@ -14345,7 +14345,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              Resource='string'
+              Resource=\'string\'
           )
         :type Resource: string
         :param Resource: **[REQUIRED]** 
@@ -14360,11 +14360,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'Items': [
+                \'Tags\': {
+                    \'Items\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -14411,12 +14411,12 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              Resource='string',
+              Resource=\'string\',
               Tags={
-                  'Items': [
+                  \'Items\': [
                       {
-                          'Key': 'string',
-                          'Value': 'string'
+                          \'Key\': \'string\',
+                          \'Value\': \'string\'
                       },
                   ]
               }
@@ -14464,10 +14464,10 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              Resource='string',
+              Resource=\'string\',
               TagKeys={
-                  'Items': [
-                      'string',
+                  \'Items\': [
+                      \'string\',
                   ]
               }
           )
@@ -14505,20 +14505,20 @@ class Client(BaseClient):
         
           response = client.update_cloud_front_origin_access_identity(
               CloudFrontOriginAccessIdentityConfig={
-                  'CallerReference': 'string',
-                  'Comment': 'string'
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\'
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type CloudFrontOriginAccessIdentityConfig: dict
         :param CloudFrontOriginAccessIdentityConfig: **[REQUIRED]** 
         
-          The identity's configuration information.
+          The identity\'s configuration information.
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
             If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -14533,12 +14533,12 @@ class Client(BaseClient):
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The identity's id.
+          The identity\'s id.
         
         :type IfMatch: string
         :param IfMatch: 
         
-          The value of the ``ETag`` header that you received when retrieving the identity's configuration. For example: ``E2QWRUHAPOMQZL`` .
+          The value of the ``ETag`` header that you received when retrieving the identity\'s configuration. For example: ``E2QWRUHAPOMQZL`` .
         
         :rtype: dict
         :returns: 
@@ -14548,15 +14548,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CloudFrontOriginAccessIdentity': {
-                    'Id': 'string',
-                    'S3CanonicalUserId': 'string',
-                    'CloudFrontOriginAccessIdentityConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string'
+                \'CloudFrontOriginAccessIdentity\': {
+                    \'Id\': \'string\',
+                    \'S3CanonicalUserId\': \'string\',
+                    \'CloudFrontOriginAccessIdentityConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -14566,7 +14566,7 @@ class Client(BaseClient):
         
             - **CloudFrontOriginAccessIdentity** *(dict) --* 
         
-              The origin access identity's information.
+              The origin access identity\'s information.
         
               - **Id** *(string) --* 
         
@@ -14582,7 +14582,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                   If the ``CallerReference`` is new (no matter the content of the ``CloudFrontOriginAccessIdentityConfig`` object), a new origin access identity is created.
         
@@ -14628,9 +14628,9 @@ class Client(BaseClient):
         
             * You must strip out the ETag parameter that is returned. 
              
-            * Additional fields are required when you update a distribution. There may be fields included in the XML file for features that you haven't configured for your distribution. This is expected and required to successfully update the distribution. 
+            * Additional fields are required when you update a distribution. There may be fields included in the XML file for features that you haven\'t configured for your distribution. This is expected and required to successfully update the distribution. 
              
-            * You can't change the value of ``CallerReference`` . If you try to change this value, CloudFront returns an ``IllegalUpdate`` error.  
+            * You can\'t change the value of ``CallerReference`` . If you try to change this value, CloudFront returns an ``IllegalUpdate`` error.  
              
             * The new configuration replaces the existing configuration; the values that you specify in an ``UpdateDistribution`` request are not merged into your existing configuration. When you add, delete, or replace values in an element that allows multiple values (for example, ``CNAME`` ), you must specify all of the values that you want to appear in the updated distribution. In addition, you must update the corresponding ``Quantity`` element. 
              
@@ -14651,234 +14651,234 @@ class Client(BaseClient):
         
           response = client.update_distribution(
               DistributionConfig={
-                  'CallerReference': 'string',
-                  'Aliases': {
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'CallerReference\': \'string\',
+                  \'Aliases\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'DefaultRootObject': 'string',
-                  'Origins': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'DefaultRootObject\': \'string\',
+                  \'Origins\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'Id': 'string',
-                              'DomainName': 'string',
-                              'OriginPath': 'string',
-                              'CustomHeaders': {
-                                  'Quantity': 123,
-                                  'Items': [
+                              \'Id\': \'string\',
+                              \'DomainName\': \'string\',
+                              \'OriginPath\': \'string\',
+                              \'CustomHeaders\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
                                       {
-                                          'HeaderName': 'string',
-                                          'HeaderValue': 'string'
+                                          \'HeaderName\': \'string\',
+                                          \'HeaderValue\': \'string\'
                                       },
                                   ]
                               },
-                              'S3OriginConfig': {
-                                  'OriginAccessIdentity': 'string'
+                              \'S3OriginConfig\': {
+                                  \'OriginAccessIdentity\': \'string\'
                               },
-                              'CustomOriginConfig': {
-                                  'HTTPPort': 123,
-                                  'HTTPSPort': 123,
-                                  'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                  'OriginSslProtocols': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                              \'CustomOriginConfig\': {
+                                  \'HTTPPort\': 123,
+                                  \'HTTPSPort\': 123,
+                                  \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                  \'OriginSslProtocols\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                       ]
                                   },
-                                  'OriginReadTimeout': 123,
-                                  'OriginKeepaliveTimeout': 123
+                                  \'OriginReadTimeout\': 123,
+                                  \'OriginKeepaliveTimeout\': 123
                               }
                           },
                       ]
                   },
-                  'DefaultCacheBehavior': {
-                      'TargetOriginId': 'string',
-                      'ForwardedValues': {
-                          'QueryString': True|False,
-                          'Cookies': {
-                              'Forward': 'none'|'whitelist'|'all',
-                              'WhitelistedNames': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                  \'DefaultCacheBehavior\': {
+                      \'TargetOriginId\': \'string\',
+                      \'ForwardedValues\': {
+                          \'QueryString\': True|False,
+                          \'Cookies\': {
+                              \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                              \'WhitelistedNames\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               }
                           },
-                          'Headers': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                          \'Headers\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           },
-                          'QueryStringCacheKeys': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'string',
+                          \'QueryStringCacheKeys\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'string\',
                               ]
                           }
                       },
-                      'TrustedSigners': {
-                          'Enabled': True|False,
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                      \'TrustedSigners\': {
+                          \'Enabled\': True|False,
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       },
-                      'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                      'MinTTL': 123,
-                      'AllowedMethods': {
-                          'Quantity': 123,
-                          'Items': [
-                              'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                      \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                      \'MinTTL\': 123,
+                      \'AllowedMethods\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                           ],
-                          'CachedMethods': {
-                              'Quantity': 123,
-                              'Items': [
-                                  'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                          \'CachedMethods\': {
+                              \'Quantity\': 123,
+                              \'Items\': [
+                                  \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                               ]
                           }
                       },
-                      'SmoothStreaming': True|False,
-                      'DefaultTTL': 123,
-                      'MaxTTL': 123,
-                      'Compress': True|False,
-                      'LambdaFunctionAssociations': {
-                          'Quantity': 123,
-                          'Items': [
+                      \'SmoothStreaming\': True|False,
+                      \'DefaultTTL\': 123,
+                      \'MaxTTL\': 123,
+                      \'Compress\': True|False,
+                      \'LambdaFunctionAssociations\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'LambdaFunctionARN': 'string',
-                                  'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                  'IncludeBody': True|False
+                                  \'LambdaFunctionARN\': \'string\',
+                                  \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                  \'IncludeBody\': True|False
                               },
                           ]
                       },
-                      'FieldLevelEncryptionId': 'string'
+                      \'FieldLevelEncryptionId\': \'string\'
                   },
-                  'CacheBehaviors': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'CacheBehaviors\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'PathPattern': 'string',
-                              'TargetOriginId': 'string',
-                              'ForwardedValues': {
-                                  'QueryString': True|False,
-                                  'Cookies': {
-                                      'Forward': 'none'|'whitelist'|'all',
-                                      'WhitelistedNames': {
-                                          'Quantity': 123,
-                                          'Items': [
-                                              'string',
+                              \'PathPattern\': \'string\',
+                              \'TargetOriginId\': \'string\',
+                              \'ForwardedValues\': {
+                                  \'QueryString\': True|False,
+                                  \'Cookies\': {
+                                      \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                      \'WhitelistedNames\': {
+                                          \'Quantity\': 123,
+                                          \'Items\': [
+                                              \'string\',
                                           ]
                                       }
                                   },
-                                  'Headers': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                                  \'Headers\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   },
-                                  'QueryStringCacheKeys': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'string',
+                                  \'QueryStringCacheKeys\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'string\',
                                       ]
                                   }
                               },
-                              'TrustedSigners': {
-                                  'Enabled': True|False,
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'TrustedSigners\': {
+                                  \'Enabled\': True|False,
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               },
-                              'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                              'MinTTL': 123,
-                              'AllowedMethods': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                              \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                              \'MinTTL\': 123,
+                              \'AllowedMethods\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                   ],
-                                  'CachedMethods': {
-                                      'Quantity': 123,
-                                      'Items': [
-                                          'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                  \'CachedMethods\': {
+                                      \'Quantity\': 123,
+                                      \'Items\': [
+                                          \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                       ]
                                   }
                               },
-                              'SmoothStreaming': True|False,
-                              'DefaultTTL': 123,
-                              'MaxTTL': 123,
-                              'Compress': True|False,
-                              'LambdaFunctionAssociations': {
-                                  'Quantity': 123,
-                                  'Items': [
+                              \'SmoothStreaming\': True|False,
+                              \'DefaultTTL\': 123,
+                              \'MaxTTL\': 123,
+                              \'Compress\': True|False,
+                              \'LambdaFunctionAssociations\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
                                       {
-                                          'LambdaFunctionARN': 'string',
-                                          'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                          'IncludeBody': True|False
+                                          \'LambdaFunctionARN\': \'string\',
+                                          \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                          \'IncludeBody\': True|False
                                       },
                                   ]
                               },
-                              'FieldLevelEncryptionId': 'string'
+                              \'FieldLevelEncryptionId\': \'string\'
                           },
                       ]
                   },
-                  'CustomErrorResponses': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'CustomErrorResponses\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'ErrorCode': 123,
-                              'ResponsePagePath': 'string',
-                              'ResponseCode': 'string',
-                              'ErrorCachingMinTTL': 123
+                              \'ErrorCode\': 123,
+                              \'ResponsePagePath\': \'string\',
+                              \'ResponseCode\': \'string\',
+                              \'ErrorCachingMinTTL\': 123
                           },
                       ]
                   },
-                  'Comment': 'string',
-                  'Logging': {
-                      'Enabled': True|False,
-                      'IncludeCookies': True|False,
-                      'Bucket': 'string',
-                      'Prefix': 'string'
+                  \'Comment\': \'string\',
+                  \'Logging\': {
+                      \'Enabled\': True|False,
+                      \'IncludeCookies\': True|False,
+                      \'Bucket\': \'string\',
+                      \'Prefix\': \'string\'
                   },
-                  'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                  'Enabled': True|False,
-                  'ViewerCertificate': {
-                      'CloudFrontDefaultCertificate': True|False,
-                      'IAMCertificateId': 'string',
-                      'ACMCertificateArn': 'string',
-                      'SSLSupportMethod': 'sni-only'|'vip',
-                      'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                      'Certificate': 'string',
-                      'CertificateSource': 'cloudfront'|'iam'|'acm'
+                  \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                  \'Enabled\': True|False,
+                  \'ViewerCertificate\': {
+                      \'CloudFrontDefaultCertificate\': True|False,
+                      \'IAMCertificateId\': \'string\',
+                      \'ACMCertificateArn\': \'string\',
+                      \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                      \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                      \'Certificate\': \'string\',
+                      \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                   },
-                  'Restrictions': {
-                      'GeoRestriction': {
-                          'RestrictionType': 'blacklist'|'whitelist'|'none',
-                          'Quantity': 123,
-                          'Items': [
-                              'string',
+                  \'Restrictions\': {
+                      \'GeoRestriction\': {
+                          \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                          \'Quantity\': 123,
+                          \'Items\': [
+                              \'string\',
                           ]
                       }
                   },
-                  'WebACLId': 'string',
-                  'HttpVersion': 'http1.1'|'http2',
-                  'IsIPV6Enabled': True|False
+                  \'WebACLId\': \'string\',
+                  \'HttpVersion\': \'http1.1\'|\'http2\',
+                  \'IsIPV6Enabled\': True|False
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type DistributionConfig: dict
         :param DistributionConfig: **[REQUIRED]** 
         
-          The distribution's configuration information.
+          The distribution\'s configuration information.
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+            A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
             If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -14904,9 +14904,9 @@ class Client(BaseClient):
         
             The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-            Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+            Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-            If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+            If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
             To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -14944,7 +14944,7 @@ class Client(BaseClient):
         
                   Constraints for Amazon S3 origins: 
         
-                  * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                  * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                    
                   * The bucket name must be between 3 and 63 characters long (inclusive). 
                    
@@ -14964,7 +14964,7 @@ class Client(BaseClient):
         
                   An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                  For example, suppose you've specified the following values for your distribution:
+                  For example, suppose you\'ve specified the following values for your distribution:
         
                   * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                    
@@ -15064,7 +15064,7 @@ class Client(BaseClient):
         
           - **DefaultCacheBehavior** *(dict) --* **[REQUIRED]** 
         
-            A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+            A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
             - **TargetOriginId** *(string) --* **[REQUIRED]** 
         
@@ -15078,11 +15078,11 @@ class Client(BaseClient):
         
                 Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                 If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                 For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -15094,13 +15094,13 @@ class Client(BaseClient):
         
                   Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                  Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                  Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                 - **WhitelistedNames** *(dict) --* 
         
                   Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                  If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                  If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                   For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -15126,11 +15126,11 @@ class Client(BaseClient):
         
                   .. warning::
         
-                     CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                     CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                   * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                    
-                  * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                  * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                    
                   Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -15164,9 +15164,9 @@ class Client(BaseClient):
         
               If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-              If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+              If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-              To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+              To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
               - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -15196,7 +15196,7 @@ class Client(BaseClient):
         
               .. note::
         
-                The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
             - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -15214,7 +15214,7 @@ class Client(BaseClient):
                
               * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                
-              If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+              If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
               - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -15278,7 +15278,7 @@ class Client(BaseClient):
         
                   - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                    The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                    The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                   - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -15286,11 +15286,11 @@ class Client(BaseClient):
         
                     * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                      
-                    * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                    * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                      
-                    * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                    * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                      
-                    * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                    * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                      
                   - **IncludeBody** *(boolean) --* 
         
@@ -15320,7 +15320,7 @@ class Client(BaseClient):
         
                 For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                 To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -15352,11 +15352,11 @@ class Client(BaseClient):
         
                     Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                    If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                    If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                     If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                    If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                    If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                     For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -15368,13 +15368,13 @@ class Client(BaseClient):
         
                       Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                      Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                      Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                     - **WhitelistedNames** *(dict) --* 
         
                       Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                      If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                       For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -15400,11 +15400,11 @@ class Client(BaseClient):
         
                       .. warning::
         
-                         CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                         CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                       * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                        
-                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                      * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                        
                       Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -15438,9 +15438,9 @@ class Client(BaseClient):
         
                   If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                  If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                  If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                  To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                   - **Enabled** *(boolean) --* **[REQUIRED]** 
         
@@ -15470,7 +15470,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                    The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                 - **MinTTL** *(integer) --* **[REQUIRED]** 
         
@@ -15488,7 +15488,7 @@ class Client(BaseClient):
                    
                   * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                    
-                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                   - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -15554,7 +15554,7 @@ class Client(BaseClient):
         
                       - **LambdaFunctionARN** *(string) --* **[REQUIRED]** 
         
-                        The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                        The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                       - **EventType** *(string) --* **[REQUIRED]** 
         
@@ -15562,11 +15562,11 @@ class Client(BaseClient):
         
                         * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                          
-                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                        * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                          
-                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
-                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                        * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                          
                       - **IncludeBody** *(boolean) --* 
         
@@ -15616,27 +15616,27 @@ class Client(BaseClient):
                    
                   * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                    
-                  If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                  If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                 - **ResponseCode** *(string) --* 
         
                   The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                  * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                  * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                    
-                  * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                  * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                    
-                  * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                  * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                    
-                  If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                  If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                 - **ErrorCachingMinTTL** *(integer) --* 
         
                   The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                  If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                  If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                   For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -15644,7 +15644,7 @@ class Client(BaseClient):
         
             Any comments you want to include about the distribution.
         
-            If you don't want to specify a comment, include an empty ``Comment`` element.
+            If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
             To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -15658,11 +15658,11 @@ class Client(BaseClient):
         
             - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
             - **IncludeCookies** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+              Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
             - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -15670,7 +15670,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* **[REQUIRED]** 
         
-              An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+              An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
           - **PriceClass** *(string) --* 
         
@@ -15690,9 +15690,9 @@ class Client(BaseClient):
         
             * Whether you want viewers to use HTTP or HTTPS to request your objects. 
              
-            * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+            * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
              
-            * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+            * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
              
             You must specify only one of the following values: 
         
@@ -15702,7 +15702,7 @@ class Client(BaseClient):
              
             *  ViewerCertificate$CloudFrontDefaultCertificate   
              
-            Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+            Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
              **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -15710,9 +15710,9 @@ class Client(BaseClient):
         
             In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-             **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+             **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-            * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+            * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
               * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                
@@ -15720,13 +15720,13 @@ class Client(BaseClient):
                
             If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-            If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+            If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
               * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                
               * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                
-            * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+            * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
              
             If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -15760,7 +15760,7 @@ class Client(BaseClient):
         
               * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                
-              * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+              * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                 * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                  
@@ -15770,7 +15770,7 @@ class Client(BaseClient):
                  
                 * Use HTTP instead of HTTPS. 
                  
-              Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+              Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
               For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -15790,9 +15790,9 @@ class Client(BaseClient):
         
               When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-              * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+              * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                
-              * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+              * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                
               If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -15832,7 +15832,7 @@ class Client(BaseClient):
         
                 * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                  
-                * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                  
                 * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                  
@@ -15858,37 +15858,37 @@ class Client(BaseClient):
         
           - **HttpVersion** *(string) --* 
         
-            (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+            (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
             For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-            In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+            In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
           - **IsIPV6Enabled** *(boolean) --* 
         
             If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-            In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+            In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-            If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+            If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
             * You enable IPv6 for the distribution 
              
-            * You're using alternate domain names in the URLs for your objects 
+            * You\'re using alternate domain names in the URLs for your objects 
              
             For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-            If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+            If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The distribution's id.
+          The distribution\'s id.
         
         :type IfMatch: string
         :param IfMatch: 
         
-          The value of the ``ETag`` header that you received when retrieving the distribution's configuration. For example: ``E2QWRUHAPOMQZL`` .
+          The value of the ``ETag`` header that you received when retrieving the distribution\'s configuration. For example: ``E2QWRUHAPOMQZL`` .
         
         :rtype: dict
         :returns: 
@@ -15898,248 +15898,248 @@ class Client(BaseClient):
           ::
         
             {
-                'Distribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'InProgressInvalidationBatches': 123,
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'Distribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'InProgressInvalidationBatches\': 123,
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'DistributionConfig': {
-                        'CallerReference': 'string',
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                    \'DistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'DefaultRootObject': 'string',
-                        'Origins': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'DefaultRootObject\': \'string\',
+                        \'Origins\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'Id': 'string',
-                                    'DomainName': 'string',
-                                    'OriginPath': 'string',
-                                    'CustomHeaders': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'Id\': \'string\',
+                                    \'DomainName\': \'string\',
+                                    \'OriginPath\': \'string\',
+                                    \'CustomHeaders\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'HeaderName': 'string',
-                                                'HeaderValue': 'string'
+                                                \'HeaderName\': \'string\',
+                                                \'HeaderValue\': \'string\'
                                             },
                                         ]
                                     },
-                                    'S3OriginConfig': {
-                                        'OriginAccessIdentity': 'string'
+                                    \'S3OriginConfig\': {
+                                        \'OriginAccessIdentity\': \'string\'
                                     },
-                                    'CustomOriginConfig': {
-                                        'HTTPPort': 123,
-                                        'HTTPSPort': 123,
-                                        'OriginProtocolPolicy': 'http-only'|'match-viewer'|'https-only',
-                                        'OriginSslProtocols': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'SSLv3'|'TLSv1'|'TLSv1.1'|'TLSv1.2',
+                                    \'CustomOriginConfig\': {
+                                        \'HTTPPort\': 123,
+                                        \'HTTPSPort\': 123,
+                                        \'OriginProtocolPolicy\': \'http-only\'|\'match-viewer\'|\'https-only\',
+                                        \'OriginSslProtocols\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'SSLv3\'|\'TLSv1\'|\'TLSv1.1\'|\'TLSv1.2\',
                                             ]
                                         },
-                                        'OriginReadTimeout': 123,
-                                        'OriginKeepaliveTimeout': 123
+                                        \'OriginReadTimeout\': 123,
+                                        \'OriginKeepaliveTimeout\': 123
                                     }
                                 },
                             ]
                         },
-                        'DefaultCacheBehavior': {
-                            'TargetOriginId': 'string',
-                            'ForwardedValues': {
-                                'QueryString': True|False,
-                                'Cookies': {
-                                    'Forward': 'none'|'whitelist'|'all',
-                                    'WhitelistedNames': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                        \'DefaultCacheBehavior\': {
+                            \'TargetOriginId\': \'string\',
+                            \'ForwardedValues\': {
+                                \'QueryString\': True|False,
+                                \'Cookies\': {
+                                    \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                    \'WhitelistedNames\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
-                                'Headers': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'Headers\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 },
-                                'QueryStringCacheKeys': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'QueryStringCacheKeys\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
-                            'TrustedSigners': {
-                                'Enabled': True|False,
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                            \'TrustedSigners\': {
+                                \'Enabled\': True|False,
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             },
-                            'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                            'MinTTL': 123,
-                            'AllowedMethods': {
-                                'Quantity': 123,
-                                'Items': [
-                                    'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                            \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                            \'MinTTL\': 123,
+                            \'AllowedMethods\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                 ],
-                                'CachedMethods': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                \'CachedMethods\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                     ]
                                 }
                             },
-                            'SmoothStreaming': True|False,
-                            'DefaultTTL': 123,
-                            'MaxTTL': 123,
-                            'Compress': True|False,
-                            'LambdaFunctionAssociations': {
-                                'Quantity': 123,
-                                'Items': [
+                            \'SmoothStreaming\': True|False,
+                            \'DefaultTTL\': 123,
+                            \'MaxTTL\': 123,
+                            \'Compress\': True|False,
+                            \'LambdaFunctionAssociations\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'LambdaFunctionARN': 'string',
-                                        'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                        'IncludeBody': True|False
+                                        \'LambdaFunctionARN\': \'string\',
+                                        \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                        \'IncludeBody\': True|False
                                     },
                                 ]
                             },
-                            'FieldLevelEncryptionId': 'string'
+                            \'FieldLevelEncryptionId\': \'string\'
                         },
-                        'CacheBehaviors': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CacheBehaviors\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PathPattern': 'string',
-                                    'TargetOriginId': 'string',
-                                    'ForwardedValues': {
-                                        'QueryString': True|False,
-                                        'Cookies': {
-                                            'Forward': 'none'|'whitelist'|'all',
-                                            'WhitelistedNames': {
-                                                'Quantity': 123,
-                                                'Items': [
-                                                    'string',
+                                    \'PathPattern\': \'string\',
+                                    \'TargetOriginId\': \'string\',
+                                    \'ForwardedValues\': {
+                                        \'QueryString\': True|False,
+                                        \'Cookies\': {
+                                            \'Forward\': \'none\'|\'whitelist\'|\'all\',
+                                            \'WhitelistedNames\': {
+                                                \'Quantity\': 123,
+                                                \'Items\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         },
-                                        'Headers': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'Headers\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         },
-                                        'QueryStringCacheKeys': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'string',
+                                        \'QueryStringCacheKeys\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'string\',
                                             ]
                                         }
                                     },
-                                    'TrustedSigners': {
-                                        'Enabled': True|False,
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'TrustedSigners\': {
+                                        \'Enabled\': True|False,
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     },
-                                    'ViewerProtocolPolicy': 'allow-all'|'https-only'|'redirect-to-https',
-                                    'MinTTL': 123,
-                                    'AllowedMethods': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                    \'ViewerProtocolPolicy\': \'allow-all\'|\'https-only\'|\'redirect-to-https\',
+                                    \'MinTTL\': 123,
+                                    \'AllowedMethods\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                         ],
-                                        'CachedMethods': {
-                                            'Quantity': 123,
-                                            'Items': [
-                                                'GET'|'HEAD'|'POST'|'PUT'|'PATCH'|'OPTIONS'|'DELETE',
+                                        \'CachedMethods\': {
+                                            \'Quantity\': 123,
+                                            \'Items\': [
+                                                \'GET\'|\'HEAD\'|\'POST\'|\'PUT\'|\'PATCH\'|\'OPTIONS\'|\'DELETE\',
                                             ]
                                         }
                                     },
-                                    'SmoothStreaming': True|False,
-                                    'DefaultTTL': 123,
-                                    'MaxTTL': 123,
-                                    'Compress': True|False,
-                                    'LambdaFunctionAssociations': {
-                                        'Quantity': 123,
-                                        'Items': [
+                                    \'SmoothStreaming\': True|False,
+                                    \'DefaultTTL\': 123,
+                                    \'MaxTTL\': 123,
+                                    \'Compress\': True|False,
+                                    \'LambdaFunctionAssociations\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
                                             {
-                                                'LambdaFunctionARN': 'string',
-                                                'EventType': 'viewer-request'|'viewer-response'|'origin-request'|'origin-response',
-                                                'IncludeBody': True|False
+                                                \'LambdaFunctionARN\': \'string\',
+                                                \'EventType\': \'viewer-request\'|\'viewer-response\'|\'origin-request\'|\'origin-response\',
+                                                \'IncludeBody\': True|False
                                             },
                                         ]
                                     },
-                                    'FieldLevelEncryptionId': 'string'
+                                    \'FieldLevelEncryptionId\': \'string\'
                                 },
                             ]
                         },
-                        'CustomErrorResponses': {
-                            'Quantity': 123,
-                            'Items': [
+                        \'CustomErrorResponses\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'ErrorCode': 123,
-                                    'ResponsePagePath': 'string',
-                                    'ResponseCode': 'string',
-                                    'ErrorCachingMinTTL': 123
+                                    \'ErrorCode\': 123,
+                                    \'ResponsePagePath\': \'string\',
+                                    \'ResponseCode\': \'string\',
+                                    \'ErrorCachingMinTTL\': 123
                                 },
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'IncludeCookies': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'IncludeCookies\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False,
-                        'ViewerCertificate': {
-                            'CloudFrontDefaultCertificate': True|False,
-                            'IAMCertificateId': 'string',
-                            'ACMCertificateArn': 'string',
-                            'SSLSupportMethod': 'sni-only'|'vip',
-                            'MinimumProtocolVersion': 'SSLv3'|'TLSv1'|'TLSv1_2016'|'TLSv1.1_2016'|'TLSv1.2_2018',
-                            'Certificate': 'string',
-                            'CertificateSource': 'cloudfront'|'iam'|'acm'
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False,
+                        \'ViewerCertificate\': {
+                            \'CloudFrontDefaultCertificate\': True|False,
+                            \'IAMCertificateId\': \'string\',
+                            \'ACMCertificateArn\': \'string\',
+                            \'SSLSupportMethod\': \'sni-only\'|\'vip\',
+                            \'MinimumProtocolVersion\': \'SSLv3\'|\'TLSv1\'|\'TLSv1_2016\'|\'TLSv1.1_2016\'|\'TLSv1.2_2018\',
+                            \'Certificate\': \'string\',
+                            \'CertificateSource\': \'cloudfront\'|\'iam\'|\'acm\'
                         },
-                        'Restrictions': {
-                            'GeoRestriction': {
-                                'RestrictionType': 'blacklist'|'whitelist'|'none',
-                                'Quantity': 123,
-                                'Items': [
-                                    'string',
+                        \'Restrictions\': {
+                            \'GeoRestriction\': {
+                                \'RestrictionType\': \'blacklist\'|\'whitelist\'|\'none\',
+                                \'Quantity\': 123,
+                                \'Items\': [
+                                    \'string\',
                                 ]
                             }
                         },
-                        'WebACLId': 'string',
-                        'HttpVersion': 'http1.1'|'http2',
-                        'IsIPV6Enabled': True|False
+                        \'WebACLId\': \'string\',
+                        \'HttpVersion\': \'http1.1\'|\'http2\',
+                        \'IsIPV6Enabled\': True|False
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -16149,7 +16149,7 @@ class Client(BaseClient):
         
             - **Distribution** *(dict) --* 
         
-              The distribution's information.
+              The distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -16161,7 +16161,7 @@ class Client(BaseClient):
         
               - **Status** *(string) --* 
         
-                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution's information is fully propagated to all CloudFront edge locations. 
+                This response element indicates the current status of the distribution. When the status is ``Deployed`` , the distribution\'s information is fully propagated to all CloudFront edge locations. 
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -16177,7 +16177,7 @@ class Client(BaseClient):
         
               - **ActiveTrustedSigners** *(dict) --* 
         
-                CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create working signed URLs.
+                CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The ``Signer`` child element lists the AWS account number of the trusted signer (or an empty ``Self`` element if the signer is you). The ``Signer`` element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create working signed URLs.
         
                 - **Enabled** *(boolean) --* 
         
@@ -16233,7 +16233,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+                  A unique value (for example, a date-time stamp) that ensures that the request can\'t be replayed.
         
                   If the value of ``CallerReference`` is new (regardless of the content of the ``DistributionConfig`` object), CloudFront creates a new distribution.
         
@@ -16259,9 +16259,9 @@ class Client(BaseClient):
         
                   The object that you want CloudFront to request from your origin (for example, ``index.html`` ) when a viewer requests the root URL for your distribution (``http://www.example.com`` ) instead of an object in your distribution (``http://www.example.com/product-description.html`` ). Specifying a default root object avoids exposing the contents of your distribution.
         
-                  Specify only the object name, for example, ``index.html`` . Don't add a ``/`` before the object name.
+                  Specify only the object name, for example, ``index.html`` . Don\'t add a ``/`` before the object name.
         
-                  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                  If you don\'t want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         
                   To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         
@@ -16299,7 +16299,7 @@ class Client(BaseClient):
         
                         Constraints for Amazon S3 origins: 
         
-                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don't specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
+                        * If you configured Amazon S3 Transfer Acceleration for your bucket, don\'t specify the ``s3-accelerate`` endpoint for ``DomainName`` . 
                          
                         * The bucket name must be between 3 and 63 characters long (inclusive). 
                          
@@ -16319,7 +16319,7 @@ class Client(BaseClient):
         
                         An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the ``OriginPath`` element, specify the directory name, beginning with a ``/`` . CloudFront appends the directory name to the value of ``DomainName`` , for example, ``example.com/production`` . Do not include a ``/`` at the end of the directory name.
         
-                        For example, suppose you've specified the following values for your distribution:
+                        For example, suppose you\'ve specified the following values for your distribution:
         
                         * ``DomainName`` : An Amazon S3 bucket named ``myawsbucket`` . 
                          
@@ -16419,7 +16419,7 @@ class Client(BaseClient):
         
                 - **DefaultCacheBehavior** *(dict) --* 
         
-                  A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+                  A complex type that describes the default cache behavior if you don\'t specify a ``CacheBehavior`` element or if files don\'t match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         
                   - **TargetOriginId** *(string) --* 
         
@@ -16433,11 +16433,11 @@ class Client(BaseClient):
         
                       Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                      If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                      If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                       If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                      If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                      If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                       For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -16449,13 +16449,13 @@ class Client(BaseClient):
         
                         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                        Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                        Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                       - **WhitelistedNames** *(dict) --* 
         
                         Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                        If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                         For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -16481,11 +16481,11 @@ class Client(BaseClient):
         
                         .. warning::
         
-                           CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                           CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                         * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                          
-                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                        * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                          
                         Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -16519,9 +16519,9 @@ class Client(BaseClient):
         
                     If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                    If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                    If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                    To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                     - **Enabled** *(boolean) --* 
         
@@ -16551,7 +16551,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                      The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                   - **MinTTL** *(integer) --* 
         
@@ -16569,7 +16569,7 @@ class Client(BaseClient):
                      
                     * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                      
-                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                    If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                     - **Quantity** *(integer) --* 
         
@@ -16633,7 +16633,7 @@ class Client(BaseClient):
         
                         - **LambdaFunctionARN** *(string) --* 
         
-                          The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                          The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                         - **EventType** *(string) --* 
         
@@ -16641,11 +16641,11 @@ class Client(BaseClient):
         
                           * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                            
-                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                          * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                            
-                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
-                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                          * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                            
                         - **IncludeBody** *(boolean) --* 
         
@@ -16675,7 +16675,7 @@ class Client(BaseClient):
         
                       For the current limit on the number of cache behaviors that you can add to a distribution, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
-                      If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
+                      If you don\'t want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don\'t include an empty ``CacheBehavior`` element, or CloudFront returns a ``MalformedXML`` error.
         
                       To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
         
@@ -16707,11 +16707,11 @@ class Client(BaseClient):
         
                           Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys`` , if any:
         
-                          If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+                          If you specify true for ``QueryString`` and you don\'t specify any values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
         
                           If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys`` , CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
         
-                          If you specify false for ``QueryString`` , CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+                          If you specify false for ``QueryString`` , CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
         
                           For more information, see `Configuring CloudFront to Cache Based on Query String Parameters <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -16723,13 +16723,13 @@ class Client(BaseClient):
         
                             Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
         
-                            Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
+                            Amazon S3 doesn\'t process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element. 
         
                           - **WhitelistedNames** *(dict) --* 
         
                             Required if you specify ``whitelist`` for the value of ``Forward:`` . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
         
-                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+                            If you specify ``all`` or none for the value of ``Forward`` , omit ``WhitelistedNames`` . If you change the value of ``Forward`` from ``whitelist`` to all or none and you don\'t delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
         
                             For the current limit on the number of cookie names that you can whitelist for each cache behavior, see `Amazon CloudFront Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront>`__ in the *AWS General Reference* .
         
@@ -16755,11 +16755,11 @@ class Client(BaseClient):
         
                             .. warning::
         
-                               CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
+                               CloudFront doesn\'t cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin.  
         
                             * **Forward a whitelist of headers you specify** : Specify the number of headers that you want CloudFront to base caching on. Then specify the header names in ``Name`` elements. CloudFront caches your objects based on the values in the specified headers. 
                              
-                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn't cache based on the values in the request headers. 
+                            * **Forward only the default headers** : Specify ``0`` for ``Quantity`` and omit ``Items`` . In this configuration, CloudFront doesn\'t cache based on the values in the request headers. 
                              
                             Regardless of which option you choose, CloudFront forwards headers to your origin based on whether the origin is an S3 bucket or a custom origin. See the following documentation:
         
@@ -16793,9 +16793,9 @@ class Client(BaseClient):
         
                         If you want to require signed URLs in requests for objects in the target origin that match the ``PathPattern`` for this cache behavior, specify ``true`` for ``Enabled`` , and specify the applicable values for ``Quantity`` and ``Items`` . For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon Amazon CloudFront Developer Guide* .
         
-                        If you don't want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
+                        If you don\'t want to require signed URLs in requests for objects that match ``PathPattern`` , specify ``false`` for ``Enabled`` and ``0`` for ``Quantity`` . Omit ``Items`` .
         
-                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it's currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+                        To add, change, or remove one or more trusted signers, change ``Enabled`` to ``true`` (if it\'s currently ``false`` ), change ``Quantity`` as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
         
                         - **Enabled** *(boolean) --* 
         
@@ -16825,7 +16825,7 @@ class Client(BaseClient):
         
                         .. note::
         
-                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
+                          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects\' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see `Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html>`__ in the *Amazon CloudFront Developer Guide* .
         
                       - **MinTTL** *(integer) --* 
         
@@ -16843,7 +16843,7 @@ class Client(BaseClient):
                          
                         * CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST`` , and ``DELETE`` requests. 
                          
-                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+                        If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you might not want users to have permissions to delete objects from your origin.
         
                         - **Quantity** *(integer) --* 
         
@@ -16909,7 +16909,7 @@ class Client(BaseClient):
         
                             - **LambdaFunctionARN** *(string) --* 
         
-                              The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
+                              The ARN of the Lambda function. You must specify the ARN of a function version; you can\'t specify a Lambda alias or $LATEST.
         
                             - **EventType** *(string) --* 
         
@@ -16917,11 +16917,11 @@ class Client(BaseClient):
         
                               * ``viewer-request`` : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  
                                
-                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn't execute. 
+                              * ``origin-request`` : The function executes only when CloudFront forwards a request to your origin. When the requested object is in the edge cache, the function doesn\'t execute. 
                                
-                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``origin-response`` : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn\'t execute. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
-                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute. 
+                              * ``viewer-response`` : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn\'t execute. 
                                
                             - **IncludeBody** *(boolean) --* 
         
@@ -16971,27 +16971,27 @@ class Client(BaseClient):
                          
                         * The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages. 
                          
-                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don't want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
+                        If you specify a value for ``ResponsePagePath`` , you must also specify a value for ``ResponseCode`` . If you don\'t want to specify a value, include an empty element, ``<ResponsePagePath>`` , in the XML document.
         
-                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
+                        We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can\'t get the files that you want to return to viewers because the origin server is unavailable.
         
                       - **ResponseCode** *(string) --* 
         
                         The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
         
-                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won't be intercepted. 
+                        * Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200`` , the response typically won\'t be intercepted. 
                          
-                        * If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
+                        * If you don\'t care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors. 
                          
-                        * You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down. 
+                        * You might want to return a ``200`` status code (OK) and static website so your customers don\'t know that your website is down. 
                          
-                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don't want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
+                        If you specify a value for ``ResponseCode`` , you must also specify a value for ``ResponsePagePath`` . If you don\'t want to specify a value, include an empty element, ``<ResponseCode>`` , in the XML document.
         
                       - **ErrorCachingMinTTL** *(integer) --* 
         
                         The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode`` . When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
         
-                        If you don't want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
+                        If you don\'t want to specify a value, include an empty element, ``<ErrorCachingMinTTL>`` , in the XML document.
         
                         For more information, see `Customizing Error Responses <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -16999,7 +16999,7 @@ class Client(BaseClient):
         
                   Any comments you want to include about the distribution.
         
-                  If you don't want to specify a comment, include an empty ``Comment`` element.
+                  If you don\'t want to specify a comment, include an empty ``Comment`` element.
         
                   To delete an existing comment, update the distribution configuration and include an empty ``Comment`` element.
         
@@ -17013,11 +17013,11 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify ``false`` for ``Enabled`` , and specify empty ``Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` , ``prefix`` , and ``IncludeCookies`` , the values are automatically deleted.
         
                   - **IncludeCookies** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
+                    Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies`` . If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don\'t want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies`` .
         
                   - **Bucket** *(string) --* 
         
@@ -17025,7 +17025,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **PriceClass** *(string) --* 
         
@@ -17045,9 +17045,9 @@ class Client(BaseClient):
         
                   * Whether you want viewers to use HTTP or HTTPS to request your objects. 
                    
-                  * If you want viewers to use HTTPS, whether you're using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
+                  * If you want viewers to use HTTPS, whether you\'re using an alternate domain name such as ``example.com`` or the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` . 
                    
-                  * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
+                  * If you\'re using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. 
                    
                   You must specify only one of the following values: 
         
@@ -17057,7 +17057,7 @@ class Client(BaseClient):
                    
                   *  ViewerCertificate$CloudFrontDefaultCertificate   
                    
-                  Don't specify ``false`` for ``CloudFrontDefaultCertificate`` .
+                  Don\'t specify ``false`` for ``CloudFrontDefaultCertificate`` .
         
                    **If you want viewers to use HTTP instead of HTTPS to request your objects** : Specify the following value:
         
@@ -17065,9 +17065,9 @@ class Client(BaseClient):
         
                   In addition, specify ``allow-all`` for ``ViewerProtocolPolicy`` for all of your cache behaviors.
         
-                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:
+                   **If you want viewers to use HTTPS to request your objects** : Choose the type of certificate that you want to use based on whether you\'re using an alternate domain name for your objects or the CloudFront domain name:
         
-                  * **If you're using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
+                  * **If you\'re using an alternate domain name, such as example.com** : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority: 
         
                     * ``<ACMCertificateArn>*ARN for ACM SSL/TLS certificate* <ACMCertificateArn>`` where `` *ARN for ACM SSL/TLS certificate* `` is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution. 
                      
@@ -17075,13 +17075,13 @@ class Client(BaseClient):
                      
                   If you specify ``ACMCertificateArn`` or ``IAMCertificateId`` , you must also specify a value for ``SSLSupportMethod`` .
         
-                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for ``SSLSupportMethod`` :
+                  If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (``https://example.com/logo.jpg`` ). If you use the domain name that is associated with your CloudFront distribution (such as ``https://d111111abcdef8.cloudfront.net/logo.jpg`` ) and the viewer supports ``SNI`` , then CloudFront behaves normally. However, if the browser does not support SNI, the user\'s experience depends on the value that you choose for ``SSLSupportMethod`` :
         
                     * ``vip`` : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate. 
                      
                     * ``sni-only`` : CloudFront drops the connection with the browser without returning the object. 
                      
-                  * **If you're using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
+                  * **If you\'re using the CloudFront domain name for your distribution, such as ``d111111abcdef8.cloudfront.net`` ** : Specify the following value:  ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>``   
                    
                   If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:
         
@@ -17115,7 +17115,7 @@ class Client(BaseClient):
         
                     * ``vip`` : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges. 
                      
-                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following: 
+                    * ``sni-only`` : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. If some of your users\' browsers don\'t support SNI, we recommend that you do one of the following: 
         
                       * Use the ``vip`` option (dedicated IP addresses) instead of ``sni-only`` . 
                        
@@ -17125,7 +17125,7 @@ class Client(BaseClient):
                        
                       * Use HTTP instead of HTTPS. 
                        
-                    Don't specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
+                    Don\'t specify a value for ``SSLSupportMethod`` if you specified ``<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>`` .
         
                     For more information, see `Using Alternate Domain Names and HTTPS <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html>`__ in the *Amazon CloudFront Developer Guide* .
         
@@ -17145,9 +17145,9 @@ class Client(BaseClient):
         
                     When both of the following are true, you must specify ``TLSv1`` or later for the security policy: 
         
-                    * You're using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
+                    * You\'re using a custom certificate: you specified a value for ``ACMCertificateArn`` or for ``IAMCertificateId``   
                      
-                    * You're using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
+                    * You\'re using SNI: you specified ``sni-only`` for ``SSLSupportMethod``   
                      
                     If you specify ``true`` for ``CloudFrontDefaultCertificate`` , CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you specify for ``MinimumProtocolVersion`` .
         
@@ -17187,7 +17187,7 @@ class Client(BaseClient):
         
                       * ``none`` : No geo restriction is enabled, meaning access to content is not restricted by client geo location. 
                        
-                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content. 
+                      * ``blacklist`` : The ``Location`` elements specify the countries in which you don\'t want CloudFront to distribute your content. 
                        
                       * ``whitelist`` : The ``Location`` elements specify the countries in which you want CloudFront to distribute your content. 
                        
@@ -17213,27 +17213,27 @@ class Client(BaseClient):
         
                 - **HttpVersion** *(string) --* 
         
-                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version.
+                  (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP/2 automatically use an earlier HTTP version.
         
                   For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI).
         
-                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization." 
+                  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for \"http/2 optimization.\" 
         
                 - **IsIPV6Enabled** *(boolean) --* 
         
                   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true`` . If you specify ``false`` , CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution. 
         
-                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
+                  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you\'re using signed URLs or signed cookies to restrict access to your content, and if you\'re using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don\'t enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see `Creating a Signed URL Using a Custom Policy <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html>`__ in the *Amazon CloudFront Developer Guide* .
         
-                  If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+                  If you\'re using an Amazon Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         
                   * You enable IPv6 for the distribution 
                    
-                  * You're using alternate domain names in the URLs for your objects 
+                  * You\'re using alternate domain names in the URLs for your objects 
                    
                   For more information, see `Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
+                  If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS service, you don\'t need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
         
             - **ETag** *(string) --* 
         
@@ -17252,36 +17252,36 @@ class Client(BaseClient):
         
           response = client.update_field_level_encryption_config(
               FieldLevelEncryptionConfig={
-                  'CallerReference': 'string',
-                  'Comment': 'string',
-                  'QueryArgProfileConfig': {
-                      'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                      'QueryArgProfiles': {
-                          'Quantity': 123,
-                          'Items': [
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\',
+                  \'QueryArgProfileConfig\': {
+                      \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                      \'QueryArgProfiles\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'QueryArg': 'string',
-                                  'ProfileId': 'string'
+                                  \'QueryArg\': \'string\',
+                                  \'ProfileId\': \'string\'
                               },
                           ]
                       }
                   },
-                  'ContentTypeProfileConfig': {
-                      'ForwardWhenContentTypeIsUnknown': True|False,
-                      'ContentTypeProfiles': {
-                          'Quantity': 123,
-                          'Items': [
+                  \'ContentTypeProfileConfig\': {
+                      \'ForwardWhenContentTypeIsUnknown\': True|False,
+                      \'ContentTypeProfiles\': {
+                          \'Quantity\': 123,
+                          \'Items\': [
                               {
-                                  'Format': 'URLEncoded',
-                                  'ProfileId': 'string',
-                                  'ContentType': 'string'
+                                  \'Format\': \'URLEncoded\',
+                                  \'ProfileId\': \'string\',
+                                  \'ContentType\': \'string\'
                               },
                           ]
                       }
                   }
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type FieldLevelEncryptionConfig: dict
         :param FieldLevelEncryptionConfig: **[REQUIRED]** 
@@ -17290,7 +17290,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Comment** *(string) --* 
         
@@ -17298,7 +17298,7 @@ class Client(BaseClient):
         
           - **QueryArgProfileConfig** *(dict) --* 
         
-            A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+            A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
             - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* **[REQUIRED]** 
         
@@ -17330,7 +17330,7 @@ class Client(BaseClient):
         
           - **ContentTypeProfileConfig** *(dict) --* 
         
-            A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+            A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
             - **ForwardWhenContentTypeIsUnknown** *(boolean) --* **[REQUIRED]** 
         
@@ -17382,40 +17382,40 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryption': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionConfig': {
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'QueryArgProfileConfig': {
-                            'ForwardWhenQueryArgProfileIsUnknown': True|False,
-                            'QueryArgProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                \'FieldLevelEncryption\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'QueryArgProfileConfig\': {
+                            \'ForwardWhenQueryArgProfileIsUnknown\': True|False,
+                            \'QueryArgProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'QueryArg': 'string',
-                                        'ProfileId': 'string'
+                                        \'QueryArg\': \'string\',
+                                        \'ProfileId\': \'string\'
                                     },
                                 ]
                             }
                         },
-                        'ContentTypeProfileConfig': {
-                            'ForwardWhenContentTypeIsUnknown': True|False,
-                            'ContentTypeProfiles': {
-                                'Quantity': 123,
-                                'Items': [
+                        \'ContentTypeProfileConfig\': {
+                            \'ForwardWhenContentTypeIsUnknown\': True|False,
+                            \'ContentTypeProfiles\': {
+                                \'Quantity\': 123,
+                                \'Items\': [
                                     {
-                                        'Format': 'URLEncoded',
-                                        'ProfileId': 'string',
-                                        'ContentType': 'string'
+                                        \'Format\': \'URLEncoded\',
+                                        \'ProfileId\': \'string\',
+                                        \'ContentType\': \'string\'
                                     },
                                 ]
                             }
                         }
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -17439,7 +17439,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -17447,7 +17447,7 @@ class Client(BaseClient):
         
                 - **QueryArgProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+                  A complex data type that specifies when to forward content if a profile isn\'t found and the profile that can be provided as a query argument in a request.
         
                   - **ForwardWhenQueryArgProfileIsUnknown** *(boolean) --* 
         
@@ -17479,7 +17479,7 @@ class Client(BaseClient):
         
                 - **ContentTypeProfileConfig** *(dict) --* 
         
-                  A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+                  A complex data type that specifies when to forward content if a content type isn\'t recognized and profiles to use as by default in a request if a query argument doesn\'t specify a profile to use.
         
                   - **ForwardWhenContentTypeIsUnknown** *(boolean) --* 
         
@@ -17530,27 +17530,27 @@ class Client(BaseClient):
         
           response = client.update_field_level_encryption_profile(
               FieldLevelEncryptionProfileConfig={
-                  'Name': 'string',
-                  'CallerReference': 'string',
-                  'Comment': 'string',
-                  'EncryptionEntities': {
-                      'Quantity': 123,
-                      'Items': [
+                  \'Name\': \'string\',
+                  \'CallerReference\': \'string\',
+                  \'Comment\': \'string\',
+                  \'EncryptionEntities\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
                           {
-                              'PublicKeyId': 'string',
-                              'ProviderId': 'string',
-                              'FieldPatterns': {
-                                  'Quantity': 123,
-                                  'Items': [
-                                      'string',
+                              \'PublicKeyId\': \'string\',
+                              \'ProviderId\': \'string\',
+                              \'FieldPatterns\': {
+                                  \'Quantity\': 123,
+                                  \'Items\': [
+                                      \'string\',
                                   ]
                               }
                           },
                       ]
                   }
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type FieldLevelEncryptionProfileConfig: dict
         :param FieldLevelEncryptionProfileConfig: **[REQUIRED]** 
@@ -17563,7 +17563,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Comment** *(string) --* 
         
@@ -17595,7 +17595,7 @@ class Client(BaseClient):
         
                 - **FieldPatterns** *(dict) --* **[REQUIRED]** 
         
-                  Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                  Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                   - **Quantity** *(integer) --* **[REQUIRED]** 
         
@@ -17625,23 +17625,23 @@ class Client(BaseClient):
           ::
         
             {
-                'FieldLevelEncryptionProfile': {
-                    'Id': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'FieldLevelEncryptionProfileConfig': {
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Comment': 'string',
-                        'EncryptionEntities': {
-                            'Quantity': 123,
-                            'Items': [
+                \'FieldLevelEncryptionProfile\': {
+                    \'Id\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'FieldLevelEncryptionProfileConfig\': {
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Comment\': \'string\',
+                        \'EncryptionEntities\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
                                 {
-                                    'PublicKeyId': 'string',
-                                    'ProviderId': 'string',
-                                    'FieldPatterns': {
-                                        'Quantity': 123,
-                                        'Items': [
-                                            'string',
+                                    \'PublicKeyId\': \'string\',
+                                    \'ProviderId\': \'string\',
+                                    \'FieldPatterns\': {
+                                        \'Quantity\': 123,
+                                        \'Items\': [
+                                            \'string\',
                                         ]
                                     }
                                 },
@@ -17649,7 +17649,7 @@ class Client(BaseClient):
                         }
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -17677,7 +17677,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Comment** *(string) --* 
         
@@ -17709,7 +17709,7 @@ class Client(BaseClient):
         
                       - **FieldPatterns** *(dict) --* 
         
-                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive. 
+                        Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can\'t overlap field patterns. For example, you can\'t have both ABC* and AB*. Note that field patterns are case-sensitive. 
         
                         - **Quantity** *(integer) --* 
         
@@ -17738,13 +17738,13 @@ class Client(BaseClient):
         
           response = client.update_public_key(
               PublicKeyConfig={
-                  'CallerReference': 'string',
-                  'Name': 'string',
-                  'EncodedKey': 'string',
-                  'Comment': 'string'
+                  \'CallerReference\': \'string\',
+                  \'Name\': \'string\',
+                  \'EncodedKey\': \'string\',
+                  \'Comment\': \'string\'
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type PublicKeyConfig: dict
         :param PublicKeyConfig: **[REQUIRED]** 
@@ -17753,7 +17753,7 @@ class Client(BaseClient):
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures the request can't be replayed.
+            A unique number that ensures the request can\'t be replayed.
         
           - **Name** *(string) --* **[REQUIRED]** 
         
@@ -17785,17 +17785,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicKey': {
-                    'Id': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'PublicKeyConfig': {
-                        'CallerReference': 'string',
-                        'Name': 'string',
-                        'EncodedKey': 'string',
-                        'Comment': 'string'
+                \'PublicKey\': {
+                    \'Id\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'PublicKeyConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'Name\': \'string\',
+                        \'EncodedKey\': \'string\',
+                        \'Comment\': \'string\'
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -17807,7 +17807,7 @@ class Client(BaseClient):
         
               - **Id** *(string) --* 
         
-                A unique ID assigned to a public key you've added to CloudFront.
+                A unique ID assigned to a public key you\'ve added to CloudFront.
         
               - **CreatedTime** *(datetime) --* 
         
@@ -17819,7 +17819,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures the request can't be replayed.
+                  A unique number that ensures the request can\'t be replayed.
         
                 - **Name** *(string) --* 
         
@@ -17850,44 +17850,44 @@ class Client(BaseClient):
         
           response = client.update_streaming_distribution(
               StreamingDistributionConfig={
-                  'CallerReference': 'string',
-                  'S3Origin': {
-                      'DomainName': 'string',
-                      'OriginAccessIdentity': 'string'
+                  \'CallerReference\': \'string\',
+                  \'S3Origin\': {
+                      \'DomainName\': \'string\',
+                      \'OriginAccessIdentity\': \'string\'
                   },
-                  'Aliases': {
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'Aliases\': {
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'Comment': 'string',
-                  'Logging': {
-                      'Enabled': True|False,
-                      'Bucket': 'string',
-                      'Prefix': 'string'
+                  \'Comment\': \'string\',
+                  \'Logging\': {
+                      \'Enabled\': True|False,
+                      \'Bucket\': \'string\',
+                      \'Prefix\': \'string\'
                   },
-                  'TrustedSigners': {
-                      'Enabled': True|False,
-                      'Quantity': 123,
-                      'Items': [
-                          'string',
+                  \'TrustedSigners\': {
+                      \'Enabled\': True|False,
+                      \'Quantity\': 123,
+                      \'Items\': [
+                          \'string\',
                       ]
                   },
-                  'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                  'Enabled': True|False
+                  \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                  \'Enabled\': True|False
               },
-              Id='string',
-              IfMatch='string'
+              Id=\'string\',
+              IfMatch=\'string\'
           )
         :type StreamingDistributionConfig: dict
         :param StreamingDistributionConfig: **[REQUIRED]** 
         
-          The streaming distribution's configuration information.
+          The streaming distribution\'s configuration information.
         
           - **CallerReference** *(string) --* **[REQUIRED]** 
         
-            A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+            A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
           - **S3Origin** *(dict) --* **[REQUIRED]** 
         
@@ -17933,7 +17933,7 @@ class Client(BaseClient):
         
             - **Enabled** *(boolean) --* **[REQUIRED]** 
         
-              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+              Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
             - **Bucket** *(string) --* **[REQUIRED]** 
         
@@ -17941,7 +17941,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* **[REQUIRED]** 
         
-              An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+              An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
           - **TrustedSigners** *(dict) --* **[REQUIRED]** 
         
@@ -17972,12 +17972,12 @@ class Client(BaseClient):
         :type Id: string
         :param Id: **[REQUIRED]** 
         
-          The streaming distribution's id.
+          The streaming distribution\'s id.
         
         :type IfMatch: string
         :param IfMatch: 
         
-          The value of the ``ETag`` header that you received when retrieving the streaming distribution's configuration. For example: ``E2QWRUHAPOMQZL`` .
+          The value of the ``ETag`` header that you received when retrieving the streaming distribution\'s configuration. For example: ``E2QWRUHAPOMQZL`` .
         
         :rtype: dict
         :returns: 
@@ -17987,57 +17987,57 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamingDistribution': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'Status': 'string',
-                    'LastModifiedTime': datetime(2015, 1, 1),
-                    'DomainName': 'string',
-                    'ActiveTrustedSigners': {
-                        'Enabled': True|False,
-                        'Quantity': 123,
-                        'Items': [
+                \'StreamingDistribution\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'Status\': \'string\',
+                    \'LastModifiedTime\': datetime(2015, 1, 1),
+                    \'DomainName\': \'string\',
+                    \'ActiveTrustedSigners\': {
+                        \'Enabled\': True|False,
+                        \'Quantity\': 123,
+                        \'Items\': [
                             {
-                                'AwsAccountNumber': 'string',
-                                'KeyPairIds': {
-                                    'Quantity': 123,
-                                    'Items': [
-                                        'string',
+                                \'AwsAccountNumber\': \'string\',
+                                \'KeyPairIds\': {
+                                    \'Quantity\': 123,
+                                    \'Items\': [
+                                        \'string\',
                                     ]
                                 }
                             },
                         ]
                     },
-                    'StreamingDistributionConfig': {
-                        'CallerReference': 'string',
-                        'S3Origin': {
-                            'DomainName': 'string',
-                            'OriginAccessIdentity': 'string'
+                    \'StreamingDistributionConfig\': {
+                        \'CallerReference\': \'string\',
+                        \'S3Origin\': {
+                            \'DomainName\': \'string\',
+                            \'OriginAccessIdentity\': \'string\'
                         },
-                        'Aliases': {
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'Aliases\': {
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'Comment': 'string',
-                        'Logging': {
-                            'Enabled': True|False,
-                            'Bucket': 'string',
-                            'Prefix': 'string'
+                        \'Comment\': \'string\',
+                        \'Logging\': {
+                            \'Enabled\': True|False,
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\'
                         },
-                        'TrustedSigners': {
-                            'Enabled': True|False,
-                            'Quantity': 123,
-                            'Items': [
-                                'string',
+                        \'TrustedSigners\': {
+                            \'Enabled\': True|False,
+                            \'Quantity\': 123,
+                            \'Items\': [
+                                \'string\',
                             ]
                         },
-                        'PriceClass': 'PriceClass_100'|'PriceClass_200'|'PriceClass_All',
-                        'Enabled': True|False
+                        \'PriceClass\': \'PriceClass_100\'|\'PriceClass_200\'|\'PriceClass_All\',
+                        \'Enabled\': True|False
                     }
                 },
-                'ETag': 'string'
+                \'ETag\': \'string\'
             }
           **Response Structure** 
         
@@ -18047,7 +18047,7 @@ class Client(BaseClient):
         
             - **StreamingDistribution** *(dict) --* 
         
-              The streaming distribution's information.
+              The streaming distribution\'s information.
         
               - **Id** *(string) --* 
         
@@ -18057,7 +18057,7 @@ class Client(BaseClient):
               
               - **Status** *(string) --* 
         
-                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution's information is propagated to all CloudFront edge locations.
+                The current status of the RTMP distribution. When the status is ``Deployed`` , the distribution\'s information is propagated to all CloudFront edge locations.
         
               - **LastModifiedTime** *(datetime) --* 
         
@@ -18071,7 +18071,7 @@ class Client(BaseClient):
         
                 A complex type that lists the AWS accounts, if any, that you included in the ``TrustedSigners`` complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
         
-                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can't create signed URLs.
+                The ``Signer`` complex type lists the AWS account number of the trusted signer or ``self`` if the signer is the AWS account that created the distribution. The ``Signer`` element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer\'s AWS account. If no ``KeyPairId`` element appears for a ``Signer`` , that signer can\'t create signed URLs.
         
                 For more information, see `Serving Private Content through CloudFront <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`__ in the *Amazon CloudFront Developer Guide* . 
         
@@ -18129,7 +18129,7 @@ class Client(BaseClient):
         
                 - **CallerReference** *(string) --* 
         
-                  A unique number that ensures that the request can't be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
+                  A unique number that ensures that the request can\'t be replayed. If the ``CallerReference`` is new (no matter the content of the ``StreamingDistributionConfig`` object), a new streaming distribution is created. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution, and the content of the ``StreamingDistributionConfig`` is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the ``CallerReference`` is a value that you already sent in a previous request to create a streaming distribution but the content of the ``StreamingDistributionConfig`` is different from the original request, CloudFront returns a ``DistributionAlreadyExists`` error. 
         
                 - **S3Origin** *(dict) --* 
         
@@ -18175,7 +18175,7 @@ class Client(BaseClient):
         
                   - **Enabled** *(boolean) --* 
         
-                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
+                    Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don\'t want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify ``false`` for ``Enabled`` , and specify ``empty Bucket`` and ``Prefix`` elements. If you specify ``false`` for ``Enabled`` but you specify values for ``Bucket`` and ``Prefix`` , the values are automatically deleted. 
         
                   - **Bucket** *(string) --* 
         
@@ -18183,7 +18183,7 @@ class Client(BaseClient):
         
                   - **Prefix** *(string) --* 
         
-                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+                    An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, ``myprefix/`` . If you want to enable logging, but you don\'t want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         
                 - **TrustedSigners** *(dict) --* 
         

@@ -13,20 +13,20 @@ class CacheClusterAvailable(Waiter):
         ::
         
           waiter.wait(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               ShowCacheNodeInfo=True|False,
               ShowCacheClustersNotInReplicationGroups=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type CacheClusterId: string
         :param CacheClusterId: 
         
-          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
+          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn\'t case sensitive.
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -80,20 +80,20 @@ class CacheClusterDeleted(Waiter):
         ::
         
           waiter.wait(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               ShowCacheNodeInfo=True|False,
               ShowCacheClustersNotInReplicationGroups=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type CacheClusterId: string
         :param CacheClusterId: 
         
-          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
+          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn\'t case sensitive.
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -147,12 +147,12 @@ class ReplicationGroupAvailable(Waiter):
         ::
         
           waiter.wait(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ReplicationGroupId: string
@@ -204,12 +204,12 @@ class ReplicationGroupDeleted(Waiter):
         ::
         
           waiter.wait(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ReplicationGroupId: string

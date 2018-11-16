@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -20,7 +20,7 @@ class Client(BaseClient):
         ::
         
           response = client.associate_drt_log_bucket(
-              LogBucket='string'
+              LogBucket=\'string\'
           )
         :type LogBucket: string
         :param LogBucket: **[REQUIRED]** 
@@ -60,7 +60,7 @@ class Client(BaseClient):
         ::
         
           response = client.associate_drt_role(
-              RoleArn='string'
+              RoleArn=\'string\'
           )
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]** 
@@ -89,10 +89,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -110,8 +110,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_protection(
-              Name='string',
-              ResourceArn='string'
+              Name=\'string\',
+              ResourceArn=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -143,7 +143,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ProtectionId': 'string'
+                \'ProtectionId\': \'string\'
             }
           **Response Structure** 
         
@@ -193,7 +193,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_protection(
-              ProtectionId='string'
+              ProtectionId=\'string\'
           )
         :type ProtectionId: string
         :param ProtectionId: **[REQUIRED]** 
@@ -251,7 +251,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_attack(
-              AttackId='string'
+              AttackId=\'string\'
           )
         :type AttackId: string
         :param AttackId: **[REQUIRED]** 
@@ -266,69 +266,69 @@ class Client(BaseClient):
           ::
         
             {
-                'Attack': {
-                    'AttackId': 'string',
-                    'ResourceArn': 'string',
-                    'SubResources': [
+                \'Attack\': {
+                    \'AttackId\': \'string\',
+                    \'ResourceArn\': \'string\',
+                    \'SubResources\': [
                         {
-                            'Type': 'IP'|'URL',
-                            'Id': 'string',
-                            'AttackVectors': [
+                            \'Type\': \'IP\'|\'URL\',
+                            \'Id\': \'string\',
+                            \'AttackVectors\': [
                                 {
-                                    'VectorType': 'string',
-                                    'VectorCounters': [
+                                    \'VectorType\': \'string\',
+                                    \'VectorCounters\': [
                                         {
-                                            'Name': 'string',
-                                            'Max': 123.0,
-                                            'Average': 123.0,
-                                            'Sum': 123.0,
-                                            'N': 123,
-                                            'Unit': 'string'
+                                            \'Name\': \'string\',
+                                            \'Max\': 123.0,
+                                            \'Average\': 123.0,
+                                            \'Sum\': 123.0,
+                                            \'N\': 123,
+                                            \'Unit\': \'string\'
                                         },
                                     ]
                                 },
                             ],
-                            'Counters': [
+                            \'Counters\': [
                                 {
-                                    'Name': 'string',
-                                    'Max': 123.0,
-                                    'Average': 123.0,
-                                    'Sum': 123.0,
-                                    'N': 123,
-                                    'Unit': 'string'
+                                    \'Name\': \'string\',
+                                    \'Max\': 123.0,
+                                    \'Average\': 123.0,
+                                    \'Sum\': 123.0,
+                                    \'N\': 123,
+                                    \'Unit\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'AttackCounters': [
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'AttackCounters\': [
                         {
-                            'Name': 'string',
-                            'Max': 123.0,
-                            'Average': 123.0,
-                            'Sum': 123.0,
-                            'N': 123,
-                            'Unit': 'string'
+                            \'Name\': \'string\',
+                            \'Max\': 123.0,
+                            \'Average\': 123.0,
+                            \'Sum\': 123.0,
+                            \'N\': 123,
+                            \'Unit\': \'string\'
                         },
                     ],
-                    'AttackProperties': [
+                    \'AttackProperties\': [
                         {
-                            'AttackLayer': 'NETWORK'|'APPLICATION',
-                            'AttackPropertyIdentifier': 'DESTINATION_URL'|'REFERRER'|'SOURCE_ASN'|'SOURCE_COUNTRY'|'SOURCE_IP_ADDRESS'|'SOURCE_USER_AGENT',
-                            'TopContributors': [
+                            \'AttackLayer\': \'NETWORK\'|\'APPLICATION\',
+                            \'AttackPropertyIdentifier\': \'DESTINATION_URL\'|\'REFERRER\'|\'SOURCE_ASN\'|\'SOURCE_COUNTRY\'|\'SOURCE_IP_ADDRESS\'|\'SOURCE_USER_AGENT\',
+                            \'TopContributors\': [
                                 {
-                                    'Name': 'string',
-                                    'Value': 123
+                                    \'Name\': \'string\',
+                                    \'Value\': 123
                                 },
                             ],
-                            'Unit': 'BITS'|'BYTES'|'PACKETS'|'REQUESTS',
-                            'Total': 123
+                            \'Unit\': \'BITS\'|\'BYTES\'|\'PACKETS\'|\'REQUESTS\',
+                            \'Total\': 123
                         },
                     ],
-                    'Mitigations': [
+                    \'Mitigations\': [
                         {
-                            'MitigationName': 'string'
+                            \'MitigationName\': \'string\'
                         },
                     ]
                 }
@@ -554,9 +554,9 @@ class Client(BaseClient):
           ::
         
             {
-                'RoleArn': 'string',
-                'LogBucketList': [
-                    'string',
+                \'RoleArn\': \'string\',
+                \'LogBucketList\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -594,9 +594,9 @@ class Client(BaseClient):
           ::
         
             {
-                'EmergencyContactList': [
+                \'EmergencyContactList\': [
                     {
-                        'EmailAddress': 'string'
+                        \'EmailAddress\': \'string\'
                     },
                 ]
             }
@@ -628,7 +628,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_protection(
-              ProtectionId='string'
+              ProtectionId=\'string\'
           )
         :type ProtectionId: string
         :param ProtectionId: **[REQUIRED]** 
@@ -643,10 +643,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Protection': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'ResourceArn': 'string'
+                \'Protection\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'ResourceArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -690,15 +690,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Subscription': {
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1),
-                    'TimeCommitmentInSeconds': 123,
-                    'AutoRenew': 'ENABLED'|'DISABLED',
-                    'Limits': [
+                \'Subscription\': {
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1),
+                    \'TimeCommitmentInSeconds\': 123,
+                    \'AutoRenew\': \'ENABLED\'|\'DISABLED\',
+                    \'Limits\': [
                         {
-                            'Type': 'string',
-                            'Max': 123
+                            \'Type\': \'string\',
+                            \'Max\': 123
                         },
                     ]
                 }
@@ -759,7 +759,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_drt_log_bucket(
-              LogBucket='string'
+              LogBucket=\'string\'
           )
         :type LogBucket: string
         :param LogBucket: **[REQUIRED]** 
@@ -822,7 +822,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -834,10 +834,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -866,7 +866,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SubscriptionState': 'ACTIVE'|'INACTIVE'
+                \'SubscriptionState\': \'ACTIVE\'|\'INACTIVE\'
             }
           **Response Structure** 
         
@@ -901,17 +901,17 @@ class Client(BaseClient):
         
           response = client.list_attacks(
               ResourceArns=[
-                  'string',
+                  \'string\',
               ],
               StartTime={
-                  'FromInclusive': datetime(2015, 1, 1),
-                  'ToExclusive': datetime(2015, 1, 1)
+                  \'FromInclusive\': datetime(2015, 1, 1),
+                  \'ToExclusive\': datetime(2015, 1, 1)
               },
               EndTime={
-                  'FromInclusive': datetime(2015, 1, 1),
-                  'ToExclusive': datetime(2015, 1, 1)
+                  \'FromInclusive\': datetime(2015, 1, 1),
+                  \'ToExclusive\': datetime(2015, 1, 1)
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ResourceArns: list
@@ -967,20 +967,20 @@ class Client(BaseClient):
           ::
         
             {
-                'AttackSummaries': [
+                \'AttackSummaries\': [
                     {
-                        'AttackId': 'string',
-                        'ResourceArn': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'AttackVectors': [
+                        \'AttackId\': \'string\',
+                        \'ResourceArn\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'AttackVectors\': [
                             {
-                                'VectorType': 'string'
+                                \'VectorType\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1070,7 +1070,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_protections(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -1093,14 +1093,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Protections': [
+                \'Protections\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ResourceArn': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ResourceArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1146,7 +1146,7 @@ class Client(BaseClient):
           response = client.update_emergency_contact_settings(
               EmergencyContactList=[
                   {
-                      'EmailAddress': 'string'
+                      \'EmailAddress\': \'string\'
                   },
               ]
           )
@@ -1186,7 +1186,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_subscription(
-              AutoRenew='ENABLED'|'DISABLED'
+              AutoRenew=\'ENABLED\'|\'DISABLED\'
           )
         :type AutoRenew: string
         :param AutoRenew: 

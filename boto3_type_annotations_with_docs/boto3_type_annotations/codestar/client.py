@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,10 +18,10 @@ class Client(BaseClient):
         ::
         
           response = client.associate_team_member(
-              projectId='string',
-              clientRequestToken='string',
-              userArn='string',
-              projectRole='string',
+              projectId=\'string\',
+              clientRequestToken=\'string\',
+              userArn=\'string\',
+              projectRole=\'string\',
               remoteAccessAllowed=True|False
           )
         :type projectId: string
@@ -57,7 +57,7 @@ class Client(BaseClient):
           ::
         
             {
-                'clientRequestToken': 'string'
+                \'clientRequestToken\': \'string\'
             }
           **Response Structure** 
         
@@ -76,10 +76,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -95,48 +95,48 @@ class Client(BaseClient):
         ::
         
           response = client.create_project(
-              name='string',
-              id='string',
-              description='string',
-              clientRequestToken='string',
+              name=\'string\',
+              id=\'string\',
+              description=\'string\',
+              clientRequestToken=\'string\',
               sourceCode=[
                   {
-                      'source': {
-                          's3': {
-                              'bucketName': 'string',
-                              'bucketKey': 'string'
+                      \'source\': {
+                          \'s3\': {
+                              \'bucketName\': \'string\',
+                              \'bucketKey\': \'string\'
                           }
                       },
-                      'destination': {
-                          'codeCommit': {
-                              'name': 'string'
+                      \'destination\': {
+                          \'codeCommit\': {
+                              \'name\': \'string\'
                           },
-                          'gitHub': {
-                              'name': 'string',
-                              'description': 'string',
-                              'type': 'string',
-                              'owner': 'string',
-                              'privateRepository': True|False,
-                              'issuesEnabled': True|False,
-                              'token': 'string'
+                          \'gitHub\': {
+                              \'name\': \'string\',
+                              \'description\': \'string\',
+                              \'type\': \'string\',
+                              \'owner\': \'string\',
+                              \'privateRepository\': True|False,
+                              \'issuesEnabled\': True|False,
+                              \'token\': \'string\'
                           }
                       }
                   },
               ],
               toolchain={
-                  'source': {
-                      's3': {
-                          'bucketName': 'string',
-                          'bucketKey': 'string'
+                  \'source\': {
+                      \'s3\': {
+                          \'bucketName\': \'string\',
+                          \'bucketKey\': \'string\'
                       }
                   },
-                  'roleArn': 'string',
-                  'stackParameters': {
-                      'string': 'string'
+                  \'roleArn\': \'string\',
+                  \'stackParameters\': {
+                      \'string\': \'string\'
                   }
               },
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type name: string
@@ -226,7 +226,7 @@ class Client(BaseClient):
         
                 - **token** *(string) --* **[REQUIRED]** 
         
-                  The GitHub user's personal access token for the GitHub repository.
+                  The GitHub user\'s personal access token for the GitHub repository.
         
         :type toolchain: dict
         :param toolchain: 
@@ -278,10 +278,10 @@ class Client(BaseClient):
           ::
         
             {
-                'id': 'string',
-                'arn': 'string',
-                'clientRequestToken': 'string',
-                'projectTemplateId': 'string'
+                \'id\': \'string\',
+                \'arn\': \'string\',
+                \'clientRequestToken\': \'string\',
+                \'projectTemplateId\': \'string\'
             }
           **Response Structure** 
         
@@ -315,10 +315,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_user_profile(
-              userArn='string',
-              displayName='string',
-              emailAddress='string',
-              sshPublicKey='string'
+              userArn=\'string\',
+              displayName=\'string\',
+              emailAddress=\'string\',
+              sshPublicKey=\'string\'
           )
         :type userArn: string
         :param userArn: **[REQUIRED]** 
@@ -333,12 +333,12 @@ class Client(BaseClient):
         :type emailAddress: string
         :param emailAddress: **[REQUIRED]** 
         
-          The email address that will be displayed as part of the user's profile in AWS CodeStar.
+          The email address that will be displayed as part of the user\'s profile in AWS CodeStar.
         
         :type sshPublicKey: string
         :param sshPublicKey: 
         
-          The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+          The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user\'s private key for SSH access.
         
         :rtype: dict
         :returns: 
@@ -348,12 +348,12 @@ class Client(BaseClient):
           ::
         
             {
-                'userArn': 'string',
-                'displayName': 'string',
-                'emailAddress': 'string',
-                'sshPublicKey': 'string',
-                'createdTimestamp': datetime(2015, 1, 1),
-                'lastModifiedTimestamp': datetime(2015, 1, 1)
+                \'userArn\': \'string\',
+                \'displayName\': \'string\',
+                \'emailAddress\': \'string\',
+                \'sshPublicKey\': \'string\',
+                \'createdTimestamp\': datetime(2015, 1, 1),
+                \'lastModifiedTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -369,7 +369,7 @@ class Client(BaseClient):
         
             - **emailAddress** *(string) --* 
         
-              The email address that is displayed as part of the user's profile in AWS CodeStar.
+              The email address that is displayed as part of the user\'s profile in AWS CodeStar.
         
             - **sshPublicKey** *(string) --* 
         
@@ -395,8 +395,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_project(
-              id='string',
-              clientRequestToken='string',
+              id=\'string\',
+              clientRequestToken=\'string\',
               deleteStack=True|False
           )
         :type id: string
@@ -422,8 +422,8 @@ class Client(BaseClient):
           ::
         
             {
-                'stackId': 'string',
-                'projectArn': 'string'
+                \'stackId\': \'string\',
+                \'projectArn\': \'string\'
             }
           **Response Structure** 
         
@@ -449,7 +449,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user_profile(
-              userArn='string'
+              userArn=\'string\'
           )
         :type userArn: string
         :param userArn: **[REQUIRED]** 
@@ -464,7 +464,7 @@ class Client(BaseClient):
           ::
         
             {
-                'userArn': 'string'
+                \'userArn\': \'string\'
             }
           **Response Structure** 
         
@@ -486,7 +486,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_project(
-              id='string'
+              id=\'string\'
           )
         :type id: string
         :param id: **[REQUIRED]** 
@@ -501,17 +501,17 @@ class Client(BaseClient):
           ::
         
             {
-                'name': 'string',
-                'id': 'string',
-                'arn': 'string',
-                'description': 'string',
-                'clientRequestToken': 'string',
-                'createdTimeStamp': datetime(2015, 1, 1),
-                'stackId': 'string',
-                'projectTemplateId': 'string',
-                'status': {
-                    'state': 'string',
-                    'reason': 'string'
+                \'name\': \'string\',
+                \'id\': \'string\',
+                \'arn\': \'string\',
+                \'description\': \'string\',
+                \'clientRequestToken\': \'string\',
+                \'createdTimeStamp\': datetime(2015, 1, 1),
+                \'stackId\': \'string\',
+                \'projectTemplateId\': \'string\',
+                \'status\': {
+                    \'state\': \'string\',
+                    \'reason\': \'string\'
                 }
             }
           **Response Structure** 
@@ -574,7 +574,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_profile(
-              userArn='string'
+              userArn=\'string\'
           )
         :type userArn: string
         :param userArn: **[REQUIRED]** 
@@ -589,12 +589,12 @@ class Client(BaseClient):
           ::
         
             {
-                'userArn': 'string',
-                'displayName': 'string',
-                'emailAddress': 'string',
-                'sshPublicKey': 'string',
-                'createdTimestamp': datetime(2015, 1, 1),
-                'lastModifiedTimestamp': datetime(2015, 1, 1)
+                \'userArn\': \'string\',
+                \'displayName\': \'string\',
+                \'emailAddress\': \'string\',
+                \'sshPublicKey\': \'string\',
+                \'createdTimestamp\': datetime(2015, 1, 1),
+                \'lastModifiedTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -606,7 +606,7 @@ class Client(BaseClient):
         
             - **displayName** *(string) --* 
         
-              The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
+              The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example \"Mary Jane Major\") would generate an initial icon using the first character and the first character after the space (\"MJ\", not \"MM\").
         
             - **emailAddress** *(string) --* 
         
@@ -636,8 +636,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_team_member(
-              projectId='string',
-              userArn='string'
+              projectId=\'string\',
+              userArn=\'string\'
           )
         :type projectId: string
         :param projectId: **[REQUIRED]** 
@@ -679,7 +679,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -691,10 +691,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -726,7 +726,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_projects(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -747,13 +747,13 @@ class Client(BaseClient):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'projectId': 'string',
-                        'projectArn': 'string'
+                        \'projectId\': \'string\',
+                        \'projectArn\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -791,8 +791,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_resources(
-              projectId='string',
-              nextToken='string',
+              projectId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type projectId: string
@@ -818,12 +818,12 @@ class Client(BaseClient):
           ::
         
             {
-                'resources': [
+                \'resources\': [
                     {
-                        'id': 'string'
+                        \'id\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -857,8 +857,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_project(
-              id='string',
-              nextToken='string',
+              id=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type id: string
@@ -884,10 +884,10 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': {
-                    'string': 'string'
+                \'tags\': {
+                    \'string\': \'string\'
                 },
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -917,8 +917,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_team_members(
-              projectId='string',
-              nextToken='string',
+              projectId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type projectId: string
@@ -944,14 +944,14 @@ class Client(BaseClient):
           ::
         
             {
-                'teamMembers': [
+                \'teamMembers\': [
                     {
-                        'userArn': 'string',
-                        'projectRole': 'string',
-                        'remoteAccessAllowed': True|False
+                        \'userArn\': \'string\',
+                        \'projectRole\': \'string\',
+                        \'remoteAccessAllowed\': True|False
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -993,7 +993,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_profiles(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -1014,15 +1014,15 @@ class Client(BaseClient):
           ::
         
             {
-                'userProfiles': [
+                \'userProfiles\': [
                     {
-                        'userArn': 'string',
-                        'displayName': 'string',
-                        'emailAddress': 'string',
-                        'sshPublicKey': 'string'
+                        \'userArn\': \'string\',
+                        \'displayName\': \'string\',
+                        \'emailAddress\': \'string\',
+                        \'sshPublicKey\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1034,7 +1034,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                Information about a user's profile in AWS CodeStar.
+                Information about a user\'s profile in AWS CodeStar.
         
                 - **userArn** *(string) --* 
         
@@ -1042,7 +1042,7 @@ class Client(BaseClient):
         
                 - **displayName** *(string) --* 
         
-                  The display name of a user in AWS CodeStar. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
+                  The display name of a user in AWS CodeStar. For example, this could be set to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example \"Mary Jane Major\") would generate an initial icon using the first character and the first character after the space (\"MJ\", not \"MM\").
         
                 - **emailAddress** *(string) --* 
         
@@ -1050,7 +1050,7 @@ class Client(BaseClient):
         
                 - **sshPublicKey** *(string) --* 
         
-                  The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+                  The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user\'s private key for SSH access.
         
             - **nextToken** *(string) --* 
         
@@ -1068,9 +1068,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_project(
-              id='string',
+              id=\'string\',
               tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type id: string
@@ -1095,8 +1095,8 @@ class Client(BaseClient):
           ::
         
             {
-                'tags': {
-                    'string': 'string'
+                \'tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1123,9 +1123,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_project(
-              id='string',
+              id=\'string\',
               tags=[
-                  'string',
+                  \'string\',
               ]
           )
         :type id: string
@@ -1163,9 +1163,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_project(
-              id='string',
-              name='string',
-              description='string'
+              id=\'string\',
+              name=\'string\',
+              description=\'string\'
           )
         :type id: string
         :param id: **[REQUIRED]** 
@@ -1205,9 +1205,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_team_member(
-              projectId='string',
-              userArn='string',
-              projectRole='string',
+              projectId=\'string\',
+              userArn=\'string\',
+              projectRole=\'string\',
               remoteAccessAllowed=True|False
           )
         :type projectId: string
@@ -1228,7 +1228,7 @@ class Client(BaseClient):
         :type remoteAccessAllowed: boolean
         :param remoteAccessAllowed: 
         
-          Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
+          Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user\'s profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
         
         :rtype: dict
         :returns: 
@@ -1238,9 +1238,9 @@ class Client(BaseClient):
           ::
         
             {
-                'userArn': 'string',
-                'projectRole': 'string',
-                'remoteAccessAllowed': True|False
+                \'userArn\': \'string\',
+                \'projectRole\': \'string\',
+                \'remoteAccessAllowed\': True|False
             }
           **Response Structure** 
         
@@ -1256,7 +1256,7 @@ class Client(BaseClient):
         
             - **remoteAccessAllowed** *(boolean) --* 
         
-              Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
+              Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user\'s profile.
         
         """
         pass
@@ -1270,10 +1270,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_profile(
-              userArn='string',
-              displayName='string',
-              emailAddress='string',
-              sshPublicKey='string'
+              userArn=\'string\',
+              displayName=\'string\',
+              emailAddress=\'string\',
+              sshPublicKey=\'string\'
           )
         :type userArn: string
         :param userArn: **[REQUIRED]** 
@@ -1288,12 +1288,12 @@ class Client(BaseClient):
         :type emailAddress: string
         :param emailAddress: 
         
-          The email address that is displayed as part of the user's profile in AWS CodeStar.
+          The email address that is displayed as part of the user\'s profile in AWS CodeStar.
         
         :type sshPublicKey: string
         :param sshPublicKey: 
         
-          The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+          The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user\'s private key for SSH access.
         
         :rtype: dict
         :returns: 
@@ -1303,12 +1303,12 @@ class Client(BaseClient):
           ::
         
             {
-                'userArn': 'string',
-                'displayName': 'string',
-                'emailAddress': 'string',
-                'sshPublicKey': 'string',
-                'createdTimestamp': datetime(2015, 1, 1),
-                'lastModifiedTimestamp': datetime(2015, 1, 1)
+                \'userArn\': \'string\',
+                \'displayName\': \'string\',
+                \'emailAddress\': \'string\',
+                \'sshPublicKey\': \'string\',
+                \'createdTimestamp\': datetime(2015, 1, 1),
+                \'lastModifiedTimestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1324,7 +1324,7 @@ class Client(BaseClient):
         
             - **emailAddress** *(string) --* 
         
-              The email address that is displayed as part of the user's profile in AWS CodeStar.
+              The email address that is displayed as part of the user\'s profile in AWS CodeStar.
         
             - **sshPublicKey** *(string) --* 
         

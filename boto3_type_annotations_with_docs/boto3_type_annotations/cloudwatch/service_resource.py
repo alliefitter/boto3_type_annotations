@@ -1,10 +1,10 @@
 from typing import Optional
+from typing import List
+from datetime import datetime
+from typing import Union
 from typing import NoReturn
 from boto3.resources.collection import ResourceCollection
-from datetime import datetime
 from typing import Dict
-from typing import Union
-from typing import List
 from boto3.resources import base
 
 
@@ -16,10 +16,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Alarm resource.::
         
-          alarm = cloudwatch.Alarm('name')
+          alarm = cloudwatch.Alarm(\'name\')
         
         :type name: string
-        :param name: The Alarm's name identifier. This **must** be set.
+        :param name: The Alarm\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`CloudWatch.Alarm`
         :returns: A Alarm resource
@@ -30,12 +30,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Metric resource.::
         
-          metric = cloudwatch.Metric('namespace','name')
+          metric = cloudwatch.Metric(\'namespace\',\'name\')
         
         :type namespace: string
-        :param namespace: The Metric's namespace identifier. This **must** be set.
+        :param namespace: The Metric\'s namespace identifier. This **must** be set.
         :type name: string
-        :param name: The Metric's name identifier. This **must** be set.
+        :param name: The Metric\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`CloudWatch.Metric`
         :returns: A Metric resource
@@ -106,11 +106,11 @@ class Alarm(base.ServiceResource):
         ::
         
           response = alarm.describe_history(
-              HistoryItemType='ConfigurationUpdate'|'StateUpdate'|'Action',
+              HistoryItemType=\'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
               StartDate=datetime(2015, 1, 1),
               EndDate=datetime(2015, 1, 1),
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type HistoryItemType: string
         :param HistoryItemType: 
@@ -145,16 +145,16 @@ class Alarm(base.ServiceResource):
           ::
         
             {
-                'AlarmHistoryItems': [
+                \'AlarmHistoryItems\': [
                     {
-                        'AlarmName': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'HistoryItemType': 'ConfigurationUpdate'|'StateUpdate'|'Action',
-                        'HistorySummary': 'string',
-                        'HistoryData': 'string'
+                        \'AlarmName\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'HistoryItemType\': \'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
+                        \'HistorySummary\': \'string\',
+                        \'HistoryData\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -270,9 +270,9 @@ class Alarm(base.ServiceResource):
         ::
         
           response = alarm.set_state(
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              StateReason='string',
-              StateReasonData='string'
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              StateReason=\'string\',
+              StateReasonData=\'string\'
           )
         :type StateValue: string
         :param StateValue: **[REQUIRED]** 
@@ -350,25 +350,25 @@ class Metric(base.ServiceResource):
           response = metric.get_statistics(
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Period=123,
               Statistics=[
-                  'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
+                  \'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
               ],
               ExtendedStatistics=[
-                  'string',
+                  \'string\',
               ],
-              Unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None'
+              Unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\'
           )
         :type Dimensions: list
         :param Dimensions: 
         
-          The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see `Dimension Combinations <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations>`__ in the *Amazon CloudWatch User Guide* . For more information about specifying dimensions, see `Publishing Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html>`__ in the *Amazon CloudWatch User Guide* .
+          The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can\'t retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see `Dimension Combinations <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations>`__ in the *Amazon CloudWatch User Guide* . For more information about specifying dimensions, see `Publishing Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html>`__ in the *Amazon CloudWatch User Guide* .
         
           - *(dict) --* 
         
@@ -446,18 +446,18 @@ class Metric(base.ServiceResource):
           ::
         
             {
-                'Label': 'string',
-                'Datapoints': [
+                \'Label\': \'string\',
+                \'Datapoints\': [
                     {
-                        'Timestamp': datetime(2015, 1, 1),
-                        'SampleCount': 123.0,
-                        'Average': 123.0,
-                        'Sum': 123.0,
-                        'Minimum': 123.0,
-                        'Maximum': 123.0,
-                        'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                        'ExtendedStatistics': {
-                            'string': 123.0
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'SampleCount\': 123.0,
+                        \'Average\': 123.0,
+                        \'Sum\': 123.0,
+                        \'Minimum\': 123.0,
+                        \'Maximum\': 123.0,
+                        \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                        \'ExtendedStatistics\': {
+                            \'string\': 123.0
                         }
                     },
                 ]
@@ -564,34 +564,34 @@ class Metric(base.ServiceResource):
         ::
         
           alarm = metric.put_alarm(
-              AlarmName='string',
-              AlarmDescription='string',
+              AlarmName=\'string\',
+              AlarmDescription=\'string\',
               ActionsEnabled=True|False,
               OKActions=[
-                  'string',
+                  \'string\',
               ],
               AlarmActions=[
-                  'string',
+                  \'string\',
               ],
               InsufficientDataActions=[
-                  'string',
+                  \'string\',
               ],
-              Statistic='SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-              ExtendedStatistic='string',
+              Statistic=\'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+              ExtendedStatistic=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               Period=123,
-              Unit='Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
+              Unit=\'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
               EvaluationPeriods=123,
               DatapointsToAlarm=123,
               Threshold=123.0,
-              ComparisonOperator='GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-              TreatMissingData='string',
-              EvaluateLowSampleCountPercentile='string'
+              ComparisonOperator=\'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+              TreatMissingData=\'string\',
+              EvaluateLowSampleCountPercentile=\'string\'
           )
         :type AlarmName: string
         :param AlarmName: **[REQUIRED]** 
@@ -675,7 +675,7 @@ class Metric(base.ServiceResource):
         
           Be sure to specify 10 or 30 only for metrics that are stored by a ``PutMetricData`` call with a ``StorageResolution`` of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see `Amazon CloudWatch Pricing <https://aws.amazon.com/cloudwatch/pricing/>`__ .
         
-          An alarm's total current evaluation period can be no longer than one day, so ``Period`` multiplied by ``EvaluationPeriods`` cannot be more than 86,400 seconds.
+          An alarm\'s total current evaluation period can be no longer than one day, so ``Period`` multiplied by ``EvaluationPeriods`` cannot be more than 86,400 seconds.
         
         :type Unit: string
         :param Unit: 
@@ -687,14 +687,14 @@ class Metric(base.ServiceResource):
         :type EvaluationPeriods: integer
         :param EvaluationPeriods: **[REQUIRED]** 
         
-          The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.
+          The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an \"M out of N\" alarm, this value is the N.
         
-          An alarm's total current evaluation period can be no longer than one day, so this number multiplied by ``Period`` cannot be more than 86,400 seconds.
+          An alarm\'s total current evaluation period can be no longer than one day, so this number multiplied by ``Period`` cannot be more than 86,400 seconds.
         
         :type DatapointsToAlarm: integer
         :param DatapointsToAlarm: 
         
-          The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M. For more information, see `Evaluating an Alarm <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation>`__ in the *Amazon CloudWatch User Guide* .
+          The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an \"M out of N\" alarm. In that case, this value is the M. For more information, see `Evaluating an Alarm <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation>`__ in the *Amazon CloudWatch User Guide* .
         
         :type Threshold: float
         :param Threshold: **[REQUIRED]** 
@@ -848,13 +848,13 @@ class alarms(ResourceCollection):
         
           alarm_iterator = cloudwatch.alarms.filter(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ],
-              AlarmNamePrefix='string',
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              ActionPrefix='string',
+              AlarmNamePrefix=\'string\',
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              ActionPrefix=\'string\',
               MaxRecords=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AlarmNames: list
         :param AlarmNames: 
@@ -956,13 +956,13 @@ class alarms(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -999,15 +999,15 @@ class metrics(ResourceCollection):
         ::
         
           metric_iterator = cloudwatch.metrics.filter(
-              Namespace='string',
-              MetricName='string',
+              Namespace=\'string\',
+              MetricName=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Namespace: string
         :param Namespace: 
@@ -1109,13 +1109,13 @@ class metrics(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

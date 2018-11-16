@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -22,10 +22,10 @@ class Client(BaseClient):
         ::
         
           response = client.batch_check_layer_availability(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               layerDigests=[
-                  'string',
+                  \'string\',
               ]
           )
         :type registryId: string
@@ -53,19 +53,19 @@ class Client(BaseClient):
           ::
         
             {
-                'layers': [
+                \'layers\': [
                     {
-                        'layerDigest': 'string',
-                        'layerAvailability': 'AVAILABLE'|'UNAVAILABLE',
-                        'layerSize': 123,
-                        'mediaType': 'string'
+                        \'layerDigest\': \'string\',
+                        \'layerAvailability\': \'AVAILABLE\'|\'UNAVAILABLE\',
+                        \'layerSize\': 123,
+                        \'mediaType\': \'string\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'layerDigest': 'string',
-                        'failureCode': 'InvalidLayerDigest'|'MissingLayerDigest',
-                        'failureReason': 'string'
+                        \'layerDigest\': \'string\',
+                        \'failureCode\': \'InvalidLayerDigest\'|\'MissingLayerDigest\',
+                        \'failureReason\': \'string\'
                     },
                 ]
             }
@@ -123,9 +123,9 @@ class Client(BaseClient):
     def batch_delete_image(self, repositoryName: str, imageIds: List, registryId: str = None) -> Dict:
         """
         
-        You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.
+        You can remove a tag from an image by specifying the image\'s tag in your request. When you remove the last tag from an image, the image is deleted from your repository.
         
-        You can completely delete an image (and all of its tags) by specifying the image's digest in your request.
+        You can completely delete an image (and all of its tags) by specifying the image\'s digest in your request.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/BatchDeleteImage>`_
         
@@ -133,12 +133,12 @@ class Client(BaseClient):
         ::
         
           response = client.batch_delete_image(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               imageIds=[
                   {
-                      'imageDigest': 'string',
-                      'imageTag': 'string'
+                      \'imageDigest\': \'string\',
+                      \'imageTag\': \'string\'
                   },
               ]
           )
@@ -177,20 +177,20 @@ class Client(BaseClient):
           ::
         
             {
-                'imageIds': [
+                \'imageIds\': [
                     {
-                        'imageDigest': 'string',
-                        'imageTag': 'string'
+                        \'imageDigest\': \'string\',
+                        \'imageTag\': \'string\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'imageId': {
-                            'imageDigest': 'string',
-                            'imageTag': 'string'
+                        \'imageId\': {
+                            \'imageDigest\': \'string\',
+                            \'imageTag\': \'string\'
                         },
-                        'failureCode': 'InvalidImageDigest'|'InvalidImageTag'|'ImageTagDoesNotMatchDigest'|'ImageNotFound'|'MissingDigestAndTag',
-                        'failureReason': 'string'
+                        \'failureCode\': \'InvalidImageDigest\'|\'InvalidImageTag\'|\'ImageTagDoesNotMatchDigest\'|\'ImageNotFound\'|\'MissingDigestAndTag\',
+                        \'failureReason\': \'string\'
                     },
                 ]
             }
@@ -254,16 +254,16 @@ class Client(BaseClient):
         ::
         
           response = client.batch_get_image(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               imageIds=[
                   {
-                      'imageDigest': 'string',
-                      'imageTag': 'string'
+                      \'imageDigest\': \'string\',
+                      \'imageTag\': \'string\'
                   },
               ],
               acceptedMediaTypes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type registryId: string
@@ -310,25 +310,25 @@ class Client(BaseClient):
           ::
         
             {
-                'images': [
+                \'images\': [
                     {
-                        'registryId': 'string',
-                        'repositoryName': 'string',
-                        'imageId': {
-                            'imageDigest': 'string',
-                            'imageTag': 'string'
+                        \'registryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'imageId\': {
+                            \'imageDigest\': \'string\',
+                            \'imageTag\': \'string\'
                         },
-                        'imageManifest': 'string'
+                        \'imageManifest\': \'string\'
                     },
                 ],
-                'failures': [
+                \'failures\': [
                     {
-                        'imageId': {
-                            'imageDigest': 'string',
-                            'imageTag': 'string'
+                        \'imageId\': {
+                            \'imageDigest\': \'string\',
+                            \'imageTag\': \'string\'
                         },
-                        'failureCode': 'InvalidImageDigest'|'InvalidImageTag'|'ImageTagDoesNotMatchDigest'|'ImageNotFound'|'MissingDigestAndTag',
-                        'failureReason': 'string'
+                        \'failureCode\': \'InvalidImageDigest\'|\'InvalidImageTag\'|\'ImageTagDoesNotMatchDigest\'|\'ImageNotFound\'|\'MissingDigestAndTag\',
+                        \'failureReason\': \'string\'
                     },
                 ]
             }
@@ -405,10 +405,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -428,11 +428,11 @@ class Client(BaseClient):
         ::
         
           response = client.complete_layer_upload(
-              registryId='string',
-              repositoryName='string',
-              uploadId='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
+              uploadId=\'string\',
               layerDigests=[
-                  'string',
+                  \'string\',
               ]
           )
         :type registryId: string
@@ -465,10 +465,10 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'uploadId': 'string',
-                'layerDigest': 'string'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'uploadId\': \'string\',
+                \'layerDigest\': \'string\'
             }
           **Response Structure** 
         
@@ -502,7 +502,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_repository(
-              repositoryName='string'
+              repositoryName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -517,12 +517,12 @@ class Client(BaseClient):
           ::
         
             {
-                'repository': {
-                    'repositoryArn': 'string',
-                    'registryId': 'string',
-                    'repositoryName': 'string',
-                    'repositoryUri': 'string',
-                    'createdAt': datetime(2015, 1, 1)
+                \'repository\': {
+                    \'repositoryArn\': \'string\',
+                    \'registryId\': \'string\',
+                    \'repositoryName\': \'string\',
+                    \'repositoryUri\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -565,8 +565,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_lifecycle_policy(
-              registryId='string',
-              repositoryName='string'
+              registryId=\'string\',
+              repositoryName=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -586,10 +586,10 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'lifecyclePolicyText': 'string',
-                'lastEvaluatedAt': datetime(2015, 1, 1)
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'lifecyclePolicyText\': \'string\',
+                \'lastEvaluatedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -623,8 +623,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_repository(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               force=True|False
           )
         :type registryId: string
@@ -650,12 +650,12 @@ class Client(BaseClient):
           ::
         
             {
-                'repository': {
-                    'repositoryArn': 'string',
-                    'registryId': 'string',
-                    'repositoryName': 'string',
-                    'repositoryUri': 'string',
-                    'createdAt': datetime(2015, 1, 1)
+                \'repository\': {
+                    \'repositoryArn\': \'string\',
+                    \'registryId\': \'string\',
+                    \'repositoryName\': \'string\',
+                    \'repositoryUri\': \'string\',
+                    \'createdAt\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -698,8 +698,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_repository_policy(
-              registryId='string',
-              repositoryName='string'
+              registryId=\'string\',
+              repositoryName=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -719,9 +719,9 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'policyText': 'string'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'policyText\': \'string\'
             }
           **Response Structure** 
         
@@ -755,18 +755,18 @@ class Client(BaseClient):
         ::
         
           response = client.describe_images(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               imageIds=[
                   {
-                      'imageDigest': 'string',
-                      'imageTag': 'string'
+                      \'imageDigest\': \'string\',
+                      \'imageTag\': \'string\'
                   },
               ],
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
               filter={
-                  'tagStatus': 'TAGGED'|'UNTAGGED'
+                  \'tagStatus\': \'TAGGED\'|\'UNTAGGED\'
               }
           )
         :type registryId: string
@@ -823,19 +823,19 @@ class Client(BaseClient):
           ::
         
             {
-                'imageDetails': [
+                \'imageDetails\': [
                     {
-                        'registryId': 'string',
-                        'repositoryName': 'string',
-                        'imageDigest': 'string',
-                        'imageTags': [
-                            'string',
+                        \'registryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'imageDigest\': \'string\',
+                        \'imageTags\': [
+                            \'string\',
                         ],
-                        'imageSizeInBytes': 123,
-                        'imagePushedAt': datetime(2015, 1, 1)
+                        \'imageSizeInBytes\': 123,
+                        \'imagePushedAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -895,11 +895,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_repositories(
-              registryId='string',
+              registryId=\'string\',
               repositoryNames=[
-                  'string',
+                  \'string\',
               ],
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type registryId: string
@@ -936,16 +936,16 @@ class Client(BaseClient):
           ::
         
             {
-                'repositories': [
+                \'repositories\': [
                     {
-                        'repositoryArn': 'string',
-                        'registryId': 'string',
-                        'repositoryName': 'string',
-                        'repositoryUri': 'string',
-                        'createdAt': datetime(2015, 1, 1)
+                        \'repositoryArn\': \'string\',
+                        \'registryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'repositoryUri\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1002,7 +1002,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1020,7 +1020,7 @@ class Client(BaseClient):
         
           response = client.get_authorization_token(
               registryIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type registryIds: list
@@ -1038,11 +1038,11 @@ class Client(BaseClient):
           ::
         
             {
-                'authorizationData': [
+                \'authorizationData\': [
                     {
-                        'authorizationToken': 'string',
-                        'expiresAt': datetime(2015, 1, 1),
-                        'proxyEndpoint': 'string'
+                        \'authorizationToken\': \'string\',
+                        \'expiresAt\': datetime(2015, 1, 1),
+                        \'proxyEndpoint\': \'string\'
                     },
                 ]
             }
@@ -1086,9 +1086,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_download_url_for_layer(
-              registryId='string',
-              repositoryName='string',
-              layerDigest='string'
+              registryId=\'string\',
+              repositoryName=\'string\',
+              layerDigest=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1113,8 +1113,8 @@ class Client(BaseClient):
           ::
         
             {
-                'downloadUrl': 'string',
-                'layerDigest': 'string'
+                \'downloadUrl\': \'string\',
+                \'layerDigest\': \'string\'
             }
           **Response Structure** 
         
@@ -1140,8 +1140,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_lifecycle_policy(
-              registryId='string',
-              repositoryName='string'
+              registryId=\'string\',
+              repositoryName=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1161,10 +1161,10 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'lifecyclePolicyText': 'string',
-                'lastEvaluatedAt': datetime(2015, 1, 1)
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'lifecyclePolicyText\': \'string\',
+                \'lastEvaluatedAt\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -1198,18 +1198,18 @@ class Client(BaseClient):
         ::
         
           response = client.get_lifecycle_policy_preview(
-              registryId='string',
-              repositoryName='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
               imageIds=[
                   {
-                      'imageDigest': 'string',
-                      'imageTag': 'string'
+                      \'imageDigest\': \'string\',
+                      \'imageTag\': \'string\'
                   },
               ],
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
               filter={
-                  'tagStatus': 'TAGGED'|'UNTAGGED'
+                  \'tagStatus\': \'TAGGED\'|\'UNTAGGED\'
               }
           )
         :type registryId: string
@@ -1266,26 +1266,26 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'lifecyclePolicyText': 'string',
-                'status': 'IN_PROGRESS'|'COMPLETE'|'EXPIRED'|'FAILED',
-                'nextToken': 'string',
-                'previewResults': [
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'lifecyclePolicyText\': \'string\',
+                \'status\': \'IN_PROGRESS\'|\'COMPLETE\'|\'EXPIRED\'|\'FAILED\',
+                \'nextToken\': \'string\',
+                \'previewResults\': [
                     {
-                        'imageTags': [
-                            'string',
+                        \'imageTags\': [
+                            \'string\',
                         ],
-                        'imageDigest': 'string',
-                        'imagePushedAt': datetime(2015, 1, 1),
-                        'action': {
-                            'type': 'EXPIRE'
+                        \'imageDigest\': \'string\',
+                        \'imagePushedAt\': datetime(2015, 1, 1),
+                        \'action\': {
+                            \'type\': \'EXPIRE\'
                         },
-                        'appliedRulePriority': 123
+                        \'appliedRulePriority\': 123
                     },
                 ],
-                'summary': {
-                    'expiringImageTotalCount': 123
+                \'summary\': {
+                    \'expiringImageTotalCount\': 123
                 }
             }
           **Response Structure** 
@@ -1363,10 +1363,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1386,8 +1386,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_repository_policy(
-              registryId='string',
-              repositoryName='string'
+              registryId=\'string\',
+              repositoryName=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1407,9 +1407,9 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'policyText': 'string'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'policyText\': \'string\'
             }
           **Response Structure** 
         
@@ -1455,8 +1455,8 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_layer_upload(
-              registryId='string',
-              repositoryName='string'
+              registryId=\'string\',
+              repositoryName=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1476,8 +1476,8 @@ class Client(BaseClient):
           ::
         
             {
-                'uploadId': 'string',
-                'partSize': 123
+                \'uploadId\': \'string\',
+                \'partSize\': 123
             }
           **Response Structure** 
         
@@ -1505,12 +1505,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_images(
-              registryId='string',
-              repositoryName='string',
-              nextToken='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
+              nextToken=\'string\',
               maxResults=123,
               filter={
-                  'tagStatus': 'TAGGED'|'UNTAGGED'
+                  \'tagStatus\': \'TAGGED\'|\'UNTAGGED\'
               }
           )
         :type registryId: string
@@ -1554,13 +1554,13 @@ class Client(BaseClient):
           ::
         
             {
-                'imageIds': [
+                \'imageIds\': [
                     {
-                        'imageDigest': 'string',
-                        'imageTag': 'string'
+                        \'imageDigest\': \'string\',
+                        \'imageTag\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1602,10 +1602,10 @@ class Client(BaseClient):
         ::
         
           response = client.put_image(
-              registryId='string',
-              repositoryName='string',
-              imageManifest='string',
-              imageTag='string'
+              registryId=\'string\',
+              repositoryName=\'string\',
+              imageManifest=\'string\',
+              imageTag=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1635,14 +1635,14 @@ class Client(BaseClient):
           ::
         
             {
-                'image': {
-                    'registryId': 'string',
-                    'repositoryName': 'string',
-                    'imageId': {
-                        'imageDigest': 'string',
-                        'imageTag': 'string'
+                \'image\': {
+                    \'registryId\': \'string\',
+                    \'repositoryName\': \'string\',
+                    \'imageId\': {
+                        \'imageDigest\': \'string\',
+                        \'imageTag\': \'string\'
                     },
-                    'imageManifest': 'string'
+                    \'imageManifest\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1689,9 +1689,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_lifecycle_policy(
-              registryId='string',
-              repositoryName='string',
-              lifecyclePolicyText='string'
+              registryId=\'string\',
+              repositoryName=\'string\',
+              lifecyclePolicyText=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1716,9 +1716,9 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'lifecyclePolicyText': 'string'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'lifecyclePolicyText\': \'string\'
             }
           **Response Structure** 
         
@@ -1748,9 +1748,9 @@ class Client(BaseClient):
         ::
         
           response = client.set_repository_policy(
-              registryId='string',
-              repositoryName='string',
-              policyText='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
+              policyText=\'string\',
               force=True|False
           )
         :type registryId: string
@@ -1781,9 +1781,9 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'policyText': 'string'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'policyText\': \'string\'
             }
           **Response Structure** 
         
@@ -1813,9 +1813,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_lifecycle_policy_preview(
-              registryId='string',
-              repositoryName='string',
-              lifecyclePolicyText='string'
+              registryId=\'string\',
+              repositoryName=\'string\',
+              lifecyclePolicyText=\'string\'
           )
         :type registryId: string
         :param registryId: 
@@ -1840,10 +1840,10 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'lifecyclePolicyText': 'string',
-                'status': 'IN_PROGRESS'|'COMPLETE'|'EXPIRED'|'FAILED'
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'lifecyclePolicyText\': \'string\',
+                \'status\': \'IN_PROGRESS\'|\'COMPLETE\'|\'EXPIRED\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -1881,12 +1881,12 @@ class Client(BaseClient):
         ::
         
           response = client.upload_layer_part(
-              registryId='string',
-              repositoryName='string',
-              uploadId='string',
+              registryId=\'string\',
+              repositoryName=\'string\',
+              uploadId=\'string\',
               partFirstByte=123,
               partLastByte=123,
-              layerPartBlob=b'bytes'
+              layerPartBlob=b\'bytes\'
           )
         :type registryId: string
         :param registryId: 
@@ -1926,10 +1926,10 @@ class Client(BaseClient):
           ::
         
             {
-                'registryId': 'string',
-                'repositoryName': 'string',
-                'uploadId': 'string',
-                'lastByteReceived': 123
+                \'registryId\': \'string\',
+                \'repositoryName\': \'string\',
+                \'uploadId\': \'string\',
+                \'lastByteReceived\': 123
             }
           **Response Structure** 
         

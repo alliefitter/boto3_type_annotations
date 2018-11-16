@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -25,11 +25,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -41,7 +41,7 @@ class Client(BaseClient):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          An array of ``Tag`` objects. Each tag is a key-value pair. Only the ``key`` parameter is required. If you don't specify a value, Amazon SageMaker sets the value to an empty string. 
+          An array of ``Tag`` objects. Each tag is a key-value pair. Only the ``key`` parameter is required. If you don\'t specify a value, Amazon SageMaker sets the value to an empty string. 
         
           - *(dict) --* 
         
@@ -63,10 +63,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -99,10 +99,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -132,12 +132,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_endpoint(
-              EndpointName='string',
-              EndpointConfigName='string',
+              EndpointName=\'string\',
+              EndpointConfigName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -176,7 +176,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointArn': 'string'
+                \'EndpointArn\': \'string\'
             }
           **Response Structure** 
         
@@ -206,23 +206,23 @@ class Client(BaseClient):
         ::
         
           response = client.create_endpoint_config(
-              EndpointConfigName='string',
+              EndpointConfigName=\'string\',
               ProductionVariants=[
                   {
-                      'VariantName': 'string',
-                      'ModelName': 'string',
-                      'InitialInstanceCount': 123,
-                      'InstanceType': 'ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.large'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.large'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                      'InitialVariantWeight': ...
+                      \'VariantName\': \'string\',
+                      \'ModelName\': \'string\',
+                      \'InitialInstanceCount\': 123,
+                      \'InstanceType\': \'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.large\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.large\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                      \'InitialVariantWeight\': ...
                   },
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              KmsKeyId='string'
+              KmsKeyId=\'string\'
           )
         :type EndpointConfigName: string
         :param EndpointConfigName: **[REQUIRED]** 
@@ -288,7 +288,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointConfigArn': 'string'
+                \'EndpointConfigArn\': \'string\'
             }
           **Response Structure** 
         
@@ -310,99 +310,99 @@ class Client(BaseClient):
         ::
         
           response = client.create_hyper_parameter_tuning_job(
-              HyperParameterTuningJobName='string',
+              HyperParameterTuningJobName=\'string\',
               HyperParameterTuningJobConfig={
-                  'Strategy': 'Bayesian',
-                  'HyperParameterTuningJobObjective': {
-                      'Type': 'Maximize'|'Minimize',
-                      'MetricName': 'string'
+                  \'Strategy\': \'Bayesian\',
+                  \'HyperParameterTuningJobObjective\': {
+                      \'Type\': \'Maximize\'|\'Minimize\',
+                      \'MetricName\': \'string\'
                   },
-                  'ResourceLimits': {
-                      'MaxNumberOfTrainingJobs': 123,
-                      'MaxParallelTrainingJobs': 123
+                  \'ResourceLimits\': {
+                      \'MaxNumberOfTrainingJobs\': 123,
+                      \'MaxParallelTrainingJobs\': 123
                   },
-                  'ParameterRanges': {
-                      'IntegerParameterRanges': [
+                  \'ParameterRanges\': {
+                      \'IntegerParameterRanges\': [
                           {
-                              'Name': 'string',
-                              'MinValue': 'string',
-                              'MaxValue': 'string'
+                              \'Name\': \'string\',
+                              \'MinValue\': \'string\',
+                              \'MaxValue\': \'string\'
                           },
                       ],
-                      'ContinuousParameterRanges': [
+                      \'ContinuousParameterRanges\': [
                           {
-                              'Name': 'string',
-                              'MinValue': 'string',
-                              'MaxValue': 'string'
+                              \'Name\': \'string\',
+                              \'MinValue\': \'string\',
+                              \'MaxValue\': \'string\'
                           },
                       ],
-                      'CategoricalParameterRanges': [
+                      \'CategoricalParameterRanges\': [
                           {
-                              'Name': 'string',
-                              'Values': [
-                                  'string',
+                              \'Name\': \'string\',
+                              \'Values\': [
+                                  \'string\',
                               ]
                           },
                       ]
                   }
               },
               TrainingJobDefinition={
-                  'StaticHyperParameters': {
-                      'string': 'string'
+                  \'StaticHyperParameters\': {
+                      \'string\': \'string\'
                   },
-                  'AlgorithmSpecification': {
-                      'TrainingImage': 'string',
-                      'TrainingInputMode': 'Pipe'|'File',
-                      'MetricDefinitions': [
+                  \'AlgorithmSpecification\': {
+                      \'TrainingImage\': \'string\',
+                      \'TrainingInputMode\': \'Pipe\'|\'File\',
+                      \'MetricDefinitions\': [
                           {
-                              'Name': 'string',
-                              'Regex': 'string'
+                              \'Name\': \'string\',
+                              \'Regex\': \'string\'
                           },
                       ]
                   },
-                  'RoleArn': 'string',
-                  'InputDataConfig': [
+                  \'RoleArn\': \'string\',
+                  \'InputDataConfig\': [
                       {
-                          'ChannelName': 'string',
-                          'DataSource': {
-                              'S3DataSource': {
-                                  'S3DataType': 'ManifestFile'|'S3Prefix',
-                                  'S3Uri': 'string',
-                                  'S3DataDistributionType': 'FullyReplicated'|'ShardedByS3Key'
+                          \'ChannelName\': \'string\',
+                          \'DataSource\': {
+                              \'S3DataSource\': {
+                                  \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                                  \'S3Uri\': \'string\',
+                                  \'S3DataDistributionType\': \'FullyReplicated\'|\'ShardedByS3Key\'
                               }
                           },
-                          'ContentType': 'string',
-                          'CompressionType': 'None'|'Gzip',
-                          'RecordWrapperType': 'None'|'RecordIO',
-                          'InputMode': 'Pipe'|'File'
+                          \'ContentType\': \'string\',
+                          \'CompressionType\': \'None\'|\'Gzip\',
+                          \'RecordWrapperType\': \'None\'|\'RecordIO\',
+                          \'InputMode\': \'Pipe\'|\'File\'
                       },
                   ],
-                  'VpcConfig': {
-                      'SecurityGroupIds': [
-                          'string',
+                  \'VpcConfig\': {
+                      \'SecurityGroupIds\': [
+                          \'string\',
                       ],
-                      'Subnets': [
-                          'string',
+                      \'Subnets\': [
+                          \'string\',
                       ]
                   },
-                  'OutputDataConfig': {
-                      'KmsKeyId': 'string',
-                      'S3OutputPath': 'string'
+                  \'OutputDataConfig\': {
+                      \'KmsKeyId\': \'string\',
+                      \'S3OutputPath\': \'string\'
                   },
-                  'ResourceConfig': {
-                      'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                      'InstanceCount': 123,
-                      'VolumeSizeInGB': 123,
-                      'VolumeKmsKeyId': 'string'
+                  \'ResourceConfig\': {
+                      \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                      \'InstanceCount\': 123,
+                      \'VolumeSizeInGB\': 123,
+                      \'VolumeKmsKeyId\': \'string\'
                   },
-                  'StoppingCondition': {
-                      'MaxRuntimeInSeconds': 123
+                  \'StoppingCondition\': {
+                      \'MaxRuntimeInSeconds\': 123
                   }
               },
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -587,7 +587,7 @@ class Client(BaseClient):
         
                     * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                      
-                    * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
+                    * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
                      
                   - **S3DataDistributionType** *(string) --* 
         
@@ -595,7 +595,7 @@ class Client(BaseClient):
         
                     If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify ``ShardedByS3Key`` . If there are *n* ML compute instances launched for a training job, each instance gets approximately 1/*n* of the number of S3 objects. In this case, model training on each machine uses only the subset of training data. 
         
-                    Don't choose more ML compute instances for training than available S3 objects. If you do, some nodes won't get any data and you will pay for nodes that aren't getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
+                    Don\'t choose more ML compute instances for training than available S3 objects. If you do, some nodes won\'t get any data and you will pay for nodes that aren\'t getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
         
                     In distributed training, where you use multiple ML compute EC2 instances, you might choose ``ShardedByS3Key`` . If the algorithm requires copying training data to the ML storage volume (when ``TrainingInputMode`` is set to ``File`` ), this copies 1/*n* of the number of objects. 
         
@@ -609,7 +609,7 @@ class Client(BaseClient):
         
               - **RecordWrapperType** *(string) --* 
         
-                Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
+                Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don\'t need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
         
                 In FILE mode, leave this field unset or set it to None.
         
@@ -639,15 +639,15 @@ class Client(BaseClient):
         
               The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-              * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+              * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                
-              * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+              * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                
-              * // KMS Key Alias  ``"alias/ExampleAlias"``   
+              * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
                
-              * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+              * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
                
-              If you don't provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
+              If you don\'t provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
         
               .. note::
         
@@ -687,9 +687,9 @@ class Client(BaseClient):
         
               The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-              * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+              * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                
-              * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+              * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                
           - **StoppingCondition** *(dict) --* **[REQUIRED]** 
         
@@ -730,7 +730,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HyperParameterTuningJobArn': 'string'
+                \'HyperParameterTuningJobArn\': \'string\'
             }
           **Response Structure** 
         
@@ -762,28 +762,28 @@ class Client(BaseClient):
         ::
         
           response = client.create_model(
-              ModelName='string',
+              ModelName=\'string\',
               PrimaryContainer={
-                  'ContainerHostname': 'string',
-                  'Image': 'string',
-                  'ModelDataUrl': 'string',
-                  'Environment': {
-                      'string': 'string'
+                  \'ContainerHostname\': \'string\',
+                  \'Image\': \'string\',
+                  \'ModelDataUrl\': \'string\',
+                  \'Environment\': {
+                      \'string\': \'string\'
                   }
               },
-              ExecutionRoleArn='string',
+              ExecutionRoleArn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               VpcConfig={
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'Subnets': [
-                      'string',
+                  \'Subnets\': [
+                      \'string\',
                   ]
               }
           )
@@ -870,7 +870,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ModelArn': 'string'
+                \'ModelArn\': \'string\'
             }
           **Response Structure** 
         
@@ -910,22 +910,22 @@ class Client(BaseClient):
         ::
         
           response = client.create_notebook_instance(
-              NotebookInstanceName='string',
-              InstanceType='ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge',
-              SubnetId='string',
+              NotebookInstanceName=\'string\',
+              InstanceType=\'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\',
+              SubnetId=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              RoleArn='string',
-              KmsKeyId='string',
+              RoleArn=\'string\',
+              KmsKeyId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              LifecycleConfigName='string',
-              DirectInternetAccess='Enabled'|'Disabled',
+              LifecycleConfigName=\'string\',
+              DirectInternetAccess=\'Enabled\'|\'Disabled\',
               VolumeSizeInGB=123
           )
         :type NotebookInstanceName: string
@@ -1006,7 +1006,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NotebookInstanceArn': 'string'
+                \'NotebookInstanceArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1038,15 +1038,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_notebook_instance_lifecycle_config(
-              NotebookInstanceLifecycleConfigName='string',
+              NotebookInstanceLifecycleConfigName=\'string\',
               OnCreate=[
                   {
-                      'Content': 'string'
+                      \'Content\': \'string\'
                   },
               ],
               OnStart=[
                   {
-                      'Content': 'string'
+                      \'Content\': \'string\'
                   },
               ]
           )
@@ -1109,7 +1109,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NotebookInstanceLifecycleConfigArn': 'string'
+                \'NotebookInstanceLifecycleConfigArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1133,7 +1133,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_presigned_notebook_instance_url(
-              NotebookInstanceName='string',
+              NotebookInstanceName=\'string\',
               SessionExpirationDurationInSeconds=123
           )
         :type NotebookInstanceName: string
@@ -1154,7 +1154,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AuthorizedUrl': 'string'
+                \'AuthorizedUrl\': \'string\'
             }
           **Response Structure** 
         
@@ -1196,56 +1196,56 @@ class Client(BaseClient):
         ::
         
           response = client.create_training_job(
-              TrainingJobName='string',
+              TrainingJobName=\'string\',
               HyperParameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               AlgorithmSpecification={
-                  'TrainingImage': 'string',
-                  'TrainingInputMode': 'Pipe'|'File'
+                  \'TrainingImage\': \'string\',
+                  \'TrainingInputMode\': \'Pipe\'|\'File\'
               },
-              RoleArn='string',
+              RoleArn=\'string\',
               InputDataConfig=[
                   {
-                      'ChannelName': 'string',
-                      'DataSource': {
-                          'S3DataSource': {
-                              'S3DataType': 'ManifestFile'|'S3Prefix',
-                              'S3Uri': 'string',
-                              'S3DataDistributionType': 'FullyReplicated'|'ShardedByS3Key'
+                      \'ChannelName\': \'string\',
+                      \'DataSource\': {
+                          \'S3DataSource\': {
+                              \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                              \'S3Uri\': \'string\',
+                              \'S3DataDistributionType\': \'FullyReplicated\'|\'ShardedByS3Key\'
                           }
                       },
-                      'ContentType': 'string',
-                      'CompressionType': 'None'|'Gzip',
-                      'RecordWrapperType': 'None'|'RecordIO',
-                      'InputMode': 'Pipe'|'File'
+                      \'ContentType\': \'string\',
+                      \'CompressionType\': \'None\'|\'Gzip\',
+                      \'RecordWrapperType\': \'None\'|\'RecordIO\',
+                      \'InputMode\': \'Pipe\'|\'File\'
                   },
               ],
               OutputDataConfig={
-                  'KmsKeyId': 'string',
-                  'S3OutputPath': 'string'
+                  \'KmsKeyId\': \'string\',
+                  \'S3OutputPath\': \'string\'
               },
               ResourceConfig={
-                  'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                  'InstanceCount': 123,
-                  'VolumeSizeInGB': 123,
-                  'VolumeKmsKeyId': 'string'
+                  \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                  \'InstanceCount\': 123,
+                  \'VolumeSizeInGB\': 123,
+                  \'VolumeKmsKeyId\': \'string\'
               },
               VpcConfig={
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'Subnets': [
-                      'string',
+                  \'Subnets\': [
+                      \'string\',
                   ]
               },
               StoppingCondition={
-                  'MaxRuntimeInSeconds': 123
+                  \'MaxRuntimeInSeconds\': 123
               },
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1280,7 +1280,7 @@ class Client(BaseClient):
         
             In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. 
         
-            For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
+            For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won\'t be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
         
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]** 
@@ -1330,7 +1330,7 @@ class Client(BaseClient):
         
                   * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                    
-                  * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
+                  * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
                    
                 - **S3DataDistributionType** *(string) --* 
         
@@ -1338,7 +1338,7 @@ class Client(BaseClient):
         
                   If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify ``ShardedByS3Key`` . If there are *n* ML compute instances launched for a training job, each instance gets approximately 1/*n* of the number of S3 objects. In this case, model training on each machine uses only the subset of training data. 
         
-                  Don't choose more ML compute instances for training than available S3 objects. If you do, some nodes won't get any data and you will pay for nodes that aren't getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
+                  Don\'t choose more ML compute instances for training than available S3 objects. If you do, some nodes won\'t get any data and you will pay for nodes that aren\'t getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
         
                   In distributed training, where you use multiple ML compute EC2 instances, you might choose ``ShardedByS3Key`` . If the algorithm requires copying training data to the ML storage volume (when ``TrainingInputMode`` is set to ``File`` ), this copies 1/*n* of the number of objects. 
         
@@ -1352,7 +1352,7 @@ class Client(BaseClient):
         
             - **RecordWrapperType** *(string) --* 
         
-              Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
+              Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don\'t need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
         
               In FILE mode, leave this field unset or set it to None.
         
@@ -1367,15 +1367,15 @@ class Client(BaseClient):
         
             The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-            * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // KMS Key Alias  ``"alias/ExampleAlias"``   
+            * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+            * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
              
-            If you don't provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
+            If you don\'t provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
         
             .. note::
         
@@ -1416,9 +1416,9 @@ class Client(BaseClient):
         
             The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-            * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
         :type VpcConfig: dict
         :param VpcConfig: 
@@ -1473,7 +1473,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TrainingJobArn': 'string'
+                \'TrainingJobArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1511,40 +1511,40 @@ class Client(BaseClient):
         ::
         
           response = client.create_transform_job(
-              TransformJobName='string',
-              ModelName='string',
+              TransformJobName=\'string\',
+              ModelName=\'string\',
               MaxConcurrentTransforms=123,
               MaxPayloadInMB=123,
-              BatchStrategy='MultiRecord'|'SingleRecord',
+              BatchStrategy=\'MultiRecord\'|\'SingleRecord\',
               Environment={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               TransformInput={
-                  'DataSource': {
-                      'S3DataSource': {
-                          'S3DataType': 'ManifestFile'|'S3Prefix',
-                          'S3Uri': 'string'
+                  \'DataSource\': {
+                      \'S3DataSource\': {
+                          \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                          \'S3Uri\': \'string\'
                       }
                   },
-                  'ContentType': 'string',
-                  'CompressionType': 'None'|'Gzip',
-                  'SplitType': 'None'|'Line'|'RecordIO'
+                  \'ContentType\': \'string\',
+                  \'CompressionType\': \'None\'|\'Gzip\',
+                  \'SplitType\': \'None\'|\'Line\'|\'RecordIO\'
               },
               TransformOutput={
-                  'S3OutputPath': 'string',
-                  'Accept': 'string',
-                  'AssembleWith': 'None'|'Line',
-                  'KmsKeyId': 'string'
+                  \'S3OutputPath\': \'string\',
+                  \'Accept\': \'string\',
+                  \'AssembleWith\': \'None\'|\'Line\',
+                  \'KmsKeyId\': \'string\'
               },
               TransformResources={
-                  'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge',
-                  'InstanceCount': 123,
-                  'VolumeKmsKeyId': 'string'
+                  \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\',
+                  \'InstanceCount\': 123,
+                  \'VolumeKmsKeyId\': \'string\'
               },
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1573,7 +1573,7 @@ class Client(BaseClient):
         
           Determines the number of records included in a single mini-batch. ``SingleRecord`` means only one record is used per mini-batch. ``MultiRecord`` means a mini-batch is set to contain as many records that can fit within the ``MaxPayloadInMB`` limit.
         
-          Batch transform will automatically split your input data into whatever payload size is specified if you set ``SplitType`` to ``Line`` and ``BatchStrategy`` to ``MultiRecord`` . There's no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset are very large.
+          Batch transform will automatically split your input data into whatever payload size is specified if you set ``SplitType`` to ``Line`` and ``BatchStrategy`` to ``MultiRecord`` . There\'s no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset are very large.
         
         :type Environment: dict
         :param Environment: 
@@ -1609,7 +1609,7 @@ class Client(BaseClient):
         
                 * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                  
-                * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``S3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``S3Uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``S3Uris`` points to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf. 
+                * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``S3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``S3Uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``S3Uris`` points to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf. 
                  
           - **ContentType** *(string) --* 
         
@@ -1621,7 +1621,7 @@ class Client(BaseClient):
         
           - **SplitType** *(string) --* 
         
-            The method to use to split the transform job's data into smaller batches. The default value is ``None`` . If you don't want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` .
+            The method to use to split the transform job\'s data into smaller batches. The default value is ``None`` . If you don\'t want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` .
         
             Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
         
@@ -1652,15 +1652,15 @@ class Client(BaseClient):
         
             The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-            * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // KMS Key Alias  ``"alias/ExampleAlias"``   
+            * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+            * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
              
-            If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in the *Amazon Simple Storage Service Developer Guide.*  
+            If you don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in the *Amazon Simple Storage Service Developer Guide.*  
         
             The KMS key policy must grant permission to the IAM role that you specify in your ``CreateTramsformJob`` request. For more information, see `Using Key Policies in AWS KMS <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__ in the *AWS Key Management Service Developer Guide* .
         
@@ -1681,9 +1681,9 @@ class Client(BaseClient):
         
             The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the batch transform job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-            * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
-            * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+            * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
              
         :type Tags: list
         :param Tags: 
@@ -1710,7 +1710,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TransformJobArn': 'string'
+                \'TransformJobArn\': \'string\'
             }
           **Response Structure** 
         
@@ -1726,7 +1726,7 @@ class Client(BaseClient):
     def delete_endpoint(self, EndpointName: str) -> NoReturn:
         """
         
-        Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the `RevokeGrant <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>`__ API call.
+        Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don\'t need to use the `RevokeGrant <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>`__ API call.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DeleteEndpoint>`_
         
@@ -1734,7 +1734,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_endpoint(
-              EndpointName='string'
+              EndpointName=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -1754,7 +1754,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_endpoint_config(
-              EndpointConfigName='string'
+              EndpointConfigName=\'string\'
           )
         :type EndpointConfigName: string
         :param EndpointConfigName: **[REQUIRED]** 
@@ -1774,7 +1774,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_model(
-              ModelName='string'
+              ModelName=\'string\'
           )
         :type ModelName: string
         :param ModelName: **[REQUIRED]** 
@@ -1798,7 +1798,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_notebook_instance(
-              NotebookInstanceName='string'
+              NotebookInstanceName=\'string\'
           )
         :type NotebookInstanceName: string
         :param NotebookInstanceName: **[REQUIRED]** 
@@ -1818,7 +1818,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_notebook_instance_lifecycle_config(
-              NotebookInstanceLifecycleConfigName='string'
+              NotebookInstanceLifecycleConfigName=\'string\'
           )
         :type NotebookInstanceLifecycleConfigName: string
         :param NotebookInstanceLifecycleConfigName: **[REQUIRED]** 
@@ -1832,7 +1832,7 @@ class Client(BaseClient):
     def delete_tags(self, ResourceArn: str, TagKeys: List) -> Dict:
         """
         
-        To list a resource's tags, use the ``ListTags`` API. 
+        To list a resource\'s tags, use the ``ListTags`` API. 
         
         .. note::
         
@@ -1844,9 +1844,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tags(
-              ResourceArn='string',
+              ResourceArn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceArn: string
@@ -1884,7 +1884,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_endpoint(
-              EndpointName='string'
+              EndpointName=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -1899,29 +1899,29 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointName': 'string',
-                'EndpointArn': 'string',
-                'EndpointConfigName': 'string',
-                'ProductionVariants': [
+                \'EndpointName\': \'string\',
+                \'EndpointArn\': \'string\',
+                \'EndpointConfigName\': \'string\',
+                \'ProductionVariants\': [
                     {
-                        'VariantName': 'string',
-                        'DeployedImages': [
+                        \'VariantName\': \'string\',
+                        \'DeployedImages\': [
                             {
-                                'SpecifiedImage': 'string',
-                                'ResolvedImage': 'string',
-                                'ResolutionTime': datetime(2015, 1, 1)
+                                \'SpecifiedImage\': \'string\',
+                                \'ResolvedImage\': \'string\',
+                                \'ResolutionTime\': datetime(2015, 1, 1)
                             },
                         ],
-                        'CurrentWeight': ...,
-                        'DesiredWeight': ...,
-                        'CurrentInstanceCount': 123,
-                        'DesiredInstanceCount': 123
+                        \'CurrentWeight\': ...,
+                        \'DesiredWeight\': ...,
+                        \'CurrentInstanceCount\': 123,
+                        \'DesiredInstanceCount\': 123
                     },
                 ],
-                'EndpointStatus': 'OutOfService'|'Creating'|'Updating'|'SystemUpdating'|'RollingBack'|'InService'|'Deleting'|'Failed',
-                'FailureReason': 'string',
-                'CreationTime': datetime(2015, 1, 1),
-                'LastModifiedTime': datetime(2015, 1, 1)
+                \'EndpointStatus\': \'OutOfService\'|\'Creating\'|\'Updating\'|\'SystemUpdating\'|\'RollingBack\'|\'InService\'|\'Deleting\'|\'Failed\',
+                \'FailureReason\': \'string\',
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'LastModifiedTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2033,7 +2033,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_endpoint_config(
-              EndpointConfigName='string'
+              EndpointConfigName=\'string\'
           )
         :type EndpointConfigName: string
         :param EndpointConfigName: **[REQUIRED]** 
@@ -2048,19 +2048,19 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointConfigName': 'string',
-                'EndpointConfigArn': 'string',
-                'ProductionVariants': [
+                \'EndpointConfigName\': \'string\',
+                \'EndpointConfigArn\': \'string\',
+                \'ProductionVariants\': [
                     {
-                        'VariantName': 'string',
-                        'ModelName': 'string',
-                        'InitialInstanceCount': 123,
-                        'InstanceType': 'ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.large'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.large'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                        'InitialVariantWeight': ...
+                        \'VariantName\': \'string\',
+                        \'ModelName\': \'string\',
+                        \'InitialInstanceCount\': 123,
+                        \'InstanceType\': \'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.large\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.large\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                        \'InitialVariantWeight\': ...
                     },
                 ],
-                'KmsKeyId': 'string',
-                'CreationTime': datetime(2015, 1, 1)
+                \'KmsKeyId\': \'string\',
+                \'CreationTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -2122,7 +2122,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_hyper_parameter_tuning_job(
-              HyperParameterTuningJobName='string'
+              HyperParameterTuningJobName=\'string\'
           )
         :type HyperParameterTuningJobName: string
         :param HyperParameterTuningJobName: **[REQUIRED]** 
@@ -2137,131 +2137,131 @@ class Client(BaseClient):
           ::
         
             {
-                'HyperParameterTuningJobName': 'string',
-                'HyperParameterTuningJobArn': 'string',
-                'HyperParameterTuningJobConfig': {
-                    'Strategy': 'Bayesian',
-                    'HyperParameterTuningJobObjective': {
-                        'Type': 'Maximize'|'Minimize',
-                        'MetricName': 'string'
+                \'HyperParameterTuningJobName\': \'string\',
+                \'HyperParameterTuningJobArn\': \'string\',
+                \'HyperParameterTuningJobConfig\': {
+                    \'Strategy\': \'Bayesian\',
+                    \'HyperParameterTuningJobObjective\': {
+                        \'Type\': \'Maximize\'|\'Minimize\',
+                        \'MetricName\': \'string\'
                     },
-                    'ResourceLimits': {
-                        'MaxNumberOfTrainingJobs': 123,
-                        'MaxParallelTrainingJobs': 123
+                    \'ResourceLimits\': {
+                        \'MaxNumberOfTrainingJobs\': 123,
+                        \'MaxParallelTrainingJobs\': 123
                     },
-                    'ParameterRanges': {
-                        'IntegerParameterRanges': [
+                    \'ParameterRanges\': {
+                        \'IntegerParameterRanges\': [
                             {
-                                'Name': 'string',
-                                'MinValue': 'string',
-                                'MaxValue': 'string'
+                                \'Name\': \'string\',
+                                \'MinValue\': \'string\',
+                                \'MaxValue\': \'string\'
                             },
                         ],
-                        'ContinuousParameterRanges': [
+                        \'ContinuousParameterRanges\': [
                             {
-                                'Name': 'string',
-                                'MinValue': 'string',
-                                'MaxValue': 'string'
+                                \'Name\': \'string\',
+                                \'MinValue\': \'string\',
+                                \'MaxValue\': \'string\'
                             },
                         ],
-                        'CategoricalParameterRanges': [
+                        \'CategoricalParameterRanges\': [
                             {
-                                'Name': 'string',
-                                'Values': [
-                                    'string',
+                                \'Name\': \'string\',
+                                \'Values\': [
+                                    \'string\',
                                 ]
                             },
                         ]
                     }
                 },
-                'TrainingJobDefinition': {
-                    'StaticHyperParameters': {
-                        'string': 'string'
+                \'TrainingJobDefinition\': {
+                    \'StaticHyperParameters\': {
+                        \'string\': \'string\'
                     },
-                    'AlgorithmSpecification': {
-                        'TrainingImage': 'string',
-                        'TrainingInputMode': 'Pipe'|'File',
-                        'MetricDefinitions': [
+                    \'AlgorithmSpecification\': {
+                        \'TrainingImage\': \'string\',
+                        \'TrainingInputMode\': \'Pipe\'|\'File\',
+                        \'MetricDefinitions\': [
                             {
-                                'Name': 'string',
-                                'Regex': 'string'
+                                \'Name\': \'string\',
+                                \'Regex\': \'string\'
                             },
                         ]
                     },
-                    'RoleArn': 'string',
-                    'InputDataConfig': [
+                    \'RoleArn\': \'string\',
+                    \'InputDataConfig\': [
                         {
-                            'ChannelName': 'string',
-                            'DataSource': {
-                                'S3DataSource': {
-                                    'S3DataType': 'ManifestFile'|'S3Prefix',
-                                    'S3Uri': 'string',
-                                    'S3DataDistributionType': 'FullyReplicated'|'ShardedByS3Key'
+                            \'ChannelName\': \'string\',
+                            \'DataSource\': {
+                                \'S3DataSource\': {
+                                    \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                                    \'S3Uri\': \'string\',
+                                    \'S3DataDistributionType\': \'FullyReplicated\'|\'ShardedByS3Key\'
                                 }
                             },
-                            'ContentType': 'string',
-                            'CompressionType': 'None'|'Gzip',
-                            'RecordWrapperType': 'None'|'RecordIO',
-                            'InputMode': 'Pipe'|'File'
+                            \'ContentType\': \'string\',
+                            \'CompressionType\': \'None\'|\'Gzip\',
+                            \'RecordWrapperType\': \'None\'|\'RecordIO\',
+                            \'InputMode\': \'Pipe\'|\'File\'
                         },
                     ],
-                    'VpcConfig': {
-                        'SecurityGroupIds': [
-                            'string',
+                    \'VpcConfig\': {
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'Subnets': [
-                            'string',
+                        \'Subnets\': [
+                            \'string\',
                         ]
                     },
-                    'OutputDataConfig': {
-                        'KmsKeyId': 'string',
-                        'S3OutputPath': 'string'
+                    \'OutputDataConfig\': {
+                        \'KmsKeyId\': \'string\',
+                        \'S3OutputPath\': \'string\'
                     },
-                    'ResourceConfig': {
-                        'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                        'InstanceCount': 123,
-                        'VolumeSizeInGB': 123,
-                        'VolumeKmsKeyId': 'string'
+                    \'ResourceConfig\': {
+                        \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                        \'InstanceCount\': 123,
+                        \'VolumeSizeInGB\': 123,
+                        \'VolumeKmsKeyId\': \'string\'
                     },
-                    'StoppingCondition': {
-                        'MaxRuntimeInSeconds': 123
+                    \'StoppingCondition\': {
+                        \'MaxRuntimeInSeconds\': 123
                     }
                 },
-                'HyperParameterTuningJobStatus': 'Completed'|'InProgress'|'Failed'|'Stopped'|'Stopping',
-                'CreationTime': datetime(2015, 1, 1),
-                'HyperParameterTuningEndTime': datetime(2015, 1, 1),
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'TrainingJobStatusCounters': {
-                    'Completed': 123,
-                    'InProgress': 123,
-                    'RetryableError': 123,
-                    'NonRetryableError': 123,
-                    'Stopped': 123
+                \'HyperParameterTuningJobStatus\': \'Completed\'|\'InProgress\'|\'Failed\'|\'Stopped\'|\'Stopping\',
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'HyperParameterTuningEndTime\': datetime(2015, 1, 1),
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'TrainingJobStatusCounters\': {
+                    \'Completed\': 123,
+                    \'InProgress\': 123,
+                    \'RetryableError\': 123,
+                    \'NonRetryableError\': 123,
+                    \'Stopped\': 123
                 },
-                'ObjectiveStatusCounters': {
-                    'Succeeded': 123,
-                    'Pending': 123,
-                    'Failed': 123
+                \'ObjectiveStatusCounters\': {
+                    \'Succeeded\': 123,
+                    \'Pending\': 123,
+                    \'Failed\': 123
                 },
-                'BestTrainingJob': {
-                    'TrainingJobName': 'string',
-                    'TrainingJobArn': 'string',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'TrainingStartTime': datetime(2015, 1, 1),
-                    'TrainingEndTime': datetime(2015, 1, 1),
-                    'TrainingJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-                    'TunedHyperParameters': {
-                        'string': 'string'
+                \'BestTrainingJob\': {
+                    \'TrainingJobName\': \'string\',
+                    \'TrainingJobArn\': \'string\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'TrainingStartTime\': datetime(2015, 1, 1),
+                    \'TrainingEndTime\': datetime(2015, 1, 1),
+                    \'TrainingJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+                    \'TunedHyperParameters\': {
+                        \'string\': \'string\'
                     },
-                    'FailureReason': 'string',
-                    'FinalHyperParameterTuningJobObjectiveMetric': {
-                        'Type': 'Maximize'|'Minimize',
-                        'MetricName': 'string',
-                        'Value': ...
+                    \'FailureReason\': \'string\',
+                    \'FinalHyperParameterTuningJobObjectiveMetric\': {
+                        \'Type\': \'Maximize\'|\'Minimize\',
+                        \'MetricName\': \'string\',
+                        \'Value\': ...
                     },
-                    'ObjectiveStatus': 'Succeeded'|'Pending'|'Failed'
+                    \'ObjectiveStatus\': \'Succeeded\'|\'Pending\'|\'Failed\'
                 },
-                'FailureReason': 'string'
+                \'FailureReason\': \'string\'
             }
           **Response Structure** 
         
@@ -2449,7 +2449,7 @@ class Client(BaseClient):
         
                         * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                          
-                        * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
+                        * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
                          
                       - **S3DataDistributionType** *(string) --* 
         
@@ -2457,7 +2457,7 @@ class Client(BaseClient):
         
                         If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify ``ShardedByS3Key`` . If there are *n* ML compute instances launched for a training job, each instance gets approximately 1/*n* of the number of S3 objects. In this case, model training on each machine uses only the subset of training data. 
         
-                        Don't choose more ML compute instances for training than available S3 objects. If you do, some nodes won't get any data and you will pay for nodes that aren't getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
+                        Don\'t choose more ML compute instances for training than available S3 objects. If you do, some nodes won\'t get any data and you will pay for nodes that aren\'t getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
         
                         In distributed training, where you use multiple ML compute EC2 instances, you might choose ``ShardedByS3Key`` . If the algorithm requires copying training data to the ML storage volume (when ``TrainingInputMode`` is set to ``File`` ), this copies 1/*n* of the number of objects. 
         
@@ -2471,7 +2471,7 @@ class Client(BaseClient):
         
                   - **RecordWrapperType** *(string) --* 
         
-                    Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
+                    Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don\'t need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
         
                     In FILE mode, leave this field unset or set it to None.
         
@@ -2501,15 +2501,15 @@ class Client(BaseClient):
         
                   The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-                  * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                    
-                  * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                    
-                  * // KMS Key Alias  ``"alias/ExampleAlias"``   
+                  * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
                    
-                  * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+                  * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
                    
-                  If you don't provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
+                  If you don\'t provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
         
                   .. note::
         
@@ -2549,9 +2549,9 @@ class Client(BaseClient):
         
                   The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-                  * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                    
-                  * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                    
               - **StoppingCondition** *(dict) --* 
         
@@ -2599,7 +2599,7 @@ class Client(BaseClient):
         
               - **NonRetryableError** *(integer) --* 
         
-                The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.
+                The number of training jobs that failed and can\'t be retried. A failed training job can\'t be retried if it failed because a client error occurred.
         
               - **Stopped** *(integer) --* 
         
@@ -2703,7 +2703,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_model(
-              ModelName='string'
+              ModelName=\'string\'
           )
         :type ModelName: string
         :param ModelName: **[REQUIRED]** 
@@ -2718,26 +2718,26 @@ class Client(BaseClient):
           ::
         
             {
-                'ModelName': 'string',
-                'PrimaryContainer': {
-                    'ContainerHostname': 'string',
-                    'Image': 'string',
-                    'ModelDataUrl': 'string',
-                    'Environment': {
-                        'string': 'string'
+                \'ModelName\': \'string\',
+                \'PrimaryContainer\': {
+                    \'ContainerHostname\': \'string\',
+                    \'Image\': \'string\',
+                    \'ModelDataUrl\': \'string\',
+                    \'Environment\': {
+                        \'string\': \'string\'
                     }
                 },
-                'ExecutionRoleArn': 'string',
-                'VpcConfig': {
-                    'SecurityGroupIds': [
-                        'string',
+                \'ExecutionRoleArn\': \'string\',
+                \'VpcConfig\': {
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'Subnets': [
-                        'string',
+                    \'Subnets\': [
+                        \'string\',
                     ]
                 },
-                'CreationTime': datetime(2015, 1, 1),
-                'ModelArn': 'string'
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'ModelArn\': \'string\'
             }
           **Response Structure** 
         
@@ -2813,7 +2813,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_notebook_instance(
-              NotebookInstanceName='string'
+              NotebookInstanceName=\'string\'
           )
         :type NotebookInstanceName: string
         :param NotebookInstanceName: **[REQUIRED]** 
@@ -2828,24 +2828,24 @@ class Client(BaseClient):
           ::
         
             {
-                'NotebookInstanceArn': 'string',
-                'NotebookInstanceName': 'string',
-                'NotebookInstanceStatus': 'Pending'|'InService'|'Stopping'|'Stopped'|'Failed'|'Deleting'|'Updating',
-                'FailureReason': 'string',
-                'Url': 'string',
-                'InstanceType': 'ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge',
-                'SubnetId': 'string',
-                'SecurityGroups': [
-                    'string',
+                \'NotebookInstanceArn\': \'string\',
+                \'NotebookInstanceName\': \'string\',
+                \'NotebookInstanceStatus\': \'Pending\'|\'InService\'|\'Stopping\'|\'Stopped\'|\'Failed\'|\'Deleting\'|\'Updating\',
+                \'FailureReason\': \'string\',
+                \'Url\': \'string\',
+                \'InstanceType\': \'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\',
+                \'SubnetId\': \'string\',
+                \'SecurityGroups\': [
+                    \'string\',
                 ],
-                'RoleArn': 'string',
-                'KmsKeyId': 'string',
-                'NetworkInterfaceId': 'string',
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'CreationTime': datetime(2015, 1, 1),
-                'NotebookInstanceLifecycleConfigName': 'string',
-                'DirectInternetAccess': 'Enabled'|'Disabled',
-                'VolumeSizeInGB': 123
+                \'RoleArn\': \'string\',
+                \'KmsKeyId\': \'string\',
+                \'NetworkInterfaceId\': \'string\',
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'NotebookInstanceLifecycleConfigName\': \'string\',
+                \'DirectInternetAccess\': \'Enabled\'|\'Disabled\',
+                \'VolumeSizeInGB\': 123
             }
           **Response Structure** 
         
@@ -2935,7 +2935,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_notebook_instance_lifecycle_config(
-              NotebookInstanceLifecycleConfigName='string'
+              NotebookInstanceLifecycleConfigName=\'string\'
           )
         :type NotebookInstanceLifecycleConfigName: string
         :param NotebookInstanceLifecycleConfigName: **[REQUIRED]** 
@@ -2950,20 +2950,20 @@ class Client(BaseClient):
           ::
         
             {
-                'NotebookInstanceLifecycleConfigArn': 'string',
-                'NotebookInstanceLifecycleConfigName': 'string',
-                'OnCreate': [
+                \'NotebookInstanceLifecycleConfigArn\': \'string\',
+                \'NotebookInstanceLifecycleConfigName\': \'string\',
+                \'OnCreate\': [
                     {
-                        'Content': 'string'
+                        \'Content\': \'string\'
                     },
                 ],
-                'OnStart': [
+                \'OnStart\': [
                     {
-                        'Content': 'string'
+                        \'Content\': \'string\'
                     },
                 ],
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'CreationTime': datetime(2015, 1, 1)
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'CreationTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3041,7 +3041,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_training_job(
-              TrainingJobName='string'
+              TrainingJobName=\'string\'
           )
         :type TrainingJobName: string
         :param TrainingJobName: **[REQUIRED]** 
@@ -3056,70 +3056,70 @@ class Client(BaseClient):
           ::
         
             {
-                'TrainingJobName': 'string',
-                'TrainingJobArn': 'string',
-                'TuningJobArn': 'string',
-                'ModelArtifacts': {
-                    'S3ModelArtifacts': 'string'
+                \'TrainingJobName\': \'string\',
+                \'TrainingJobArn\': \'string\',
+                \'TuningJobArn\': \'string\',
+                \'ModelArtifacts\': {
+                    \'S3ModelArtifacts\': \'string\'
                 },
-                'TrainingJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-                'SecondaryStatus': 'Starting'|'LaunchingMLInstances'|'PreparingTrainingStack'|'Downloading'|'DownloadingTrainingImage'|'Training'|'Uploading'|'Stopping'|'Stopped'|'MaxRuntimeExceeded'|'Completed'|'Failed',
-                'FailureReason': 'string',
-                'HyperParameters': {
-                    'string': 'string'
+                \'TrainingJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+                \'SecondaryStatus\': \'Starting\'|\'LaunchingMLInstances\'|\'PreparingTrainingStack\'|\'Downloading\'|\'DownloadingTrainingImage\'|\'Training\'|\'Uploading\'|\'Stopping\'|\'Stopped\'|\'MaxRuntimeExceeded\'|\'Completed\'|\'Failed\',
+                \'FailureReason\': \'string\',
+                \'HyperParameters\': {
+                    \'string\': \'string\'
                 },
-                'AlgorithmSpecification': {
-                    'TrainingImage': 'string',
-                    'TrainingInputMode': 'Pipe'|'File'
+                \'AlgorithmSpecification\': {
+                    \'TrainingImage\': \'string\',
+                    \'TrainingInputMode\': \'Pipe\'|\'File\'
                 },
-                'RoleArn': 'string',
-                'InputDataConfig': [
+                \'RoleArn\': \'string\',
+                \'InputDataConfig\': [
                     {
-                        'ChannelName': 'string',
-                        'DataSource': {
-                            'S3DataSource': {
-                                'S3DataType': 'ManifestFile'|'S3Prefix',
-                                'S3Uri': 'string',
-                                'S3DataDistributionType': 'FullyReplicated'|'ShardedByS3Key'
+                        \'ChannelName\': \'string\',
+                        \'DataSource\': {
+                            \'S3DataSource\': {
+                                \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                                \'S3Uri\': \'string\',
+                                \'S3DataDistributionType\': \'FullyReplicated\'|\'ShardedByS3Key\'
                             }
                         },
-                        'ContentType': 'string',
-                        'CompressionType': 'None'|'Gzip',
-                        'RecordWrapperType': 'None'|'RecordIO',
-                        'InputMode': 'Pipe'|'File'
+                        \'ContentType\': \'string\',
+                        \'CompressionType\': \'None\'|\'Gzip\',
+                        \'RecordWrapperType\': \'None\'|\'RecordIO\',
+                        \'InputMode\': \'Pipe\'|\'File\'
                     },
                 ],
-                'OutputDataConfig': {
-                    'KmsKeyId': 'string',
-                    'S3OutputPath': 'string'
+                \'OutputDataConfig\': {
+                    \'KmsKeyId\': \'string\',
+                    \'S3OutputPath\': \'string\'
                 },
-                'ResourceConfig': {
-                    'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge',
-                    'InstanceCount': 123,
-                    'VolumeSizeInGB': 123,
-                    'VolumeKmsKeyId': 'string'
+                \'ResourceConfig\': {
+                    \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\',
+                    \'InstanceCount\': 123,
+                    \'VolumeSizeInGB\': 123,
+                    \'VolumeKmsKeyId\': \'string\'
                 },
-                'VpcConfig': {
-                    'SecurityGroupIds': [
-                        'string',
+                \'VpcConfig\': {
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'Subnets': [
-                        'string',
+                    \'Subnets\': [
+                        \'string\',
                     ]
                 },
-                'StoppingCondition': {
-                    'MaxRuntimeInSeconds': 123
+                \'StoppingCondition\': {
+                    \'MaxRuntimeInSeconds\': 123
                 },
-                'CreationTime': datetime(2015, 1, 1),
-                'TrainingStartTime': datetime(2015, 1, 1),
-                'TrainingEndTime': datetime(2015, 1, 1),
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'SecondaryStatusTransitions': [
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'TrainingStartTime\': datetime(2015, 1, 1),
+                \'TrainingEndTime\': datetime(2015, 1, 1),
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'SecondaryStatusTransitions\': [
                     {
-                        'Status': 'Starting'|'LaunchingMLInstances'|'PreparingTrainingStack'|'Downloading'|'DownloadingTrainingImage'|'Training'|'Uploading'|'Stopping'|'Stopped'|'MaxRuntimeExceeded'|'Completed'|'Failed',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusMessage': 'string'
+                        \'Status\': \'Starting\'|\'LaunchingMLInstances\'|\'PreparingTrainingStack\'|\'Downloading\'|\'DownloadingTrainingImage\'|\'Training\'|\'Uploading\'|\'Stopping\'|\'Stopped\'|\'MaxRuntimeExceeded\'|\'Completed\'|\'Failed\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusMessage\': \'string\'
                     },
                 ]
             }
@@ -3237,7 +3237,7 @@ class Client(BaseClient):
         
                 In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. 
         
-                For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
+                For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won\'t be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
         
             - **RoleArn** *(string) --* 
         
@@ -3275,7 +3275,7 @@ class Client(BaseClient):
         
                       * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                        
-                      * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
+                      * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``s3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``s3uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``s3uris`` points to must readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf.  
                        
                     - **S3DataDistributionType** *(string) --* 
         
@@ -3283,7 +3283,7 @@ class Client(BaseClient):
         
                       If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify ``ShardedByS3Key`` . If there are *n* ML compute instances launched for a training job, each instance gets approximately 1/*n* of the number of S3 objects. In this case, model training on each machine uses only the subset of training data. 
         
-                      Don't choose more ML compute instances for training than available S3 objects. If you do, some nodes won't get any data and you will pay for nodes that aren't getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
+                      Don\'t choose more ML compute instances for training than available S3 objects. If you do, some nodes won\'t get any data and you will pay for nodes that aren\'t getting any training data. This applies in both FILE and PIPE modes. Keep this in mind when developing algorithms. 
         
                       In distributed training, where you use multiple ML compute EC2 instances, you might choose ``ShardedByS3Key`` . If the algorithm requires copying training data to the ML storage volume (when ``TrainingInputMode`` is set to ``File`` ), this copies 1/*n* of the number of objects. 
         
@@ -3297,7 +3297,7 @@ class Client(BaseClient):
         
                 - **RecordWrapperType** *(string) --* 
         
-                  Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
+                  Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format, in which case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don\'t need to set this attribute. For more information, see `Create a Dataset Using RecordIO <https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format>`__ . 
         
                   In FILE mode, leave this field unset or set it to None.
         
@@ -3311,15 +3311,15 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-                * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // KMS Key Alias  ``"alias/ExampleAlias"``   
+                * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+                * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
                  
-                If you don't provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
+                If you don\'t provide the KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in *Amazon Simple Storage Service Developer Guide.*  
         
                 .. note::
         
@@ -3357,9 +3357,9 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-                * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
             - **VpcConfig** *(dict) --* 
         
@@ -3407,7 +3407,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                An array element of  DescribeTrainingJobResponse$SecondaryStatusTransitions . It provides additional details about a status that the training job has transitioned through. A training job can be in one of several states, for example, starting, downloading, training, or uploading. Within each state, there are a number of intermediate states. For example, within the starting state, Amazon SageMaker could be starting the training job or launching the ML instances. These transitional states are referred to as the job's secondary status. 
+                An array element of  DescribeTrainingJobResponse$SecondaryStatusTransitions . It provides additional details about a status that the training job has transitioned through. A training job can be in one of several states, for example, starting, downloading, training, or uploading. Within each state, there are a number of intermediate states. For example, within the starting state, Amazon SageMaker could be starting the training job or launching the ML instances. These transitional states are referred to as the job\'s secondary status. 
         
                 - **Status** *(string) --* 
         
@@ -3485,9 +3485,9 @@ class Client(BaseClient):
                    
                   .. warning::
         
-                    Status messages are subject to change. Therefore, we recommend not including them in code that programmatically initiates actions. For examples, don't use status messages in if statements.
+                    Status messages are subject to change. Therefore, we recommend not including them in code that programmatically initiates actions. For examples, don\'t use status messages in if statements.
         
-                  To have an overview of your training job's progress, view ``TrainingJobStatus`` and ``SecondaryStatus`` in  DescribeTrainingJobResponse , and ``StatusMessage`` together. For example, at the start of a training job, you might see the following:
+                  To have an overview of your training job\'s progress, view ``TrainingJobStatus`` and ``SecondaryStatus`` in  DescribeTrainingJobResponse , and ``StatusMessage`` together. For example, at the start of a training job, you might see the following:
         
                   * ``TrainingJobStatus`` - InProgress 
                    
@@ -3507,7 +3507,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_transform_job(
-              TransformJobName='string'
+              TransformJobName=\'string\'
           )
         :type TransformJobName: string
         :param TransformJobName: **[REQUIRED]** 
@@ -3522,42 +3522,42 @@ class Client(BaseClient):
           ::
         
             {
-                'TransformJobName': 'string',
-                'TransformJobArn': 'string',
-                'TransformJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-                'FailureReason': 'string',
-                'ModelName': 'string',
-                'MaxConcurrentTransforms': 123,
-                'MaxPayloadInMB': 123,
-                'BatchStrategy': 'MultiRecord'|'SingleRecord',
-                'Environment': {
-                    'string': 'string'
+                \'TransformJobName\': \'string\',
+                \'TransformJobArn\': \'string\',
+                \'TransformJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+                \'FailureReason\': \'string\',
+                \'ModelName\': \'string\',
+                \'MaxConcurrentTransforms\': 123,
+                \'MaxPayloadInMB\': 123,
+                \'BatchStrategy\': \'MultiRecord\'|\'SingleRecord\',
+                \'Environment\': {
+                    \'string\': \'string\'
                 },
-                'TransformInput': {
-                    'DataSource': {
-                        'S3DataSource': {
-                            'S3DataType': 'ManifestFile'|'S3Prefix',
-                            'S3Uri': 'string'
+                \'TransformInput\': {
+                    \'DataSource\': {
+                        \'S3DataSource\': {
+                            \'S3DataType\': \'ManifestFile\'|\'S3Prefix\',
+                            \'S3Uri\': \'string\'
                         }
                     },
-                    'ContentType': 'string',
-                    'CompressionType': 'None'|'Gzip',
-                    'SplitType': 'None'|'Line'|'RecordIO'
+                    \'ContentType\': \'string\',
+                    \'CompressionType\': \'None\'|\'Gzip\',
+                    \'SplitType\': \'None\'|\'Line\'|\'RecordIO\'
                 },
-                'TransformOutput': {
-                    'S3OutputPath': 'string',
-                    'Accept': 'string',
-                    'AssembleWith': 'None'|'Line',
-                    'KmsKeyId': 'string'
+                \'TransformOutput\': {
+                    \'S3OutputPath\': \'string\',
+                    \'Accept\': \'string\',
+                    \'AssembleWith\': \'None\'|\'Line\',
+                    \'KmsKeyId\': \'string\'
                 },
-                'TransformResources': {
-                    'InstanceType': 'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.c4.xlarge'|'ml.c4.2xlarge'|'ml.c4.4xlarge'|'ml.c4.8xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge'|'ml.c5.xlarge'|'ml.c5.2xlarge'|'ml.c5.4xlarge'|'ml.c5.9xlarge'|'ml.c5.18xlarge'|'ml.m5.large'|'ml.m5.xlarge'|'ml.m5.2xlarge'|'ml.m5.4xlarge'|'ml.m5.12xlarge'|'ml.m5.24xlarge',
-                    'InstanceCount': 123,
-                    'VolumeKmsKeyId': 'string'
+                \'TransformResources\': {
+                    \'InstanceType\': \'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.c4.xlarge\'|\'ml.c4.2xlarge\'|\'ml.c4.4xlarge\'|\'ml.c4.8xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\'|\'ml.c5.xlarge\'|\'ml.c5.2xlarge\'|\'ml.c5.4xlarge\'|\'ml.c5.9xlarge\'|\'ml.c5.18xlarge\'|\'ml.m5.large\'|\'ml.m5.xlarge\'|\'ml.m5.2xlarge\'|\'ml.m5.4xlarge\'|\'ml.m5.12xlarge\'|\'ml.m5.24xlarge\',
+                    \'InstanceCount\': 123,
+                    \'VolumeKmsKeyId\': \'string\'
                 },
-                'CreationTime': datetime(2015, 1, 1),
-                'TransformStartTime': datetime(2015, 1, 1),
-                'TransformEndTime': datetime(2015, 1, 1)
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'TransformStartTime\': datetime(2015, 1, 1),
+                \'TransformEndTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -3625,7 +3625,7 @@ class Client(BaseClient):
         
                     * A key name prefix might look like this: ``s3://bucketname/exampleprefix`` .  
                      
-                    * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{"prefix": "s3://customer_bucket/some/prefix/"},``    ``"relative/path/to/custdata-1",``    ``"relative/path/custdata-2",``    ``...``    ``]``   The preceding JSON matches the following ``S3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``S3Uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``S3Uris`` points to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf. 
+                    * A manifest might look like this: ``s3://bucketname/example.manifest``   The manifest is an S3 object which is a JSON file with the following format:   ``[``    ``{\"prefix\": \"s3://customer_bucket/some/prefix/\"},``    ``\"relative/path/to/custdata-1\",``    ``\"relative/path/custdata-2\",``    ``...``    ``]``   The preceding JSON matches the following ``S3Uris`` :   ``s3://customer_bucket/some/prefix/relative/path/to/custdata-1``    ``s3://customer_bucket/some/prefix/relative/path/custdata-1``    ``...``   The complete set of ``S3Uris`` in this manifest constitutes the input data for the channel for this datasource. The object that each ``S3Uris`` points to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on your behalf. 
                      
               - **ContentType** *(string) --* 
         
@@ -3637,7 +3637,7 @@ class Client(BaseClient):
         
               - **SplitType** *(string) --* 
         
-                The method to use to split the transform job's data into smaller batches. The default value is ``None`` . If you don't want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` .
+                The method to use to split the transform job\'s data into smaller batches. The default value is ``None`` . If you don\'t want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` .
         
                 Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
         
@@ -3667,15 +3667,15 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The ``KmsKeyId`` can be any of the following formats: 
         
-                * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // KMS Key Alias  ``"alias/ExampleAlias"``   
+                * // KMS Key Alias  ``\"alias/ExampleAlias\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key Alias  ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
+                * // Amazon Resource Name (ARN) of a KMS Key Alias  ``\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"``   
                  
-                If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in the *Amazon Simple Storage Service Developer Guide.*  
+                If you don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role\'s account. For more information, see `KMS-Managed Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html>`__ in the *Amazon Simple Storage Service Developer Guide.*  
         
                 The KMS key policy must grant permission to the IAM role that you specify in your ``CreateTramsformJob`` request. For more information, see `Using Key Policies in AWS KMS <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__ in the *AWS Key Management Service Developer Guide* .
         
@@ -3695,9 +3695,9 @@ class Client(BaseClient):
         
                 The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the batch transform job. The ``VolumeKmsKeyId`` can be any of the following formats:
         
-                * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // KMS Key ID  ``\"1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
-                * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``   
                  
             - **CreationTime** *(datetime) --* 
         
@@ -3730,7 +3730,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -3742,10 +3742,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3777,11 +3777,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_endpoint_configs(
-              SortBy='Name'|'CreationTime',
-              SortOrder='Ascending'|'Descending',
-              NextToken='string',
+              SortBy=\'Name\'|\'CreationTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NextToken=\'string\',
               MaxResults=123,
-              NameContains='string',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1)
           )
@@ -3828,14 +3828,14 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointConfigs': [
+                \'EndpointConfigs\': [
                     {
-                        'EndpointConfigName': 'string',
-                        'EndpointConfigArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'EndpointConfigName\': \'string\',
+                        \'EndpointConfigArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3877,16 +3877,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_endpoints(
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
-              NextToken='string',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NextToken=\'string\',
               MaxResults=123,
-              NameContains='string',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
-              StatusEquals='OutOfService'|'Creating'|'Updating'|'SystemUpdating'|'RollingBack'|'InService'|'Deleting'|'Failed'
+              StatusEquals=\'OutOfService\'|\'Creating\'|\'Updating\'|\'SystemUpdating\'|\'RollingBack\'|\'InService\'|\'Deleting\'|\'Failed\'
           )
         :type SortBy: string
         :param SortBy: 
@@ -3946,16 +3946,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'EndpointName': 'string',
-                        'EndpointArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'EndpointStatus': 'OutOfService'|'Creating'|'Updating'|'SystemUpdating'|'RollingBack'|'InService'|'Deleting'|'Failed'
+                        \'EndpointName\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'EndpointStatus\': \'OutOfService\'|\'Creating\'|\'Updating\'|\'SystemUpdating\'|\'RollingBack\'|\'InService\'|\'Deleting\'|\'Failed\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4023,16 +4023,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_hyper_parameter_tuning_jobs(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              SortBy='Name'|'Status'|'CreationTime',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'Status\'|\'CreationTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeAfter=datetime(2015, 1, 1),
               CreationTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
-              StatusEquals='Completed'|'InProgress'|'Failed'|'Stopped'|'Stopping'
+              StatusEquals=\'Completed\'|\'InProgress\'|\'Failed\'|\'Stopped\'|\'Stopping\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -4092,34 +4092,34 @@ class Client(BaseClient):
           ::
         
             {
-                'HyperParameterTuningJobSummaries': [
+                \'HyperParameterTuningJobSummaries\': [
                     {
-                        'HyperParameterTuningJobName': 'string',
-                        'HyperParameterTuningJobArn': 'string',
-                        'HyperParameterTuningJobStatus': 'Completed'|'InProgress'|'Failed'|'Stopped'|'Stopping',
-                        'Strategy': 'Bayesian',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'HyperParameterTuningEndTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'TrainingJobStatusCounters': {
-                            'Completed': 123,
-                            'InProgress': 123,
-                            'RetryableError': 123,
-                            'NonRetryableError': 123,
-                            'Stopped': 123
+                        \'HyperParameterTuningJobName\': \'string\',
+                        \'HyperParameterTuningJobArn\': \'string\',
+                        \'HyperParameterTuningJobStatus\': \'Completed\'|\'InProgress\'|\'Failed\'|\'Stopped\'|\'Stopping\',
+                        \'Strategy\': \'Bayesian\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'HyperParameterTuningEndTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'TrainingJobStatusCounters\': {
+                            \'Completed\': 123,
+                            \'InProgress\': 123,
+                            \'RetryableError\': 123,
+                            \'NonRetryableError\': 123,
+                            \'Stopped\': 123
                         },
-                        'ObjectiveStatusCounters': {
-                            'Succeeded': 123,
-                            'Pending': 123,
-                            'Failed': 123
+                        \'ObjectiveStatusCounters\': {
+                            \'Succeeded\': 123,
+                            \'Pending\': 123,
+                            \'Failed\': 123
                         },
-                        'ResourceLimits': {
-                            'MaxNumberOfTrainingJobs': 123,
-                            'MaxParallelTrainingJobs': 123
+                        \'ResourceLimits\': {
+                            \'MaxNumberOfTrainingJobs\': 123,
+                            \'MaxParallelTrainingJobs\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4179,7 +4179,7 @@ class Client(BaseClient):
         
                   - **NonRetryableError** *(integer) --* 
         
-                    The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.
+                    The number of training jobs that failed and can\'t be retried. A failed training job can\'t be retried if it failed because a client error occurred.
         
                   - **Stopped** *(integer) --* 
         
@@ -4229,11 +4229,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_models(
-              SortBy='Name'|'CreationTime',
-              SortOrder='Ascending'|'Descending',
-              NextToken='string',
+              SortBy=\'Name\'|\'CreationTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NextToken=\'string\',
               MaxResults=123,
-              NameContains='string',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1)
           )
@@ -4280,14 +4280,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Models': [
+                \'Models\': [
                     {
-                        'ModelName': 'string',
-                        'ModelArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'ModelName\': \'string\',
+                        \'ModelArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4329,11 +4329,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_notebook_instance_lifecycle_configs(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              SortBy='Name'|'CreationTime'|'LastModifiedTime',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\'|\'LastModifiedTime\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
@@ -4392,13 +4392,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NotebookInstanceLifecycleConfigs': [
+                \'NextToken\': \'string\',
+                \'NotebookInstanceLifecycleConfigs\': [
                     {
-                        'NotebookInstanceLifecycleConfigName': 'string',
-                        'NotebookInstanceLifecycleConfigArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1)
+                        \'NotebookInstanceLifecycleConfigName\': \'string\',
+                        \'NotebookInstanceLifecycleConfigArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -4446,17 +4446,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_notebook_instances(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
-              NameContains='string',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NameContains=\'string\',
               CreationTimeBefore=datetime(2015, 1, 1),
               CreationTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
-              StatusEquals='Pending'|'InService'|'Stopping'|'Stopped'|'Failed'|'Deleting'|'Updating',
-              NotebookInstanceLifecycleConfigNameContains='string'
+              StatusEquals=\'Pending\'|\'InService\'|\'Stopping\'|\'Stopped\'|\'Failed\'|\'Deleting\'|\'Updating\',
+              NotebookInstanceLifecycleConfigNameContains=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -4485,7 +4485,7 @@ class Client(BaseClient):
         :type NameContains: string
         :param NameContains: 
         
-          A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
+          A string in the notebook instances\' name. This filter returns only notebook instances whose name contains the specified string.
         
         :type CreationTimeBefore: datetime
         :param CreationTimeBefore: 
@@ -4525,17 +4525,17 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'NotebookInstances': [
+                \'NextToken\': \'string\',
+                \'NotebookInstances\': [
                     {
-                        'NotebookInstanceName': 'string',
-                        'NotebookInstanceArn': 'string',
-                        'NotebookInstanceStatus': 'Pending'|'InService'|'Stopping'|'Stopped'|'Failed'|'Deleting'|'Updating',
-                        'Url': 'string',
-                        'InstanceType': 'ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'NotebookInstanceLifecycleConfigName': 'string'
+                        \'NotebookInstanceName\': \'string\',
+                        \'NotebookInstanceArn\': \'string\',
+                        \'NotebookInstanceStatus\': \'Pending\'|\'InService\'|\'Stopping\'|\'Stopped\'|\'Failed\'|\'Deleting\'|\'Updating\',
+                        \'Url\': \'string\',
+                        \'InstanceType\': \'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'NotebookInstanceLifecycleConfigName\': \'string\'
                     },
                 ]
             }
@@ -4601,8 +4601,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              ResourceArn='string',
-              NextToken='string',
+              ResourceArn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ResourceArn: string
@@ -4628,13 +4628,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4672,16 +4672,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_training_jobs(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               CreationTimeAfter=datetime(2015, 1, 1),
               CreationTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
-              NameContains='string',
-              StatusEquals='InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending'
+              NameContains=\'string\',
+              StatusEquals=\'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -4741,17 +4741,17 @@ class Client(BaseClient):
           ::
         
             {
-                'TrainingJobSummaries': [
+                \'TrainingJobSummaries\': [
                     {
-                        'TrainingJobName': 'string',
-                        'TrainingJobArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TrainingEndTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'TrainingJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped'
+                        \'TrainingJobName\': \'string\',
+                        \'TrainingJobArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TrainingEndTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'TrainingJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4805,12 +4805,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_training_jobs_for_hyper_parameter_tuning_job(
-              HyperParameterTuningJobName='string',
-              NextToken='string',
+              HyperParameterTuningJobName=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
-              StatusEquals='InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-              SortBy='Name'|'CreationTime'|'Status'|'FinalObjectiveMetricValue',
-              SortOrder='Ascending'|'Descending'
+              StatusEquals=\'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\'|\'FinalObjectiveMetricValue\',
+              SortOrder=\'Ascending\'|\'Descending\'
           )
         :type HyperParameterTuningJobName: string
         :param HyperParameterTuningJobName: **[REQUIRED]** 
@@ -4852,27 +4852,27 @@ class Client(BaseClient):
           ::
         
             {
-                'TrainingJobSummaries': [
+                \'TrainingJobSummaries\': [
                     {
-                        'TrainingJobName': 'string',
-                        'TrainingJobArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TrainingStartTime': datetime(2015, 1, 1),
-                        'TrainingEndTime': datetime(2015, 1, 1),
-                        'TrainingJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-                        'TunedHyperParameters': {
-                            'string': 'string'
+                        \'TrainingJobName\': \'string\',
+                        \'TrainingJobArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TrainingStartTime\': datetime(2015, 1, 1),
+                        \'TrainingEndTime\': datetime(2015, 1, 1),
+                        \'TrainingJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+                        \'TunedHyperParameters\': {
+                            \'string\': \'string\'
                         },
-                        'FailureReason': 'string',
-                        'FinalHyperParameterTuningJobObjectiveMetric': {
-                            'Type': 'Maximize'|'Minimize',
-                            'MetricName': 'string',
-                            'Value': ...
+                        \'FailureReason\': \'string\',
+                        \'FinalHyperParameterTuningJobObjectiveMetric\': {
+                            \'Type\': \'Maximize\'|\'Minimize\',
+                            \'MetricName\': \'string\',
+                            \'Value\': ...
                         },
-                        'ObjectiveStatus': 'Succeeded'|'Pending'|'Failed'
+                        \'ObjectiveStatus\': \'Succeeded\'|\'Pending\'|\'Failed\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4968,11 +4968,11 @@ class Client(BaseClient):
               CreationTimeBefore=datetime(2015, 1, 1),
               LastModifiedTimeAfter=datetime(2015, 1, 1),
               LastModifiedTimeBefore=datetime(2015, 1, 1),
-              NameContains='string',
-              StatusEquals='InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-              SortBy='Name'|'CreationTime'|'Status',
-              SortOrder='Ascending'|'Descending',
-              NextToken='string',
+              NameContains=\'string\',
+              StatusEquals=\'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+              SortBy=\'Name\'|\'CreationTime\'|\'Status\',
+              SortOrder=\'Ascending\'|\'Descending\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CreationTimeAfter: datetime
@@ -5033,18 +5033,18 @@ class Client(BaseClient):
           ::
         
             {
-                'TransformJobSummaries': [
+                \'TransformJobSummaries\': [
                     {
-                        'TransformJobName': 'string',
-                        'TransformJobArn': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'TransformEndTime': datetime(2015, 1, 1),
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'TransformJobStatus': 'InProgress'|'Completed'|'Failed'|'Stopping'|'Stopped',
-                        'FailureReason': 'string'
+                        \'TransformJobName\': \'string\',
+                        \'TransformJobArn\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'TransformEndTime\': datetime(2015, 1, 1),
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'TransformJobStatus\': \'InProgress\'|\'Completed\'|\'Failed\'|\'Stopping\'|\'Stopped\',
+                        \'FailureReason\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5102,7 +5102,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_notebook_instance(
-              NotebookInstanceName='string'
+              NotebookInstanceName=\'string\'
           )
         :type NotebookInstanceName: string
         :param NotebookInstanceName: **[REQUIRED]** 
@@ -5124,7 +5124,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_hyper_parameter_tuning_job(
-              HyperParameterTuningJobName='string'
+              HyperParameterTuningJobName=\'string\'
           )
         :type HyperParameterTuningJobName: string
         :param HyperParameterTuningJobName: **[REQUIRED]** 
@@ -5146,7 +5146,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_notebook_instance(
-              NotebookInstanceName='string'
+              NotebookInstanceName=\'string\'
           )
         :type NotebookInstanceName: string
         :param NotebookInstanceName: **[REQUIRED]** 
@@ -5170,7 +5170,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_training_job(
-              TrainingJobName='string'
+              TrainingJobName=\'string\'
           )
         :type TrainingJobName: string
         :param TrainingJobName: **[REQUIRED]** 
@@ -5184,7 +5184,7 @@ class Client(BaseClient):
     def stop_transform_job(self, TransformJobName: str) -> NoReturn:
         """
         
-        When Amazon SageMaker receives a ``StopTransformJob`` request, the status of the job changes to ``Stopping`` . After Amazon SageMaker stops the job, the status is set to ``Stopped`` . When you stop a transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.
+        When Amazon SageMaker receives a ``StopTransformJob`` request, the status of the job changes to ``Stopping`` . After Amazon SageMaker stops the job, the status is set to ``Stopped`` . When you stop a transform job before it is completed, Amazon SageMaker doesn\'t store the job\'s output in Amazon S3.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/StopTransformJob>`_
         
@@ -5192,7 +5192,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_transform_job(
-              TransformJobName='string'
+              TransformJobName=\'string\'
           )
         :type TransformJobName: string
         :param TransformJobName: **[REQUIRED]** 
@@ -5218,8 +5218,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_endpoint(
-              EndpointName='string',
-              EndpointConfigName='string'
+              EndpointName=\'string\',
+              EndpointConfigName=\'string\'
           )
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]** 
@@ -5239,7 +5239,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointArn': 'string'
+                \'EndpointArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5261,12 +5261,12 @@ class Client(BaseClient):
         ::
         
           response = client.update_endpoint_weights_and_capacities(
-              EndpointName='string',
+              EndpointName=\'string\',
               DesiredWeightsAndCapacities=[
                   {
-                      'VariantName': 'string',
-                      'DesiredWeight': ...,
-                      'DesiredInstanceCount': 123
+                      \'VariantName\': \'string\',
+                      \'DesiredWeight\': ...,
+                      \'DesiredInstanceCount\': 123
                   },
               ]
           )
@@ -5290,11 +5290,11 @@ class Client(BaseClient):
         
             - **DesiredWeight** *(float) --* 
         
-              The variant's weight.
+              The variant\'s weight.
         
             - **DesiredInstanceCount** *(integer) --* 
         
-              The variant's capacity.
+              The variant\'s capacity.
         
         :rtype: dict
         :returns: 
@@ -5304,7 +5304,7 @@ class Client(BaseClient):
           ::
         
             {
-                'EndpointArn': 'string'
+                \'EndpointArn\': \'string\'
             }
           **Response Structure** 
         
@@ -5326,10 +5326,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_notebook_instance(
-              NotebookInstanceName='string',
-              InstanceType='ml.t2.medium'|'ml.t2.large'|'ml.t2.xlarge'|'ml.t2.2xlarge'|'ml.m4.xlarge'|'ml.m4.2xlarge'|'ml.m4.4xlarge'|'ml.m4.10xlarge'|'ml.m4.16xlarge'|'ml.p2.xlarge'|'ml.p2.8xlarge'|'ml.p2.16xlarge'|'ml.p3.2xlarge'|'ml.p3.8xlarge'|'ml.p3.16xlarge',
-              RoleArn='string',
-              LifecycleConfigName='string',
+              NotebookInstanceName=\'string\',
+              InstanceType=\'ml.t2.medium\'|\'ml.t2.large\'|\'ml.t2.xlarge\'|\'ml.t2.2xlarge\'|\'ml.m4.xlarge\'|\'ml.m4.2xlarge\'|\'ml.m4.4xlarge\'|\'ml.m4.10xlarge\'|\'ml.m4.16xlarge\'|\'ml.p2.xlarge\'|\'ml.p2.8xlarge\'|\'ml.p2.16xlarge\'|\'ml.p3.2xlarge\'|\'ml.p3.8xlarge\'|\'ml.p3.16xlarge\',
+              RoleArn=\'string\',
+              LifecycleConfigName=\'string\',
               DisassociateLifecycleConfig=True|False,
               VolumeSizeInGB=123
           )
@@ -5390,15 +5390,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_notebook_instance_lifecycle_config(
-              NotebookInstanceLifecycleConfigName='string',
+              NotebookInstanceLifecycleConfigName=\'string\',
               OnCreate=[
                   {
-                      'Content': 'string'
+                      \'Content\': \'string\'
                   },
               ],
               OnStart=[
                   {
-                      'Content': 'string'
+                      \'Content\': \'string\'
                   },
               ]
           )

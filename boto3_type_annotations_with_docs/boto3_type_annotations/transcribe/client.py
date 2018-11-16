@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,10 +34,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_vocabulary(
-              VocabularyName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
+              VocabularyName=\'string\',
+              LanguageCode=\'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
               Phrases=[
-                  'string',
+                  \'string\',
               ]
           )
         :type VocabularyName: string
@@ -65,11 +65,11 @@ class Client(BaseClient):
           ::
         
             {
-                'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                'VocabularyState': 'PENDING'|'READY'|'FAILED',
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'FailureReason': 'string'
+                \'VocabularyName\': \'string\',
+                \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                \'VocabularyState\': \'PENDING\'|\'READY\'|\'FAILED\',
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'FailureReason\': \'string\'
             }
           **Response Structure** 
         
@@ -107,7 +107,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_transcription_job(
-              TranscriptionJobName='string'
+              TranscriptionJobName=\'string\'
           )
         :type TranscriptionJobName: string
         :param TranscriptionJobName: **[REQUIRED]** 
@@ -127,7 +127,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vocabulary(
-              VocabularyName='string'
+              VocabularyName=\'string\'
           )
         :type VocabularyName: string
         :param VocabularyName: **[REQUIRED]** 
@@ -154,7 +154,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -166,10 +166,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -189,7 +189,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_transcription_job(
-              TranscriptionJobName='string'
+              TranscriptionJobName=\'string\'
           )
         :type TranscriptionJobName: string
         :param TranscriptionJobName: **[REQUIRED]** 
@@ -204,26 +204,26 @@ class Client(BaseClient):
           ::
         
             {
-                'TranscriptionJob': {
-                    'TranscriptionJobName': 'string',
-                    'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                    'MediaSampleRateHertz': 123,
-                    'MediaFormat': 'mp3'|'mp4'|'wav'|'flac',
-                    'Media': {
-                        'MediaFileUri': 'string'
+                \'TranscriptionJob\': {
+                    \'TranscriptionJobName\': \'string\',
+                    \'TranscriptionJobStatus\': \'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                    \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                    \'MediaSampleRateHertz\': 123,
+                    \'MediaFormat\': \'mp3\'|\'mp4\'|\'wav\'|\'flac\',
+                    \'Media\': {
+                        \'MediaFileUri\': \'string\'
                     },
-                    'Transcript': {
-                        'TranscriptFileUri': 'string'
+                    \'Transcript\': {
+                        \'TranscriptFileUri\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'CompletionTime': datetime(2015, 1, 1),
-                    'FailureReason': 'string',
-                    'Settings': {
-                        'VocabularyName': 'string',
-                        'ShowSpeakerLabels': True|False,
-                        'MaxSpeakerLabels': 123,
-                        'ChannelIdentification': True|False
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'CompletionTime\': datetime(2015, 1, 1),
+                    \'FailureReason\': \'string\',
+                    \'Settings\': {
+                        \'VocabularyName\': \'string\',
+                        \'ShowSpeakerLabels\': True|False,
+                        \'MaxSpeakerLabels\': 123,
+                        \'ChannelIdentification\': True|False
                     }
                 }
             }
@@ -307,7 +307,7 @@ class Client(BaseClient):
         
                   Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the ``ShowSpeakerLabels`` field to true, you must also set the maximum number of speaker labels ``MaxSpeakerLabels`` field.
         
-                  You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+                  You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
                 - **MaxSpeakerLabels** *(integer) --* 
         
@@ -319,7 +319,7 @@ class Client(BaseClient):
         
                   Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
         
-                  You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+                  You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
         """
         pass
@@ -333,7 +333,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_vocabulary(
-              VocabularyName='string'
+              VocabularyName=\'string\'
           )
         :type VocabularyName: string
         :param VocabularyName: **[REQUIRED]** 
@@ -348,12 +348,12 @@ class Client(BaseClient):
           ::
         
             {
-                'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                'VocabularyState': 'PENDING'|'READY'|'FAILED',
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'FailureReason': 'string',
-                'DownloadUri': 'string'
+                \'VocabularyName\': \'string\',
+                \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                \'VocabularyState\': \'PENDING\'|\'READY\'|\'FAILED\',
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'FailureReason\': \'string\',
+                \'DownloadUri\': \'string\'
             }
           **Response Structure** 
         
@@ -407,9 +407,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_transcription_jobs(
-              Status='IN_PROGRESS'|'FAILED'|'COMPLETED',
-              JobNameContains='string',
-              NextToken='string',
+              Status=\'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+              JobNameContains=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Status: string
@@ -440,17 +440,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                'NextToken': 'string',
-                'TranscriptionJobSummaries': [
+                \'Status\': \'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                \'NextToken\': \'string\',
+                \'TranscriptionJobSummaries\': [
                     {
-                        'TranscriptionJobName': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'CompletionTime': datetime(2015, 1, 1),
-                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                        'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                        'FailureReason': 'string',
-                        'OutputLocationType': 'CUSTOMER_BUCKET'|'SERVICE_BUCKET'
+                        \'TranscriptionJobName\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'CompletionTime\': datetime(2015, 1, 1),
+                        \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                        \'TranscriptionJobStatus\': \'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                        \'FailureReason\': \'string\',
+                        \'OutputLocationType\': \'CUSTOMER_BUCKET\'|\'SERVICE_BUCKET\'
                     },
                 ]
             }
@@ -504,7 +504,7 @@ class Client(BaseClient):
         
                   If the value is ``CUSTOMER_BUCKET`` then the location is the S3 bucket specified in the ``outputBucketName`` field when the transcription job was started with the ``StartTranscriptionJob`` operation.
         
-                  If the value is ``SERVICE_BUCKET`` then the output is stored by Amazon Transcribe and can be retrieved using the URI in the ``GetTranscriptionJob`` response's ``TranscriptFileUri`` field.
+                  If the value is ``SERVICE_BUCKET`` then the output is stored by Amazon Transcribe and can be retrieved using the URI in the ``GetTranscriptionJob`` response\'s ``TranscriptFileUri`` field.
         
         """
         pass
@@ -518,10 +518,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_vocabularies(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
-              StateEquals='PENDING'|'READY'|'FAILED',
-              NameContains='string'
+              StateEquals=\'PENDING\'|\'READY\'|\'FAILED\',
+              NameContains=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -541,7 +541,7 @@ class Client(BaseClient):
         :type NameContains: string
         :param NameContains: 
         
-          When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is case-insensitive, ``ListVocabularies`` will return both "vocabularyname" and "VocabularyName" in the response list.
+          When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is case-insensitive, ``ListVocabularies`` will return both \"vocabularyname\" and \"VocabularyName\" in the response list.
         
         :rtype: dict
         :returns: 
@@ -551,14 +551,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                'NextToken': 'string',
-                'Vocabularies': [
+                \'Status\': \'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                \'NextToken\': \'string\',
+                \'Vocabularies\': [
                     {
-                        'VocabularyName': 'string',
-                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                        'LastModifiedTime': datetime(2015, 1, 1),
-                        'VocabularyState': 'PENDING'|'READY'|'FAILED'
+                        \'VocabularyName\': \'string\',
+                        \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                        \'LastModifiedTime\': datetime(2015, 1, 1),
+                        \'VocabularyState\': \'PENDING\'|\'READY\'|\'FAILED\'
                     },
                 ]
             }
@@ -610,25 +610,25 @@ class Client(BaseClient):
         ::
         
           response = client.start_transcription_job(
-              TranscriptionJobName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
+              TranscriptionJobName=\'string\',
+              LanguageCode=\'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
               MediaSampleRateHertz=123,
-              MediaFormat='mp3'|'mp4'|'wav'|'flac',
+              MediaFormat=\'mp3\'|\'mp4\'|\'wav\'|\'flac\',
               Media={
-                  'MediaFileUri': 'string'
+                  \'MediaFileUri\': \'string\'
               },
-              OutputBucketName='string',
+              OutputBucketName=\'string\',
               Settings={
-                  'VocabularyName': 'string',
-                  'ShowSpeakerLabels': True|False,
-                  'MaxSpeakerLabels': 123,
-                  'ChannelIdentification': True|False
+                  \'VocabularyName\': \'string\',
+                  \'ShowSpeakerLabels\': True|False,
+                  \'MaxSpeakerLabels\': 123,
+                  \'ChannelIdentification\': True|False
               }
           )
         :type TranscriptionJobName: string
         :param TranscriptionJobName: **[REQUIRED]** 
         
-          The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS account.
+          The name of the job. You can\'t use the strings \".\" or \"..\" in the job name. The name must be unique within an AWS account.
         
         :type LanguageCode: string
         :param LanguageCode: **[REQUIRED]** 
@@ -671,7 +671,7 @@ class Client(BaseClient):
         
           If you set the ``OutputBucketName`` , Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the  GetTranscriptionJob operation, the operation returns this location in the ``TranscriptFileUri`` field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see `Permissions Required for IAM User Roles <https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user>`__ .
         
-          If you don't set the ``OutputBucketName`` , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the ``TranscriptFileUri`` field. Use this URL to download the transcription.
+          If you don\'t set the ``OutputBucketName`` , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the ``TranscriptFileUri`` field. Use this URL to download the transcription.
         
         :type Settings: dict
         :param Settings: 
@@ -686,7 +686,7 @@ class Client(BaseClient):
         
             Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the ``ShowSpeakerLabels`` field to true, you must also set the maximum number of speaker labels ``MaxSpeakerLabels`` field.
         
-            You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+            You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
           - **MaxSpeakerLabels** *(integer) --* 
         
@@ -698,7 +698,7 @@ class Client(BaseClient):
         
             Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
         
-            You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+            You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
         :rtype: dict
         :returns: 
@@ -708,26 +708,26 @@ class Client(BaseClient):
           ::
         
             {
-                'TranscriptionJob': {
-                    'TranscriptionJobName': 'string',
-                    'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                    'MediaSampleRateHertz': 123,
-                    'MediaFormat': 'mp3'|'mp4'|'wav'|'flac',
-                    'Media': {
-                        'MediaFileUri': 'string'
+                \'TranscriptionJob\': {
+                    \'TranscriptionJobName\': \'string\',
+                    \'TranscriptionJobStatus\': \'IN_PROGRESS\'|\'FAILED\'|\'COMPLETED\',
+                    \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                    \'MediaSampleRateHertz\': 123,
+                    \'MediaFormat\': \'mp3\'|\'mp4\'|\'wav\'|\'flac\',
+                    \'Media\': {
+                        \'MediaFileUri\': \'string\'
                     },
-                    'Transcript': {
-                        'TranscriptFileUri': 'string'
+                    \'Transcript\': {
+                        \'TranscriptFileUri\': \'string\'
                     },
-                    'CreationTime': datetime(2015, 1, 1),
-                    'CompletionTime': datetime(2015, 1, 1),
-                    'FailureReason': 'string',
-                    'Settings': {
-                        'VocabularyName': 'string',
-                        'ShowSpeakerLabels': True|False,
-                        'MaxSpeakerLabels': 123,
-                        'ChannelIdentification': True|False
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'CompletionTime\': datetime(2015, 1, 1),
+                    \'FailureReason\': \'string\',
+                    \'Settings\': {
+                        \'VocabularyName\': \'string\',
+                        \'ShowSpeakerLabels\': True|False,
+                        \'MaxSpeakerLabels\': 123,
+                        \'ChannelIdentification\': True|False
                     }
                 }
             }
@@ -811,7 +811,7 @@ class Client(BaseClient):
         
                   Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the ``ShowSpeakerLabels`` field to true, you must also set the maximum number of speaker labels ``MaxSpeakerLabels`` field.
         
-                  You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+                  You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
                 - **MaxSpeakerLabels** *(integer) --* 
         
@@ -823,7 +823,7 @@ class Client(BaseClient):
         
                   Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
         
-                  You can't set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
+                  You can\'t set both ``ShowSpeakerLabels`` and ``ChannelIdentification`` in the same request. If you set both, your request returns a ``BadRequestException`` .
         
         """
         pass
@@ -837,10 +837,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_vocabulary(
-              VocabularyName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
+              VocabularyName=\'string\',
+              LanguageCode=\'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
               Phrases=[
-                  'string',
+                  \'string\',
               ]
           )
         :type VocabularyName: string
@@ -868,10 +868,10 @@ class Client(BaseClient):
           ::
         
             {
-                'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-UK',
-                'LastModifiedTime': datetime(2015, 1, 1),
-                'VocabularyState': 'PENDING'|'READY'|'FAILED'
+                \'VocabularyName\': \'string\',
+                \'LanguageCode\': \'en-US\'|\'es-US\'|\'en-AU\'|\'fr-CA\'|\'en-UK\',
+                \'LastModifiedTime\': datetime(2015, 1, 1),
+                \'VocabularyState\': \'PENDING\'|\'READY\'|\'FAILED\'
             }
           **Response Structure** 
         

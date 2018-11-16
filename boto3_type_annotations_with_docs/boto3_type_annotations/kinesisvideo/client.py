@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -28,7 +28,7 @@ class Client(BaseClient):
     def create_stream(self, StreamName: str, DeviceName: str = None, MediaType: str = None, KmsKeyId: str = None, DataRetentionInHours: int = None) -> Dict:
         """
         
-        When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. 
+        When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream\'s metadata, Kinesis Video Streams updates the version. 
         
          ``CreateStream`` is an asynchronous operation.
         
@@ -42,10 +42,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_stream(
-              DeviceName='string',
-              StreamName='string',
-              MediaType='string',
-              KmsKeyId='string',
+              DeviceName=\'string\',
+              StreamName=\'string\',
+              MediaType=\'string\',
+              KmsKeyId=\'string\',
               DataRetentionInHours=123
           )
         :type DeviceName: string
@@ -99,7 +99,7 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamARN': 'string'
+                \'StreamARN\': \'string\'
             }
           **Response Structure** 
         
@@ -127,8 +127,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_stream(
-              StreamARN='string',
-              CurrentVersion='string'
+              StreamARN=\'string\',
+              CurrentVersion=\'string\'
           )
         :type StreamARN: string
         :param StreamARN: **[REQUIRED]** 
@@ -167,8 +167,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream(
-              StreamName='string',
-              StreamARN='string'
+              StreamName=\'string\',
+              StreamARN=\'string\'
           )
         :type StreamName: string
         :param StreamName: 
@@ -188,16 +188,16 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamInfo': {
-                    'DeviceName': 'string',
-                    'StreamName': 'string',
-                    'StreamARN': 'string',
-                    'MediaType': 'string',
-                    'KmsKeyId': 'string',
-                    'Version': 'string',
-                    'Status': 'CREATING'|'ACTIVE'|'UPDATING'|'DELETING',
-                    'CreationTime': datetime(2015, 1, 1),
-                    'DataRetentionInHours': 123
+                \'StreamInfo\': {
+                    \'DeviceName\': \'string\',
+                    \'StreamName\': \'string\',
+                    \'StreamARN\': \'string\',
+                    \'MediaType\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'Version\': \'string\',
+                    \'Status\': \'CREATING\'|\'ACTIVE\'|\'UPDATING\'|\'DELETING\',
+                    \'CreationTime\': datetime(2015, 1, 1),
+                    \'DataRetentionInHours\': 123
                 }
             }
           **Response Structure** 
@@ -263,7 +263,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -284,9 +284,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_data_endpoint(
-              StreamName='string',
-              StreamARN='string',
-              APIName='PUT_MEDIA'|'GET_MEDIA'|'LIST_FRAGMENTS'|'GET_MEDIA_FOR_FRAGMENT_LIST'|'GET_HLS_STREAMING_SESSION_URL'
+              StreamName=\'string\',
+              StreamARN=\'string\',
+              APIName=\'PUT_MEDIA\'|\'GET_MEDIA\'|\'LIST_FRAGMENTS\'|\'GET_MEDIA_FOR_FRAGMENT_LIST\'|\'GET_HLS_STREAMING_SESSION_URL\'
           )
         :type StreamName: string
         :param StreamName: 
@@ -311,7 +311,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DataEndpoint': 'string'
+                \'DataEndpoint\': \'string\'
             }
           **Response Structure** 
         
@@ -330,10 +330,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -366,10 +366,10 @@ class Client(BaseClient):
         
           response = client.list_streams(
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               StreamNameCondition={
-                  'ComparisonOperator': 'BEGINS_WITH',
-                  'ComparisonValue': 'string'
+                  \'ComparisonOperator\': \'BEGINS_WITH\',
+                  \'ComparisonValue\': \'string\'
               }
           )
         :type MaxResults: integer
@@ -403,20 +403,20 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamInfoList': [
+                \'StreamInfoList\': [
                     {
-                        'DeviceName': 'string',
-                        'StreamName': 'string',
-                        'StreamARN': 'string',
-                        'MediaType': 'string',
-                        'KmsKeyId': 'string',
-                        'Version': 'string',
-                        'Status': 'CREATING'|'ACTIVE'|'UPDATING'|'DELETING',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'DataRetentionInHours': 123
+                        \'DeviceName\': \'string\',
+                        \'StreamName\': \'string\',
+                        \'StreamARN\': \'string\',
+                        \'MediaType\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'Version\': \'string\',
+                        \'Status\': \'CREATING\'|\'ACTIVE\'|\'UPDATING\'|\'DELETING\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'DataRetentionInHours\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -484,9 +484,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_stream(
-              NextToken='string',
-              StreamARN='string',
-              StreamName='string'
+              NextToken=\'string\',
+              StreamARN=\'string\',
+              StreamName=\'string\'
           )
         :type NextToken: string
         :param NextToken: 
@@ -511,9 +511,9 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Tags': {
-                    'string': 'string'
+                \'NextToken\': \'string\',
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -550,10 +550,10 @@ class Client(BaseClient):
         ::
         
           response = client.tag_stream(
-              StreamARN='string',
-              StreamName='string',
+              StreamARN=\'string\',
+              StreamName=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type StreamARN: string
@@ -600,10 +600,10 @@ class Client(BaseClient):
         ::
         
           response = client.untag_stream(
-              StreamARN='string',
-              StreamName='string',
+              StreamARN=\'string\',
+              StreamName=\'string\',
               TagKeyList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StreamARN: string
@@ -658,10 +658,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_data_retention(
-              StreamName='string',
-              StreamARN='string',
-              CurrentVersion='string',
-              Operation='INCREASE_DATA_RETENTION'|'DECREASE_DATA_RETENTION',
+              StreamName=\'string\',
+              StreamARN=\'string\',
+              CurrentVersion=\'string\',
+              Operation=\'INCREASE_DATA_RETENTION\'|\'DECREASE_DATA_RETENTION\',
               DataRetentionChangeInHours=123
           )
         :type StreamName: string
@@ -718,11 +718,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_stream(
-              StreamName='string',
-              StreamARN='string',
-              CurrentVersion='string',
-              DeviceName='string',
-              MediaType='string'
+              StreamName=\'string\',
+              StreamARN=\'string\',
+              CurrentVersion=\'string\',
+              DeviceName=\'string\',
+              MediaType=\'string\'
           )
         :type StreamName: string
         :param StreamName: 
@@ -753,7 +753,7 @@ class Client(BaseClient):
         :type MediaType: string
         :param MediaType: 
         
-          The stream's media type. Use ``MediaType`` to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see `Media Types <http://www.iana.org/assignments/media-types/media-types.xhtml>`__ . If you choose to specify the ``MediaType`` , see `Naming Requirements <https://tools.ietf.org/html/rfc6838#section-4.2>`__ .
+          The stream\'s media type. Use ``MediaType`` to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see `Media Types <http://www.iana.org/assignments/media-types/media-types.xhtml>`__ . If you choose to specify the ``MediaType`` , see `Naming Requirements <https://tools.ietf.org/html/rfc6838#section-4.2>`__ .
         
           To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify ``video/h264`` as the ``MediaType`` .
         

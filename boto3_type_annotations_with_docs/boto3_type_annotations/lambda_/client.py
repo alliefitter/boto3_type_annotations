@@ -1,12 +1,12 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
+from typing import IO
 from typing import NoReturn
 from botocore.client import BaseClient
-from typing import IO
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -24,15 +24,15 @@ class Client(BaseClient):
         ::
         
           response = client.add_permission(
-              FunctionName='string',
-              StatementId='string',
-              Action='string',
-              Principal='string',
-              SourceArn='string',
-              SourceAccount='string',
-              EventSourceToken='string',
-              Qualifier='string',
-              RevisionId='string'
+              FunctionName=\'string\',
+              StatementId=\'string\',
+              Action=\'string\',
+              Principal=\'string\',
+              SourceArn=\'string\',
+              SourceAccount=\'string\',
+              EventSourceToken=\'string\',
+              Qualifier=\'string\',
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -76,7 +76,7 @@ class Client(BaseClient):
         :type SourceAccount: string
         :param SourceAccount: 
         
-          This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the ``SourceArn`` identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the ``SourceArn`` ) owned by a specific account. 
+          This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the ``SourceArn`` identifies a bucket, then this is the bucket owner\'s account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don\'t specify the ``SourceArn`` ) owned by a specific account. 
         
         :type EventSourceToken: string
         :param EventSourceToken: 
@@ -91,7 +91,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias  
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias  
         
         :rtype: dict
         :returns: 
@@ -101,7 +101,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Statement': 'string'
+                \'Statement\': \'string\'
             }
           **Response Structure** 
         
@@ -109,7 +109,7 @@ class Client(BaseClient):
             
             - **Statement** *(string) --* 
         
-              The permission statement you specified in the request. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
+              The permission statement you specified in the request. The response returns the same as a string using a backslash (\"\\") as an escape character in the JSON.
         
         """
         pass
@@ -120,10 +120,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -141,13 +141,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_alias(
-              FunctionName='string',
-              Name='string',
-              FunctionVersion='string',
-              Description='string',
+              FunctionName=\'string\',
+              Name=\'string\',
+              FunctionVersion=\'string\',
+              Description=\'string\',
               RoutingConfig={
-                  'AdditionalVersionWeights': {
-                      'string': 123.0
+                  \'AdditionalVersionWeights\': {
+                      \'string\': 123.0
                   }
               }
           )
@@ -202,16 +202,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AliasArn': 'string',
-                'Name': 'string',
-                'FunctionVersion': 'string',
-                'Description': 'string',
-                'RoutingConfig': {
-                    'AdditionalVersionWeights': {
-                        'string': 123.0
+                \'AliasArn\': \'string\',
+                \'Name\': \'string\',
+                \'FunctionVersion\': \'string\',
+                \'Description\': \'string\',
+                \'RoutingConfig\': {
+                    \'AdditionalVersionWeights\': {
+                        \'string\': 123.0
                     }
                 },
-                'RevisionId': 'string'
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
@@ -263,7 +263,7 @@ class Client(BaseClient):
         
         Amazon Kinesis or DynamoDB stream event sources can be associated with multiple AWS Lambda functions and a given Lambda function can be associated with multiple AWS event sources. For Amazon SQS, you can configure multiple queues as event sources for a single Lambda function, but an SQS queue can be mapped only to a single Lambda function.
         
-        You can configure an SQS queue in an account separate from your Lambda function's account. Also the queue needs to reside in the same AWS region as your function. 
+        You can configure an SQS queue in an account separate from your Lambda function\'s account. Also the queue needs to reside in the same AWS region as your function. 
         
         If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see `AWS Lambda Function Versioning and Aliases <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__ . 
         
@@ -275,11 +275,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_event_source_mapping(
-              EventSourceArn='string',
-              FunctionName='string',
+              EventSourceArn=\'string\',
+              FunctionName=\'string\',
               Enabled=True|False,
               BatchSize=123,
-              StartingPosition='TRIM_HORIZON'|'LATEST'|'AT_TIMESTAMP',
+              StartingPosition=\'TRIM_HORIZON\'|\'LATEST\'|\'AT_TIMESTAMP\',
               StartingPositionTimestamp=datetime(2015, 1, 1)
           )
         :type EventSourceArn: string
@@ -332,14 +332,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UUID': 'string',
-                'BatchSize': 123,
-                'EventSourceArn': 'string',
-                'FunctionArn': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'LastProcessingResult': 'string',
-                'State': 'string',
-                'StateTransitionReason': 'string'
+                \'UUID\': \'string\',
+                \'BatchSize\': 123,
+                \'EventSourceArn\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'LastProcessingResult\': \'string\',
+                \'State\': \'string\',
+                \'StateTransitionReason\': \'string\'
             }
           **Response Structure** 
         
@@ -393,42 +393,42 @@ class Client(BaseClient):
         ::
         
           response = client.create_function(
-              FunctionName='string',
-              Runtime='nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-              Role='string',
-              Handler='string',
+              FunctionName=\'string\',
+              Runtime=\'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+              Role=\'string\',
+              Handler=\'string\',
               Code={
-                  'ZipFile': b'bytes',
-                  'S3Bucket': 'string',
-                  'S3Key': 'string',
-                  'S3ObjectVersion': 'string'
+                  \'ZipFile\': b\'bytes\',
+                  \'S3Bucket\': \'string\',
+                  \'S3Key\': \'string\',
+                  \'S3ObjectVersion\': \'string\'
               },
-              Description='string',
+              Description=\'string\',
               Timeout=123,
               MemorySize=123,
               Publish=True|False,
               VpcConfig={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               DeadLetterConfig={
-                  'TargetArn': 'string'
+                  \'TargetArn\': \'string\'
               },
               Environment={
-                  'Variables': {
-                      'string': 'string'
+                  \'Variables\': {
+                      \'string\': \'string\'
                   }
               },
-              KMSKeyArn='string',
+              KMSKeyArn=\'string\',
               TracingConfig={
-                  'Mode': 'Active'|'PassThrough'
+                  \'Mode\': \'Active\'|\'PassThrough\'
               },
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type FunctionName: string
@@ -454,7 +454,7 @@ class Client(BaseClient):
         :type Role: string
         :param Role: **[REQUIRED]** 
         
-          The Amazon Resource Name (ARN) of the function's `execution role <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role>`__ .
+          The Amazon Resource Name (ARN) of the function\'s `execution role <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role>`__ .
         
         :type Handler: string
         :param Handler: **[REQUIRED]** 
@@ -495,7 +495,7 @@ class Client(BaseClient):
         :type MemorySize: integer
         :param MemorySize: 
         
-          The amount of memory that your function has access to. Increasing the function's memory also increases it's CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+          The amount of memory that your function has access to. Increasing the function\'s memory also increases it\'s CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         
         :type Publish: boolean
         :param Publish: 
@@ -544,7 +544,7 @@ class Client(BaseClient):
         :type KMSKeyArn: string
         :param KMSKeyArn: 
         
-          The ARN of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
+          The ARN of the KMS key used to encrypt your function\'s environment variables. If not provided, AWS Lambda will use a default service key.
         
         :type TracingConfig: dict
         :param TracingConfig: 
@@ -572,51 +572,51 @@ class Client(BaseClient):
           ::
         
             {
-                'FunctionName': 'string',
-                'FunctionArn': 'string',
-                'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                'Role': 'string',
-                'Handler': 'string',
-                'CodeSize': 123,
-                'Description': 'string',
-                'Timeout': 123,
-                'MemorySize': 123,
-                'LastModified': 'string',
-                'CodeSha256': 'string',
-                'Version': 'string',
-                'VpcConfig': {
-                    'SubnetIds': [
-                        'string',
+                \'FunctionName\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                \'Role\': \'string\',
+                \'Handler\': \'string\',
+                \'CodeSize\': 123,
+                \'Description\': \'string\',
+                \'Timeout\': 123,
+                \'MemorySize\': 123,
+                \'LastModified\': \'string\',
+                \'CodeSha256\': \'string\',
+                \'Version\': \'string\',
+                \'VpcConfig\': {
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 },
-                'DeadLetterConfig': {
-                    'TargetArn': 'string'
+                \'DeadLetterConfig\': {
+                    \'TargetArn\': \'string\'
                 },
-                'Environment': {
-                    'Variables': {
-                        'string': 'string'
+                \'Environment\': {
+                    \'Variables\': {
+                        \'string\': \'string\'
                     },
-                    'Error': {
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                    \'Error\': {
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     }
                 },
-                'KMSKeyArn': 'string',
-                'TracingConfig': {
-                    'Mode': 'Active'|'PassThrough'
+                \'KMSKeyArn\': \'string\',
+                \'TracingConfig\': {
+                    \'Mode\': \'Active\'|\'PassThrough\'
                 },
-                'MasterArn': 'string',
-                'RevisionId': 'string'
+                \'MasterArn\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A Lambda function's configuration settings.
+            A Lambda function\'s configuration settings.
         
             - **FunctionName** *(string) --* 
         
@@ -624,7 +624,7 @@ class Client(BaseClient):
         
             - **FunctionArn** *(string) --* 
         
-              The function's Amazon Resource Name.
+              The function\'s Amazon Resource Name.
         
             - **Runtime** *(string) --* 
         
@@ -632,7 +632,7 @@ class Client(BaseClient):
         
             - **Role** *(string) --* 
         
-              The function's execution role.
+              The function\'s execution role.
         
             - **Handler** *(string) --* 
         
@@ -640,11 +640,11 @@ class Client(BaseClient):
         
             - **CodeSize** *(integer) --* 
         
-              The size of the function's deployment package in bytes.
+              The size of the function\'s deployment package in bytes.
         
             - **Description** *(string) --* 
         
-              The function's description.
+              The function\'s description.
         
             - **Timeout** *(integer) --* 
         
@@ -660,7 +660,7 @@ class Client(BaseClient):
         
             - **CodeSha256** *(string) --* 
         
-              The SHA256 hash of the function's deployment package.
+              The SHA256 hash of the function\'s deployment package.
         
             - **Version** *(string) --* 
         
@@ -668,7 +668,7 @@ class Client(BaseClient):
         
             - **VpcConfig** *(dict) --* 
         
-              The function's networking configuration.
+              The function\'s networking configuration.
         
               - **SubnetIds** *(list) --* 
         
@@ -688,7 +688,7 @@ class Client(BaseClient):
         
             - **DeadLetterConfig** *(dict) --* 
         
-              The function's dead letter queue.
+              The function\'s dead letter queue.
         
               - **TargetArn** *(string) --* 
         
@@ -696,7 +696,7 @@ class Client(BaseClient):
         
             - **Environment** *(dict) --* 
         
-              The function's environment variables.
+              The function\'s environment variables.
         
               - **Variables** *(dict) --* 
         
@@ -720,11 +720,11 @@ class Client(BaseClient):
         
             - **KMSKeyArn** *(string) --* 
         
-              The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+              The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
             - **TracingConfig** *(dict) --* 
         
-              The function's AWS X-Ray tracing configuration.
+              The function\'s AWS X-Ray tracing configuration.
         
               - **Mode** *(string) --* 
         
@@ -752,8 +752,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_alias(
-              FunctionName='string',
-              Name='string'
+              FunctionName=\'string\',
+              Name=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -790,7 +790,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_event_source_mapping(
-              UUID='string'
+              UUID=\'string\'
           )
         :type UUID: string
         :param UUID: **[REQUIRED]** 
@@ -805,14 +805,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UUID': 'string',
-                'BatchSize': 123,
-                'EventSourceArn': 'string',
-                'FunctionArn': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'LastProcessingResult': 'string',
-                'State': 'string',
-                'StateTransitionReason': 'string'
+                \'UUID\': \'string\',
+                \'BatchSize\': 123,
+                \'EventSourceArn\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'LastProcessingResult\': \'string\',
+                \'State\': \'string\',
+                \'StateTransitionReason\': \'string\'
             }
           **Response Structure** 
         
@@ -866,8 +866,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_function(
-              FunctionName='string',
-              Qualifier='string'
+              FunctionName=\'string\',
+              Qualifier=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -902,7 +902,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_function_concurrency(
-              FunctionName='string'
+              FunctionName=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -939,7 +939,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -963,16 +963,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountLimit': {
-                    'TotalCodeSize': 123,
-                    'CodeSizeUnzipped': 123,
-                    'CodeSizeZipped': 123,
-                    'ConcurrentExecutions': 123,
-                    'UnreservedConcurrentExecutions': 123
+                \'AccountLimit\': {
+                    \'TotalCodeSize\': 123,
+                    \'CodeSizeUnzipped\': 123,
+                    \'CodeSizeZipped\': 123,
+                    \'ConcurrentExecutions\': 123,
+                    \'UnreservedConcurrentExecutions\': 123
                 },
-                'AccountUsage': {
-                    'TotalCodeSize': 123,
-                    'FunctionCount': 123
+                \'AccountUsage\': {
+                    \'TotalCodeSize\': 123,
+                    \'FunctionCount\': 123
                 }
             }
           **Response Structure** 
@@ -1009,11 +1009,11 @@ class Client(BaseClient):
         
               - **TotalCodeSize** *(integer) --* 
         
-                Total size, in bytes, of the account's deployment packages per region.
+                Total size, in bytes, of the account\'s deployment packages per region.
         
               - **FunctionCount** *(integer) --* 
         
-                The number of your account's existing functions per region.
+                The number of your account\'s existing functions per region.
         
         """
         pass
@@ -1029,8 +1029,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_alias(
-              FunctionName='string',
-              Name='string'
+              FunctionName=\'string\',
+              Name=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1060,16 +1060,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AliasArn': 'string',
-                'Name': 'string',
-                'FunctionVersion': 'string',
-                'Description': 'string',
-                'RoutingConfig': {
-                    'AdditionalVersionWeights': {
-                        'string': 123.0
+                \'AliasArn\': \'string\',
+                \'Name\': \'string\',
+                \'FunctionVersion\': \'string\',
+                \'Description\': \'string\',
+                \'RoutingConfig\': {
+                    \'AdditionalVersionWeights\': {
+                        \'string\': 123.0
                     }
                 },
-                'RevisionId': 'string'
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1123,7 +1123,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_event_source_mapping(
-              UUID='string'
+              UUID=\'string\'
           )
         :type UUID: string
         :param UUID: **[REQUIRED]** 
@@ -1138,14 +1138,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UUID': 'string',
-                'BatchSize': 123,
-                'EventSourceArn': 'string',
-                'FunctionArn': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'LastProcessingResult': 'string',
-                'State': 'string',
-                'StateTransitionReason': 'string'
+                \'UUID\': \'string\',
+                \'BatchSize\': 123,
+                \'EventSourceArn\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'LastProcessingResult\': \'string\',
+                \'State\': \'string\',
+                \'StateTransitionReason\': \'string\'
             }
           **Response Structure** 
         
@@ -1201,8 +1201,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_function(
-              FunctionName='string',
-              Qualifier='string'
+              FunctionName=\'string\',
+              Qualifier=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1232,56 +1232,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Configuration': {
-                    'FunctionName': 'string',
-                    'FunctionArn': 'string',
-                    'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                    'Role': 'string',
-                    'Handler': 'string',
-                    'CodeSize': 123,
-                    'Description': 'string',
-                    'Timeout': 123,
-                    'MemorySize': 123,
-                    'LastModified': 'string',
-                    'CodeSha256': 'string',
-                    'Version': 'string',
-                    'VpcConfig': {
-                        'SubnetIds': [
-                            'string',
+                \'Configuration\': {
+                    \'FunctionName\': \'string\',
+                    \'FunctionArn\': \'string\',
+                    \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                    \'Role\': \'string\',
+                    \'Handler\': \'string\',
+                    \'CodeSize\': 123,
+                    \'Description\': \'string\',
+                    \'Timeout\': 123,
+                    \'MemorySize\': 123,
+                    \'LastModified\': \'string\',
+                    \'CodeSha256\': \'string\',
+                    \'Version\': \'string\',
+                    \'VpcConfig\': {
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
-                    'DeadLetterConfig': {
-                        'TargetArn': 'string'
+                    \'DeadLetterConfig\': {
+                        \'TargetArn\': \'string\'
                     },
-                    'Environment': {
-                        'Variables': {
-                            'string': 'string'
+                    \'Environment\': {
+                        \'Variables\': {
+                            \'string\': \'string\'
                         },
-                        'Error': {
-                            'ErrorCode': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'ErrorCode\': \'string\',
+                            \'Message\': \'string\'
                         }
                     },
-                    'KMSKeyArn': 'string',
-                    'TracingConfig': {
-                        'Mode': 'Active'|'PassThrough'
+                    \'KMSKeyArn\': \'string\',
+                    \'TracingConfig\': {
+                        \'Mode\': \'Active\'|\'PassThrough\'
                     },
-                    'MasterArn': 'string',
-                    'RevisionId': 'string'
+                    \'MasterArn\': \'string\',
+                    \'RevisionId\': \'string\'
                 },
-                'Code': {
-                    'RepositoryType': 'string',
-                    'Location': 'string'
+                \'Code\': {
+                    \'RepositoryType\': \'string\',
+                    \'Location\': \'string\'
                 },
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 },
-                'Concurrency': {
-                    'ReservedConcurrentExecutions': 123
+                \'Concurrency\': {
+                    \'ReservedConcurrentExecutions\': 123
                 }
             }
           **Response Structure** 
@@ -1292,7 +1292,7 @@ class Client(BaseClient):
         
             - **Configuration** *(dict) --* 
         
-              The function's configuration.
+              The function\'s configuration.
         
               - **FunctionName** *(string) --* 
         
@@ -1300,7 +1300,7 @@ class Client(BaseClient):
         
               - **FunctionArn** *(string) --* 
         
-                The function's Amazon Resource Name.
+                The function\'s Amazon Resource Name.
         
               - **Runtime** *(string) --* 
         
@@ -1308,7 +1308,7 @@ class Client(BaseClient):
         
               - **Role** *(string) --* 
         
-                The function's execution role.
+                The function\'s execution role.
         
               - **Handler** *(string) --* 
         
@@ -1316,11 +1316,11 @@ class Client(BaseClient):
         
               - **CodeSize** *(integer) --* 
         
-                The size of the function's deployment package in bytes.
+                The size of the function\'s deployment package in bytes.
         
               - **Description** *(string) --* 
         
-                The function's description.
+                The function\'s description.
         
               - **Timeout** *(integer) --* 
         
@@ -1336,7 +1336,7 @@ class Client(BaseClient):
         
               - **CodeSha256** *(string) --* 
         
-                The SHA256 hash of the function's deployment package.
+                The SHA256 hash of the function\'s deployment package.
         
               - **Version** *(string) --* 
         
@@ -1344,7 +1344,7 @@ class Client(BaseClient):
         
               - **VpcConfig** *(dict) --* 
         
-                The function's networking configuration.
+                The function\'s networking configuration.
         
                 - **SubnetIds** *(list) --* 
         
@@ -1364,7 +1364,7 @@ class Client(BaseClient):
         
               - **DeadLetterConfig** *(dict) --* 
         
-                The function's dead letter queue.
+                The function\'s dead letter queue.
         
                 - **TargetArn** *(string) --* 
         
@@ -1372,7 +1372,7 @@ class Client(BaseClient):
         
               - **Environment** *(dict) --* 
         
-                The function's environment variables.
+                The function\'s environment variables.
         
                 - **Variables** *(dict) --* 
         
@@ -1396,11 +1396,11 @@ class Client(BaseClient):
         
               - **KMSKeyArn** *(string) --* 
         
-                The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+                The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
               - **TracingConfig** *(dict) --* 
         
-                The function's AWS X-Ray tracing configuration.
+                The function\'s AWS X-Ray tracing configuration.
         
                 - **Mode** *(string) --* 
         
@@ -1416,7 +1416,7 @@ class Client(BaseClient):
         
             - **Code** *(dict) --* 
         
-              The function's code.
+              The function\'s code.
         
               - **RepositoryType** *(string) --* 
         
@@ -1424,7 +1424,7 @@ class Client(BaseClient):
         
               - **Location** *(string) --* 
         
-                The presigned URL you can use to download the function's .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
+                The presigned URL you can use to download the function\'s .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
         
             - **Tags** *(dict) --* 
         
@@ -1448,7 +1448,7 @@ class Client(BaseClient):
     def get_function_configuration(self, FunctionName: str, Qualifier: str = None) -> Dict:
         """
         
-        If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional ``Qualifier`` parameter and specifying the function version or alias that points to it. If you don't provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see `AWS Lambda Function Versioning and Aliases <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__ .
+        If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional ``Qualifier`` parameter and specifying the function version or alias that points to it. If you don\'t provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see `AWS Lambda Function Versioning and Aliases <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__ .
         
         This operation requires permission for the ``lambda:GetFunctionConfiguration`` operation.
         
@@ -1458,8 +1458,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_function_configuration(
-              FunctionName='string',
-              Qualifier='string'
+              FunctionName=\'string\',
+              Qualifier=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1489,51 +1489,51 @@ class Client(BaseClient):
           ::
         
             {
-                'FunctionName': 'string',
-                'FunctionArn': 'string',
-                'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                'Role': 'string',
-                'Handler': 'string',
-                'CodeSize': 123,
-                'Description': 'string',
-                'Timeout': 123,
-                'MemorySize': 123,
-                'LastModified': 'string',
-                'CodeSha256': 'string',
-                'Version': 'string',
-                'VpcConfig': {
-                    'SubnetIds': [
-                        'string',
+                \'FunctionName\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                \'Role\': \'string\',
+                \'Handler\': \'string\',
+                \'CodeSize\': 123,
+                \'Description\': \'string\',
+                \'Timeout\': 123,
+                \'MemorySize\': 123,
+                \'LastModified\': \'string\',
+                \'CodeSha256\': \'string\',
+                \'Version\': \'string\',
+                \'VpcConfig\': {
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 },
-                'DeadLetterConfig': {
-                    'TargetArn': 'string'
+                \'DeadLetterConfig\': {
+                    \'TargetArn\': \'string\'
                 },
-                'Environment': {
-                    'Variables': {
-                        'string': 'string'
+                \'Environment\': {
+                    \'Variables\': {
+                        \'string\': \'string\'
                     },
-                    'Error': {
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                    \'Error\': {
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     }
                 },
-                'KMSKeyArn': 'string',
-                'TracingConfig': {
-                    'Mode': 'Active'|'PassThrough'
+                \'KMSKeyArn\': \'string\',
+                \'TracingConfig\': {
+                    \'Mode\': \'Active\'|\'PassThrough\'
                 },
-                'MasterArn': 'string',
-                'RevisionId': 'string'
+                \'MasterArn\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A Lambda function's configuration settings.
+            A Lambda function\'s configuration settings.
         
             - **FunctionName** *(string) --* 
         
@@ -1541,7 +1541,7 @@ class Client(BaseClient):
         
             - **FunctionArn** *(string) --* 
         
-              The function's Amazon Resource Name.
+              The function\'s Amazon Resource Name.
         
             - **Runtime** *(string) --* 
         
@@ -1549,7 +1549,7 @@ class Client(BaseClient):
         
             - **Role** *(string) --* 
         
-              The function's execution role.
+              The function\'s execution role.
         
             - **Handler** *(string) --* 
         
@@ -1557,11 +1557,11 @@ class Client(BaseClient):
         
             - **CodeSize** *(integer) --* 
         
-              The size of the function's deployment package in bytes.
+              The size of the function\'s deployment package in bytes.
         
             - **Description** *(string) --* 
         
-              The function's description.
+              The function\'s description.
         
             - **Timeout** *(integer) --* 
         
@@ -1577,7 +1577,7 @@ class Client(BaseClient):
         
             - **CodeSha256** *(string) --* 
         
-              The SHA256 hash of the function's deployment package.
+              The SHA256 hash of the function\'s deployment package.
         
             - **Version** *(string) --* 
         
@@ -1585,7 +1585,7 @@ class Client(BaseClient):
         
             - **VpcConfig** *(dict) --* 
         
-              The function's networking configuration.
+              The function\'s networking configuration.
         
               - **SubnetIds** *(list) --* 
         
@@ -1605,7 +1605,7 @@ class Client(BaseClient):
         
             - **DeadLetterConfig** *(dict) --* 
         
-              The function's dead letter queue.
+              The function\'s dead letter queue.
         
               - **TargetArn** *(string) --* 
         
@@ -1613,7 +1613,7 @@ class Client(BaseClient):
         
             - **Environment** *(dict) --* 
         
-              The function's environment variables.
+              The function\'s environment variables.
         
               - **Variables** *(dict) --* 
         
@@ -1637,11 +1637,11 @@ class Client(BaseClient):
         
             - **KMSKeyArn** *(string) --* 
         
-              The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+              The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
             - **TracingConfig** *(dict) --* 
         
-              The function's AWS X-Ray tracing configuration.
+              The function\'s AWS X-Ray tracing configuration.
         
               - **Mode** *(string) --* 
         
@@ -1664,10 +1664,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1689,8 +1689,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_policy(
-              FunctionName='string',
-              Qualifier='string'
+              FunctionName=\'string\',
+              Qualifier=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1710,7 +1710,7 @@ class Client(BaseClient):
         :type Qualifier: string
         :param Qualifier: 
         
-          You can specify this optional query parameter to specify a function version or an alias name in which case this API will return all permissions associated with the specific qualified ARN. If you don't provide this parameter, the API will return permissions that apply to the unqualified function ARN.
+          You can specify this optional query parameter to specify a function version or an alias name in which case this API will return all permissions associated with the specific qualified ARN. If you don\'t provide this parameter, the API will return permissions that apply to the unqualified function ARN.
         
         :rtype: dict
         :returns: 
@@ -1720,8 +1720,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string',
-                'RevisionId': 'string'
+                \'Policy\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
@@ -1729,7 +1729,7 @@ class Client(BaseClient):
             
             - **Policy** *(string) --* 
         
-              The resource policy associated with the specified function. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
+              The resource policy associated with the specified function. The response returns the same as a string using a backslash (\"\\") as an escape character in the JSON.
         
             - **RevisionId** *(string) --* 
         
@@ -1761,7 +1761,7 @@ class Client(BaseClient):
         
         This operation requires permission for the ``lambda:InvokeFunction`` action.
         
-        The ``TooManyRequestsException`` noted below will return the following: ``ConcurrentInvocationLimitExceeded`` will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account's unreserved concurrency limit. ``ReservedFunctionConcurrentInvocationLimitExceeded`` will be returned when a function with reserved concurrency exceeds its configured concurrency limit. 
+        The ``TooManyRequestsException`` noted below will return the following: ``ConcurrentInvocationLimitExceeded`` will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account\'s unreserved concurrency limit. ``ReservedFunctionConcurrentInvocationLimitExceeded`` will be returned when a function with reserved concurrency exceeds its configured concurrency limit. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/Invoke>`_
         
@@ -1769,12 +1769,12 @@ class Client(BaseClient):
         ::
         
           response = client.invoke(
-              FunctionName='string',
-              InvocationType='Event'|'RequestResponse'|'DryRun',
-              LogType='None'|'Tail',
-              ClientContext='string',
-              Payload=b'bytes'|file,
-              Qualifier='string'
+              FunctionName=\'string\',
+              InvocationType=\'Event\'|\'RequestResponse\'|\'DryRun\',
+              LogType=\'None\'|\'Tail\',
+              ClientContext=\'string\',
+              Payload=b\'bytes\'|file,
+              Qualifier=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1798,7 +1798,7 @@ class Client(BaseClient):
         
           * ``RequestResponse`` (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. 
            
-          * ``Event`` - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if configured). 
+          * ``Event`` - Invoke the function asynchronously. Send events that fail multiple times to the function\'s dead-letter queue (if configured). 
            
           * ``DryRun`` - Validate parameter values and verify that the user or role has permission to invoke the function. 
            
@@ -1836,11 +1836,11 @@ class Client(BaseClient):
           ::
         
             {
-                'StatusCode': 123,
-                'FunctionError': 'string',
-                'LogResult': 'string',
-                'Payload': StreamingBody(),
-                'ExecutedVersion': 'string'
+                \'StatusCode\': 123,
+                \'FunctionError\': \'string\',
+                \'LogResult\': \'string\',
+                \'Payload\': StreamingBody(),
+                \'ExecutedVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -1893,8 +1893,8 @@ class Client(BaseClient):
         ::
         
           response = client.invoke_async(
-              FunctionName='string',
-              InvokeArgs=b'bytes'|file
+              FunctionName=\'string\',
+              InvokeArgs=b\'bytes\'|file
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -1924,7 +1924,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': 123
+                \'Status\': 123
             }
           **Response Structure** 
         
@@ -1950,9 +1950,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_aliases(
-              FunctionName='string',
-              FunctionVersion='string',
-              Marker='string',
+              FunctionName=\'string\',
+              FunctionVersion=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type FunctionName: string
@@ -1993,19 +1993,19 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'Aliases': [
+                \'NextMarker\': \'string\',
+                \'Aliases\': [
                     {
-                        'AliasArn': 'string',
-                        'Name': 'string',
-                        'FunctionVersion': 'string',
-                        'Description': 'string',
-                        'RoutingConfig': {
-                            'AdditionalVersionWeights': {
-                                'string': 123.0
+                        \'AliasArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'FunctionVersion\': \'string\',
+                        \'Description\': \'string\',
+                        \'RoutingConfig\': {
+                            \'AdditionalVersionWeights\': {
+                                \'string\': 123.0
                             }
                         },
-                        'RevisionId': 'string'
+                        \'RevisionId\': \'string\'
                     },
                 ]
             }
@@ -2073,9 +2073,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_event_source_mappings(
-              EventSourceArn='string',
-              FunctionName='string',
-              Marker='string',
+              EventSourceArn=\'string\',
+              FunctionName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type EventSourceArn: string
@@ -2118,17 +2118,17 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'EventSourceMappings': [
+                \'NextMarker\': \'string\',
+                \'EventSourceMappings\': [
                     {
-                        'UUID': 'string',
-                        'BatchSize': 123,
-                        'EventSourceArn': 'string',
-                        'FunctionArn': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'LastProcessingResult': 'string',
-                        'State': 'string',
-                        'StateTransitionReason': 'string'
+                        \'UUID\': \'string\',
+                        \'BatchSize\': 123,
+                        \'EventSourceArn\': \'string\',
+                        \'FunctionArn\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'LastProcessingResult\': \'string\',
+                        \'State\': \'string\',
+                        \'StateTransitionReason\': \'string\'
                     },
                 ]
             }
@@ -2198,9 +2198,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_functions(
-              MasterRegion='string',
-              FunctionVersion='ALL',
-              Marker='string',
+              MasterRegion=\'string\',
+              FunctionVersion=\'ALL\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type MasterRegion: string
@@ -2231,48 +2231,48 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'Functions': [
+                \'NextMarker\': \'string\',
+                \'Functions\': [
                     {
-                        'FunctionName': 'string',
-                        'FunctionArn': 'string',
-                        'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                        'Role': 'string',
-                        'Handler': 'string',
-                        'CodeSize': 123,
-                        'Description': 'string',
-                        'Timeout': 123,
-                        'MemorySize': 123,
-                        'LastModified': 'string',
-                        'CodeSha256': 'string',
-                        'Version': 'string',
-                        'VpcConfig': {
-                            'SubnetIds': [
-                                'string',
+                        \'FunctionName\': \'string\',
+                        \'FunctionArn\': \'string\',
+                        \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                        \'Role\': \'string\',
+                        \'Handler\': \'string\',
+                        \'CodeSize\': 123,
+                        \'Description\': \'string\',
+                        \'Timeout\': 123,
+                        \'MemorySize\': 123,
+                        \'LastModified\': \'string\',
+                        \'CodeSha256\': \'string\',
+                        \'Version\': \'string\',
+                        \'VpcConfig\': {
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ],
-                            'VpcId': 'string'
+                            \'VpcId\': \'string\'
                         },
-                        'DeadLetterConfig': {
-                            'TargetArn': 'string'
+                        \'DeadLetterConfig\': {
+                            \'TargetArn\': \'string\'
                         },
-                        'Environment': {
-                            'Variables': {
-                                'string': 'string'
+                        \'Environment\': {
+                            \'Variables\': {
+                                \'string\': \'string\'
                             },
-                            'Error': {
-                                'ErrorCode': 'string',
-                                'Message': 'string'
+                            \'Error\': {
+                                \'ErrorCode\': \'string\',
+                                \'Message\': \'string\'
                             }
                         },
-                        'KMSKeyArn': 'string',
-                        'TracingConfig': {
-                            'Mode': 'Active'|'PassThrough'
+                        \'KMSKeyArn\': \'string\',
+                        \'TracingConfig\': {
+                            \'Mode\': \'Active\'|\'PassThrough\'
                         },
-                        'MasterArn': 'string',
-                        'RevisionId': 'string'
+                        \'MasterArn\': \'string\',
+                        \'RevisionId\': \'string\'
                     },
                 ]
             }
@@ -2292,7 +2292,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A Lambda function's configuration settings.
+                A Lambda function\'s configuration settings.
         
                 - **FunctionName** *(string) --* 
         
@@ -2300,7 +2300,7 @@ class Client(BaseClient):
         
                 - **FunctionArn** *(string) --* 
         
-                  The function's Amazon Resource Name.
+                  The function\'s Amazon Resource Name.
         
                 - **Runtime** *(string) --* 
         
@@ -2308,7 +2308,7 @@ class Client(BaseClient):
         
                 - **Role** *(string) --* 
         
-                  The function's execution role.
+                  The function\'s execution role.
         
                 - **Handler** *(string) --* 
         
@@ -2316,11 +2316,11 @@ class Client(BaseClient):
         
                 - **CodeSize** *(integer) --* 
         
-                  The size of the function's deployment package in bytes.
+                  The size of the function\'s deployment package in bytes.
         
                 - **Description** *(string) --* 
         
-                  The function's description.
+                  The function\'s description.
         
                 - **Timeout** *(integer) --* 
         
@@ -2336,7 +2336,7 @@ class Client(BaseClient):
         
                 - **CodeSha256** *(string) --* 
         
-                  The SHA256 hash of the function's deployment package.
+                  The SHA256 hash of the function\'s deployment package.
         
                 - **Version** *(string) --* 
         
@@ -2344,7 +2344,7 @@ class Client(BaseClient):
         
                 - **VpcConfig** *(dict) --* 
         
-                  The function's networking configuration.
+                  The function\'s networking configuration.
         
                   - **SubnetIds** *(list) --* 
         
@@ -2364,7 +2364,7 @@ class Client(BaseClient):
         
                 - **DeadLetterConfig** *(dict) --* 
         
-                  The function's dead letter queue.
+                  The function\'s dead letter queue.
         
                   - **TargetArn** *(string) --* 
         
@@ -2372,7 +2372,7 @@ class Client(BaseClient):
         
                 - **Environment** *(dict) --* 
         
-                  The function's environment variables.
+                  The function\'s environment variables.
         
                   - **Variables** *(dict) --* 
         
@@ -2396,11 +2396,11 @@ class Client(BaseClient):
         
                 - **KMSKeyArn** *(string) --* 
         
-                  The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+                  The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
                 - **TracingConfig** *(dict) --* 
         
-                  The function's AWS X-Ray tracing configuration.
+                  The function\'s AWS X-Ray tracing configuration.
         
                   - **Mode** *(string) --* 
         
@@ -2426,7 +2426,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              Resource='string'
+              Resource=\'string\'
           )
         :type Resource: string
         :param Resource: **[REQUIRED]** 
@@ -2441,8 +2441,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2469,8 +2469,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_versions_by_function(
-              FunctionName='string',
-              Marker='string',
+              FunctionName=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type FunctionName: string
@@ -2506,48 +2506,48 @@ class Client(BaseClient):
           ::
         
             {
-                'NextMarker': 'string',
-                'Versions': [
+                \'NextMarker\': \'string\',
+                \'Versions\': [
                     {
-                        'FunctionName': 'string',
-                        'FunctionArn': 'string',
-                        'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                        'Role': 'string',
-                        'Handler': 'string',
-                        'CodeSize': 123,
-                        'Description': 'string',
-                        'Timeout': 123,
-                        'MemorySize': 123,
-                        'LastModified': 'string',
-                        'CodeSha256': 'string',
-                        'Version': 'string',
-                        'VpcConfig': {
-                            'SubnetIds': [
-                                'string',
+                        \'FunctionName\': \'string\',
+                        \'FunctionArn\': \'string\',
+                        \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                        \'Role\': \'string\',
+                        \'Handler\': \'string\',
+                        \'CodeSize\': 123,
+                        \'Description\': \'string\',
+                        \'Timeout\': 123,
+                        \'MemorySize\': 123,
+                        \'LastModified\': \'string\',
+                        \'CodeSha256\': \'string\',
+                        \'Version\': \'string\',
+                        \'VpcConfig\': {
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ],
-                            'VpcId': 'string'
+                            \'VpcId\': \'string\'
                         },
-                        'DeadLetterConfig': {
-                            'TargetArn': 'string'
+                        \'DeadLetterConfig\': {
+                            \'TargetArn\': \'string\'
                         },
-                        'Environment': {
-                            'Variables': {
-                                'string': 'string'
+                        \'Environment\': {
+                            \'Variables\': {
+                                \'string\': \'string\'
                             },
-                            'Error': {
-                                'ErrorCode': 'string',
-                                'Message': 'string'
+                            \'Error\': {
+                                \'ErrorCode\': \'string\',
+                                \'Message\': \'string\'
                             }
                         },
-                        'KMSKeyArn': 'string',
-                        'TracingConfig': {
-                            'Mode': 'Active'|'PassThrough'
+                        \'KMSKeyArn\': \'string\',
+                        \'TracingConfig\': {
+                            \'Mode\': \'Active\'|\'PassThrough\'
                         },
-                        'MasterArn': 'string',
-                        'RevisionId': 'string'
+                        \'MasterArn\': \'string\',
+                        \'RevisionId\': \'string\'
                     },
                 ]
             }
@@ -2565,7 +2565,7 @@ class Client(BaseClient):
         
               - *(dict) --* 
         
-                A Lambda function's configuration settings.
+                A Lambda function\'s configuration settings.
         
                 - **FunctionName** *(string) --* 
         
@@ -2573,7 +2573,7 @@ class Client(BaseClient):
         
                 - **FunctionArn** *(string) --* 
         
-                  The function's Amazon Resource Name.
+                  The function\'s Amazon Resource Name.
         
                 - **Runtime** *(string) --* 
         
@@ -2581,7 +2581,7 @@ class Client(BaseClient):
         
                 - **Role** *(string) --* 
         
-                  The function's execution role.
+                  The function\'s execution role.
         
                 - **Handler** *(string) --* 
         
@@ -2589,11 +2589,11 @@ class Client(BaseClient):
         
                 - **CodeSize** *(integer) --* 
         
-                  The size of the function's deployment package in bytes.
+                  The size of the function\'s deployment package in bytes.
         
                 - **Description** *(string) --* 
         
-                  The function's description.
+                  The function\'s description.
         
                 - **Timeout** *(integer) --* 
         
@@ -2609,7 +2609,7 @@ class Client(BaseClient):
         
                 - **CodeSha256** *(string) --* 
         
-                  The SHA256 hash of the function's deployment package.
+                  The SHA256 hash of the function\'s deployment package.
         
                 - **Version** *(string) --* 
         
@@ -2617,7 +2617,7 @@ class Client(BaseClient):
         
                 - **VpcConfig** *(dict) --* 
         
-                  The function's networking configuration.
+                  The function\'s networking configuration.
         
                   - **SubnetIds** *(list) --* 
         
@@ -2637,7 +2637,7 @@ class Client(BaseClient):
         
                 - **DeadLetterConfig** *(dict) --* 
         
-                  The function's dead letter queue.
+                  The function\'s dead letter queue.
         
                   - **TargetArn** *(string) --* 
         
@@ -2645,7 +2645,7 @@ class Client(BaseClient):
         
                 - **Environment** *(dict) --* 
         
-                  The function's environment variables.
+                  The function\'s environment variables.
         
                   - **Variables** *(dict) --* 
         
@@ -2669,11 +2669,11 @@ class Client(BaseClient):
         
                 - **KMSKeyArn** *(string) --* 
         
-                  The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+                  The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
                 - **TracingConfig** *(dict) --* 
         
-                  The function's AWS X-Ray tracing configuration.
+                  The function\'s AWS X-Ray tracing configuration.
         
                   - **Mode** *(string) --* 
         
@@ -2699,10 +2699,10 @@ class Client(BaseClient):
         ::
         
           response = client.publish_version(
-              FunctionName='string',
-              CodeSha256='string',
-              Description='string',
-              RevisionId='string'
+              FunctionName=\'string\',
+              CodeSha256=\'string\',
+              Description=\'string\',
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -2732,7 +2732,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
         
         :rtype: dict
         :returns: 
@@ -2742,51 +2742,51 @@ class Client(BaseClient):
           ::
         
             {
-                'FunctionName': 'string',
-                'FunctionArn': 'string',
-                'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                'Role': 'string',
-                'Handler': 'string',
-                'CodeSize': 123,
-                'Description': 'string',
-                'Timeout': 123,
-                'MemorySize': 123,
-                'LastModified': 'string',
-                'CodeSha256': 'string',
-                'Version': 'string',
-                'VpcConfig': {
-                    'SubnetIds': [
-                        'string',
+                \'FunctionName\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                \'Role\': \'string\',
+                \'Handler\': \'string\',
+                \'CodeSize\': 123,
+                \'Description\': \'string\',
+                \'Timeout\': 123,
+                \'MemorySize\': 123,
+                \'LastModified\': \'string\',
+                \'CodeSha256\': \'string\',
+                \'Version\': \'string\',
+                \'VpcConfig\': {
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 },
-                'DeadLetterConfig': {
-                    'TargetArn': 'string'
+                \'DeadLetterConfig\': {
+                    \'TargetArn\': \'string\'
                 },
-                'Environment': {
-                    'Variables': {
-                        'string': 'string'
+                \'Environment\': {
+                    \'Variables\': {
+                        \'string\': \'string\'
                     },
-                    'Error': {
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                    \'Error\': {
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     }
                 },
-                'KMSKeyArn': 'string',
-                'TracingConfig': {
-                    'Mode': 'Active'|'PassThrough'
+                \'KMSKeyArn\': \'string\',
+                \'TracingConfig\': {
+                    \'Mode\': \'Active\'|\'PassThrough\'
                 },
-                'MasterArn': 'string',
-                'RevisionId': 'string'
+                \'MasterArn\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A Lambda function's configuration settings.
+            A Lambda function\'s configuration settings.
         
             - **FunctionName** *(string) --* 
         
@@ -2794,7 +2794,7 @@ class Client(BaseClient):
         
             - **FunctionArn** *(string) --* 
         
-              The function's Amazon Resource Name.
+              The function\'s Amazon Resource Name.
         
             - **Runtime** *(string) --* 
         
@@ -2802,7 +2802,7 @@ class Client(BaseClient):
         
             - **Role** *(string) --* 
         
-              The function's execution role.
+              The function\'s execution role.
         
             - **Handler** *(string) --* 
         
@@ -2810,11 +2810,11 @@ class Client(BaseClient):
         
             - **CodeSize** *(integer) --* 
         
-              The size of the function's deployment package in bytes.
+              The size of the function\'s deployment package in bytes.
         
             - **Description** *(string) --* 
         
-              The function's description.
+              The function\'s description.
         
             - **Timeout** *(integer) --* 
         
@@ -2830,7 +2830,7 @@ class Client(BaseClient):
         
             - **CodeSha256** *(string) --* 
         
-              The SHA256 hash of the function's deployment package.
+              The SHA256 hash of the function\'s deployment package.
         
             - **Version** *(string) --* 
         
@@ -2838,7 +2838,7 @@ class Client(BaseClient):
         
             - **VpcConfig** *(dict) --* 
         
-              The function's networking configuration.
+              The function\'s networking configuration.
         
               - **SubnetIds** *(list) --* 
         
@@ -2858,7 +2858,7 @@ class Client(BaseClient):
         
             - **DeadLetterConfig** *(dict) --* 
         
-              The function's dead letter queue.
+              The function\'s dead letter queue.
         
               - **TargetArn** *(string) --* 
         
@@ -2866,7 +2866,7 @@ class Client(BaseClient):
         
             - **Environment** *(dict) --* 
         
-              The function's environment variables.
+              The function\'s environment variables.
         
               - **Variables** *(dict) --* 
         
@@ -2890,11 +2890,11 @@ class Client(BaseClient):
         
             - **KMSKeyArn** *(string) --* 
         
-              The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+              The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
             - **TracingConfig** *(dict) --* 
         
-              The function's AWS X-Ray tracing configuration.
+              The function\'s AWS X-Ray tracing configuration.
         
               - **Mode** *(string) --* 
         
@@ -2920,7 +2920,7 @@ class Client(BaseClient):
         ::
         
           response = client.put_function_concurrency(
-              FunctionName='string',
+              FunctionName=\'string\',
               ReservedConcurrentExecutions=123
           )
         :type FunctionName: string
@@ -2951,7 +2951,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedConcurrentExecutions': 123
+                \'ReservedConcurrentExecutions\': 123
             }
           **Response Structure** 
         
@@ -2977,10 +2977,10 @@ class Client(BaseClient):
         ::
         
           response = client.remove_permission(
-              FunctionName='string',
-              StatementId='string',
-              Qualifier='string',
-              RevisionId='string'
+              FunctionName=\'string\',
+              StatementId=\'string\',
+              Qualifier=\'string\',
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -3010,7 +3010,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
         
         :returns: None
         """
@@ -3025,9 +3025,9 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              Resource='string',
+              Resource=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type Resource: string
@@ -3057,9 +3057,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              Resource='string',
+              Resource=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Resource: string
@@ -3089,16 +3089,16 @@ class Client(BaseClient):
         ::
         
           response = client.update_alias(
-              FunctionName='string',
-              Name='string',
-              FunctionVersion='string',
-              Description='string',
+              FunctionName=\'string\',
+              Name=\'string\',
+              FunctionVersion=\'string\',
+              Description=\'string\',
               RoutingConfig={
-                  'AdditionalVersionWeights': {
-                      'string': 123.0
+                  \'AdditionalVersionWeights\': {
+                      \'string\': 123.0
                   }
               },
-              RevisionId='string'
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -3146,7 +3146,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
         
         :rtype: dict
         :returns: 
@@ -3156,16 +3156,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AliasArn': 'string',
-                'Name': 'string',
-                'FunctionVersion': 'string',
-                'Description': 'string',
-                'RoutingConfig': {
-                    'AdditionalVersionWeights': {
-                        'string': 123.0
+                \'AliasArn\': \'string\',
+                \'Name\': \'string\',
+                \'FunctionVersion\': \'string\',
+                \'Description\': \'string\',
+                \'RoutingConfig\': {
+                    \'AdditionalVersionWeights\': {
+                        \'string\': 123.0
                     }
                 },
-                'RevisionId': 'string'
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
@@ -3211,7 +3211,7 @@ class Client(BaseClient):
     def update_event_source_mapping(self, UUID: str, FunctionName: str = None, Enabled: bool = None, BatchSize: int = None) -> Dict:
         """
         
-        If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don't lose processing of any records. However, if you delete event source mapping and create it again, it will reset.
+        If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don\'t lose processing of any records. However, if you delete event source mapping and create it again, it will reset.
         
         This operation requires permission for the ``lambda:UpdateEventSourceMapping`` action.
         
@@ -3221,8 +3221,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_event_source_mapping(
-              UUID='string',
-              FunctionName='string',
+              UUID=\'string\',
+              FunctionName=\'string\',
               Enabled=True|False,
               BatchSize=123
           )
@@ -3266,14 +3266,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UUID': 'string',
-                'BatchSize': 123,
-                'EventSourceArn': 'string',
-                'FunctionArn': 'string',
-                'LastModified': datetime(2015, 1, 1),
-                'LastProcessingResult': 'string',
-                'State': 'string',
-                'StateTransitionReason': 'string'
+                \'UUID\': \'string\',
+                \'BatchSize\': 123,
+                \'EventSourceArn\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'LastModified\': datetime(2015, 1, 1),
+                \'LastProcessingResult\': \'string\',
+                \'State\': \'string\',
+                \'StateTransitionReason\': \'string\'
             }
           **Response Structure** 
         
@@ -3329,14 +3329,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_function_code(
-              FunctionName='string',
-              ZipFile=b'bytes',
-              S3Bucket='string',
-              S3Key='string',
-              S3ObjectVersion='string',
+              FunctionName=\'string\',
+              ZipFile=b\'bytes\',
+              S3Bucket=\'string\',
+              S3Key=\'string\',
+              S3ObjectVersion=\'string\',
               Publish=True|False,
               DryRun=True|False,
-              RevisionId='string'
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -3388,7 +3388,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either using using either  GetFunction or  GetAlias .
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either using using either  GetFunction or  GetAlias .
         
         :rtype: dict
         :returns: 
@@ -3398,51 +3398,51 @@ class Client(BaseClient):
           ::
         
             {
-                'FunctionName': 'string',
-                'FunctionArn': 'string',
-                'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                'Role': 'string',
-                'Handler': 'string',
-                'CodeSize': 123,
-                'Description': 'string',
-                'Timeout': 123,
-                'MemorySize': 123,
-                'LastModified': 'string',
-                'CodeSha256': 'string',
-                'Version': 'string',
-                'VpcConfig': {
-                    'SubnetIds': [
-                        'string',
+                \'FunctionName\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                \'Role\': \'string\',
+                \'Handler\': \'string\',
+                \'CodeSize\': 123,
+                \'Description\': \'string\',
+                \'Timeout\': 123,
+                \'MemorySize\': 123,
+                \'LastModified\': \'string\',
+                \'CodeSha256\': \'string\',
+                \'Version\': \'string\',
+                \'VpcConfig\': {
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 },
-                'DeadLetterConfig': {
-                    'TargetArn': 'string'
+                \'DeadLetterConfig\': {
+                    \'TargetArn\': \'string\'
                 },
-                'Environment': {
-                    'Variables': {
-                        'string': 'string'
+                \'Environment\': {
+                    \'Variables\': {
+                        \'string\': \'string\'
                     },
-                    'Error': {
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                    \'Error\': {
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     }
                 },
-                'KMSKeyArn': 'string',
-                'TracingConfig': {
-                    'Mode': 'Active'|'PassThrough'
+                \'KMSKeyArn\': \'string\',
+                \'TracingConfig\': {
+                    \'Mode\': \'Active\'|\'PassThrough\'
                 },
-                'MasterArn': 'string',
-                'RevisionId': 'string'
+                \'MasterArn\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A Lambda function's configuration settings.
+            A Lambda function\'s configuration settings.
         
             - **FunctionName** *(string) --* 
         
@@ -3450,7 +3450,7 @@ class Client(BaseClient):
         
             - **FunctionArn** *(string) --* 
         
-              The function's Amazon Resource Name.
+              The function\'s Amazon Resource Name.
         
             - **Runtime** *(string) --* 
         
@@ -3458,7 +3458,7 @@ class Client(BaseClient):
         
             - **Role** *(string) --* 
         
-              The function's execution role.
+              The function\'s execution role.
         
             - **Handler** *(string) --* 
         
@@ -3466,11 +3466,11 @@ class Client(BaseClient):
         
             - **CodeSize** *(integer) --* 
         
-              The size of the function's deployment package in bytes.
+              The size of the function\'s deployment package in bytes.
         
             - **Description** *(string) --* 
         
-              The function's description.
+              The function\'s description.
         
             - **Timeout** *(integer) --* 
         
@@ -3486,7 +3486,7 @@ class Client(BaseClient):
         
             - **CodeSha256** *(string) --* 
         
-              The SHA256 hash of the function's deployment package.
+              The SHA256 hash of the function\'s deployment package.
         
             - **Version** *(string) --* 
         
@@ -3494,7 +3494,7 @@ class Client(BaseClient):
         
             - **VpcConfig** *(dict) --* 
         
-              The function's networking configuration.
+              The function\'s networking configuration.
         
               - **SubnetIds** *(list) --* 
         
@@ -3514,7 +3514,7 @@ class Client(BaseClient):
         
             - **DeadLetterConfig** *(dict) --* 
         
-              The function's dead letter queue.
+              The function\'s dead letter queue.
         
               - **TargetArn** *(string) --* 
         
@@ -3522,7 +3522,7 @@ class Client(BaseClient):
         
             - **Environment** *(dict) --* 
         
-              The function's environment variables.
+              The function\'s environment variables.
         
               - **Variables** *(dict) --* 
         
@@ -3546,11 +3546,11 @@ class Client(BaseClient):
         
             - **KMSKeyArn** *(string) --* 
         
-              The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+              The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
             - **TracingConfig** *(dict) --* 
         
-              The function's AWS X-Ray tracing configuration.
+              The function\'s AWS X-Ray tracing configuration.
         
               - **Mode** *(string) --* 
         
@@ -3580,34 +3580,34 @@ class Client(BaseClient):
         ::
         
           response = client.update_function_configuration(
-              FunctionName='string',
-              Role='string',
-              Handler='string',
-              Description='string',
+              FunctionName=\'string\',
+              Role=\'string\',
+              Handler=\'string\',
+              Description=\'string\',
               Timeout=123,
               MemorySize=123,
               VpcConfig={
-                  'SubnetIds': [
-                      'string',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ]
               },
               Environment={
-                  'Variables': {
-                      'string': 'string'
+                  \'Variables\': {
+                      \'string\': \'string\'
                   }
               },
-              Runtime='nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
+              Runtime=\'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
               DeadLetterConfig={
-                  'TargetArn': 'string'
+                  \'TargetArn\': \'string\'
               },
-              KMSKeyArn='string',
+              KMSKeyArn=\'string\',
               TracingConfig={
-                  'Mode': 'Active'|'PassThrough'
+                  \'Mode\': \'Active\'|\'PassThrough\'
               },
-              RevisionId='string'
+              RevisionId=\'string\'
           )
         :type FunctionName: string
         :param FunctionName: **[REQUIRED]** 
@@ -3669,7 +3669,7 @@ class Client(BaseClient):
         :type Environment: dict
         :param Environment: 
         
-          The parent object that contains your environment's configuration settings.
+          The parent object that contains your environment\'s configuration settings.
         
           - **Variables** *(dict) --* 
         
@@ -3696,7 +3696,7 @@ class Client(BaseClient):
         :type KMSKeyArn: string
         :param KMSKeyArn: 
         
-          The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
+          The Amazon Resource Name (ARN) of the KMS key used to encrypt your function\'s environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string (\"\") for this parameter.
         
         :type TracingConfig: dict
         :param TracingConfig: 
@@ -3710,7 +3710,7 @@ class Client(BaseClient):
         :type RevisionId: string
         :param RevisionId: 
         
-          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn't match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
+          An optional value you can use to ensure you are updating the latest update of the function version or alias. If the ``RevisionID`` you pass doesn\'t match the latest ``RevisionId`` of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias ``RevisionID`` using either  GetFunction or  GetAlias .
         
         :rtype: dict
         :returns: 
@@ -3720,51 +3720,51 @@ class Client(BaseClient):
           ::
         
             {
-                'FunctionName': 'string',
-                'FunctionArn': 'string',
-                'Runtime': 'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x',
-                'Role': 'string',
-                'Handler': 'string',
-                'CodeSize': 123,
-                'Description': 'string',
-                'Timeout': 123,
-                'MemorySize': 123,
-                'LastModified': 'string',
-                'CodeSha256': 'string',
-                'Version': 'string',
-                'VpcConfig': {
-                    'SubnetIds': [
-                        'string',
+                \'FunctionName\': \'string\',
+                \'FunctionArn\': \'string\',
+                \'Runtime\': \'nodejs\'|\'nodejs4.3\'|\'nodejs6.10\'|\'nodejs8.10\'|\'java8\'|\'python2.7\'|\'python3.6\'|\'dotnetcore1.0\'|\'dotnetcore2.0\'|\'dotnetcore2.1\'|\'nodejs4.3-edge\'|\'go1.x\',
+                \'Role\': \'string\',
+                \'Handler\': \'string\',
+                \'CodeSize\': 123,
+                \'Description\': \'string\',
+                \'Timeout\': 123,
+                \'MemorySize\': 123,
+                \'LastModified\': \'string\',
+                \'CodeSha256\': \'string\',
+                \'Version\': \'string\',
+                \'VpcConfig\': {
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 },
-                'DeadLetterConfig': {
-                    'TargetArn': 'string'
+                \'DeadLetterConfig\': {
+                    \'TargetArn\': \'string\'
                 },
-                'Environment': {
-                    'Variables': {
-                        'string': 'string'
+                \'Environment\': {
+                    \'Variables\': {
+                        \'string\': \'string\'
                     },
-                    'Error': {
-                        'ErrorCode': 'string',
-                        'Message': 'string'
+                    \'Error\': {
+                        \'ErrorCode\': \'string\',
+                        \'Message\': \'string\'
                     }
                 },
-                'KMSKeyArn': 'string',
-                'TracingConfig': {
-                    'Mode': 'Active'|'PassThrough'
+                \'KMSKeyArn\': \'string\',
+                \'TracingConfig\': {
+                    \'Mode\': \'Active\'|\'PassThrough\'
                 },
-                'MasterArn': 'string',
-                'RevisionId': 'string'
+                \'MasterArn\': \'string\',
+                \'RevisionId\': \'string\'
             }
           **Response Structure** 
         
           - *(dict) --* 
         
-            A Lambda function's configuration settings.
+            A Lambda function\'s configuration settings.
         
             - **FunctionName** *(string) --* 
         
@@ -3772,7 +3772,7 @@ class Client(BaseClient):
         
             - **FunctionArn** *(string) --* 
         
-              The function's Amazon Resource Name.
+              The function\'s Amazon Resource Name.
         
             - **Runtime** *(string) --* 
         
@@ -3780,7 +3780,7 @@ class Client(BaseClient):
         
             - **Role** *(string) --* 
         
-              The function's execution role.
+              The function\'s execution role.
         
             - **Handler** *(string) --* 
         
@@ -3788,11 +3788,11 @@ class Client(BaseClient):
         
             - **CodeSize** *(integer) --* 
         
-              The size of the function's deployment package in bytes.
+              The size of the function\'s deployment package in bytes.
         
             - **Description** *(string) --* 
         
-              The function's description.
+              The function\'s description.
         
             - **Timeout** *(integer) --* 
         
@@ -3808,7 +3808,7 @@ class Client(BaseClient):
         
             - **CodeSha256** *(string) --* 
         
-              The SHA256 hash of the function's deployment package.
+              The SHA256 hash of the function\'s deployment package.
         
             - **Version** *(string) --* 
         
@@ -3816,7 +3816,7 @@ class Client(BaseClient):
         
             - **VpcConfig** *(dict) --* 
         
-              The function's networking configuration.
+              The function\'s networking configuration.
         
               - **SubnetIds** *(list) --* 
         
@@ -3836,7 +3836,7 @@ class Client(BaseClient):
         
             - **DeadLetterConfig** *(dict) --* 
         
-              The function's dead letter queue.
+              The function\'s dead letter queue.
         
               - **TargetArn** *(string) --* 
         
@@ -3844,7 +3844,7 @@ class Client(BaseClient):
         
             - **Environment** *(dict) --* 
         
-              The function's environment variables.
+              The function\'s environment variables.
         
               - **Variables** *(dict) --* 
         
@@ -3868,11 +3868,11 @@ class Client(BaseClient):
         
             - **KMSKeyArn** *(string) --* 
         
-              The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer managed CMK.
+              The KMS key used to encrypt the function\'s environment variables. Only returned if you\'ve configured a customer managed CMK.
         
             - **TracingConfig** *(dict) --* 
         
-              The function's AWS X-Ray tracing configuration.
+              The function\'s AWS X-Ray tracing configuration.
         
               - **Mode** *(string) --* 
         

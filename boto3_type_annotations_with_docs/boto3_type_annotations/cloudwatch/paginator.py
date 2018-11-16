@@ -14,14 +14,14 @@ class DescribeAlarmHistory(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AlarmName='string',
-              HistoryItemType='ConfigurationUpdate'|'StateUpdate'|'Action',
+              AlarmName=\'string\',
+              HistoryItemType=\'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
               StartDate=datetime(2015, 1, 1),
               EndDate=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AlarmName: string
@@ -69,13 +69,13 @@ class DescribeAlarmHistory(Paginator):
           ::
         
             {
-                'AlarmHistoryItems': [
+                \'AlarmHistoryItems\': [
                     {
-                        'AlarmName': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'HistoryItemType': 'ConfigurationUpdate'|'StateUpdate'|'Action',
-                        'HistorySummary': 'string',
-                        'HistoryData': 'string'
+                        \'AlarmName\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'HistoryItemType\': \'ConfigurationUpdate\'|\'StateUpdate\'|\'Action\',
+                        \'HistorySummary\': \'string\',
+                        \'HistoryData\': \'string\'
                     },
                 ],
                 
@@ -127,15 +127,15 @@ class DescribeAlarms(Paginator):
         
           response_iterator = paginator.paginate(
               AlarmNames=[
-                  'string',
+                  \'string\',
               ],
-              AlarmNamePrefix='string',
-              StateValue='OK'|'ALARM'|'INSUFFICIENT_DATA',
-              ActionPrefix='string',
+              AlarmNamePrefix=\'string\',
+              StateValue=\'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+              ActionPrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AlarmNames: list
@@ -185,44 +185,44 @@ class DescribeAlarms(Paginator):
           ::
         
             {
-                'MetricAlarms': [
+                \'MetricAlarms\': [
                     {
-                        'AlarmName': 'string',
-                        'AlarmArn': 'string',
-                        'AlarmDescription': 'string',
-                        'AlarmConfigurationUpdatedTimestamp': datetime(2015, 1, 1),
-                        'ActionsEnabled': True|False,
-                        'OKActions': [
-                            'string',
+                        \'AlarmName\': \'string\',
+                        \'AlarmArn\': \'string\',
+                        \'AlarmDescription\': \'string\',
+                        \'AlarmConfigurationUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'ActionsEnabled\': True|False,
+                        \'OKActions\': [
+                            \'string\',
                         ],
-                        'AlarmActions': [
-                            'string',
+                        \'AlarmActions\': [
+                            \'string\',
                         ],
-                        'InsufficientDataActions': [
-                            'string',
+                        \'InsufficientDataActions\': [
+                            \'string\',
                         ],
-                        'StateValue': 'OK'|'ALARM'|'INSUFFICIENT_DATA',
-                        'StateReason': 'string',
-                        'StateReasonData': 'string',
-                        'StateUpdatedTimestamp': datetime(2015, 1, 1),
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum',
-                        'ExtendedStatistic': 'string',
-                        'Dimensions': [
+                        \'StateValue\': \'OK\'|\'ALARM\'|\'INSUFFICIENT_DATA\',
+                        \'StateReason\': \'string\',
+                        \'StateReasonData\': \'string\',
+                        \'StateUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'SampleCount\'|\'Average\'|\'Sum\'|\'Minimum\'|\'Maximum\',
+                        \'ExtendedStatistic\': \'string\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Period': 123,
-                        'Unit': 'Seconds'|'Microseconds'|'Milliseconds'|'Bytes'|'Kilobytes'|'Megabytes'|'Gigabytes'|'Terabytes'|'Bits'|'Kilobits'|'Megabits'|'Gigabits'|'Terabits'|'Percent'|'Count'|'Bytes/Second'|'Kilobytes/Second'|'Megabytes/Second'|'Gigabytes/Second'|'Terabytes/Second'|'Bits/Second'|'Kilobits/Second'|'Megabits/Second'|'Gigabits/Second'|'Terabits/Second'|'Count/Second'|'None',
-                        'EvaluationPeriods': 123,
-                        'DatapointsToAlarm': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'TreatMissingData': 'string',
-                        'EvaluateLowSampleCountPercentile': 'string'
+                        \'Period\': 123,
+                        \'Unit\': \'Seconds\'|\'Microseconds\'|\'Milliseconds\'|\'Bytes\'|\'Kilobytes\'|\'Megabytes\'|\'Gigabytes\'|\'Terabytes\'|\'Bits\'|\'Kilobits\'|\'Megabits\'|\'Gigabits\'|\'Terabits\'|\'Percent\'|\'Count\'|\'Bytes/Second\'|\'Kilobytes/Second\'|\'Megabytes/Second\'|\'Gigabytes/Second\'|\'Terabytes/Second\'|\'Bits/Second\'|\'Kilobits/Second\'|\'Megabits/Second\'|\'Gigabits/Second\'|\'Terabits/Second\'|\'Count/Second\'|\'None\',
+                        \'EvaluationPeriods\': 123,
+                        \'DatapointsToAlarm\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'TreatMissingData\': \'string\',
+                        \'EvaluateLowSampleCountPercentile\': \'string\'
                     },
                 ],
                 
@@ -371,17 +371,17 @@ class ListDashboards(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              DashboardNamePrefix='string',
+              DashboardNamePrefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DashboardNamePrefix: string
         :param DashboardNamePrefix: 
         
-          If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_". 
+          If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\". 
         
         :type PaginationConfig: dict
         :param PaginationConfig: 
@@ -408,12 +408,12 @@ class ListDashboards(Paginator):
           ::
         
             {
-                'DashboardEntries': [
+                \'DashboardEntries\': [
                     {
-                        'DashboardName': 'string',
-                        'DashboardArn': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'Size': 123
+                        \'DashboardName\': \'string\',
+                        \'DashboardArn\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'Size\': 123
                     },
                 ],
                 
@@ -460,18 +460,18 @@ class ListMetrics(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Namespace='string',
-              MetricName='string',
+              Namespace=\'string\',
+              MetricName=\'string\',
               Dimensions=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Namespace: string
@@ -526,14 +526,14 @@ class ListMetrics(Paginator):
           ::
         
             {
-                'Metrics': [
+                \'Metrics\': [
                     {
-                        'Namespace': 'string',
-                        'MetricName': 'string',
-                        'Dimensions': [
+                        \'Namespace\': \'string\',
+                        \'MetricName\': \'string\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },

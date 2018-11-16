@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,7 +18,7 @@ class Client(BaseClient):
         ::
         
           response = client.accept_shared_directory(
-              SharedDirectoryId='string'
+              SharedDirectoryId=\'string\'
           )
         :type SharedDirectoryId: string
         :param SharedDirectoryId: **[REQUIRED]** 
@@ -33,16 +33,16 @@ class Client(BaseClient):
           ::
         
             {
-                'SharedDirectory': {
-                    'OwnerAccountId': 'string',
-                    'OwnerDirectoryId': 'string',
-                    'ShareMethod': 'ORGANIZATIONS'|'HANDSHAKE',
-                    'SharedAccountId': 'string',
-                    'SharedDirectoryId': 'string',
-                    'ShareStatus': 'Shared'|'PendingAcceptance'|'Rejected'|'Rejecting'|'RejectFailed'|'Sharing'|'ShareFailed'|'Deleted'|'Deleting',
-                    'ShareNotes': 'string',
-                    'CreatedDateTime': datetime(2015, 1, 1),
-                    'LastUpdatedDateTime': datetime(2015, 1, 1)
+                \'SharedDirectory\': {
+                    \'OwnerAccountId\': \'string\',
+                    \'OwnerDirectoryId\': \'string\',
+                    \'ShareMethod\': \'ORGANIZATIONS\'|\'HANDSHAKE\',
+                    \'SharedAccountId\': \'string\',
+                    \'SharedDirectoryId\': \'string\',
+                    \'ShareStatus\': \'Shared\'|\'PendingAcceptance\'|\'Rejected\'|\'Rejecting\'|\'RejectFailed\'|\'Sharing\'|\'ShareFailed\'|\'Deleted\'|\'Deleting\',
+                    \'ShareNotes\': \'string\',
+                    \'CreatedDateTime\': datetime(2015, 1, 1),
+                    \'LastUpdatedDateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -103,11 +103,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_ip_routes(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               IpRoutes=[
                   {
-                      'CidrIp': 'string',
-                      'Description': 'string'
+                      \'CidrIp\': \'string\',
+                      \'Description\': \'string\'
                   },
               ],
               UpdateSecurityGroupForDirectoryControllers=True|False
@@ -137,7 +137,7 @@ class Client(BaseClient):
         :type UpdateSecurityGroupForDirectoryControllers: boolean
         :param UpdateSecurityGroupForDirectoryControllers: 
         
-          If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for *directory ID* directory controllers." Following are the new rules: 
+          If set to true, updates the inbound and outbound rules of the security group that has the description: \"AWS created security group for *directory ID* directory controllers.\" Following are the new rules: 
         
           Inbound:
         
@@ -204,11 +204,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceId='string',
+              ResourceId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -228,11 +228,11 @@ class Client(BaseClient):
         
             - **Key** *(string) --* **[REQUIRED]** 
         
-              Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **Value** *(string) --* **[REQUIRED]** 
         
-              The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+              The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
         :rtype: dict
         :returns: 
@@ -254,10 +254,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -273,8 +273,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_schema_extension(
-              DirectoryId='string',
-              SchemaExtensionId='string'
+              DirectoryId=\'string\',
+              SchemaExtensionId=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -311,20 +311,20 @@ class Client(BaseClient):
         ::
         
           response = client.connect_directory(
-              Name='string',
-              ShortName='string',
-              Password='string',
-              Description='string',
-              Size='Small'|'Large',
+              Name=\'string\',
+              ShortName=\'string\',
+              Password=\'string\',
+              Description=\'string\',
+              Size=\'Small\'|\'Large\',
               ConnectSettings={
-                  'VpcId': 'string',
-                  'SubnetIds': [
-                      'string',
+                  \'VpcId\': \'string\',
+                  \'SubnetIds\': [
+                      \'string\',
                   ],
-                  'CustomerDnsIps': [
-                      'string',
+                  \'CustomerDnsIps\': [
+                      \'string\',
                   ],
-                  'CustomerUserName': 'string'
+                  \'CustomerUserName\': \'string\'
               }
           )
         :type Name: string
@@ -391,7 +391,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryId': 'string'
+                \'DirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -419,8 +419,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_alias(
-              DirectoryId='string',
-              Alias='string'
+              DirectoryId=\'string\',
+              Alias=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -442,8 +442,8 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryId': 'string',
-                'Alias': 'string'
+                \'DirectoryId\': \'string\',
+                \'Alias\': \'string\'
             }
           **Response Structure** 
         
@@ -471,14 +471,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_computer(
-              DirectoryId='string',
-              ComputerName='string',
-              Password='string',
-              OrganizationalUnitDistinguishedName='string',
+              DirectoryId=\'string\',
+              ComputerName=\'string\',
+              Password=\'string\',
+              OrganizationalUnitDistinguishedName=\'string\',
               ComputerAttributes=[
                   {
-                      'Name': 'string',
-                      'Value': 'string'
+                      \'Name\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -527,13 +527,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Computer': {
-                    'ComputerId': 'string',
-                    'ComputerName': 'string',
-                    'ComputerAttributes': [
+                \'Computer\': {
+                    \'ComputerId\': \'string\',
+                    \'ComputerName\': \'string\',
+                    \'ComputerAttributes\': [
                         {
-                            'Name': 'string',
-                            'Value': 'string'
+                            \'Name\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -584,10 +584,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_conditional_forwarder(
-              DirectoryId='string',
-              RemoteDomainName='string',
+              DirectoryId=\'string\',
+              RemoteDomainName=\'string\',
               DnsIpAddrs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -635,15 +635,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_directory(
-              Name='string',
-              ShortName='string',
-              Password='string',
-              Description='string',
-              Size='Small'|'Large',
+              Name=\'string\',
+              ShortName=\'string\',
+              Password=\'string\',
+              Description=\'string\',
+              Size=\'Small\'|\'Large\',
               VpcSettings={
-                  'VpcId': 'string',
-                  'SubnetIds': [
-                      'string',
+                  \'VpcId\': \'string\',
+                  \'SubnetIds\': [
+                      \'string\',
                   ]
               }
           )
@@ -695,7 +695,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryId': 'string'
+                \'DirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -719,8 +719,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_log_subscription(
-              DirectoryId='string',
-              LogGroupName='string'
+              DirectoryId=\'string\',
+              LogGroupName=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -757,17 +757,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_microsoft_ad(
-              Name='string',
-              ShortName='string',
-              Password='string',
-              Description='string',
+              Name=\'string\',
+              ShortName=\'string\',
+              Password=\'string\',
+              Description=\'string\',
               VpcSettings={
-                  'VpcId': 'string',
-                  'SubnetIds': [
-                      'string',
+                  \'VpcId\': \'string\',
+                  \'SubnetIds\': [
+                      \'string\',
                   ]
               },
-              Edition='Enterprise'|'Standard'
+              Edition=\'Enterprise\'|\'Standard\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -777,7 +777,7 @@ class Client(BaseClient):
         :type ShortName: string
         :param ShortName: 
         
-          The NetBIOS name for your domain. A short identifier for your domain, such as ``CORP`` . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, ``CORP`` for the directory DNS ``corp.example.com`` . 
+          The NetBIOS name for your domain. A short identifier for your domain, such as ``CORP`` . If you don\'t specify a NetBIOS name, it will default to the first part of your directory DNS. For example, ``CORP`` for the directory DNS ``corp.example.com`` . 
         
         :type Password: string
         :param Password: **[REQUIRED]** 
@@ -817,7 +817,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryId': 'string'
+                \'DirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -845,8 +845,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot(
-              DirectoryId='string',
-              Name='string'
+              DirectoryId=\'string\',
+              Name=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -866,7 +866,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -892,15 +892,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_trust(
-              DirectoryId='string',
-              RemoteDomainName='string',
-              TrustPassword='string',
-              TrustDirection='One-Way: Outgoing'|'One-Way: Incoming'|'Two-Way',
-              TrustType='Forest'|'External',
+              DirectoryId=\'string\',
+              RemoteDomainName=\'string\',
+              TrustPassword=\'string\',
+              TrustDirection=\'One-Way: Outgoing\'|\'One-Way: Incoming\'|\'Two-Way\',
+              TrustType=\'Forest\'|\'External\',
               ConditionalForwarderIpAddrs=[
-                  'string',
+                  \'string\',
               ],
-              SelectiveAuth='Enabled'|'Disabled'
+              SelectiveAuth=\'Enabled\'|\'Disabled\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -947,7 +947,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TrustId': 'string'
+                \'TrustId\': \'string\'
             }
           **Response Structure** 
         
@@ -971,8 +971,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_conditional_forwarder(
-              DirectoryId='string',
-              RemoteDomainName='string'
+              DirectoryId=\'string\',
+              RemoteDomainName=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -1012,7 +1012,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_directory(
-              DirectoryId='string'
+              DirectoryId=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -1027,7 +1027,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryId': 'string'
+                \'DirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -1051,7 +1051,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_log_subscription(
-              DirectoryId='string'
+              DirectoryId=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -1081,7 +1081,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_snapshot(
-              SnapshotId='string'
+              SnapshotId=\'string\'
           )
         :type SnapshotId: string
         :param SnapshotId: **[REQUIRED]** 
@@ -1096,7 +1096,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -1120,7 +1120,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_trust(
-              TrustId='string',
+              TrustId=\'string\',
               DeleteAssociatedConditionalForwarder=True|False
           )
         :type TrustId: string
@@ -1141,7 +1141,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TrustId': 'string'
+                \'TrustId\': \'string\'
             }
           **Response Structure** 
         
@@ -1165,8 +1165,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_event_topic(
-              DirectoryId='string',
-              TopicName='string'
+              DirectoryId=\'string\',
+              TopicName=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -1206,9 +1206,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_conditional_forwarders(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               RemoteDomainNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -1231,13 +1231,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ConditionalForwarders': [
+                \'ConditionalForwarders\': [
                     {
-                        'RemoteDomainName': 'string',
-                        'DnsIpAddrs': [
-                            'string',
+                        \'RemoteDomainName\': \'string\',
+                        \'DnsIpAddrs\': [
+                            \'string\',
                         ],
-                        'ReplicationScope': 'Domain'
+                        \'ReplicationScope\': \'Domain\'
                     },
                 ]
             }
@@ -1288,9 +1288,9 @@ class Client(BaseClient):
         
           response = client.describe_directories(
               DirectoryIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryIds: list
@@ -1320,99 +1320,99 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryDescriptions': [
+                \'DirectoryDescriptions\': [
                     {
-                        'DirectoryId': 'string',
-                        'Name': 'string',
-                        'ShortName': 'string',
-                        'Size': 'Small'|'Large',
-                        'Edition': 'Enterprise'|'Standard',
-                        'Alias': 'string',
-                        'AccessUrl': 'string',
-                        'Description': 'string',
-                        'DnsIpAddrs': [
-                            'string',
+                        \'DirectoryId\': \'string\',
+                        \'Name\': \'string\',
+                        \'ShortName\': \'string\',
+                        \'Size\': \'Small\'|\'Large\',
+                        \'Edition\': \'Enterprise\'|\'Standard\',
+                        \'Alias\': \'string\',
+                        \'AccessUrl\': \'string\',
+                        \'Description\': \'string\',
+                        \'DnsIpAddrs\': [
+                            \'string\',
                         ],
-                        'Stage': 'Requested'|'Creating'|'Created'|'Active'|'Inoperable'|'Impaired'|'Restoring'|'RestoreFailed'|'Deleting'|'Deleted'|'Failed',
-                        'ShareStatus': 'Shared'|'PendingAcceptance'|'Rejected'|'Rejecting'|'RejectFailed'|'Sharing'|'ShareFailed'|'Deleted'|'Deleting',
-                        'ShareMethod': 'ORGANIZATIONS'|'HANDSHAKE',
-                        'ShareNotes': 'string',
-                        'LaunchTime': datetime(2015, 1, 1),
-                        'StageLastUpdatedDateTime': datetime(2015, 1, 1),
-                        'Type': 'SimpleAD'|'ADConnector'|'MicrosoftAD'|'SharedMicrosoftAD',
-                        'VpcSettings': {
-                            'VpcId': 'string',
-                            'SubnetIds': [
-                                'string',
+                        \'Stage\': \'Requested\'|\'Creating\'|\'Created\'|\'Active\'|\'Inoperable\'|\'Impaired\'|\'Restoring\'|\'RestoreFailed\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                        \'ShareStatus\': \'Shared\'|\'PendingAcceptance\'|\'Rejected\'|\'Rejecting\'|\'RejectFailed\'|\'Sharing\'|\'ShareFailed\'|\'Deleted\'|\'Deleting\',
+                        \'ShareMethod\': \'ORGANIZATIONS\'|\'HANDSHAKE\',
+                        \'ShareNotes\': \'string\',
+                        \'LaunchTime\': datetime(2015, 1, 1),
+                        \'StageLastUpdatedDateTime\': datetime(2015, 1, 1),
+                        \'Type\': \'SimpleAD\'|\'ADConnector\'|\'MicrosoftAD\'|\'SharedMicrosoftAD\',
+                        \'VpcSettings\': {
+                            \'VpcId\': \'string\',
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroupId': 'string',
-                            'AvailabilityZones': [
-                                'string',
+                            \'SecurityGroupId\': \'string\',
+                            \'AvailabilityZones\': [
+                                \'string\',
                             ]
                         },
-                        'ConnectSettings': {
-                            'VpcId': 'string',
-                            'SubnetIds': [
-                                'string',
+                        \'ConnectSettings\': {
+                            \'VpcId\': \'string\',
+                            \'SubnetIds\': [
+                                \'string\',
                             ],
-                            'CustomerUserName': 'string',
-                            'SecurityGroupId': 'string',
-                            'AvailabilityZones': [
-                                'string',
+                            \'CustomerUserName\': \'string\',
+                            \'SecurityGroupId\': \'string\',
+                            \'AvailabilityZones\': [
+                                \'string\',
                             ],
-                            'ConnectIps': [
-                                'string',
+                            \'ConnectIps\': [
+                                \'string\',
                             ]
                         },
-                        'RadiusSettings': {
-                            'RadiusServers': [
-                                'string',
+                        \'RadiusSettings\': {
+                            \'RadiusServers\': [
+                                \'string\',
                             ],
-                            'RadiusPort': 123,
-                            'RadiusTimeout': 123,
-                            'RadiusRetries': 123,
-                            'SharedSecret': 'string',
-                            'AuthenticationProtocol': 'PAP'|'CHAP'|'MS-CHAPv1'|'MS-CHAPv2',
-                            'DisplayLabel': 'string',
-                            'UseSameUsername': True|False
+                            \'RadiusPort\': 123,
+                            \'RadiusTimeout\': 123,
+                            \'RadiusRetries\': 123,
+                            \'SharedSecret\': \'string\',
+                            \'AuthenticationProtocol\': \'PAP\'|\'CHAP\'|\'MS-CHAPv1\'|\'MS-CHAPv2\',
+                            \'DisplayLabel\': \'string\',
+                            \'UseSameUsername\': True|False
                         },
-                        'RadiusStatus': 'Creating'|'Completed'|'Failed',
-                        'StageReason': 'string',
-                        'SsoEnabled': True|False,
-                        'DesiredNumberOfDomainControllers': 123,
-                        'OwnerDirectoryDescription': {
-                            'DirectoryId': 'string',
-                            'AccountId': 'string',
-                            'DnsIpAddrs': [
-                                'string',
+                        \'RadiusStatus\': \'Creating\'|\'Completed\'|\'Failed\',
+                        \'StageReason\': \'string\',
+                        \'SsoEnabled\': True|False,
+                        \'DesiredNumberOfDomainControllers\': 123,
+                        \'OwnerDirectoryDescription\': {
+                            \'DirectoryId\': \'string\',
+                            \'AccountId\': \'string\',
+                            \'DnsIpAddrs\': [
+                                \'string\',
                             ],
-                            'VpcSettings': {
-                                'VpcId': 'string',
-                                'SubnetIds': [
-                                    'string',
+                            \'VpcSettings\': {
+                                \'VpcId\': \'string\',
+                                \'SubnetIds\': [
+                                    \'string\',
                                 ],
-                                'SecurityGroupId': 'string',
-                                'AvailabilityZones': [
-                                    'string',
+                                \'SecurityGroupId\': \'string\',
+                                \'AvailabilityZones\': [
+                                    \'string\',
                                 ]
                             },
-                            'RadiusSettings': {
-                                'RadiusServers': [
-                                    'string',
+                            \'RadiusSettings\': {
+                                \'RadiusServers\': [
+                                    \'string\',
                                 ],
-                                'RadiusPort': 123,
-                                'RadiusTimeout': 123,
-                                'RadiusRetries': 123,
-                                'SharedSecret': 'string',
-                                'AuthenticationProtocol': 'PAP'|'CHAP'|'MS-CHAPv1'|'MS-CHAPv2',
-                                'DisplayLabel': 'string',
-                                'UseSameUsername': True|False
+                                \'RadiusPort\': 123,
+                                \'RadiusTimeout\': 123,
+                                \'RadiusRetries\': 123,
+                                \'SharedSecret\': \'string\',
+                                \'AuthenticationProtocol\': \'PAP\'|\'CHAP\'|\'MS-CHAPv1\'|\'MS-CHAPv2\',
+                                \'DisplayLabel\': \'string\',
+                                \'UseSameUsername\': True|False
                             },
-                            'RadiusStatus': 'Creating'|'Completed'|'Failed'
+                            \'RadiusStatus\': \'Creating\'|\'Completed\'|\'Failed\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1708,11 +1708,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_domain_controllers(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               DomainControllerIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -1745,21 +1745,21 @@ class Client(BaseClient):
           ::
         
             {
-                'DomainControllers': [
+                \'DomainControllers\': [
                     {
-                        'DirectoryId': 'string',
-                        'DomainControllerId': 'string',
-                        'DnsIpAddr': 'string',
-                        'VpcId': 'string',
-                        'SubnetId': 'string',
-                        'AvailabilityZone': 'string',
-                        'Status': 'Creating'|'Active'|'Impaired'|'Restoring'|'Deleting'|'Deleted'|'Failed',
-                        'StatusReason': 'string',
-                        'LaunchTime': datetime(2015, 1, 1),
-                        'StatusLastUpdatedDateTime': datetime(2015, 1, 1)
+                        \'DirectoryId\': \'string\',
+                        \'DomainControllerId\': \'string\',
+                        \'DnsIpAddr\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'Status\': \'Creating\'|\'Active\'|\'Impaired\'|\'Restoring\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                        \'StatusReason\': \'string\',
+                        \'LaunchTime\': datetime(2015, 1, 1),
+                        \'StatusLastUpdatedDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1831,9 +1831,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_event_topics(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               TopicNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -1858,13 +1858,13 @@ class Client(BaseClient):
           ::
         
             {
-                'EventTopics': [
+                \'EventTopics\': [
                     {
-                        'DirectoryId': 'string',
-                        'TopicName': 'string',
-                        'TopicArn': 'string',
-                        'CreatedDateTime': datetime(2015, 1, 1),
-                        'Status': 'Registered'|'Topic not found'|'Failed'|'Deleted'
+                        \'DirectoryId\': \'string\',
+                        \'TopicName\': \'string\',
+                        \'TopicArn\': \'string\',
+                        \'CreatedDateTime\': datetime(2015, 1, 1),
+                        \'Status\': \'Registered\'|\'Topic not found\'|\'Failed\'|\'Deleted\'
                     },
                 ]
             }
@@ -1914,11 +1914,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_shared_directories(
-              OwnerDirectoryId='string',
+              OwnerDirectoryId=\'string\',
               SharedDirectoryIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type OwnerDirectoryId: string
@@ -1951,20 +1951,20 @@ class Client(BaseClient):
           ::
         
             {
-                'SharedDirectories': [
+                \'SharedDirectories\': [
                     {
-                        'OwnerAccountId': 'string',
-                        'OwnerDirectoryId': 'string',
-                        'ShareMethod': 'ORGANIZATIONS'|'HANDSHAKE',
-                        'SharedAccountId': 'string',
-                        'SharedDirectoryId': 'string',
-                        'ShareStatus': 'Shared'|'PendingAcceptance'|'Rejected'|'Rejecting'|'RejectFailed'|'Sharing'|'ShareFailed'|'Deleted'|'Deleting',
-                        'ShareNotes': 'string',
-                        'CreatedDateTime': datetime(2015, 1, 1),
-                        'LastUpdatedDateTime': datetime(2015, 1, 1)
+                        \'OwnerAccountId\': \'string\',
+                        \'OwnerDirectoryId\': \'string\',
+                        \'ShareMethod\': \'ORGANIZATIONS\'|\'HANDSHAKE\',
+                        \'SharedAccountId\': \'string\',
+                        \'SharedDirectoryId\': \'string\',
+                        \'ShareStatus\': \'Shared\'|\'PendingAcceptance\'|\'Rejected\'|\'Rejecting\'|\'RejectFailed\'|\'Sharing\'|\'ShareFailed\'|\'Deleted\'|\'Deleting\',
+                        \'ShareNotes\': \'string\',
+                        \'CreatedDateTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2034,11 +2034,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_snapshots(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               SnapshotIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -2071,17 +2071,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshots': [
+                \'Snapshots\': [
                     {
-                        'DirectoryId': 'string',
-                        'SnapshotId': 'string',
-                        'Type': 'Auto'|'Manual',
-                        'Name': 'string',
-                        'Status': 'Creating'|'Completed'|'Failed',
-                        'StartTime': datetime(2015, 1, 1)
+                        \'DirectoryId\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'Type\': \'Auto\'|\'Manual\',
+                        \'Name\': \'string\',
+                        \'Status\': \'Creating\'|\'Completed\'|\'Failed\',
+                        \'StartTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2141,11 +2141,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_trusts(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               TrustIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -2180,22 +2180,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Trusts': [
+                \'Trusts\': [
                     {
-                        'DirectoryId': 'string',
-                        'TrustId': 'string',
-                        'RemoteDomainName': 'string',
-                        'TrustType': 'Forest'|'External',
-                        'TrustDirection': 'One-Way: Outgoing'|'One-Way: Incoming'|'Two-Way',
-                        'TrustState': 'Creating'|'Created'|'Verifying'|'VerifyFailed'|'Verified'|'Updating'|'UpdateFailed'|'Updated'|'Deleting'|'Deleted'|'Failed',
-                        'CreatedDateTime': datetime(2015, 1, 1),
-                        'LastUpdatedDateTime': datetime(2015, 1, 1),
-                        'StateLastUpdatedDateTime': datetime(2015, 1, 1),
-                        'TrustStateReason': 'string',
-                        'SelectiveAuth': 'Enabled'|'Disabled'
+                        \'DirectoryId\': \'string\',
+                        \'TrustId\': \'string\',
+                        \'RemoteDomainName\': \'string\',
+                        \'TrustType\': \'Forest\'|\'External\',
+                        \'TrustDirection\': \'One-Way: Outgoing\'|\'One-Way: Incoming\'|\'Two-Way\',
+                        \'TrustState\': \'Creating\'|\'Created\'|\'Verifying\'|\'VerifyFailed\'|\'Verified\'|\'Updating\'|\'UpdateFailed\'|\'Updated\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                        \'CreatedDateTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedDateTime\': datetime(2015, 1, 1),
+                        \'StateLastUpdatedDateTime\': datetime(2015, 1, 1),
+                        \'TrustStateReason\': \'string\',
+                        \'SelectiveAuth\': \'Enabled\'|\'Disabled\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2273,7 +2273,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_radius(
-              DirectoryId='string'
+              DirectoryId=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -2306,9 +2306,9 @@ class Client(BaseClient):
         ::
         
           response = client.disable_sso(
-              DirectoryId='string',
-              UserName='string',
-              Password='string'
+              DirectoryId=\'string\',
+              UserName=\'string\',
+              Password=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -2353,18 +2353,18 @@ class Client(BaseClient):
         ::
         
           response = client.enable_radius(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               RadiusSettings={
-                  'RadiusServers': [
-                      'string',
+                  \'RadiusServers\': [
+                      \'string\',
                   ],
-                  'RadiusPort': 123,
-                  'RadiusTimeout': 123,
-                  'RadiusRetries': 123,
-                  'SharedSecret': 'string',
-                  'AuthenticationProtocol': 'PAP'|'CHAP'|'MS-CHAPv1'|'MS-CHAPv2',
-                  'DisplayLabel': 'string',
-                  'UseSameUsername': True|False
+                  \'RadiusPort\': 123,
+                  \'RadiusTimeout\': 123,
+                  \'RadiusRetries\': 123,
+                  \'SharedSecret\': \'string\',
+                  \'AuthenticationProtocol\': \'PAP\'|\'CHAP\'|\'MS-CHAPv1\'|\'MS-CHAPv2\',
+                  \'DisplayLabel\': \'string\',
+                  \'UseSameUsername\': True|False
               }
           )
         :type DirectoryId: string
@@ -2437,9 +2437,9 @@ class Client(BaseClient):
         ::
         
           response = client.enable_sso(
-              DirectoryId='string',
-              UserName='string',
-              Password='string'
+              DirectoryId=\'string\',
+              UserName=\'string\',
+              Password=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -2491,7 +2491,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2515,16 +2515,16 @@ class Client(BaseClient):
           ::
         
             {
-                'DirectoryLimits': {
-                    'CloudOnlyDirectoriesLimit': 123,
-                    'CloudOnlyDirectoriesCurrentCount': 123,
-                    'CloudOnlyDirectoriesLimitReached': True|False,
-                    'CloudOnlyMicrosoftADLimit': 123,
-                    'CloudOnlyMicrosoftADCurrentCount': 123,
-                    'CloudOnlyMicrosoftADLimitReached': True|False,
-                    'ConnectedDirectoriesLimit': 123,
-                    'ConnectedDirectoriesCurrentCount': 123,
-                    'ConnectedDirectoriesLimitReached': True|False
+                \'DirectoryLimits\': {
+                    \'CloudOnlyDirectoriesLimit\': 123,
+                    \'CloudOnlyDirectoriesCurrentCount\': 123,
+                    \'CloudOnlyDirectoriesLimitReached\': True|False,
+                    \'CloudOnlyMicrosoftADLimit\': 123,
+                    \'CloudOnlyMicrosoftADCurrentCount\': 123,
+                    \'CloudOnlyMicrosoftADLimitReached\': True|False,
+                    \'ConnectedDirectoriesLimit\': 123,
+                    \'ConnectedDirectoriesCurrentCount\': 123,
+                    \'ConnectedDirectoriesLimitReached\': True|False
                 }
             }
           **Response Structure** 
@@ -2582,10 +2582,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2605,7 +2605,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_snapshot_limits(
-              DirectoryId='string'
+              DirectoryId=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -2620,10 +2620,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotLimits': {
-                    'ManualSnapshotsLimit': 123,
-                    'ManualSnapshotsCurrentCount': 123,
-                    'ManualSnapshotsLimitReached': True|False
+                \'SnapshotLimits\': {
+                    \'ManualSnapshotsLimit\': 123,
+                    \'ManualSnapshotsCurrentCount\': 123,
+                    \'ManualSnapshotsLimitReached\': True|False
                 }
             }
           **Response Structure** 
@@ -2672,8 +2672,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_ip_routes(
-              DirectoryId='string',
-              NextToken='string',
+              DirectoryId=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -2699,17 +2699,17 @@ class Client(BaseClient):
           ::
         
             {
-                'IpRoutesInfo': [
+                \'IpRoutesInfo\': [
                     {
-                        'DirectoryId': 'string',
-                        'CidrIp': 'string',
-                        'IpRouteStatusMsg': 'Adding'|'Added'|'Removing'|'Removed'|'AddFailed'|'RemoveFailed',
-                        'AddedDateTime': datetime(2015, 1, 1),
-                        'IpRouteStatusReason': 'string',
-                        'Description': 'string'
+                        \'DirectoryId\': \'string\',
+                        \'CidrIp\': \'string\',
+                        \'IpRouteStatusMsg\': \'Adding\'|\'Added\'|\'Removing\'|\'Removed\'|\'AddFailed\'|\'RemoveFailed\',
+                        \'AddedDateTime\': datetime(2015, 1, 1),
+                        \'IpRouteStatusReason\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2763,8 +2763,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_log_subscriptions(
-              DirectoryId='string',
-              NextToken='string',
+              DirectoryId=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -2790,14 +2790,14 @@ class Client(BaseClient):
           ::
         
             {
-                'LogSubscriptions': [
+                \'LogSubscriptions\': [
                     {
-                        'DirectoryId': 'string',
-                        'LogGroupName': 'string',
-                        'SubscriptionCreatedDateTime': datetime(2015, 1, 1)
+                        \'DirectoryId\': \'string\',
+                        \'LogGroupName\': \'string\',
+                        \'SubscriptionCreatedDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2839,8 +2839,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_schema_extensions(
-              DirectoryId='string',
-              NextToken='string',
+              DirectoryId=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type DirectoryId: string
@@ -2866,18 +2866,18 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaExtensionsInfo': [
+                \'SchemaExtensionsInfo\': [
                     {
-                        'DirectoryId': 'string',
-                        'SchemaExtensionId': 'string',
-                        'Description': 'string',
-                        'SchemaExtensionStatus': 'Initializing'|'CreatingSnapshot'|'UpdatingSchema'|'Replicating'|'CancelInProgress'|'RollbackInProgress'|'Cancelled'|'Failed'|'Completed',
-                        'SchemaExtensionStatusReason': 'string',
-                        'StartDateTime': datetime(2015, 1, 1),
-                        'EndDateTime': datetime(2015, 1, 1)
+                        \'DirectoryId\': \'string\',
+                        \'SchemaExtensionId\': \'string\',
+                        \'Description\': \'string\',
+                        \'SchemaExtensionStatus\': \'Initializing\'|\'CreatingSnapshot\'|\'UpdatingSchema\'|\'Replicating\'|\'CancelInProgress\'|\'RollbackInProgress\'|\'Cancelled\'|\'Failed\'|\'Completed\',
+                        \'SchemaExtensionStatusReason\': \'string\',
+                        \'StartDateTime\': datetime(2015, 1, 1),
+                        \'EndDateTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2935,8 +2935,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceId='string',
-              NextToken='string',
+              ResourceId=\'string\',
+              NextToken=\'string\',
               Limit=123
           )
         :type ResourceId: string
@@ -2962,13 +2962,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2984,11 +2984,11 @@ class Client(BaseClient):
         
                 - **Key** *(string) --* 
         
-                  Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
                 - **Value** *(string) --* 
         
-                  The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+                  The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").
         
             - **NextToken** *(string) --* 
         
@@ -3006,8 +3006,8 @@ class Client(BaseClient):
         ::
         
           response = client.register_event_topic(
-              DirectoryId='string',
-              TopicName='string'
+              DirectoryId=\'string\',
+              TopicName=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -3045,7 +3045,7 @@ class Client(BaseClient):
         ::
         
           response = client.reject_shared_directory(
-              SharedDirectoryId='string'
+              SharedDirectoryId=\'string\'
           )
         :type SharedDirectoryId: string
         :param SharedDirectoryId: **[REQUIRED]** 
@@ -3060,7 +3060,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SharedDirectoryId': 'string'
+                \'SharedDirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -3082,9 +3082,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_ip_routes(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               CidrIps=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -3122,9 +3122,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceId: string
@@ -3162,9 +3162,9 @@ class Client(BaseClient):
         ::
         
           response = client.reset_user_password(
-              DirectoryId='string',
-              UserName='string',
-              NewPassword='string'
+              DirectoryId=\'string\',
+              UserName=\'string\',
+              NewPassword=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -3208,7 +3208,7 @@ class Client(BaseClient):
         ::
         
           response = client.restore_from_snapshot(
-              SnapshotId='string'
+              SnapshotId=\'string\'
           )
         :type SnapshotId: string
         :param SnapshotId: **[REQUIRED]** 
@@ -3247,13 +3247,13 @@ class Client(BaseClient):
         ::
         
           response = client.share_directory(
-              DirectoryId='string',
-              ShareNotes='string',
+              DirectoryId=\'string\',
+              ShareNotes=\'string\',
               ShareTarget={
-                  'Id': 'string',
-                  'Type': 'ACCOUNT'
+                  \'Id\': \'string\',
+                  \'Type\': \'ACCOUNT\'
               },
-              ShareMethod='ORGANIZATIONS'|'HANDSHAKE'
+              ShareMethod=\'ORGANIZATIONS\'|\'HANDSHAKE\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -3291,7 +3291,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SharedDirectoryId': 'string'
+                \'SharedDirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -3313,10 +3313,10 @@ class Client(BaseClient):
         ::
         
           response = client.start_schema_extension(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               CreateSnapshotBeforeSchemaExtension=True|False,
-              LdifContent='string',
-              Description='string'
+              LdifContent=\'string\',
+              Description=\'string\'
           )
         :type DirectoryId: string
         :param DirectoryId: **[REQUIRED]** 
@@ -3346,7 +3346,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SchemaExtensionId': 'string'
+                \'SchemaExtensionId\': \'string\'
             }
           **Response Structure** 
         
@@ -3368,10 +3368,10 @@ class Client(BaseClient):
         ::
         
           response = client.unshare_directory(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               UnshareTarget={
-                  'Id': 'string',
-                  'Type': 'ACCOUNT'
+                  \'Id\': \'string\',
+                  \'Type\': \'ACCOUNT\'
               }
           )
         :type DirectoryId: string
@@ -3400,7 +3400,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SharedDirectoryId': 'string'
+                \'SharedDirectoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -3422,10 +3422,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_conditional_forwarder(
-              DirectoryId='string',
-              RemoteDomainName='string',
+              DirectoryId=\'string\',
+              RemoteDomainName=\'string\',
               DnsIpAddrs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -3471,7 +3471,7 @@ class Client(BaseClient):
         ::
         
           response = client.update_number_of_domain_controllers(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               DesiredNumber=123
           )
         :type DirectoryId: string
@@ -3507,18 +3507,18 @@ class Client(BaseClient):
         ::
         
           response = client.update_radius(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               RadiusSettings={
-                  'RadiusServers': [
-                      'string',
+                  \'RadiusServers\': [
+                      \'string\',
                   ],
-                  'RadiusPort': 123,
-                  'RadiusTimeout': 123,
-                  'RadiusRetries': 123,
-                  'SharedSecret': 'string',
-                  'AuthenticationProtocol': 'PAP'|'CHAP'|'MS-CHAPv1'|'MS-CHAPv2',
-                  'DisplayLabel': 'string',
-                  'UseSameUsername': True|False
+                  \'RadiusPort\': 123,
+                  \'RadiusTimeout\': 123,
+                  \'RadiusRetries\': 123,
+                  \'SharedSecret\': \'string\',
+                  \'AuthenticationProtocol\': \'PAP\'|\'CHAP\'|\'MS-CHAPv1\'|\'MS-CHAPv2\',
+                  \'DisplayLabel\': \'string\',
+                  \'UseSameUsername\': True|False
               }
           )
         :type DirectoryId: string
@@ -3591,8 +3591,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_trust(
-              TrustId='string',
-              SelectiveAuth='Enabled'|'Disabled'
+              TrustId=\'string\',
+              SelectiveAuth=\'Enabled\'|\'Disabled\'
           )
         :type TrustId: string
         :param TrustId: **[REQUIRED]** 
@@ -3612,8 +3612,8 @@ class Client(BaseClient):
           ::
         
             {
-                'RequestId': 'string',
-                'TrustId': 'string'
+                \'RequestId\': \'string\',
+                \'TrustId\': \'string\'
             }
           **Response Structure** 
         
@@ -3641,7 +3641,7 @@ class Client(BaseClient):
         ::
         
           response = client.verify_trust(
-              TrustId='string'
+              TrustId=\'string\'
           )
         :type TrustId: string
         :param TrustId: **[REQUIRED]** 
@@ -3656,7 +3656,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TrustId': 'string'
+                \'TrustId\': \'string\'
             }
           **Response Structure** 
         

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -42,7 +42,7 @@ class Client(BaseClient):
         
         * An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses ``COPY`` syntax to load data into an Amazon Redshift table. This is specified in the **RedshiftDestinationConfiguration.S3Configuration** parameter. 
          
-        * The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationConfiguration.S3Configuration`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn't support these compression formats. 
+        * The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationConfiguration.S3Configuration`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn\'t support these compression formats. 
          
         * We strongly recommend that you use the user name and password you provide exclusively with Kinesis Data Firehose, and that the permissions for the account are restricted for Amazon Redshift ``INSERT`` permissions. 
          
@@ -54,328 +54,328 @@ class Client(BaseClient):
         ::
         
           response = client.create_delivery_stream(
-              DeliveryStreamName='string',
-              DeliveryStreamType='DirectPut'|'KinesisStreamAsSource',
+              DeliveryStreamName=\'string\',
+              DeliveryStreamType=\'DirectPut\'|\'KinesisStreamAsSource\',
               KinesisStreamSourceConfiguration={
-                  'KinesisStreamARN': 'string',
-                  'RoleARN': 'string'
+                  \'KinesisStreamARN\': \'string\',
+                  \'RoleARN\': \'string\'
               },
               S3DestinationConfiguration={
-                  'RoleARN': 'string',
-                  'BucketARN': 'string',
-                  'Prefix': 'string',
-                  'BufferingHints': {
-                      'SizeInMBs': 123,
-                      'IntervalInSeconds': 123
+                  \'RoleARN\': \'string\',
+                  \'BucketARN\': \'string\',
+                  \'Prefix\': \'string\',
+                  \'BufferingHints\': {
+                      \'SizeInMBs\': 123,
+                      \'IntervalInSeconds\': 123
                   },
-                  'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                  'EncryptionConfiguration': {
-                      'NoEncryptionConfig': 'NoEncryption',
-                      'KMSEncryptionConfig': {
-                          'AWSKMSKeyARN': 'string'
+                  \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                  \'EncryptionConfiguration\': {
+                      \'NoEncryptionConfig\': \'NoEncryption\',
+                      \'KMSEncryptionConfig\': {
+                          \'AWSKMSKeyARN\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               ExtendedS3DestinationConfiguration={
-                  'RoleARN': 'string',
-                  'BucketARN': 'string',
-                  'Prefix': 'string',
-                  'BufferingHints': {
-                      'SizeInMBs': 123,
-                      'IntervalInSeconds': 123
+                  \'RoleARN\': \'string\',
+                  \'BucketARN\': \'string\',
+                  \'Prefix\': \'string\',
+                  \'BufferingHints\': {
+                      \'SizeInMBs\': 123,
+                      \'IntervalInSeconds\': 123
                   },
-                  'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                  'EncryptionConfiguration': {
-                      'NoEncryptionConfig': 'NoEncryption',
-                      'KMSEncryptionConfig': {
-                          'AWSKMSKeyARN': 'string'
+                  \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                  \'EncryptionConfiguration\': {
+                      \'NoEncryptionConfig\': \'NoEncryption\',
+                      \'KMSEncryptionConfig\': {
+                          \'AWSKMSKeyARN\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'S3BackupMode': 'Disabled'|'Enabled',
-                  'S3BackupConfiguration': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                  \'S3BackupConfiguration\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'DataFormatConversionConfiguration': {
-                      'SchemaConfiguration': {
-                          'RoleARN': 'string',
-                          'CatalogId': 'string',
-                          'DatabaseName': 'string',
-                          'TableName': 'string',
-                          'Region': 'string',
-                          'VersionId': 'string'
+                  \'DataFormatConversionConfiguration\': {
+                      \'SchemaConfiguration\': {
+                          \'RoleARN\': \'string\',
+                          \'CatalogId\': \'string\',
+                          \'DatabaseName\': \'string\',
+                          \'TableName\': \'string\',
+                          \'Region\': \'string\',
+                          \'VersionId\': \'string\'
                       },
-                      'InputFormatConfiguration': {
-                          'Deserializer': {
-                              'OpenXJsonSerDe': {
-                                  'ConvertDotsInJsonKeysToUnderscores': True|False,
-                                  'CaseInsensitive': True|False,
-                                  'ColumnToJsonKeyMappings': {
-                                      'string': 'string'
+                      \'InputFormatConfiguration\': {
+                          \'Deserializer\': {
+                              \'OpenXJsonSerDe\': {
+                                  \'ConvertDotsInJsonKeysToUnderscores\': True|False,
+                                  \'CaseInsensitive\': True|False,
+                                  \'ColumnToJsonKeyMappings\': {
+                                      \'string\': \'string\'
                                   }
                               },
-                              'HiveJsonSerDe': {
-                                  'TimestampFormats': [
-                                      'string',
+                              \'HiveJsonSerDe\': {
+                                  \'TimestampFormats\': [
+                                      \'string\',
                                   ]
                               }
                           }
                       },
-                      'OutputFormatConfiguration': {
-                          'Serializer': {
-                              'ParquetSerDe': {
-                                  'BlockSizeBytes': 123,
-                                  'PageSizeBytes': 123,
-                                  'Compression': 'UNCOMPRESSED'|'GZIP'|'SNAPPY',
-                                  'EnableDictionaryCompression': True|False,
-                                  'MaxPaddingBytes': 123,
-                                  'WriterVersion': 'V1'|'V2'
+                      \'OutputFormatConfiguration\': {
+                          \'Serializer\': {
+                              \'ParquetSerDe\': {
+                                  \'BlockSizeBytes\': 123,
+                                  \'PageSizeBytes\': 123,
+                                  \'Compression\': \'UNCOMPRESSED\'|\'GZIP\'|\'SNAPPY\',
+                                  \'EnableDictionaryCompression\': True|False,
+                                  \'MaxPaddingBytes\': 123,
+                                  \'WriterVersion\': \'V1\'|\'V2\'
                               },
-                              'OrcSerDe': {
-                                  'StripeSizeBytes': 123,
-                                  'BlockSizeBytes': 123,
-                                  'RowIndexStride': 123,
-                                  'EnablePadding': True|False,
-                                  'PaddingTolerance': 123.0,
-                                  'Compression': 'NONE'|'ZLIB'|'SNAPPY',
-                                  'BloomFilterColumns': [
-                                      'string',
+                              \'OrcSerDe\': {
+                                  \'StripeSizeBytes\': 123,
+                                  \'BlockSizeBytes\': 123,
+                                  \'RowIndexStride\': 123,
+                                  \'EnablePadding\': True|False,
+                                  \'PaddingTolerance\': 123.0,
+                                  \'Compression\': \'NONE\'|\'ZLIB\'|\'SNAPPY\',
+                                  \'BloomFilterColumns\': [
+                                      \'string\',
                                   ],
-                                  'BloomFilterFalsePositiveProbability': 123.0,
-                                  'DictionaryKeyThreshold': 123.0,
-                                  'FormatVersion': 'V0_11'|'V0_12'
+                                  \'BloomFilterFalsePositiveProbability\': 123.0,
+                                  \'DictionaryKeyThreshold\': 123.0,
+                                  \'FormatVersion\': \'V0_11\'|\'V0_12\'
                               }
                           }
                       },
-                      'Enabled': True|False
+                      \'Enabled\': True|False
                   }
               },
               RedshiftDestinationConfiguration={
-                  'RoleARN': 'string',
-                  'ClusterJDBCURL': 'string',
-                  'CopyCommand': {
-                      'DataTableName': 'string',
-                      'DataTableColumns': 'string',
-                      'CopyOptions': 'string'
+                  \'RoleARN\': \'string\',
+                  \'ClusterJDBCURL\': \'string\',
+                  \'CopyCommand\': {
+                      \'DataTableName\': \'string\',
+                      \'DataTableColumns\': \'string\',
+                      \'CopyOptions\': \'string\'
                   },
-                  'Username': 'string',
-                  'Password': 'string',
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3Configuration': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3Configuration\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'S3BackupMode': 'Disabled'|'Enabled',
-                  'S3BackupConfiguration': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                  \'S3BackupConfiguration\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               ElasticsearchDestinationConfiguration={
-                  'RoleARN': 'string',
-                  'DomainARN': 'string',
-                  'IndexName': 'string',
-                  'TypeName': 'string',
-                  'IndexRotationPeriod': 'NoRotation'|'OneHour'|'OneDay'|'OneWeek'|'OneMonth',
-                  'BufferingHints': {
-                      'IntervalInSeconds': 123,
-                      'SizeInMBs': 123
+                  \'RoleARN\': \'string\',
+                  \'DomainARN\': \'string\',
+                  \'IndexName\': \'string\',
+                  \'TypeName\': \'string\',
+                  \'IndexRotationPeriod\': \'NoRotation\'|\'OneHour\'|\'OneDay\'|\'OneWeek\'|\'OneMonth\',
+                  \'BufferingHints\': {
+                      \'IntervalInSeconds\': 123,
+                      \'SizeInMBs\': 123
                   },
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3BackupMode': 'FailedDocumentsOnly'|'AllDocuments',
-                  'S3Configuration': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'FailedDocumentsOnly\'|\'AllDocuments\',
+                  \'S3Configuration\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               SplunkDestinationConfiguration={
-                  'HECEndpoint': 'string',
-                  'HECEndpointType': 'Raw'|'Event',
-                  'HECToken': 'string',
-                  'HECAcknowledgmentTimeoutInSeconds': 123,
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'HECEndpoint\': \'string\',
+                  \'HECEndpointType\': \'Raw\'|\'Event\',
+                  \'HECToken\': \'string\',
+                  \'HECAcknowledgmentTimeoutInSeconds\': 123,
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3BackupMode': 'FailedEventsOnly'|'AllEvents',
-                  'S3Configuration': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'FailedEventsOnly\'|\'AllEvents\',
+                  \'S3Configuration\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -421,7 +421,7 @@ class Client(BaseClient):
         
           - **Prefix** *(string) --* 
         
-            The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+            The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
           - **BufferingHints** *(dict) --* 
         
@@ -490,7 +490,7 @@ class Client(BaseClient):
         
           - **Prefix** *(string) --* 
         
-            The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+            The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
           - **BufferingHints** *(dict) --* 
         
@@ -596,7 +596,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -660,11 +660,11 @@ class Client(BaseClient):
         
               - **RoleARN** *(string) --* 
         
-                The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+                The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren\'t allowed.
         
               - **CatalogId** *(string) --* 
         
-                The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+                The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS account ID is used by default.
         
               - **DatabaseName** *(string) --* 
         
@@ -676,11 +676,11 @@ class Client(BaseClient):
         
               - **Region** *(string) --* 
         
-                If you don't specify an AWS Region, the default is the current Region.
+                If you don\'t specify an AWS Region, the default is the current Region.
         
               - **VersionId** *(string) --* 
         
-                Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+                Specifies the table version for the output data schema. If you don\'t specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
         
             - **InputFormatConfiguration** *(dict) --* 
         
@@ -696,7 +696,7 @@ class Client(BaseClient):
         
                   - **ConvertDotsInJsonKeysToUnderscores** *(boolean) --* 
         
-                    When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
+                    When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is \"a.b\", you can define the column name to be \"a_b\" when using this option.
         
                     The default is ``false`` .
         
@@ -706,7 +706,7 @@ class Client(BaseClient):
         
                   - **ColumnToJsonKeyMappings** *(dict) --* 
         
-                    Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{"ts": "timestamp"}`` to map this key to a column named ``ts`` .
+                    Maps column names to JSON keys that aren\'t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{\"ts\": \"timestamp\"}`` to map this key to a column named ``ts`` .
         
                     - *(string) --* 
         
@@ -718,7 +718,7 @@ class Client(BaseClient):
         
                   - **TimestampFormats** *(list) --* 
         
-                    Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
+                    Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime\'s DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
         
                     - *(string) --* 
         
@@ -839,17 +839,17 @@ class Client(BaseClient):
         
             - **CopyOptions** *(string) --* 
         
-              Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the "Optional Parameters" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
+              Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the \"Optional Parameters\" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
         
-               ``delimiter '\t' lzop;`` - fields are delimited with "\t" (TAB character) and compressed using lzop.
+               ``delimiter \'\t\' lzop;`` - fields are delimited with \"\t\" (TAB character) and compressed using lzop.
         
-               ``delimiter '|'`` - fields are delimited with "|" (this is the default delimiter).
+               ``delimiter \'|\'`` - fields are delimited with \"|\" (this is the default delimiter).
         
-               ``delimiter '|' escape`` - the delimiter should be escaped.
+               ``delimiter \'|\' escape`` - the delimiter should be escaped.
         
-               ``fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'`` - fields are fixed width in the source, with each width specified after every column in the table.
+               ``fixedwidth \'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6\'`` - fields are fixed width in the source, with each width specified after every column in the table.
         
-               ``JSON 's3://mybucket/jsonpaths.txt'`` - data is in JSON format, and the path specified is the format of the data.
+               ``JSON \'s3://mybucket/jsonpaths.txt\'`` - data is in JSON format, and the path specified is the format of the data.
         
               For more examples, see `Amazon Redshift COPY command examples <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html>`__ .
         
@@ -873,7 +873,7 @@ class Client(BaseClient):
         
             The configuration for the intermediate Amazon S3 location from which Amazon Redshift obtains data. Restrictions are described in the topic for  CreateDeliveryStream .
         
-            The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationConfiguration.S3Configuration`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn't support these compression formats.
+            The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationConfiguration.S3Configuration`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn\'t support these compression formats.
         
             - **RoleARN** *(string) --* **[REQUIRED]** 
         
@@ -885,7 +885,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -993,7 +993,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -1128,7 +1128,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -1245,7 +1245,7 @@ class Client(BaseClient):
         
           - **HECEndpointType** *(string) --* **[REQUIRED]** 
         
-            This type can be either "Raw" or "Event."
+            This type can be either \"Raw\" or \"Event.\"
         
           - **HECToken** *(string) --* **[REQUIRED]** 
         
@@ -1257,11 +1257,11 @@ class Client(BaseClient):
         
           - **RetryOptions** *(dict) --* 
         
-            The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
+            The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn\'t receive an acknowledgment of receipt from Splunk.
         
             - **DurationInSeconds** *(integer) --* 
         
-              The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
+              The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn\'t include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
         
           - **S3BackupMode** *(string) --* 
         
@@ -1281,7 +1281,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -1414,7 +1414,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeliveryStreamARN': 'string'
+                \'DeliveryStreamARN\': \'string\'
             }
           **Response Structure** 
         
@@ -1434,7 +1434,7 @@ class Client(BaseClient):
         
         To check the state of a delivery stream, use  DescribeDeliveryStream .
         
-        While the delivery stream is ``DELETING`` state, the service might continue to accept the records, but it doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
+        While the delivery stream is ``DELETING`` state, the service might continue to accept the records, but it doesn\'t make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/DeleteDeliveryStream>`_
         
@@ -1442,7 +1442,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_delivery_stream(
-              DeliveryStreamName='string'
+              DeliveryStreamName=\'string\'
           )
         :type DeliveryStreamName: string
         :param DeliveryStreamName: **[REQUIRED]** 
@@ -1472,9 +1472,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_delivery_stream(
-              DeliveryStreamName='string',
+              DeliveryStreamName=\'string\',
               Limit=123,
-              ExclusiveStartDestinationId='string'
+              ExclusiveStartDestinationId=\'string\'
           )
         :type DeliveryStreamName: string
         :param DeliveryStreamName: **[REQUIRED]** 
@@ -1499,341 +1499,341 @@ class Client(BaseClient):
           ::
         
             {
-                'DeliveryStreamDescription': {
-                    'DeliveryStreamName': 'string',
-                    'DeliveryStreamARN': 'string',
-                    'DeliveryStreamStatus': 'CREATING'|'DELETING'|'ACTIVE',
-                    'DeliveryStreamEncryptionConfiguration': {
-                        'Status': 'ENABLED'|'ENABLING'|'DISABLED'|'DISABLING'
+                \'DeliveryStreamDescription\': {
+                    \'DeliveryStreamName\': \'string\',
+                    \'DeliveryStreamARN\': \'string\',
+                    \'DeliveryStreamStatus\': \'CREATING\'|\'DELETING\'|\'ACTIVE\',
+                    \'DeliveryStreamEncryptionConfiguration\': {
+                        \'Status\': \'ENABLED\'|\'ENABLING\'|\'DISABLED\'|\'DISABLING\'
                     },
-                    'DeliveryStreamType': 'DirectPut'|'KinesisStreamAsSource',
-                    'VersionId': 'string',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'LastUpdateTimestamp': datetime(2015, 1, 1),
-                    'Source': {
-                        'KinesisStreamSourceDescription': {
-                            'KinesisStreamARN': 'string',
-                            'RoleARN': 'string',
-                            'DeliveryStartTimestamp': datetime(2015, 1, 1)
+                    \'DeliveryStreamType\': \'DirectPut\'|\'KinesisStreamAsSource\',
+                    \'VersionId\': \'string\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'LastUpdateTimestamp\': datetime(2015, 1, 1),
+                    \'Source\': {
+                        \'KinesisStreamSourceDescription\': {
+                            \'KinesisStreamARN\': \'string\',
+                            \'RoleARN\': \'string\',
+                            \'DeliveryStartTimestamp\': datetime(2015, 1, 1)
                         }
                     },
-                    'Destinations': [
+                    \'Destinations\': [
                         {
-                            'DestinationId': 'string',
-                            'S3DestinationDescription': {
-                                'RoleARN': 'string',
-                                'BucketARN': 'string',
-                                'Prefix': 'string',
-                                'BufferingHints': {
-                                    'SizeInMBs': 123,
-                                    'IntervalInSeconds': 123
+                            \'DestinationId\': \'string\',
+                            \'S3DestinationDescription\': {
+                                \'RoleARN\': \'string\',
+                                \'BucketARN\': \'string\',
+                                \'Prefix\': \'string\',
+                                \'BufferingHints\': {
+                                    \'SizeInMBs\': 123,
+                                    \'IntervalInSeconds\': 123
                                 },
-                                'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                'EncryptionConfiguration': {
-                                    'NoEncryptionConfig': 'NoEncryption',
-                                    'KMSEncryptionConfig': {
-                                        'AWSKMSKeyARN': 'string'
+                                \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                \'EncryptionConfiguration\': {
+                                    \'NoEncryptionConfig\': \'NoEncryption\',
+                                    \'KMSEncryptionConfig\': {
+                                        \'AWSKMSKeyARN\': \'string\'
                                     }
                                 },
-                                'CloudWatchLoggingOptions': {
-                                    'Enabled': True|False,
-                                    'LogGroupName': 'string',
-                                    'LogStreamName': 'string'
+                                \'CloudWatchLoggingOptions\': {
+                                    \'Enabled\': True|False,
+                                    \'LogGroupName\': \'string\',
+                                    \'LogStreamName\': \'string\'
                                 }
                             },
-                            'ExtendedS3DestinationDescription': {
-                                'RoleARN': 'string',
-                                'BucketARN': 'string',
-                                'Prefix': 'string',
-                                'BufferingHints': {
-                                    'SizeInMBs': 123,
-                                    'IntervalInSeconds': 123
+                            \'ExtendedS3DestinationDescription\': {
+                                \'RoleARN\': \'string\',
+                                \'BucketARN\': \'string\',
+                                \'Prefix\': \'string\',
+                                \'BufferingHints\': {
+                                    \'SizeInMBs\': 123,
+                                    \'IntervalInSeconds\': 123
                                 },
-                                'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                'EncryptionConfiguration': {
-                                    'NoEncryptionConfig': 'NoEncryption',
-                                    'KMSEncryptionConfig': {
-                                        'AWSKMSKeyARN': 'string'
+                                \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                \'EncryptionConfiguration\': {
+                                    \'NoEncryptionConfig\': \'NoEncryption\',
+                                    \'KMSEncryptionConfig\': {
+                                        \'AWSKMSKeyARN\': \'string\'
                                     }
                                 },
-                                'CloudWatchLoggingOptions': {
-                                    'Enabled': True|False,
-                                    'LogGroupName': 'string',
-                                    'LogStreamName': 'string'
+                                \'CloudWatchLoggingOptions\': {
+                                    \'Enabled\': True|False,
+                                    \'LogGroupName\': \'string\',
+                                    \'LogStreamName\': \'string\'
                                 },
-                                'ProcessingConfiguration': {
-                                    'Enabled': True|False,
-                                    'Processors': [
+                                \'ProcessingConfiguration\': {
+                                    \'Enabled\': True|False,
+                                    \'Processors\': [
                                         {
-                                            'Type': 'Lambda',
-                                            'Parameters': [
+                                            \'Type\': \'Lambda\',
+                                            \'Parameters\': [
                                                 {
-                                                    'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                                    'ParameterValue': 'string'
+                                                    \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                                    \'ParameterValue\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
-                                'S3BackupMode': 'Disabled'|'Enabled',
-                                'S3BackupDescription': {
-                                    'RoleARN': 'string',
-                                    'BucketARN': 'string',
-                                    'Prefix': 'string',
-                                    'BufferingHints': {
-                                        'SizeInMBs': 123,
-                                        'IntervalInSeconds': 123
+                                \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                                \'S3BackupDescription\': {
+                                    \'RoleARN\': \'string\',
+                                    \'BucketARN\': \'string\',
+                                    \'Prefix\': \'string\',
+                                    \'BufferingHints\': {
+                                        \'SizeInMBs\': 123,
+                                        \'IntervalInSeconds\': 123
                                     },
-                                    'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                    'EncryptionConfiguration': {
-                                        'NoEncryptionConfig': 'NoEncryption',
-                                        'KMSEncryptionConfig': {
-                                            'AWSKMSKeyARN': 'string'
+                                    \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                    \'EncryptionConfiguration\': {
+                                        \'NoEncryptionConfig\': \'NoEncryption\',
+                                        \'KMSEncryptionConfig\': {
+                                            \'AWSKMSKeyARN\': \'string\'
                                         }
                                     },
-                                    'CloudWatchLoggingOptions': {
-                                        'Enabled': True|False,
-                                        'LogGroupName': 'string',
-                                        'LogStreamName': 'string'
+                                    \'CloudWatchLoggingOptions\': {
+                                        \'Enabled\': True|False,
+                                        \'LogGroupName\': \'string\',
+                                        \'LogStreamName\': \'string\'
                                     }
                                 },
-                                'DataFormatConversionConfiguration': {
-                                    'SchemaConfiguration': {
-                                        'RoleARN': 'string',
-                                        'CatalogId': 'string',
-                                        'DatabaseName': 'string',
-                                        'TableName': 'string',
-                                        'Region': 'string',
-                                        'VersionId': 'string'
+                                \'DataFormatConversionConfiguration\': {
+                                    \'SchemaConfiguration\': {
+                                        \'RoleARN\': \'string\',
+                                        \'CatalogId\': \'string\',
+                                        \'DatabaseName\': \'string\',
+                                        \'TableName\': \'string\',
+                                        \'Region\': \'string\',
+                                        \'VersionId\': \'string\'
                                     },
-                                    'InputFormatConfiguration': {
-                                        'Deserializer': {
-                                            'OpenXJsonSerDe': {
-                                                'ConvertDotsInJsonKeysToUnderscores': True|False,
-                                                'CaseInsensitive': True|False,
-                                                'ColumnToJsonKeyMappings': {
-                                                    'string': 'string'
+                                    \'InputFormatConfiguration\': {
+                                        \'Deserializer\': {
+                                            \'OpenXJsonSerDe\': {
+                                                \'ConvertDotsInJsonKeysToUnderscores\': True|False,
+                                                \'CaseInsensitive\': True|False,
+                                                \'ColumnToJsonKeyMappings\': {
+                                                    \'string\': \'string\'
                                                 }
                                             },
-                                            'HiveJsonSerDe': {
-                                                'TimestampFormats': [
-                                                    'string',
+                                            \'HiveJsonSerDe\': {
+                                                \'TimestampFormats\': [
+                                                    \'string\',
                                                 ]
                                             }
                                         }
                                     },
-                                    'OutputFormatConfiguration': {
-                                        'Serializer': {
-                                            'ParquetSerDe': {
-                                                'BlockSizeBytes': 123,
-                                                'PageSizeBytes': 123,
-                                                'Compression': 'UNCOMPRESSED'|'GZIP'|'SNAPPY',
-                                                'EnableDictionaryCompression': True|False,
-                                                'MaxPaddingBytes': 123,
-                                                'WriterVersion': 'V1'|'V2'
+                                    \'OutputFormatConfiguration\': {
+                                        \'Serializer\': {
+                                            \'ParquetSerDe\': {
+                                                \'BlockSizeBytes\': 123,
+                                                \'PageSizeBytes\': 123,
+                                                \'Compression\': \'UNCOMPRESSED\'|\'GZIP\'|\'SNAPPY\',
+                                                \'EnableDictionaryCompression\': True|False,
+                                                \'MaxPaddingBytes\': 123,
+                                                \'WriterVersion\': \'V1\'|\'V2\'
                                             },
-                                            'OrcSerDe': {
-                                                'StripeSizeBytes': 123,
-                                                'BlockSizeBytes': 123,
-                                                'RowIndexStride': 123,
-                                                'EnablePadding': True|False,
-                                                'PaddingTolerance': 123.0,
-                                                'Compression': 'NONE'|'ZLIB'|'SNAPPY',
-                                                'BloomFilterColumns': [
-                                                    'string',
+                                            \'OrcSerDe\': {
+                                                \'StripeSizeBytes\': 123,
+                                                \'BlockSizeBytes\': 123,
+                                                \'RowIndexStride\': 123,
+                                                \'EnablePadding\': True|False,
+                                                \'PaddingTolerance\': 123.0,
+                                                \'Compression\': \'NONE\'|\'ZLIB\'|\'SNAPPY\',
+                                                \'BloomFilterColumns\': [
+                                                    \'string\',
                                                 ],
-                                                'BloomFilterFalsePositiveProbability': 123.0,
-                                                'DictionaryKeyThreshold': 123.0,
-                                                'FormatVersion': 'V0_11'|'V0_12'
+                                                \'BloomFilterFalsePositiveProbability\': 123.0,
+                                                \'DictionaryKeyThreshold\': 123.0,
+                                                \'FormatVersion\': \'V0_11\'|\'V0_12\'
                                             }
                                         }
                                     },
-                                    'Enabled': True|False
+                                    \'Enabled\': True|False
                                 }
                             },
-                            'RedshiftDestinationDescription': {
-                                'RoleARN': 'string',
-                                'ClusterJDBCURL': 'string',
-                                'CopyCommand': {
-                                    'DataTableName': 'string',
-                                    'DataTableColumns': 'string',
-                                    'CopyOptions': 'string'
+                            \'RedshiftDestinationDescription\': {
+                                \'RoleARN\': \'string\',
+                                \'ClusterJDBCURL\': \'string\',
+                                \'CopyCommand\': {
+                                    \'DataTableName\': \'string\',
+                                    \'DataTableColumns\': \'string\',
+                                    \'CopyOptions\': \'string\'
                                 },
-                                'Username': 'string',
-                                'RetryOptions': {
-                                    'DurationInSeconds': 123
+                                \'Username\': \'string\',
+                                \'RetryOptions\': {
+                                    \'DurationInSeconds\': 123
                                 },
-                                'S3DestinationDescription': {
-                                    'RoleARN': 'string',
-                                    'BucketARN': 'string',
-                                    'Prefix': 'string',
-                                    'BufferingHints': {
-                                        'SizeInMBs': 123,
-                                        'IntervalInSeconds': 123
+                                \'S3DestinationDescription\': {
+                                    \'RoleARN\': \'string\',
+                                    \'BucketARN\': \'string\',
+                                    \'Prefix\': \'string\',
+                                    \'BufferingHints\': {
+                                        \'SizeInMBs\': 123,
+                                        \'IntervalInSeconds\': 123
                                     },
-                                    'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                    'EncryptionConfiguration': {
-                                        'NoEncryptionConfig': 'NoEncryption',
-                                        'KMSEncryptionConfig': {
-                                            'AWSKMSKeyARN': 'string'
+                                    \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                    \'EncryptionConfiguration\': {
+                                        \'NoEncryptionConfig\': \'NoEncryption\',
+                                        \'KMSEncryptionConfig\': {
+                                            \'AWSKMSKeyARN\': \'string\'
                                         }
                                     },
-                                    'CloudWatchLoggingOptions': {
-                                        'Enabled': True|False,
-                                        'LogGroupName': 'string',
-                                        'LogStreamName': 'string'
+                                    \'CloudWatchLoggingOptions\': {
+                                        \'Enabled\': True|False,
+                                        \'LogGroupName\': \'string\',
+                                        \'LogStreamName\': \'string\'
                                     }
                                 },
-                                'ProcessingConfiguration': {
-                                    'Enabled': True|False,
-                                    'Processors': [
+                                \'ProcessingConfiguration\': {
+                                    \'Enabled\': True|False,
+                                    \'Processors\': [
                                         {
-                                            'Type': 'Lambda',
-                                            'Parameters': [
+                                            \'Type\': \'Lambda\',
+                                            \'Parameters\': [
                                                 {
-                                                    'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                                    'ParameterValue': 'string'
+                                                    \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                                    \'ParameterValue\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
-                                'S3BackupMode': 'Disabled'|'Enabled',
-                                'S3BackupDescription': {
-                                    'RoleARN': 'string',
-                                    'BucketARN': 'string',
-                                    'Prefix': 'string',
-                                    'BufferingHints': {
-                                        'SizeInMBs': 123,
-                                        'IntervalInSeconds': 123
+                                \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                                \'S3BackupDescription\': {
+                                    \'RoleARN\': \'string\',
+                                    \'BucketARN\': \'string\',
+                                    \'Prefix\': \'string\',
+                                    \'BufferingHints\': {
+                                        \'SizeInMBs\': 123,
+                                        \'IntervalInSeconds\': 123
                                     },
-                                    'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                    'EncryptionConfiguration': {
-                                        'NoEncryptionConfig': 'NoEncryption',
-                                        'KMSEncryptionConfig': {
-                                            'AWSKMSKeyARN': 'string'
+                                    \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                    \'EncryptionConfiguration\': {
+                                        \'NoEncryptionConfig\': \'NoEncryption\',
+                                        \'KMSEncryptionConfig\': {
+                                            \'AWSKMSKeyARN\': \'string\'
                                         }
                                     },
-                                    'CloudWatchLoggingOptions': {
-                                        'Enabled': True|False,
-                                        'LogGroupName': 'string',
-                                        'LogStreamName': 'string'
+                                    \'CloudWatchLoggingOptions\': {
+                                        \'Enabled\': True|False,
+                                        \'LogGroupName\': \'string\',
+                                        \'LogStreamName\': \'string\'
                                     }
                                 },
-                                'CloudWatchLoggingOptions': {
-                                    'Enabled': True|False,
-                                    'LogGroupName': 'string',
-                                    'LogStreamName': 'string'
+                                \'CloudWatchLoggingOptions\': {
+                                    \'Enabled\': True|False,
+                                    \'LogGroupName\': \'string\',
+                                    \'LogStreamName\': \'string\'
                                 }
                             },
-                            'ElasticsearchDestinationDescription': {
-                                'RoleARN': 'string',
-                                'DomainARN': 'string',
-                                'IndexName': 'string',
-                                'TypeName': 'string',
-                                'IndexRotationPeriod': 'NoRotation'|'OneHour'|'OneDay'|'OneWeek'|'OneMonth',
-                                'BufferingHints': {
-                                    'IntervalInSeconds': 123,
-                                    'SizeInMBs': 123
+                            \'ElasticsearchDestinationDescription\': {
+                                \'RoleARN\': \'string\',
+                                \'DomainARN\': \'string\',
+                                \'IndexName\': \'string\',
+                                \'TypeName\': \'string\',
+                                \'IndexRotationPeriod\': \'NoRotation\'|\'OneHour\'|\'OneDay\'|\'OneWeek\'|\'OneMonth\',
+                                \'BufferingHints\': {
+                                    \'IntervalInSeconds\': 123,
+                                    \'SizeInMBs\': 123
                                 },
-                                'RetryOptions': {
-                                    'DurationInSeconds': 123
+                                \'RetryOptions\': {
+                                    \'DurationInSeconds\': 123
                                 },
-                                'S3BackupMode': 'FailedDocumentsOnly'|'AllDocuments',
-                                'S3DestinationDescription': {
-                                    'RoleARN': 'string',
-                                    'BucketARN': 'string',
-                                    'Prefix': 'string',
-                                    'BufferingHints': {
-                                        'SizeInMBs': 123,
-                                        'IntervalInSeconds': 123
+                                \'S3BackupMode\': \'FailedDocumentsOnly\'|\'AllDocuments\',
+                                \'S3DestinationDescription\': {
+                                    \'RoleARN\': \'string\',
+                                    \'BucketARN\': \'string\',
+                                    \'Prefix\': \'string\',
+                                    \'BufferingHints\': {
+                                        \'SizeInMBs\': 123,
+                                        \'IntervalInSeconds\': 123
                                     },
-                                    'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                    'EncryptionConfiguration': {
-                                        'NoEncryptionConfig': 'NoEncryption',
-                                        'KMSEncryptionConfig': {
-                                            'AWSKMSKeyARN': 'string'
+                                    \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                    \'EncryptionConfiguration\': {
+                                        \'NoEncryptionConfig\': \'NoEncryption\',
+                                        \'KMSEncryptionConfig\': {
+                                            \'AWSKMSKeyARN\': \'string\'
                                         }
                                     },
-                                    'CloudWatchLoggingOptions': {
-                                        'Enabled': True|False,
-                                        'LogGroupName': 'string',
-                                        'LogStreamName': 'string'
+                                    \'CloudWatchLoggingOptions\': {
+                                        \'Enabled\': True|False,
+                                        \'LogGroupName\': \'string\',
+                                        \'LogStreamName\': \'string\'
                                     }
                                 },
-                                'ProcessingConfiguration': {
-                                    'Enabled': True|False,
-                                    'Processors': [
+                                \'ProcessingConfiguration\': {
+                                    \'Enabled\': True|False,
+                                    \'Processors\': [
                                         {
-                                            'Type': 'Lambda',
-                                            'Parameters': [
+                                            \'Type\': \'Lambda\',
+                                            \'Parameters\': [
                                                 {
-                                                    'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                                    'ParameterValue': 'string'
+                                                    \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                                    \'ParameterValue\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
-                                'CloudWatchLoggingOptions': {
-                                    'Enabled': True|False,
-                                    'LogGroupName': 'string',
-                                    'LogStreamName': 'string'
+                                \'CloudWatchLoggingOptions\': {
+                                    \'Enabled\': True|False,
+                                    \'LogGroupName\': \'string\',
+                                    \'LogStreamName\': \'string\'
                                 }
                             },
-                            'SplunkDestinationDescription': {
-                                'HECEndpoint': 'string',
-                                'HECEndpointType': 'Raw'|'Event',
-                                'HECToken': 'string',
-                                'HECAcknowledgmentTimeoutInSeconds': 123,
-                                'RetryOptions': {
-                                    'DurationInSeconds': 123
+                            \'SplunkDestinationDescription\': {
+                                \'HECEndpoint\': \'string\',
+                                \'HECEndpointType\': \'Raw\'|\'Event\',
+                                \'HECToken\': \'string\',
+                                \'HECAcknowledgmentTimeoutInSeconds\': 123,
+                                \'RetryOptions\': {
+                                    \'DurationInSeconds\': 123
                                 },
-                                'S3BackupMode': 'FailedEventsOnly'|'AllEvents',
-                                'S3DestinationDescription': {
-                                    'RoleARN': 'string',
-                                    'BucketARN': 'string',
-                                    'Prefix': 'string',
-                                    'BufferingHints': {
-                                        'SizeInMBs': 123,
-                                        'IntervalInSeconds': 123
+                                \'S3BackupMode\': \'FailedEventsOnly\'|\'AllEvents\',
+                                \'S3DestinationDescription\': {
+                                    \'RoleARN\': \'string\',
+                                    \'BucketARN\': \'string\',
+                                    \'Prefix\': \'string\',
+                                    \'BufferingHints\': {
+                                        \'SizeInMBs\': 123,
+                                        \'IntervalInSeconds\': 123
                                     },
-                                    'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                                    'EncryptionConfiguration': {
-                                        'NoEncryptionConfig': 'NoEncryption',
-                                        'KMSEncryptionConfig': {
-                                            'AWSKMSKeyARN': 'string'
+                                    \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                                    \'EncryptionConfiguration\': {
+                                        \'NoEncryptionConfig\': \'NoEncryption\',
+                                        \'KMSEncryptionConfig\': {
+                                            \'AWSKMSKeyARN\': \'string\'
                                         }
                                     },
-                                    'CloudWatchLoggingOptions': {
-                                        'Enabled': True|False,
-                                        'LogGroupName': 'string',
-                                        'LogStreamName': 'string'
+                                    \'CloudWatchLoggingOptions\': {
+                                        \'Enabled\': True|False,
+                                        \'LogGroupName\': \'string\',
+                                        \'LogStreamName\': \'string\'
                                     }
                                 },
-                                'ProcessingConfiguration': {
-                                    'Enabled': True|False,
-                                    'Processors': [
+                                \'ProcessingConfiguration\': {
+                                    \'Enabled\': True|False,
+                                    \'Processors\': [
                                         {
-                                            'Type': 'Lambda',
-                                            'Parameters': [
+                                            \'Type\': \'Lambda\',
+                                            \'Parameters\': [
                                                 {
-                                                    'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                                    'ParameterValue': 'string'
+                                                    \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                                    \'ParameterValue\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
-                                'CloudWatchLoggingOptions': {
-                                    'Enabled': True|False,
-                                    'LogGroupName': 'string',
-                                    'LogStreamName': 'string'
+                                \'CloudWatchLoggingOptions\': {
+                                    \'Enabled\': True|False,
+                                    \'LogGroupName\': \'string\',
+                                    \'LogStreamName\': \'string\'
                                 }
                             }
                         },
                     ],
-                    'HasMoreDestinations': True|False
+                    \'HasMoreDestinations\': True|False
                 }
             }
           **Response Structure** 
@@ -1930,7 +1930,7 @@ class Client(BaseClient):
         
                     - **Prefix** *(string) --* 
         
-                      The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                      The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                     - **BufferingHints** *(dict) --* 
         
@@ -1996,7 +1996,7 @@ class Client(BaseClient):
         
                     - **Prefix** *(string) --* 
         
-                      The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                      The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                     - **BufferingHints** *(dict) --* 
         
@@ -2102,7 +2102,7 @@ class Client(BaseClient):
         
                       - **Prefix** *(string) --* 
         
-                        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                        The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                       - **BufferingHints** *(dict) --* 
         
@@ -2164,11 +2164,11 @@ class Client(BaseClient):
         
                         - **RoleARN** *(string) --* 
         
-                          The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+                          The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren\'t allowed.
         
                         - **CatalogId** *(string) --* 
         
-                          The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+                          The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS account ID is used by default.
         
                         - **DatabaseName** *(string) --* 
         
@@ -2180,11 +2180,11 @@ class Client(BaseClient):
         
                         - **Region** *(string) --* 
         
-                          If you don't specify an AWS Region, the default is the current Region.
+                          If you don\'t specify an AWS Region, the default is the current Region.
         
                         - **VersionId** *(string) --* 
         
-                          Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+                          Specifies the table version for the output data schema. If you don\'t specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
         
                       - **InputFormatConfiguration** *(dict) --* 
         
@@ -2200,7 +2200,7 @@ class Client(BaseClient):
         
                             - **ConvertDotsInJsonKeysToUnderscores** *(boolean) --* 
         
-                              When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
+                              When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is \"a.b\", you can define the column name to be \"a_b\" when using this option.
         
                               The default is ``false`` .
         
@@ -2210,7 +2210,7 @@ class Client(BaseClient):
         
                             - **ColumnToJsonKeyMappings** *(dict) --* 
         
-                              Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{"ts": "timestamp"}`` to map this key to a column named ``ts`` .
+                              Maps column names to JSON keys that aren\'t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{\"ts\": \"timestamp\"}`` to map this key to a column named ``ts`` .
         
                               - *(string) --* 
                                 
@@ -2222,7 +2222,7 @@ class Client(BaseClient):
         
                             - **TimestampFormats** *(list) --* 
         
-                              Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
+                              Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime\'s DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
         
                               - *(string) --* 
                           
@@ -2342,17 +2342,17 @@ class Client(BaseClient):
         
                       - **CopyOptions** *(string) --* 
         
-                        Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the "Optional Parameters" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
+                        Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the \"Optional Parameters\" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
         
-                         ``delimiter '\t' lzop;`` - fields are delimited with "\t" (TAB character) and compressed using lzop.
+                         ``delimiter \'\t\' lzop;`` - fields are delimited with \"\t\" (TAB character) and compressed using lzop.
         
-                         ``delimiter '|'`` - fields are delimited with "|" (this is the default delimiter).
+                         ``delimiter \'|\'`` - fields are delimited with \"|\" (this is the default delimiter).
         
-                         ``delimiter '|' escape`` - the delimiter should be escaped.
+                         ``delimiter \'|\' escape`` - the delimiter should be escaped.
         
-                         ``fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'`` - fields are fixed width in the source, with each width specified after every column in the table.
+                         ``fixedwidth \'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6\'`` - fields are fixed width in the source, with each width specified after every column in the table.
         
-                         ``JSON 's3://mybucket/jsonpaths.txt'`` - data is in JSON format, and the path specified is the format of the data.
+                         ``JSON \'s3://mybucket/jsonpaths.txt\'`` - data is in JSON format, and the path specified is the format of the data.
         
                         For more examples, see `Amazon Redshift COPY command examples <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html>`__ .
         
@@ -2382,7 +2382,7 @@ class Client(BaseClient):
         
                       - **Prefix** *(string) --* 
         
-                        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                        The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                       - **BufferingHints** *(dict) --* 
         
@@ -2488,7 +2488,7 @@ class Client(BaseClient):
         
                       - **Prefix** *(string) --* 
         
-                        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                        The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                       - **BufferingHints** *(dict) --* 
         
@@ -2620,7 +2620,7 @@ class Client(BaseClient):
         
                       - **Prefix** *(string) --* 
         
-                        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                        The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                       - **BufferingHints** *(dict) --* 
         
@@ -2734,7 +2734,7 @@ class Client(BaseClient):
         
                     - **HECEndpointType** *(string) --* 
         
-                      This type can be either "Raw" or "Event."
+                      This type can be either \"Raw\" or \"Event.\"
         
                     - **HECToken** *(string) --* 
         
@@ -2746,11 +2746,11 @@ class Client(BaseClient):
         
                     - **RetryOptions** *(dict) --* 
         
-                      The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk.
+                      The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn\'t receive an acknowledgment of receipt from Splunk.
         
                       - **DurationInSeconds** *(integer) --* 
         
-                        The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
+                        The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn\'t include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
         
                     - **S3BackupMode** *(string) --* 
         
@@ -2770,7 +2770,7 @@ class Client(BaseClient):
         
                       - **Prefix** *(string) --* 
         
-                        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+                        The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
                       - **BufferingHints** *(dict) --* 
         
@@ -2897,7 +2897,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2909,10 +2909,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2947,8 +2947,8 @@ class Client(BaseClient):
         
           response = client.list_delivery_streams(
               Limit=123,
-              DeliveryStreamType='DirectPut'|'KinesisStreamAsSource',
-              ExclusiveStartDeliveryStreamName='string'
+              DeliveryStreamType=\'DirectPut\'|\'KinesisStreamAsSource\',
+              ExclusiveStartDeliveryStreamName=\'string\'
           )
         :type Limit: integer
         :param Limit: 
@@ -2979,10 +2979,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DeliveryStreamNames': [
-                    'string',
+                \'DeliveryStreamNames\': [
+                    \'string\',
                 ],
-                'HasMoreDeliveryStreams': True|False
+                \'HasMoreDeliveryStreams\': True|False
             }
           **Response Structure** 
         
@@ -3010,8 +3010,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_delivery_stream(
-              DeliveryStreamName='string',
-              ExclusiveStartTagKey='string',
+              DeliveryStreamName=\'string\',
+              ExclusiveStartTagKey=\'string\',
               Limit=123
           )
         :type DeliveryStreamName: string
@@ -3037,13 +3037,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'HasMoreTags': True|False
+                \'HasMoreTags\': True|False
             }
           **Response Structure** 
         
@@ -3089,7 +3089,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Don't concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.
+          Don\'t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecord>`_
         
@@ -3097,9 +3097,9 @@ class Client(BaseClient):
         ::
         
           response = client.put_record(
-              DeliveryStreamName='string',
+              DeliveryStreamName=\'string\',
               Record={
-                  'Data': b'bytes'
+                  \'Data\': b\'bytes\'
               }
           )
         :type DeliveryStreamName: string
@@ -3124,8 +3124,8 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordId': 'string',
-                'Encrypted': True|False
+                \'RecordId\': \'string\',
+                \'Encrypted\': True|False
             }
           **Response Structure** 
         
@@ -3153,7 +3153,7 @@ class Client(BaseClient):
         
         Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (``\n`` ) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.
         
-        The  PutRecordBatch response includes a count of failed records, **FailedPutCount** , and an array of responses, **RequestResponses** . Even if the  PutRecordBatch call succeeds, the value of **FailedPutCount** may be greater than 0, indicating that there are records for which the operation didn't succeed. Each entry in the **RequestResponses** array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. **RequestResponses** includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each  PutRecordBatch request. A single record failure does not stop the processing of subsequent records. 
+        The  PutRecordBatch response includes a count of failed records, **FailedPutCount** , and an array of responses, **RequestResponses** . Even if the  PutRecordBatch call succeeds, the value of **FailedPutCount** may be greater than 0, indicating that there are records for which the operation didn\'t succeed. Each entry in the **RequestResponses** array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. **RequestResponses** includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each  PutRecordBatch request. A single record failure does not stop the processing of subsequent records. 
         
         A successfully processed record includes a **RecordId** value, which is unique for the record. An unsuccessfully processed record includes **ErrorCode** and **ErrorMessage** values. **ErrorCode** reflects the type of error, and is one of the following values: ``ServiceUnavailableException`` or ``InternalFailure`` . **ErrorMessage** provides more detailed information about the error.
         
@@ -3165,7 +3165,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Don't concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.
+          Don\'t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecordBatch>`_
         
@@ -3173,10 +3173,10 @@ class Client(BaseClient):
         ::
         
           response = client.put_record_batch(
-              DeliveryStreamName='string',
+              DeliveryStreamName=\'string\',
               Records=[
                   {
-                      'Data': b'bytes'
+                      \'Data\': b\'bytes\'
                   },
               ]
           )
@@ -3206,13 +3206,13 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedPutCount': 123,
-                'Encrypted': True|False,
-                'RequestResponses': [
+                \'FailedPutCount\': 123,
+                \'Encrypted\': True|False,
+                \'RequestResponses\': [
                     {
-                        'RecordId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'RecordId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -3266,7 +3266,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_delivery_stream_encryption(
-              DeliveryStreamName='string'
+              DeliveryStreamName=\'string\'
           )
         :type DeliveryStreamName: string
         :param DeliveryStreamName: **[REQUIRED]** 
@@ -3300,7 +3300,7 @@ class Client(BaseClient):
         ::
         
           response = client.stop_delivery_stream_encryption(
-              DeliveryStreamName='string'
+              DeliveryStreamName=\'string\'
           )
         :type DeliveryStreamName: string
         :param DeliveryStreamName: **[REQUIRED]** 
@@ -3334,11 +3334,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_delivery_stream(
-              DeliveryStreamName='string',
+              DeliveryStreamName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -3381,7 +3381,7 @@ class Client(BaseClient):
     def untag_delivery_stream(self, DeliveryStreamName: str, TagKeys: List) -> Dict:
         """
         
-        If you specify a tag that doesn't exist, the operation ignores it.
+        If you specify a tag that doesn\'t exist, the operation ignores it.
         
         This operation has a limit of five transactions per second per account. 
         
@@ -3391,9 +3391,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_delivery_stream(
-              DeliveryStreamName='string',
+              DeliveryStreamName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DeliveryStreamName: string
@@ -3441,318 +3441,318 @@ class Client(BaseClient):
         ::
         
           response = client.update_destination(
-              DeliveryStreamName='string',
-              CurrentDeliveryStreamVersionId='string',
-              DestinationId='string',
+              DeliveryStreamName=\'string\',
+              CurrentDeliveryStreamVersionId=\'string\',
+              DestinationId=\'string\',
               S3DestinationUpdate={
-                  'RoleARN': 'string',
-                  'BucketARN': 'string',
-                  'Prefix': 'string',
-                  'BufferingHints': {
-                      'SizeInMBs': 123,
-                      'IntervalInSeconds': 123
+                  \'RoleARN\': \'string\',
+                  \'BucketARN\': \'string\',
+                  \'Prefix\': \'string\',
+                  \'BufferingHints\': {
+                      \'SizeInMBs\': 123,
+                      \'IntervalInSeconds\': 123
                   },
-                  'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                  'EncryptionConfiguration': {
-                      'NoEncryptionConfig': 'NoEncryption',
-                      'KMSEncryptionConfig': {
-                          'AWSKMSKeyARN': 'string'
+                  \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                  \'EncryptionConfiguration\': {
+                      \'NoEncryptionConfig\': \'NoEncryption\',
+                      \'KMSEncryptionConfig\': {
+                          \'AWSKMSKeyARN\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               ExtendedS3DestinationUpdate={
-                  'RoleARN': 'string',
-                  'BucketARN': 'string',
-                  'Prefix': 'string',
-                  'BufferingHints': {
-                      'SizeInMBs': 123,
-                      'IntervalInSeconds': 123
+                  \'RoleARN\': \'string\',
+                  \'BucketARN\': \'string\',
+                  \'Prefix\': \'string\',
+                  \'BufferingHints\': {
+                      \'SizeInMBs\': 123,
+                      \'IntervalInSeconds\': 123
                   },
-                  'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                  'EncryptionConfiguration': {
-                      'NoEncryptionConfig': 'NoEncryption',
-                      'KMSEncryptionConfig': {
-                          'AWSKMSKeyARN': 'string'
+                  \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                  \'EncryptionConfiguration\': {
+                      \'NoEncryptionConfig\': \'NoEncryption\',
+                      \'KMSEncryptionConfig\': {
+                          \'AWSKMSKeyARN\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'S3BackupMode': 'Disabled'|'Enabled',
-                  'S3BackupUpdate': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                  \'S3BackupUpdate\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'DataFormatConversionConfiguration': {
-                      'SchemaConfiguration': {
-                          'RoleARN': 'string',
-                          'CatalogId': 'string',
-                          'DatabaseName': 'string',
-                          'TableName': 'string',
-                          'Region': 'string',
-                          'VersionId': 'string'
+                  \'DataFormatConversionConfiguration\': {
+                      \'SchemaConfiguration\': {
+                          \'RoleARN\': \'string\',
+                          \'CatalogId\': \'string\',
+                          \'DatabaseName\': \'string\',
+                          \'TableName\': \'string\',
+                          \'Region\': \'string\',
+                          \'VersionId\': \'string\'
                       },
-                      'InputFormatConfiguration': {
-                          'Deserializer': {
-                              'OpenXJsonSerDe': {
-                                  'ConvertDotsInJsonKeysToUnderscores': True|False,
-                                  'CaseInsensitive': True|False,
-                                  'ColumnToJsonKeyMappings': {
-                                      'string': 'string'
+                      \'InputFormatConfiguration\': {
+                          \'Deserializer\': {
+                              \'OpenXJsonSerDe\': {
+                                  \'ConvertDotsInJsonKeysToUnderscores\': True|False,
+                                  \'CaseInsensitive\': True|False,
+                                  \'ColumnToJsonKeyMappings\': {
+                                      \'string\': \'string\'
                                   }
                               },
-                              'HiveJsonSerDe': {
-                                  'TimestampFormats': [
-                                      'string',
+                              \'HiveJsonSerDe\': {
+                                  \'TimestampFormats\': [
+                                      \'string\',
                                   ]
                               }
                           }
                       },
-                      'OutputFormatConfiguration': {
-                          'Serializer': {
-                              'ParquetSerDe': {
-                                  'BlockSizeBytes': 123,
-                                  'PageSizeBytes': 123,
-                                  'Compression': 'UNCOMPRESSED'|'GZIP'|'SNAPPY',
-                                  'EnableDictionaryCompression': True|False,
-                                  'MaxPaddingBytes': 123,
-                                  'WriterVersion': 'V1'|'V2'
+                      \'OutputFormatConfiguration\': {
+                          \'Serializer\': {
+                              \'ParquetSerDe\': {
+                                  \'BlockSizeBytes\': 123,
+                                  \'PageSizeBytes\': 123,
+                                  \'Compression\': \'UNCOMPRESSED\'|\'GZIP\'|\'SNAPPY\',
+                                  \'EnableDictionaryCompression\': True|False,
+                                  \'MaxPaddingBytes\': 123,
+                                  \'WriterVersion\': \'V1\'|\'V2\'
                               },
-                              'OrcSerDe': {
-                                  'StripeSizeBytes': 123,
-                                  'BlockSizeBytes': 123,
-                                  'RowIndexStride': 123,
-                                  'EnablePadding': True|False,
-                                  'PaddingTolerance': 123.0,
-                                  'Compression': 'NONE'|'ZLIB'|'SNAPPY',
-                                  'BloomFilterColumns': [
-                                      'string',
+                              \'OrcSerDe\': {
+                                  \'StripeSizeBytes\': 123,
+                                  \'BlockSizeBytes\': 123,
+                                  \'RowIndexStride\': 123,
+                                  \'EnablePadding\': True|False,
+                                  \'PaddingTolerance\': 123.0,
+                                  \'Compression\': \'NONE\'|\'ZLIB\'|\'SNAPPY\',
+                                  \'BloomFilterColumns\': [
+                                      \'string\',
                                   ],
-                                  'BloomFilterFalsePositiveProbability': 123.0,
-                                  'DictionaryKeyThreshold': 123.0,
-                                  'FormatVersion': 'V0_11'|'V0_12'
+                                  \'BloomFilterFalsePositiveProbability\': 123.0,
+                                  \'DictionaryKeyThreshold\': 123.0,
+                                  \'FormatVersion\': \'V0_11\'|\'V0_12\'
                               }
                           }
                       },
-                      'Enabled': True|False
+                      \'Enabled\': True|False
                   }
               },
               RedshiftDestinationUpdate={
-                  'RoleARN': 'string',
-                  'ClusterJDBCURL': 'string',
-                  'CopyCommand': {
-                      'DataTableName': 'string',
-                      'DataTableColumns': 'string',
-                      'CopyOptions': 'string'
+                  \'RoleARN\': \'string\',
+                  \'ClusterJDBCURL\': \'string\',
+                  \'CopyCommand\': {
+                      \'DataTableName\': \'string\',
+                      \'DataTableColumns\': \'string\',
+                      \'CopyOptions\': \'string\'
                   },
-                  'Username': 'string',
-                  'Password': 'string',
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'Username\': \'string\',
+                  \'Password\': \'string\',
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3Update': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3Update\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'S3BackupMode': 'Disabled'|'Enabled',
-                  'S3BackupUpdate': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'Disabled\'|\'Enabled\',
+                  \'S3BackupUpdate\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               ElasticsearchDestinationUpdate={
-                  'RoleARN': 'string',
-                  'DomainARN': 'string',
-                  'IndexName': 'string',
-                  'TypeName': 'string',
-                  'IndexRotationPeriod': 'NoRotation'|'OneHour'|'OneDay'|'OneWeek'|'OneMonth',
-                  'BufferingHints': {
-                      'IntervalInSeconds': 123,
-                      'SizeInMBs': 123
+                  \'RoleARN\': \'string\',
+                  \'DomainARN\': \'string\',
+                  \'IndexName\': \'string\',
+                  \'TypeName\': \'string\',
+                  \'IndexRotationPeriod\': \'NoRotation\'|\'OneHour\'|\'OneDay\'|\'OneWeek\'|\'OneMonth\',
+                  \'BufferingHints\': {
+                      \'IntervalInSeconds\': 123,
+                      \'SizeInMBs\': 123
                   },
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3Update': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3Update\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               },
               SplunkDestinationUpdate={
-                  'HECEndpoint': 'string',
-                  'HECEndpointType': 'Raw'|'Event',
-                  'HECToken': 'string',
-                  'HECAcknowledgmentTimeoutInSeconds': 123,
-                  'RetryOptions': {
-                      'DurationInSeconds': 123
+                  \'HECEndpoint\': \'string\',
+                  \'HECEndpointType\': \'Raw\'|\'Event\',
+                  \'HECToken\': \'string\',
+                  \'HECAcknowledgmentTimeoutInSeconds\': 123,
+                  \'RetryOptions\': {
+                      \'DurationInSeconds\': 123
                   },
-                  'S3BackupMode': 'FailedEventsOnly'|'AllEvents',
-                  'S3Update': {
-                      'RoleARN': 'string',
-                      'BucketARN': 'string',
-                      'Prefix': 'string',
-                      'BufferingHints': {
-                          'SizeInMBs': 123,
-                          'IntervalInSeconds': 123
+                  \'S3BackupMode\': \'FailedEventsOnly\'|\'AllEvents\',
+                  \'S3Update\': {
+                      \'RoleARN\': \'string\',
+                      \'BucketARN\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'BufferingHints\': {
+                          \'SizeInMBs\': 123,
+                          \'IntervalInSeconds\': 123
                       },
-                      'CompressionFormat': 'UNCOMPRESSED'|'GZIP'|'ZIP'|'Snappy',
-                      'EncryptionConfiguration': {
-                          'NoEncryptionConfig': 'NoEncryption',
-                          'KMSEncryptionConfig': {
-                              'AWSKMSKeyARN': 'string'
+                      \'CompressionFormat\': \'UNCOMPRESSED\'|\'GZIP\'|\'ZIP\'|\'Snappy\',
+                      \'EncryptionConfiguration\': {
+                          \'NoEncryptionConfig\': \'NoEncryption\',
+                          \'KMSEncryptionConfig\': {
+                              \'AWSKMSKeyARN\': \'string\'
                           }
                       },
-                      'CloudWatchLoggingOptions': {
-                          'Enabled': True|False,
-                          'LogGroupName': 'string',
-                          'LogStreamName': 'string'
+                      \'CloudWatchLoggingOptions\': {
+                          \'Enabled\': True|False,
+                          \'LogGroupName\': \'string\',
+                          \'LogStreamName\': \'string\'
                       }
                   },
-                  'ProcessingConfiguration': {
-                      'Enabled': True|False,
-                      'Processors': [
+                  \'ProcessingConfiguration\': {
+                      \'Enabled\': True|False,
+                      \'Processors\': [
                           {
-                              'Type': 'Lambda',
-                              'Parameters': [
+                              \'Type\': \'Lambda\',
+                              \'Parameters\': [
                                   {
-                                      'ParameterName': 'LambdaArn'|'NumberOfRetries'|'RoleArn'|'BufferSizeInMBs'|'BufferIntervalInSeconds',
-                                      'ParameterValue': 'string'
+                                      \'ParameterName\': \'LambdaArn\'|\'NumberOfRetries\'|\'RoleArn\'|\'BufferSizeInMBs\'|\'BufferIntervalInSeconds\',
+                                      \'ParameterValue\': \'string\'
                                   },
                               ]
                           },
                       ]
                   },
-                  'CloudWatchLoggingOptions': {
-                      'Enabled': True|False,
-                      'LogGroupName': 'string',
-                      'LogStreamName': 'string'
+                  \'CloudWatchLoggingOptions\': {
+                      \'Enabled\': True|False,
+                      \'LogGroupName\': \'string\',
+                      \'LogStreamName\': \'string\'
                   }
               }
           )
@@ -3786,7 +3786,7 @@ class Client(BaseClient):
         
           - **Prefix** *(string) --* 
         
-            The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+            The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
           - **BufferingHints** *(dict) --* 
         
@@ -3855,7 +3855,7 @@ class Client(BaseClient):
         
           - **Prefix** *(string) --* 
         
-            The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+            The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
           - **BufferingHints** *(dict) --* 
         
@@ -3961,7 +3961,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -4025,11 +4025,11 @@ class Client(BaseClient):
         
               - **RoleARN** *(string) --* 
         
-                The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+                The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren\'t allowed.
         
               - **CatalogId** *(string) --* 
         
-                The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+                The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS account ID is used by default.
         
               - **DatabaseName** *(string) --* 
         
@@ -4041,11 +4041,11 @@ class Client(BaseClient):
         
               - **Region** *(string) --* 
         
-                If you don't specify an AWS Region, the default is the current Region.
+                If you don\'t specify an AWS Region, the default is the current Region.
         
               - **VersionId** *(string) --* 
         
-                Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+                Specifies the table version for the output data schema. If you don\'t specify this version ID, or if you set it to ``LATEST`` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
         
             - **InputFormatConfiguration** *(dict) --* 
         
@@ -4061,7 +4061,7 @@ class Client(BaseClient):
         
                   - **ConvertDotsInJsonKeysToUnderscores** *(boolean) --* 
         
-                    When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
+                    When set to ``true`` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is \"a.b\", you can define the column name to be \"a_b\" when using this option.
         
                     The default is ``false`` .
         
@@ -4071,7 +4071,7 @@ class Client(BaseClient):
         
                   - **ColumnToJsonKeyMappings** *(dict) --* 
         
-                    Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{"ts": "timestamp"}`` to map this key to a column named ``ts`` .
+                    Maps column names to JSON keys that aren\'t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, ``timestamp`` is a Hive keyword. If you have a JSON key named ``timestamp`` , set this parameter to ``{\"ts\": \"timestamp\"}`` to map this key to a column named ``ts`` .
         
                     - *(string) --* 
         
@@ -4083,7 +4083,7 @@ class Client(BaseClient):
         
                   - **TimestampFormats** *(list) --* 
         
-                    Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
+                    Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime\'s DateTimeFormat format strings. For more information, see `Class DateTimeFormat <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html>`__ . You can also use the special value ``millis`` to parse time stamps in epoch milliseconds. If you don\'t specify a format, Kinesis Data Firehose uses ``java.sql.Timestamp::valueOf`` by default.
         
                     - *(string) --* 
         
@@ -4204,17 +4204,17 @@ class Client(BaseClient):
         
             - **CopyOptions** *(string) --* 
         
-              Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the "Optional Parameters" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
+              Optional parameters to use with the Amazon Redshift ``COPY`` command. For more information, see the \"Optional Parameters\" section of `Amazon Redshift COPY command <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html>`__ . Some possible examples that would apply to Kinesis Data Firehose are as follows:
         
-               ``delimiter '\t' lzop;`` - fields are delimited with "\t" (TAB character) and compressed using lzop.
+               ``delimiter \'\t\' lzop;`` - fields are delimited with \"\t\" (TAB character) and compressed using lzop.
         
-               ``delimiter '|'`` - fields are delimited with "|" (this is the default delimiter).
+               ``delimiter \'|\'`` - fields are delimited with \"|\" (this is the default delimiter).
         
-               ``delimiter '|' escape`` - the delimiter should be escaped.
+               ``delimiter \'|\' escape`` - the delimiter should be escaped.
         
-               ``fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'`` - fields are fixed width in the source, with each width specified after every column in the table.
+               ``fixedwidth \'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6\'`` - fields are fixed width in the source, with each width specified after every column in the table.
         
-               ``JSON 's3://mybucket/jsonpaths.txt'`` - data is in JSON format, and the path specified is the format of the data.
+               ``JSON \'s3://mybucket/jsonpaths.txt\'`` - data is in JSON format, and the path specified is the format of the data.
         
               For more examples, see `Amazon Redshift COPY command examples <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html>`__ .
         
@@ -4238,7 +4238,7 @@ class Client(BaseClient):
         
             The Amazon S3 destination.
         
-            The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationUpdate.S3Update`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn't support these compression formats.
+            The compression formats ``SNAPPY`` or ``ZIP`` cannot be specified in ``RedshiftDestinationUpdate.S3Update`` because the Amazon Redshift ``COPY`` operation that reads from the S3 bucket doesn\'t support these compression formats.
         
             - **RoleARN** *(string) --* 
         
@@ -4250,7 +4250,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -4358,7 +4358,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -4489,7 +4489,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         
@@ -4606,7 +4606,7 @@ class Client(BaseClient):
         
           - **HECEndpointType** *(string) --* 
         
-            This type can be either "Raw" or "Event."
+            This type can be either \"Raw\" or \"Event.\"
         
           - **HECToken** *(string) --* 
         
@@ -4618,11 +4618,11 @@ class Client(BaseClient):
         
           - **RetryOptions** *(dict) --* 
         
-            The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk.
+            The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn\'t receive an acknowledgment of receipt from Splunk.
         
             - **DurationInSeconds** *(integer) --* 
         
-              The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
+              The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn\'t include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
         
           - **S3BackupMode** *(string) --* 
         
@@ -4642,7 +4642,7 @@ class Client(BaseClient):
         
             - **Prefix** *(string) --* 
         
-              The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
+              The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see `Amazon S3 Object Name Format <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name>`__ in the *Amazon Kinesis Data Firehose Developer Guide* .
         
             - **BufferingHints** *(dict) --* 
         

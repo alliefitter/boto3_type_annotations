@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -21,11 +21,11 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -51,7 +51,7 @@ class Client(BaseClient):
         
             - **Value** *(string) --* 
         
-              The tag's value. May be null.
+              The tag\'s value. May be null.
         
         :rtype: dict
         :returns: 
@@ -61,10 +61,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -88,7 +88,7 @@ class Client(BaseClient):
         
                 - **Value** *(string) --* 
         
-                  The tag's value. May be null.
+                  The tag\'s value. May be null.
         
         """
         pass
@@ -106,9 +106,9 @@ class Client(BaseClient):
         ::
         
           response = client.authorize_cache_security_group_ingress(
-              CacheSecurityGroupName='string',
-              EC2SecurityGroupName='string',
-              EC2SecurityGroupOwnerId='string'
+              CacheSecurityGroupName=\'string\',
+              EC2SecurityGroupName=\'string\',
+              EC2SecurityGroupOwnerId=\'string\'
           )
         :type CacheSecurityGroupName: string
         :param CacheSecurityGroupName: **[REQUIRED]** 
@@ -133,15 +133,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheSecurityGroup': {
-                    'OwnerId': 'string',
-                    'CacheSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'CacheSecurityGroup\': {
+                    \'OwnerId\': \'string\',
+                    \'CacheSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string'
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\'
                         },
                     ]
                 }
@@ -201,10 +201,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -248,9 +248,9 @@ class Client(BaseClient):
         ::
         
           response = client.copy_snapshot(
-              SourceSnapshotName='string',
-              TargetSnapshotName='string',
-              TargetBucket='string'
+              SourceSnapshotName=\'string\',
+              TargetSnapshotName=\'string\',
+              TargetBucket=\'string\'
           )
         :type SourceSnapshotName: string
         :param SourceSnapshotName: **[REQUIRED]** 
@@ -279,47 +279,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotName': 'string',
-                    'ReplicationGroupId': 'string',
-                    'ReplicationGroupDescription': 'string',
-                    'CacheClusterId': 'string',
-                    'SnapshotStatus': 'string',
-                    'SnapshotSource': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'TopicArn': 'string',
-                    'Port': 123,
-                    'CacheParameterGroupName': 'string',
-                    'CacheSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'NumNodeGroups': 123,
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'NodeSnapshots': [
+                \'Snapshot\': {
+                    \'SnapshotName\': \'string\',
+                    \'ReplicationGroupId\': \'string\',
+                    \'ReplicationGroupDescription\': \'string\',
+                    \'CacheClusterId\': \'string\',
+                    \'SnapshotStatus\': \'string\',
+                    \'SnapshotSource\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'TopicArn\': \'string\',
+                    \'Port\': 123,
+                    \'CacheParameterGroupName\': \'string\',
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'NumNodeGroups\': 123,
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'NodeSnapshots\': [
                         {
-                            'CacheClusterId': 'string',
-                            'NodeGroupId': 'string',
-                            'CacheNodeId': 'string',
-                            'NodeGroupConfiguration': {
-                                'NodeGroupId': 'string',
-                                'Slots': 'string',
-                                'ReplicaCount': 123,
-                                'PrimaryAvailabilityZone': 'string',
-                                'ReplicaAvailabilityZones': [
-                                    'string',
+                            \'CacheClusterId\': \'string\',
+                            \'NodeGroupId\': \'string\',
+                            \'CacheNodeId\': \'string\',
+                            \'NodeGroupConfiguration\': {
+                                \'NodeGroupId\': \'string\',
+                                \'Slots\': \'string\',
+                                \'ReplicaCount\': 123,
+                                \'PrimaryAvailabilityZone\': \'string\',
+                                \'ReplicaAvailabilityZones\': [
+                                    \'string\',
                                 ]
                             },
-                            'CacheSize': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'SnapshotCreateTime': datetime(2015, 1, 1)
+                            \'CacheSize\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'SnapshotCreateTime\': datetime(2015, 1, 1)
                         },
                     ]
                 }
@@ -524,7 +524,7 @@ class Client(BaseClient):
         
                       A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-                      Example: ``"0-3999"``  
+                      Example: ``\"0-3999\"``  
         
                     - **ReplicaCount** *(integer) --* 
         
@@ -550,7 +550,7 @@ class Client(BaseClient):
         
                   - **SnapshotCreateTime** *(datetime) --* 
         
-                    The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+                    The date and time when the source node\'s metadata and cache data set was obtained for the snapshot.
         
         """
         pass
@@ -566,42 +566,42 @@ class Client(BaseClient):
         ::
         
           response = client.create_cache_cluster(
-              CacheClusterId='string',
-              ReplicationGroupId='string',
-              AZMode='single-az'|'cross-az',
-              PreferredAvailabilityZone='string',
+              CacheClusterId=\'string\',
+              ReplicationGroupId=\'string\',
+              AZMode=\'single-az\'|\'cross-az\',
+              PreferredAvailabilityZone=\'string\',
               PreferredAvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               NumCacheNodes=123,
-              CacheNodeType='string',
-              Engine='string',
-              EngineVersion='string',
-              CacheParameterGroupName='string',
-              CacheSubnetGroupName='string',
+              CacheNodeType=\'string\',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              CacheParameterGroupName=\'string\',
+              CacheSubnetGroupName=\'string\',
               CacheSecurityGroupNames=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               SnapshotArns=[
-                  'string',
+                  \'string\',
               ],
-              SnapshotName='string',
-              PreferredMaintenanceWindow='string',
+              SnapshotName=\'string\',
+              PreferredMaintenanceWindow=\'string\',
               Port=123,
-              NotificationTopicArn='string',
+              NotificationTopicArn=\'string\',
               AutoMinorVersionUpgrade=True|False,
               SnapshotRetentionLimit=123,
-              SnapshotWindow='string',
-              AuthToken='string'
+              SnapshotWindow=\'string\',
+              AuthToken=\'string\'
           )
         :type CacheClusterId: string
         :param CacheClusterId: **[REQUIRED]** 
@@ -630,7 +630,7 @@ class Client(BaseClient):
         :type AZMode: string
         :param AZMode: 
         
-          Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
+          Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster\'s region.
         
           This parameter is only supported for Memcached clusters.
         
@@ -731,7 +731,7 @@ class Client(BaseClient):
         :type CacheParameterGroupName: string
         :param CacheParameterGroupName: 
         
-          The name of the parameter group to associate with this cluster. If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has ``cluster-enabled='yes'`` when creating a cluster.
+          The name of the parameter group to associate with this cluster. If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has ``cluster-enabled=\'yes\'`` when creating a cluster.
         
         :type CacheSubnetGroupName: string
         :param CacheSubnetGroupName: 
@@ -742,7 +742,7 @@ class Client(BaseClient):
         
           .. warning::
         
-            If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see `Subnets and Subnet Groups <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html>`__ .
+            If you\'re going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see `Subnets and Subnet Groups <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html>`__ .
         
         :type CacheSecurityGroupNames: list
         :param CacheSecurityGroupNames: 
@@ -777,7 +777,7 @@ class Client(BaseClient):
         
             - **Value** *(string) --* 
         
-              The tag's value. May be null.
+              The tag\'s value. May be null.
         
         :type SnapshotArns: list
         :param SnapshotArns: 
@@ -880,7 +880,7 @@ class Client(BaseClient):
            
           * Must be at least 16 characters and no more than 128 characters in length. 
            
-          * Cannot contain any of the following characters: '/', '"', or '@'.  
+          * Cannot contain any of the following characters: \'/\', \'\"\', or \'@\'.  
            
           For more information, see `AUTH password <http://redis.io/commands/AUTH>`__ at http://redis.io/commands/AUTH.
         
@@ -892,74 +892,74 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheCluster': {
-                    'CacheClusterId': 'string',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'CacheCluster\': {
+                    \'CacheClusterId\': \'string\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClientDownloadLandingPage': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'CacheClusterStatus': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'NumCacheNodes': 123,
-                        'CacheNodeIdsToRemove': [
-                            'string',
+                    \'ClientDownloadLandingPage\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'CacheClusterStatus\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'NumCacheNodes\': 123,
+                        \'CacheNodeIdsToRemove\': [
+                            \'string\',
                         ],
-                        'EngineVersion': 'string',
-                        'CacheNodeType': 'string'
+                        \'EngineVersion\': \'string\',
+                        \'CacheNodeType\': \'string\'
                     },
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'CacheSecurityGroups': [
+                    \'CacheSecurityGroups\': [
                         {
-                            'CacheSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'CacheSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CacheParameterGroup': {
-                        'CacheParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'CacheNodeIdsToReboot': [
-                            'string',
+                    \'CacheParameterGroup\': {
+                        \'CacheParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'CacheNodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'CacheSubnetGroupName': 'string',
-                    'CacheNodes': [
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheNodes\': [
                         {
-                            'CacheNodeId': 'string',
-                            'CacheNodeStatus': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'CacheNodeId\': \'string\',
+                            \'CacheNodeStatus\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'ParameterGroupStatus': 'string',
-                            'SourceCacheNodeId': 'string',
-                            'CustomerAvailabilityZone': 'string'
+                            \'ParameterGroupStatus\': \'string\',
+                            \'SourceCacheNodeId\': \'string\',
+                            \'CustomerAvailabilityZone\': \'string\'
                         },
                     ],
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SecurityGroups': [
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ReplicationGroupId': 'string',
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'ReplicationGroupId\': \'string\',
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -1052,7 +1052,7 @@ class Client(BaseClient):
         
               - **PreferredAvailabilityZone** *(string) --* 
         
-                The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
               - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -1122,7 +1122,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents a cluster's status within a particular cache security group.
+                  Represents a cluster\'s status within a particular cache security group.
         
                   - **CacheSecurityGroupName** *(string) --* 
         
@@ -1160,7 +1160,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                   The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -1200,7 +1200,7 @@ class Client(BaseClient):
                    
                   - **CacheNodeId** *(string) --* 
         
-                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                   - **CacheNodeStatus** *(string) --* 
         
@@ -1316,9 +1316,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_cache_parameter_group(
-              CacheParameterGroupName='string',
-              CacheParameterGroupFamily='string',
-              Description='string'
+              CacheParameterGroupName=\'string\',
+              CacheParameterGroupFamily=\'string\',
+              Description=\'string\'
           )
         :type CacheParameterGroupName: string
         :param CacheParameterGroupName: **[REQUIRED]** 
@@ -1345,10 +1345,10 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheParameterGroup': {
-                    'CacheParameterGroupName': 'string',
-                    'CacheParameterGroupFamily': 'string',
-                    'Description': 'string'
+                \'CacheParameterGroup\': {
+                    \'CacheParameterGroupName\': \'string\',
+                    \'CacheParameterGroupFamily\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1387,15 +1387,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_cache_security_group(
-              CacheSecurityGroupName='string',
-              Description='string'
+              CacheSecurityGroupName=\'string\',
+              Description=\'string\'
           )
         :type CacheSecurityGroupName: string
         :param CacheSecurityGroupName: **[REQUIRED]** 
         
           A name for the cache security group. This value is stored as a lowercase string.
         
-          Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".
+          Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".
         
           Example: ``mysecuritygroup``  
         
@@ -1412,15 +1412,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheSecurityGroup': {
-                    'OwnerId': 'string',
-                    'CacheSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'CacheSecurityGroup\': {
+                    \'OwnerId\': \'string\',
+                    \'CacheSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string'
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\'
                         },
                     ]
                 }
@@ -1485,10 +1485,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_cache_subnet_group(
-              CacheSubnetGroupName='string',
-              CacheSubnetGroupDescription='string',
+              CacheSubnetGroupName=\'string\',
+              CacheSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CacheSubnetGroupName: string
@@ -1520,15 +1520,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheSubnetGroup': {
-                    'CacheSubnetGroupName': 'string',
-                    'CacheSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'Subnets': [
+                \'CacheSubnetGroup\': {
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             }
                         },
                     ]
@@ -1588,7 +1588,7 @@ class Client(BaseClient):
         
         A Redis (cluster mode enabled) replication group is a collection of 1 to 15 node groups (shards). Each node group (shard) has one read/write primary node and up to 5 read-only replica nodes. Writes to the primary are asynchronously propagated to the replicas. Redis (cluster mode enabled) replication groups partition the data across node groups (shards).
         
-        When a Redis (cluster mode disabled) replication group has been successfully created, you can add one or more read replicas to it, up to a total of 5 read replicas. You cannot alter a Redis (cluster mode enabled) replication group after it has been created. However, if you need to increase or decrease the number of node groups (console: shards), you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For more information, see `Restoring From a Backup with Cluster Resizing <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-restoring.html>`__ in the *ElastiCache User Guide* .
+        When a Redis (cluster mode disabled) replication group has been successfully created, you can add one or more read replicas to it, up to a total of 5 read replicas. You cannot alter a Redis (cluster mode enabled) replication group after it has been created. However, if you need to increase or decrease the number of node groups (console: shards), you can avail yourself of ElastiCache for Redis\' enhanced backup and restore. For more information, see `Restoring From a Backup with Cluster Resizing <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-restoring.html>`__ in the *ElastiCache User Guide* .
         
         .. note::
         
@@ -1600,55 +1600,55 @@ class Client(BaseClient):
         ::
         
           response = client.create_replication_group(
-              ReplicationGroupId='string',
-              ReplicationGroupDescription='string',
-              PrimaryClusterId='string',
+              ReplicationGroupId=\'string\',
+              ReplicationGroupDescription=\'string\',
+              PrimaryClusterId=\'string\',
               AutomaticFailoverEnabled=True|False,
               NumCacheClusters=123,
               PreferredCacheClusterAZs=[
-                  'string',
+                  \'string\',
               ],
               NumNodeGroups=123,
               ReplicasPerNodeGroup=123,
               NodeGroupConfiguration=[
                   {
-                      'NodeGroupId': 'string',
-                      'Slots': 'string',
-                      'ReplicaCount': 123,
-                      'PrimaryAvailabilityZone': 'string',
-                      'ReplicaAvailabilityZones': [
-                          'string',
+                      \'NodeGroupId\': \'string\',
+                      \'Slots\': \'string\',
+                      \'ReplicaCount\': 123,
+                      \'PrimaryAvailabilityZone\': \'string\',
+                      \'ReplicaAvailabilityZones\': [
+                          \'string\',
                       ]
                   },
               ],
-              CacheNodeType='string',
-              Engine='string',
-              EngineVersion='string',
-              CacheParameterGroupName='string',
-              CacheSubnetGroupName='string',
+              CacheNodeType=\'string\',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              CacheParameterGroupName=\'string\',
+              CacheSubnetGroupName=\'string\',
               CacheSecurityGroupNames=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               SnapshotArns=[
-                  'string',
+                  \'string\',
               ],
-              SnapshotName='string',
-              PreferredMaintenanceWindow='string',
+              SnapshotName=\'string\',
+              PreferredMaintenanceWindow=\'string\',
               Port=123,
-              NotificationTopicArn='string',
+              NotificationTopicArn=\'string\',
               AutoMinorVersionUpgrade=True|False,
               SnapshotRetentionLimit=123,
-              SnapshotWindow='string',
-              AuthToken='string',
+              SnapshotWindow=\'string\',
+              AuthToken=\'string\',
               TransitEncryptionEnabled=True|False,
               AtRestEncryptionEnabled=True|False
           )
@@ -1710,7 +1710,7 @@ class Client(BaseClient):
         :type PreferredCacheClusterAZs: list
         :param PreferredCacheClusterAZs: 
         
-          A list of EC2 Availability Zones in which the replication group's clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list.
+          A list of EC2 Availability Zones in which the replication group\'s clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list.
         
           This parameter is not used if there is more than one node group (shard). You should use ``NodeGroupConfiguration`` instead.
         
@@ -1741,7 +1741,7 @@ class Client(BaseClient):
         
           A list of node group (shard) configuration options. Each node group (shard) configuration has the following members: ``PrimaryAvailabilityZone`` , ``ReplicaAvailabilityZones`` , ``ReplicaCount`` , and ``Slots`` .
         
-          If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to individually configure each node group (shard), or you can omit this parameter. However, when seeding a Redis (cluster mode enabled) cluster from a S3 rdb file, you must configure each node group (shard) using this parameter because you must specify the slots for each node group.
+          If you\'re creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to individually configure each node group (shard), or you can omit this parameter. However, when seeding a Redis (cluster mode enabled) cluster from a S3 rdb file, you must configure each node group (shard) using this parameter because you must specify the slots for each node group.
         
           - *(dict) --* 
         
@@ -1755,7 +1755,7 @@ class Client(BaseClient):
         
               A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-              Example: ``"0-3999"``  
+              Example: ``\"0-3999\"``  
         
             - **ReplicaCount** *(integer) --* 
         
@@ -1842,7 +1842,7 @@ class Client(BaseClient):
         
           .. warning::
         
-            If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see `Subnets and Subnet Groups <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html>`__ .
+            If you\'re going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see `Subnets and Subnet Groups <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html>`__ .
         
         :type CacheSecurityGroupNames: list
         :param CacheSecurityGroupNames: 
@@ -1875,7 +1875,7 @@ class Client(BaseClient):
         
             - **Value** *(string) --* 
         
-              The tag's value. May be null.
+              The tag\'s value. May be null.
         
         :type SnapshotArns: list
         :param SnapshotArns: 
@@ -1968,7 +1968,7 @@ class Client(BaseClient):
            
           * Must be at least 16 characters and no more than 128 characters in length. 
            
-          * Cannot contain any of the following characters: '/', '"', or '@'.  
+          * Cannot contain any of the following characters: \'/\', \'\"\', or \'@\'.  
            
           For more information, see `AUTH password <http://redis.io/commands/AUTH>`__ at http://redis.io/commands/AUTH.
         
@@ -2010,58 +2010,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -2290,9 +2290,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot(
-              ReplicationGroupId='string',
-              CacheClusterId='string',
-              SnapshotName='string'
+              ReplicationGroupId=\'string\',
+              CacheClusterId=\'string\',
+              SnapshotName=\'string\'
           )
         :type ReplicationGroupId: string
         :param ReplicationGroupId: 
@@ -2317,47 +2317,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotName': 'string',
-                    'ReplicationGroupId': 'string',
-                    'ReplicationGroupDescription': 'string',
-                    'CacheClusterId': 'string',
-                    'SnapshotStatus': 'string',
-                    'SnapshotSource': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'TopicArn': 'string',
-                    'Port': 123,
-                    'CacheParameterGroupName': 'string',
-                    'CacheSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'NumNodeGroups': 123,
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'NodeSnapshots': [
+                \'Snapshot\': {
+                    \'SnapshotName\': \'string\',
+                    \'ReplicationGroupId\': \'string\',
+                    \'ReplicationGroupDescription\': \'string\',
+                    \'CacheClusterId\': \'string\',
+                    \'SnapshotStatus\': \'string\',
+                    \'SnapshotSource\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'TopicArn\': \'string\',
+                    \'Port\': 123,
+                    \'CacheParameterGroupName\': \'string\',
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'NumNodeGroups\': 123,
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'NodeSnapshots\': [
                         {
-                            'CacheClusterId': 'string',
-                            'NodeGroupId': 'string',
-                            'CacheNodeId': 'string',
-                            'NodeGroupConfiguration': {
-                                'NodeGroupId': 'string',
-                                'Slots': 'string',
-                                'ReplicaCount': 123,
-                                'PrimaryAvailabilityZone': 'string',
-                                'ReplicaAvailabilityZones': [
-                                    'string',
+                            \'CacheClusterId\': \'string\',
+                            \'NodeGroupId\': \'string\',
+                            \'CacheNodeId\': \'string\',
+                            \'NodeGroupConfiguration\': {
+                                \'NodeGroupId\': \'string\',
+                                \'Slots\': \'string\',
+                                \'ReplicaCount\': 123,
+                                \'PrimaryAvailabilityZone\': \'string\',
+                                \'ReplicaAvailabilityZones\': [
+                                    \'string\',
                                 ]
                             },
-                            'CacheSize': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'SnapshotCreateTime': datetime(2015, 1, 1)
+                            \'CacheSize\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'SnapshotCreateTime\': datetime(2015, 1, 1)
                         },
                     ]
                 }
@@ -2562,7 +2562,7 @@ class Client(BaseClient):
         
                       A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-                      Example: ``"0-3999"``  
+                      Example: ``\"0-3999\"``  
         
                     - **ReplicaCount** *(integer) --* 
         
@@ -2588,7 +2588,7 @@ class Client(BaseClient):
         
                   - **SnapshotCreateTime** *(datetime) --* 
         
-                    The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+                    The date and time when the source node\'s metadata and cache data set was obtained for the snapshot.
         
         """
         pass
@@ -2602,19 +2602,19 @@ class Client(BaseClient):
         ::
         
           response = client.decrease_replica_count(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               NewReplicaCount=123,
               ReplicaConfiguration=[
                   {
-                      'NodeGroupId': 'string',
-                      'NewReplicaCount': 123,
-                      'PreferredAvailabilityZones': [
-                          'string',
+                      \'NodeGroupId\': \'string\',
+                      \'NewReplicaCount\': 123,
+                      \'PreferredAvailabilityZones\': [
+                          \'string\',
                       ]
                   },
               ],
               ReplicasToRemove=[
-                  'string',
+                  \'string\',
               ],
               ApplyImmediately=True|False
           )
@@ -2626,7 +2626,7 @@ class Client(BaseClient):
         :type NewReplicaCount: integer
         :param NewReplicaCount: 
         
-          The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
+          The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group\'s node groups.
         
           The minimum number of replicas in a shard or replication group is:
         
@@ -2649,7 +2649,7 @@ class Client(BaseClient):
         
             - **NodeGroupId** *(string) --* **[REQUIRED]** 
         
-              The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled) replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)'s node group's (shard's) id, see `Finding a Shard's Id <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html>`__ .
+              The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled) replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)\'s node group\'s (shard\'s) id, see `Finding a Shard\'s Id <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html>`__ .
         
             - **NewReplicaCount** *(integer) --* **[REQUIRED]** 
         
@@ -2667,7 +2667,7 @@ class Client(BaseClient):
                
             - **PreferredAvailabilityZones** *(list) --* 
         
-              A list of ``PreferredAvailabilityZone`` strings that specify which availability zones the replication group's nodes are to be in. The nummber of ``PreferredAvailabilityZone`` values must equal the value of ``NewReplicaCount`` plus 1 to account for the primary node. If this member of ``ReplicaConfiguration`` is omitted, ElastiCache for Redis selects the availability zone for each of the replicas.
+              A list of ``PreferredAvailabilityZone`` strings that specify which availability zones the replication group\'s nodes are to be in. The nummber of ``PreferredAvailabilityZone`` values must equal the value of ``NewReplicaCount`` plus 1 to account for the primary node. If this member of ``ReplicaConfiguration`` is omitted, ElastiCache for Redis selects the availability zone for each of the replicas.
         
               - *(string) --* 
         
@@ -2691,58 +2691,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -2971,8 +2971,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cache_cluster(
-              CacheClusterId='string',
-              FinalSnapshotIdentifier='string'
+              CacheClusterId=\'string\',
+              FinalSnapshotIdentifier=\'string\'
           )
         :type CacheClusterId: string
         :param CacheClusterId: **[REQUIRED]** 
@@ -2992,74 +2992,74 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheCluster': {
-                    'CacheClusterId': 'string',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'CacheCluster\': {
+                    \'CacheClusterId\': \'string\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClientDownloadLandingPage': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'CacheClusterStatus': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'NumCacheNodes': 123,
-                        'CacheNodeIdsToRemove': [
-                            'string',
+                    \'ClientDownloadLandingPage\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'CacheClusterStatus\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'NumCacheNodes\': 123,
+                        \'CacheNodeIdsToRemove\': [
+                            \'string\',
                         ],
-                        'EngineVersion': 'string',
-                        'CacheNodeType': 'string'
+                        \'EngineVersion\': \'string\',
+                        \'CacheNodeType\': \'string\'
                     },
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'CacheSecurityGroups': [
+                    \'CacheSecurityGroups\': [
                         {
-                            'CacheSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'CacheSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CacheParameterGroup': {
-                        'CacheParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'CacheNodeIdsToReboot': [
-                            'string',
+                    \'CacheParameterGroup\': {
+                        \'CacheParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'CacheNodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'CacheSubnetGroupName': 'string',
-                    'CacheNodes': [
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheNodes\': [
                         {
-                            'CacheNodeId': 'string',
-                            'CacheNodeStatus': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'CacheNodeId\': \'string\',
+                            \'CacheNodeStatus\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'ParameterGroupStatus': 'string',
-                            'SourceCacheNodeId': 'string',
-                            'CustomerAvailabilityZone': 'string'
+                            \'ParameterGroupStatus\': \'string\',
+                            \'SourceCacheNodeId\': \'string\',
+                            \'CustomerAvailabilityZone\': \'string\'
                         },
                     ],
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SecurityGroups': [
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ReplicationGroupId': 'string',
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'ReplicationGroupId\': \'string\',
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -3152,7 +3152,7 @@ class Client(BaseClient):
         
               - **PreferredAvailabilityZone** *(string) --* 
         
-                The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
               - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -3222,7 +3222,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents a cluster's status within a particular cache security group.
+                  Represents a cluster\'s status within a particular cache security group.
         
                   - **CacheSecurityGroupName** *(string) --* 
         
@@ -3260,7 +3260,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                   The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -3300,7 +3300,7 @@ class Client(BaseClient):
                    
                   - **CacheNodeId** *(string) --* 
         
-                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                   - **CacheNodeStatus** *(string) --* 
         
@@ -3410,7 +3410,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cache_parameter_group(
-              CacheParameterGroupName='string'
+              CacheParameterGroupName=\'string\'
           )
         :type CacheParameterGroupName: string
         :param CacheParameterGroupName: **[REQUIRED]** 
@@ -3438,7 +3438,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cache_security_group(
-              CacheSecurityGroupName='string'
+              CacheSecurityGroupName=\'string\'
           )
         :type CacheSecurityGroupName: string
         :param CacheSecurityGroupName: **[REQUIRED]** 
@@ -3466,7 +3466,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cache_subnet_group(
-              CacheSubnetGroupName='string'
+              CacheSubnetGroupName=\'string\'
           )
         :type CacheSubnetGroupName: string
         :param CacheSubnetGroupName: **[REQUIRED]** 
@@ -3494,9 +3494,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_replication_group(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               RetainPrimaryCluster=True|False,
-              FinalSnapshotIdentifier='string'
+              FinalSnapshotIdentifier=\'string\'
           )
         :type ReplicationGroupId: string
         :param ReplicationGroupId: **[REQUIRED]** 
@@ -3521,58 +3521,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -3801,7 +3801,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_snapshot(
-              SnapshotName='string'
+              SnapshotName=\'string\'
           )
         :type SnapshotName: string
         :param SnapshotName: **[REQUIRED]** 
@@ -3816,47 +3816,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshot': {
-                    'SnapshotName': 'string',
-                    'ReplicationGroupId': 'string',
-                    'ReplicationGroupDescription': 'string',
-                    'CacheClusterId': 'string',
-                    'SnapshotStatus': 'string',
-                    'SnapshotSource': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'TopicArn': 'string',
-                    'Port': 123,
-                    'CacheParameterGroupName': 'string',
-                    'CacheSubnetGroupName': 'string',
-                    'VpcId': 'string',
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'NumNodeGroups': 123,
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'NodeSnapshots': [
+                \'Snapshot\': {
+                    \'SnapshotName\': \'string\',
+                    \'ReplicationGroupId\': \'string\',
+                    \'ReplicationGroupDescription\': \'string\',
+                    \'CacheClusterId\': \'string\',
+                    \'SnapshotStatus\': \'string\',
+                    \'SnapshotSource\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'TopicArn\': \'string\',
+                    \'Port\': 123,
+                    \'CacheParameterGroupName\': \'string\',
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'NumNodeGroups\': 123,
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'NodeSnapshots\': [
                         {
-                            'CacheClusterId': 'string',
-                            'NodeGroupId': 'string',
-                            'CacheNodeId': 'string',
-                            'NodeGroupConfiguration': {
-                                'NodeGroupId': 'string',
-                                'Slots': 'string',
-                                'ReplicaCount': 123,
-                                'PrimaryAvailabilityZone': 'string',
-                                'ReplicaAvailabilityZones': [
-                                    'string',
+                            \'CacheClusterId\': \'string\',
+                            \'NodeGroupId\': \'string\',
+                            \'CacheNodeId\': \'string\',
+                            \'NodeGroupConfiguration\': {
+                                \'NodeGroupId\': \'string\',
+                                \'Slots\': \'string\',
+                                \'ReplicaCount\': 123,
+                                \'PrimaryAvailabilityZone\': \'string\',
+                                \'ReplicaAvailabilityZones\': [
+                                    \'string\',
                                 ]
                             },
-                            'CacheSize': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'SnapshotCreateTime': datetime(2015, 1, 1)
+                            \'CacheSize\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'SnapshotCreateTime\': datetime(2015, 1, 1)
                         },
                     ]
                 }
@@ -4061,7 +4061,7 @@ class Client(BaseClient):
         
                       A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-                      Example: ``"0-3999"``  
+                      Example: ``\"0-3999\"``  
         
                     - **ReplicaCount** *(integer) --* 
         
@@ -4087,7 +4087,7 @@ class Client(BaseClient):
         
                   - **SnapshotCreateTime** *(datetime) --* 
         
-                    The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+                    The date and time when the source node\'s metadata and cache data set was obtained for the snapshot.
         
         """
         pass
@@ -4111,16 +4111,16 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_clusters(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               ShowCacheNodeInfo=True|False,
               ShowCacheClustersNotInReplicationGroups=True|False
           )
         :type CacheClusterId: string
         :param CacheClusterId: 
         
-          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
+          The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn\'t case sensitive.
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -4154,76 +4154,76 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'CacheClusters': [
+                \'Marker\': \'string\',
+                \'CacheClusters\': [
                     {
-                        'CacheClusterId': 'string',
-                        'ConfigurationEndpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'CacheClusterId\': \'string\',
+                        \'ConfigurationEndpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'ClientDownloadLandingPage': 'string',
-                        'CacheNodeType': 'string',
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'CacheClusterStatus': 'string',
-                        'NumCacheNodes': 123,
-                        'PreferredAvailabilityZone': 'string',
-                        'CacheClusterCreateTime': datetime(2015, 1, 1),
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'NumCacheNodes': 123,
-                            'CacheNodeIdsToRemove': [
-                                'string',
+                        \'ClientDownloadLandingPage\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'CacheClusterStatus\': \'string\',
+                        \'NumCacheNodes\': 123,
+                        \'PreferredAvailabilityZone\': \'string\',
+                        \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'NumCacheNodes\': 123,
+                            \'CacheNodeIdsToRemove\': [
+                                \'string\',
                             ],
-                            'EngineVersion': 'string',
-                            'CacheNodeType': 'string'
+                            \'EngineVersion\': \'string\',
+                            \'CacheNodeType\': \'string\'
                         },
-                        'NotificationConfiguration': {
-                            'TopicArn': 'string',
-                            'TopicStatus': 'string'
+                        \'NotificationConfiguration\': {
+                            \'TopicArn\': \'string\',
+                            \'TopicStatus\': \'string\'
                         },
-                        'CacheSecurityGroups': [
+                        \'CacheSecurityGroups\': [
                             {
-                                'CacheSecurityGroupName': 'string',
-                                'Status': 'string'
+                                \'CacheSecurityGroupName\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'CacheParameterGroup': {
-                            'CacheParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'CacheNodeIdsToReboot': [
-                                'string',
+                        \'CacheParameterGroup\': {
+                            \'CacheParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'CacheNodeIdsToReboot\': [
+                                \'string\',
                             ]
                         },
-                        'CacheSubnetGroupName': 'string',
-                        'CacheNodes': [
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'CacheNodes\': [
                             {
-                                'CacheNodeId': 'string',
-                                'CacheNodeStatus': 'string',
-                                'CacheNodeCreateTime': datetime(2015, 1, 1),
-                                'Endpoint': {
-                                    'Address': 'string',
-                                    'Port': 123
+                                \'CacheNodeId\': \'string\',
+                                \'CacheNodeStatus\': \'string\',
+                                \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                                \'Endpoint\': {
+                                    \'Address\': \'string\',
+                                    \'Port\': 123
                                 },
-                                'ParameterGroupStatus': 'string',
-                                'SourceCacheNodeId': 'string',
-                                'CustomerAvailabilityZone': 'string'
+                                \'ParameterGroupStatus\': \'string\',
+                                \'SourceCacheNodeId\': \'string\',
+                                \'CustomerAvailabilityZone\': \'string\'
                             },
                         ],
-                        'AutoMinorVersionUpgrade': True|False,
-                        'SecurityGroups': [
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'SecurityGroups\': [
                             {
-                                'SecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'SecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'ReplicationGroupId': 'string',
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'AuthTokenEnabled': True|False,
-                        'TransitEncryptionEnabled': True|False,
-                        'AtRestEncryptionEnabled': True|False
+                        \'ReplicationGroupId\': \'string\',
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'AuthTokenEnabled\': True|False,
+                        \'TransitEncryptionEnabled\': True|False,
+                        \'AtRestEncryptionEnabled\': True|False
                     },
                 ]
             }
@@ -4327,7 +4327,7 @@ class Client(BaseClient):
         
                 - **PreferredAvailabilityZone** *(string) --* 
         
-                  The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                  The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
                 - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -4397,7 +4397,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    Represents a cluster's status within a particular cache security group.
+                    Represents a cluster\'s status within a particular cache security group.
         
                     - **CacheSecurityGroupName** *(string) --* 
         
@@ -4435,7 +4435,7 @@ class Client(BaseClient):
         
                   - *(dict) --* 
         
-                    Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                    Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                     The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -4475,7 +4475,7 @@ class Client(BaseClient):
                      
                     - **CacheNodeId** *(string) --* 
         
-                      The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                      The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                     - **CacheNodeStatus** *(string) --* 
         
@@ -4585,11 +4585,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_engine_versions(
-              Engine='string',
-              EngineVersion='string',
-              CacheParameterGroupFamily='string',
+              Engine=\'string\',
+              EngineVersion=\'string\',
+              CacheParameterGroupFamily=\'string\',
               MaxRecords=123,
-              Marker='string',
+              Marker=\'string\',
               DefaultOnly=True|False
           )
         :type Engine: string
@@ -4646,14 +4646,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'CacheEngineVersions': [
+                \'Marker\': \'string\',
+                \'CacheEngineVersions\': [
                     {
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'CacheParameterGroupFamily': 'string',
-                        'CacheEngineDescription': 'string',
-                        'CacheEngineVersionDescription': 'string'
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'CacheParameterGroupFamily\': \'string\',
+                        \'CacheEngineDescription\': \'string\',
+                        \'CacheEngineVersionDescription\': \'string\'
                     },
                 ]
             }
@@ -4709,9 +4709,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_parameter_groups(
-              CacheParameterGroupName='string',
+              CacheParameterGroupName=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type CacheParameterGroupName: string
         :param CacheParameterGroupName: 
@@ -4740,12 +4740,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'CacheParameterGroups': [
+                \'Marker\': \'string\',
+                \'CacheParameterGroups\': [
                     {
-                        'CacheParameterGroupName': 'string',
-                        'CacheParameterGroupFamily': 'string',
-                        'Description': 'string'
+                        \'CacheParameterGroupName\': \'string\',
+                        \'CacheParameterGroupFamily\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -4793,10 +4793,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_parameters(
-              CacheParameterGroupName='string',
-              Source='string',
+              CacheParameterGroupName=\'string\',
+              Source=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type CacheParameterGroupName: string
         :param CacheParameterGroupName: **[REQUIRED]** 
@@ -4832,36 +4832,36 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Parameters': [
+                \'Marker\': \'string\',
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterValue': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'ChangeType': 'immediate'|'requires-reboot'
+                        \'ParameterName\': \'string\',
+                        \'ParameterValue\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'ChangeType\': \'immediate\'|\'requires-reboot\'
                     },
                 ],
-                'CacheNodeTypeSpecificParameters': [
+                \'CacheNodeTypeSpecificParameters\': [
                     {
-                        'ParameterName': 'string',
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': True|False,
-                        'MinimumEngineVersion': 'string',
-                        'CacheNodeTypeSpecificValues': [
+                        \'ParameterName\': \'string\',
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': True|False,
+                        \'MinimumEngineVersion\': \'string\',
+                        \'CacheNodeTypeSpecificValues\': [
                             {
-                                'CacheNodeType': 'string',
-                                'Value': 'string'
+                                \'CacheNodeType\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'ChangeType': 'immediate'|'requires-reboot'
+                        \'ChangeType\': \'immediate\'|\'requires-reboot\'
                     },
                 ]
             }
@@ -4917,7 +4917,7 @@ class Client(BaseClient):
         
                 - **ChangeType** *(string) --* 
         
-                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
             - **CacheNodeTypeSpecificParameters** *(list) --* 
         
@@ -4973,7 +4973,7 @@ class Client(BaseClient):
         
                 - **ChangeType** *(string) --* 
         
-                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                  Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
         """
         pass
@@ -4987,9 +4987,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_security_groups(
-              CacheSecurityGroupName='string',
+              CacheSecurityGroupName=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type CacheSecurityGroupName: string
         :param CacheSecurityGroupName: 
@@ -5018,17 +5018,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'CacheSecurityGroups': [
+                \'Marker\': \'string\',
+                \'CacheSecurityGroups\': [
                     {
-                        'OwnerId': 'string',
-                        'CacheSecurityGroupName': 'string',
-                        'Description': 'string',
-                        'EC2SecurityGroups': [
+                        \'OwnerId\': \'string\',
+                        \'CacheSecurityGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'EC2SecurityGroups\': [
                             {
-                                'Status': 'string',
-                                'EC2SecurityGroupName': 'string',
-                                'EC2SecurityGroupOwnerId': 'string'
+                                \'Status\': \'string\',
+                                \'EC2SecurityGroupName\': \'string\',
+                                \'EC2SecurityGroupOwnerId\': \'string\'
                             },
                         ]
                     },
@@ -5102,9 +5102,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_cache_subnet_groups(
-              CacheSubnetGroupName='string',
+              CacheSubnetGroupName=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type CacheSubnetGroupName: string
         :param CacheSubnetGroupName: 
@@ -5133,17 +5133,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'CacheSubnetGroups': [
+                \'Marker\': \'string\',
+                \'CacheSubnetGroups\': [
                     {
-                        'CacheSubnetGroupName': 'string',
-                        'CacheSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'Subnets': [
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'CacheSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 }
                             },
                         ]
@@ -5216,9 +5216,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_engine_default_parameters(
-              CacheParameterGroupFamily='string',
+              CacheParameterGroupFamily=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type CacheParameterGroupFamily: string
         :param CacheParameterGroupFamily: **[REQUIRED]** 
@@ -5249,38 +5249,38 @@ class Client(BaseClient):
           ::
         
             {
-                'EngineDefaults': {
-                    'CacheParameterGroupFamily': 'string',
-                    'Marker': 'string',
-                    'Parameters': [
+                \'EngineDefaults\': {
+                    \'CacheParameterGroupFamily\': \'string\',
+                    \'Marker\': \'string\',
+                    \'Parameters\': [
                         {
-                            'ParameterName': 'string',
-                            'ParameterValue': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'ChangeType': 'immediate'|'requires-reboot'
+                            \'ParameterName\': \'string\',
+                            \'ParameterValue\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'ChangeType\': \'immediate\'|\'requires-reboot\'
                         },
                     ],
-                    'CacheNodeTypeSpecificParameters': [
+                    \'CacheNodeTypeSpecificParameters\': [
                         {
-                            'ParameterName': 'string',
-                            'Description': 'string',
-                            'Source': 'string',
-                            'DataType': 'string',
-                            'AllowedValues': 'string',
-                            'IsModifiable': True|False,
-                            'MinimumEngineVersion': 'string',
-                            'CacheNodeTypeSpecificValues': [
+                            \'ParameterName\': \'string\',
+                            \'Description\': \'string\',
+                            \'Source\': \'string\',
+                            \'DataType\': \'string\',
+                            \'AllowedValues\': \'string\',
+                            \'IsModifiable\': True|False,
+                            \'MinimumEngineVersion\': \'string\',
+                            \'CacheNodeTypeSpecificValues\': [
                                 {
-                                    'CacheNodeType': 'string',
-                                    'Value': 'string'
+                                    \'CacheNodeType\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ],
-                            'ChangeType': 'immediate'|'requires-reboot'
+                            \'ChangeType\': \'immediate\'|\'requires-reboot\'
                         },
                     ]
                 }
@@ -5345,7 +5345,7 @@ class Client(BaseClient):
         
                   - **ChangeType** *(string) --* 
         
-                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
               - **CacheNodeTypeSpecificParameters** *(list) --* 
         
@@ -5401,7 +5401,7 @@ class Client(BaseClient):
         
                   - **ChangeType** *(string) --* 
         
-                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
+                    Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see `Rebooting a Cluster <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html>`__ .
         
         """
         pass
@@ -5409,7 +5409,7 @@ class Client(BaseClient):
     def describe_events(self, SourceIdentifier: str = None, SourceType: str = None, StartTime: datetime = None, EndTime: datetime = None, Duration: int = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         
-        By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.
+        By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days\' worth of events if necessary.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/DescribeEvents>`_
         
@@ -5417,13 +5417,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              SourceIdentifier='string',
-              SourceType='cache-cluster'|'cache-parameter-group'|'cache-security-group'|'cache-subnet-group'|'replication-group',
+              SourceIdentifier=\'string\',
+              SourceType=\'cache-cluster\'|\'cache-parameter-group\'|\'cache-security-group\'|\'cache-subnet-group\'|\'replication-group\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type SourceIdentifier: string
         :param SourceIdentifier: 
@@ -5476,13 +5476,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Events': [
+                \'Marker\': \'string\',
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'cache-cluster'|'cache-parameter-group'|'cache-security-group'|'cache-subnet-group'|'replication-group',
-                        'Message': 'string',
-                        'Date': datetime(2015, 1, 1)
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'cache-cluster\'|\'cache-parameter-group\'|\'cache-security-group\'|\'cache-subnet-group\'|\'replication-group\',
+                        \'Message\': \'string\',
+                        \'Date\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -5536,9 +5536,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_replication_groups(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReplicationGroupId: string
         :param ReplicationGroupId: 
@@ -5569,60 +5569,60 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReplicationGroups': [
+                \'Marker\': \'string\',
+                \'ReplicationGroups\': [
                     {
-                        'ReplicationGroupId': 'string',
-                        'Description': 'string',
-                        'Status': 'string',
-                        'PendingModifiedValues': {
-                            'PrimaryClusterId': 'string',
-                            'AutomaticFailoverStatus': 'enabled'|'disabled',
-                            'Resharding': {
-                                'SlotMigration': {
-                                    'ProgressPercentage': 123.0
+                        \'ReplicationGroupId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Status\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'PrimaryClusterId\': \'string\',
+                            \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                            \'Resharding\': {
+                                \'SlotMigration\': {
+                                    \'ProgressPercentage\': 123.0
                                 }
                             }
                         },
-                        'MemberClusters': [
-                            'string',
+                        \'MemberClusters\': [
+                            \'string\',
                         ],
-                        'NodeGroups': [
+                        \'NodeGroups\': [
                             {
-                                'NodeGroupId': 'string',
-                                'Status': 'string',
-                                'PrimaryEndpoint': {
-                                    'Address': 'string',
-                                    'Port': 123
+                                \'NodeGroupId\': \'string\',
+                                \'Status\': \'string\',
+                                \'PrimaryEndpoint\': {
+                                    \'Address\': \'string\',
+                                    \'Port\': 123
                                 },
-                                'Slots': 'string',
-                                'NodeGroupMembers': [
+                                \'Slots\': \'string\',
+                                \'NodeGroupMembers\': [
                                     {
-                                        'CacheClusterId': 'string',
-                                        'CacheNodeId': 'string',
-                                        'ReadEndpoint': {
-                                            'Address': 'string',
-                                            'Port': 123
+                                        \'CacheClusterId\': \'string\',
+                                        \'CacheNodeId\': \'string\',
+                                        \'ReadEndpoint\': {
+                                            \'Address\': \'string\',
+                                            \'Port\': 123
                                         },
-                                        'PreferredAvailabilityZone': 'string',
-                                        'CurrentRole': 'string'
+                                        \'PreferredAvailabilityZone\': \'string\',
+                                        \'CurrentRole\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'SnapshottingClusterId': 'string',
-                        'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                        'ConfigurationEndpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'SnapshottingClusterId\': \'string\',
+                        \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                        \'ConfigurationEndpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'ClusterEnabled': True|False,
-                        'CacheNodeType': 'string',
-                        'AuthTokenEnabled': True|False,
-                        'TransitEncryptionEnabled': True|False,
-                        'AtRestEncryptionEnabled': True|False
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'ClusterEnabled\': True|False,
+                        \'CacheNodeType\': \'string\',
+                        \'AuthTokenEnabled\': True|False,
+                        \'TransitEncryptionEnabled\': True|False,
+                        \'AtRestEncryptionEnabled\': True|False
                     },
                 ]
             }
@@ -5858,14 +5858,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_cache_nodes(
-              ReservedCacheNodeId='string',
-              ReservedCacheNodesOfferingId='string',
-              CacheNodeType='string',
-              Duration='string',
-              ProductDescription='string',
-              OfferingType='string',
+              ReservedCacheNodeId=\'string\',
+              ReservedCacheNodesOfferingId=\'string\',
+              CacheNodeType=\'string\',
+              Duration=\'string\',
+              ProductDescription=\'string\',
+              OfferingType=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReservedCacheNodeId: string
         :param ReservedCacheNodeId: 
@@ -5935,7 +5935,7 @@ class Client(BaseClient):
         
           The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
         
-          Valid values: ``"Light Utilization"|"Medium Utilization"|"Heavy Utilization"``  
+          Valid values: ``\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"``  
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -5959,27 +5959,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReservedCacheNodes': [
+                \'Marker\': \'string\',
+                \'ReservedCacheNodes\': [
                     {
-                        'ReservedCacheNodeId': 'string',
-                        'ReservedCacheNodesOfferingId': 'string',
-                        'CacheNodeType': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'CacheNodeCount': 123,
-                        'ProductDescription': 'string',
-                        'OfferingType': 'string',
-                        'State': 'string',
-                        'RecurringCharges': [
+                        \'ReservedCacheNodeId\': \'string\',
+                        \'ReservedCacheNodesOfferingId\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'CacheNodeCount\': 123,
+                        \'ProductDescription\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'State\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ],
-                        'ReservationARN': 'string'
+                        \'ReservationARN\': \'string\'
                     },
                 ]
             }
@@ -6115,13 +6115,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_cache_nodes_offerings(
-              ReservedCacheNodesOfferingId='string',
-              CacheNodeType='string',
-              Duration='string',
-              ProductDescription='string',
-              OfferingType='string',
+              ReservedCacheNodesOfferingId=\'string\',
+              CacheNodeType=\'string\',
+              Duration=\'string\',
+              ProductDescription=\'string\',
+              OfferingType=\'string\',
               MaxRecords=123,
-              Marker='string'
+              Marker=\'string\'
           )
         :type ReservedCacheNodesOfferingId: string
         :param ReservedCacheNodesOfferingId: 
@@ -6188,7 +6188,7 @@ class Client(BaseClient):
         
           The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
         
-          Valid Values: ``"Light Utilization"|"Medium Utilization"|"Heavy Utilization"``  
+          Valid Values: ``\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"``  
         
         :type MaxRecords: integer
         :param MaxRecords: 
@@ -6212,20 +6212,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'ReservedCacheNodesOfferings': [
+                \'Marker\': \'string\',
+                \'ReservedCacheNodesOfferings\': [
                     {
-                        'ReservedCacheNodesOfferingId': 'string',
-                        'CacheNodeType': 'string',
-                        'Duration': 123,
-                        'FixedPrice': 123.0,
-                        'UsagePrice': 123.0,
-                        'ProductDescription': 'string',
-                        'OfferingType': 'string',
-                        'RecurringCharges': [
+                        \'ReservedCacheNodesOfferingId\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': 123.0,
+                        \'UsagePrice\': 123.0,
+                        \'ProductDescription\': \'string\',
+                        \'OfferingType\': \'string\',
+                        \'RecurringCharges\': [
                             {
-                                'RecurringChargeAmount': 123.0,
-                                'RecurringChargeFrequency': 'string'
+                                \'RecurringChargeAmount\': 123.0,
+                                \'RecurringChargeFrequency\': \'string\'
                             },
                         ]
                     },
@@ -6345,11 +6345,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_snapshots(
-              ReplicationGroupId='string',
-              CacheClusterId='string',
-              SnapshotName='string',
-              SnapshotSource='string',
-              Marker='string',
+              ReplicationGroupId=\'string\',
+              CacheClusterId=\'string\',
+              SnapshotName=\'string\',
+              SnapshotSource=\'string\',
+              Marker=\'string\',
               MaxRecords=123,
               ShowNodeGroupConfig=True|False
           )
@@ -6400,49 +6400,49 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Snapshots': [
+                \'Marker\': \'string\',
+                \'Snapshots\': [
                     {
-                        'SnapshotName': 'string',
-                        'ReplicationGroupId': 'string',
-                        'ReplicationGroupDescription': 'string',
-                        'CacheClusterId': 'string',
-                        'SnapshotStatus': 'string',
-                        'SnapshotSource': 'string',
-                        'CacheNodeType': 'string',
-                        'Engine': 'string',
-                        'EngineVersion': 'string',
-                        'NumCacheNodes': 123,
-                        'PreferredAvailabilityZone': 'string',
-                        'CacheClusterCreateTime': datetime(2015, 1, 1),
-                        'PreferredMaintenanceWindow': 'string',
-                        'TopicArn': 'string',
-                        'Port': 123,
-                        'CacheParameterGroupName': 'string',
-                        'CacheSubnetGroupName': 'string',
-                        'VpcId': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'SnapshotRetentionLimit': 123,
-                        'SnapshotWindow': 'string',
-                        'NumNodeGroups': 123,
-                        'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                        'NodeSnapshots': [
+                        \'SnapshotName\': \'string\',
+                        \'ReplicationGroupId\': \'string\',
+                        \'ReplicationGroupDescription\': \'string\',
+                        \'CacheClusterId\': \'string\',
+                        \'SnapshotStatus\': \'string\',
+                        \'SnapshotSource\': \'string\',
+                        \'CacheNodeType\': \'string\',
+                        \'Engine\': \'string\',
+                        \'EngineVersion\': \'string\',
+                        \'NumCacheNodes\': 123,
+                        \'PreferredAvailabilityZone\': \'string\',
+                        \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'TopicArn\': \'string\',
+                        \'Port\': 123,
+                        \'CacheParameterGroupName\': \'string\',
+                        \'CacheSubnetGroupName\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'SnapshotRetentionLimit\': 123,
+                        \'SnapshotWindow\': \'string\',
+                        \'NumNodeGroups\': 123,
+                        \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                        \'NodeSnapshots\': [
                             {
-                                'CacheClusterId': 'string',
-                                'NodeGroupId': 'string',
-                                'CacheNodeId': 'string',
-                                'NodeGroupConfiguration': {
-                                    'NodeGroupId': 'string',
-                                    'Slots': 'string',
-                                    'ReplicaCount': 123,
-                                    'PrimaryAvailabilityZone': 'string',
-                                    'ReplicaAvailabilityZones': [
-                                        'string',
+                                \'CacheClusterId\': \'string\',
+                                \'NodeGroupId\': \'string\',
+                                \'CacheNodeId\': \'string\',
+                                \'NodeGroupConfiguration\': {
+                                    \'NodeGroupId\': \'string\',
+                                    \'Slots\': \'string\',
+                                    \'ReplicaCount\': 123,
+                                    \'PrimaryAvailabilityZone\': \'string\',
+                                    \'ReplicaAvailabilityZones\': [
+                                        \'string\',
                                     ]
                                 },
-                                'CacheSize': 'string',
-                                'CacheNodeCreateTime': datetime(2015, 1, 1),
-                                'SnapshotCreateTime': datetime(2015, 1, 1)
+                                \'CacheSize\': \'string\',
+                                \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                                \'SnapshotCreateTime\': datetime(2015, 1, 1)
                             },
                         ]
                     },
@@ -6658,7 +6658,7 @@ class Client(BaseClient):
         
                         A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format ``startkey-endkey`` .
         
-                        Example: ``"0-3999"``  
+                        Example: ``\"0-3999\"``  
         
                       - **ReplicaCount** *(integer) --* 
         
@@ -6684,7 +6684,7 @@ class Client(BaseClient):
         
                     - **SnapshotCreateTime** *(datetime) --* 
         
-                      The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+                      The date and time when the source node\'s metadata and cache data set was obtained for the snapshot.
         
         """
         pass
@@ -6705,7 +6705,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -6717,10 +6717,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -6752,14 +6752,14 @@ class Client(BaseClient):
         ::
         
           response = client.increase_replica_count(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               NewReplicaCount=123,
               ReplicaConfiguration=[
                   {
-                      'NodeGroupId': 'string',
-                      'NewReplicaCount': 123,
-                      'PreferredAvailabilityZones': [
-                          'string',
+                      \'NodeGroupId\': \'string\',
+                      \'NewReplicaCount\': 123,
+                      \'PreferredAvailabilityZones\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -6773,7 +6773,7 @@ class Client(BaseClient):
         :type NewReplicaCount: integer
         :param NewReplicaCount: 
         
-          The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
+          The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group\'s node groups.
         
         :type ReplicaConfiguration: list
         :param ReplicaConfiguration: 
@@ -6786,7 +6786,7 @@ class Client(BaseClient):
         
             - **NodeGroupId** *(string) --* **[REQUIRED]** 
         
-              The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled) replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)'s node group's (shard's) id, see `Finding a Shard's Id <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html>`__ .
+              The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled) replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)\'s node group\'s (shard\'s) id, see `Finding a Shard\'s Id <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html>`__ .
         
             - **NewReplicaCount** *(integer) --* **[REQUIRED]** 
         
@@ -6804,7 +6804,7 @@ class Client(BaseClient):
                
             - **PreferredAvailabilityZones** *(list) --* 
         
-              A list of ``PreferredAvailabilityZone`` strings that specify which availability zones the replication group's nodes are to be in. The nummber of ``PreferredAvailabilityZone`` values must equal the value of ``NewReplicaCount`` plus 1 to account for the primary node. If this member of ``ReplicaConfiguration`` is omitted, ElastiCache for Redis selects the availability zone for each of the replicas.
+              A list of ``PreferredAvailabilityZone`` strings that specify which availability zones the replication group\'s nodes are to be in. The nummber of ``PreferredAvailabilityZone`` values must equal the value of ``NewReplicaCount`` plus 1 to account for the primary node. If this member of ``ReplicaConfiguration`` is omitted, ElastiCache for Redis selects the availability zone for each of the replicas.
         
               - *(string) --* 
         
@@ -6821,58 +6821,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -7099,8 +7099,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_allowed_node_type_modifications(
-              CacheClusterId='string',
-              ReplicationGroupId='string'
+              CacheClusterId=\'string\',
+              ReplicationGroupId=\'string\'
           )
         :type CacheClusterId: string
         :param CacheClusterId: 
@@ -7128,8 +7128,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ScaleUpModifications': [
-                    'string',
+                \'ScaleUpModifications\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -7162,7 +7162,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceName='string'
+              ResourceName=\'string\'
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]** 
@@ -7179,10 +7179,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -7206,7 +7206,7 @@ class Client(BaseClient):
         
                 - **Value** *(string) --* 
         
-                  The tag's value. May be null.
+                  The tag\'s value. May be null.
         
         """
         pass
@@ -7220,31 +7220,31 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cache_cluster(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               NumCacheNodes=123,
               CacheNodeIdsToRemove=[
-                  'string',
+                  \'string\',
               ],
-              AZMode='single-az'|'cross-az',
+              AZMode=\'single-az\'|\'cross-az\',
               NewAvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               CacheSecurityGroupNames=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              PreferredMaintenanceWindow='string',
-              NotificationTopicArn='string',
-              CacheParameterGroupName='string',
-              NotificationTopicStatus='string',
+              PreferredMaintenanceWindow=\'string\',
+              NotificationTopicArn=\'string\',
+              CacheParameterGroupName=\'string\',
+              NotificationTopicStatus=\'string\',
               ApplyImmediately=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AutoMinorVersionUpgrade=True|False,
               SnapshotRetentionLimit=123,
-              SnapshotWindow='string',
-              CacheNodeType='string'
+              SnapshotWindow=\'string\',
+              CacheNodeType=\'string\'
           )
         :type CacheClusterId: string
         :param CacheClusterId: **[REQUIRED]** 
@@ -7264,7 +7264,7 @@ class Client(BaseClient):
         
             Adding or removing Memcached cache nodes can be applied immediately or as a pending operation (see ``ApplyImmediately`` ).
         
-            A pending operation to modify the number of cache nodes in a cluster during its maintenance window, whether by adding or removing nodes in accordance with the scale out architecture, is not queued. The customer's latest request to add or remove nodes to the cluster overrides any previous pending operations to modify the number of cache nodes in the cluster. For example, a request to remove 2 nodes would override a previous pending operation to remove 3 nodes. Similarly, a request to add 2 nodes would override a previous pending operation to remove 3 nodes and vice versa. As Memcached cache nodes may now be provisioned in different Availability Zones with flexible cache node placement, a request to add nodes does not automatically override a previous pending operation to add nodes. The customer can modify the previous pending operation to add more nodes or explicitly cancel the pending request and retry the new request. To cancel pending operations to modify the number of cache nodes in a cluster, use the ``ModifyCacheCluster`` request and set ``NumCacheNodes`` equal to the number of cache nodes currently in the cluster.
+            A pending operation to modify the number of cache nodes in a cluster during its maintenance window, whether by adding or removing nodes in accordance with the scale out architecture, is not queued. The customer\'s latest request to add or remove nodes to the cluster overrides any previous pending operations to modify the number of cache nodes in the cluster. For example, a request to remove 2 nodes would override a previous pending operation to remove 3 nodes. Similarly, a request to add 2 nodes would override a previous pending operation to remove 3 nodes and vice versa. As Memcached cache nodes may now be provisioned in different Availability Zones with flexible cache node placement, a request to add nodes does not automatically override a previous pending operation to add nodes. The customer can modify the previous pending operation to add more nodes or explicitly cancel the pending request and retry the new request. To cancel pending operations to modify the number of cache nodes in a cluster, use the ``ModifyCacheCluster`` request and set ``NumCacheNodes`` equal to the number of cache nodes currently in the cluster.
         
         :type CacheNodeIdsToRemove: list
         :param CacheNodeIdsToRemove: 
@@ -7358,7 +7358,7 @@ class Client(BaseClient):
         
           You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).
         
-          Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".
+          Constraints: Must contain no more than 255 alphanumeric characters. Must not be \"Default\".
         
           - *(string) --* 
         
@@ -7469,74 +7469,74 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheCluster': {
-                    'CacheClusterId': 'string',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'CacheCluster\': {
+                    \'CacheClusterId\': \'string\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClientDownloadLandingPage': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'CacheClusterStatus': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'NumCacheNodes': 123,
-                        'CacheNodeIdsToRemove': [
-                            'string',
+                    \'ClientDownloadLandingPage\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'CacheClusterStatus\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'NumCacheNodes\': 123,
+                        \'CacheNodeIdsToRemove\': [
+                            \'string\',
                         ],
-                        'EngineVersion': 'string',
-                        'CacheNodeType': 'string'
+                        \'EngineVersion\': \'string\',
+                        \'CacheNodeType\': \'string\'
                     },
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'CacheSecurityGroups': [
+                    \'CacheSecurityGroups\': [
                         {
-                            'CacheSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'CacheSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CacheParameterGroup': {
-                        'CacheParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'CacheNodeIdsToReboot': [
-                            'string',
+                    \'CacheParameterGroup\': {
+                        \'CacheParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'CacheNodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'CacheSubnetGroupName': 'string',
-                    'CacheNodes': [
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheNodes\': [
                         {
-                            'CacheNodeId': 'string',
-                            'CacheNodeStatus': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'CacheNodeId\': \'string\',
+                            \'CacheNodeStatus\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'ParameterGroupStatus': 'string',
-                            'SourceCacheNodeId': 'string',
-                            'CustomerAvailabilityZone': 'string'
+                            \'ParameterGroupStatus\': \'string\',
+                            \'SourceCacheNodeId\': \'string\',
+                            \'CustomerAvailabilityZone\': \'string\'
                         },
                     ],
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SecurityGroups': [
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ReplicationGroupId': 'string',
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'ReplicationGroupId\': \'string\',
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -7629,7 +7629,7 @@ class Client(BaseClient):
         
               - **PreferredAvailabilityZone** *(string) --* 
         
-                The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
               - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -7699,7 +7699,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents a cluster's status within a particular cache security group.
+                  Represents a cluster\'s status within a particular cache security group.
         
                   - **CacheSecurityGroupName** *(string) --* 
         
@@ -7737,7 +7737,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                   The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -7777,7 +7777,7 @@ class Client(BaseClient):
                    
                   - **CacheNodeId** *(string) --* 
         
-                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                   - **CacheNodeStatus** *(string) --* 
         
@@ -7887,11 +7887,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cache_parameter_group(
-              CacheParameterGroupName='string',
+              CacheParameterGroupName=\'string\',
               ParameterNameValues=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\'
                   },
               ]
           )
@@ -7925,7 +7925,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheParameterGroupName': 'string'
+                \'CacheParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -7953,10 +7953,10 @@ class Client(BaseClient):
         ::
         
           response = client.modify_cache_subnet_group(
-              CacheSubnetGroupName='string',
-              CacheSubnetGroupDescription='string',
+              CacheSubnetGroupName=\'string\',
+              CacheSubnetGroupDescription=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CacheSubnetGroupName: string
@@ -7988,15 +7988,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheSubnetGroup': {
-                    'CacheSubnetGroupName': 'string',
-                    'CacheSubnetGroupDescription': 'string',
-                    'VpcId': 'string',
-                    'Subnets': [
+                \'CacheSubnetGroup\': {
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheSubnetGroupDescription\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': {
-                                'Name': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': {
+                                \'Name\': \'string\'
                             }
                         },
                     ]
@@ -8052,7 +8052,7 @@ class Client(BaseClient):
     def modify_replication_group(self, ReplicationGroupId: str, ReplicationGroupDescription: str = None, PrimaryClusterId: str = None, SnapshottingClusterId: str = None, AutomaticFailoverEnabled: bool = None, CacheSecurityGroupNames: List = None, SecurityGroupIds: List = None, PreferredMaintenanceWindow: str = None, NotificationTopicArn: str = None, CacheParameterGroupName: str = None, NotificationTopicStatus: str = None, ApplyImmediately: bool = None, EngineVersion: str = None, AutoMinorVersionUpgrade: bool = None, SnapshotRetentionLimit: int = None, SnapshotWindow: str = None, CacheNodeType: str = None, NodeGroupId: str = None) -> Dict:
         """
         
-        For Redis (cluster mode enabled) clusters, this operation cannot be used to change a cluster's node type or engine version. For more information, see:
+        For Redis (cluster mode enabled) clusters, this operation cannot be used to change a cluster\'s node type or engine version. For more information, see:
         
         * `Scaling for Amazon ElastiCache for Redis—Redis (cluster mode enabled) <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html>`__ in the ElastiCache User Guide 
          
@@ -8068,28 +8068,28 @@ class Client(BaseClient):
         ::
         
           response = client.modify_replication_group(
-              ReplicationGroupId='string',
-              ReplicationGroupDescription='string',
-              PrimaryClusterId='string',
-              SnapshottingClusterId='string',
+              ReplicationGroupId=\'string\',
+              ReplicationGroupDescription=\'string\',
+              PrimaryClusterId=\'string\',
+              SnapshottingClusterId=\'string\',
               AutomaticFailoverEnabled=True|False,
               CacheSecurityGroupNames=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              PreferredMaintenanceWindow='string',
-              NotificationTopicArn='string',
-              CacheParameterGroupName='string',
-              NotificationTopicStatus='string',
+              PreferredMaintenanceWindow=\'string\',
+              NotificationTopicArn=\'string\',
+              CacheParameterGroupName=\'string\',
+              NotificationTopicStatus=\'string\',
               ApplyImmediately=True|False,
-              EngineVersion='string',
+              EngineVersion=\'string\',
               AutoMinorVersionUpgrade=True|False,
               SnapshotRetentionLimit=123,
-              SnapshotWindow='string',
-              CacheNodeType='string',
-              NodeGroupId='string'
+              SnapshotWindow=\'string\',
+              CacheNodeType=\'string\',
+              NodeGroupId=\'string\'
           )
         :type ReplicationGroupId: string
         :param ReplicationGroupId: **[REQUIRED]** 
@@ -8247,58 +8247,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -8523,22 +8523,22 @@ class Client(BaseClient):
         ::
         
           response = client.modify_replication_group_shard_configuration(
-              ReplicationGroupId='string',
+              ReplicationGroupId=\'string\',
               NodeGroupCount=123,
               ApplyImmediately=True|False,
               ReshardingConfiguration=[
                   {
-                      'NodeGroupId': 'string',
-                      'PreferredAvailabilityZones': [
-                          'string',
+                      \'NodeGroupId\': \'string\',
+                      \'PreferredAvailabilityZones\': [
+                          \'string\',
                       ]
                   },
               ],
               NodeGroupsToRemove=[
-                  'string',
+                  \'string\',
               ],
               NodeGroupsToRetain=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ReplicationGroupId: string
@@ -8561,7 +8561,7 @@ class Client(BaseClient):
         :type ReshardingConfiguration: list
         :param ReshardingConfiguration: 
         
-          Specifies the preferred availability zones for each node group in the cluster. If the value of ``NodeGroupCount`` is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster's shards. If you omit this parameter ElastiCache selects availability zones for you.
+          Specifies the preferred availability zones for each node group in the cluster. If the value of ``NodeGroupCount`` is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster\'s shards. If you omit this parameter ElastiCache selects availability zones for you.
         
           You can specify this parameter only if the value of ``NodeGroupCount`` is greater than the current number of node groups (shards).
         
@@ -8605,58 +8605,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -8881,8 +8881,8 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_reserved_cache_nodes_offering(
-              ReservedCacheNodesOfferingId='string',
-              ReservedCacheNodeId='string',
+              ReservedCacheNodesOfferingId=\'string\',
+              ReservedCacheNodeId=\'string\',
               CacheNodeCount=123
           )
         :type ReservedCacheNodesOfferingId: string
@@ -8918,25 +8918,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedCacheNode': {
-                    'ReservedCacheNodeId': 'string',
-                    'ReservedCacheNodesOfferingId': 'string',
-                    'CacheNodeType': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'Duration': 123,
-                    'FixedPrice': 123.0,
-                    'UsagePrice': 123.0,
-                    'CacheNodeCount': 123,
-                    'ProductDescription': 'string',
-                    'OfferingType': 'string',
-                    'State': 'string',
-                    'RecurringCharges': [
+                \'ReservedCacheNode\': {
+                    \'ReservedCacheNodeId\': \'string\',
+                    \'ReservedCacheNodesOfferingId\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'Duration\': 123,
+                    \'FixedPrice\': 123.0,
+                    \'UsagePrice\': 123.0,
+                    \'CacheNodeCount\': 123,
+                    \'ProductDescription\': \'string\',
+                    \'OfferingType\': \'string\',
+                    \'State\': \'string\',
+                    \'RecurringCharges\': [
                         {
-                            'RecurringChargeAmount': 123.0,
-                            'RecurringChargeFrequency': 'string'
+                            \'RecurringChargeAmount\': 123.0,
+                            \'RecurringChargeFrequency\': \'string\'
                         },
                     ],
-                    'ReservationARN': 'string'
+                    \'ReservationARN\': \'string\'
                 }
             }
           **Response Structure** 
@@ -9069,9 +9069,9 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_cache_cluster(
-              CacheClusterId='string',
+              CacheClusterId=\'string\',
               CacheNodeIdsToReboot=[
-                  'string',
+                  \'string\',
               ]
           )
         :type CacheClusterId: string
@@ -9094,74 +9094,74 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheCluster': {
-                    'CacheClusterId': 'string',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'CacheCluster\': {
+                    \'CacheClusterId\': \'string\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'ClientDownloadLandingPage': 'string',
-                    'CacheNodeType': 'string',
-                    'Engine': 'string',
-                    'EngineVersion': 'string',
-                    'CacheClusterStatus': 'string',
-                    'NumCacheNodes': 123,
-                    'PreferredAvailabilityZone': 'string',
-                    'CacheClusterCreateTime': datetime(2015, 1, 1),
-                    'PreferredMaintenanceWindow': 'string',
-                    'PendingModifiedValues': {
-                        'NumCacheNodes': 123,
-                        'CacheNodeIdsToRemove': [
-                            'string',
+                    \'ClientDownloadLandingPage\': \'string\',
+                    \'CacheNodeType\': \'string\',
+                    \'Engine\': \'string\',
+                    \'EngineVersion\': \'string\',
+                    \'CacheClusterStatus\': \'string\',
+                    \'NumCacheNodes\': 123,
+                    \'PreferredAvailabilityZone\': \'string\',
+                    \'CacheClusterCreateTime\': datetime(2015, 1, 1),
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'NumCacheNodes\': 123,
+                        \'CacheNodeIdsToRemove\': [
+                            \'string\',
                         ],
-                        'EngineVersion': 'string',
-                        'CacheNodeType': 'string'
+                        \'EngineVersion\': \'string\',
+                        \'CacheNodeType\': \'string\'
                     },
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'CacheSecurityGroups': [
+                    \'CacheSecurityGroups\': [
                         {
-                            'CacheSecurityGroupName': 'string',
-                            'Status': 'string'
+                            \'CacheSecurityGroupName\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'CacheParameterGroup': {
-                        'CacheParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'CacheNodeIdsToReboot': [
-                            'string',
+                    \'CacheParameterGroup\': {
+                        \'CacheParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'CacheNodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'CacheSubnetGroupName': 'string',
-                    'CacheNodes': [
+                    \'CacheSubnetGroupName\': \'string\',
+                    \'CacheNodes\': [
                         {
-                            'CacheNodeId': 'string',
-                            'CacheNodeStatus': 'string',
-                            'CacheNodeCreateTime': datetime(2015, 1, 1),
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'CacheNodeId\': \'string\',
+                            \'CacheNodeStatus\': \'string\',
+                            \'CacheNodeCreateTime\': datetime(2015, 1, 1),
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'ParameterGroupStatus': 'string',
-                            'SourceCacheNodeId': 'string',
-                            'CustomerAvailabilityZone': 'string'
+                            \'ParameterGroupStatus\': \'string\',
+                            \'SourceCacheNodeId\': \'string\',
+                            \'CustomerAvailabilityZone\': \'string\'
                         },
                     ],
-                    'AutoMinorVersionUpgrade': True|False,
-                    'SecurityGroups': [
+                    \'AutoMinorVersionUpgrade\': True|False,
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupId': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupId\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'ReplicationGroupId': 'string',
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'ReplicationGroupId\': \'string\',
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 
@@ -9254,7 +9254,7 @@ class Client(BaseClient):
         
               - **PreferredAvailabilityZone** *(string) --* 
         
-                The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+                The name of the Availability Zone in which the cluster is located or \"Multiple\" if the cache nodes are located in different Availability Zones.
         
               - **CacheClusterCreateTime** *(datetime) --* 
         
@@ -9324,7 +9324,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents a cluster's status within a particular cache security group.
+                  Represents a cluster\'s status within a particular cache security group.
         
                   - **CacheSecurityGroupName** *(string) --* 
         
@@ -9362,7 +9362,7 @@ class Client(BaseClient):
         
                 - *(dict) --* 
         
-                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+                  Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster\'s protocol-compliant caching software - either Memcached or Redis.
         
                   The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
         
@@ -9402,7 +9402,7 @@ class Client(BaseClient):
                    
                   - **CacheNodeId** *(string) --* 
         
-                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+                    The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer\'s AWS account.
         
                   - **CacheNodeStatus** *(string) --* 
         
@@ -9512,9 +9512,9 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceName: string
@@ -9539,10 +9539,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -9566,7 +9566,7 @@ class Client(BaseClient):
         
                 - **Value** *(string) --* 
         
-                  The tag's value. May be null.
+                  The tag\'s value. May be null.
         
         """
         pass
@@ -9580,12 +9580,12 @@ class Client(BaseClient):
         ::
         
           response = client.reset_cache_parameter_group(
-              CacheParameterGroupName='string',
+              CacheParameterGroupName=\'string\',
               ResetAllParameters=True|False,
               ParameterNameValues=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\'
                   },
               ]
           )
@@ -9626,7 +9626,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheParameterGroupName': 'string'
+                \'CacheParameterGroupName\': \'string\'
             }
           **Response Structure** 
         
@@ -9654,9 +9654,9 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_cache_security_group_ingress(
-              CacheSecurityGroupName='string',
-              EC2SecurityGroupName='string',
-              EC2SecurityGroupOwnerId='string'
+              CacheSecurityGroupName=\'string\',
+              EC2SecurityGroupName=\'string\',
+              EC2SecurityGroupOwnerId=\'string\'
           )
         :type CacheSecurityGroupName: string
         :param CacheSecurityGroupName: **[REQUIRED]** 
@@ -9681,15 +9681,15 @@ class Client(BaseClient):
           ::
         
             {
-                'CacheSecurityGroup': {
-                    'OwnerId': 'string',
-                    'CacheSecurityGroupName': 'string',
-                    'Description': 'string',
-                    'EC2SecurityGroups': [
+                \'CacheSecurityGroup\': {
+                    \'OwnerId\': \'string\',
+                    \'CacheSecurityGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'EC2SecurityGroups\': [
                         {
-                            'Status': 'string',
-                            'EC2SecurityGroupName': 'string',
-                            'EC2SecurityGroupOwnerId': 'string'
+                            \'Status\': \'string\',
+                            \'EC2SecurityGroupName\': \'string\',
+                            \'EC2SecurityGroupOwnerId\': \'string\'
                         },
                     ]
                 }
@@ -9780,8 +9780,8 @@ class Client(BaseClient):
         ::
         
           response = client.test_failover(
-              ReplicationGroupId='string',
-              NodeGroupId='string'
+              ReplicationGroupId=\'string\',
+              NodeGroupId=\'string\'
           )
         :type ReplicationGroupId: string
         :param ReplicationGroupId: **[REQUIRED]** 
@@ -9801,58 +9801,58 @@ class Client(BaseClient):
           ::
         
             {
-                'ReplicationGroup': {
-                    'ReplicationGroupId': 'string',
-                    'Description': 'string',
-                    'Status': 'string',
-                    'PendingModifiedValues': {
-                        'PrimaryClusterId': 'string',
-                        'AutomaticFailoverStatus': 'enabled'|'disabled',
-                        'Resharding': {
-                            'SlotMigration': {
-                                'ProgressPercentage': 123.0
+                \'ReplicationGroup\': {
+                    \'ReplicationGroupId\': \'string\',
+                    \'Description\': \'string\',
+                    \'Status\': \'string\',
+                    \'PendingModifiedValues\': {
+                        \'PrimaryClusterId\': \'string\',
+                        \'AutomaticFailoverStatus\': \'enabled\'|\'disabled\',
+                        \'Resharding\': {
+                            \'SlotMigration\': {
+                                \'ProgressPercentage\': 123.0
                             }
                         }
                     },
-                    'MemberClusters': [
-                        'string',
+                    \'MemberClusters\': [
+                        \'string\',
                     ],
-                    'NodeGroups': [
+                    \'NodeGroups\': [
                         {
-                            'NodeGroupId': 'string',
-                            'Status': 'string',
-                            'PrimaryEndpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeGroupId\': \'string\',
+                            \'Status\': \'string\',
+                            \'PrimaryEndpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'Slots': 'string',
-                            'NodeGroupMembers': [
+                            \'Slots\': \'string\',
+                            \'NodeGroupMembers\': [
                                 {
-                                    'CacheClusterId': 'string',
-                                    'CacheNodeId': 'string',
-                                    'ReadEndpoint': {
-                                        'Address': 'string',
-                                        'Port': 123
+                                    \'CacheClusterId\': \'string\',
+                                    \'CacheNodeId\': \'string\',
+                                    \'ReadEndpoint\': {
+                                        \'Address\': \'string\',
+                                        \'Port\': 123
                                     },
-                                    'PreferredAvailabilityZone': 'string',
-                                    'CurrentRole': 'string'
+                                    \'PreferredAvailabilityZone\': \'string\',
+                                    \'CurrentRole\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'SnapshottingClusterId': 'string',
-                    'AutomaticFailover': 'enabled'|'disabled'|'enabling'|'disabling',
-                    'ConfigurationEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                    \'SnapshottingClusterId\': \'string\',
+                    \'AutomaticFailover\': \'enabled\'|\'disabled\'|\'enabling\'|\'disabling\',
+                    \'ConfigurationEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'SnapshotRetentionLimit': 123,
-                    'SnapshotWindow': 'string',
-                    'ClusterEnabled': True|False,
-                    'CacheNodeType': 'string',
-                    'AuthTokenEnabled': True|False,
-                    'TransitEncryptionEnabled': True|False,
-                    'AtRestEncryptionEnabled': True|False
+                    \'SnapshotRetentionLimit\': 123,
+                    \'SnapshotWindow\': \'string\',
+                    \'ClusterEnabled\': True|False,
+                    \'CacheNodeType\': \'string\',
+                    \'AuthTokenEnabled\': True|False,
+                    \'TransitEncryptionEnabled\': True|False,
+                    \'AtRestEncryptionEnabled\': True|False
                 }
             }
           **Response Structure** 

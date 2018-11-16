@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -16,10 +16,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,31 +35,31 @@ class Client(BaseClient):
         ::
         
           response = client.describe_dimension_keys(
-              ServiceType='RDS',
-              Identifier='string',
+              ServiceType=\'RDS\',
+              Identifier=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
-              Metric='string',
+              Metric=\'string\',
               PeriodInSeconds=123,
               GroupBy={
-                  'Group': 'string',
-                  'Dimensions': [
-                      'string',
+                  \'Group\': \'string\',
+                  \'Dimensions\': [
+                      \'string\',
                   ],
-                  'Limit': 123
+                  \'Limit\': 123
               },
               PartitionBy={
-                  'Group': 'string',
-                  'Dimensions': [
-                      'string',
+                  \'Group\': \'string\',
+                  \'Dimensions\': [
+                      \'string\',
                   ],
-                  'Limit': 123
+                  \'Limit\': 123
               },
               Filter={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ServiceType: string
         :param ServiceType: **[REQUIRED]** 
@@ -76,7 +76,7 @@ class Client(BaseClient):
         :type StartTime: datetime
         :param StartTime: **[REQUIRED]** 
         
-          The date and time specifying the beginning of the requested time series data. You can't specify a ``StartTime`` that's earlier than 7 days ago. The value specified is *inclusive* - data points equal to or greater than ``StartTime`` will be returned.
+          The date and time specifying the beginning of the requested time series data. You can\'t specify a ``StartTime`` that\'s earlier than 7 days ago. The value specified is *inclusive* - data points equal to or greater than ``StartTime`` will be returned.
         
           The value for ``StartTime`` must be earlier than the value for ``EndTime`` .
         
@@ -113,7 +113,7 @@ class Client(BaseClient):
            
           * ``86400`` (twenty-four hours) 
            
-          If you don't specify ``PeriodInSeconds`` , then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data points in the response.
+          If you don\'t specify ``PeriodInSeconds`` , then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data points in the response.
         
         :type GroupBy: dict
         :param GroupBy: **[REQUIRED]** 
@@ -268,27 +268,27 @@ class Client(BaseClient):
           ::
         
             {
-                'AlignedStartTime': datetime(2015, 1, 1),
-                'AlignedEndTime': datetime(2015, 1, 1),
-                'PartitionKeys': [
+                \'AlignedStartTime\': datetime(2015, 1, 1),
+                \'AlignedEndTime\': datetime(2015, 1, 1),
+                \'PartitionKeys\': [
                     {
-                        'Dimensions': {
-                            'string': 'string'
+                        \'Dimensions\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'Keys': [
+                \'Keys\': [
                     {
-                        'Dimensions': {
-                            'string': 'string'
+                        \'Dimensions\': {
+                            \'string\': \'string\'
                         },
-                        'Total': 123.0,
-                        'Partitions': [
+                        \'Total\': 123.0,
+                        \'Partitions\': [
                             123.0,
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -367,7 +367,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -379,10 +379,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -402,20 +402,20 @@ class Client(BaseClient):
         ::
         
           response = client.get_resource_metrics(
-              ServiceType='RDS',
-              Identifier='string',
+              ServiceType=\'RDS\',
+              Identifier=\'string\',
               MetricQueries=[
                   {
-                      'Metric': 'string',
-                      'GroupBy': {
-                          'Group': 'string',
-                          'Dimensions': [
-                              'string',
+                      \'Metric\': \'string\',
+                      \'GroupBy\': {
+                          \'Group\': \'string\',
+                          \'Dimensions\': [
+                              \'string\',
                           ],
-                          'Limit': 123
+                          \'Limit\': 123
                       },
-                      'Filter': {
-                          'string': 'string'
+                      \'Filter\': {
+                          \'string\': \'string\'
                       }
                   },
               ],
@@ -423,7 +423,7 @@ class Client(BaseClient):
               EndTime=datetime(2015, 1, 1),
               PeriodInSeconds=123,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ServiceType: string
         :param ServiceType: **[REQUIRED]** 
@@ -531,7 +531,7 @@ class Client(BaseClient):
         :type StartTime: datetime
         :param StartTime: **[REQUIRED]** 
         
-          The date and time specifying the beginning of the requested time series data. You can't specify a ``StartTime`` that's earlier than 7 days ago. The value specified is *inclusive* - data points equal to or greater than ``StartTime`` will be returned.
+          The date and time specifying the beginning of the requested time series data. You can\'t specify a ``StartTime`` that\'s earlier than 7 days ago. The value specified is *inclusive* - data points equal to or greater than ``StartTime`` will be returned.
         
           The value for ``StartTime`` must be earlier than the value for ``EndTime`` .
         
@@ -557,7 +557,7 @@ class Client(BaseClient):
            
           * ``86400`` (twenty-four hours) 
            
-          If you don't specify ``PeriodInSeconds`` , then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data points in the response.
+          If you don\'t specify ``PeriodInSeconds`` , then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data points in the response.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -577,26 +577,26 @@ class Client(BaseClient):
           ::
         
             {
-                'AlignedStartTime': datetime(2015, 1, 1),
-                'AlignedEndTime': datetime(2015, 1, 1),
-                'Identifier': 'string',
-                'MetricList': [
+                \'AlignedStartTime\': datetime(2015, 1, 1),
+                \'AlignedEndTime\': datetime(2015, 1, 1),
+                \'Identifier\': \'string\',
+                \'MetricList\': [
                     {
-                        'Key': {
-                            'Metric': 'string',
-                            'Dimensions': {
-                                'string': 'string'
+                        \'Key\': {
+                            \'Metric\': \'string\',
+                            \'Dimensions\': {
+                                \'string\': \'string\'
                             }
                         },
-                        'DataPoints': [
+                        \'DataPoints\': [
                             {
-                                'Timestamp': datetime(2015, 1, 1),
-                                'Value': 123.0
+                                \'Timestamp\': datetime(2015, 1, 1),
+                                \'Value\': 123.0
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

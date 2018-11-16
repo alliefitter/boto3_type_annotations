@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -15,12 +15,12 @@ class FleetStarted(Waiter):
         
           waiter.wait(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Names: list
@@ -64,12 +64,12 @@ class FleetStopped(Waiter):
         
           waiter.wait(
               Names=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Names: list

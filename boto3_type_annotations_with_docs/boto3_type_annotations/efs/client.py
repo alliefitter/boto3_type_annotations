@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -27,7 +27,7 @@ class Client(BaseClient):
 
     def create_file_system(self, CreationToken: str, PerformanceMode: str = None, Encrypted: bool = None, KmsKeyId: str = None, ThroughputMode: str = None, ProvisionedThroughputInMibps: float = None) -> Dict:
         """
-        Creates a new, empty file system. The operation requires a creation token in the request that Amazon EFS uses to ensure idempotent creation (calling the operation with same creation token has no effect). If a file system does not currently exist that is owned by the caller's AWS account with the specified creation token, this operation does the following:
+        Creates a new, empty file system. The operation requires a creation token in the request that Amazon EFS uses to ensure idempotent creation (calling the operation with same creation token has no effect). If a file system does not currently exist that is owned by the caller\'s AWS account with the specified creation token, this operation does the following:
         
         * Creates a new, empty file system. The file system will have an Amazon EFS assigned ID, and an initial lifecycle state ``creating`` . 
          
@@ -43,9 +43,9 @@ class Client(BaseClient):
         
         .. note::
         
-          The ``CreateFileSystem`` call returns while the file system's lifecycle state is still ``creating`` . You can check the file system creation status by calling the  DescribeFileSystems operation, which among other things returns the file system state.
+          The ``CreateFileSystem`` call returns while the file system\'s lifecycle state is still ``creating`` . You can check the file system creation status by calling the  DescribeFileSystems operation, which among other things returns the file system state.
         
-        This operation also takes an optional ``PerformanceMode`` parameter that you choose for your file system. We recommend ``generalPurpose`` performance mode for most file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. For more information, see `Amazon EFS\: Performance Modes <http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html>`__ .
+        This operation also takes an optional ``PerformanceMode`` parameter that you choose for your file system. We recommend ``generalPurpose`` performance mode for most file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can\'t be changed after the file system has been created. For more information, see `Amazon EFS\: Performance Modes <http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html>`__ .
         
         After the file system is fully created, Amazon EFS sets its lifecycle state to ``available`` , at which point you can create one or more mount targets for the file system in your VPC. For more information, see  CreateMountTarget . You mount your Amazon EFS file system on an EC2 instances in your VPC via the mount target. For more information, see `Amazon EFS\: How it Works <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html>`__ . 
         
@@ -57,11 +57,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_file_system(
-              CreationToken='string',
-              PerformanceMode='generalPurpose'|'maxIO',
+              CreationToken=\'string\',
+              PerformanceMode=\'generalPurpose\'|\'maxIO\',
               Encrypted=True|False,
-              KmsKeyId='string',
-              ThroughputMode='bursting'|'provisioned',
+              KmsKeyId=\'string\',
+              ThroughputMode=\'bursting\'|\'provisioned\',
               ProvisionedThroughputInMibps=123.0
           )
         :type CreationToken: string
@@ -72,12 +72,12 @@ class Client(BaseClient):
         :type PerformanceMode: string
         :param PerformanceMode: 
         
-          The ``PerformanceMode`` of the file system. We recommend ``generalPurpose`` performance mode for most file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can't be changed after the file system has been created.
+          The ``PerformanceMode`` of the file system. We recommend ``generalPurpose`` performance mode for most file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can\'t be changed after the file system has been created.
         
         :type Encrypted: boolean
         :param Encrypted: 
         
-          A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a  CreateFileSystemRequest$KmsKeyId for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS, ``/aws/elasticfilesystem`` , is used to protect the encrypted file system. 
+          A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a  CreateFileSystemRequest$KmsKeyId for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don\'t specify a CMK, then the default CMK for Amazon EFS, ``/aws/elasticfilesystem`` , is used to protect the encrypted file system. 
         
         :type KmsKeyId: string
         :param KmsKeyId: 
@@ -97,12 +97,12 @@ class Client(BaseClient):
         :type ThroughputMode: string
         :param ThroughputMode: 
         
-          The throughput mode for the file system to be created. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
+          The throughput mode for the file system to be created. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system\'s throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
         
         :type ProvisionedThroughputInMibps: float
         :param ProvisionedThroughputInMibps: 
         
-          The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The limit on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information, see `Amazon EFS Limits That You Can Increase <http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits>`__ in the *Amazon EFS User Guide.*  
+          The throughput, measured in MiB/s, that you want to provision for a file system that you\'re creating. The limit on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information, see `Amazon EFS Limits That You Can Increase <http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits>`__ in the *Amazon EFS User Guide.*  
         
         :rtype: dict
         :returns: 
@@ -112,22 +112,22 @@ class Client(BaseClient):
           ::
         
             {
-                'OwnerId': 'string',
-                'CreationToken': 'string',
-                'FileSystemId': 'string',
-                'CreationTime': datetime(2015, 1, 1),
-                'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                'Name': 'string',
-                'NumberOfMountTargets': 123,
-                'SizeInBytes': {
-                    'Value': 123,
-                    'Timestamp': datetime(2015, 1, 1)
+                \'OwnerId\': \'string\',
+                \'CreationToken\': \'string\',
+                \'FileSystemId\': \'string\',
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                \'Name\': \'string\',
+                \'NumberOfMountTargets\': 123,
+                \'SizeInBytes\': {
+                    \'Value\': 123,
+                    \'Timestamp\': datetime(2015, 1, 1)
                 },
-                'PerformanceMode': 'generalPurpose'|'maxIO',
-                'Encrypted': True|False,
-                'KmsKeyId': 'string',
-                'ThroughputMode': 'bursting'|'provisioned',
-                'ProvisionedThroughputInMibps': 123.0
+                \'PerformanceMode\': \'generalPurpose\'|\'maxIO\',
+                \'Encrypted\': True|False,
+                \'KmsKeyId\': \'string\',
+                \'ThroughputMode\': \'bursting\'|\'provisioned\',
+                \'ProvisionedThroughputInMibps\': 123.0
             }
           **Response Structure** 
         
@@ -165,7 +165,7 @@ class Client(BaseClient):
         
             - **SizeInBytes** *(dict) --* 
         
-              Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn't represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
+              Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn\'t represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
         
               - **Value** *(integer) --* 
         
@@ -189,7 +189,7 @@ class Client(BaseClient):
         
             - **ThroughputMode** *(string) --* 
         
-              The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
+              The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system\'s throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
         
             - **ProvisionedThroughputInMibps** *(float) --* 
         
@@ -203,7 +203,7 @@ class Client(BaseClient):
         
         You can create one mount target in each Availability Zone in your VPC. All EC2 instances in a VPC within a given Availability Zone share a single mount target for a given file system. If you have multiple subnets in an Availability Zone, you create a mount target in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target in order to access their file system. For more information, see `Amazon EFS\: How it Works <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html>`__ . 
         
-        In the request, you also specify a file system ID for which you are creating the mount target and the file system's lifecycle state must be ``available`` . For more information, see  DescribeFileSystems .
+        In the request, you also specify a file system ID for which you are creating the mount target and the file system\'s lifecycle state must be ``available`` . For more information, see  DescribeFileSystems .
         
         In the request, you also provide a subnet ID, which determines the following:
         
@@ -211,9 +211,9 @@ class Client(BaseClient):
          
         * Availability Zone in which Amazon EFS creates the mount target 
          
-        * IP address range from which Amazon EFS selects the IP address of the mount target (if you don't specify an IP address in the request) 
+        * IP address range from which Amazon EFS selects the IP address of the mount target (if you don\'t specify an IP address in the request) 
          
-        After creating the mount target, Amazon EFS returns a response that includes, a ``MountTargetId`` and an ``IpAddress`` . You use this IP address when mounting the file system in an EC2 instance. You can also use the mount target's DNS name when mounting the file system. The EC2 instance on which you mount the file system via the mount target can resolve the mount target's DNS name to its IP address. For more information, see `How it Works\: Implementation Overview <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation>`__ . 
+        After creating the mount target, Amazon EFS returns a response that includes, a ``MountTargetId`` and an ``IpAddress`` . You use this IP address when mounting the file system in an EC2 instance. You can also use the mount target\'s DNS name when mounting the file system. The EC2 instance on which you mount the file system via the mount target can resolve the mount target\'s DNS name to its IP address. For more information, see `How it Works\: Implementation Overview <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation>`__ . 
         
         Note that you can create mount targets for a file system in only one VPC, and there can be only one mount target per Availability Zone. That is, if the file system already has one or more mount targets created for it, the subnet specified in the request to add another mount target must meet the following requirements:
         
@@ -229,19 +229,19 @@ class Client(BaseClient):
         
           * If the request provides an ``IpAddress`` , Amazon EFS assigns that IP address to the network interface. Otherwise, Amazon EFS assigns a free address in the subnet (in the same way that the Amazon EC2 ``CreateNetworkInterface`` call does when a request does not specify a primary private IP address). 
            
-          * If the request provides ``SecurityGroups`` , this network interface is associated with those security groups. Otherwise, it belongs to the default security group for the subnet's VPC. 
+          * If the request provides ``SecurityGroups`` , this network interface is associated with those security groups. Otherwise, it belongs to the default security group for the subnet\'s VPC. 
            
           * Assigns the description ``Mount target *fsmt-id* for file system *fs-id* `` where `` *fsmt-id* `` is the mount target ID, and `` *fs-id* `` is the ``FileSystemId`` . 
            
           * Sets the ``requesterManaged`` property of the network interface to ``true`` , and the ``requesterId`` value to ``EFS`` . 
            
-        Each Amazon EFS mount target has one corresponding requester-managed EC2 network interface. After the network interface is created, Amazon EFS sets the ``NetworkInterfaceId`` field in the mount target's description to the network interface ID, and the ``IpAddress`` field to its address. If network interface creation fails, the entire ``CreateMountTarget`` operation fails.
+        Each Amazon EFS mount target has one corresponding requester-managed EC2 network interface. After the network interface is created, Amazon EFS sets the ``NetworkInterfaceId`` field in the mount target\'s description to the network interface ID, and the ``IpAddress`` field to its address. If network interface creation fails, the entire ``CreateMountTarget`` operation fails.
         
         .. note::
         
           The ``CreateMountTarget`` call returns only after creating the network interface, but while the mount target state is still ``creating`` , you can check the mount target creation status by calling the  DescribeMountTargets operation, which among other things returns the mount target state.
         
-        We recommend you create a mount target in each of the Availability Zones. There are cost considerations for using a file system in an Availability Zone through a mount target created in another Availability Zone. For more information, see `Amazon EFS <http://aws.amazon.com/efs/>`__ . In addition, by always using a mount target local to the instance's Availability Zone, you eliminate a partial failure scenario. If the Availability Zone in which your mount target is created goes down, then you won't be able to access your file system through that mount target. 
+        We recommend you create a mount target in each of the Availability Zones. There are cost considerations for using a file system in an Availability Zone through a mount target created in another Availability Zone. For more information, see `Amazon EFS <http://aws.amazon.com/efs/>`__ . In addition, by always using a mount target local to the instance\'s Availability Zone, you eliminate a partial failure scenario. If the Availability Zone in which your mount target is created goes down, then you won\'t be able to access your file system through that mount target. 
         
         This operation requires permissions for the following action on the file system:
         
@@ -261,11 +261,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_mount_target(
-              FileSystemId='string',
-              SubnetId='string',
-              IpAddress='string',
+              FileSystemId=\'string\',
+              SubnetId=\'string\',
+              IpAddress=\'string\',
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FileSystemId: string
@@ -298,13 +298,13 @@ class Client(BaseClient):
           ::
         
             {
-                'OwnerId': 'string',
-                'MountTargetId': 'string',
-                'FileSystemId': 'string',
-                'SubnetId': 'string',
-                'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                'IpAddress': 'string',
-                'NetworkInterfaceId': 'string'
+                \'OwnerId\': \'string\',
+                \'MountTargetId\': \'string\',
+                \'FileSystemId\': \'string\',
+                \'SubnetId\': \'string\',
+                \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                \'IpAddress\': \'string\',
+                \'NetworkInterfaceId\': \'string\'
             }
           **Response Structure** 
         
@@ -326,7 +326,7 @@ class Client(BaseClient):
         
             - **SubnetId** *(string) --* 
         
-              ID of the mount target's subnet.
+              ID of the mount target\'s subnet.
         
             - **LifeCycleState** *(string) --* 
         
@@ -354,11 +354,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_tags(
-              FileSystemId='string',
+              FileSystemId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -378,7 +378,7 @@ class Client(BaseClient):
         
             - **Key** *(string) --* **[REQUIRED]** 
         
-              Tag key (String). The key can't start with ``aws:`` .
+              Tag key (String). The key can\'t start with ``aws:`` .
         
             - **Value** *(string) --* **[REQUIRED]** 
         
@@ -391,7 +391,7 @@ class Client(BaseClient):
     def delete_file_system(self, FileSystemId: str) -> NoReturn:
         """
         
-        You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see  DescribeMountTargets and  DeleteMountTarget . 
+        You can\'t delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see  DescribeMountTargets and  DeleteMountTarget . 
         
         .. note::
         
@@ -405,7 +405,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_file_system(
-              FileSystemId='string'
+              FileSystemId=\'string\'
           )
         :type FileSystemId: string
         :param FileSystemId: **[REQUIRED]** 
@@ -429,7 +429,7 @@ class Client(BaseClient):
         
           The ``DeleteMountTarget`` call returns while the mount target state is still ``deleting`` . You can check the mount target deletion by calling the  DescribeMountTargets operation, which returns a list of mount target descriptions for the given file system. 
         
-        The operation also requires permissions for the following Amazon EC2 action on the mount target's network interface:
+        The operation also requires permissions for the following Amazon EC2 action on the mount target\'s network interface:
         
         * ``ec2:DeleteNetworkInterface``   
          
@@ -439,7 +439,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_mount_target(
-              MountTargetId='string'
+              MountTargetId=\'string\'
           )
         :type MountTargetId: string
         :param MountTargetId: **[REQUIRED]** 
@@ -461,9 +461,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tags(
-              FileSystemId='string',
+              FileSystemId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type FileSystemId: string
@@ -502,14 +502,14 @@ class Client(BaseClient):
         
           response = client.describe_file_systems(
               MaxItems=123,
-              Marker='string',
-              CreationToken='string',
-              FileSystemId='string'
+              Marker=\'string\',
+              CreationToken=\'string\',
+              FileSystemId=\'string\'
           )
         :type MaxItems: integer
         :param MaxItems: 
         
-          (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the ``MaxItems`` parameter specified in the request and the service's internal maximum number of items per page. 
+          (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the ``MaxItems`` parameter specified in the request and the service\'s internal maximum number of items per page. 
         
         :type Marker: string
         :param Marker: 
@@ -534,28 +534,28 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'FileSystems': [
+                \'Marker\': \'string\',
+                \'FileSystems\': [
                     {
-                        'OwnerId': 'string',
-                        'CreationToken': 'string',
-                        'FileSystemId': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                        'Name': 'string',
-                        'NumberOfMountTargets': 123,
-                        'SizeInBytes': {
-                            'Value': 123,
-                            'Timestamp': datetime(2015, 1, 1)
+                        \'OwnerId\': \'string\',
+                        \'CreationToken\': \'string\',
+                        \'FileSystemId\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                        \'Name\': \'string\',
+                        \'NumberOfMountTargets\': 123,
+                        \'SizeInBytes\': {
+                            \'Value\': 123,
+                            \'Timestamp\': datetime(2015, 1, 1)
                         },
-                        'PerformanceMode': 'generalPurpose'|'maxIO',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'ThroughputMode': 'bursting'|'provisioned',
-                        'ProvisionedThroughputInMibps': 123.0
+                        \'PerformanceMode\': \'generalPurpose\'|\'maxIO\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'ThroughputMode\': \'bursting\'|\'provisioned\',
+                        \'ProvisionedThroughputInMibps\': 123.0
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -603,7 +603,7 @@ class Client(BaseClient):
         
                 - **SizeInBytes** *(dict) --* 
         
-                  Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn't represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
+                  Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn\'t represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
         
                   - **Value** *(integer) --* 
         
@@ -627,7 +627,7 @@ class Client(BaseClient):
         
                 - **ThroughputMode** *(string) --* 
         
-                  The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
+                  The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system\'s throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
         
                 - **ProvisionedThroughputInMibps** *(float) --* 
         
@@ -645,9 +645,9 @@ class Client(BaseClient):
         
         This operation requires permissions for the following actions:
         
-        * ``elasticfilesystem:DescribeMountTargetSecurityGroups`` action on the mount target's file system.  
+        * ``elasticfilesystem:DescribeMountTargetSecurityGroups`` action on the mount target\'s file system.  
          
-        * ``ec2:DescribeNetworkInterfaceAttribute`` action on the mount target's network interface.  
+        * ``ec2:DescribeNetworkInterfaceAttribute`` action on the mount target\'s network interface.  
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeMountTargetSecurityGroups>`_
         
@@ -655,7 +655,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_mount_target_security_groups(
-              MountTargetId='string'
+              MountTargetId=\'string\'
           )
         :type MountTargetId: string
         :param MountTargetId: **[REQUIRED]** 
@@ -670,8 +670,8 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityGroups': [
-                    'string',
+                \'SecurityGroups\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -699,9 +699,9 @@ class Client(BaseClient):
         
           response = client.describe_mount_targets(
               MaxItems=123,
-              Marker='string',
-              FileSystemId='string',
-              MountTargetId='string'
+              Marker=\'string\',
+              FileSystemId=\'string\',
+              MountTargetId=\'string\'
           )
         :type MaxItems: integer
         :param MaxItems: 
@@ -731,19 +731,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'MountTargets': [
+                \'Marker\': \'string\',
+                \'MountTargets\': [
                     {
-                        'OwnerId': 'string',
-                        'MountTargetId': 'string',
-                        'FileSystemId': 'string',
-                        'SubnetId': 'string',
-                        'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                        'IpAddress': 'string',
-                        'NetworkInterfaceId': 'string'
+                        \'OwnerId\': \'string\',
+                        \'MountTargetId\': \'string\',
+                        \'FileSystemId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                        \'IpAddress\': \'string\',
+                        \'NetworkInterfaceId\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -755,7 +755,7 @@ class Client(BaseClient):
         
             - **MountTargets** *(list) --* 
         
-              Returns the file system's mount targets as an array of ``MountTargetDescription`` objects.
+              Returns the file system\'s mount targets as an array of ``MountTargetDescription`` objects.
         
               - *(dict) --* 
         
@@ -775,7 +775,7 @@ class Client(BaseClient):
         
                 - **SubnetId** *(string) --* 
         
-                  ID of the mount target's subnet.
+                  ID of the mount target\'s subnet.
         
                 - **LifeCycleState** *(string) --* 
         
@@ -808,8 +808,8 @@ class Client(BaseClient):
         
           response = client.describe_tags(
               MaxItems=123,
-              Marker='string',
-              FileSystemId='string'
+              Marker=\'string\',
+              FileSystemId=\'string\'
           )
         :type MaxItems: integer
         :param MaxItems: 
@@ -834,14 +834,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Marker': 'string',
-                'Tags': [
+                \'Marker\': \'string\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextMarker': 'string'
+                \'NextMarker\': \'string\'
             }
           **Response Structure** 
         
@@ -861,7 +861,7 @@ class Client(BaseClient):
         
                 - **Key** *(string) --* 
         
-                  Tag key (String). The key can't start with ``aws:`` .
+                  Tag key (String). The key can\'t start with ``aws:`` .
         
                 - **Value** *(string) --* 
         
@@ -890,7 +890,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -902,10 +902,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -935,9 +935,9 @@ class Client(BaseClient):
         
         The operation requires permissions for the following actions:
         
-        * ``elasticfilesystem:ModifyMountTargetSecurityGroups`` action on the mount target's file system.  
+        * ``elasticfilesystem:ModifyMountTargetSecurityGroups`` action on the mount target\'s file system.  
          
-        * ``ec2:ModifyNetworkInterfaceAttribute`` action on the mount target's network interface.  
+        * ``ec2:ModifyNetworkInterfaceAttribute`` action on the mount target\'s network interface.  
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/ModifyMountTargetSecurityGroups>`_
         
@@ -945,9 +945,9 @@ class Client(BaseClient):
         ::
         
           response = client.modify_mount_target_security_groups(
-              MountTargetId='string',
+              MountTargetId=\'string\',
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ]
           )
         :type MountTargetId: string
@@ -975,8 +975,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_file_system(
-              FileSystemId='string',
-              ThroughputMode='bursting'|'provisioned',
+              FileSystemId=\'string\',
+              ThroughputMode=\'bursting\'|\'provisioned\',
               ProvisionedThroughputInMibps=123.0
           )
         :type FileSystemId: string
@@ -987,12 +987,12 @@ class Client(BaseClient):
         :type ThroughputMode: string
         :param ThroughputMode: 
         
-          (Optional) The throughput mode that you want your file system to use. If you're not updating your throughput mode, you don't need to provide this value in your request.
+          (Optional) The throughput mode that you want your file system to use. If you\'re not updating your throughput mode, you don\'t need to provide this value in your request.
         
         :type ProvisionedThroughputInMibps: float
         :param ProvisionedThroughputInMibps: 
         
-          (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. If you're not updating the amount of provisioned throughput for your file system, you don't need to provide this value in your request.
+          (Optional) The amount of throughput, in MiB/s, that you want to provision for your file system. If you\'re not updating the amount of provisioned throughput for your file system, you don\'t need to provide this value in your request.
         
         :rtype: dict
         :returns: 
@@ -1002,22 +1002,22 @@ class Client(BaseClient):
           ::
         
             {
-                'OwnerId': 'string',
-                'CreationToken': 'string',
-                'FileSystemId': 'string',
-                'CreationTime': datetime(2015, 1, 1),
-                'LifeCycleState': 'creating'|'available'|'updating'|'deleting'|'deleted',
-                'Name': 'string',
-                'NumberOfMountTargets': 123,
-                'SizeInBytes': {
-                    'Value': 123,
-                    'Timestamp': datetime(2015, 1, 1)
+                \'OwnerId\': \'string\',
+                \'CreationToken\': \'string\',
+                \'FileSystemId\': \'string\',
+                \'CreationTime\': datetime(2015, 1, 1),
+                \'LifeCycleState\': \'creating\'|\'available\'|\'updating\'|\'deleting\'|\'deleted\',
+                \'Name\': \'string\',
+                \'NumberOfMountTargets\': 123,
+                \'SizeInBytes\': {
+                    \'Value\': 123,
+                    \'Timestamp\': datetime(2015, 1, 1)
                 },
-                'PerformanceMode': 'generalPurpose'|'maxIO',
-                'Encrypted': True|False,
-                'KmsKeyId': 'string',
-                'ThroughputMode': 'bursting'|'provisioned',
-                'ProvisionedThroughputInMibps': 123.0
+                \'PerformanceMode\': \'generalPurpose\'|\'maxIO\',
+                \'Encrypted\': True|False,
+                \'KmsKeyId\': \'string\',
+                \'ThroughputMode\': \'bursting\'|\'provisioned\',
+                \'ProvisionedThroughputInMibps\': 123.0
             }
           **Response Structure** 
         
@@ -1055,7 +1055,7 @@ class Client(BaseClient):
         
             - **SizeInBytes** *(dict) --* 
         
-              Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn't represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
+              Latest known metered size (in bytes) of data stored in the file system, in its ``Value`` field, and the time at which that size was determined in its ``Timestamp`` field. The ``Timestamp`` value is the integer number of seconds since 1970-01-01T00:00:00Z. The ``SizeInBytes`` value doesn\'t represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, ``SizeInBytes`` represents actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size that the file system was at any point in time. 
         
               - **Value** *(integer) --* 
         
@@ -1079,7 +1079,7 @@ class Client(BaseClient):
         
             - **ThroughputMode** *(string) --* 
         
-              The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
+              The throughput mode for a file system. There are two throughput modes to choose from for your file system: bursting and provisioned. You can decrease your file system\'s throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change.
         
             - **ProvisionedThroughputInMibps** *(float) --* 
         

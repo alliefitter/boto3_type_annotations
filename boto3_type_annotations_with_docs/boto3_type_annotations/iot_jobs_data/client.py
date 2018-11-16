@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -33,8 +33,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_job_execution(
-              jobId='string',
-              thingName='string',
+              jobId=\'string\',
+              thingName=\'string\',
               includeJobDocument=True|False,
               executionNumber=123
           )
@@ -66,20 +66,20 @@ class Client(BaseClient):
           ::
         
             {
-                'execution': {
-                    'jobId': 'string',
-                    'thingName': 'string',
-                    'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                    'statusDetails': {
-                        'string': 'string'
+                \'execution\': {
+                    \'jobId\': \'string\',
+                    \'thingName\': \'string\',
+                    \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                    \'statusDetails\': {
+                        \'string\': \'string\'
                     },
-                    'queuedAt': 123,
-                    'startedAt': 123,
-                    'lastUpdatedAt': 123,
-                    'approximateSecondsBeforeTimedOut': 123,
-                    'versionNumber': 123,
-                    'executionNumber': 123,
-                    'jobDocument': 'string'
+                    \'queuedAt\': 123,
+                    \'startedAt\': 123,
+                    \'lastUpdatedAt\': 123,
+                    \'approximateSecondsBeforeTimedOut\': 123,
+                    \'versionNumber\': 123,
+                    \'executionNumber\': 123,
+                    \'jobDocument\': \'string\'
                 }
             }
           **Response Structure** 
@@ -100,7 +100,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+                The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\".
         
               - **statusDetails** *(dict) --* 
         
@@ -157,7 +157,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -169,10 +169,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -192,7 +192,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_pending_job_executions(
-              thingName='string'
+              thingName=\'string\'
           )
         :type thingName: string
         :param thingName: **[REQUIRED]** 
@@ -207,24 +207,24 @@ class Client(BaseClient):
           ::
         
             {
-                'inProgressJobs': [
+                \'inProgressJobs\': [
                     {
-                        'jobId': 'string',
-                        'queuedAt': 123,
-                        'startedAt': 123,
-                        'lastUpdatedAt': 123,
-                        'versionNumber': 123,
-                        'executionNumber': 123
+                        \'jobId\': \'string\',
+                        \'queuedAt\': 123,
+                        \'startedAt\': 123,
+                        \'lastUpdatedAt\': 123,
+                        \'versionNumber\': 123,
+                        \'executionNumber\': 123
                     },
                 ],
-                'queuedJobs': [
+                \'queuedJobs\': [
                     {
-                        'jobId': 'string',
-                        'queuedAt': 123,
-                        'startedAt': 123,
-                        'lastUpdatedAt': 123,
-                        'versionNumber': 123,
-                        'executionNumber': 123
+                        \'jobId\': \'string\',
+                        \'queuedAt\': 123,
+                        \'startedAt\': 123,
+                        \'lastUpdatedAt\': 123,
+                        \'versionNumber\': 123,
+                        \'executionNumber\': 123
                     },
                 ]
             }
@@ -320,9 +320,9 @@ class Client(BaseClient):
         ::
         
           response = client.start_next_pending_job_execution(
-              thingName='string',
+              thingName=\'string\',
               statusDetails={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               stepTimeoutInMinutes=123
           )
@@ -353,20 +353,20 @@ class Client(BaseClient):
           ::
         
             {
-                'execution': {
-                    'jobId': 'string',
-                    'thingName': 'string',
-                    'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                    'statusDetails': {
-                        'string': 'string'
+                \'execution\': {
+                    \'jobId\': \'string\',
+                    \'thingName\': \'string\',
+                    \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                    \'statusDetails\': {
+                        \'string\': \'string\'
                     },
-                    'queuedAt': 123,
-                    'startedAt': 123,
-                    'lastUpdatedAt': 123,
-                    'approximateSecondsBeforeTimedOut': 123,
-                    'versionNumber': 123,
-                    'executionNumber': 123,
-                    'jobDocument': 'string'
+                    \'queuedAt\': 123,
+                    \'startedAt\': 123,
+                    \'lastUpdatedAt\': 123,
+                    \'approximateSecondsBeforeTimedOut\': 123,
+                    \'versionNumber\': 123,
+                    \'executionNumber\': 123,
+                    \'jobDocument\': \'string\'
                 }
             }
           **Response Structure** 
@@ -387,7 +387,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+                The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\".
         
               - **statusDetails** *(dict) --* 
         
@@ -437,11 +437,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_job_execution(
-              jobId='string',
-              thingName='string',
-              status='QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
+              jobId=\'string\',
+              thingName=\'string\',
+              status=\'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
               statusDetails={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               stepTimeoutInMinutes=123,
               expectedVersion=123,
@@ -506,14 +506,14 @@ class Client(BaseClient):
           ::
         
             {
-                'executionState': {
-                    'status': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED'|'TIMED_OUT'|'REJECTED'|'REMOVED'|'CANCELED',
-                    'statusDetails': {
-                        'string': 'string'
+                \'executionState\': {
+                    \'status\': \'QUEUED\'|\'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\'|\'TIMED_OUT\'|\'REJECTED\'|\'REMOVED\'|\'CANCELED\',
+                    \'statusDetails\': {
+                        \'string\': \'string\'
                     },
-                    'versionNumber': 123
+                    \'versionNumber\': 123
                 },
-                'jobDocument': 'string'
+                \'jobDocument\': \'string\'
             }
           **Response Structure** 
         
@@ -525,7 +525,7 @@ class Client(BaseClient):
         
               - **status** *(string) --* 
         
-                The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+                The status of the job execution. Can be one of: \"QUEUED\", \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or \"REMOVED\".
         
               - **statusDetails** *(dict) --* 
         

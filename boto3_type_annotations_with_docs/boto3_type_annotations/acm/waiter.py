@@ -13,10 +13,10 @@ class CertificateValidated(Waiter):
         ::
         
           waiter.wait(
-              CertificateArn='string',
+              CertificateArn=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type CertificateArn: string

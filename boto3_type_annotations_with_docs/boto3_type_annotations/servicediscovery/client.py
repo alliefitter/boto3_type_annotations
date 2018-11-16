@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,10 +34,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_private_dns_namespace(
-              Name='string',
-              CreatorRequestId='string',
-              Description='string',
-              Vpc='string'
+              Name=\'string\',
+              CreatorRequestId=\'string\',
+              Description=\'string\',
+              Vpc=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -69,7 +69,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -91,9 +91,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_public_dns_namespace(
-              Name='string',
-              CreatorRequestId='string',
-              Description='string'
+              Name=\'string\',
+              CreatorRequestId=\'string\',
+              Description=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -120,7 +120,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -151,26 +151,26 @@ class Client(BaseClient):
         ::
         
           response = client.create_service(
-              Name='string',
-              CreatorRequestId='string',
-              Description='string',
+              Name=\'string\',
+              CreatorRequestId=\'string\',
+              Description=\'string\',
               DnsConfig={
-                  'NamespaceId': 'string',
-                  'RoutingPolicy': 'MULTIVALUE'|'WEIGHTED',
-                  'DnsRecords': [
+                  \'NamespaceId\': \'string\',
+                  \'RoutingPolicy\': \'MULTIVALUE\'|\'WEIGHTED\',
+                  \'DnsRecords\': [
                       {
-                          'Type': 'SRV'|'A'|'AAAA'|'CNAME',
-                          'TTL': 123
+                          \'Type\': \'SRV\'|\'A\'|\'AAAA\'|\'CNAME\',
+                          \'TTL\': 123
                       },
                   ]
               },
               HealthCheckConfig={
-                  'Type': 'HTTP'|'HTTPS'|'TCP',
-                  'ResourcePath': 'string',
-                  'FailureThreshold': 123
+                  \'Type\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                  \'ResourcePath\': \'string\',
+                  \'FailureThreshold\': 123
               },
               HealthCheckCustomConfig={
-                  'FailureThreshold': 123
+                  \'FailureThreshold\': 123
               }
           )
         :type Name: string
@@ -215,17 +215,17 @@ class Client(BaseClient):
         
             For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
         
-            If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
+            If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
         
             For more information about the multivalue routing policy, see `Multivalue Answer Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue>`__ in the *Route 53 Developer Guide* .
         
              **WEIGHTED**  
         
-            Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
+            Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can\'t route more or less traffic to any instances.
         
             For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
         
-            If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
+            If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
         
             For more information about the weighted routing policy, see `Weighted Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted>`__ in the *Route 53 Developer Guide* .
         
@@ -245,7 +245,7 @@ class Client(BaseClient):
         
                 * **A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.**   
                  
-                * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record. 
+                * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can\'t define any other records. This is a limitation of DNS—you can\'t create a CNAME record and any other type of record that has the same name as a CNAME record. 
                  
                 * **Alias records:** If you want Route 53 to create an alias record when you register an instance, specify ``A`` or ``AAAA`` for ``Type`` . 
                  
@@ -269,7 +269,7 @@ class Client(BaseClient):
                  
                 * You must specify ``WEIGHTED`` for the value of ``RoutingPolicy`` . 
                  
-                * You can't specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
+                * You can\'t specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
                  
                  **SRV**  
         
@@ -279,7 +279,7 @@ class Client(BaseClient):
         
                 Note the following about the values:
         
-                * The values of ``priority`` and ``weight`` are both set to ``1`` and can't be changed.  
+                * The values of ``priority`` and ``weight`` are both set to ``1`` and can\'t be changed.  
                  
                 * The value of ``port`` comes from the value that you specify for the ``AWS_INSTANCE_PORT`` attribute when you submit a  RegisterInstance request.  
                  
@@ -303,7 +303,7 @@ class Client(BaseClient):
         
                 .. note::
         
-                  Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+                  Alias records don\'t include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
         
         :type HealthCheckConfig: dict
         :param HealthCheckConfig: 
@@ -318,7 +318,7 @@ class Client(BaseClient):
         
             .. warning::
         
-              You can't change the value of ``Type`` after you create a health check.
+              You can\'t change the value of ``Type`` after you create a health check.
         
             You can create the following types of health checks:
         
@@ -355,32 +355,32 @@ class Client(BaseClient):
           ::
         
             {
-                'Service': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'InstanceCount': 123,
-                    'DnsConfig': {
-                        'NamespaceId': 'string',
-                        'RoutingPolicy': 'MULTIVALUE'|'WEIGHTED',
-                        'DnsRecords': [
+                \'Service\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'InstanceCount\': 123,
+                    \'DnsConfig\': {
+                        \'NamespaceId\': \'string\',
+                        \'RoutingPolicy\': \'MULTIVALUE\'|\'WEIGHTED\',
+                        \'DnsRecords\': [
                             {
-                                'Type': 'SRV'|'A'|'AAAA'|'CNAME',
-                                'TTL': 123
+                                \'Type\': \'SRV\'|\'A\'|\'AAAA\'|\'CNAME\',
+                                \'TTL\': 123
                             },
                         ]
                     },
-                    'HealthCheckConfig': {
-                        'Type': 'HTTP'|'HTTPS'|'TCP',
-                        'ResourcePath': 'string',
-                        'FailureThreshold': 123
+                    \'HealthCheckConfig\': {
+                        \'Type\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'ResourcePath\': \'string\',
+                        \'FailureThreshold\': 123
                     },
-                    'HealthCheckCustomConfig': {
-                        'FailureThreshold': 123
+                    \'HealthCheckCustomConfig\': {
+                        \'FailureThreshold\': 123
                     },
-                    'CreateDate': datetime(2015, 1, 1),
-                    'CreatorRequestId': 'string'
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'CreatorRequestId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -435,17 +435,17 @@ class Client(BaseClient):
         
                   For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
         
-                  If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
+                  If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
         
                   For more information about the multivalue routing policy, see `Multivalue Answer Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue>`__ in the *Route 53 Developer Guide* .
         
                    **WEIGHTED**  
         
-                  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
+                  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can\'t route more or less traffic to any instances.
         
                   For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
         
-                  If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
+                  If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
         
                   For more information about the weighted routing policy, see `Weighted Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted>`__ in the *Route 53 Developer Guide* .
         
@@ -465,7 +465,7 @@ class Client(BaseClient):
         
                       * **A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.**   
                        
-                      * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record. 
+                      * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can\'t define any other records. This is a limitation of DNS—you can\'t create a CNAME record and any other type of record that has the same name as a CNAME record. 
                        
                       * **Alias records:** If you want Route 53 to create an alias record when you register an instance, specify ``A`` or ``AAAA`` for ``Type`` . 
                        
@@ -489,7 +489,7 @@ class Client(BaseClient):
                        
                       * You must specify ``WEIGHTED`` for the value of ``RoutingPolicy`` . 
                        
-                      * You can't specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
+                      * You can\'t specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
                        
                        **SRV**  
         
@@ -499,7 +499,7 @@ class Client(BaseClient):
         
                       Note the following about the values:
         
-                      * The values of ``priority`` and ``weight`` are both set to ``1`` and can't be changed.  
+                      * The values of ``priority`` and ``weight`` are both set to ``1`` and can\'t be changed.  
                        
                       * The value of ``port`` comes from the value that you specify for the ``AWS_INSTANCE_PORT`` attribute when you submit a  RegisterInstance request.  
                        
@@ -523,7 +523,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+                        Alias records don\'t include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
         
               - **HealthCheckConfig** *(dict) --* 
         
@@ -537,7 +537,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``Type`` after you create a health check.
+                    You can\'t change the value of ``Type`` after you create a health check.
         
                   You can create the following types of health checks:
         
@@ -585,7 +585,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_namespace(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -600,7 +600,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -622,7 +622,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_service(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -652,8 +652,8 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_instance(
-              ServiceId='string',
-              InstanceId='string'
+              ServiceId=\'string\',
+              InstanceId=\'string\'
           )
         :type ServiceId: string
         :param ServiceId: **[REQUIRED]** 
@@ -673,7 +673,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -702,7 +702,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -717,8 +717,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_instance(
-              ServiceId='string',
-              InstanceId='string'
+              ServiceId=\'string\',
+              InstanceId=\'string\'
           )
         :type ServiceId: string
         :param ServiceId: **[REQUIRED]** 
@@ -738,11 +738,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Instance': {
-                    'Id': 'string',
-                    'CreatorRequestId': 'string',
-                    'Attributes': {
-                        'string': 'string'
+                \'Instance\': {
+                    \'Id\': \'string\',
+                    \'CreatorRequestId\': \'string\',
+                    \'Attributes\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -764,15 +764,15 @@ class Client(BaseClient):
                  
                 * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.  
                  
-                * If you specify an existing ``InstanceId`` and ``ServiceId`` , Route 53 updates the existing records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.  
+                * If you specify an existing ``InstanceId`` and ``ServiceId`` , Route 53 updates the existing records. If there\'s also an existing health check, Route 53 deletes the old health check and creates a new one.  
         
                 .. note::
         
-                   The health check isn't deleted immediately, so it will still appear for a while if you submit a ``ListHealthChecks`` request, for example. 
+                   The health check isn\'t deleted immediately, so it will still appear for a while if you submit a ``ListHealthChecks`` request, for example. 
         
               - **CreatorRequestId** *(string) --* 
         
-                A unique string that identifies the request and that allows failed ``RegisterInstance`` requests to be retried without the risk of executing the operation twice. You must use a unique ``CreatorRequestId`` string every time you submit a ``RegisterInstance`` request if you're registering additional instances for the same namespace and service. ``CreatorRequestId`` can be any unique string, for example, a date/time stamp.
+                A unique string that identifies the request and that allows failed ``RegisterInstance`` requests to be retried without the risk of executing the operation twice. You must use a unique ``CreatorRequestId`` string every time you submit a ``RegisterInstance`` request if you\'re registering additional instances for the same namespace and service. ``CreatorRequestId`` can be any unique string, for example, a date/time stamp.
         
               - **Attributes** *(dict) --* 
         
@@ -786,7 +786,7 @@ class Client(BaseClient):
         
                  **AWS_ALIAS_DNS_NAME**  
         
-                If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic `AliasTarget <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html>`__ .
+                If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see \"DNSName\" in the topic `AliasTarget <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html>`__ .
         
                 Note the following:
         
@@ -794,11 +794,11 @@ class Client(BaseClient):
                  
                 * In the service that is specified by ``ServiceId`` , the value of ``RoutingPolicy`` must be ``WEIGHTED`` . 
                  
-                * If the service that is specified by ``ServiceId`` includes ``HealthCheckConfig`` settings, Route 53 will create the health check, but it won't associate the health check with the alias record. 
+                * If the service that is specified by ``ServiceId`` includes ``HealthCheckConfig`` settings, Route 53 will create the health check, but it won\'t associate the health check with the alias record. 
                  
-                * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers. 
+                * Auto naming currently doesn\'t support creating alias records that route traffic to AWS resources other than ELB load balancers. 
                  
-                * If you specify a value for ``AWS_ALIAS_DNS_NAME`` , don't specify values for any of the ``AWS_INSTANCE`` attributes. 
+                * If you specify a value for ``AWS_ALIAS_DNS_NAME`` , don\'t specify values for any of the ``AWS_INSTANCE`` attributes. 
                  
                  **AWS_INSTANCE_CNAME**  
         
@@ -846,12 +846,12 @@ class Client(BaseClient):
         ::
         
           response = client.get_instances_health_status(
-              ServiceId='string',
+              ServiceId=\'string\',
               Instances=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ServiceId: string
         :param ServiceId: **[REQUIRED]** 
@@ -867,14 +867,14 @@ class Client(BaseClient):
         
           .. note::
         
-            To get the IDs for the instances that you've registered by using a specified service, submit a  ListInstances request.
+            To get the IDs for the instances that you\'ve registered by using a specified service, submit a  ListInstances request.
         
           - *(string) --* 
         
         :type MaxResults: integer
         :param MaxResults: 
         
-          The maximum number of instances that you want Route 53 to return in the response to a ``GetInstancesHealthStatus`` request. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 instances.
+          The maximum number of instances that you want Route 53 to return in the response to a ``GetInstancesHealthStatus`` request. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 instances.
         
         :type NextToken: string
         :param NextToken: 
@@ -891,10 +891,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Status': {
-                    'string': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN'
+                \'Status\': {
+                    \'string\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\'
                 },
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -924,7 +924,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_namespace(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -939,20 +939,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Namespace': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Type': 'DNS_PUBLIC'|'DNS_PRIVATE',
-                    'Description': 'string',
-                    'ServiceCount': 123,
-                    'Properties': {
-                        'DnsProperties': {
-                            'HostedZoneId': 'string'
+                \'Namespace\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Type\': \'DNS_PUBLIC\'|\'DNS_PRIVATE\',
+                    \'Description\': \'string\',
+                    \'ServiceCount\': 123,
+                    \'Properties\': {
+                        \'DnsProperties\': {
+                            \'HostedZoneId\': \'string\'
                         }
                     },
-                    'CreateDate': datetime(2015, 1, 1),
-                    'CreatorRequestId': 'string'
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'CreatorRequestId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -989,7 +989,7 @@ class Client(BaseClient):
         
               - **Properties** *(dict) --* 
         
-                A complex type that contains information that's specific to the type of the namespace.
+                A complex type that contains information that\'s specific to the type of the namespace.
         
                 - **DnsProperties** *(dict) --* 
         
@@ -1023,7 +1023,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_operation(
-              OperationId='string'
+              OperationId=\'string\'
           )
         :type OperationId: string
         :param OperationId: **[REQUIRED]** 
@@ -1038,16 +1038,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Operation': {
-                    'Id': 'string',
-                    'Type': 'CREATE_NAMESPACE'|'DELETE_NAMESPACE'|'UPDATE_SERVICE'|'REGISTER_INSTANCE'|'DEREGISTER_INSTANCE',
-                    'Status': 'SUBMITTED'|'PENDING'|'SUCCESS'|'FAIL',
-                    'ErrorMessage': 'string',
-                    'ErrorCode': 'string',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'UpdateDate': datetime(2015, 1, 1),
-                    'Targets': {
-                        'string': 'string'
+                \'Operation\': {
+                    \'Id\': \'string\',
+                    \'Type\': \'CREATE_NAMESPACE\'|\'DELETE_NAMESPACE\'|\'UPDATE_SERVICE\'|\'REGISTER_INSTANCE\'|\'DEREGISTER_INSTANCE\',
+                    \'Status\': \'SUBMITTED\'|\'PENDING\'|\'SUCCESS\'|\'FAIL\',
+                    \'ErrorMessage\': \'string\',
+                    \'ErrorCode\': \'string\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'UpdateDate\': datetime(2015, 1, 1),
+                    \'Targets\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -1132,10 +1132,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1155,7 +1155,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_service(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -1170,32 +1170,32 @@ class Client(BaseClient):
           ::
         
             {
-                'Service': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'InstanceCount': 123,
-                    'DnsConfig': {
-                        'NamespaceId': 'string',
-                        'RoutingPolicy': 'MULTIVALUE'|'WEIGHTED',
-                        'DnsRecords': [
+                \'Service\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'InstanceCount\': 123,
+                    \'DnsConfig\': {
+                        \'NamespaceId\': \'string\',
+                        \'RoutingPolicy\': \'MULTIVALUE\'|\'WEIGHTED\',
+                        \'DnsRecords\': [
                             {
-                                'Type': 'SRV'|'A'|'AAAA'|'CNAME',
-                                'TTL': 123
+                                \'Type\': \'SRV\'|\'A\'|\'AAAA\'|\'CNAME\',
+                                \'TTL\': 123
                             },
                         ]
                     },
-                    'HealthCheckConfig': {
-                        'Type': 'HTTP'|'HTTPS'|'TCP',
-                        'ResourcePath': 'string',
-                        'FailureThreshold': 123
+                    \'HealthCheckConfig\': {
+                        \'Type\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                        \'ResourcePath\': \'string\',
+                        \'FailureThreshold\': 123
                     },
-                    'HealthCheckCustomConfig': {
-                        'FailureThreshold': 123
+                    \'HealthCheckCustomConfig\': {
+                        \'FailureThreshold\': 123
                     },
-                    'CreateDate': datetime(2015, 1, 1),
-                    'CreatorRequestId': 'string'
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'CreatorRequestId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1250,17 +1250,17 @@ class Client(BaseClient):
         
                   For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
         
-                  If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
+                  If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
         
                   For more information about the multivalue routing policy, see `Multivalue Answer Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue>`__ in the *Route 53 Developer Guide* .
         
                    **WEIGHTED**  
         
-                  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
+                  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can\'t route more or less traffic to any instances.
         
                   For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
         
-                  If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
+                  If you don\'t define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
         
                   For more information about the weighted routing policy, see `Weighted Routing <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted>`__ in the *Route 53 Developer Guide* .
         
@@ -1280,7 +1280,7 @@ class Client(BaseClient):
         
                       * **A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.**   
                        
-                      * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record. 
+                      * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can\'t define any other records. This is a limitation of DNS—you can\'t create a CNAME record and any other type of record that has the same name as a CNAME record. 
                        
                       * **Alias records:** If you want Route 53 to create an alias record when you register an instance, specify ``A`` or ``AAAA`` for ``Type`` . 
                        
@@ -1304,7 +1304,7 @@ class Client(BaseClient):
                        
                       * You must specify ``WEIGHTED`` for the value of ``RoutingPolicy`` . 
                        
-                      * You can't specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
+                      * You can\'t specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
                        
                        **SRV**  
         
@@ -1314,7 +1314,7 @@ class Client(BaseClient):
         
                       Note the following about the values:
         
-                      * The values of ``priority`` and ``weight`` are both set to ``1`` and can't be changed.  
+                      * The values of ``priority`` and ``weight`` are both set to ``1`` and can\'t be changed.  
                        
                       * The value of ``port`` comes from the value that you specify for the ``AWS_INSTANCE_PORT`` attribute when you submit a  RegisterInstance request.  
                        
@@ -1338,7 +1338,7 @@ class Client(BaseClient):
         
                       .. note::
         
-                        Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+                        Alias records don\'t include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
         
               - **HealthCheckConfig** *(dict) --* 
         
@@ -1352,7 +1352,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``Type`` after you create a health check.
+                    You can\'t change the value of ``Type`` after you create a health check.
         
                   You can create the following types of health checks:
         
@@ -1412,8 +1412,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_instances(
-              ServiceId='string',
-              NextToken='string',
+              ServiceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ServiceId: string
@@ -1431,7 +1431,7 @@ class Client(BaseClient):
         :type MaxResults: integer
         :param MaxResults: 
         
-          The maximum number of instances that you want Amazon Route 53 to return in the response to a ``ListInstances`` request. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 instances.
+          The maximum number of instances that you want Amazon Route 53 to return in the response to a ``ListInstances`` request. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 instances.
         
         :rtype: dict
         :returns: 
@@ -1441,15 +1441,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'Id': 'string',
-                        'Attributes': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Attributes\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1507,15 +1507,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_namespaces(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Name': 'TYPE',
-                      'Values': [
-                          'string',
+                      \'Name\': \'TYPE\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ]
           )
@@ -1528,12 +1528,12 @@ class Client(BaseClient):
         
           .. note::
         
-            Route 53 gets ``MaxResults`` namespaces and then filters them based on the specified criteria. It's possible that no namespaces in the first ``MaxResults`` namespaces matched the specified criteria but that subsequent groups of ``MaxResults`` namespaces do contain namespaces that match the criteria.
+            Route 53 gets ``MaxResults`` namespaces and then filters them based on the specified criteria. It\'s possible that no namespaces in the first ``MaxResults`` namespaces matched the specified criteria but that subsequent groups of ``MaxResults`` namespaces do contain namespaces that match the criteria.
         
         :type MaxResults: integer
         :param MaxResults: 
         
-          The maximum number of namespaces that you want Amazon Route 53 to return in the response to a ``ListNamespaces`` request. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 namespaces.
+          The maximum number of namespaces that you want Amazon Route 53 to return in the response to a ``ListNamespaces`` request. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 namespaces.
         
         :type Filters: list
         :param Filters: 
@@ -1576,15 +1576,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Namespaces': [
+                \'Namespaces\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Type': 'DNS_PUBLIC'|'DNS_PRIVATE'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'DNS_PUBLIC\'|\'DNS_PRIVATE\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1620,7 +1620,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Route 53 gets ``MaxResults`` namespaces and then filters them based on the specified criteria. It's possible that no namespaces in the first ``MaxResults`` namespaces matched the specified criteria but that subsequent groups of ``MaxResults`` namespaces do contain namespaces that match the criteria.
+                Route 53 gets ``MaxResults`` namespaces and then filters them based on the specified criteria. It\'s possible that no namespaces in the first ``MaxResults`` namespaces matched the specified criteria but that subsequent groups of ``MaxResults`` namespaces do contain namespaces that match the criteria.
         
         """
         pass
@@ -1634,15 +1634,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_operations(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Name': 'NAMESPACE_ID'|'SERVICE_ID'|'STATUS'|'TYPE'|'UPDATE_DATE',
-                      'Values': [
-                          'string',
+                      \'Name\': \'NAMESPACE_ID\'|\'SERVICE_ID\'|\'STATUS\'|\'TYPE\'|\'UPDATE_DATE\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ]
           )
@@ -1655,12 +1655,12 @@ class Client(BaseClient):
         
           .. note::
         
-            Route 53 gets ``MaxResults`` operations and then filters them based on the specified criteria. It's possible that no operations in the first ``MaxResults`` operations matched the specified criteria but that subsequent groups of ``MaxResults`` operations do contain operations that match the criteria.
+            Route 53 gets ``MaxResults`` operations and then filters them based on the specified criteria. It\'s possible that no operations in the first ``MaxResults`` operations matched the specified criteria but that subsequent groups of ``MaxResults`` operations do contain operations that match the criteria.
         
         :type MaxResults: integer
         :param MaxResults: 
         
-          The maximum number of items that you want Amazon Route 53 to return in the response to a ``ListOperations`` request. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 operations.
+          The maximum number of items that you want Amazon Route 53 to return in the response to a ``ListOperations`` request. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 operations.
         
         :type Filters: list
         :param Filters: 
@@ -1721,13 +1721,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Operations': [
+                \'Operations\': [
                     {
-                        'Id': 'string',
-                        'Status': 'SUBMITTED'|'PENDING'|'SUCCESS'|'FAIL'
+                        \'Id\': \'string\',
+                        \'Status\': \'SUBMITTED\'|\'PENDING\'|\'SUCCESS\'|\'FAIL\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1763,7 +1763,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Route 53 gets ``MaxResults`` operations and then filters them based on the specified criteria. It's possible that no operations in the first ``MaxResults`` operations matched the specified criteria but that subsequent groups of ``MaxResults`` operations do contain operations that match the criteria.
+                Route 53 gets ``MaxResults`` operations and then filters them based on the specified criteria. It\'s possible that no operations in the first ``MaxResults`` operations matched the specified criteria but that subsequent groups of ``MaxResults`` operations do contain operations that match the criteria.
         
         """
         pass
@@ -1777,15 +1777,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_services(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Name': 'NAMESPACE_ID',
-                      'Values': [
-                          'string',
+                      \'Name\': \'NAMESPACE_ID\',
+                      \'Values\': [
+                          \'string\',
                       ],
-                      'Condition': 'EQ'|'IN'|'BETWEEN'
+                      \'Condition\': \'EQ\'|\'IN\'|\'BETWEEN\'
                   },
               ]
           )
@@ -1798,12 +1798,12 @@ class Client(BaseClient):
         
           .. note::
         
-            Route 53 gets ``MaxResults`` services and then filters them based on the specified criteria. It's possible that no services in the first ``MaxResults`` services matched the specified criteria but that subsequent groups of ``MaxResults`` services do contain services that match the criteria.
+            Route 53 gets ``MaxResults`` services and then filters them based on the specified criteria. It\'s possible that no services in the first ``MaxResults`` services matched the specified criteria but that subsequent groups of ``MaxResults`` services do contain services that match the criteria.
         
         :type MaxResults: integer
         :param MaxResults: 
         
-          The maximum number of services that you want Amazon Route 53 to return in the response to a ``ListServices`` request. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 services.
+          The maximum number of services that you want Amazon Route 53 to return in the response to a ``ListServices`` request. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 services.
         
         :type Filters: list
         :param Filters: 
@@ -1844,16 +1844,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Services': [
+                \'Services\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'InstanceCount': 123
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'InstanceCount\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1893,7 +1893,7 @@ class Client(BaseClient):
         
               .. note::
         
-                Route 53 gets ``MaxResults`` services and then filters them based on the specified criteria. It's possible that no services in the first ``MaxResults`` services matched the specified criteria but that subsequent groups of ``MaxResults`` services do contain services that match the criteria.
+                Route 53 gets ``MaxResults`` services and then filters them based on the specified criteria. It\'s possible that no services in the first ``MaxResults`` services matched the specified criteria but that subsequent groups of ``MaxResults`` services do contain services that match the criteria.
         
         """
         pass
@@ -1920,7 +1920,7 @@ class Client(BaseClient):
          
         * **If the health check is unhealthy** : returns the applicable value for the last healthy instance 
          
-        * **If you didn't specify a health check configuration** : returns all the records 
+        * **If you didn\'t specify a health check configuration** : returns all the records 
          
         For the current limit on the number of instances that you can register using the same namespace and using the same service, see `Limits on Auto Naming <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming>`__ in the *Route 53 Developer Guide* .
         
@@ -1930,11 +1930,11 @@ class Client(BaseClient):
         ::
         
           response = client.register_instance(
-              ServiceId='string',
-              InstanceId='string',
-              CreatorRequestId='string',
+              ServiceId=\'string\',
+              InstanceId=\'string\',
+              CreatorRequestId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type ServiceId: string
@@ -1953,16 +1953,16 @@ class Client(BaseClient):
            
           * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.  
            
-          * If you specify an existing ``InstanceId`` and ``ServiceId`` , Route 53 updates the existing records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.  
+          * If you specify an existing ``InstanceId`` and ``ServiceId`` , Route 53 updates the existing records. If there\'s also an existing health check, Route 53 deletes the old health check and creates a new one.  
         
           .. note::
         
-             The health check isn't deleted immediately, so it will still appear for a while if you submit a ``ListHealthChecks`` request, for example. 
+             The health check isn\'t deleted immediately, so it will still appear for a while if you submit a ``ListHealthChecks`` request, for example. 
         
         :type CreatorRequestId: string
         :param CreatorRequestId: 
         
-          A unique string that identifies the request and that allows failed ``RegisterInstance`` requests to be retried without the risk of executing the operation twice. You must use a unique ``CreatorRequestId`` string every time you submit a ``RegisterInstance`` request if you're registering additional instances for the same namespace and service. ``CreatorRequestId`` can be any unique string, for example, a date/time stamp.
+          A unique string that identifies the request and that allows failed ``RegisterInstance`` requests to be retried without the risk of executing the operation twice. You must use a unique ``CreatorRequestId`` string every time you submit a ``RegisterInstance`` request if you\'re registering additional instances for the same namespace and service. ``CreatorRequestId`` can be any unique string, for example, a date/time stamp.
         
           This field is autopopulated if not provided.
         
@@ -1979,7 +1979,7 @@ class Client(BaseClient):
         
            **AWS_ALIAS_DNS_NAME**  
         
-          If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic `AliasTarget <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html>`__ .
+          If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see \"DNSName\" in the topic `AliasTarget <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html>`__ .
         
           Note the following:
         
@@ -1987,11 +1987,11 @@ class Client(BaseClient):
            
           * In the service that is specified by ``ServiceId`` , the value of ``RoutingPolicy`` must be ``WEIGHTED`` . 
            
-          * If the service that is specified by ``ServiceId`` includes ``HealthCheckConfig`` settings, Route 53 will create the health check, but it won't associate the health check with the alias record. 
+          * If the service that is specified by ``ServiceId`` includes ``HealthCheckConfig`` settings, Route 53 will create the health check, but it won\'t associate the health check with the alias record. 
            
-          * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers. 
+          * Auto naming currently doesn\'t support creating alias records that route traffic to AWS resources other than ELB load balancers. 
            
-          * If you specify a value for ``AWS_ALIAS_DNS_NAME`` , don't specify values for any of the ``AWS_INSTANCE`` attributes. 
+          * If you specify a value for ``AWS_ALIAS_DNS_NAME`` , don\'t specify values for any of the ``AWS_INSTANCE`` attributes. 
            
            **AWS_INSTANCE_CNAME**  
         
@@ -2031,7 +2031,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         
@@ -2051,9 +2051,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_instance_custom_health_status(
-              ServiceId='string',
-              InstanceId='string',
-              Status='HEALTHY'|'UNHEALTHY'
+              ServiceId=\'string\',
+              InstanceId=\'string\',
+              Status=\'HEALTHY\'|\'UNHEALTHY\'
           )
         :type ServiceId: string
         :param ServiceId: **[REQUIRED]** 
@@ -2078,7 +2078,7 @@ class Client(BaseClient):
          
         * Add, update, or delete ``HealthCheckConfig`` for a specified service 
          
-        You must specify all ``DnsRecords`` configurations (and, optionally, ``HealthCheckConfig`` ) that you want to appear in the updated service. Any current configurations that don't appear in an ``UpdateService`` request are deleted.
+        You must specify all ``DnsRecords`` configurations (and, optionally, ``HealthCheckConfig`` ) that you want to appear in the updated service. Any current configurations that don\'t appear in an ``UpdateService`` request are deleted.
         
         When you update the TTL setting for a service, Amazon Route 53 also updates the corresponding settings in all the records and health checks that were created by using the specified service.
         
@@ -2088,21 +2088,21 @@ class Client(BaseClient):
         ::
         
           response = client.update_service(
-              Id='string',
+              Id=\'string\',
               Service={
-                  'Description': 'string',
-                  'DnsConfig': {
-                      'DnsRecords': [
+                  \'Description\': \'string\',
+                  \'DnsConfig\': {
+                      \'DnsRecords\': [
                           {
-                              'Type': 'SRV'|'A'|'AAAA'|'CNAME',
-                              'TTL': 123
+                              \'Type\': \'SRV\'|\'A\'|\'AAAA\'|\'CNAME\',
+                              \'TTL\': 123
                           },
                       ]
                   },
-                  'HealthCheckConfig': {
-                      'Type': 'HTTP'|'HTTPS'|'TCP',
-                      'ResourcePath': 'string',
-                      'FailureThreshold': 123
+                  \'HealthCheckConfig\': {
+                      \'Type\': \'HTTP\'|\'HTTPS\'|\'TCP\',
+                      \'ResourcePath\': \'string\',
+                      \'FailureThreshold\': 123
                   }
               }
           )
@@ -2140,7 +2140,7 @@ class Client(BaseClient):
         
                   * **A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.**   
                    
-                  * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record. 
+                  * **CNAME records:** If you specify ``CNAME`` for ``Type`` , you can\'t define any other records. This is a limitation of DNS—you can\'t create a CNAME record and any other type of record that has the same name as a CNAME record. 
                    
                   * **Alias records:** If you want Route 53 to create an alias record when you register an instance, specify ``A`` or ``AAAA`` for ``Type`` . 
                    
@@ -2164,7 +2164,7 @@ class Client(BaseClient):
                    
                   * You must specify ``WEIGHTED`` for the value of ``RoutingPolicy`` . 
                    
-                  * You can't specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
+                  * You can\'t specify both ``CNAME`` for ``Type`` and settings for ``HealthCheckConfig`` . If you do, the request will fail with an ``InvalidInput`` error. 
                    
                    **SRV**  
         
@@ -2174,7 +2174,7 @@ class Client(BaseClient):
         
                   Note the following about the values:
         
-                  * The values of ``priority`` and ``weight`` are both set to ``1`` and can't be changed.  
+                  * The values of ``priority`` and ``weight`` are both set to ``1`` and can\'t be changed.  
                    
                   * The value of ``port`` comes from the value that you specify for the ``AWS_INSTANCE_PORT`` attribute when you submit a  RegisterInstance request.  
                    
@@ -2198,7 +2198,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+                    Alias records don\'t include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the ``AWS_ALIAS_DNS_NAME`` attribute when you submit a  RegisterInstance request, the ``TTL`` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
         
           - **HealthCheckConfig** *(dict) --* 
         
@@ -2210,11 +2210,11 @@ class Client(BaseClient):
         
              **CNAME records**  
         
-            You can't specify settings for ``HealthCheckConfig`` when the ``DNSConfig`` includes ``CNAME`` for the value of ``Type`` . If you do, the ``CreateService`` request will fail with an ``InvalidInput`` error.
+            You can\'t specify settings for ``HealthCheckConfig`` when the ``DNSConfig`` includes ``CNAME`` for the value of ``Type`` . If you do, the ``CreateService`` request will fail with an ``InvalidInput`` error.
         
              **Request interval**  
         
-            The health check uses 30 seconds as the request interval. This is the number of seconds between the time that each Route 53 health checker gets a response from your endpoint and the time that it sends the next health check request. A health checker in each data center around the world sends your endpoint a health check request every 30 seconds. On average, your endpoint receives a health check request about every two seconds. Health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.
+            The health check uses 30 seconds as the request interval. This is the number of seconds between the time that each Route 53 health checker gets a response from your endpoint and the time that it sends the next health check request. A health checker in each data center around the world sends your endpoint a health check request every 30 seconds. On average, your endpoint receives a health check request about every two seconds. Health checkers in different data centers don\'t coordinate with one another, so you\'ll sometimes see several requests per second followed by a few seconds with no health checks at all.
         
              **Health checking regions**  
         
@@ -2226,7 +2226,7 @@ class Client(BaseClient):
         
             * Route 53 automatically sets ``EvaluateTargetHealth`` to true for alias records. When ``EvaluateTargetHealth`` is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see `EvaluateTargetHealth <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth>`__ . 
              
-            * If you include ``HealthCheckConfig`` and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check. 
+            * If you include ``HealthCheckConfig`` and then use the service to register an instance that creates an alias record, Route 53 doesn\'t create the health check. 
              
             For information about the charges for health checks, see `Route 53 Pricing <http://aws.amazon.com/route53/pricing>`__ .
         
@@ -2236,7 +2236,7 @@ class Client(BaseClient):
         
               .. warning::
         
-                You can't change the value of ``Type`` after you create a health check.
+                You can\'t change the value of ``Type`` after you create a health check.
         
               You can create the following types of health checks:
         
@@ -2268,7 +2268,7 @@ class Client(BaseClient):
           ::
         
             {
-                'OperationId': 'string'
+                \'OperationId\': \'string\'
             }
           **Response Structure** 
         

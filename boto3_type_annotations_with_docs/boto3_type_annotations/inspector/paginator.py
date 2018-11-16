@@ -13,19 +13,19 @@ class ListAssessmentRunAgents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              assessmentRunArn='string',
+              assessmentRunArn=\'string\',
               filter={
-                  'agentHealths': [
-                      'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
+                  \'agentHealths\': [
+                      \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
                   ],
-                  'agentHealthCodes': [
-                      'IDLE'|'RUNNING'|'SHUTDOWN'|'UNHEALTHY'|'THROTTLED'|'UNKNOWN',
+                  \'agentHealthCodes\': [
+                      \'IDLE\'|\'RUNNING\'|\'SHUTDOWN\'|\'UNHEALTHY\'|\'THROTTLED\'|\'UNKNOWN\',
                   ]
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type assessmentRunArn: string
@@ -36,7 +36,7 @@ class ListAssessmentRunAgents(Paginator):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -77,24 +77,24 @@ class ListAssessmentRunAgents(Paginator):
           ::
         
             {
-                'assessmentRunAgents': [
+                \'assessmentRunAgents\': [
                     {
-                        'agentId': 'string',
-                        'assessmentRunArn': 'string',
-                        'agentHealth': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
-                        'agentHealthCode': 'IDLE'|'RUNNING'|'SHUTDOWN'|'UNHEALTHY'|'THROTTLED'|'UNKNOWN',
-                        'agentHealthDetails': 'string',
-                        'autoScalingGroup': 'string',
-                        'telemetryMetadata': [
+                        \'agentId\': \'string\',
+                        \'assessmentRunArn\': \'string\',
+                        \'agentHealth\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
+                        \'agentHealthCode\': \'IDLE\'|\'RUNNING\'|\'SHUTDOWN\'|\'UNHEALTHY\'|\'THROTTLED\'|\'UNKNOWN\',
+                        \'agentHealthDetails\': \'string\',
+                        \'autoScalingGroup\': \'string\',
+                        \'telemetryMetadata\': [
                             {
-                                'messageType': 'string',
-                                'count': 123,
-                                'dataSize': 123
+                                \'messageType\': \'string\',
+                                \'count\': 123,
+                                \'dataSize\': 123
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -171,37 +171,37 @@ class ListAssessmentRuns(Paginator):
         
           response_iterator = paginator.paginate(
               assessmentTemplateArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'namePattern': 'string',
-                  'states': [
-                      'CREATED'|'START_DATA_COLLECTION_PENDING'|'START_DATA_COLLECTION_IN_PROGRESS'|'COLLECTING_DATA'|'STOP_DATA_COLLECTION_PENDING'|'DATA_COLLECTED'|'START_EVALUATING_RULES_PENDING'|'EVALUATING_RULES'|'FAILED'|'ERROR'|'COMPLETED'|'COMPLETED_WITH_ERRORS'|'CANCELED',
+                  \'namePattern\': \'string\',
+                  \'states\': [
+                      \'CREATED\'|\'START_DATA_COLLECTION_PENDING\'|\'START_DATA_COLLECTION_IN_PROGRESS\'|\'COLLECTING_DATA\'|\'STOP_DATA_COLLECTION_PENDING\'|\'DATA_COLLECTED\'|\'START_EVALUATING_RULES_PENDING\'|\'EVALUATING_RULES\'|\'FAILED\'|\'ERROR\'|\'COMPLETED\'|\'COMPLETED_WITH_ERRORS\'|\'CANCELED\',
                   ],
-                  'durationRange': {
-                      'minSeconds': 123,
-                      'maxSeconds': 123
+                  \'durationRange\': {
+                      \'minSeconds\': 123,
+                      \'maxSeconds\': 123
                   },
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ],
-                  'startTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'startTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   },
-                  'completionTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'completionTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   },
-                  'stateChangeTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'stateChangeTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   }
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type assessmentTemplateArns: list
@@ -214,7 +214,7 @@ class ListAssessmentRuns(Paginator):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -307,10 +307,10 @@ class ListAssessmentRuns(Paginator):
           ::
         
             {
-                'assessmentRunArns': [
-                    'string',
+                \'assessmentRunArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -341,18 +341,18 @@ class ListAssessmentTargets(Paginator):
         
           response_iterator = paginator.paginate(
               filter={
-                  'assessmentTargetNamePattern': 'string'
+                  \'assessmentTargetNamePattern\': \'string\'
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -385,10 +385,10 @@ class ListAssessmentTargets(Paginator):
           ::
         
             {
-                'assessmentTargetArns': [
-                    'string',
+                \'assessmentTargetArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -419,22 +419,22 @@ class ListAssessmentTemplates(Paginator):
         
           response_iterator = paginator.paginate(
               assessmentTargetArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'namePattern': 'string',
-                  'durationRange': {
-                      'minSeconds': 123,
-                      'maxSeconds': 123
+                  \'namePattern\': \'string\',
+                  \'durationRange\': {
+                      \'minSeconds\': 123,
+                      \'maxSeconds\': 123
                   },
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ]
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type assessmentTargetArns: list
@@ -447,7 +447,7 @@ class ListAssessmentTemplates(Paginator):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -498,10 +498,10 @@ class ListAssessmentTemplates(Paginator):
           ::
         
             {
-                'assessmentTemplateArns': [
-                    'string',
+                \'assessmentTemplateArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -531,11 +531,11 @@ class ListEventSubscriptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              resourceArn='string',
+              resourceArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type resourceArn: string
@@ -568,19 +568,19 @@ class ListEventSubscriptions(Paginator):
           ::
         
             {
-                'subscriptions': [
+                \'subscriptions\': [
                     {
-                        'resourceArn': 'string',
-                        'topicArn': 'string',
-                        'eventSubscriptions': [
+                        \'resourceArn\': \'string\',
+                        \'topicArn\': \'string\',
+                        \'eventSubscriptions\': [
                             {
-                                'event': 'ASSESSMENT_RUN_STARTED'|'ASSESSMENT_RUN_COMPLETED'|'ASSESSMENT_RUN_STATE_CHANGED'|'FINDING_REPORTED'|'OTHER',
-                                'subscribedAt': datetime(2015, 1, 1)
+                                \'event\': \'ASSESSMENT_RUN_STARTED\'|\'ASSESSMENT_RUN_COMPLETED\'|\'ASSESSMENT_RUN_STATE_CHANGED\'|\'FINDING_REPORTED\'|\'OTHER\',
+                                \'subscribedAt\': datetime(2015, 1, 1)
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -637,45 +637,45 @@ class ListFindings(Paginator):
         
           response_iterator = paginator.paginate(
               assessmentRunArns=[
-                  'string',
+                  \'string\',
               ],
               filter={
-                  'agentIds': [
-                      'string',
+                  \'agentIds\': [
+                      \'string\',
                   ],
-                  'autoScalingGroups': [
-                      'string',
+                  \'autoScalingGroups\': [
+                      \'string\',
                   ],
-                  'ruleNames': [
-                      'string',
+                  \'ruleNames\': [
+                      \'string\',
                   ],
-                  'severities': [
-                      'Low'|'Medium'|'High'|'Informational'|'Undefined',
+                  \'severities\': [
+                      \'Low\'|\'Medium\'|\'High\'|\'Informational\'|\'Undefined\',
                   ],
-                  'rulesPackageArns': [
-                      'string',
+                  \'rulesPackageArns\': [
+                      \'string\',
                   ],
-                  'attributes': [
+                  \'attributes\': [
                       {
-                          'key': 'string',
-                          'value': 'string'
+                          \'key\': \'string\',
+                          \'value\': \'string\'
                       },
                   ],
-                  'userAttributes': [
+                  \'userAttributes\': [
                       {
-                          'key': 'string',
-                          'value': 'string'
+                          \'key\': \'string\',
+                          \'value\': \'string\'
                       },
                   ],
-                  'creationTimeRange': {
-                      'beginDate': datetime(2015, 1, 1),
-                      'endDate': datetime(2015, 1, 1)
+                  \'creationTimeRange\': {
+                      \'beginDate\': datetime(2015, 1, 1),
+                      \'endDate\': datetime(2015, 1, 1)
                   }
               },
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type assessmentRunArns: list
@@ -688,7 +688,7 @@ class ListFindings(Paginator):
         :type filter: dict
         :param filter: 
         
-          You can use this parameter to specify a subset of data to be included in the action's response.
+          You can use this parameter to specify a subset of data to be included in the action\'s response.
         
           For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
         
@@ -791,10 +791,10 @@ class ListFindings(Paginator):
           ::
         
             {
-                'findingArns': [
-                    'string',
+                \'findingArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -825,9 +825,9 @@ class ListRulesPackages(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -855,10 +855,10 @@ class ListRulesPackages(Paginator):
           ::
         
             {
-                'rulesPackageArns': [
-                    'string',
+                \'rulesPackageArns\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -888,11 +888,11 @@ class PreviewAgents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              previewAgentsArn='string',
+              previewAgentsArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type previewAgentsArn: string
@@ -925,19 +925,19 @@ class PreviewAgents(Paginator):
           ::
         
             {
-                'agentPreviews': [
+                \'agentPreviews\': [
                     {
-                        'hostname': 'string',
-                        'agentId': 'string',
-                        'autoScalingGroup': 'string',
-                        'agentHealth': 'HEALTHY'|'UNHEALTHY'|'UNKNOWN',
-                        'agentVersion': 'string',
-                        'operatingSystem': 'string',
-                        'kernelVersion': 'string',
-                        'ipv4Address': 'string'
+                        \'hostname\': \'string\',
+                        \'agentId\': \'string\',
+                        \'autoScalingGroup\': \'string\',
+                        \'agentHealth\': \'HEALTHY\'|\'UNHEALTHY\'|\'UNKNOWN\',
+                        \'agentVersion\': \'string\',
+                        \'operatingSystem\': \'string\',
+                        \'kernelVersion\': \'string\',
+                        \'ipv4Address\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

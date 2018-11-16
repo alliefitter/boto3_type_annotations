@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -21,12 +21,12 @@ class Client(BaseClient):
           response = client.accept_reserved_instances_exchange_quote(
               DryRun=True|False,
               ReservedInstanceIds=[
-                  'string',
+                  \'string\',
               ],
               TargetConfigurations=[
                   {
-                      'InstanceCount': 123,
-                      'OfferingId': 'string'
+                      \'InstanceCount\': 123,
+                      \'OfferingId\': \'string\'
                   },
               ]
           )
@@ -67,7 +67,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ExchangeId': 'string'
+                \'ExchangeId\': \'string\'
             }
           **Response Structure** 
         
@@ -92,9 +92,9 @@ class Client(BaseClient):
         
           response = client.accept_vpc_endpoint_connections(
               DryRun=True|False,
-              ServiceId='string',
+              ServiceId=\'string\',
               VpcEndpointIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -122,13 +122,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -175,7 +175,7 @@ class Client(BaseClient):
         
           response = client.accept_vpc_peering_connection(
               DryRun=True|False,
-              VpcPeeringConnectionId='string'
+              VpcPeeringConnectionId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -195,61 +195,61 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringConnection': {
-                    'AccepterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                \'VpcPeeringConnection\': {
+                    \'AccepterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'ExpirationTime': datetime(2015, 1, 1),
-                    'RequesterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                    \'ExpirationTime\': datetime(2015, 1, 1),
+                    \'RequesterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'Status': {
-                        'Code': 'initiating-request'|'pending-acceptance'|'active'|'deleted'|'rejected'|'failed'|'expired'|'provisioning'|'deleting',
-                        'Message': 'string'
+                    \'Status\': {
+                        \'Code\': \'initiating-request\'|\'pending-acceptance\'|\'active\'|\'deleted\'|\'rejected\'|\'failed\'|\'expired\'|\'provisioning\'|\'deleting\',
+                        \'Message\': \'string\'
                     },
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcPeeringConnectionId': 'string'
+                    \'VpcPeeringConnectionId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -440,7 +440,7 @@ class Client(BaseClient):
         ::
         
           response = client.advertise_byoip_cidr(
-              Cidr='string',
+              Cidr=\'string\',
               DryRun=True|False
           )
         :type Cidr: string
@@ -461,11 +461,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ByoipCidr': {
-                    'Cidr': 'string',
-                    'Description': 'string',
-                    'StatusMessage': 'string',
-                    'State': 'advertised'|'deprovisioned'|'failed-deprovision'|'failed-provision'|'pending-deprovision'|'pending-provision'|'provisioned'
+                \'ByoipCidr\': {
+                    \'Cidr\': \'string\',
+                    \'Description\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'State\': \'advertised\'|\'deprovisioned\'|\'failed-deprovision\'|\'failed-provision\'|\'pending-deprovision\'|\'pending-provision\'|\'provisioned\'
                 }
             }
           **Response Structure** 
@@ -512,9 +512,9 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_address(
-              Domain='vpc'|'standard',
-              Address='string',
-              PublicIpv4Pool='string',
+              Domain=\'vpc\'|\'standard\',
+              Address=\'string\',
+              PublicIpv4Pool=\'string\',
               DryRun=True|False
           )
         :type Domain: string
@@ -547,10 +547,10 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicIp': 'string',
-                'AllocationId': 'string',
-                'PublicIpv4Pool': 'string',
-                'Domain': 'vpc'|'standard'
+                \'PublicIp\': \'string\',
+                \'AllocationId\': \'string\',
+                \'PublicIpv4Pool\': \'string\',
+                \'Domain\': \'vpc\'|\'standard\'
             }
           **Response Structure** 
         
@@ -584,18 +584,18 @@ class Client(BaseClient):
         ::
         
           response = client.allocate_hosts(
-              AutoPlacement='on'|'off',
-              AvailabilityZone='string',
-              ClientToken='string',
-              InstanceType='string',
+              AutoPlacement=\'on\'|\'off\',
+              AvailabilityZone=\'string\',
+              ClientToken=\'string\',
+              InstanceType=\'string\',
               Quantity=123,
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -669,8 +669,8 @@ class Client(BaseClient):
           ::
         
             {
-                'HostIds': [
-                    'string',
+                \'HostIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -699,19 +699,19 @@ class Client(BaseClient):
           response = client.assign_ipv6_addresses(
               Ipv6AddressCount=123,
               Ipv6Addresses=[
-                  'string',
+                  \'string\',
               ],
-              NetworkInterfaceId='string'
+              NetworkInterfaceId=\'string\'
           )
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+          The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.
+          One or more specific IPv6 addresses to be assigned to the network interface. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
           - *(string) --* 
         
@@ -728,10 +728,10 @@ class Client(BaseClient):
           ::
         
             {
-                'AssignedIpv6Addresses': [
-                    'string',
+                \'AssignedIpv6Addresses\': [
+                    \'string\',
                 ],
-                'NetworkInterfaceId': 'string'
+                \'NetworkInterfaceId\': \'string\'
             }
           **Response Structure** 
         
@@ -753,7 +753,7 @@ class Client(BaseClient):
     def assign_private_ip_addresses(self, NetworkInterfaceId: str, AllowReassignment: bool = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> NoReturn:
         """
         
-        You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet\'s CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about Elastic IP addresses, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.
         
@@ -766,9 +766,9 @@ class Client(BaseClient):
         
           response = client.assign_private_ip_addresses(
               AllowReassignment=True|False,
-              NetworkInterfaceId='string',
+              NetworkInterfaceId=\'string\',
               PrivateIpAddresses=[
-                  'string',
+                  \'string\',
               ],
               SecondaryPrivateIpAddressCount=123
           )
@@ -785,16 +785,16 @@ class Client(BaseClient):
         :type PrivateIpAddresses: list
         :param PrivateIpAddresses: 
         
-          One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.
+          One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can\'t specify this parameter when also specifying a number of secondary IP addresses.
         
-          If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
+          If you don\'t specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
         
           - *(string) --* 
         
         :type SecondaryPrivateIpAddressCount: integer
         :param SecondaryPrivateIpAddressCount: 
         
-          The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.
+          The number of secondary IP addresses to assign to the network interface. You can\'t specify this parameter when also specifying private IP addresses.
         
         :returns: None
         """
@@ -807,11 +807,11 @@ class Client(BaseClient):
         
         [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.
         
-        [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
+        [VPC in an EC2-Classic account] If you don\'t specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
         
         .. warning::
         
-          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
+          This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the *Elastic IP Addresses* section of `Amazon EC2 Pricing <http://aws.amazon.com/ec2/pricing/>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress>`_
         
@@ -819,13 +819,13 @@ class Client(BaseClient):
         ::
         
           response = client.associate_address(
-              AllocationId='string',
-              InstanceId='string',
-              PublicIp='string',
+              AllocationId=\'string\',
+              InstanceId=\'string\',
+              PublicIp=\'string\',
               AllowReassociation=True|False,
               DryRun=True|False,
-              NetworkInterfaceId='string',
-              PrivateIpAddress='string'
+              NetworkInterfaceId=\'string\',
+              PrivateIpAddress=\'string\'
           )
         :type AllocationId: string
         :param AllocationId: 
@@ -870,7 +870,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationId': 'string'
+                \'AssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -886,7 +886,7 @@ class Client(BaseClient):
     def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None) -> NoReturn:
         """
         
-        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
+        After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don\'t need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
         
         For more information, see `DHCP Options Sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -896,8 +896,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_dhcp_options(
-              DhcpOptionsId='string',
-              VpcId='string',
+              DhcpOptionsId=\'string\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type DhcpOptionsId: string
@@ -929,10 +929,10 @@ class Client(BaseClient):
         
           response = client.associate_iam_instance_profile(
               IamInstanceProfile={
-                  'Arn': 'string',
-                  'Name': 'string'
+                  \'Arn\': \'string\',
+                  \'Name\': \'string\'
               },
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type IamInstanceProfile: dict
         :param IamInstanceProfile: **[REQUIRED]** 
@@ -960,15 +960,15 @@ class Client(BaseClient):
           ::
         
             {
-                'IamInstanceProfileAssociation': {
-                    'AssociationId': 'string',
-                    'InstanceId': 'string',
-                    'IamInstanceProfile': {
-                        'Arn': 'string',
-                        'Id': 'string'
+                \'IamInstanceProfileAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'IamInstanceProfile\': {
+                        \'Arn\': \'string\',
+                        \'Id\': \'string\'
                     },
-                    'State': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'Timestamp': datetime(2015, 1, 1)
+                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                    \'Timestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1022,8 +1022,8 @@ class Client(BaseClient):
         
           response = client.associate_route_table(
               DryRun=True|False,
-              RouteTableId='string',
-              SubnetId='string'
+              RouteTableId=\'string\',
+              SubnetId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1048,7 +1048,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AssociationId': 'string'
+                \'AssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -1070,8 +1070,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_subnet_cidr_block(
-              Ipv6CidrBlock='string',
-              SubnetId='string'
+              Ipv6CidrBlock=\'string\',
+              SubnetId=\'string\'
           )
         :type Ipv6CidrBlock: string
         :param Ipv6CidrBlock: **[REQUIRED]** 
@@ -1091,15 +1091,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Ipv6CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'Ipv6CidrBlock': 'string',
-                    'Ipv6CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'Ipv6CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'Ipv6CidrBlock\': \'string\',
+                    \'Ipv6CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'SubnetId': 'string'
+                \'SubnetId\': \'string\'
             }
           **Response Structure** 
         
@@ -1148,8 +1148,8 @@ class Client(BaseClient):
         
           response = client.associate_vpc_cidr_block(
               AmazonProvidedIpv6CidrBlock=True|False,
-              CidrBlock='string',
-              VpcId='string'
+              CidrBlock=\'string\',
+              VpcId=\'string\'
           )
         :type AmazonProvidedIpv6CidrBlock: boolean
         :param AmazonProvidedIpv6CidrBlock: 
@@ -1174,23 +1174,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Ipv6CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'Ipv6CidrBlock': 'string',
-                    'Ipv6CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'Ipv6CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'Ipv6CidrBlock\': \'string\',
+                    \'Ipv6CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'CidrBlock': 'string',
-                    'CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'CidrBlock\': \'string\',
+                    \'CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'VpcId': 'string'
+                \'VpcId\': \'string\'
             }
           **Response Structure** 
         
@@ -1254,7 +1254,7 @@ class Client(BaseClient):
     def attach_classic_link_vpc(self, Groups: List, InstanceId: str, VpcId: str, DryRun: bool = None) -> Dict:
         """
         
-        After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
+        After you\'ve linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
         
         Linking your instance to a VPC is sometimes referred to as *attaching* your instance.
         
@@ -1266,10 +1266,10 @@ class Client(BaseClient):
           response = client.attach_classic_link_vpc(
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              InstanceId='string',
-              VpcId='string'
+              InstanceId=\'string\',
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1279,7 +1279,7 @@ class Client(BaseClient):
         :type Groups: list
         :param Groups: **[REQUIRED]** 
         
-          The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+          The ID of one or more of the VPC\'s security groups. You cannot specify security groups from a different VPC.
         
           - *(string) --* 
         
@@ -1301,7 +1301,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -1324,8 +1324,8 @@ class Client(BaseClient):
         
           response = client.attach_internet_gateway(
               DryRun=True|False,
-              InternetGatewayId='string',
-              VpcId='string'
+              InternetGatewayId=\'string\',
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1357,8 +1357,8 @@ class Client(BaseClient):
           response = client.attach_network_interface(
               DeviceIndex=123,
               DryRun=True|False,
-              InstanceId='string',
-              NetworkInterfaceId='string'
+              InstanceId=\'string\',
+              NetworkInterfaceId=\'string\'
           )
         :type DeviceIndex: integer
         :param DeviceIndex: **[REQUIRED]** 
@@ -1388,7 +1388,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachmentId': 'string'
+                \'AttachmentId\': \'string\'
             }
           **Response Structure** 
         
@@ -1408,7 +1408,7 @@ class Client(BaseClient):
         
         Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see `Amazon EBS Encryption <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren't reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For a list of supported device names, see `Attaching an EBS Volume to an Instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ . Any device names that aren\'t reserved for instance store volumes can be used for EBS volumes. For more information, see `Amazon EC2 Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         If a volume has an AWS Marketplace product code:
         
@@ -1418,7 +1418,7 @@ class Client(BaseClient):
          
         * You must be subscribed to the product. 
          
-        * The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance. 
+        * The instance type and operating system of the instance must support the product. For example, you can\'t detach a volume from a Windows instance and attach it to a Linux instance. 
          
         For more information about EBS volumes, see `Attaching Amazon EBS Volumes <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -1428,9 +1428,9 @@ class Client(BaseClient):
         ::
         
           response = client.attach_volume(
-              Device='string',
-              InstanceId='string',
-              VolumeId='string',
+              Device=\'string\',
+              InstanceId=\'string\',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -1461,12 +1461,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -1512,8 +1512,8 @@ class Client(BaseClient):
         ::
         
           response = client.attach_vpn_gateway(
-              VpcId='string',
-              VpnGatewayId='string',
+              VpcId=\'string\',
+              VpnGatewayId=\'string\',
               DryRun=True|False
           )
         :type VpcId: string
@@ -1539,9 +1539,9 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcAttachment': {
-                    'State': 'attaching'|'attached'|'detaching'|'detached',
-                    'VpcId': 'string'
+                \'VpcAttachment\': {
+                    \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                    \'VpcId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1579,49 +1579,49 @@ class Client(BaseClient):
         
           response = client.authorize_security_group_egress(
               DryRun=True|False,
-              GroupId='string',
+              GroupId=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              IpProtocol='string',
+              IpProtocol=\'string\',
               ToPort=123,
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string'
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -1636,7 +1636,7 @@ class Client(BaseClient):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -1650,7 +1650,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -1805,56 +1805,56 @@ class Client(BaseClient):
         ::
         
           response = client.authorize_security_group_ingress(
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              GroupId='string',
-              GroupName='string',
+              GroupId=\'string\',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              IpProtocol='string',
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string',
+              IpProtocol=\'string\',
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\',
               ToPort=123,
               DryRun=True|False
           )
         :type CidrIp: string
         :param CidrIp: 
         
-          The CIDR IPv4 address range. You can't specify this parameter when specifying a source security group.
+          The CIDR IPv4 address range. You can\'t specify this parameter when specifying a source security group.
         
         :type FromPort: integer
         :param FromPort: 
@@ -1888,7 +1888,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -1995,17 +1995,17 @@ class Client(BaseClient):
         :type IpProtocol: string
         :param IpProtocol: 
         
-          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed.
+          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed.
         
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName: 
         
-          [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+          [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
         
         :type SourceSecurityGroupOwnerId: string
         :param SourceSecurityGroupOwnerId: 
         
-          [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
         
         :type ToPort: integer
         :param ToPort: 
@@ -2036,14 +2036,14 @@ class Client(BaseClient):
         ::
         
           response = client.bundle_instance(
-              InstanceId='string',
+              InstanceId=\'string\',
               Storage={
-                  'S3': {
-                      'AWSAccessKeyId': 'string',
-                      'Bucket': 'string',
-                      'Prefix': 'string',
-                      'UploadPolicy': b'bytes',
-                      'UploadPolicySignature': 'string'
+                  \'S3\': {
+                      \'AWSAccessKeyId\': \'string\',
+                      \'Bucket\': \'string\',
+                      \'Prefix\': \'string\',
+                      \'UploadPolicy\': b\'bytes\',
+                      \'UploadPolicySignature\': \'string\'
                   }
               },
               DryRun=True|False
@@ -2101,26 +2101,26 @@ class Client(BaseClient):
           ::
         
             {
-                'BundleTask': {
-                    'BundleId': 'string',
-                    'BundleTaskError': {
-                        'Code': 'string',
-                        'Message': 'string'
+                \'BundleTask\': {
+                    \'BundleId\': \'string\',
+                    \'BundleTaskError\': {
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'InstanceId': 'string',
-                    'Progress': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'State': 'pending'|'waiting-for-shutdown'|'bundling'|'storing'|'cancelling'|'complete'|'failed',
-                    'Storage': {
-                        'S3': {
-                            'AWSAccessKeyId': 'string',
-                            'Bucket': 'string',
-                            'Prefix': 'string',
-                            'UploadPolicy': b'bytes',
-                            'UploadPolicySignature': 'string'
+                    \'InstanceId\': \'string\',
+                    \'Progress\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'State\': \'pending\'|\'waiting-for-shutdown\'|\'bundling\'|\'storing\'|\'cancelling\'|\'complete\'|\'failed\',
+                    \'Storage\': {
+                        \'S3\': {
+                            \'AWSAccessKeyId\': \'string\',
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\',
+                            \'UploadPolicy\': b\'bytes\',
+                            \'UploadPolicySignature\': \'string\'
                         }
                     },
-                    'UpdateTime': datetime(2015, 1, 1)
+                    \'UpdateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2206,10 +2206,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -2225,7 +2225,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_bundle_task(
-              BundleId='string',
+              BundleId=\'string\',
               DryRun=True|False
           )
         :type BundleId: string
@@ -2246,26 +2246,26 @@ class Client(BaseClient):
           ::
         
             {
-                'BundleTask': {
-                    'BundleId': 'string',
-                    'BundleTaskError': {
-                        'Code': 'string',
-                        'Message': 'string'
+                \'BundleTask\': {
+                    \'BundleId\': \'string\',
+                    \'BundleTaskError\': {
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'InstanceId': 'string',
-                    'Progress': 'string',
-                    'StartTime': datetime(2015, 1, 1),
-                    'State': 'pending'|'waiting-for-shutdown'|'bundling'|'storing'|'cancelling'|'complete'|'failed',
-                    'Storage': {
-                        'S3': {
-                            'AWSAccessKeyId': 'string',
-                            'Bucket': 'string',
-                            'Prefix': 'string',
-                            'UploadPolicy': b'bytes',
-                            'UploadPolicySignature': 'string'
+                    \'InstanceId\': \'string\',
+                    \'Progress\': \'string\',
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'State\': \'pending\'|\'waiting-for-shutdown\'|\'bundling\'|\'storing\'|\'cancelling\'|\'complete\'|\'failed\',
+                    \'Storage\': {
+                        \'S3\': {
+                            \'AWSAccessKeyId\': \'string\',
+                            \'Bucket\': \'string\',
+                            \'Prefix\': \'string\',
+                            \'UploadPolicy\': b\'bytes\',
+                            \'UploadPolicySignature\': \'string\'
                         }
                     },
-                    'UpdateTime': datetime(2015, 1, 1)
+                    \'UpdateTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -2356,7 +2356,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_capacity_reservation(
-              CapacityReservationId='string',
+              CapacityReservationId=\'string\',
               DryRun=True|False
           )
         :type CapacityReservationId: string
@@ -2377,7 +2377,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -2401,9 +2401,9 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_conversion_task(
-              ConversionTaskId='string',
+              ConversionTaskId=\'string\',
               DryRun=True|False,
-              ReasonMessage='string'
+              ReasonMessage=\'string\'
           )
         :type ConversionTaskId: string
         :param ConversionTaskId: **[REQUIRED]** 
@@ -2433,7 +2433,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_export_task(
-              ExportTaskId='string'
+              ExportTaskId=\'string\'
           )
         :type ExportTaskId: string
         :param ExportTaskId: **[REQUIRED]** 
@@ -2453,9 +2453,9 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_import_task(
-              CancelReason='string',
+              CancelReason=\'string\',
               DryRun=True|False,
-              ImportTaskId='string'
+              ImportTaskId=\'string\'
           )
         :type CancelReason: string
         :param CancelReason: 
@@ -2480,9 +2480,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportTaskId': 'string',
-                'PreviousState': 'string',
-                'State': 'string'
+                \'ImportTaskId\': \'string\',
+                \'PreviousState\': \'string\',
+                \'State\': \'string\'
             }
           **Response Structure** 
         
@@ -2516,7 +2516,7 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_reserved_instances_listing(
-              ReservedInstancesListingId='string'
+              ReservedInstancesListingId=\'string\'
           )
         :type ReservedInstancesListingId: string
         :param ReservedInstancesListingId: **[REQUIRED]** 
@@ -2531,35 +2531,35 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesListings': [
+                \'ReservedInstancesListings\': [
                     {
-                        'ClientToken': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'InstanceCounts': [
+                        \'ClientToken\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'InstanceCounts\': [
                             {
-                                'InstanceCount': 123,
-                                'State': 'available'|'sold'|'cancelled'|'pending'
+                                \'InstanceCount\': 123,
+                                \'State\': \'available\'|\'sold\'|\'cancelled\'|\'pending\'
                             },
                         ],
-                        'PriceSchedules': [
+                        \'PriceSchedules\': [
                             {
-                                'Active': True|False,
-                                'CurrencyCode': 'USD',
-                                'Price': 123.0,
-                                'Term': 123
+                                \'Active\': True|False,
+                                \'CurrencyCode\': \'USD\',
+                                \'Price\': 123.0,
+                                \'Term\': 123
                             },
                         ],
-                        'ReservedInstancesId': 'string',
-                        'ReservedInstancesListingId': 'string',
-                        'Status': 'active'|'pending'|'cancelled'|'closed',
-                        'StatusMessage': 'string',
-                        'Tags': [
+                        \'ReservedInstancesId\': \'string\',
+                        \'ReservedInstancesListingId\': \'string\',
+                        \'Status\': \'active\'|\'pending\'|\'cancelled\'|\'closed\',
+                        \'StatusMessage\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -2683,7 +2683,7 @@ class Client(BaseClient):
           response = client.cancel_spot_fleet_requests(
               DryRun=True|False,
               SpotFleetRequestIds=[
-                  'string',
+                  \'string\',
               ],
               TerminateInstances=True|False
           )
@@ -2712,20 +2712,20 @@ class Client(BaseClient):
           ::
         
             {
-                'SuccessfulFleetRequests': [
+                \'SuccessfulFleetRequests\': [
                     {
-                        'CurrentSpotFleetRequestState': 'submitted'|'active'|'cancelled'|'failed'|'cancelled_running'|'cancelled_terminating'|'modifying',
-                        'PreviousSpotFleetRequestState': 'submitted'|'active'|'cancelled'|'failed'|'cancelled_running'|'cancelled_terminating'|'modifying',
-                        'SpotFleetRequestId': 'string'
+                        \'CurrentSpotFleetRequestState\': \'submitted\'|\'active\'|\'cancelled\'|\'failed\'|\'cancelled_running\'|\'cancelled_terminating\'|\'modifying\',
+                        \'PreviousSpotFleetRequestState\': \'submitted\'|\'active\'|\'cancelled\'|\'failed\'|\'cancelled_running\'|\'cancelled_terminating\'|\'modifying\',
+                        \'SpotFleetRequestId\': \'string\'
                     },
                 ],
-                'UnsuccessfulFleetRequests': [
+                \'UnsuccessfulFleetRequests\': [
                     {
-                        'Error': {
-                            'Code': 'fleetRequestIdDoesNotExist'|'fleetRequestIdMalformed'|'fleetRequestNotInCancellableState'|'unexpectedError',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'fleetRequestIdDoesNotExist\'|\'fleetRequestIdMalformed\'|\'fleetRequestNotInCancellableState\'|\'unexpectedError\',
+                            \'Message\': \'string\'
                         },
-                        'SpotFleetRequestId': 'string'
+                        \'SpotFleetRequestId\': \'string\'
                     },
                 ]
             }
@@ -2797,7 +2797,7 @@ class Client(BaseClient):
           response = client.cancel_spot_instance_requests(
               DryRun=True|False,
               SpotInstanceRequestIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -2820,10 +2820,10 @@ class Client(BaseClient):
           ::
         
             {
-                'CancelledSpotInstanceRequests': [
+                \'CancelledSpotInstanceRequests\': [
                     {
-                        'SpotInstanceRequestId': 'string',
-                        'State': 'active'|'open'|'closed'|'cancelled'|'completed'
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'State\': \'active\'|\'open\'|\'closed\'|\'cancelled\'|\'completed\'
                     },
                 ]
             }
@@ -2861,8 +2861,8 @@ class Client(BaseClient):
         ::
         
           response = client.confirm_product_instance(
-              InstanceId='string',
-              ProductCode='string',
+              InstanceId=\'string\',
+              ProductCode=\'string\',
               DryRun=True|False
           )
         :type InstanceId: string
@@ -2888,8 +2888,8 @@ class Client(BaseClient):
           ::
         
             {
-                'OwnerId': 'string',
-                'Return': True|False
+                \'OwnerId\': \'string\',
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -2918,11 +2918,11 @@ class Client(BaseClient):
         
           response = client.copy_fpga_image(
               DryRun=True|False,
-              SourceFpgaImageId='string',
-              Description='string',
-              Name='string',
-              SourceRegion='string',
-              ClientToken='string'
+              SourceFpgaImageId=\'string\',
+              Description=\'string\',
+              Name=\'string\',
+              SourceRegion=\'string\',
+              ClientToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -2962,7 +2962,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FpgaImageId': 'string'
+                \'FpgaImageId\': \'string\'
             }
           **Response Structure** 
         
@@ -2988,13 +2988,13 @@ class Client(BaseClient):
         ::
         
           response = client.copy_image(
-              ClientToken='string',
-              Description='string',
+              ClientToken=\'string\',
+              Description=\'string\',
               Encrypted=True|False,
-              KmsKeyId='string',
-              Name='string',
-              SourceImageId='string',
-              SourceRegion='string',
+              KmsKeyId=\'string\',
+              Name=\'string\',
+              SourceImageId=\'string\',
+              SourceRegion=\'string\',
               DryRun=True|False
           )
         :type ClientToken: string
@@ -3059,7 +3059,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageId': 'string'
+                \'ImageId\': \'string\'
             }
           **Response Structure** 
         
@@ -3091,11 +3091,11 @@ class Client(BaseClient):
         ::
         
           response = client.copy_snapshot(
-              Description='string',
+              Description=\'string\',
               Encrypted=True|False,
-              KmsKeyId='string',
-              SourceRegion='string',
-              SourceSnapshotId='string',
+              KmsKeyId=\'string\',
+              SourceRegion=\'string\',
+              SourceSnapshotId=\'string\',
               DryRun=True|False
           )
         :type Description: string
@@ -3166,7 +3166,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -3196,24 +3196,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_capacity_reservation(
-              ClientToken='string',
-              InstanceType='string',
-              InstancePlatform='Linux/UNIX'|'Red Hat Enterprise Linux'|'SUSE Linux'|'Windows'|'Windows with SQL Server'|'Windows with SQL Server Enterprise'|'Windows with SQL Server Standard'|'Windows with SQL Server Web',
-              AvailabilityZone='string',
-              Tenancy='default'|'dedicated',
+              ClientToken=\'string\',
+              InstanceType=\'string\',
+              InstancePlatform=\'Linux/UNIX\'|\'Red Hat Enterprise Linux\'|\'SUSE Linux\'|\'Windows\'|\'Windows with SQL Server\'|\'Windows with SQL Server Enterprise\'|\'Windows with SQL Server Standard\'|\'Windows with SQL Server Web\',
+              AvailabilityZone=\'string\',
+              Tenancy=\'default\'|\'dedicated\',
               InstanceCount=123,
               EbsOptimized=True|False,
               EphemeralStorage=True|False,
               EndDate=datetime(2015, 1, 1),
-              EndDateType='unlimited'|'limited',
-              InstanceMatchCriteria='open'|'targeted',
+              EndDateType=\'unlimited\'|\'limited\',
+              InstanceMatchCriteria=\'open\'|\'targeted\',
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -3259,7 +3259,7 @@ class Client(BaseClient):
         :type EbsOptimized: boolean
         :param EbsOptimized: 
         
-          Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+          Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         
         :type EphemeralStorage: boolean
         :param EphemeralStorage: 
@@ -3269,7 +3269,7 @@ class Client(BaseClient):
         :type EndDate: datetime
         :param EndDate: 
         
-          The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to ``expired`` when it reaches its end date and time.
+          The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation\'s state changes to ``expired`` when it reaches its end date and time.
         
           You must provide an ``EndDate`` value if ``EndDateType`` is ``limited`` . Omit ``EndDate`` if ``EndDateType`` is ``unlimited`` .
         
@@ -3341,25 +3341,25 @@ class Client(BaseClient):
           ::
         
             {
-                'CapacityReservation': {
-                    'CapacityReservationId': 'string',
-                    'InstanceType': 'string',
-                    'InstancePlatform': 'Linux/UNIX'|'Red Hat Enterprise Linux'|'SUSE Linux'|'Windows'|'Windows with SQL Server'|'Windows with SQL Server Enterprise'|'Windows with SQL Server Standard'|'Windows with SQL Server Web',
-                    'AvailabilityZone': 'string',
-                    'Tenancy': 'default'|'dedicated',
-                    'TotalInstanceCount': 123,
-                    'AvailableInstanceCount': 123,
-                    'EbsOptimized': True|False,
-                    'EphemeralStorage': True|False,
-                    'State': 'active'|'expired'|'cancelled'|'pending'|'failed',
-                    'EndDate': datetime(2015, 1, 1),
-                    'EndDateType': 'unlimited'|'limited',
-                    'InstanceMatchCriteria': 'open'|'targeted',
-                    'CreateDate': datetime(2015, 1, 1),
-                    'Tags': [
+                \'CapacityReservation\': {
+                    \'CapacityReservationId\': \'string\',
+                    \'InstanceType\': \'string\',
+                    \'InstancePlatform\': \'Linux/UNIX\'|\'Red Hat Enterprise Linux\'|\'SUSE Linux\'|\'Windows\'|\'Windows with SQL Server\'|\'Windows with SQL Server Enterprise\'|\'Windows with SQL Server Standard\'|\'Windows with SQL Server Web\',
+                    \'AvailabilityZone\': \'string\',
+                    \'Tenancy\': \'default\'|\'dedicated\',
+                    \'TotalInstanceCount\': 123,
+                    \'AvailableInstanceCount\': 123,
+                    \'EbsOptimized\': True|False,
+                    \'EphemeralStorage\': True|False,
+                    \'State\': \'active\'|\'expired\'|\'cancelled\'|\'pending\'|\'failed\',
+                    \'EndDate\': datetime(2015, 1, 1),
+                    \'EndDateType\': \'unlimited\'|\'limited\',
+                    \'InstanceMatchCriteria\': \'open\'|\'targeted\',
+                    \'CreateDate\': datetime(2015, 1, 1),
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3406,7 +3406,7 @@ class Client(BaseClient):
         
               - **EbsOptimized** *(boolean) --* 
         
-                Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+                Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         
               - **EphemeralStorage** *(boolean) --* 
         
@@ -3428,7 +3428,7 @@ class Client(BaseClient):
                  
               - **EndDate** *(datetime) --* 
         
-                The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to ``expired`` when it reaches its end date and time.
+                The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation\'s state changes to ``expired`` when it reaches its end date and time.
         
               - **EndDateType** *(string) --* 
         
@@ -3476,7 +3476,7 @@ class Client(BaseClient):
     def create_customer_gateway(self, BgpAsn: int, PublicIp: str, Type: str, DryRun: bool = None) -> Dict:
         """
         
-        For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534 range).
+        For devices that use Border Gateway Protocol (BGP), you can also provide the device\'s BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don\'t have an ASN already, you can use a private ASN (in the 64512 - 65534 range).
         
         .. note::
         
@@ -3495,21 +3495,21 @@ class Client(BaseClient):
         
           response = client.create_customer_gateway(
               BgpAsn=123,
-              PublicIp='string',
-              Type='ipsec.1',
+              PublicIp=\'string\',
+              Type=\'ipsec.1\',
               DryRun=True|False
           )
         :type BgpAsn: integer
         :param BgpAsn: **[REQUIRED]** 
         
-          For devices that support BGP, the customer gateway's BGP ASN.
+          For devices that support BGP, the customer gateway\'s BGP ASN.
         
           Default: 65000
         
         :type PublicIp: string
         :param PublicIp: **[REQUIRED]** 
         
-          The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
+          The Internet-routable IP address for the customer gateway\'s outside interface. The address must be static.
         
         :type Type: string
         :param Type: **[REQUIRED]** 
@@ -3529,16 +3529,16 @@ class Client(BaseClient):
           ::
         
             {
-                'CustomerGateway': {
-                    'BgpAsn': 'string',
-                    'CustomerGatewayId': 'string',
-                    'IpAddress': 'string',
-                    'State': 'string',
-                    'Type': 'string',
-                    'Tags': [
+                \'CustomerGateway\': {
+                    \'BgpAsn\': \'string\',
+                    \'CustomerGatewayId\': \'string\',
+                    \'IpAddress\': \'string\',
+                    \'State\': \'string\',
+                    \'Type\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3555,7 +3555,7 @@ class Client(BaseClient):
         
               - **BgpAsn** *(string) --* 
         
-                The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+                The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         
               - **CustomerGatewayId** *(string) --* 
         
@@ -3563,7 +3563,7 @@ class Client(BaseClient):
         
               - **IpAddress** *(string) --* 
         
-                The Internet-routable IP address of the customer gateway's outside interface.
+                The Internet-routable IP address of the customer gateway\'s outside interface.
         
               - **State** *(string) --* 
         
@@ -3605,7 +3605,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_default_subnet(
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               DryRun=True|False
           )
         :type AvailabilityZone: string
@@ -3626,30 +3626,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Subnet': {
-                    'AvailabilityZone': 'string',
-                    'AvailableIpAddressCount': 123,
-                    'CidrBlock': 'string',
-                    'DefaultForAz': True|False,
-                    'MapPublicIpOnLaunch': True|False,
-                    'State': 'pending'|'available',
-                    'SubnetId': 'string',
-                    'VpcId': 'string',
-                    'AssignIpv6AddressOnCreation': True|False,
-                    'Ipv6CidrBlockAssociationSet': [
+                \'Subnet\': {
+                    \'AvailabilityZone\': \'string\',
+                    \'AvailableIpAddressCount\': 123,
+                    \'CidrBlock\': \'string\',
+                    \'DefaultForAz\': True|False,
+                    \'MapPublicIpOnLaunch\': True|False,
+                    \'State\': \'pending\'|\'available\',
+                    \'SubnetId\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AssignIpv6AddressOnCreation\': True|False,
+                    \'Ipv6CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'Ipv6CidrBlock': 'string',
-                            'Ipv6CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'Ipv6CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3754,7 +3754,7 @@ class Client(BaseClient):
         
         If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.
         
-        If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the `Default VPCs FAQ <http://aws.amazon.com/vpc/faqs/#Default_VPCs>`__ .
+        If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see \"I really want a default VPC for my existing EC2 account. Is that possible?\" in the `Default VPCs FAQ <http://aws.amazon.com/vpc/faqs/#Default_VPCs>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultVpc>`_
         
@@ -3777,37 +3777,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Vpc': {
-                    'CidrBlock': 'string',
-                    'DhcpOptionsId': 'string',
-                    'State': 'pending'|'available',
-                    'VpcId': 'string',
-                    'InstanceTenancy': 'default'|'dedicated'|'host',
-                    'Ipv6CidrBlockAssociationSet': [
+                \'Vpc\': {
+                    \'CidrBlock\': \'string\',
+                    \'DhcpOptionsId\': \'string\',
+                    \'State\': \'pending\'|\'available\',
+                    \'VpcId\': \'string\',
+                    \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                    \'Ipv6CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'Ipv6CidrBlock': 'string',
-                            'Ipv6CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'Ipv6CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'CidrBlockAssociationSet': [
+                    \'CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'CidrBlock': 'string',
-                            'CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'CidrBlock\': \'string\',
+                            \'CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'IsDefault': True|False,
-                    'Tags': [
+                    \'IsDefault\': True|False,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -3826,7 +3826,7 @@ class Client(BaseClient):
         
               - **DhcpOptionsId** *(string) --* 
         
-                The ID of the set of DHCP options you've associated with the VPC (or ``default`` if the default options are associated with the VPC).
+                The ID of the set of DHCP options you\'ve associated with the VPC (or ``default`` if the default options are associated with the VPC).
         
               - **State** *(string) --* 
         
@@ -3928,7 +3928,7 @@ class Client(BaseClient):
         
         * ``domain-name-servers`` - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in ``domain-name`` , you must set ``domain-name-servers`` to a custom DNS server. 
          
-        * ``domain-name`` - If you're using AmazonProvidedDNS in ``us-east-1`` , specify ``ec2.internal`` . If you're using AmazonProvidedDNS in another region, specify ``region.compute.internal`` (for example, ``ap-northeast-1.compute.internal`` ). Otherwise, specify a domain name (for example, ``MyCompany.com`` ). This value is used to complete unqualified DNS hostnames. **Important** : Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name. 
+        * ``domain-name`` - If you\'re using AmazonProvidedDNS in ``us-east-1`` , specify ``ec2.internal`` . If you\'re using AmazonProvidedDNS in another region, specify ``region.compute.internal`` (for example, ``ap-northeast-1.compute.internal`` ). Otherwise, specify a domain name (for example, ``MyCompany.com`` ). This value is used to complete unqualified DNS hostnames. **Important** : Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name. 
          
         * ``ntp-servers`` - The IP addresses of up to four Network Time Protocol (NTP) servers. 
          
@@ -3946,9 +3946,9 @@ class Client(BaseClient):
           response = client.create_dhcp_options(
               DhcpConfigurations=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -3980,22 +3980,22 @@ class Client(BaseClient):
           ::
         
             {
-                'DhcpOptions': {
-                    'DhcpConfigurations': [
+                \'DhcpOptions\': {
+                    \'DhcpConfigurations\': [
                         {
-                            'Key': 'string',
-                            'Values': [
+                            \'Key\': \'string\',
+                            \'Values\': [
                                 {
-                                    'Value': 'string'
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'DhcpOptionsId': 'string',
-                    'Tags': [
+                    \'DhcpOptionsId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -4068,9 +4068,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_egress_only_internet_gateway(
-              ClientToken='string',
+              ClientToken=\'string\',
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type ClientToken: string
         :param ClientToken: 
@@ -4095,15 +4095,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientToken': 'string',
-                'EgressOnlyInternetGateway': {
-                    'Attachments': [
+                \'ClientToken\': \'string\',
+                \'EgressOnlyInternetGateway\': {
+                    \'Attachments\': [
                         {
-                            'State': 'attaching'|'attached'|'detaching'|'detached',
-                            'VpcId': 'string'
+                            \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                            \'VpcId\': \'string\'
                         },
                     ],
-                    'EgressOnlyInternetGatewayId': 'string'
+                    \'EgressOnlyInternetGatewayId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4155,53 +4155,53 @@ class Client(BaseClient):
         
           response = client.create_fleet(
               DryRun=True|False,
-              ClientToken='string',
+              ClientToken=\'string\',
               SpotOptions={
-                  'AllocationStrategy': 'lowest-price'|'diversified',
-                  'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate',
-                  'InstancePoolsToUseCount': 123
+                  \'AllocationStrategy\': \'lowest-price\'|\'diversified\',
+                  \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\',
+                  \'InstancePoolsToUseCount\': 123
               },
               OnDemandOptions={
-                  'AllocationStrategy': 'lowest-price'|'prioritized'
+                  \'AllocationStrategy\': \'lowest-price\'|\'prioritized\'
               },
-              ExcessCapacityTerminationPolicy='no-termination'|'termination',
+              ExcessCapacityTerminationPolicy=\'no-termination\'|\'termination\',
               LaunchTemplateConfigs=[
                   {
-                      'LaunchTemplateSpecification': {
-                          'LaunchTemplateId': 'string',
-                          'LaunchTemplateName': 'string',
-                          'Version': 'string'
+                      \'LaunchTemplateSpecification\': {
+                          \'LaunchTemplateId\': \'string\',
+                          \'LaunchTemplateName\': \'string\',
+                          \'Version\': \'string\'
                       },
-                      'Overrides': [
+                      \'Overrides\': [
                           {
-                              'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                              'MaxPrice': 'string',
-                              'SubnetId': 'string',
-                              'AvailabilityZone': 'string',
-                              'WeightedCapacity': 123.0,
-                              'Priority': 123.0
+                              \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                              \'MaxPrice\': \'string\',
+                              \'SubnetId\': \'string\',
+                              \'AvailabilityZone\': \'string\',
+                              \'WeightedCapacity\': 123.0,
+                              \'Priority\': 123.0
                           },
                       ]
                   },
               ],
               TargetCapacitySpecification={
-                  'TotalTargetCapacity': 123,
-                  'OnDemandTargetCapacity': 123,
-                  'SpotTargetCapacity': 123,
-                  'DefaultTargetCapacityType': 'spot'|'on-demand'
+                  \'TotalTargetCapacity\': 123,
+                  \'OnDemandTargetCapacity\': 123,
+                  \'SpotTargetCapacity\': 123,
+                  \'DefaultTargetCapacityType\': \'spot\'|\'on-demand\'
               },
               TerminateInstancesWithExpiration=True|False,
-              Type='request'|'maintain',
+              Type=\'request\'|\'maintain\',
               ValidFrom=datetime(2015, 1, 1),
               ValidUntil=datetime(2015, 1, 1),
               ReplaceUnhealthyInstances=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -4392,7 +4392,7 @@ class Client(BaseClient):
           ::
         
             {
-                'FleetId': 'string'
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -4421,16 +4421,16 @@ class Client(BaseClient):
         
           response = client.create_flow_logs(
               DryRun=True|False,
-              ClientToken='string',
-              DeliverLogsPermissionArn='string',
-              LogGroupName='string',
+              ClientToken=\'string\',
+              DeliverLogsPermissionArn=\'string\',
+              LogGroupName=\'string\',
               ResourceIds=[
-                  'string',
+                  \'string\',
               ],
-              ResourceType='VPC'|'Subnet'|'NetworkInterface',
-              TrafficType='ACCEPT'|'REJECT'|'ALL',
-              LogDestinationType='cloud-watch-logs'|'s3',
-              LogDestination='string'
+              ResourceType=\'VPC\'|\'Subnet\'|\'NetworkInterface\',
+              TrafficType=\'ACCEPT\'|\'REJECT\'|\'ALL\',
+              LogDestinationType=\'cloud-watch-logs\'|\'s3\',
+              LogDestination=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -4445,7 +4445,7 @@ class Client(BaseClient):
         :type DeliverLogsPermissionArn: string
         :param DeliverLogsPermissionArn: 
         
-          The ARN for the IAM role that's used to post flow logs to a log group.
+          The ARN for the IAM role that\'s used to post flow logs to a log group.
         
         :type LogGroupName: string
         :param LogGroupName: 
@@ -4495,17 +4495,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientToken': 'string',
-                'FlowLogIds': [
-                    'string',
+                \'ClientToken\': \'string\',
+                \'FlowLogIds\': [
+                    \'string\',
                 ],
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -4565,16 +4565,16 @@ class Client(BaseClient):
           response = client.create_fpga_image(
               DryRun=True|False,
               InputStorageLocation={
-                  'Bucket': 'string',
-                  'Key': 'string'
+                  \'Bucket\': \'string\',
+                  \'Key\': \'string\'
               },
               LogsStorageLocation={
-                  'Bucket': 'string',
-                  'Key': 'string'
+                  \'Bucket\': \'string\',
+                  \'Key\': \'string\'
               },
-              Description='string',
-              Name='string',
-              ClientToken='string'
+              Description=\'string\',
+              Name=\'string\',
+              ClientToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -4630,8 +4630,8 @@ class Client(BaseClient):
           ::
         
             {
-                'FpgaImageId': 'string',
-                'FpgaImageGlobalId': 'string'
+                \'FpgaImageId\': \'string\',
+                \'FpgaImageGlobalId\': \'string\'
             }
           **Response Structure** 
         
@@ -4663,24 +4663,24 @@ class Client(BaseClient):
           response = client.create_image(
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
-              InstanceId='string',
-              Name='string',
+              InstanceId=\'string\',
+              Name=\'string\',
               NoReboot=True|False
           )
         :type BlockDeviceMappings: list
@@ -4730,7 +4730,7 @@ class Client(BaseClient):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -4774,12 +4774,12 @@ class Client(BaseClient):
         
           A name for the new image.
         
-          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes (\'), at-signs (@), or underscores(_)
         
         :type NoReboot: boolean
         :param NoReboot: 
         
-          By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
+          By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the \'No Reboot\' option is set, Amazon EC2 doesn\'t shut down the instance before creating the image. When this option is used, file system integrity on the created image can\'t be guaranteed.
         
         :rtype: dict
         :returns: 
@@ -4789,7 +4789,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageId': 'string'
+                \'ImageId\': \'string\'
             }
           **Response Structure** 
         
@@ -4815,15 +4815,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_instance_export_task(
-              Description='string',
+              Description=\'string\',
               ExportToS3Task={
-                  'ContainerFormat': 'ova',
-                  'DiskImageFormat': 'VMDK'|'RAW'|'VHD',
-                  'S3Bucket': 'string',
-                  'S3Prefix': 'string'
+                  \'ContainerFormat\': \'ova\',
+                  \'DiskImageFormat\': \'VMDK\'|\'RAW\'|\'VHD\',
+                  \'S3Bucket\': \'string\',
+                  \'S3Prefix\': \'string\'
               },
-              InstanceId='string',
-              TargetEnvironment='citrix'|'vmware'|'microsoft'
+              InstanceId=\'string\',
+              TargetEnvironment=\'citrix\'|\'vmware\'|\'microsoft\'
           )
         :type Description: string
         :param Description: 
@@ -4849,7 +4849,7 @@ class Client(BaseClient):
         
           - **S3Prefix** *(string) --* 
         
-            The image is written to a single object in the S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
+            The image is written to a single object in the S3 bucket at the S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
         
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -4869,21 +4869,21 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportTask': {
-                    'Description': 'string',
-                    'ExportTaskId': 'string',
-                    'ExportToS3Task': {
-                        'ContainerFormat': 'ova',
-                        'DiskImageFormat': 'VMDK'|'RAW'|'VHD',
-                        'S3Bucket': 'string',
-                        'S3Key': 'string'
+                \'ExportTask\': {
+                    \'Description\': \'string\',
+                    \'ExportTaskId\': \'string\',
+                    \'ExportToS3Task\': {
+                        \'ContainerFormat\': \'ova\',
+                        \'DiskImageFormat\': \'VMDK\'|\'RAW\'|\'VHD\',
+                        \'S3Bucket\': \'string\',
+                        \'S3Key\': \'string\'
                     },
-                    'InstanceExportDetails': {
-                        'InstanceId': 'string',
-                        'TargetEnvironment': 'citrix'|'vmware'|'microsoft'
+                    \'InstanceExportDetails\': {
+                        \'InstanceId\': \'string\',
+                        \'TargetEnvironment\': \'citrix\'|\'vmware\'|\'microsoft\'
                     },
-                    'State': 'active'|'cancelling'|'cancelled'|'completed',
-                    'StatusMessage': 'string'
+                    \'State\': \'active\'|\'cancelling\'|\'cancelled\'|\'completed\',
+                    \'StatusMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4973,18 +4973,18 @@ class Client(BaseClient):
           ::
         
             {
-                'InternetGateway': {
-                    'Attachments': [
+                \'InternetGateway\': {
+                    \'Attachments\': [
                         {
-                            'State': 'attaching'|'attached'|'detaching'|'detached',
-                            'VpcId': 'string'
+                            \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                            \'VpcId\': \'string\'
                         },
                     ],
-                    'InternetGatewayId': 'string',
-                    'Tags': [
+                    \'InternetGatewayId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -5055,7 +5055,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_key_pair(
-              KeyName='string',
+              KeyName=\'string\',
               DryRun=True|False
           )
         :type KeyName: string
@@ -5078,9 +5078,9 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyFingerprint': 'string',
-                'KeyMaterial': 'string',
-                'KeyName': 'string'
+                \'KeyFingerprint\': \'string\',
+                \'KeyMaterial\': \'string\',
+                \'KeyName\': \'string\'
             }
           **Response Structure** 
         
@@ -5113,120 +5113,120 @@ class Client(BaseClient):
         
           response = client.create_launch_template(
               DryRun=True|False,
-              ClientToken='string',
-              LaunchTemplateName='string',
-              VersionDescription='string',
+              ClientToken=\'string\',
+              LaunchTemplateName=\'string\',
+              VersionDescription=\'string\',
               LaunchTemplateData={
-                  'KernelId': 'string',
-                  'EbsOptimized': True|False,
-                  'IamInstanceProfile': {
-                      'Arn': 'string',
-                      'Name': 'string'
+                  \'KernelId\': \'string\',
+                  \'EbsOptimized\': True|False,
+                  \'IamInstanceProfile\': {
+                      \'Arn\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'BlockDeviceMappings': [
+                  \'BlockDeviceMappings\': [
                       {
-                          'DeviceName': 'string',
-                          'VirtualName': 'string',
-                          'Ebs': {
-                              'Encrypted': True|False,
-                              'DeleteOnTermination': True|False,
-                              'Iops': 123,
-                              'KmsKeyId': 'string',
-                              'SnapshotId': 'string',
-                              'VolumeSize': 123,
-                              'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                          \'DeviceName\': \'string\',
+                          \'VirtualName\': \'string\',
+                          \'Ebs\': {
+                              \'Encrypted\': True|False,
+                              \'DeleteOnTermination\': True|False,
+                              \'Iops\': 123,
+                              \'KmsKeyId\': \'string\',
+                              \'SnapshotId\': \'string\',
+                              \'VolumeSize\': 123,
+                              \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                           },
-                          'NoDevice': 'string'
+                          \'NoDevice\': \'string\'
                       },
                   ],
-                  'NetworkInterfaces': [
+                  \'NetworkInterfaces\': [
                       {
-                          'AssociatePublicIpAddress': True|False,
-                          'DeleteOnTermination': True|False,
-                          'Description': 'string',
-                          'DeviceIndex': 123,
-                          'Groups': [
-                              'string',
+                          \'AssociatePublicIpAddress\': True|False,
+                          \'DeleteOnTermination\': True|False,
+                          \'Description\': \'string\',
+                          \'DeviceIndex\': 123,
+                          \'Groups\': [
+                              \'string\',
                           ],
-                          'Ipv6AddressCount': 123,
-                          'Ipv6Addresses': [
+                          \'Ipv6AddressCount\': 123,
+                          \'Ipv6Addresses\': [
                               {
-                                  'Ipv6Address': 'string'
+                                  \'Ipv6Address\': \'string\'
                               },
                           ],
-                          'NetworkInterfaceId': 'string',
-                          'PrivateIpAddress': 'string',
-                          'PrivateIpAddresses': [
+                          \'NetworkInterfaceId\': \'string\',
+                          \'PrivateIpAddress\': \'string\',
+                          \'PrivateIpAddresses\': [
                               {
-                                  'Primary': True|False,
-                                  'PrivateIpAddress': 'string'
+                                  \'Primary\': True|False,
+                                  \'PrivateIpAddress\': \'string\'
                               },
                           ],
-                          'SecondaryPrivateIpAddressCount': 123,
-                          'SubnetId': 'string'
+                          \'SecondaryPrivateIpAddressCount\': 123,
+                          \'SubnetId\': \'string\'
                       },
                   ],
-                  'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                  'KeyName': 'string',
-                  'Monitoring': {
-                      'Enabled': True|False
+                  \'ImageId\': \'string\',
+                  \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                  \'KeyName\': \'string\',
+                  \'Monitoring\': {
+                      \'Enabled\': True|False
                   },
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'Affinity': 'string',
-                      'GroupName': 'string',
-                      'HostId': 'string',
-                      'Tenancy': 'default'|'dedicated'|'host',
-                      'SpreadDomain': 'string'
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'Affinity\': \'string\',
+                      \'GroupName\': \'string\',
+                      \'HostId\': \'string\',
+                      \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                      \'SpreadDomain\': \'string\'
                   },
-                  'RamDiskId': 'string',
-                  'DisableApiTermination': True|False,
-                  'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                  'UserData': 'string',
-                  'TagSpecifications': [
+                  \'RamDiskId\': \'string\',
+                  \'DisableApiTermination\': True|False,
+                  \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                  \'UserData\': \'string\',
+                  \'TagSpecifications\': [
                       {
-                          'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                          'Tags': [
+                          \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                          \'Tags\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'ElasticGpuSpecifications': [
+                  \'ElasticGpuSpecifications\': [
                       {
-                          'Type': 'string'
+                          \'Type\': \'string\'
                       },
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroups': [
-                      'string',
+                  \'SecurityGroups\': [
+                      \'string\',
                   ],
-                  'InstanceMarketOptions': {
-                      'MarketType': 'spot',
-                      'SpotOptions': {
-                          'MaxPrice': 'string',
-                          'SpotInstanceType': 'one-time'|'persistent',
-                          'BlockDurationMinutes': 123,
-                          'ValidUntil': datetime(2015, 1, 1),
-                          'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                  \'InstanceMarketOptions\': {
+                      \'MarketType\': \'spot\',
+                      \'SpotOptions\': {
+                          \'MaxPrice\': \'string\',
+                          \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                          \'BlockDurationMinutes\': 123,
+                          \'ValidUntil\': datetime(2015, 1, 1),
+                          \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                       }
                   },
-                  'CreditSpecification': {
-                      'CpuCredits': 'string'
+                  \'CreditSpecification\': {
+                      \'CpuCredits\': \'string\'
                   },
-                  'CpuOptions': {
-                      'CoreCount': 123,
-                      'ThreadsPerCore': 123
+                  \'CpuOptions\': {
+                      \'CoreCount\': 123,
+                      \'ThreadsPerCore\': 123
                   },
-                  'CapacityReservationSpecification': {
-                      'CapacityReservationPreference': 'open'|'none',
-                      'CapacityReservationTarget': {
-                          'CapacityReservationId': 'string'
+                  \'CapacityReservationSpecification\': {
+                      \'CapacityReservationPreference\': \'open\'|\'none\',
+                      \'CapacityReservationTarget\': {
+                          \'CapacityReservationId\': \'string\'
                       }
                   }
               }
@@ -5266,7 +5266,7 @@ class Client(BaseClient):
         
           - **EbsOptimized** *(boolean) --* 
         
-            Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+            Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
           - **IamInstanceProfile** *(dict) --* 
         
@@ -5306,7 +5306,7 @@ class Client(BaseClient):
         
                 - **Encrypted** *(boolean) --* 
         
-                  Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+                  Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can\'t specify an encryption value.
         
                 - **DeleteOnTermination** *(boolean) --* 
         
@@ -5330,7 +5330,7 @@ class Client(BaseClient):
         
                   The size of the volume, in GiB.
         
-                  Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                  Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                 - **VolumeType** *(string) --* 
         
@@ -5372,11 +5372,11 @@ class Client(BaseClient):
         
               - **Ipv6AddressCount** *(integer) --* 
         
-                The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+                The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses.
         
               - **Ipv6Addresses** *(list) --* 
         
-                One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+                One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
                 - *(dict) --* 
         
@@ -5432,7 +5432,7 @@ class Client(BaseClient):
         
             .. warning::
         
-              If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+              If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         
           - **Monitoring** *(dict) --* 
         
@@ -5480,7 +5480,7 @@ class Client(BaseClient):
         
           - **DisableApiTermination** *(boolean) --* 
         
-            If set to ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
+            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
         
           - **InstanceInitiatedShutdownBehavior** *(string) --* 
         
@@ -5562,7 +5562,7 @@ class Client(BaseClient):
         
               - **MaxPrice** *(string) --* 
         
-                The maximum hourly price you're willing to pay for the Spot Instances.
+                The maximum hourly price you\'re willing to pay for the Spot Instances.
         
               - **SpotInstanceType** *(string) --* 
         
@@ -5606,7 +5606,7 @@ class Client(BaseClient):
         
             - **CapacityReservationPreference** *(string) --* 
         
-              Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+              Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
               * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                
@@ -5628,17 +5628,17 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplate': {
-                    'LaunchTemplateId': 'string',
-                    'LaunchTemplateName': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'CreatedBy': 'string',
-                    'DefaultVersionNumber': 123,
-                    'LatestVersionNumber': 123,
-                    'Tags': [
+                \'LaunchTemplate\': {
+                    \'LaunchTemplateId\': \'string\',
+                    \'LaunchTemplateName\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'CreatedBy\': \'string\',
+                    \'DefaultVersionNumber\': 123,
+                    \'LatestVersionNumber\': 123,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -5710,122 +5710,122 @@ class Client(BaseClient):
         
           response = client.create_launch_template_version(
               DryRun=True|False,
-              ClientToken='string',
-              LaunchTemplateId='string',
-              LaunchTemplateName='string',
-              SourceVersion='string',
-              VersionDescription='string',
+              ClientToken=\'string\',
+              LaunchTemplateId=\'string\',
+              LaunchTemplateName=\'string\',
+              SourceVersion=\'string\',
+              VersionDescription=\'string\',
               LaunchTemplateData={
-                  'KernelId': 'string',
-                  'EbsOptimized': True|False,
-                  'IamInstanceProfile': {
-                      'Arn': 'string',
-                      'Name': 'string'
+                  \'KernelId\': \'string\',
+                  \'EbsOptimized\': True|False,
+                  \'IamInstanceProfile\': {
+                      \'Arn\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'BlockDeviceMappings': [
+                  \'BlockDeviceMappings\': [
                       {
-                          'DeviceName': 'string',
-                          'VirtualName': 'string',
-                          'Ebs': {
-                              'Encrypted': True|False,
-                              'DeleteOnTermination': True|False,
-                              'Iops': 123,
-                              'KmsKeyId': 'string',
-                              'SnapshotId': 'string',
-                              'VolumeSize': 123,
-                              'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                          \'DeviceName\': \'string\',
+                          \'VirtualName\': \'string\',
+                          \'Ebs\': {
+                              \'Encrypted\': True|False,
+                              \'DeleteOnTermination\': True|False,
+                              \'Iops\': 123,
+                              \'KmsKeyId\': \'string\',
+                              \'SnapshotId\': \'string\',
+                              \'VolumeSize\': 123,
+                              \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                           },
-                          'NoDevice': 'string'
+                          \'NoDevice\': \'string\'
                       },
                   ],
-                  'NetworkInterfaces': [
+                  \'NetworkInterfaces\': [
                       {
-                          'AssociatePublicIpAddress': True|False,
-                          'DeleteOnTermination': True|False,
-                          'Description': 'string',
-                          'DeviceIndex': 123,
-                          'Groups': [
-                              'string',
+                          \'AssociatePublicIpAddress\': True|False,
+                          \'DeleteOnTermination\': True|False,
+                          \'Description\': \'string\',
+                          \'DeviceIndex\': 123,
+                          \'Groups\': [
+                              \'string\',
                           ],
-                          'Ipv6AddressCount': 123,
-                          'Ipv6Addresses': [
+                          \'Ipv6AddressCount\': 123,
+                          \'Ipv6Addresses\': [
                               {
-                                  'Ipv6Address': 'string'
+                                  \'Ipv6Address\': \'string\'
                               },
                           ],
-                          'NetworkInterfaceId': 'string',
-                          'PrivateIpAddress': 'string',
-                          'PrivateIpAddresses': [
+                          \'NetworkInterfaceId\': \'string\',
+                          \'PrivateIpAddress\': \'string\',
+                          \'PrivateIpAddresses\': [
                               {
-                                  'Primary': True|False,
-                                  'PrivateIpAddress': 'string'
+                                  \'Primary\': True|False,
+                                  \'PrivateIpAddress\': \'string\'
                               },
                           ],
-                          'SecondaryPrivateIpAddressCount': 123,
-                          'SubnetId': 'string'
+                          \'SecondaryPrivateIpAddressCount\': 123,
+                          \'SubnetId\': \'string\'
                       },
                   ],
-                  'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                  'KeyName': 'string',
-                  'Monitoring': {
-                      'Enabled': True|False
+                  \'ImageId\': \'string\',
+                  \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                  \'KeyName\': \'string\',
+                  \'Monitoring\': {
+                      \'Enabled\': True|False
                   },
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'Affinity': 'string',
-                      'GroupName': 'string',
-                      'HostId': 'string',
-                      'Tenancy': 'default'|'dedicated'|'host',
-                      'SpreadDomain': 'string'
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'Affinity\': \'string\',
+                      \'GroupName\': \'string\',
+                      \'HostId\': \'string\',
+                      \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                      \'SpreadDomain\': \'string\'
                   },
-                  'RamDiskId': 'string',
-                  'DisableApiTermination': True|False,
-                  'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                  'UserData': 'string',
-                  'TagSpecifications': [
+                  \'RamDiskId\': \'string\',
+                  \'DisableApiTermination\': True|False,
+                  \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                  \'UserData\': \'string\',
+                  \'TagSpecifications\': [
                       {
-                          'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                          'Tags': [
+                          \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                          \'Tags\': [
                               {
-                                  'Key': 'string',
-                                  'Value': 'string'
+                                  \'Key\': \'string\',
+                                  \'Value\': \'string\'
                               },
                           ]
                       },
                   ],
-                  'ElasticGpuSpecifications': [
+                  \'ElasticGpuSpecifications\': [
                       {
-                          'Type': 'string'
+                          \'Type\': \'string\'
                       },
                   ],
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroups': [
-                      'string',
+                  \'SecurityGroups\': [
+                      \'string\',
                   ],
-                  'InstanceMarketOptions': {
-                      'MarketType': 'spot',
-                      'SpotOptions': {
-                          'MaxPrice': 'string',
-                          'SpotInstanceType': 'one-time'|'persistent',
-                          'BlockDurationMinutes': 123,
-                          'ValidUntil': datetime(2015, 1, 1),
-                          'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                  \'InstanceMarketOptions\': {
+                      \'MarketType\': \'spot\',
+                      \'SpotOptions\': {
+                          \'MaxPrice\': \'string\',
+                          \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                          \'BlockDurationMinutes\': 123,
+                          \'ValidUntil\': datetime(2015, 1, 1),
+                          \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                       }
                   },
-                  'CreditSpecification': {
-                      'CpuCredits': 'string'
+                  \'CreditSpecification\': {
+                      \'CpuCredits\': \'string\'
                   },
-                  'CpuOptions': {
-                      'CoreCount': 123,
-                      'ThreadsPerCore': 123
+                  \'CpuOptions\': {
+                      \'CoreCount\': 123,
+                      \'ThreadsPerCore\': 123
                   },
-                  'CapacityReservationSpecification': {
-                      'CapacityReservationPreference': 'open'|'none',
-                      'CapacityReservationTarget': {
-                          'CapacityReservationId': 'string'
+                  \'CapacityReservationSpecification\': {
+                      \'CapacityReservationPreference\': \'open\'|\'none\',
+                      \'CapacityReservationTarget\': {
+                          \'CapacityReservationId\': \'string\'
                       }
                   }
               }
@@ -5875,7 +5875,7 @@ class Client(BaseClient):
         
           - **EbsOptimized** *(boolean) --* 
         
-            Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+            Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
           - **IamInstanceProfile** *(dict) --* 
         
@@ -5915,7 +5915,7 @@ class Client(BaseClient):
         
                 - **Encrypted** *(boolean) --* 
         
-                  Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+                  Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can\'t specify an encryption value.
         
                 - **DeleteOnTermination** *(boolean) --* 
         
@@ -5939,7 +5939,7 @@ class Client(BaseClient):
         
                   The size of the volume, in GiB.
         
-                  Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                  Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                 - **VolumeType** *(string) --* 
         
@@ -5981,11 +5981,11 @@ class Client(BaseClient):
         
               - **Ipv6AddressCount** *(integer) --* 
         
-                The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+                The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses.
         
               - **Ipv6Addresses** *(list) --* 
         
-                One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+                One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
                 - *(dict) --* 
         
@@ -6041,7 +6041,7 @@ class Client(BaseClient):
         
             .. warning::
         
-              If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+              If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         
           - **Monitoring** *(dict) --* 
         
@@ -6089,7 +6089,7 @@ class Client(BaseClient):
         
           - **DisableApiTermination** *(boolean) --* 
         
-            If set to ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
+            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
         
           - **InstanceInitiatedShutdownBehavior** *(string) --* 
         
@@ -6171,7 +6171,7 @@ class Client(BaseClient):
         
               - **MaxPrice** *(string) --* 
         
-                The maximum hourly price you're willing to pay for the Spot Instances.
+                The maximum hourly price you\'re willing to pay for the Spot Instances.
         
               - **SpotInstanceType** *(string) --* 
         
@@ -6215,7 +6215,7 @@ class Client(BaseClient):
         
             - **CapacityReservationPreference** *(string) --* 
         
-              Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+              Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
               * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                
@@ -6237,125 +6237,125 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplateVersion': {
-                    'LaunchTemplateId': 'string',
-                    'LaunchTemplateName': 'string',
-                    'VersionNumber': 123,
-                    'VersionDescription': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'CreatedBy': 'string',
-                    'DefaultVersion': True|False,
-                    'LaunchTemplateData': {
-                        'KernelId': 'string',
-                        'EbsOptimized': True|False,
-                        'IamInstanceProfile': {
-                            'Arn': 'string',
-                            'Name': 'string'
+                \'LaunchTemplateVersion\': {
+                    \'LaunchTemplateId\': \'string\',
+                    \'LaunchTemplateName\': \'string\',
+                    \'VersionNumber\': 123,
+                    \'VersionDescription\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'CreatedBy\': \'string\',
+                    \'DefaultVersion\': True|False,
+                    \'LaunchTemplateData\': {
+                        \'KernelId\': \'string\',
+                        \'EbsOptimized\': True|False,
+                        \'IamInstanceProfile\': {
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'BlockDeviceMappings': [
+                        \'BlockDeviceMappings\': [
                             {
-                                'DeviceName': 'string',
-                                'VirtualName': 'string',
-                                'Ebs': {
-                                    'Encrypted': True|False,
-                                    'DeleteOnTermination': True|False,
-                                    'Iops': 123,
-                                    'KmsKeyId': 'string',
-                                    'SnapshotId': 'string',
-                                    'VolumeSize': 123,
-                                    'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                                \'DeviceName\': \'string\',
+                                \'VirtualName\': \'string\',
+                                \'Ebs\': {
+                                    \'Encrypted\': True|False,
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Iops\': 123,
+                                    \'KmsKeyId\': \'string\',
+                                    \'SnapshotId\': \'string\',
+                                    \'VolumeSize\': 123,
+                                    \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                                 },
-                                'NoDevice': 'string'
+                                \'NoDevice\': \'string\'
                             },
                         ],
-                        'NetworkInterfaces': [
+                        \'NetworkInterfaces\': [
                             {
-                                'AssociatePublicIpAddress': True|False,
-                                'DeleteOnTermination': True|False,
-                                'Description': 'string',
-                                'DeviceIndex': 123,
-                                'Groups': [
-                                    'string',
+                                \'AssociatePublicIpAddress\': True|False,
+                                \'DeleteOnTermination\': True|False,
+                                \'Description\': \'string\',
+                                \'DeviceIndex\': 123,
+                                \'Groups\': [
+                                    \'string\',
                                 ],
-                                'Ipv6AddressCount': 123,
-                                'Ipv6Addresses': [
+                                \'Ipv6AddressCount\': 123,
+                                \'Ipv6Addresses\': [
                                     {
-                                        'Ipv6Address': 'string'
+                                        \'Ipv6Address\': \'string\'
                                     },
                                 ],
-                                'NetworkInterfaceId': 'string',
-                                'PrivateIpAddress': 'string',
-                                'PrivateIpAddresses': [
+                                \'NetworkInterfaceId\': \'string\',
+                                \'PrivateIpAddress\': \'string\',
+                                \'PrivateIpAddresses\': [
                                     {
-                                        'Primary': True|False,
-                                        'PrivateIpAddress': 'string'
+                                        \'Primary\': True|False,
+                                        \'PrivateIpAddress\': \'string\'
                                     },
                                 ],
-                                'SecondaryPrivateIpAddressCount': 123,
-                                'SubnetId': 'string'
+                                \'SecondaryPrivateIpAddressCount\': 123,
+                                \'SubnetId\': \'string\'
                             },
                         ],
-                        'ImageId': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'KeyName': 'string',
-                        'Monitoring': {
-                            'Enabled': True|False
+                        \'ImageId\': \'string\',
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'KeyName\': \'string\',
+                        \'Monitoring\': {
+                            \'Enabled\': True|False
                         },
-                        'Placement': {
-                            'AvailabilityZone': 'string',
-                            'Affinity': 'string',
-                            'GroupName': 'string',
-                            'HostId': 'string',
-                            'Tenancy': 'default'|'dedicated'|'host',
-                            'SpreadDomain': 'string'
+                        \'Placement\': {
+                            \'AvailabilityZone\': \'string\',
+                            \'Affinity\': \'string\',
+                            \'GroupName\': \'string\',
+                            \'HostId\': \'string\',
+                            \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                            \'SpreadDomain\': \'string\'
                         },
-                        'RamDiskId': 'string',
-                        'DisableApiTermination': True|False,
-                        'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                        'UserData': 'string',
-                        'TagSpecifications': [
+                        \'RamDiskId\': \'string\',
+                        \'DisableApiTermination\': True|False,
+                        \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                        \'UserData\': \'string\',
+                        \'TagSpecifications\': [
                             {
-                                'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                                'Tags': [
+                                \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'ElasticGpuSpecifications': [
+                        \'ElasticGpuSpecifications\': [
                             {
-                                'Type': 'string'
+                                \'Type\': \'string\'
                             },
                         ],
-                        'SecurityGroupIds': [
-                            'string',
+                        \'SecurityGroupIds\': [
+                            \'string\',
                         ],
-                        'SecurityGroups': [
-                            'string',
+                        \'SecurityGroups\': [
+                            \'string\',
                         ],
-                        'InstanceMarketOptions': {
-                            'MarketType': 'spot',
-                            'SpotOptions': {
-                                'MaxPrice': 'string',
-                                'SpotInstanceType': 'one-time'|'persistent',
-                                'BlockDurationMinutes': 123,
-                                'ValidUntil': datetime(2015, 1, 1),
-                                'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                        \'InstanceMarketOptions\': {
+                            \'MarketType\': \'spot\',
+                            \'SpotOptions\': {
+                                \'MaxPrice\': \'string\',
+                                \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                                \'BlockDurationMinutes\': 123,
+                                \'ValidUntil\': datetime(2015, 1, 1),
+                                \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                             }
                         },
-                        'CreditSpecification': {
-                            'CpuCredits': 'string'
+                        \'CreditSpecification\': {
+                            \'CpuCredits\': \'string\'
                         },
-                        'CpuOptions': {
-                            'CoreCount': 123,
-                            'ThreadsPerCore': 123
+                        \'CpuOptions\': {
+                            \'CoreCount\': 123,
+                            \'ThreadsPerCore\': 123
                         },
-                        'CapacityReservationSpecification': {
-                            'CapacityReservationPreference': 'open'|'none',
-                            'CapacityReservationTarget': {
-                                'CapacityReservationId': 'string'
+                        \'CapacityReservationSpecification\': {
+                            \'CapacityReservationPreference\': \'open\'|\'none\',
+                            \'CapacityReservationTarget\': {
+                                \'CapacityReservationId\': \'string\'
                             }
                         }
                     }
@@ -6685,7 +6685,7 @@ class Client(BaseClient):
         
                     - **MaxPrice** *(string) --* 
         
-                      The maximum hourly price you're willing to pay for the Spot Instances.
+                      The maximum hourly price you\'re willing to pay for the Spot Instances.
         
                     - **SpotInstanceType** *(string) --* 
         
@@ -6729,7 +6729,7 @@ class Client(BaseClient):
         
                   - **CapacityReservationPreference** *(string) --* 
         
-                    Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+                    Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                     * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                      
@@ -6755,9 +6755,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_nat_gateway(
-              AllocationId='string',
-              ClientToken='string',
-              SubnetId='string'
+              AllocationId=\'string\',
+              ClientToken=\'string\',
+              SubnetId=\'string\'
           )
         :type AllocationId: string
         :param AllocationId: **[REQUIRED]** 
@@ -6784,35 +6784,35 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientToken': 'string',
-                'NatGateway': {
-                    'CreateTime': datetime(2015, 1, 1),
-                    'DeleteTime': datetime(2015, 1, 1),
-                    'FailureCode': 'string',
-                    'FailureMessage': 'string',
-                    'NatGatewayAddresses': [
+                \'ClientToken\': \'string\',
+                \'NatGateway\': {
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'DeleteTime\': datetime(2015, 1, 1),
+                    \'FailureCode\': \'string\',
+                    \'FailureMessage\': \'string\',
+                    \'NatGatewayAddresses\': [
                         {
-                            'AllocationId': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'PrivateIp': 'string',
-                            'PublicIp': 'string'
+                            \'AllocationId\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'PrivateIp\': \'string\',
+                            \'PublicIp\': \'string\'
                         },
                     ],
-                    'NatGatewayId': 'string',
-                    'ProvisionedBandwidth': {
-                        'ProvisionTime': datetime(2015, 1, 1),
-                        'Provisioned': 'string',
-                        'RequestTime': datetime(2015, 1, 1),
-                        'Requested': 'string',
-                        'Status': 'string'
+                    \'NatGatewayId\': \'string\',
+                    \'ProvisionedBandwidth\': {
+                        \'ProvisionTime\': datetime(2015, 1, 1),
+                        \'Provisioned\': \'string\',
+                        \'RequestTime\': datetime(2015, 1, 1),
+                        \'Requested\': \'string\',
+                        \'Status\': \'string\'
                     },
-                    'State': 'pending'|'failed'|'available'|'deleting'|'deleted',
-                    'SubnetId': 'string',
-                    'VpcId': 'string',
-                    'Tags': [
+                    \'State\': \'pending\'|\'failed\'|\'available\'|\'deleting\'|\'deleted\',
+                    \'SubnetId\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -6845,17 +6845,17 @@ class Client(BaseClient):
         
                 If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
         
-                * For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway" 
+                * For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient free addresses to create this NAT gateway\" 
                  
-                * For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached" 
+                * For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet gateway attached\" 
                  
-                * For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway" 
+                * For InvalidAllocationID.NotFound: \"Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway\" 
                  
-                * For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated" 
+                * For Resource.AlreadyAssociated: \"Elastic IP address eipalloc-xxxxxxxx is already associated\" 
                  
-                * For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again." 
+                * For InternalError: \"Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.\" 
                  
-                * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found." 
+                * For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx does not exist or could not be found.\" 
                  
               - **NatGatewayAddresses** *(list) --* 
         
@@ -6867,7 +6867,7 @@ class Client(BaseClient):
         
                   - **AllocationId** *(string) --* 
         
-                    The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+                    The allocation ID of the Elastic IP address that\'s associated with the NAT gateway.
         
                   - **NetworkInterfaceId** *(string) --* 
         
@@ -6966,7 +6966,7 @@ class Client(BaseClient):
         
           response = client.create_network_acl(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -6986,41 +6986,41 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkAcl': {
-                    'Associations': [
+                \'NetworkAcl\': {
+                    \'Associations\': [
                         {
-                            'NetworkAclAssociationId': 'string',
-                            'NetworkAclId': 'string',
-                            'SubnetId': 'string'
+                            \'NetworkAclAssociationId\': \'string\',
+                            \'NetworkAclId\': \'string\',
+                            \'SubnetId\': \'string\'
                         },
                     ],
-                    'Entries': [
+                    \'Entries\': [
                         {
-                            'CidrBlock': 'string',
-                            'Egress': True|False,
-                            'IcmpTypeCode': {
-                                'Code': 123,
-                                'Type': 123
+                            \'CidrBlock\': \'string\',
+                            \'Egress\': True|False,
+                            \'IcmpTypeCode\': {
+                                \'Code\': 123,
+                                \'Type\': 123
                             },
-                            'Ipv6CidrBlock': 'string',
-                            'PortRange': {
-                                'From': 123,
-                                'To': 123
+                            \'Ipv6CidrBlock\': \'string\',
+                            \'PortRange\': {
+                                \'From\': 123,
+                                \'To\': 123
                             },
-                            'Protocol': 'string',
-                            'RuleAction': 'allow'|'deny',
-                            'RuleNumber': 123
+                            \'Protocol\': \'string\',
+                            \'RuleAction\': \'allow\'|\'deny\',
+                            \'RuleNumber\': 123
                         },
                     ],
-                    'IsDefault': True|False,
-                    'NetworkAclId': 'string',
-                    'Tags': [
+                    \'IsDefault\': True|False,
+                    \'NetworkAclId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7097,7 +7097,7 @@ class Client(BaseClient):
         
                   - **Protocol** *(string) --* 
         
-                    The protocol number. A value of "-1" means all protocols.
+                    The protocol number. A value of \"-1\" means all protocols.
         
                   - **RuleAction** *(string) --* 
         
@@ -7147,7 +7147,7 @@ class Client(BaseClient):
         
         We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
         
-        After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.
+        After you add an entry, you can\'t modify it; you must either replace it, or create an entry and delete the old one.
         
         For more information about network ACLs, see `Network ACLs <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -7157,21 +7157,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_network_acl_entry(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               DryRun=True|False,
               Egress=True|False,
               IcmpTypeCode={
-                  'Code': 123,
-                  'Type': 123
+                  \'Code\': 123,
+                  \'Type\': 123
               },
-              Ipv6CidrBlock='string',
-              NetworkAclId='string',
+              Ipv6CidrBlock=\'string\',
+              NetworkAclId=\'string\',
               PortRange={
-                  'From': 123,
-                  'To': 123
+                  \'From\': 123,
+                  \'To\': 123
               },
-              Protocol='string',
-              RuleAction='allow'|'deny',
+              Protocol=\'string\',
+              RuleAction=\'allow\'|\'deny\',
               RuleNumber=123
           )
         :type CidrBlock: string
@@ -7228,7 +7228,7 @@ class Client(BaseClient):
         :type Protocol: string
         :param Protocol: **[REQUIRED]** 
         
-          The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+          The protocol number. A value of \"-1\" means all protocols. If you specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\" (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
         
         :type RuleAction: string
         :param RuleAction: **[REQUIRED]** 
@@ -7257,26 +7257,26 @@ class Client(BaseClient):
         ::
         
           response = client.create_network_interface(
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               PrivateIpAddresses=[
                   {
-                      'Primary': True|False,
-                      'PrivateIpAddress': 'string'
+                      \'Primary\': True|False,
+                      \'PrivateIpAddress\': \'string\'
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
-              SubnetId='string'
+              SubnetId=\'string\'
           )
         :type Description: string
         :param Description: 
@@ -7298,12 +7298,12 @@ class Client(BaseClient):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
+          The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses. If your subnet has the ``AssignIpv6AddressOnCreation`` attribute set to ``true`` , you can specify ``0`` to override this setting.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can\'t use this option if you\'re specifying a number of IPv6 addresses.
         
           - *(dict) --* 
         
@@ -7316,7 +7316,7 @@ class Client(BaseClient):
         :type PrivateIpAddress: string
         :param PrivateIpAddress: 
         
-          The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
+          The primary private IPv4 address of the network interface. If you don\'t specify an IPv4 address, Amazon EC2 selects one for you from the subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in ``privateIpAddresses`` as primary (only one IP address can be designated as primary).
         
         :type PrivateIpAddresses: list
         :param PrivateIpAddresses: 
@@ -7338,7 +7338,7 @@ class Client(BaseClient):
         :type SecondaryPrivateIpAddressCount: integer
         :param SecondaryPrivateIpAddressCount: 
         
-          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using ``privateIpAddresses`` .
+          The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
         
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -7355,68 +7355,68 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkInterface': {
-                    'Association': {
-                        'AllocationId': 'string',
-                        'AssociationId': 'string',
-                        'IpOwnerId': 'string',
-                        'PublicDnsName': 'string',
-                        'PublicIp': 'string'
+                \'NetworkInterface\': {
+                    \'Association\': {
+                        \'AllocationId\': \'string\',
+                        \'AssociationId\': \'string\',
+                        \'IpOwnerId\': \'string\',
+                        \'PublicDnsName\': \'string\',
+                        \'PublicIp\': \'string\'
                     },
-                    'Attachment': {
-                        'AttachTime': datetime(2015, 1, 1),
-                        'AttachmentId': 'string',
-                        'DeleteOnTermination': True|False,
-                        'DeviceIndex': 123,
-                        'InstanceId': 'string',
-                        'InstanceOwnerId': 'string',
-                        'Status': 'attaching'|'attached'|'detaching'|'detached'
+                    \'Attachment\': {
+                        \'AttachTime\': datetime(2015, 1, 1),
+                        \'AttachmentId\': \'string\',
+                        \'DeleteOnTermination\': True|False,
+                        \'DeviceIndex\': 123,
+                        \'InstanceId\': \'string\',
+                        \'InstanceOwnerId\': \'string\',
+                        \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                     },
-                    'AvailabilityZone': 'string',
-                    'Description': 'string',
-                    'Groups': [
+                    \'AvailabilityZone\': \'string\',
+                    \'Description\': \'string\',
+                    \'Groups\': [
                         {
-                            'GroupName': 'string',
-                            'GroupId': 'string'
+                            \'GroupName\': \'string\',
+                            \'GroupId\': \'string\'
                         },
                     ],
-                    'InterfaceType': 'interface'|'natGateway',
-                    'Ipv6Addresses': [
+                    \'InterfaceType\': \'interface\'|\'natGateway\',
+                    \'Ipv6Addresses\': [
                         {
-                            'Ipv6Address': 'string'
+                            \'Ipv6Address\': \'string\'
                         },
                     ],
-                    'MacAddress': 'string',
-                    'NetworkInterfaceId': 'string',
-                    'OwnerId': 'string',
-                    'PrivateDnsName': 'string',
-                    'PrivateIpAddress': 'string',
-                    'PrivateIpAddresses': [
+                    \'MacAddress\': \'string\',
+                    \'NetworkInterfaceId\': \'string\',
+                    \'OwnerId\': \'string\',
+                    \'PrivateDnsName\': \'string\',
+                    \'PrivateIpAddress\': \'string\',
+                    \'PrivateIpAddresses\': [
                         {
-                            'Association': {
-                                'AllocationId': 'string',
-                                'AssociationId': 'string',
-                                'IpOwnerId': 'string',
-                                'PublicDnsName': 'string',
-                                'PublicIp': 'string'
+                            \'Association\': {
+                                \'AllocationId\': \'string\',
+                                \'AssociationId\': \'string\',
+                                \'IpOwnerId\': \'string\',
+                                \'PublicDnsName\': \'string\',
+                                \'PublicIp\': \'string\'
                             },
-                            'Primary': True|False,
-                            'PrivateDnsName': 'string',
-                            'PrivateIpAddress': 'string'
+                            \'Primary\': True|False,
+                            \'PrivateDnsName\': \'string\',
+                            \'PrivateIpAddress\': \'string\'
                         },
                     ],
-                    'RequesterId': 'string',
-                    'RequesterManaged': True|False,
-                    'SourceDestCheck': True|False,
-                    'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                    'SubnetId': 'string',
-                    'TagSet': [
+                    \'RequesterId\': \'string\',
+                    \'RequesterManaged\': True|False,
+                    \'SourceDestCheck\': True|False,
+                    \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                    \'SubnetId\': \'string\',
+                    \'TagSet\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7647,10 +7647,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_network_interface_permission(
-              NetworkInterfaceId='string',
-              AwsAccountId='string',
-              AwsService='string',
-              Permission='INSTANCE-ATTACH'|'EIP-ASSOCIATE',
+              NetworkInterfaceId=\'string\',
+              AwsAccountId=\'string\',
+              AwsService=\'string\',
+              Permission=\'INSTANCE-ATTACH\'|\'EIP-ASSOCIATE\',
               DryRun=True|False
           )
         :type NetworkInterfaceId: string
@@ -7686,15 +7686,15 @@ class Client(BaseClient):
           ::
         
             {
-                'InterfacePermission': {
-                    'NetworkInterfacePermissionId': 'string',
-                    'NetworkInterfaceId': 'string',
-                    'AwsAccountId': 'string',
-                    'AwsService': 'string',
-                    'Permission': 'INSTANCE-ATTACH'|'EIP-ASSOCIATE',
-                    'PermissionState': {
-                        'State': 'pending'|'granted'|'revoking'|'revoked',
-                        'StatusMessage': 'string'
+                \'InterfacePermission\': {
+                    \'NetworkInterfacePermissionId\': \'string\',
+                    \'NetworkInterfaceId\': \'string\',
+                    \'AwsAccountId\': \'string\',
+                    \'AwsService\': \'string\',
+                    \'Permission\': \'INSTANCE-ATTACH\'|\'EIP-ASSOCIATE\',
+                    \'PermissionState\': {
+                        \'State\': \'pending\'|\'granted\'|\'revoking\'|\'revoked\',
+                        \'StatusMessage\': \'string\'
                     }
                 }
             }
@@ -7757,8 +7757,8 @@ class Client(BaseClient):
         
           response = client.create_placement_group(
               DryRun=True|False,
-              GroupName='string',
-              Strategy='cluster'|'spread'
+              GroupName=\'string\',
+              Strategy=\'cluster\'|\'spread\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -7800,16 +7800,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_reserved_instances_listing(
-              ClientToken='string',
+              ClientToken=\'string\',
               InstanceCount=123,
               PriceSchedules=[
                   {
-                      'CurrencyCode': 'USD',
-                      'Price': 123.0,
-                      'Term': 123
+                      \'CurrencyCode\': \'USD\',
+                      \'Price\': 123.0,
+                      \'Term\': 123
                   },
               ],
-              ReservedInstancesId='string'
+              ReservedInstancesId=\'string\'
           )
         :type ClientToken: string
         :param ClientToken: **[REQUIRED]** 
@@ -7855,35 +7855,35 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesListings': [
+                \'ReservedInstancesListings\': [
                     {
-                        'ClientToken': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'InstanceCounts': [
+                        \'ClientToken\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'InstanceCounts\': [
                             {
-                                'InstanceCount': 123,
-                                'State': 'available'|'sold'|'cancelled'|'pending'
+                                \'InstanceCount\': 123,
+                                \'State\': \'available\'|\'sold\'|\'cancelled\'|\'pending\'
                             },
                         ],
-                        'PriceSchedules': [
+                        \'PriceSchedules\': [
                             {
-                                'Active': True|False,
-                                'CurrencyCode': 'USD',
-                                'Price': 123.0,
-                                'Term': 123
+                                \'Active\': True|False,
+                                \'CurrencyCode\': \'USD\',
+                                \'Price\': 123.0,
+                                \'Term\': 123
                             },
                         ],
-                        'ReservedInstancesId': 'string',
-                        'ReservedInstancesListingId': 'string',
-                        'Status': 'active'|'pending'|'cancelled'|'closed',
-                        'StatusMessage': 'string',
-                        'Tags': [
+                        \'ReservedInstancesId\': \'string\',
+                        \'ReservedInstancesListingId\': \'string\',
+                        \'Status\': \'active\'|\'pending\'|\'cancelled\'|\'closed\',
+                        \'StatusMessage\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -8015,16 +8015,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_route(
-              DestinationCidrBlock='string',
-              DestinationIpv6CidrBlock='string',
+              DestinationCidrBlock=\'string\',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
-              EgressOnlyInternetGatewayId='string',
-              GatewayId='string',
-              InstanceId='string',
-              NatGatewayId='string',
-              NetworkInterfaceId='string',
-              RouteTableId='string',
-              VpcPeeringConnectionId='string'
+              EgressOnlyInternetGatewayId=\'string\',
+              GatewayId=\'string\',
+              InstanceId=\'string\',
+              NatGatewayId=\'string\',
+              NetworkInterfaceId=\'string\',
+              RouteTableId=\'string\',
+              VpcPeeringConnectionId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: 
@@ -8084,7 +8084,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -8109,7 +8109,7 @@ class Client(BaseClient):
         
           response = client.create_route_table(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -8129,44 +8129,44 @@ class Client(BaseClient):
           ::
         
             {
-                'RouteTable': {
-                    'Associations': [
+                \'RouteTable\': {
+                    \'Associations\': [
                         {
-                            'Main': True|False,
-                            'RouteTableAssociationId': 'string',
-                            'RouteTableId': 'string',
-                            'SubnetId': 'string'
+                            \'Main\': True|False,
+                            \'RouteTableAssociationId\': \'string\',
+                            \'RouteTableId\': \'string\',
+                            \'SubnetId\': \'string\'
                         },
                     ],
-                    'PropagatingVgws': [
+                    \'PropagatingVgws\': [
                         {
-                            'GatewayId': 'string'
+                            \'GatewayId\': \'string\'
                         },
                     ],
-                    'RouteTableId': 'string',
-                    'Routes': [
+                    \'RouteTableId\': \'string\',
+                    \'Routes\': [
                         {
-                            'DestinationCidrBlock': 'string',
-                            'DestinationIpv6CidrBlock': 'string',
-                            'DestinationPrefixListId': 'string',
-                            'EgressOnlyInternetGatewayId': 'string',
-                            'GatewayId': 'string',
-                            'InstanceId': 'string',
-                            'InstanceOwnerId': 'string',
-                            'NatGatewayId': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'Origin': 'CreateRouteTable'|'CreateRoute'|'EnableVgwRoutePropagation',
-                            'State': 'active'|'blackhole',
-                            'VpcPeeringConnectionId': 'string'
+                            \'DestinationCidrBlock\': \'string\',
+                            \'DestinationIpv6CidrBlock\': \'string\',
+                            \'DestinationPrefixListId\': \'string\',
+                            \'EgressOnlyInternetGatewayId\': \'string\',
+                            \'GatewayId\': \'string\',
+                            \'InstanceId\': \'string\',
+                            \'InstanceOwnerId\': \'string\',
+                            \'NatGatewayId\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'Origin\': \'CreateRouteTable\'|\'CreateRoute\'|\'EnableVgwRoutePropagation\',
+                            \'State\': \'active\'|\'blackhole\',
+                            \'VpcPeeringConnectionId\': \'string\'
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcId': 'string'
+                    \'VpcId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -8273,7 +8273,7 @@ class Client(BaseClient):
                      
                   - **State** *(string) --* 
         
-                    The state of the route. The ``blackhole`` state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
+                    The state of the route. The ``blackhole`` state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, or the specified NAT instance has been terminated).
         
                   - **VpcPeeringConnectionId** *(string) --* 
         
@@ -8317,9 +8317,9 @@ class Client(BaseClient):
         
           EC2-VPC: You can create up to 500 security groups per VPC.
         
-        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
+        When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can\'t have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         
-        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
+        You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don\'t specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
         
@@ -8329,9 +8329,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_security_group(
-              Description='string',
-              GroupName='string',
-              VpcId='string',
+              Description=\'string\',
+              GroupName=\'string\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type Description: string
@@ -8374,7 +8374,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupId': 'string'
+                \'GroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -8408,15 +8408,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_snapshot(
-              Description='string',
-              VolumeId='string',
+              Description=\'string\',
+              VolumeId=\'string\',
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -8479,23 +8479,23 @@ class Client(BaseClient):
           ::
         
             {
-                'DataEncryptionKeyId': 'string',
-                'Description': 'string',
-                'Encrypted': True|False,
-                'KmsKeyId': 'string',
-                'OwnerId': 'string',
-                'Progress': 'string',
-                'SnapshotId': 'string',
-                'StartTime': datetime(2015, 1, 1),
-                'State': 'pending'|'completed'|'error',
-                'StateMessage': 'string',
-                'VolumeId': 'string',
-                'VolumeSize': 123,
-                'OwnerAlias': 'string',
-                'Tags': [
+                \'DataEncryptionKeyId\': \'string\',
+                \'Description\': \'string\',
+                \'Encrypted\': True|False,
+                \'KmsKeyId\': \'string\',
+                \'OwnerId\': \'string\',
+                \'Progress\': \'string\',
+                \'SnapshotId\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1),
+                \'State\': \'pending\'|\'completed\'|\'error\',
+                \'StateMessage\': \'string\',
+                \'VolumeId\': \'string\',
+                \'VolumeSize\': 123,
+                \'OwnerAlias\': \'string\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -8589,9 +8589,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_spot_datafeed_subscription(
-              Bucket='string',
+              Bucket=\'string\',
               DryRun=True|False,
-              Prefix='string'
+              Prefix=\'string\'
           )
         :type Bucket: string
         :param Bucket: **[REQUIRED]** 
@@ -8616,15 +8616,15 @@ class Client(BaseClient):
           ::
         
             {
-                'SpotDatafeedSubscription': {
-                    'Bucket': 'string',
-                    'Fault': {
-                        'Code': 'string',
-                        'Message': 'string'
+                \'SpotDatafeedSubscription\': {
+                    \'Bucket\': \'string\',
+                    \'Fault\': {
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'OwnerId': 'string',
-                    'Prefix': 'string',
-                    'State': 'Active'|'Inactive'
+                    \'OwnerId\': \'string\',
+                    \'Prefix\': \'string\',
+                    \'State\': \'Active\'|\'Inactive\'
                 }
             }
           **Response Structure** 
@@ -8671,17 +8671,17 @@ class Client(BaseClient):
     def create_subnet(self, CidrBlock: str, VpcId: str, AvailabilityZone: str = None, Ipv6CidrBlock: str = None, DryRun: bool = None) -> Dict:
         """
         
-        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+        When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can\'t change its CIDR block. The size of the subnet\'s IPv4 CIDR block can be the same as a VPC\'s IPv4 CIDR block, or a subset of a VPC\'s IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets\' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
         
-        If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
+        If you\'ve associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. 
         
         .. warning::
         
-          AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.
+          AWS reserves both the first four and the last IPv4 address in each subnet\'s CIDR block. They\'re not available for use.
         
-        If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.
+        If you add more than one subnet to a VPC, they\'re set up in a star topology with a logical router in the middle.
         
-        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.
+        If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn\'t change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It\'s therefore possible to have a subnet with no running instances (they\'re all stopped), but no remaining IP addresses available.
         
         For more information about subnets, see `Your VPC and Subnets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -8691,10 +8691,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_subnet(
-              AvailabilityZone='string',
-              CidrBlock='string',
-              Ipv6CidrBlock='string',
-              VpcId='string',
+              AvailabilityZone=\'string\',
+              CidrBlock=\'string\',
+              Ipv6CidrBlock=\'string\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type AvailabilityZone: string
@@ -8732,30 +8732,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Subnet': {
-                    'AvailabilityZone': 'string',
-                    'AvailableIpAddressCount': 123,
-                    'CidrBlock': 'string',
-                    'DefaultForAz': True|False,
-                    'MapPublicIpOnLaunch': True|False,
-                    'State': 'pending'|'available',
-                    'SubnetId': 'string',
-                    'VpcId': 'string',
-                    'AssignIpv6AddressOnCreation': True|False,
-                    'Ipv6CidrBlockAssociationSet': [
+                \'Subnet\': {
+                    \'AvailabilityZone\': \'string\',
+                    \'AvailableIpAddressCount\': 123,
+                    \'CidrBlock\': \'string\',
+                    \'DefaultForAz\': True|False,
+                    \'MapPublicIpOnLaunch\': True|False,
+                    \'State\': \'pending\'|\'available\',
+                    \'SubnetId\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'AssignIpv6AddressOnCreation\': True|False,
+                    \'Ipv6CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'Ipv6CidrBlock': 'string',
-                            'Ipv6CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'Ipv6CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -8858,7 +8858,7 @@ class Client(BaseClient):
     def create_tags(self, Resources: List, Tags: List, DryRun: bool = None) -> NoReturn:
         """
         
-        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        For more information about tags, see `Tagging Your Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users\' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -8868,12 +8868,12 @@ class Client(BaseClient):
           response = client.create_tags(
               DryRun=True|False,
               Resources=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -8892,7 +8892,7 @@ class Client(BaseClient):
         :type Tags: list
         :param Tags: **[REQUIRED]** 
         
-          One or more tags. The ``value`` parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
+          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string. 
         
           - *(dict) --* 
         
@@ -8931,21 +8931,21 @@ class Client(BaseClient):
         ::
         
           response = client.create_volume(
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               Encrypted=True|False,
               Iops=123,
-              KmsKeyId='string',
+              KmsKeyId=\'string\',
               Size=123,
-              SnapshotId='string',
-              VolumeType='standard'|'io1'|'gp2'|'sc1'|'st1',
+              SnapshotId=\'string\',
+              VolumeType=\'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
               DryRun=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -8992,7 +8992,7 @@ class Client(BaseClient):
         
           Constraints: 1-16384 for ``gp2`` , 4-16384 for ``io1`` , 500-16384 for ``st1`` , 500-16384 for ``sc1`` , and 1-1024 for ``standard`` . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-          Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+          Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
         :type SnapshotId: string
         :param SnapshotId: 
@@ -9052,32 +9052,32 @@ class Client(BaseClient):
           ::
         
             {
-                'Attachments': [
+                \'Attachments\': [
                     {
-                        'AttachTime': datetime(2015, 1, 1),
-                        'Device': 'string',
-                        'InstanceId': 'string',
-                        'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                        'VolumeId': 'string',
-                        'DeleteOnTermination': True|False
+                        \'AttachTime\': datetime(2015, 1, 1),
+                        \'Device\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                        \'VolumeId\': \'string\',
+                        \'DeleteOnTermination\': True|False
                     },
                 ],
-                'AvailabilityZone': 'string',
-                'CreateTime': datetime(2015, 1, 1),
-                'Encrypted': True|False,
-                'KmsKeyId': 'string',
-                'Size': 123,
-                'SnapshotId': 'string',
-                'State': 'creating'|'available'|'in-use'|'deleting'|'deleted'|'error',
-                'VolumeId': 'string',
-                'Iops': 123,
-                'Tags': [
+                \'AvailabilityZone\': \'string\',
+                \'CreateTime\': datetime(2015, 1, 1),
+                \'Encrypted\': True|False,
+                \'KmsKeyId\': \'string\',
+                \'Size\': 123,
+                \'SnapshotId\': \'string\',
+                \'State\': \'creating\'|\'available\'|\'in-use\'|\'deleting\'|\'deleted\'|\'error\',
+                \'VolumeId\': \'string\',
+                \'Iops\': 123,
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
             }
           **Response Structure** 
         
@@ -9187,11 +9187,11 @@ class Client(BaseClient):
     def create_vpc(self, CidrBlock: str, AmazonProvidedIpv6CidrBlock: bool = None, DryRun: bool = None, InstanceTenancy: str = None) -> Dict:
         """
         
-        You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.
+        You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon\'s pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.
         
         By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see `DHCP Options Sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
-        You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see `Dedicated Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You can specify the instance tenancy value for the VPC when you create it. You can\'t change this value for the VPC after you create it. For more information, see `Dedicated Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpc>`_
         
@@ -9199,10 +9199,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpc(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               AmazonProvidedIpv6CidrBlock=True|False,
               DryRun=True|False,
-              InstanceTenancy='default'|'dedicated'|'host'
+              InstanceTenancy=\'default\'|\'dedicated\'|\'host\'
           )
         :type CidrBlock: string
         :param CidrBlock: **[REQUIRED]** 
@@ -9236,37 +9236,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Vpc': {
-                    'CidrBlock': 'string',
-                    'DhcpOptionsId': 'string',
-                    'State': 'pending'|'available',
-                    'VpcId': 'string',
-                    'InstanceTenancy': 'default'|'dedicated'|'host',
-                    'Ipv6CidrBlockAssociationSet': [
+                \'Vpc\': {
+                    \'CidrBlock\': \'string\',
+                    \'DhcpOptionsId\': \'string\',
+                    \'State\': \'pending\'|\'available\',
+                    \'VpcId\': \'string\',
+                    \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                    \'Ipv6CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'Ipv6CidrBlock': 'string',
-                            'Ipv6CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'Ipv6CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'CidrBlockAssociationSet': [
+                    \'CidrBlockAssociationSet\': [
                         {
-                            'AssociationId': 'string',
-                            'CidrBlock': 'string',
-                            'CidrBlockState': {
-                                'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                'StatusMessage': 'string'
+                            \'AssociationId\': \'string\',
+                            \'CidrBlock\': \'string\',
+                            \'CidrBlockState\': {
+                                \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                \'StatusMessage\': \'string\'
                             }
                         },
                     ],
-                    'IsDefault': True|False,
-                    'Tags': [
+                    \'IsDefault\': True|False,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -9285,7 +9285,7 @@ class Client(BaseClient):
         
               - **DhcpOptionsId** *(string) --* 
         
-                The ID of the set of DHCP options you've associated with the VPC (or ``default`` if the default options are associated with the VPC).
+                The ID of the set of DHCP options you\'ve associated with the VPC (or ``default`` if the default options are associated with the VPC).
         
               - **State** *(string) --* 
         
@@ -9398,20 +9398,20 @@ class Client(BaseClient):
         
           response = client.create_vpc_endpoint(
               DryRun=True|False,
-              VpcEndpointType='Interface'|'Gateway',
-              VpcId='string',
-              ServiceName='string',
-              PolicyDocument='string',
+              VpcEndpointType=\'Interface\'|\'Gateway\',
+              VpcId=\'string\',
+              ServiceName=\'string\',
+              PolicyDocument=\'string\',
               RouteTableIds=[
-                  'string',
+                  \'string\',
               ],
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              ClientToken='string',
+              ClientToken=\'string\',
               PrivateDnsEnabled=True|False
           )
         :type DryRun: boolean
@@ -9484,38 +9484,38 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcEndpoint': {
-                    'VpcEndpointId': 'string',
-                    'VpcEndpointType': 'Interface'|'Gateway',
-                    'VpcId': 'string',
-                    'ServiceName': 'string',
-                    'State': 'PendingAcceptance'|'Pending'|'Available'|'Deleting'|'Deleted'|'Rejected'|'Failed'|'Expired',
-                    'PolicyDocument': 'string',
-                    'RouteTableIds': [
-                        'string',
+                \'VpcEndpoint\': {
+                    \'VpcEndpointId\': \'string\',
+                    \'VpcEndpointType\': \'Interface\'|\'Gateway\',
+                    \'VpcId\': \'string\',
+                    \'ServiceName\': \'string\',
+                    \'State\': \'PendingAcceptance\'|\'Pending\'|\'Available\'|\'Deleting\'|\'Deleted\'|\'Rejected\'|\'Failed\'|\'Expired\',
+                    \'PolicyDocument\': \'string\',
+                    \'RouteTableIds\': [
+                        \'string\',
                     ],
-                    'SubnetIds': [
-                        'string',
+                    \'SubnetIds\': [
+                        \'string\',
                     ],
-                    'Groups': [
+                    \'Groups\': [
                         {
-                            'GroupId': 'string',
-                            'GroupName': 'string'
+                            \'GroupId\': \'string\',
+                            \'GroupName\': \'string\'
                         },
                     ],
-                    'PrivateDnsEnabled': True|False,
-                    'NetworkInterfaceIds': [
-                        'string',
+                    \'PrivateDnsEnabled\': True|False,
+                    \'NetworkInterfaceIds\': [
+                        \'string\',
                     ],
-                    'DnsEntries': [
+                    \'DnsEntries\': [
                         {
-                            'DnsName': 'string',
-                            'HostedZoneId': 'string'
+                            \'DnsName\': \'string\',
+                            \'HostedZoneId\': \'string\'
                         },
                     ],
-                    'CreationTimestamp': datetime(2015, 1, 1)
+                    \'CreationTimestamp\': datetime(2015, 1, 1)
                 },
-                'ClientToken': 'string'
+                \'ClientToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9628,13 +9628,13 @@ class Client(BaseClient):
         
           response = client.create_vpc_endpoint_connection_notification(
               DryRun=True|False,
-              ServiceId='string',
-              VpcEndpointId='string',
-              ConnectionNotificationArn='string',
+              ServiceId=\'string\',
+              VpcEndpointId=\'string\',
+              ConnectionNotificationArn=\'string\',
               ConnectionEvents=[
-                  'string',
+                  \'string\',
               ],
-              ClientToken='string'
+              ClientToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -9676,18 +9676,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ConnectionNotification': {
-                    'ConnectionNotificationId': 'string',
-                    'ServiceId': 'string',
-                    'VpcEndpointId': 'string',
-                    'ConnectionNotificationType': 'Topic',
-                    'ConnectionNotificationArn': 'string',
-                    'ConnectionEvents': [
-                        'string',
+                \'ConnectionNotification\': {
+                    \'ConnectionNotificationId\': \'string\',
+                    \'ServiceId\': \'string\',
+                    \'VpcEndpointId\': \'string\',
+                    \'ConnectionNotificationType\': \'Topic\',
+                    \'ConnectionNotificationArn\': \'string\',
+                    \'ConnectionEvents\': [
+                        \'string\',
                     ],
-                    'ConnectionNotificationState': 'Enabled'|'Disabled'
+                    \'ConnectionNotificationState\': \'Enabled\'|\'Disabled\'
                 },
-                'ClientToken': 'string'
+                \'ClientToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9748,9 +9748,9 @@ class Client(BaseClient):
               DryRun=True|False,
               AcceptanceRequired=True|False,
               NetworkLoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
-              ClientToken='string'
+              ClientToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -9782,28 +9782,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceConfiguration': {
-                    'ServiceType': [
+                \'ServiceConfiguration\': {
+                    \'ServiceType\': [
                         {
-                            'ServiceType': 'Interface'|'Gateway'
+                            \'ServiceType\': \'Interface\'|\'Gateway\'
                         },
                     ],
-                    'ServiceId': 'string',
-                    'ServiceName': 'string',
-                    'ServiceState': 'Pending'|'Available'|'Deleting'|'Deleted'|'Failed',
-                    'AvailabilityZones': [
-                        'string',
+                    \'ServiceId\': \'string\',
+                    \'ServiceName\': \'string\',
+                    \'ServiceState\': \'Pending\'|\'Available\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                    \'AvailabilityZones\': [
+                        \'string\',
                     ],
-                    'AcceptanceRequired': True|False,
-                    'NetworkLoadBalancerArns': [
-                        'string',
+                    \'AcceptanceRequired\': True|False,
+                    \'NetworkLoadBalancerArns\': [
+                        \'string\',
                     ],
-                    'BaseEndpointDnsNames': [
-                        'string',
+                    \'BaseEndpointDnsNames\': [
+                        \'string\',
                     ],
-                    'PrivateDnsName': 'string'
+                    \'PrivateDnsName\': \'string\'
                 },
-                'ClientToken': 'string'
+                \'ClientToken\': \'string\'
             }
           **Response Structure** 
         
@@ -9888,10 +9888,10 @@ class Client(BaseClient):
         
           response = client.create_vpc_peering_connection(
               DryRun=True|False,
-              PeerOwnerId='string',
-              PeerVpcId='string',
-              VpcId='string',
-              PeerRegion='string'
+              PeerOwnerId=\'string\',
+              PeerVpcId=\'string\',
+              VpcId=\'string\',
+              PeerRegion=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -9930,61 +9930,61 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringConnection': {
-                    'AccepterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                \'VpcPeeringConnection\': {
+                    \'AccepterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'ExpirationTime': datetime(2015, 1, 1),
-                    'RequesterVpcInfo': {
-                        'CidrBlock': 'string',
-                        'Ipv6CidrBlockSet': [
+                    \'ExpirationTime\': datetime(2015, 1, 1),
+                    \'RequesterVpcInfo\': {
+                        \'CidrBlock\': \'string\',
+                        \'Ipv6CidrBlockSet\': [
                             {
-                                'Ipv6CidrBlock': 'string'
+                                \'Ipv6CidrBlock\': \'string\'
                             },
                         ],
-                        'CidrBlockSet': [
+                        \'CidrBlockSet\': [
                             {
-                                'CidrBlock': 'string'
+                                \'CidrBlock\': \'string\'
                             },
                         ],
-                        'OwnerId': 'string',
-                        'PeeringOptions': {
-                            'AllowDnsResolutionFromRemoteVpc': True|False,
-                            'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                            'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                        \'OwnerId\': \'string\',
+                        \'PeeringOptions\': {
+                            \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                            \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                         },
-                        'VpcId': 'string',
-                        'Region': 'string'
+                        \'VpcId\': \'string\',
+                        \'Region\': \'string\'
                     },
-                    'Status': {
-                        'Code': 'initiating-request'|'pending-acceptance'|'active'|'deleted'|'rejected'|'failed'|'expired'|'provisioning'|'deleting',
-                        'Message': 'string'
+                    \'Status\': {
+                        \'Code\': \'initiating-request\'|\'pending-acceptance\'|\'active\'|\'deleted\'|\'rejected\'|\'failed\'|\'expired\'|\'provisioning\'|\'deleting\',
+                        \'Message\': \'string\'
                     },
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VpcPeeringConnectionId': 'string'
+                    \'VpcPeeringConnectionId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -10169,7 +10169,7 @@ class Client(BaseClient):
         
         If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.
         
-        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
         
         For more information, see `AWS Managed VPN Connections <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
@@ -10179,16 +10179,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpn_connection(
-              CustomerGatewayId='string',
-              Type='string',
-              VpnGatewayId='string',
+              CustomerGatewayId=\'string\',
+              Type=\'string\',
+              VpnGatewayId=\'string\',
               DryRun=True|False,
               Options={
-                  'StaticRoutesOnly': True|False,
-                  'TunnelOptions': [
+                  \'StaticRoutesOnly\': True|False,
+                  \'TunnelOptions\': [
                       {
-                          'TunnelInsideCidr': 'string',
-                          'PreSharedKey': 'string'
+                          \'TunnelInsideCidr\': \'string\',
+                          \'PreSharedKey\': \'string\'
                       },
                   ]
               }
@@ -10266,37 +10266,37 @@ class Client(BaseClient):
           ::
         
             {
-                'VpnConnection': {
-                    'CustomerGatewayConfiguration': 'string',
-                    'CustomerGatewayId': 'string',
-                    'Category': 'string',
-                    'State': 'pending'|'available'|'deleting'|'deleted',
-                    'Type': 'ipsec.1',
-                    'VpnConnectionId': 'string',
-                    'VpnGatewayId': 'string',
-                    'Options': {
-                        'StaticRoutesOnly': True|False
+                \'VpnConnection\': {
+                    \'CustomerGatewayConfiguration\': \'string\',
+                    \'CustomerGatewayId\': \'string\',
+                    \'Category\': \'string\',
+                    \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                    \'Type\': \'ipsec.1\',
+                    \'VpnConnectionId\': \'string\',
+                    \'VpnGatewayId\': \'string\',
+                    \'Options\': {
+                        \'StaticRoutesOnly\': True|False
                     },
-                    'Routes': [
+                    \'Routes\': [
                         {
-                            'DestinationCidrBlock': 'string',
-                            'Source': 'Static',
-                            'State': 'pending'|'available'|'deleting'|'deleted'
+                            \'DestinationCidrBlock\': \'string\',
+                            \'Source\': \'Static\',
+                            \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\'
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'VgwTelemetry': [
+                    \'VgwTelemetry\': [
                         {
-                            'AcceptedRouteCount': 123,
-                            'LastStatusChange': datetime(2015, 1, 1),
-                            'OutsideIpAddress': 'string',
-                            'Status': 'UP'|'DOWN',
-                            'StatusMessage': 'string'
+                            \'AcceptedRouteCount\': 123,
+                            \'LastStatusChange\': datetime(2015, 1, 1),
+                            \'OutsideIpAddress\': \'string\',
+                            \'Status\': \'UP\'|\'DOWN\',
+                            \'StatusMessage\': \'string\'
                         },
                     ]
                 }
@@ -10313,7 +10313,7 @@ class Client(BaseClient):
         
               - **CustomerGatewayConfiguration** *(string) --* 
         
-                The configuration information for the VPN connection's customer gateway (in the native XML format). This element is always present in the  CreateVpnConnection response; however, it's present in the  DescribeVpnConnections response only if the VPN connection is in the ``pending`` or ``available`` state.
+                The configuration information for the VPN connection\'s customer gateway (in the native XML format). This element is always present in the  CreateVpnConnection response; however, it\'s present in the  DescribeVpnConnections response only if the VPN connection is in the ``pending`` or ``available`` state.
         
               - **CustomerGatewayId** *(string) --* 
         
@@ -10345,7 +10345,7 @@ class Client(BaseClient):
         
                 - **StaticRoutesOnly** *(boolean) --* 
         
-                  Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+                  Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don\'t support BGP.
         
               - **Routes** *(list) --* 
         
@@ -10405,7 +10405,7 @@ class Client(BaseClient):
         
                   - **OutsideIpAddress** *(string) --* 
         
-                    The Internet-routable IP address of the virtual private gateway's outside interface.
+                    The Internet-routable IP address of the virtual private gateway\'s outside interface.
         
                   - **Status** *(string) --* 
         
@@ -10429,8 +10429,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpn_connection_route(
-              DestinationCidrBlock='string',
-              VpnConnectionId='string'
+              DestinationCidrBlock=\'string\',
+              VpnConnectionId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: **[REQUIRED]** 
@@ -10457,8 +10457,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpn_gateway(
-              AvailabilityZone='string',
-              Type='ipsec.1',
+              AvailabilityZone=\'string\',
+              Type=\'ipsec.1\',
               AmazonSideAsn=123,
               DryRun=True|False
           )
@@ -10475,7 +10475,7 @@ class Client(BaseClient):
         :type AmazonSideAsn: integer
         :param AmazonSideAsn: 
         
-          A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.
+          A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534 range. If you\'re using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.
         
           Default: 64512
         
@@ -10492,22 +10492,22 @@ class Client(BaseClient):
           ::
         
             {
-                'VpnGateway': {
-                    'AvailabilityZone': 'string',
-                    'State': 'pending'|'available'|'deleting'|'deleted',
-                    'Type': 'ipsec.1',
-                    'VpcAttachments': [
+                \'VpnGateway\': {
+                    \'AvailabilityZone\': \'string\',
+                    \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                    \'Type\': \'ipsec.1\',
+                    \'VpcAttachments\': [
                         {
-                            'State': 'attaching'|'attached'|'detaching'|'detached',
-                            'VpcId': 'string'
+                            \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                            \'VpcId\': \'string\'
                         },
                     ],
-                    'VpnGatewayId': 'string',
-                    'AmazonSideAsn': 123,
-                    'Tags': [
+                    \'VpnGatewayId\': \'string\',
+                    \'AmazonSideAsn\': 123,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -10590,7 +10590,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_customer_gateway(
-              CustomerGatewayId='string',
+              CustomerGatewayId=\'string\',
               DryRun=True|False
           )
         :type CustomerGatewayId: string
@@ -10616,7 +10616,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_dhcp_options(
-              DhcpOptionsId='string',
+              DhcpOptionsId=\'string\',
               DryRun=True|False
           )
         :type DhcpOptionsId: string
@@ -10643,7 +10643,7 @@ class Client(BaseClient):
         
           response = client.delete_egress_only_internet_gateway(
               DryRun=True|False,
-              EgressOnlyInternetGatewayId='string'
+              EgressOnlyInternetGatewayId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -10663,7 +10663,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReturnCode': True|False
+                \'ReturnCode\': True|False
             }
           **Response Structure** 
         
@@ -10689,7 +10689,7 @@ class Client(BaseClient):
           response = client.delete_fleets(
               DryRun=True|False,
               FleetIds=[
-                  'string',
+                  \'string\',
               ],
               TerminateInstances=True|False
           )
@@ -10718,20 +10718,20 @@ class Client(BaseClient):
           ::
         
             {
-                'SuccessfulFleetDeletions': [
+                \'SuccessfulFleetDeletions\': [
                     {
-                        'CurrentFleetState': 'submitted'|'active'|'deleted'|'failed'|'deleted-running'|'deleted-terminating'|'modifying',
-                        'PreviousFleetState': 'submitted'|'active'|'deleted'|'failed'|'deleted-running'|'deleted-terminating'|'modifying',
-                        'FleetId': 'string'
+                        \'CurrentFleetState\': \'submitted\'|\'active\'|\'deleted\'|\'failed\'|\'deleted-running\'|\'deleted-terminating\'|\'modifying\',
+                        \'PreviousFleetState\': \'submitted\'|\'active\'|\'deleted\'|\'failed\'|\'deleted-running\'|\'deleted-terminating\'|\'modifying\',
+                        \'FleetId\': \'string\'
                     },
                 ],
-                'UnsuccessfulFleetDeletions': [
+                \'UnsuccessfulFleetDeletions\': [
                     {
-                        'Error': {
-                            'Code': 'fleetIdDoesNotExist'|'fleetIdMalformed'|'fleetNotInDeletableState'|'unexpectedError',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'fleetIdDoesNotExist\'|\'fleetIdMalformed\'|\'fleetNotInDeletableState\'|\'unexpectedError\',
+                            \'Message\': \'string\'
                         },
-                        'FleetId': 'string'
+                        \'FleetId\': \'string\'
                     },
                 ]
             }
@@ -10797,7 +10797,7 @@ class Client(BaseClient):
           response = client.delete_flow_logs(
               DryRun=True|False,
               FlowLogIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -10820,13 +10820,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -10871,7 +10871,7 @@ class Client(BaseClient):
         
           response = client.delete_fpga_image(
               DryRun=True|False,
-              FpgaImageId='string'
+              FpgaImageId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -10891,7 +10891,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -10914,7 +10914,7 @@ class Client(BaseClient):
         
           response = client.delete_internet_gateway(
               DryRun=True|False,
-              InternetGatewayId='string'
+              InternetGatewayId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -10939,7 +10939,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_key_pair(
-              KeyName='string',
+              KeyName=\'string\',
               DryRun=True|False
           )
         :type KeyName: string
@@ -10966,8 +10966,8 @@ class Client(BaseClient):
         
           response = client.delete_launch_template(
               DryRun=True|False,
-              LaunchTemplateId='string',
-              LaunchTemplateName='string'
+              LaunchTemplateId=\'string\',
+              LaunchTemplateName=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -10992,17 +10992,17 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplate': {
-                    'LaunchTemplateId': 'string',
-                    'LaunchTemplateName': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'CreatedBy': 'string',
-                    'DefaultVersionNumber': 123,
-                    'LatestVersionNumber': 123,
-                    'Tags': [
+                \'LaunchTemplate\': {
+                    \'LaunchTemplateId\': \'string\',
+                    \'LaunchTemplateName\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'CreatedBy\': \'string\',
+                    \'DefaultVersionNumber\': 123,
+                    \'LatestVersionNumber\': 123,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -11072,10 +11072,10 @@ class Client(BaseClient):
         
           response = client.delete_launch_template_versions(
               DryRun=True|False,
-              LaunchTemplateId='string',
-              LaunchTemplateName='string',
+              LaunchTemplateId=\'string\',
+              LaunchTemplateName=\'string\',
               Versions=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -11108,21 +11108,21 @@ class Client(BaseClient):
           ::
         
             {
-                'SuccessfullyDeletedLaunchTemplateVersions': [
+                \'SuccessfullyDeletedLaunchTemplateVersions\': [
                     {
-                        'LaunchTemplateId': 'string',
-                        'LaunchTemplateName': 'string',
-                        'VersionNumber': 123
+                        \'LaunchTemplateId\': \'string\',
+                        \'LaunchTemplateName\': \'string\',
+                        \'VersionNumber\': 123
                     },
                 ],
-                'UnsuccessfullyDeletedLaunchTemplateVersions': [
+                \'UnsuccessfullyDeletedLaunchTemplateVersions\': [
                     {
-                        'LaunchTemplateId': 'string',
-                        'LaunchTemplateName': 'string',
-                        'VersionNumber': 123,
-                        'ResponseError': {
-                            'Code': 'launchTemplateIdDoesNotExist'|'launchTemplateIdMalformed'|'launchTemplateNameDoesNotExist'|'launchTemplateNameMalformed'|'launchTemplateVersionDoesNotExist'|'unexpectedError',
-                            'Message': 'string'
+                        \'LaunchTemplateId\': \'string\',
+                        \'LaunchTemplateName\': \'string\',
+                        \'VersionNumber\': 123,
+                        \'ResponseError\': {
+                            \'Code\': \'launchTemplateIdDoesNotExist\'|\'launchTemplateIdMalformed\'|\'launchTemplateNameDoesNotExist\'|\'launchTemplateNameMalformed\'|\'launchTemplateVersionDoesNotExist\'|\'unexpectedError\',
+                            \'Message\': \'string\'
                         }
                     },
                 ]
@@ -11195,7 +11195,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_nat_gateway(
-              NatGatewayId='string'
+              NatGatewayId=\'string\'
           )
         :type NatGatewayId: string
         :param NatGatewayId: **[REQUIRED]** 
@@ -11210,7 +11210,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NatGatewayId': 'string'
+                \'NatGatewayId\': \'string\'
             }
           **Response Structure** 
         
@@ -11233,7 +11233,7 @@ class Client(BaseClient):
         
           response = client.delete_network_acl(
               DryRun=True|False,
-              NetworkAclId='string'
+              NetworkAclId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11260,7 +11260,7 @@ class Client(BaseClient):
           response = client.delete_network_acl_entry(
               DryRun=True|False,
               Egress=True|False,
-              NetworkAclId='string',
+              NetworkAclId=\'string\',
               RuleNumber=123
           )
         :type DryRun: boolean
@@ -11297,7 +11297,7 @@ class Client(BaseClient):
         
           response = client.delete_network_interface(
               DryRun=True|False,
-              NetworkInterfaceId='string'
+              NetworkInterfaceId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11322,7 +11322,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_network_interface_permission(
-              NetworkInterfacePermissionId='string',
+              NetworkInterfacePermissionId=\'string\',
               Force=True|False,
               DryRun=True|False
           )
@@ -11349,7 +11349,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11374,7 +11374,7 @@ class Client(BaseClient):
         
           response = client.delete_placement_group(
               DryRun=True|False,
-              GroupName='string'
+              GroupName=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11399,10 +11399,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_route(
-              DestinationCidrBlock='string',
-              DestinationIpv6CidrBlock='string',
+              DestinationCidrBlock=\'string\',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
-              RouteTableId='string'
+              RouteTableId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: 
@@ -11438,7 +11438,7 @@ class Client(BaseClient):
         
           response = client.delete_route_table(
               DryRun=True|False,
-              RouteTableId='string'
+              RouteTableId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11465,8 +11465,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_security_group(
-              GroupId='string',
-              GroupName='string',
+              GroupId=\'string\',
+              GroupName=\'string\',
               DryRun=True|False
           )
         :type GroupId: string
@@ -11503,7 +11503,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_snapshot(
-              SnapshotId='string',
+              SnapshotId=\'string\',
               DryRun=True|False
           )
         :type SnapshotId: string
@@ -11549,7 +11549,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_subnet(
-              SubnetId='string',
+              SubnetId=\'string\',
               DryRun=True|False
           )
         :type SubnetId: string
@@ -11579,12 +11579,12 @@ class Client(BaseClient):
           response = client.delete_tags(
               DryRun=True|False,
               Resources=[
-                  'string',
+                  \'string\',
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -11640,7 +11640,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_volume(
-              VolumeId='string',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type VolumeId: string
@@ -11666,7 +11666,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpc(
-              VpcId='string',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type VpcId: string
@@ -11694,7 +11694,7 @@ class Client(BaseClient):
           response = client.delete_vpc_endpoint_connection_notifications(
               DryRun=True|False,
               ConnectionNotificationIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -11717,13 +11717,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -11769,7 +11769,7 @@ class Client(BaseClient):
           response = client.delete_vpc_endpoint_service_configurations(
               DryRun=True|False,
               ServiceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -11792,13 +11792,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -11844,7 +11844,7 @@ class Client(BaseClient):
           response = client.delete_vpc_endpoints(
               DryRun=True|False,
               VpcEndpointIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -11867,13 +11867,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -11920,7 +11920,7 @@ class Client(BaseClient):
         
           response = client.delete_vpc_peering_connection(
               DryRun=True|False,
-              VpcPeeringConnectionId='string'
+              VpcPeeringConnectionId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -11940,7 +11940,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -11956,7 +11956,7 @@ class Client(BaseClient):
     def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None) -> NoReturn:
         """
         
-        If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway using the new configuration information returned with the new VPN connection ID.
+        If you\'re deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway using the new configuration information returned with the new VPN connection ID.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnection>`_
         
@@ -11964,7 +11964,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpn_connection(
-              VpnConnectionId='string',
+              VpnConnectionId=\'string\',
               DryRun=True|False
           )
         :type VpnConnectionId: string
@@ -11990,8 +11990,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpn_connection_route(
-              DestinationCidrBlock='string',
-              VpnConnectionId='string'
+              DestinationCidrBlock=\'string\',
+              VpnConnectionId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: **[REQUIRED]** 
@@ -12016,7 +12016,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpn_gateway(
-              VpnGatewayId='string',
+              VpnGatewayId=\'string\',
               DryRun=True|False
           )
         :type VpnGatewayId: string
@@ -12044,7 +12044,7 @@ class Client(BaseClient):
         ::
         
           response = client.deprovision_byoip_cidr(
-              Cidr='string',
+              Cidr=\'string\',
               DryRun=True|False
           )
         :type Cidr: string
@@ -12065,11 +12065,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ByoipCidr': {
-                    'Cidr': 'string',
-                    'Description': 'string',
-                    'StatusMessage': 'string',
-                    'State': 'advertised'|'deprovisioned'|'failed-deprovision'|'failed-provision'|'pending-deprovision'|'pending-provision'|'provisioned'
+                \'ByoipCidr\': {
+                    \'Cidr\': \'string\',
+                    \'Description\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'State\': \'advertised\'|\'deprovisioned\'|\'failed-deprovision\'|\'failed-provision\'|\'pending-deprovision\'|\'pending-provision\'|\'provisioned\'
                 }
             }
           **Response Structure** 
@@ -12102,7 +12102,7 @@ class Client(BaseClient):
     def deregister_image(self, ImageId: str, DryRun: bool = None) -> NoReturn:
         """
         
-        When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.
+        When you deregister an Amazon EBS-backed AMI, it doesn\'t affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn\'t affect the files that you uploaded to Amazon S3 when you created the AMI.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterImage>`_
         
@@ -12110,7 +12110,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_image(
-              ImageId='string',
+              ImageId=\'string\',
               DryRun=True|False
           )
         :type ImageId: string
@@ -12150,7 +12150,7 @@ class Client(BaseClient):
         
           response = client.describe_account_attributes(
               AttributeNames=[
-                  'supported-platforms'|'default-vpc',
+                  \'supported-platforms\'|\'default-vpc\',
               ],
               DryRun=True|False
           )
@@ -12174,12 +12174,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountAttributes': [
+                \'AccountAttributes\': [
                     {
-                        'AttributeName': 'string',
-                        'AttributeValues': [
+                        \'AttributeName\': \'string\',
+                        \'AttributeValues\': [
                             {
-                                'AttributeValue': 'string'
+                                \'AttributeValue\': \'string\'
                             },
                         ]
                     },
@@ -12231,17 +12231,17 @@ class Client(BaseClient):
           response = client.describe_addresses(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PublicIps=[
-                  'string',
+                  \'string\',
               ],
               AllocationIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -12335,23 +12335,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Addresses': [
+                \'Addresses\': [
                     {
-                        'InstanceId': 'string',
-                        'PublicIp': 'string',
-                        'AllocationId': 'string',
-                        'AssociationId': 'string',
-                        'Domain': 'vpc'|'standard',
-                        'NetworkInterfaceId': 'string',
-                        'NetworkInterfaceOwnerId': 'string',
-                        'PrivateIpAddress': 'string',
-                        'Tags': [
+                        \'InstanceId\': \'string\',
+                        \'PublicIp\': \'string\',
+                        \'AllocationId\': \'string\',
+                        \'AssociationId\': \'string\',
+                        \'Domain\': \'vpc\'|\'standard\',
+                        \'NetworkInterfaceId\': \'string\',
+                        \'NetworkInterfaceOwnerId\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'PublicIpv4Pool': 'string'
+                        \'PublicIpv4Pool\': \'string\'
                     },
                 ]
             }
@@ -12454,12 +12454,12 @@ class Client(BaseClient):
           ::
         
             {
-                'UseLongIdsAggregated': True|False,
-                'Statuses': [
+                \'UseLongIdsAggregated\': True|False,
+                \'Statuses\': [
                     {
-                        'Deadline': datetime(2015, 1, 1),
-                        'Resource': 'string',
-                        'UseLongIds': True|False
+                        \'Deadline\': datetime(2015, 1, 1),
+                        \'Resource\': \'string\',
+                        \'UseLongIds\': True|False
                     },
                 ]
             }
@@ -12473,7 +12473,7 @@ class Client(BaseClient):
         
             - **Statuses** *(list) --* 
         
-              Information about each resource's ID format.
+              Information about each resource\'s ID format.
         
               - *(dict) --* 
         
@@ -12507,14 +12507,14 @@ class Client(BaseClient):
           response = client.describe_availability_zones(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ZoneNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -12585,16 +12585,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AvailabilityZones': [
+                \'AvailabilityZones\': [
                     {
-                        'State': 'available'|'information'|'impaired'|'unavailable',
-                        'Messages': [
+                        \'State\': \'available\'|\'information\'|\'impaired\'|\'unavailable\',
+                        \'Messages\': [
                             {
-                                'Message': 'string'
+                                \'Message\': \'string\'
                             },
                         ],
-                        'RegionName': 'string',
-                        'ZoneName': 'string'
+                        \'RegionName\': \'string\',
+                        \'ZoneName\': \'string\'
                     },
                 ]
             }
@@ -12653,13 +12653,13 @@ class Client(BaseClient):
         
           response = client.describe_bundle_tasks(
               BundleIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -12746,27 +12746,27 @@ class Client(BaseClient):
           ::
         
             {
-                'BundleTasks': [
+                \'BundleTasks\': [
                     {
-                        'BundleId': 'string',
-                        'BundleTaskError': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'BundleId\': \'string\',
+                        \'BundleTaskError\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'InstanceId': 'string',
-                        'Progress': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'State': 'pending'|'waiting-for-shutdown'|'bundling'|'storing'|'cancelling'|'complete'|'failed',
-                        'Storage': {
-                            'S3': {
-                                'AWSAccessKeyId': 'string',
-                                'Bucket': 'string',
-                                'Prefix': 'string',
-                                'UploadPolicy': b'bytes',
-                                'UploadPolicySignature': 'string'
+                        \'InstanceId\': \'string\',
+                        \'Progress\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'State\': \'pending\'|\'waiting-for-shutdown\'|\'bundling\'|\'storing\'|\'cancelling\'|\'complete\'|\'failed\',
+                        \'Storage\': {
+                            \'S3\': {
+                                \'AWSAccessKeyId\': \'string\',
+                                \'Bucket\': \'string\',
+                                \'Prefix\': \'string\',
+                                \'UploadPolicy\': b\'bytes\',
+                                \'UploadPolicySignature\': \'string\'
                             }
                         },
-                        'UpdateTime': datetime(2015, 1, 1)
+                        \'UpdateTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -12864,7 +12864,7 @@ class Client(BaseClient):
           response = client.describe_byoip_cidrs(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -12889,15 +12889,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ByoipCidrs': [
+                \'ByoipCidrs\': [
                     {
-                        'Cidr': 'string',
-                        'Description': 'string',
-                        'StatusMessage': 'string',
-                        'State': 'advertised'|'deprovisioned'|'failed-deprovision'|'failed-provision'|'pending-deprovision'|'pending-provision'|'provisioned'
+                        \'Cidr\': \'string\',
+                        \'Description\': \'string\',
+                        \'StatusMessage\': \'string\',
+                        \'State\': \'advertised\'|\'deprovisioned\'|\'failed-deprovision\'|\'failed-provision\'|\'pending-deprovision\'|\'pending-provision\'|\'provisioned\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -12944,15 +12944,15 @@ class Client(BaseClient):
         
           response = client.describe_capacity_reservations(
               CapacityReservationIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -13027,27 +13027,27 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'CapacityReservations': [
+                \'NextToken\': \'string\',
+                \'CapacityReservations\': [
                     {
-                        'CapacityReservationId': 'string',
-                        'InstanceType': 'string',
-                        'InstancePlatform': 'Linux/UNIX'|'Red Hat Enterprise Linux'|'SUSE Linux'|'Windows'|'Windows with SQL Server'|'Windows with SQL Server Enterprise'|'Windows with SQL Server Standard'|'Windows with SQL Server Web',
-                        'AvailabilityZone': 'string',
-                        'Tenancy': 'default'|'dedicated',
-                        'TotalInstanceCount': 123,
-                        'AvailableInstanceCount': 123,
-                        'EbsOptimized': True|False,
-                        'EphemeralStorage': True|False,
-                        'State': 'active'|'expired'|'cancelled'|'pending'|'failed',
-                        'EndDate': datetime(2015, 1, 1),
-                        'EndDateType': 'unlimited'|'limited',
-                        'InstanceMatchCriteria': 'open'|'targeted',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'Tags': [
+                        \'CapacityReservationId\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'InstancePlatform\': \'Linux/UNIX\'|\'Red Hat Enterprise Linux\'|\'SUSE Linux\'|\'Windows\'|\'Windows with SQL Server\'|\'Windows with SQL Server Enterprise\'|\'Windows with SQL Server Standard\'|\'Windows with SQL Server Web\',
+                        \'AvailabilityZone\': \'string\',
+                        \'Tenancy\': \'default\'|\'dedicated\',
+                        \'TotalInstanceCount\': 123,
+                        \'AvailableInstanceCount\': 123,
+                        \'EbsOptimized\': True|False,
+                        \'EphemeralStorage\': True|False,
+                        \'State\': \'active\'|\'expired\'|\'cancelled\'|\'pending\'|\'failed\',
+                        \'EndDate\': datetime(2015, 1, 1),
+                        \'EndDateType\': \'unlimited\'|\'limited\',
+                        \'InstanceMatchCriteria\': \'open\'|\'targeted\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -13103,7 +13103,7 @@ class Client(BaseClient):
         
                 - **EbsOptimized** *(boolean) --* 
         
-                  Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+                  Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         
                 - **EphemeralStorage** *(boolean) --* 
         
@@ -13125,7 +13125,7 @@ class Client(BaseClient):
                    
                 - **EndDate** *(datetime) --* 
         
-                  The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to ``expired`` when it reaches its end date and time.
+                  The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation\'s state changes to ``expired`` when it reaches its end date and time.
         
                 - **EndDateType** *(string) --* 
         
@@ -13181,25 +13181,25 @@ class Client(BaseClient):
           response = client.describe_classic_link_instances(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
         
           One or more filters.
         
-          * ``group-id`` - The ID of a VPC security group that's associated with the instance. 
+          * ``group-id`` - The ID of a VPC security group that\'s associated with the instance. 
            
           * ``instance-id`` - The ID of the instance. 
            
@@ -13275,25 +13275,25 @@ class Client(BaseClient):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'InstanceId': 'string',
-                        'Tags': [
+                        \'InstanceId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -13370,7 +13370,7 @@ class Client(BaseClient):
         
           response = client.describe_conversion_tasks(
               ConversionTaskIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -13394,55 +13394,55 @@ class Client(BaseClient):
           ::
         
             {
-                'ConversionTasks': [
+                \'ConversionTasks\': [
                     {
-                        'ConversionTaskId': 'string',
-                        'ExpirationTime': 'string',
-                        'ImportInstance': {
-                            'Description': 'string',
-                            'InstanceId': 'string',
-                            'Platform': 'Windows',
-                            'Volumes': [
+                        \'ConversionTaskId\': \'string\',
+                        \'ExpirationTime\': \'string\',
+                        \'ImportInstance\': {
+                            \'Description\': \'string\',
+                            \'InstanceId\': \'string\',
+                            \'Platform\': \'Windows\',
+                            \'Volumes\': [
                                 {
-                                    'AvailabilityZone': 'string',
-                                    'BytesConverted': 123,
-                                    'Description': 'string',
-                                    'Image': {
-                                        'Checksum': 'string',
-                                        'Format': 'VMDK'|'RAW'|'VHD',
-                                        'ImportManifestUrl': 'string',
-                                        'Size': 123
+                                    \'AvailabilityZone\': \'string\',
+                                    \'BytesConverted\': 123,
+                                    \'Description\': \'string\',
+                                    \'Image\': {
+                                        \'Checksum\': \'string\',
+                                        \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                                        \'ImportManifestUrl\': \'string\',
+                                        \'Size\': 123
                                     },
-                                    'Status': 'string',
-                                    'StatusMessage': 'string',
-                                    'Volume': {
-                                        'Id': 'string',
-                                        'Size': 123
+                                    \'Status\': \'string\',
+                                    \'StatusMessage\': \'string\',
+                                    \'Volume\': {
+                                        \'Id\': \'string\',
+                                        \'Size\': 123
                                     }
                                 },
                             ]
                         },
-                        'ImportVolume': {
-                            'AvailabilityZone': 'string',
-                            'BytesConverted': 123,
-                            'Description': 'string',
-                            'Image': {
-                                'Checksum': 'string',
-                                'Format': 'VMDK'|'RAW'|'VHD',
-                                'ImportManifestUrl': 'string',
-                                'Size': 123
+                        \'ImportVolume\': {
+                            \'AvailabilityZone\': \'string\',
+                            \'BytesConverted\': 123,
+                            \'Description\': \'string\',
+                            \'Image\': {
+                                \'Checksum\': \'string\',
+                                \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                                \'ImportManifestUrl\': \'string\',
+                                \'Size\': 123
                             },
-                            'Volume': {
-                                'Id': 'string',
-                                'Size': 123
+                            \'Volume\': {
+                                \'Id\': \'string\',
+                                \'Size\': 123
                             }
                         },
-                        'State': 'active'|'cancelling'|'cancelled'|'completed',
-                        'StatusMessage': 'string',
-                        'Tags': [
+                        \'State\': \'active\'|\'cancelling\'|\'cancelled\'|\'completed\',
+                        \'StatusMessage\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -13468,7 +13468,7 @@ class Client(BaseClient):
         
                 - **ExpirationTime** *(string) --* 
         
-                  The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
+                  The time when the task expires. If the upload isn\'t complete before the expiration time, we automatically cancel the task.
         
                 - **ImportInstance** *(dict) --* 
         
@@ -13520,7 +13520,7 @@ class Client(BaseClient):
         
                         - **ImportManifestUrl** *(string) --* 
         
-                          A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                          A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                           For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -13578,7 +13578,7 @@ class Client(BaseClient):
         
                     - **ImportManifestUrl** *(string) --* 
         
-                      A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                      A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                       For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -13641,13 +13641,13 @@ class Client(BaseClient):
         
           response = client.describe_customer_gateways(
               CustomerGatewayIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -13667,11 +13667,11 @@ class Client(BaseClient):
         
           One or more filters.
         
-          * ``bgp-asn`` - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). 
+          * ``bgp-asn`` - The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN). 
            
           * ``customer-gateway-id`` - The ID of the customer gateway. 
            
-          * ``ip-address`` - The IP address of the customer gateway's Internet-routable external interface. 
+          * ``ip-address`` - The IP address of the customer gateway\'s Internet-routable external interface. 
            
           * ``state`` - The state of the customer gateway (``pending`` | ``available`` | ``deleting`` | ``deleted`` ). 
            
@@ -13728,17 +13728,17 @@ class Client(BaseClient):
           ::
         
             {
-                'CustomerGateways': [
+                \'CustomerGateways\': [
                     {
-                        'BgpAsn': 'string',
-                        'CustomerGatewayId': 'string',
-                        'IpAddress': 'string',
-                        'State': 'string',
-                        'Type': 'string',
-                        'Tags': [
+                        \'BgpAsn\': \'string\',
+                        \'CustomerGatewayId\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'State\': \'string\',
+                        \'Type\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -13760,7 +13760,7 @@ class Client(BaseClient):
         
                 - **BgpAsn** *(string) --* 
         
-                  The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+                  The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         
                 - **CustomerGatewayId** *(string) --* 
         
@@ -13768,7 +13768,7 @@ class Client(BaseClient):
         
                 - **IpAddress** *(string) --* 
         
-                  The Internet-routable IP address of the customer gateway's outside interface.
+                  The Internet-routable IP address of the customer gateway\'s outside interface.
         
                 - **State** *(string) --* 
         
@@ -13813,13 +13813,13 @@ class Client(BaseClient):
         
           response = client.describe_dhcp_options(
               DhcpOptionsIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
@@ -13896,23 +13896,23 @@ class Client(BaseClient):
           ::
         
             {
-                'DhcpOptions': [
+                \'DhcpOptions\': [
                     {
-                        'DhcpConfigurations': [
+                        \'DhcpConfigurations\': [
                             {
-                                'Key': 'string',
-                                'Values': [
+                                \'Key\': \'string\',
+                                \'Values\': [
                                     {
-                                        'Value': 'string'
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'DhcpOptionsId': 'string',
-                        'Tags': [
+                        \'DhcpOptionsId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -13992,10 +13992,10 @@ class Client(BaseClient):
           response = client.describe_egress_only_internet_gateways(
               DryRun=True|False,
               EgressOnlyInternetGatewayIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -14027,18 +14027,18 @@ class Client(BaseClient):
           ::
         
             {
-                'EgressOnlyInternetGateways': [
+                \'EgressOnlyInternetGateways\': [
                     {
-                        'Attachments': [
+                        \'Attachments\': [
                             {
-                                'State': 'attaching'|'attached'|'detaching'|'detached',
-                                'VpcId': 'string'
+                                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                \'VpcId\': \'string\'
                             },
                         ],
-                        'EgressOnlyInternetGatewayId': 'string'
+                        \'EgressOnlyInternetGatewayId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -14089,19 +14089,19 @@ class Client(BaseClient):
         
           response = client.describe_elastic_gpus(
               ElasticGpuIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ElasticGpuIds: list
         :param ElasticGpuIds: 
@@ -14182,20 +14182,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ElasticGpuSet': [
+                \'ElasticGpuSet\': [
                     {
-                        'ElasticGpuId': 'string',
-                        'AvailabilityZone': 'string',
-                        'ElasticGpuType': 'string',
-                        'ElasticGpuHealth': {
-                            'Status': 'OK'|'IMPAIRED'
+                        \'ElasticGpuId\': \'string\',
+                        \'AvailabilityZone\': \'string\',
+                        \'ElasticGpuType\': \'string\',
+                        \'ElasticGpuHealth\': {
+                            \'Status\': \'OK\'|\'IMPAIRED\'
                         },
-                        'ElasticGpuState': 'ATTACHED',
-                        'InstanceId': 'string'
+                        \'ElasticGpuState\': \'ATTACHED\',
+                        \'InstanceId\': \'string\'
                     },
                 ],
-                'MaxResults': 123,
-                'NextToken': 'string'
+                \'MaxResults\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -14258,7 +14258,7 @@ class Client(BaseClient):
         
           response = client.describe_export_tasks(
               ExportTaskIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ExportTaskIds: list
@@ -14276,22 +14276,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ExportTasks': [
+                \'ExportTasks\': [
                     {
-                        'Description': 'string',
-                        'ExportTaskId': 'string',
-                        'ExportToS3Task': {
-                            'ContainerFormat': 'ova',
-                            'DiskImageFormat': 'VMDK'|'RAW'|'VHD',
-                            'S3Bucket': 'string',
-                            'S3Key': 'string'
+                        \'Description\': \'string\',
+                        \'ExportTaskId\': \'string\',
+                        \'ExportToS3Task\': {
+                            \'ContainerFormat\': \'ova\',
+                            \'DiskImageFormat\': \'VMDK\'|\'RAW\'|\'VHD\',
+                            \'S3Bucket\': \'string\',
+                            \'S3Key\': \'string\'
                         },
-                        'InstanceExportDetails': {
-                            'InstanceId': 'string',
-                            'TargetEnvironment': 'citrix'|'vmware'|'microsoft'
+                        \'InstanceExportDetails\': {
+                            \'InstanceId\': \'string\',
+                            \'TargetEnvironment\': \'citrix\'|\'vmware\'|\'microsoft\'
                         },
-                        'State': 'active'|'cancelling'|'cancelled'|'completed',
-                        'StatusMessage': 'string'
+                        \'State\': \'active\'|\'cancelling\'|\'cancelled\'|\'completed\',
+                        \'StatusMessage\': \'string\'
                     },
                 ]
             }
@@ -14370,10 +14370,10 @@ class Client(BaseClient):
         
           response = client.describe_fleet_history(
               DryRun=True|False,
-              EventType='instance-change'|'fleet-change'|'service-error',
+              EventType=\'instance-change\'|\'fleet-change\'|\'service-error\',
               MaxResults=123,
-              NextToken='string',
-              FleetId='string',
+              NextToken=\'string\',
+              FleetId=\'string\',
               StartTime=datetime(2015, 1, 1)
           )
         :type DryRun: boolean
@@ -14414,21 +14414,21 @@ class Client(BaseClient):
           ::
         
             {
-                'HistoryRecords': [
+                \'HistoryRecords\': [
                     {
-                        'EventInformation': {
-                            'EventDescription': 'string',
-                            'EventSubType': 'string',
-                            'InstanceId': 'string'
+                        \'EventInformation\': {
+                            \'EventDescription\': \'string\',
+                            \'EventSubType\': \'string\',
+                            \'InstanceId\': \'string\'
                         },
-                        'EventType': 'instance-change'|'fleet-change'|'service-error',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'EventType\': \'instance-change\'|\'fleet-change\'|\'service-error\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'LastEvaluatedTime': datetime(2015, 1, 1),
-                'NextToken': 'string',
-                'FleetId': 'string',
-                'StartTime': datetime(2015, 1, 1)
+                \'LastEvaluatedTime\': datetime(2015, 1, 1),
+                \'NextToken\': \'string\',
+                \'FleetId\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -14462,7 +14462,7 @@ class Client(BaseClient):
                      
                     * ``spotFleetRequestConfigurationInvalid`` - The configuration is not valid. For more information, see the description of the event. 
                      
-                    * ``spotInstanceCountLimitExceeded`` - You've reached the limit on the number of Spot Instances that you can launch. 
+                    * ``spotInstanceCountLimitExceeded`` - You\'ve reached the limit on the number of Spot Instances that you can launch. 
                      
                     The following are the ``fleetRequestChange`` events:
         
@@ -14540,13 +14540,13 @@ class Client(BaseClient):
           response = client.describe_fleet_instances(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
-              FleetId='string',
+              NextToken=\'string\',
+              FleetId=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -14620,16 +14620,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ActiveInstances': [
+                \'ActiveInstances\': [
                     {
-                        'InstanceId': 'string',
-                        'InstanceType': 'string',
-                        'SpotInstanceRequestId': 'string',
-                        'InstanceHealth': 'healthy'|'unhealthy'
+                        \'InstanceId\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'InstanceHealth\': \'healthy\'|\'unhealthy\'
                     },
                 ],
-                'NextToken': 'string',
-                'FleetId': 'string'
+                \'NextToken\': \'string\',
+                \'FleetId\': \'string\'
             }
           **Response Structure** 
         
@@ -14681,15 +14681,15 @@ class Client(BaseClient):
           response = client.describe_fleets(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               FleetIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -14773,59 +14773,59 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Fleets': [
+                \'NextToken\': \'string\',
+                \'Fleets\': [
                     {
-                        'ActivityStatus': 'error'|'pending-fulfillment'|'pending-termination'|'fulfilled',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'FleetId': 'string',
-                        'FleetState': 'submitted'|'active'|'deleted'|'failed'|'deleted-running'|'deleted-terminating'|'modifying',
-                        'ClientToken': 'string',
-                        'ExcessCapacityTerminationPolicy': 'no-termination'|'termination',
-                        'FulfilledCapacity': 123.0,
-                        'FulfilledOnDemandCapacity': 123.0,
-                        'LaunchTemplateConfigs': [
+                        \'ActivityStatus\': \'error\'|\'pending-fulfillment\'|\'pending-termination\'|\'fulfilled\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'FleetId\': \'string\',
+                        \'FleetState\': \'submitted\'|\'active\'|\'deleted\'|\'failed\'|\'deleted-running\'|\'deleted-terminating\'|\'modifying\',
+                        \'ClientToken\': \'string\',
+                        \'ExcessCapacityTerminationPolicy\': \'no-termination\'|\'termination\',
+                        \'FulfilledCapacity\': 123.0,
+                        \'FulfilledOnDemandCapacity\': 123.0,
+                        \'LaunchTemplateConfigs\': [
                             {
-                                'LaunchTemplateSpecification': {
-                                    'LaunchTemplateId': 'string',
-                                    'LaunchTemplateName': 'string',
-                                    'Version': 'string'
+                                \'LaunchTemplateSpecification\': {
+                                    \'LaunchTemplateId\': \'string\',
+                                    \'LaunchTemplateName\': \'string\',
+                                    \'Version\': \'string\'
                                 },
-                                'Overrides': [
+                                \'Overrides\': [
                                     {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                        'MaxPrice': 'string',
-                                        'SubnetId': 'string',
-                                        'AvailabilityZone': 'string',
-                                        'WeightedCapacity': 123.0,
-                                        'Priority': 123.0
+                                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                        \'MaxPrice\': \'string\',
+                                        \'SubnetId\': \'string\',
+                                        \'AvailabilityZone\': \'string\',
+                                        \'WeightedCapacity\': 123.0,
+                                        \'Priority\': 123.0
                                     },
                                 ]
                             },
                         ],
-                        'TargetCapacitySpecification': {
-                            'TotalTargetCapacity': 123,
-                            'OnDemandTargetCapacity': 123,
-                            'SpotTargetCapacity': 123,
-                            'DefaultTargetCapacityType': 'spot'|'on-demand'
+                        \'TargetCapacitySpecification\': {
+                            \'TotalTargetCapacity\': 123,
+                            \'OnDemandTargetCapacity\': 123,
+                            \'SpotTargetCapacity\': 123,
+                            \'DefaultTargetCapacityType\': \'spot\'|\'on-demand\'
                         },
-                        'TerminateInstancesWithExpiration': True|False,
-                        'Type': 'request'|'maintain',
-                        'ValidFrom': datetime(2015, 1, 1),
-                        'ValidUntil': datetime(2015, 1, 1),
-                        'ReplaceUnhealthyInstances': True|False,
-                        'SpotOptions': {
-                            'AllocationStrategy': 'lowest-price'|'diversified',
-                            'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate',
-                            'InstancePoolsToUseCount': 123
+                        \'TerminateInstancesWithExpiration\': True|False,
+                        \'Type\': \'request\'|\'maintain\',
+                        \'ValidFrom\': datetime(2015, 1, 1),
+                        \'ValidUntil\': datetime(2015, 1, 1),
+                        \'ReplaceUnhealthyInstances\': True|False,
+                        \'SpotOptions\': {
+                            \'AllocationStrategy\': \'lowest-price\'|\'diversified\',
+                            \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\',
+                            \'InstancePoolsToUseCount\': 123
                         },
-                        'OnDemandOptions': {
-                            'AllocationStrategy': 'lowest-price'|'prioritized'
+                        \'OnDemandOptions\': {
+                            \'AllocationStrategy\': \'lowest-price\'|\'prioritized\'
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -15036,17 +15036,17 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               FlowLogIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -15129,22 +15129,22 @@ class Client(BaseClient):
           ::
         
             {
-                'FlowLogs': [
+                \'FlowLogs\': [
                     {
-                        'CreationTime': datetime(2015, 1, 1),
-                        'DeliverLogsErrorMessage': 'string',
-                        'DeliverLogsPermissionArn': 'string',
-                        'DeliverLogsStatus': 'string',
-                        'FlowLogId': 'string',
-                        'FlowLogStatus': 'string',
-                        'LogGroupName': 'string',
-                        'ResourceId': 'string',
-                        'TrafficType': 'ACCEPT'|'REJECT'|'ALL',
-                        'LogDestinationType': 'cloud-watch-logs'|'s3',
-                        'LogDestination': 'string'
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'DeliverLogsErrorMessage\': \'string\',
+                        \'DeliverLogsPermissionArn\': \'string\',
+                        \'DeliverLogsStatus\': \'string\',
+                        \'FlowLogId\': \'string\',
+                        \'FlowLogStatus\': \'string\',
+                        \'LogGroupName\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'TrafficType\': \'ACCEPT\'|\'REJECT\'|\'ALL\',
+                        \'LogDestinationType\': \'cloud-watch-logs\'|\'s3\',
+                        \'LogDestination\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -15164,7 +15164,7 @@ class Client(BaseClient):
         
                 - **DeliverLogsErrorMessage** *(string) --* 
         
-                  Information about the error that occurred. ``Rate limited`` indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. ``Access error`` indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. ``Unknown error`` indicates an internal error.
+                  Information about the error that occurred. ``Rate limited`` indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you\'ve reached the limit on the number of log groups that you can create. ``Access error`` indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. ``Unknown error`` indicates an internal error.
         
                 - **DeliverLogsPermissionArn** *(string) --* 
         
@@ -15219,8 +15219,8 @@ class Client(BaseClient):
         
           response = client.describe_fpga_image_attribute(
               DryRun=True|False,
-              FpgaImageId='string',
-              Attribute='description'|'name'|'loadPermission'|'productCodes'
+              FpgaImageId=\'string\',
+              Attribute=\'description\'|\'name\'|\'loadPermission\'|\'productCodes\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -15245,20 +15245,20 @@ class Client(BaseClient):
           ::
         
             {
-                'FpgaImageAttribute': {
-                    'FpgaImageId': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'LoadPermissions': [
+                \'FpgaImageAttribute\': {
+                    \'FpgaImageId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'LoadPermissions\': [
                         {
-                            'UserId': 'string',
-                            'Group': 'all'
+                            \'UserId\': \'string\',
+                            \'Group\': \'all\'
                         },
                     ],
-                    'ProductCodes': [
+                    \'ProductCodes\': [
                         {
-                            'ProductCodeId': 'string',
-                            'ProductCodeType': 'devpay'|'marketplace'
+                            \'ProductCodeId\': \'string\',
+                            \'ProductCodeType\': \'devpay\'|\'marketplace\'
                         },
                     ]
                 }
@@ -15329,20 +15329,20 @@ class Client(BaseClient):
           response = client.describe_fpga_images(
               DryRun=True|False,
               FpgaImageIds=[
-                  'string',
+                  \'string\',
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DryRun: boolean
@@ -15443,43 +15443,43 @@ class Client(BaseClient):
           ::
         
             {
-                'FpgaImages': [
+                \'FpgaImages\': [
                     {
-                        'FpgaImageId': 'string',
-                        'FpgaImageGlobalId': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'ShellVersion': 'string',
-                        'PciId': {
-                            'DeviceId': 'string',
-                            'VendorId': 'string',
-                            'SubsystemId': 'string',
-                            'SubsystemVendorId': 'string'
+                        \'FpgaImageId\': \'string\',
+                        \'FpgaImageGlobalId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'ShellVersion\': \'string\',
+                        \'PciId\': {
+                            \'DeviceId\': \'string\',
+                            \'VendorId\': \'string\',
+                            \'SubsystemId\': \'string\',
+                            \'SubsystemVendorId\': \'string\'
                         },
-                        'State': {
-                            'Code': 'pending'|'failed'|'available'|'unavailable',
-                            'Message': 'string'
+                        \'State\': {
+                            \'Code\': \'pending\'|\'failed\'|\'available\'|\'unavailable\',
+                            \'Message\': \'string\'
                         },
-                        'CreateTime': datetime(2015, 1, 1),
-                        'UpdateTime': datetime(2015, 1, 1),
-                        'OwnerId': 'string',
-                        'OwnerAlias': 'string',
-                        'ProductCodes': [
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'UpdateTime\': datetime(2015, 1, 1),
+                        \'OwnerId\': \'string\',
+                        \'OwnerAlias\': \'string\',
+                        \'ProductCodes\': [
                             {
-                                'ProductCodeId': 'string',
-                                'ProductCodeType': 'devpay'|'marketplace'
+                                \'ProductCodeId\': \'string\',
+                                \'ProductCodeType\': \'devpay\'|\'marketplace\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Public': True|False
+                        \'Public\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -15629,17 +15629,17 @@ class Client(BaseClient):
           response = client.describe_host_reservation_offerings(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxDuration=123,
               MaxResults=123,
               MinDuration=123,
-              NextToken='string',
-              OfferingId='string'
+              NextToken=\'string\',
+              OfferingId=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -15697,7 +15697,7 @@ class Client(BaseClient):
         :type MinDuration: integer
         :param MinDuration: 
         
-          This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
+          This is the minimum duration of the reservation you\'d like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
         
         :type NextToken: string
         :param NextToken: 
@@ -15717,16 +15717,16 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'OfferingSet': [
+                \'NextToken\': \'string\',
+                \'OfferingSet\': [
                     {
-                        'CurrencyCode': 'USD',
-                        'Duration': 123,
-                        'HourlyPrice': 'string',
-                        'InstanceFamily': 'string',
-                        'OfferingId': 'string',
-                        'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
-                        'UpfrontPrice': 'string'
+                        \'CurrencyCode\': \'USD\',
+                        \'Duration\': 123,
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceFamily\': \'string\',
+                        \'OfferingId\': \'string\',
+                        \'PaymentOption\': \'AllUpfront\'|\'PartialUpfront\'|\'NoUpfront\',
+                        \'UpfrontPrice\': \'string\'
                     },
                 ]
             }
@@ -15788,17 +15788,17 @@ class Client(BaseClient):
           response = client.describe_host_reservations(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               HostReservationIdSet=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -15870,26 +15870,26 @@ class Client(BaseClient):
           ::
         
             {
-                'HostReservationSet': [
+                \'HostReservationSet\': [
                     {
-                        'Count': 123,
-                        'CurrencyCode': 'USD',
-                        'Duration': 123,
-                        'End': datetime(2015, 1, 1),
-                        'HostIdSet': [
-                            'string',
+                        \'Count\': 123,
+                        \'CurrencyCode\': \'USD\',
+                        \'Duration\': 123,
+                        \'End\': datetime(2015, 1, 1),
+                        \'HostIdSet\': [
+                            \'string\',
                         ],
-                        'HostReservationId': 'string',
-                        'HourlyPrice': 'string',
-                        'InstanceFamily': 'string',
-                        'OfferingId': 'string',
-                        'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
-                        'Start': datetime(2015, 1, 1),
-                        'State': 'payment-pending'|'payment-failed'|'active'|'retired',
-                        'UpfrontPrice': 'string'
+                        \'HostReservationId\': \'string\',
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceFamily\': \'string\',
+                        \'OfferingId\': \'string\',
+                        \'PaymentOption\': \'AllUpfront\'|\'PartialUpfront\'|\'NoUpfront\',
+                        \'Start\': datetime(2015, 1, 1),
+                        \'State\': \'payment-pending\'|\'payment-failed\'|\'active\'|\'retired\',
+                        \'UpfrontPrice\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -15897,7 +15897,7 @@ class Client(BaseClient):
             
             - **HostReservationSet** *(list) --* 
         
-              Details about the reservation's configuration.
+              Details about the reservation\'s configuration.
         
               - *(dict) --* 
         
@@ -15913,7 +15913,7 @@ class Client(BaseClient):
         
                 - **Duration** *(integer) --* 
         
-                  The length of the reservation's term, specified in seconds. Can be ``31536000 (1 year)`` | ``94608000 (3 years)`` .
+                  The length of the reservation\'s term, specified in seconds. Can be ``31536000 (1 year)`` | ``94608000 (3 years)`` .
         
                 - **End** *(datetime) --* 
         
@@ -15967,7 +15967,7 @@ class Client(BaseClient):
     def describe_hosts(self, Filters: List = None, HostIds: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
         
-        The results describe only the Dedicated Hosts in the region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state ``released`` .
+        The results describe only the Dedicated Hosts in the region you\'re currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state ``released`` .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHosts>`_
         
@@ -15977,17 +15977,17 @@ class Client(BaseClient):
           response = client.describe_hosts(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               HostIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -16067,47 +16067,47 @@ class Client(BaseClient):
           ::
         
             {
-                'Hosts': [
+                \'Hosts\': [
                     {
-                        'AutoPlacement': 'on'|'off',
-                        'AvailabilityZone': 'string',
-                        'AvailableCapacity': {
-                            'AvailableInstanceCapacity': [
+                        \'AutoPlacement\': \'on\'|\'off\',
+                        \'AvailabilityZone\': \'string\',
+                        \'AvailableCapacity\': {
+                            \'AvailableInstanceCapacity\': [
                                 {
-                                    'AvailableCapacity': 123,
-                                    'InstanceType': 'string',
-                                    'TotalCapacity': 123
+                                    \'AvailableCapacity\': 123,
+                                    \'InstanceType\': \'string\',
+                                    \'TotalCapacity\': 123
                                 },
                             ],
-                            'AvailableVCpus': 123
+                            \'AvailableVCpus\': 123
                         },
-                        'ClientToken': 'string',
-                        'HostId': 'string',
-                        'HostProperties': {
-                            'Cores': 123,
-                            'InstanceType': 'string',
-                            'Sockets': 123,
-                            'TotalVCpus': 123
+                        \'ClientToken\': \'string\',
+                        \'HostId\': \'string\',
+                        \'HostProperties\': {
+                            \'Cores\': 123,
+                            \'InstanceType\': \'string\',
+                            \'Sockets\': 123,
+                            \'TotalVCpus\': 123
                         },
-                        'HostReservationId': 'string',
-                        'Instances': [
+                        \'HostReservationId\': \'string\',
+                        \'Instances\': [
                             {
-                                'InstanceId': 'string',
-                                'InstanceType': 'string'
+                                \'InstanceId\': \'string\',
+                                \'InstanceType\': \'string\'
                             },
                         ],
-                        'State': 'available'|'under-assessment'|'permanent-failure'|'released'|'released-permanent-failure',
-                        'AllocationTime': datetime(2015, 1, 1),
-                        'ReleaseTime': datetime(2015, 1, 1),
-                        'Tags': [
+                        \'State\': \'available\'|\'under-assessment\'|\'permanent-failure\'|\'released\'|\'released-permanent-failure\',
+                        \'AllocationTime\': datetime(2015, 1, 1),
+                        \'ReleaseTime\': datetime(2015, 1, 1),
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -16187,7 +16187,7 @@ class Client(BaseClient):
         
                 - **HostReservationId** *(string) --* 
         
-                  The reservation ID of the Dedicated Host. This returns a ``null`` response if the Dedicated Host doesn't have an associated reservation.
+                  The reservation ID of the Dedicated Host. This returns a ``null`` response if the Dedicated Host doesn\'t have an associated reservation.
         
                 - **Instances** *(list) --* 
         
@@ -16207,7 +16207,7 @@ class Client(BaseClient):
         
                 - **State** *(string) --* 
         
-                  The Dedicated Host's state.
+                  The Dedicated Host\'s state.
         
                 - **AllocationTime** *(datetime) --* 
         
@@ -16254,18 +16254,18 @@ class Client(BaseClient):
         
           response = client.describe_iam_instance_profile_associations(
               AssociationIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type AssociationIds: list
         :param AssociationIds: 
@@ -16335,19 +16335,19 @@ class Client(BaseClient):
           ::
         
             {
-                'IamInstanceProfileAssociations': [
+                \'IamInstanceProfileAssociations\': [
                     {
-                        'AssociationId': 'string',
-                        'InstanceId': 'string',
-                        'IamInstanceProfile': {
-                            'Arn': 'string',
-                            'Id': 'string'
+                        \'AssociationId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'IamInstanceProfile\': {
+                            \'Arn\': \'string\',
+                            \'Id\': \'string\'
                         },
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -16409,7 +16409,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_id_format(
-              Resource='string'
+              Resource=\'string\'
           )
         :type Resource: string
         :param Resource: 
@@ -16424,11 +16424,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Statuses': [
+                \'Statuses\': [
                     {
-                        'Deadline': datetime(2015, 1, 1),
-                        'Resource': 'string',
-                        'UseLongIds': True|False
+                        \'Deadline\': datetime(2015, 1, 1),
+                        \'Resource\': \'string\',
+                        \'UseLongIds\': True|False
                     },
                 ]
             }
@@ -16474,8 +16474,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_identity_id_format(
-              PrincipalArn='string',
-              Resource='string'
+              PrincipalArn=\'string\',
+              Resource=\'string\'
           )
         :type PrincipalArn: string
         :param PrincipalArn: **[REQUIRED]** 
@@ -16495,11 +16495,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Statuses': [
+                \'Statuses\': [
                     {
-                        'Deadline': datetime(2015, 1, 1),
-                        'Resource': 'string',
-                        'UseLongIds': True|False
+                        \'Deadline\': datetime(2015, 1, 1),
+                        \'Resource\': \'string\',
+                        \'UseLongIds\': True|False
                     },
                 ]
             }
@@ -16541,8 +16541,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_image_attribute(
-              Attribute='description'|'kernel'|'ramdisk'|'launchPermission'|'productCodes'|'blockDeviceMapping'|'sriovNetSupport',
-              ImageId='string',
+              Attribute=\'description\'|\'kernel\'|\'ramdisk\'|\'launchPermission\'|\'productCodes\'|\'blockDeviceMapping\'|\'sriovNetSupport\',
+              ImageId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -16570,46 +16570,46 @@ class Client(BaseClient):
           ::
         
             {
-                'BlockDeviceMappings': [
+                \'BlockDeviceMappings\': [
                     {
-                        'DeviceName': 'string',
-                        'VirtualName': 'string',
-                        'Ebs': {
-                            'DeleteOnTermination': True|False,
-                            'Iops': 123,
-                            'SnapshotId': 'string',
-                            'VolumeSize': 123,
-                            'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                            'Encrypted': True|False,
-                            'KmsKeyId': 'string'
+                        \'DeviceName\': \'string\',
+                        \'VirtualName\': \'string\',
+                        \'Ebs\': {
+                            \'DeleteOnTermination\': True|False,
+                            \'Iops\': 123,
+                            \'SnapshotId\': \'string\',
+                            \'VolumeSize\': 123,
+                            \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                            \'Encrypted\': True|False,
+                            \'KmsKeyId\': \'string\'
                         },
-                        'NoDevice': 'string'
+                        \'NoDevice\': \'string\'
                     },
                 ],
-                'ImageId': 'string',
-                'LaunchPermissions': [
+                \'ImageId\': \'string\',
+                \'LaunchPermissions\': [
                     {
-                        'Group': 'all',
-                        'UserId': 'string'
+                        \'Group\': \'all\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'Description': {
-                    'Value': 'string'
+                \'Description\': {
+                    \'Value\': \'string\'
                 },
-                'KernelId': {
-                    'Value': 'string'
+                \'KernelId\': {
+                    \'Value\': \'string\'
                 },
-                'RamdiskId': {
-                    'Value': 'string'
+                \'RamdiskId\': {
+                    \'Value\': \'string\'
                 },
-                'SriovNetSupport': {
-                    'Value': 'string'
+                \'SriovNetSupport\': {
+                    \'Value\': \'string\'
                 }
             }
           **Response Structure** 
@@ -16664,7 +16664,7 @@ class Client(BaseClient):
         
                     Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                    Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                    Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                   - **VolumeType** *(string) --* 
         
@@ -16773,21 +16773,21 @@ class Client(BaseClient):
         
           response = client.describe_images(
               ExecutableUsers=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImageIds=[
-                  'string',
+                  \'string\',
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -16926,60 +16926,60 @@ class Client(BaseClient):
           ::
         
             {
-                'Images': [
+                \'Images\': [
                     {
-                        'Architecture': 'i386'|'x86_64',
-                        'CreationDate': 'string',
-                        'ImageId': 'string',
-                        'ImageLocation': 'string',
-                        'ImageType': 'machine'|'kernel'|'ramdisk',
-                        'Public': True|False,
-                        'KernelId': 'string',
-                        'OwnerId': 'string',
-                        'Platform': 'Windows',
-                        'ProductCodes': [
+                        \'Architecture\': \'i386\'|\'x86_64\',
+                        \'CreationDate\': \'string\',
+                        \'ImageId\': \'string\',
+                        \'ImageLocation\': \'string\',
+                        \'ImageType\': \'machine\'|\'kernel\'|\'ramdisk\',
+                        \'Public\': True|False,
+                        \'KernelId\': \'string\',
+                        \'OwnerId\': \'string\',
+                        \'Platform\': \'Windows\',
+                        \'ProductCodes\': [
                             {
-                                'ProductCodeId': 'string',
-                                'ProductCodeType': 'devpay'|'marketplace'
+                                \'ProductCodeId\': \'string\',
+                                \'ProductCodeType\': \'devpay\'|\'marketplace\'
                             },
                         ],
-                        'RamdiskId': 'string',
-                        'State': 'pending'|'available'|'invalid'|'deregistered'|'transient'|'failed'|'error',
-                        'BlockDeviceMappings': [
+                        \'RamdiskId\': \'string\',
+                        \'State\': \'pending\'|\'available\'|\'invalid\'|\'deregistered\'|\'transient\'|\'failed\'|\'error\',
+                        \'BlockDeviceMappings\': [
                             {
-                                'DeviceName': 'string',
-                                'VirtualName': 'string',
-                                'Ebs': {
-                                    'DeleteOnTermination': True|False,
-                                    'Iops': 123,
-                                    'SnapshotId': 'string',
-                                    'VolumeSize': 123,
-                                    'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                    'Encrypted': True|False,
-                                    'KmsKeyId': 'string'
+                                \'DeviceName\': \'string\',
+                                \'VirtualName\': \'string\',
+                                \'Ebs\': {
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Iops\': 123,
+                                    \'SnapshotId\': \'string\',
+                                    \'VolumeSize\': 123,
+                                    \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                    \'Encrypted\': True|False,
+                                    \'KmsKeyId\': \'string\'
                                 },
-                                'NoDevice': 'string'
+                                \'NoDevice\': \'string\'
                             },
                         ],
-                        'Description': 'string',
-                        'EnaSupport': True|False,
-                        'Hypervisor': 'ovm'|'xen',
-                        'ImageOwnerAlias': 'string',
-                        'Name': 'string',
-                        'RootDeviceName': 'string',
-                        'RootDeviceType': 'ebs'|'instance-store',
-                        'SriovNetSupport': 'string',
-                        'StateReason': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Description\': \'string\',
+                        \'EnaSupport\': True|False,
+                        \'Hypervisor\': \'ovm\'|\'xen\',
+                        \'ImageOwnerAlias\': \'string\',
+                        \'Name\': \'string\',
+                        \'RootDeviceName\': \'string\',
+                        \'RootDeviceType\': \'ebs\'|\'instance-store\',
+                        \'SriovNetSupport\': \'string\',
+                        \'StateReason\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VirtualizationType': 'hvm'|'paravirtual'
+                        \'VirtualizationType\': \'hvm\'|\'paravirtual\'
                     },
                 ]
             }
@@ -17103,7 +17103,7 @@ class Client(BaseClient):
         
                         Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                        Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                        Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                       - **VolumeType** *(string) --* 
         
@@ -17232,17 +17232,17 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImportTaskIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -17313,40 +17313,40 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportImageTasks': [
+                \'ImportImageTasks\': [
                     {
-                        'Architecture': 'string',
-                        'Description': 'string',
-                        'Encrypted': True|False,
-                        'Hypervisor': 'string',
-                        'ImageId': 'string',
-                        'ImportTaskId': 'string',
-                        'KmsKeyId': 'string',
-                        'LicenseType': 'string',
-                        'Platform': 'string',
-                        'Progress': 'string',
-                        'SnapshotDetails': [
+                        \'Architecture\': \'string\',
+                        \'Description\': \'string\',
+                        \'Encrypted\': True|False,
+                        \'Hypervisor\': \'string\',
+                        \'ImageId\': \'string\',
+                        \'ImportTaskId\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'LicenseType\': \'string\',
+                        \'Platform\': \'string\',
+                        \'Progress\': \'string\',
+                        \'SnapshotDetails\': [
                             {
-                                'Description': 'string',
-                                'DeviceName': 'string',
-                                'DiskImageSize': 123.0,
-                                'Format': 'string',
-                                'Progress': 'string',
-                                'SnapshotId': 'string',
-                                'Status': 'string',
-                                'StatusMessage': 'string',
-                                'Url': 'string',
-                                'UserBucket': {
-                                    'S3Bucket': 'string',
-                                    'S3Key': 'string'
+                                \'Description\': \'string\',
+                                \'DeviceName\': \'string\',
+                                \'DiskImageSize\': 123.0,
+                                \'Format\': \'string\',
+                                \'Progress\': \'string\',
+                                \'SnapshotId\': \'string\',
+                                \'Status\': \'string\',
+                                \'StatusMessage\': \'string\',
+                                \'Url\': \'string\',
+                                \'UserBucket\': {
+                                    \'S3Bucket\': \'string\',
+                                    \'S3Key\': \'string\'
                                 }
                             },
                         ],
-                        'Status': 'string',
-                        'StatusMessage': 'string'
+                        \'Status\': \'string\',
+                        \'StatusMessage\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -17489,17 +17489,17 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImportTaskIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -17570,29 +17570,29 @@ class Client(BaseClient):
           ::
         
             {
-                'ImportSnapshotTasks': [
+                \'ImportSnapshotTasks\': [
                     {
-                        'Description': 'string',
-                        'ImportTaskId': 'string',
-                        'SnapshotTaskDetail': {
-                            'Description': 'string',
-                            'DiskImageSize': 123.0,
-                            'Encrypted': True|False,
-                            'Format': 'string',
-                            'KmsKeyId': 'string',
-                            'Progress': 'string',
-                            'SnapshotId': 'string',
-                            'Status': 'string',
-                            'StatusMessage': 'string',
-                            'Url': 'string',
-                            'UserBucket': {
-                                'S3Bucket': 'string',
-                                'S3Key': 'string'
+                        \'Description\': \'string\',
+                        \'ImportTaskId\': \'string\',
+                        \'SnapshotTaskDetail\': {
+                            \'Description\': \'string\',
+                            \'DiskImageSize\': 123.0,
+                            \'Encrypted\': True|False,
+                            \'Format\': \'string\',
+                            \'KmsKeyId\': \'string\',
+                            \'Progress\': \'string\',
+                            \'SnapshotId\': \'string\',
+                            \'Status\': \'string\',
+                            \'StatusMessage\': \'string\',
+                            \'Url\': \'string\',
+                            \'UserBucket\': {
+                                \'S3Bucket\': \'string\',
+                                \'S3Key\': \'string\'
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -17688,9 +17688,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_instance_attribute(
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               DryRun=True|False,
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type Attribute: string
         :param Attribute: **[REQUIRED]** 
@@ -17717,62 +17717,62 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'BlockDeviceMappings': [
+                \'BlockDeviceMappings\': [
                     {
-                        'DeviceName': 'string',
-                        'Ebs': {
-                            'AttachTime': datetime(2015, 1, 1),
-                            'DeleteOnTermination': True|False,
-                            'Status': 'attaching'|'attached'|'detaching'|'detached',
-                            'VolumeId': 'string'
+                        \'DeviceName\': \'string\',
+                        \'Ebs\': {
+                            \'AttachTime\': datetime(2015, 1, 1),
+                            \'DeleteOnTermination\': True|False,
+                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                            \'VolumeId\': \'string\'
                         }
                     },
                 ],
-                'DisableApiTermination': {
-                    'Value': True|False
+                \'DisableApiTermination\': {
+                    \'Value\': True|False
                 },
-                'EnaSupport': {
-                    'Value': True|False
+                \'EnaSupport\': {
+                    \'Value\': True|False
                 },
-                'EbsOptimized': {
-                    'Value': True|False
+                \'EbsOptimized\': {
+                    \'Value\': True|False
                 },
-                'InstanceId': 'string',
-                'InstanceInitiatedShutdownBehavior': {
-                    'Value': 'string'
+                \'InstanceId\': \'string\',
+                \'InstanceInitiatedShutdownBehavior\': {
+                    \'Value\': \'string\'
                 },
-                'InstanceType': {
-                    'Value': 'string'
+                \'InstanceType\': {
+                    \'Value\': \'string\'
                 },
-                'KernelId': {
-                    'Value': 'string'
+                \'KernelId\': {
+                    \'Value\': \'string\'
                 },
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'RamdiskId': {
-                    'Value': 'string'
+                \'RamdiskId\': {
+                    \'Value\': \'string\'
                 },
-                'RootDeviceName': {
-                    'Value': 'string'
+                \'RootDeviceName\': {
+                    \'Value\': \'string\'
                 },
-                'SourceDestCheck': {
-                    'Value': True|False
+                \'SourceDestCheck\': {
+                    \'Value\': True|False
                 },
-                'SriovNetSupport': {
-                    'Value': 'string'
+                \'SriovNetSupport\': {
+                    \'Value\': \'string\'
                 },
-                'UserData': {
-                    'Value': 'string'
+                \'UserData\': {
+                    \'Value\': \'string\'
                 }
             }
           **Response Structure** 
@@ -17831,7 +17831,7 @@ class Client(BaseClient):
         
             - **DisableApiTermination** *(dict) --* 
         
-              If the value is ``true`` , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
+              If the value is ``true`` , you can\'t terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
         
               - **Value** *(boolean) --* 
         
@@ -17962,17 +17962,17 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -18049,13 +18049,13 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceCreditSpecifications': [
+                \'InstanceCreditSpecifications\': [
                     {
-                        'InstanceId': 'string',
-                        'CpuCredits': 'string'
+                        \'InstanceId\': \'string\',
+                        \'CpuCredits\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -18103,17 +18103,17 @@ class Client(BaseClient):
           response = client.describe_instance_status(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               DryRun=True|False,
               IncludeAllInstances=True|False
           )
@@ -18219,45 +18219,45 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceStatuses': [
+                \'InstanceStatuses\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'Events': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Events\': [
                             {
-                                'Code': 'instance-reboot'|'system-reboot'|'system-maintenance'|'instance-retirement'|'instance-stop',
-                                'Description': 'string',
-                                'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                \'Code\': \'instance-reboot\'|\'system-reboot\'|\'system-maintenance\'|\'instance-retirement\'|\'instance-stop\',
+                                \'Description\': \'string\',
+                                \'NotAfter\': datetime(2015, 1, 1),
+                                \'NotBefore\': datetime(2015, 1, 1)
                             },
                         ],
-                        'InstanceId': 'string',
-                        'InstanceState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'InstanceState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceStatus': {
-                            'Details': [
+                        \'InstanceStatus\': {
+                            \'Details\': [
                                 {
-                                    'ImpairedSince': datetime(2015, 1, 1),
-                                    'Name': 'reachability',
-                                    'Status': 'passed'|'failed'|'insufficient-data'|'initializing'
+                                    \'ImpairedSince\': datetime(2015, 1, 1),
+                                    \'Name\': \'reachability\',
+                                    \'Status\': \'passed\'|\'failed\'|\'insufficient-data\'|\'initializing\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'|'not-applicable'|'initializing'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'|\'not-applicable\'|\'initializing\'
                         },
-                        'SystemStatus': {
-                            'Details': [
+                        \'SystemStatus\': {
+                            \'Details\': [
                                 {
-                                    'ImpairedSince': datetime(2015, 1, 1),
-                                    'Name': 'reachability',
-                                    'Status': 'passed'|'failed'|'insufficient-data'|'initializing'
+                                    \'ImpairedSince\': datetime(2015, 1, 1),
+                                    \'Name\': \'reachability\',
+                                    \'Status\': \'passed\'|\'failed\'|\'insufficient-data\'|\'initializing\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'|'not-applicable'|'initializing'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'|\'not-applicable\'|\'initializing\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -18411,18 +18411,18 @@ class Client(BaseClient):
           response = client.describe_instances(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -18563,11 +18563,11 @@ class Client(BaseClient):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -18659,172 +18659,172 @@ class Client(BaseClient):
           ::
         
             {
-                'Reservations': [
+                \'Reservations\': [
                     {
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'Instances': [
+                        \'Instances\': [
                             {
-                                'AmiLaunchIndex': 123,
-                                'ImageId': 'string',
-                                'InstanceId': 'string',
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                'KernelId': 'string',
-                                'KeyName': 'string',
-                                'LaunchTime': datetime(2015, 1, 1),
-                                'Monitoring': {
-                                    'State': 'disabled'|'disabling'|'enabled'|'pending'
+                                \'AmiLaunchIndex\': 123,
+                                \'ImageId\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                \'KernelId\': \'string\',
+                                \'KeyName\': \'string\',
+                                \'LaunchTime\': datetime(2015, 1, 1),
+                                \'Monitoring\': {
+                                    \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                                 },
-                                'Placement': {
-                                    'AvailabilityZone': 'string',
-                                    'Affinity': 'string',
-                                    'GroupName': 'string',
-                                    'HostId': 'string',
-                                    'Tenancy': 'default'|'dedicated'|'host',
-                                    'SpreadDomain': 'string'
+                                \'Placement\': {
+                                    \'AvailabilityZone\': \'string\',
+                                    \'Affinity\': \'string\',
+                                    \'GroupName\': \'string\',
+                                    \'HostId\': \'string\',
+                                    \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                                    \'SpreadDomain\': \'string\'
                                 },
-                                'Platform': 'Windows',
-                                'PrivateDnsName': 'string',
-                                'PrivateIpAddress': 'string',
-                                'ProductCodes': [
+                                \'Platform\': \'Windows\',
+                                \'PrivateDnsName\': \'string\',
+                                \'PrivateIpAddress\': \'string\',
+                                \'ProductCodes\': [
                                     {
-                                        'ProductCodeId': 'string',
-                                        'ProductCodeType': 'devpay'|'marketplace'
+                                        \'ProductCodeId\': \'string\',
+                                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                                     },
                                 ],
-                                'PublicDnsName': 'string',
-                                'PublicIpAddress': 'string',
-                                'RamdiskId': 'string',
-                                'State': {
-                                    'Code': 123,
-                                    'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                                \'PublicDnsName\': \'string\',
+                                \'PublicIpAddress\': \'string\',
+                                \'RamdiskId\': \'string\',
+                                \'State\': {
+                                    \'Code\': 123,
+                                    \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                                 },
-                                'StateTransitionReason': 'string',
-                                'SubnetId': 'string',
-                                'VpcId': 'string',
-                                'Architecture': 'i386'|'x86_64',
-                                'BlockDeviceMappings': [
+                                \'StateTransitionReason\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'VpcId\': \'string\',
+                                \'Architecture\': \'i386\'|\'x86_64\',
+                                \'BlockDeviceMappings\': [
                                     {
-                                        'DeviceName': 'string',
-                                        'Ebs': {
-                                            'AttachTime': datetime(2015, 1, 1),
-                                            'DeleteOnTermination': True|False,
-                                            'Status': 'attaching'|'attached'|'detaching'|'detached',
-                                            'VolumeId': 'string'
+                                        \'DeviceName\': \'string\',
+                                        \'Ebs\': {
+                                            \'AttachTime\': datetime(2015, 1, 1),
+                                            \'DeleteOnTermination\': True|False,
+                                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                            \'VolumeId\': \'string\'
                                         }
                                     },
                                 ],
-                                'ClientToken': 'string',
-                                'EbsOptimized': True|False,
-                                'EnaSupport': True|False,
-                                'Hypervisor': 'ovm'|'xen',
-                                'IamInstanceProfile': {
-                                    'Arn': 'string',
-                                    'Id': 'string'
+                                \'ClientToken\': \'string\',
+                                \'EbsOptimized\': True|False,
+                                \'EnaSupport\': True|False,
+                                \'Hypervisor\': \'ovm\'|\'xen\',
+                                \'IamInstanceProfile\': {
+                                    \'Arn\': \'string\',
+                                    \'Id\': \'string\'
                                 },
-                                'InstanceLifecycle': 'spot'|'scheduled',
-                                'ElasticGpuAssociations': [
+                                \'InstanceLifecycle\': \'spot\'|\'scheduled\',
+                                \'ElasticGpuAssociations\': [
                                     {
-                                        'ElasticGpuId': 'string',
-                                        'ElasticGpuAssociationId': 'string',
-                                        'ElasticGpuAssociationState': 'string',
-                                        'ElasticGpuAssociationTime': 'string'
+                                        \'ElasticGpuId\': \'string\',
+                                        \'ElasticGpuAssociationId\': \'string\',
+                                        \'ElasticGpuAssociationState\': \'string\',
+                                        \'ElasticGpuAssociationTime\': \'string\'
                                     },
                                 ],
-                                'NetworkInterfaces': [
+                                \'NetworkInterfaces\': [
                                     {
-                                        'Association': {
-                                            'IpOwnerId': 'string',
-                                            'PublicDnsName': 'string',
-                                            'PublicIp': 'string'
+                                        \'Association\': {
+                                            \'IpOwnerId\': \'string\',
+                                            \'PublicDnsName\': \'string\',
+                                            \'PublicIp\': \'string\'
                                         },
-                                        'Attachment': {
-                                            'AttachTime': datetime(2015, 1, 1),
-                                            'AttachmentId': 'string',
-                                            'DeleteOnTermination': True|False,
-                                            'DeviceIndex': 123,
-                                            'Status': 'attaching'|'attached'|'detaching'|'detached'
+                                        \'Attachment\': {
+                                            \'AttachTime\': datetime(2015, 1, 1),
+                                            \'AttachmentId\': \'string\',
+                                            \'DeleteOnTermination\': True|False,
+                                            \'DeviceIndex\': 123,
+                                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                                         },
-                                        'Description': 'string',
-                                        'Groups': [
+                                        \'Description\': \'string\',
+                                        \'Groups\': [
                                             {
-                                                'GroupName': 'string',
-                                                'GroupId': 'string'
+                                                \'GroupName\': \'string\',
+                                                \'GroupId\': \'string\'
                                             },
                                         ],
-                                        'Ipv6Addresses': [
+                                        \'Ipv6Addresses\': [
                                             {
-                                                'Ipv6Address': 'string'
+                                                \'Ipv6Address\': \'string\'
                                             },
                                         ],
-                                        'MacAddress': 'string',
-                                        'NetworkInterfaceId': 'string',
-                                        'OwnerId': 'string',
-                                        'PrivateDnsName': 'string',
-                                        'PrivateIpAddress': 'string',
-                                        'PrivateIpAddresses': [
+                                        \'MacAddress\': \'string\',
+                                        \'NetworkInterfaceId\': \'string\',
+                                        \'OwnerId\': \'string\',
+                                        \'PrivateDnsName\': \'string\',
+                                        \'PrivateIpAddress\': \'string\',
+                                        \'PrivateIpAddresses\': [
                                             {
-                                                'Association': {
-                                                    'IpOwnerId': 'string',
-                                                    'PublicDnsName': 'string',
-                                                    'PublicIp': 'string'
+                                                \'Association\': {
+                                                    \'IpOwnerId\': \'string\',
+                                                    \'PublicDnsName\': \'string\',
+                                                    \'PublicIp\': \'string\'
                                                 },
-                                                'Primary': True|False,
-                                                'PrivateDnsName': 'string',
-                                                'PrivateIpAddress': 'string'
+                                                \'Primary\': True|False,
+                                                \'PrivateDnsName\': \'string\',
+                                                \'PrivateIpAddress\': \'string\'
                                             },
                                         ],
-                                        'SourceDestCheck': True|False,
-                                        'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                                        'SubnetId': 'string',
-                                        'VpcId': 'string'
+                                        \'SourceDestCheck\': True|False,
+                                        \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                                        \'SubnetId\': \'string\',
+                                        \'VpcId\': \'string\'
                                     },
                                 ],
-                                'RootDeviceName': 'string',
-                                'RootDeviceType': 'ebs'|'instance-store',
-                                'SecurityGroups': [
+                                \'RootDeviceName\': \'string\',
+                                \'RootDeviceType\': \'ebs\'|\'instance-store\',
+                                \'SecurityGroups\': [
                                     {
-                                        'GroupName': 'string',
-                                        'GroupId': 'string'
+                                        \'GroupName\': \'string\',
+                                        \'GroupId\': \'string\'
                                     },
                                 ],
-                                'SourceDestCheck': True|False,
-                                'SpotInstanceRequestId': 'string',
-                                'SriovNetSupport': 'string',
-                                'StateReason': {
-                                    'Code': 'string',
-                                    'Message': 'string'
+                                \'SourceDestCheck\': True|False,
+                                \'SpotInstanceRequestId\': \'string\',
+                                \'SriovNetSupport\': \'string\',
+                                \'StateReason\': {
+                                    \'Code\': \'string\',
+                                    \'Message\': \'string\'
                                 },
-                                'Tags': [
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'VirtualizationType': 'hvm'|'paravirtual',
-                                'CpuOptions': {
-                                    'CoreCount': 123,
-                                    'ThreadsPerCore': 123
+                                \'VirtualizationType\': \'hvm\'|\'paravirtual\',
+                                \'CpuOptions\': {
+                                    \'CoreCount\': 123,
+                                    \'ThreadsPerCore\': 123
                                 },
-                                'CapacityReservationId': 'string',
-                                'CapacityReservationSpecification': {
-                                    'CapacityReservationPreference': 'open'|'none',
-                                    'CapacityReservationTarget': {
-                                        'CapacityReservationId': 'string'
+                                \'CapacityReservationId\': \'string\',
+                                \'CapacityReservationSpecification\': {
+                                    \'CapacityReservationPreference\': \'open\'|\'none\',
+                                    \'CapacityReservationTarget\': {
+                                        \'CapacityReservationId\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'OwnerId': 'string',
-                        'RequesterId': 'string',
-                        'ReservationId': 'string'
+                        \'OwnerId\': \'string\',
+                        \'RequesterId\': \'string\',
+                        \'ReservationId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -18936,7 +18936,7 @@ class Client(BaseClient):
         
                       (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the ``running`` state. 
         
-                      [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
+                      [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you\'ve enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
         
                     - **PrivateIpAddress** *(string) --* 
         
@@ -18960,7 +18960,7 @@ class Client(BaseClient):
         
                     - **PublicDnsName** *(string) --* 
         
-                      (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+                      (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you\'ve enabled DNS hostnames for your VPC.
         
                     - **PublicIpAddress** *(string) --* 
         
@@ -19048,7 +19048,7 @@ class Client(BaseClient):
         
                     - **EbsOptimized** *(boolean) --* 
         
-                      Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                      Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                     - **EnaSupport** *(boolean) --* 
         
@@ -19366,7 +19366,7 @@ class Client(BaseClient):
         
                       - **CapacityReservationPreference** *(string) --* 
         
-                        Describes the instance's Capacity Reservation preferences. Possible preferences include:
+                        Describes the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                         * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                          
@@ -19410,15 +19410,15 @@ class Client(BaseClient):
           response = client.describe_internet_gateways(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               InternetGatewayIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -19492,19 +19492,19 @@ class Client(BaseClient):
           ::
         
             {
-                'InternetGateways': [
+                \'InternetGateways\': [
                     {
-                        'Attachments': [
+                        \'Attachments\': [
                             {
-                                'State': 'attaching'|'attached'|'detaching'|'detached',
-                                'VpcId': 'string'
+                                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                \'VpcId\': \'string\'
                             },
                         ],
-                        'InternetGatewayId': 'string',
-                        'Tags': [
+                        \'InternetGatewayId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -19578,14 +19578,14 @@ class Client(BaseClient):
           response = client.describe_key_pairs(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               KeyNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -19654,10 +19654,10 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyPairs': [
+                \'KeyPairs\': [
                     {
-                        'KeyFingerprint': 'string',
-                        'KeyName': 'string'
+                        \'KeyFingerprint\': \'string\',
+                        \'KeyName\': \'string\'
                     },
                 ]
             }
@@ -19694,20 +19694,20 @@ class Client(BaseClient):
         
           response = client.describe_launch_template_versions(
               DryRun=True|False,
-              LaunchTemplateId='string',
-              LaunchTemplateName='string',
+              LaunchTemplateId=\'string\',
+              LaunchTemplateName=\'string\',
               Versions=[
-                  'string',
+                  \'string\',
               ],
-              MinVersion='string',
-              MaxVersion='string',
-              NextToken='string',
+              MinVersion=\'string\',
+              MaxVersion=\'string\',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ]
@@ -19817,132 +19817,132 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplateVersions': [
+                \'LaunchTemplateVersions\': [
                     {
-                        'LaunchTemplateId': 'string',
-                        'LaunchTemplateName': 'string',
-                        'VersionNumber': 123,
-                        'VersionDescription': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'CreatedBy': 'string',
-                        'DefaultVersion': True|False,
-                        'LaunchTemplateData': {
-                            'KernelId': 'string',
-                            'EbsOptimized': True|False,
-                            'IamInstanceProfile': {
-                                'Arn': 'string',
-                                'Name': 'string'
+                        \'LaunchTemplateId\': \'string\',
+                        \'LaunchTemplateName\': \'string\',
+                        \'VersionNumber\': 123,
+                        \'VersionDescription\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'CreatedBy\': \'string\',
+                        \'DefaultVersion\': True|False,
+                        \'LaunchTemplateData\': {
+                            \'KernelId\': \'string\',
+                            \'EbsOptimized\': True|False,
+                            \'IamInstanceProfile\': {
+                                \'Arn\': \'string\',
+                                \'Name\': \'string\'
                             },
-                            'BlockDeviceMappings': [
+                            \'BlockDeviceMappings\': [
                                 {
-                                    'DeviceName': 'string',
-                                    'VirtualName': 'string',
-                                    'Ebs': {
-                                        'Encrypted': True|False,
-                                        'DeleteOnTermination': True|False,
-                                        'Iops': 123,
-                                        'KmsKeyId': 'string',
-                                        'SnapshotId': 'string',
-                                        'VolumeSize': 123,
-                                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                                    \'DeviceName\': \'string\',
+                                    \'VirtualName\': \'string\',
+                                    \'Ebs\': {
+                                        \'Encrypted\': True|False,
+                                        \'DeleteOnTermination\': True|False,
+                                        \'Iops\': 123,
+                                        \'KmsKeyId\': \'string\',
+                                        \'SnapshotId\': \'string\',
+                                        \'VolumeSize\': 123,
+                                        \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                                     },
-                                    'NoDevice': 'string'
+                                    \'NoDevice\': \'string\'
                                 },
                             ],
-                            'NetworkInterfaces': [
+                            \'NetworkInterfaces\': [
                                 {
-                                    'AssociatePublicIpAddress': True|False,
-                                    'DeleteOnTermination': True|False,
-                                    'Description': 'string',
-                                    'DeviceIndex': 123,
-                                    'Groups': [
-                                        'string',
+                                    \'AssociatePublicIpAddress\': True|False,
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Description\': \'string\',
+                                    \'DeviceIndex\': 123,
+                                    \'Groups\': [
+                                        \'string\',
                                     ],
-                                    'Ipv6AddressCount': 123,
-                                    'Ipv6Addresses': [
+                                    \'Ipv6AddressCount\': 123,
+                                    \'Ipv6Addresses\': [
                                         {
-                                            'Ipv6Address': 'string'
+                                            \'Ipv6Address\': \'string\'
                                         },
                                     ],
-                                    'NetworkInterfaceId': 'string',
-                                    'PrivateIpAddress': 'string',
-                                    'PrivateIpAddresses': [
+                                    \'NetworkInterfaceId\': \'string\',
+                                    \'PrivateIpAddress\': \'string\',
+                                    \'PrivateIpAddresses\': [
                                         {
-                                            'Primary': True|False,
-                                            'PrivateIpAddress': 'string'
+                                            \'Primary\': True|False,
+                                            \'PrivateIpAddress\': \'string\'
                                         },
                                     ],
-                                    'SecondaryPrivateIpAddressCount': 123,
-                                    'SubnetId': 'string'
+                                    \'SecondaryPrivateIpAddressCount\': 123,
+                                    \'SubnetId\': \'string\'
                                 },
                             ],
-                            'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                            'KeyName': 'string',
-                            'Monitoring': {
-                                'Enabled': True|False
+                            \'ImageId\': \'string\',
+                            \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                            \'KeyName\': \'string\',
+                            \'Monitoring\': {
+                                \'Enabled\': True|False
                             },
-                            'Placement': {
-                                'AvailabilityZone': 'string',
-                                'Affinity': 'string',
-                                'GroupName': 'string',
-                                'HostId': 'string',
-                                'Tenancy': 'default'|'dedicated'|'host',
-                                'SpreadDomain': 'string'
+                            \'Placement\': {
+                                \'AvailabilityZone\': \'string\',
+                                \'Affinity\': \'string\',
+                                \'GroupName\': \'string\',
+                                \'HostId\': \'string\',
+                                \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                                \'SpreadDomain\': \'string\'
                             },
-                            'RamDiskId': 'string',
-                            'DisableApiTermination': True|False,
-                            'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                            'UserData': 'string',
-                            'TagSpecifications': [
+                            \'RamDiskId\': \'string\',
+                            \'DisableApiTermination\': True|False,
+                            \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                            \'UserData\': \'string\',
+                            \'TagSpecifications\': [
                                 {
-                                    'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                                    'Tags': [
+                                    \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                                    \'Tags\': [
                                         {
-                                            'Key': 'string',
-                                            'Value': 'string'
+                                            \'Key\': \'string\',
+                                            \'Value\': \'string\'
                                         },
                                     ]
                                 },
                             ],
-                            'ElasticGpuSpecifications': [
+                            \'ElasticGpuSpecifications\': [
                                 {
-                                    'Type': 'string'
+                                    \'Type\': \'string\'
                                 },
                             ],
-                            'SecurityGroupIds': [
-                                'string',
+                            \'SecurityGroupIds\': [
+                                \'string\',
                             ],
-                            'SecurityGroups': [
-                                'string',
+                            \'SecurityGroups\': [
+                                \'string\',
                             ],
-                            'InstanceMarketOptions': {
-                                'MarketType': 'spot',
-                                'SpotOptions': {
-                                    'MaxPrice': 'string',
-                                    'SpotInstanceType': 'one-time'|'persistent',
-                                    'BlockDurationMinutes': 123,
-                                    'ValidUntil': datetime(2015, 1, 1),
-                                    'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                            \'InstanceMarketOptions\': {
+                                \'MarketType\': \'spot\',
+                                \'SpotOptions\': {
+                                    \'MaxPrice\': \'string\',
+                                    \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                                    \'BlockDurationMinutes\': 123,
+                                    \'ValidUntil\': datetime(2015, 1, 1),
+                                    \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                                 }
                             },
-                            'CreditSpecification': {
-                                'CpuCredits': 'string'
+                            \'CreditSpecification\': {
+                                \'CpuCredits\': \'string\'
                             },
-                            'CpuOptions': {
-                                'CoreCount': 123,
-                                'ThreadsPerCore': 123
+                            \'CpuOptions\': {
+                                \'CoreCount\': 123,
+                                \'ThreadsPerCore\': 123
                             },
-                            'CapacityReservationSpecification': {
-                                'CapacityReservationPreference': 'open'|'none',
-                                'CapacityReservationTarget': {
-                                    'CapacityReservationId': 'string'
+                            \'CapacityReservationSpecification\': {
+                                \'CapacityReservationPreference\': \'open\'|\'none\',
+                                \'CapacityReservationTarget\': {
+                                    \'CapacityReservationId\': \'string\'
                                 }
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -20272,7 +20272,7 @@ class Client(BaseClient):
         
                       - **MaxPrice** *(string) --* 
         
-                        The maximum hourly price you're willing to pay for the Spot Instances.
+                        The maximum hourly price you\'re willing to pay for the Spot Instances.
         
                       - **SpotInstanceType** *(string) --* 
         
@@ -20316,7 +20316,7 @@ class Client(BaseClient):
         
                     - **CapacityReservationPreference** *(string) --* 
         
-                      Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+                      Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                       * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                        
@@ -20348,20 +20348,20 @@ class Client(BaseClient):
           response = client.describe_launch_templates(
               DryRun=True|False,
               LaunchTemplateIds=[
-                  'string',
+                  \'string\',
               ],
               LaunchTemplateNames=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DryRun: boolean
@@ -20448,23 +20448,23 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplates': [
+                \'LaunchTemplates\': [
                     {
-                        'LaunchTemplateId': 'string',
-                        'LaunchTemplateName': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'CreatedBy': 'string',
-                        'DefaultVersionNumber': 123,
-                        'LatestVersionNumber': 123,
-                        'Tags': [
+                        \'LaunchTemplateId\': \'string\',
+                        \'LaunchTemplateName\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'CreatedBy\': \'string\',
+                        \'DefaultVersionNumber\': 123,
+                        \'LatestVersionNumber\': 123,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -20540,17 +20540,17 @@ class Client(BaseClient):
           response = client.describe_moving_addresses(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               PublicIps=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -20626,13 +20626,13 @@ class Client(BaseClient):
           ::
         
             {
-                'MovingAddressStatuses': [
+                \'MovingAddressStatuses\': [
                     {
-                        'MoveStatus': 'movingToVpc'|'restoringToClassic',
-                        'PublicIp': 'string'
+                        \'MoveStatus\': \'movingToVpc\'|\'restoringToClassic\',
+                        \'PublicIp\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -20648,7 +20648,7 @@ class Client(BaseClient):
         
                 - **MoveStatus** *(string) --* 
         
-                  The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
+                  The status of the Elastic IP address that\'s being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
         
                 - **PublicIp** *(string) --* 
         
@@ -20672,17 +20672,17 @@ class Client(BaseClient):
           response = client.describe_nat_gateways(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
               NatGatewayIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -20762,40 +20762,40 @@ class Client(BaseClient):
           ::
         
             {
-                'NatGateways': [
+                \'NatGateways\': [
                     {
-                        'CreateTime': datetime(2015, 1, 1),
-                        'DeleteTime': datetime(2015, 1, 1),
-                        'FailureCode': 'string',
-                        'FailureMessage': 'string',
-                        'NatGatewayAddresses': [
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'DeleteTime\': datetime(2015, 1, 1),
+                        \'FailureCode\': \'string\',
+                        \'FailureMessage\': \'string\',
+                        \'NatGatewayAddresses\': [
                             {
-                                'AllocationId': 'string',
-                                'NetworkInterfaceId': 'string',
-                                'PrivateIp': 'string',
-                                'PublicIp': 'string'
+                                \'AllocationId\': \'string\',
+                                \'NetworkInterfaceId\': \'string\',
+                                \'PrivateIp\': \'string\',
+                                \'PublicIp\': \'string\'
                             },
                         ],
-                        'NatGatewayId': 'string',
-                        'ProvisionedBandwidth': {
-                            'ProvisionTime': datetime(2015, 1, 1),
-                            'Provisioned': 'string',
-                            'RequestTime': datetime(2015, 1, 1),
-                            'Requested': 'string',
-                            'Status': 'string'
+                        \'NatGatewayId\': \'string\',
+                        \'ProvisionedBandwidth\': {
+                            \'ProvisionTime\': datetime(2015, 1, 1),
+                            \'Provisioned\': \'string\',
+                            \'RequestTime\': datetime(2015, 1, 1),
+                            \'Requested\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'State': 'pending'|'failed'|'available'|'deleting'|'deleted',
-                        'SubnetId': 'string',
-                        'VpcId': 'string',
-                        'Tags': [
+                        \'State\': \'pending\'|\'failed\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'SubnetId\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -20825,17 +20825,17 @@ class Client(BaseClient):
         
                   If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
         
-                  * For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway" 
+                  * For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient free addresses to create this NAT gateway\" 
                    
-                  * For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached" 
+                  * For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet gateway attached\" 
                    
-                  * For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway" 
+                  * For InvalidAllocationID.NotFound: \"Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway\" 
                    
-                  * For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated" 
+                  * For Resource.AlreadyAssociated: \"Elastic IP address eipalloc-xxxxxxxx is already associated\" 
                    
-                  * For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again." 
+                  * For InternalError: \"Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.\" 
                    
-                  * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found." 
+                  * For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx does not exist or could not be found.\" 
                    
                 - **NatGatewayAddresses** *(list) --* 
         
@@ -20847,7 +20847,7 @@ class Client(BaseClient):
         
                     - **AllocationId** *(string) --* 
         
-                      The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+                      The allocation ID of the Elastic IP address that\'s associated with the NAT gateway.
         
                     - **NetworkInterfaceId** *(string) --* 
         
@@ -20951,15 +20951,15 @@ class Client(BaseClient):
           response = client.describe_network_acls(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkAclIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -21057,42 +21057,42 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkAcls': [
+                \'NetworkAcls\': [
                     {
-                        'Associations': [
+                        \'Associations\': [
                             {
-                                'NetworkAclAssociationId': 'string',
-                                'NetworkAclId': 'string',
-                                'SubnetId': 'string'
+                                \'NetworkAclAssociationId\': \'string\',
+                                \'NetworkAclId\': \'string\',
+                                \'SubnetId\': \'string\'
                             },
                         ],
-                        'Entries': [
+                        \'Entries\': [
                             {
-                                'CidrBlock': 'string',
-                                'Egress': True|False,
-                                'IcmpTypeCode': {
-                                    'Code': 123,
-                                    'Type': 123
+                                \'CidrBlock\': \'string\',
+                                \'Egress\': True|False,
+                                \'IcmpTypeCode\': {
+                                    \'Code\': 123,
+                                    \'Type\': 123
                                 },
-                                'Ipv6CidrBlock': 'string',
-                                'PortRange': {
-                                    'From': 123,
-                                    'To': 123
+                                \'Ipv6CidrBlock\': \'string\',
+                                \'PortRange\': {
+                                    \'From\': 123,
+                                    \'To\': 123
                                 },
-                                'Protocol': 'string',
-                                'RuleAction': 'allow'|'deny',
-                                'RuleNumber': 123
+                                \'Protocol\': \'string\',
+                                \'RuleAction\': \'allow\'|\'deny\',
+                                \'RuleNumber\': 123
                             },
                         ],
-                        'IsDefault': True|False,
-                        'NetworkAclId': 'string',
-                        'Tags': [
+                        \'IsDefault\': True|False,
+                        \'NetworkAclId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ]
             }
@@ -21174,7 +21174,7 @@ class Client(BaseClient):
         
                     - **Protocol** *(string) --* 
         
-                      The protocol number. A value of "-1" means all protocols.
+                      The protocol number. A value of \"-1\" means all protocols.
         
                     - **RuleAction** *(string) --* 
         
@@ -21228,9 +21228,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_network_interface_attribute(
-              Attribute='description'|'groupSet'|'sourceDestCheck'|'attachment',
+              Attribute=\'description\'|\'groupSet\'|\'sourceDestCheck\'|\'attachment\',
               DryRun=True|False,
-              NetworkInterfaceId='string'
+              NetworkInterfaceId=\'string\'
           )
         :type Attribute: string
         :param Attribute: 
@@ -21255,27 +21255,27 @@ class Client(BaseClient):
           ::
         
             {
-                'Attachment': {
-                    'AttachTime': datetime(2015, 1, 1),
-                    'AttachmentId': 'string',
-                    'DeleteOnTermination': True|False,
-                    'DeviceIndex': 123,
-                    'InstanceId': 'string',
-                    'InstanceOwnerId': 'string',
-                    'Status': 'attaching'|'attached'|'detaching'|'detached'
+                \'Attachment\': {
+                    \'AttachTime\': datetime(2015, 1, 1),
+                    \'AttachmentId\': \'string\',
+                    \'DeleteOnTermination\': True|False,
+                    \'DeviceIndex\': 123,
+                    \'InstanceId\': \'string\',
+                    \'InstanceOwnerId\': \'string\',
+                    \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                 },
-                'Description': {
-                    'Value': 'string'
+                \'Description\': {
+                    \'Value\': \'string\'
                 },
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'NetworkInterfaceId': 'string',
-                'SourceDestCheck': {
-                    'Value': True|False
+                \'NetworkInterfaceId\': \'string\',
+                \'SourceDestCheck\': {
+                    \'Value\': True|False
                 }
             }
           **Response Structure** 
@@ -21365,17 +21365,17 @@ class Client(BaseClient):
         
           response = client.describe_network_interface_permissions(
               NetworkInterfacePermissionIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NetworkInterfacePermissionIds: list
@@ -21452,20 +21452,20 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkInterfacePermissions': [
+                \'NetworkInterfacePermissions\': [
                     {
-                        'NetworkInterfacePermissionId': 'string',
-                        'NetworkInterfaceId': 'string',
-                        'AwsAccountId': 'string',
-                        'AwsService': 'string',
-                        'Permission': 'INSTANCE-ATTACH'|'EIP-ASSOCIATE',
-                        'PermissionState': {
-                            'State': 'pending'|'granted'|'revoking'|'revoked',
-                            'StatusMessage': 'string'
+                        \'NetworkInterfacePermissionId\': \'string\',
+                        \'NetworkInterfaceId\': \'string\',
+                        \'AwsAccountId\': \'string\',
+                        \'AwsService\': \'string\',
+                        \'Permission\': \'INSTANCE-ATTACH\'|\'EIP-ASSOCIATE\',
+                        \'PermissionState\': {
+                            \'State\': \'pending\'|\'granted\'|\'revoking\'|\'revoked\',
+                            \'StatusMessage\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -21531,17 +21531,17 @@ class Client(BaseClient):
           response = client.describe_network_interfaces(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkInterfaceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -21685,72 +21685,72 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkInterfaces': [
+                \'NetworkInterfaces\': [
                     {
-                        'Association': {
-                            'AllocationId': 'string',
-                            'AssociationId': 'string',
-                            'IpOwnerId': 'string',
-                            'PublicDnsName': 'string',
-                            'PublicIp': 'string'
+                        \'Association\': {
+                            \'AllocationId\': \'string\',
+                            \'AssociationId\': \'string\',
+                            \'IpOwnerId\': \'string\',
+                            \'PublicDnsName\': \'string\',
+                            \'PublicIp\': \'string\'
                         },
-                        'Attachment': {
-                            'AttachTime': datetime(2015, 1, 1),
-                            'AttachmentId': 'string',
-                            'DeleteOnTermination': True|False,
-                            'DeviceIndex': 123,
-                            'InstanceId': 'string',
-                            'InstanceOwnerId': 'string',
-                            'Status': 'attaching'|'attached'|'detaching'|'detached'
+                        \'Attachment\': {
+                            \'AttachTime\': datetime(2015, 1, 1),
+                            \'AttachmentId\': \'string\',
+                            \'DeleteOnTermination\': True|False,
+                            \'DeviceIndex\': 123,
+                            \'InstanceId\': \'string\',
+                            \'InstanceOwnerId\': \'string\',
+                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                         },
-                        'AvailabilityZone': 'string',
-                        'Description': 'string',
-                        'Groups': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Description\': \'string\',
+                        \'Groups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'InterfaceType': 'interface'|'natGateway',
-                        'Ipv6Addresses': [
+                        \'InterfaceType\': \'interface\'|\'natGateway\',
+                        \'Ipv6Addresses\': [
                             {
-                                'Ipv6Address': 'string'
+                                \'Ipv6Address\': \'string\'
                             },
                         ],
-                        'MacAddress': 'string',
-                        'NetworkInterfaceId': 'string',
-                        'OwnerId': 'string',
-                        'PrivateDnsName': 'string',
-                        'PrivateIpAddress': 'string',
-                        'PrivateIpAddresses': [
+                        \'MacAddress\': \'string\',
+                        \'NetworkInterfaceId\': \'string\',
+                        \'OwnerId\': \'string\',
+                        \'PrivateDnsName\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'PrivateIpAddresses\': [
                             {
-                                'Association': {
-                                    'AllocationId': 'string',
-                                    'AssociationId': 'string',
-                                    'IpOwnerId': 'string',
-                                    'PublicDnsName': 'string',
-                                    'PublicIp': 'string'
+                                \'Association\': {
+                                    \'AllocationId\': \'string\',
+                                    \'AssociationId\': \'string\',
+                                    \'IpOwnerId\': \'string\',
+                                    \'PublicDnsName\': \'string\',
+                                    \'PublicIp\': \'string\'
                                 },
-                                'Primary': True|False,
-                                'PrivateDnsName': 'string',
-                                'PrivateIpAddress': 'string'
+                                \'Primary\': True|False,
+                                \'PrivateDnsName\': \'string\',
+                                \'PrivateIpAddress\': \'string\'
                             },
                         ],
-                        'RequesterId': 'string',
-                        'RequesterManaged': True|False,
-                        'SourceDestCheck': True|False,
-                        'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                        'SubnetId': 'string',
-                        'TagSet': [
+                        \'RequesterId\': \'string\',
+                        \'RequesterManaged\': True|False,
+                        \'SourceDestCheck\': True|False,
+                        \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                        \'SubnetId\': \'string\',
+                        \'TagSet\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -21988,15 +21988,15 @@ class Client(BaseClient):
           response = client.describe_placement_groups(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               GroupNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -22066,11 +22066,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PlacementGroups': [
+                \'PlacementGroups\': [
                     {
-                        'GroupName': 'string',
-                        'State': 'pending'|'available'|'deleting'|'deleted',
-                        'Strategy': 'cluster'|'spread'
+                        \'GroupName\': \'string\',
+                        \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'Strategy\': \'cluster\'|\'spread\'
                     },
                 ]
             }
@@ -22115,16 +22115,16 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               PrefixListIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -22202,14 +22202,14 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'PrefixLists': [
+                \'NextToken\': \'string\',
+                \'PrefixLists\': [
                     {
-                        'Cidrs': [
-                            'string',
+                        \'Cidrs\': [
+                            \'string\',
                         ],
-                        'PrefixListId': 'string',
-                        'PrefixListName': 'string'
+                        \'PrefixListId\': \'string\',
+                        \'PrefixListName\': \'string\'
                     },
                 ]
             }
@@ -22261,10 +22261,10 @@ class Client(BaseClient):
           response = client.describe_principal_id_format(
               DryRun=True|False,
               Resources=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -22296,19 +22296,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Principals': [
+                \'Principals\': [
                     {
-                        'Arn': 'string',
-                        'Statuses': [
+                        \'Arn\': \'string\',
+                        \'Statuses\': [
                             {
-                                'Deadline': datetime(2015, 1, 1),
-                                'Resource': 'string',
-                                'UseLongIds': True|False
+                                \'Deadline\': datetime(2015, 1, 1),
+                                \'Resource\': \'string\',
+                                \'UseLongIds\': True|False
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -22363,9 +22363,9 @@ class Client(BaseClient):
         
           response = client.describe_public_ipv4_pools(
               PoolIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type PoolIds: list
@@ -22393,23 +22393,23 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicIpv4Pools': [
+                \'PublicIpv4Pools\': [
                     {
-                        'PoolId': 'string',
-                        'Description': 'string',
-                        'PoolAddressRanges': [
+                        \'PoolId\': \'string\',
+                        \'Description\': \'string\',
+                        \'PoolAddressRanges\': [
                             {
-                                'FirstAddress': 'string',
-                                'LastAddress': 'string',
-                                'AddressCount': 123,
-                                'AvailableAddressCount': 123
+                                \'FirstAddress\': \'string\',
+                                \'LastAddress\': \'string\',
+                                \'AddressCount\': 123,
+                                \'AvailableAddressCount\': 123
                             },
                         ],
-                        'TotalAddressCount': 123,
-                        'TotalAvailableAddressCount': 123
+                        \'TotalAddressCount\': 123,
+                        \'TotalAvailableAddressCount\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -22483,14 +22483,14 @@ class Client(BaseClient):
           response = client.describe_regions(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               RegionNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -22557,10 +22557,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Regions': [
+                \'Regions\': [
                     {
-                        'Endpoint': 'string',
-                        'RegionName': 'string'
+                        \'Endpoint\': \'string\',
+                        \'RegionName\': \'string\'
                     },
                 ]
             }
@@ -22602,18 +22602,18 @@ class Client(BaseClient):
           response = client.describe_reserved_instances(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              OfferingClass='standard'|'convertible',
+              OfferingClass=\'standard\'|\'convertible\',
               ReservedInstancesIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
-              OfferingType='Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront'
+              OfferingType=\'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\'
           )
         :type Filters: list
         :param Filters: 
@@ -22712,34 +22712,34 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstances': [
+                \'ReservedInstances\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'Duration': 123,
-                        'End': datetime(2015, 1, 1),
-                        'FixedPrice': ...,
-                        'InstanceCount': 123,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'ReservedInstancesId': 'string',
-                        'Start': datetime(2015, 1, 1),
-                        'State': 'payment-pending'|'active'|'payment-failed'|'retired',
-                        'UsagePrice': ...,
-                        'CurrencyCode': 'USD',
-                        'InstanceTenancy': 'default'|'dedicated'|'host',
-                        'OfferingClass': 'standard'|'convertible',
-                        'OfferingType': 'Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront',
-                        'RecurringCharges': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Duration\': 123,
+                        \'End\': datetime(2015, 1, 1),
+                        \'FixedPrice\': ...,
+                        \'InstanceCount\': 123,
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'ReservedInstancesId\': \'string\',
+                        \'Start\': datetime(2015, 1, 1),
+                        \'State\': \'payment-pending\'|\'active\'|\'payment-failed\'|\'retired\',
+                        \'UsagePrice\': ...,
+                        \'CurrencyCode\': \'USD\',
+                        \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                        \'OfferingClass\': \'standard\'|\'convertible\',
+                        \'OfferingType\': \'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\',
+                        \'RecurringCharges\': [
                             {
-                                'Amount': 123.0,
-                                'Frequency': 'Hourly'
+                                \'Amount\': 123.0,
+                                \'Frequency\': \'Hourly\'
                             },
                         ],
-                        'Scope': 'Availability Zone'|'Region',
-                        'Tags': [
+                        \'Scope\': \'Availability Zone\'|\'Region\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -22805,7 +22805,7 @@ class Client(BaseClient):
         
                 - **CurrencyCode** *(string) --* 
         
-                  The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
+                  The currency of the Reserved Instance. It\'s specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
         
                 - **InstanceTenancy** *(string) --* 
         
@@ -22869,7 +22869,7 @@ class Client(BaseClient):
         
         As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.
         
-        As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.
+        As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you\'re searching for with what\'s available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.
         
         For more information, see `Reserved Instance Marketplace <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -22881,14 +22881,14 @@ class Client(BaseClient):
           response = client.describe_reserved_instances_listings(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              ReservedInstancesId='string',
-              ReservedInstancesListingId='string'
+              ReservedInstancesId=\'string\',
+              ReservedInstancesListingId=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -22955,35 +22955,35 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesListings': [
+                \'ReservedInstancesListings\': [
                     {
-                        'ClientToken': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'InstanceCounts': [
+                        \'ClientToken\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'InstanceCounts\': [
                             {
-                                'InstanceCount': 123,
-                                'State': 'available'|'sold'|'cancelled'|'pending'
+                                \'InstanceCount\': 123,
+                                \'State\': \'available\'|\'sold\'|\'cancelled\'|\'pending\'
                             },
                         ],
-                        'PriceSchedules': [
+                        \'PriceSchedules\': [
                             {
-                                'Active': True|False,
-                                'CurrencyCode': 'USD',
-                                'Price': 123.0,
-                                'Term': 123
+                                \'Active\': True|False,
+                                \'CurrencyCode\': \'USD\',
+                                \'Price\': 123.0,
+                                \'Term\': 123
                             },
                         ],
-                        'ReservedInstancesId': 'string',
-                        'ReservedInstancesListingId': 'string',
-                        'Status': 'active'|'pending'|'cancelled'|'closed',
-                        'StatusMessage': 'string',
-                        'Tags': [
+                        \'ReservedInstancesId\': \'string\',
+                        \'ReservedInstancesListingId\': \'string\',
+                        \'Status\': \'active\'|\'pending\'|\'cancelled\'|\'closed\',
+                        \'StatusMessage\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -23107,16 +23107,16 @@ class Client(BaseClient):
           response = client.describe_reserved_instances_modifications(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ReservedInstancesModificationIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -23203,33 +23203,33 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ReservedInstancesModifications': [
+                \'NextToken\': \'string\',
+                \'ReservedInstancesModifications\': [
                     {
-                        'ClientToken': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'EffectiveDate': datetime(2015, 1, 1),
-                        'ModificationResults': [
+                        \'ClientToken\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'EffectiveDate\': datetime(2015, 1, 1),
+                        \'ModificationResults\': [
                             {
-                                'ReservedInstancesId': 'string',
-                                'TargetConfiguration': {
-                                    'AvailabilityZone': 'string',
-                                    'InstanceCount': 123,
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                    'Platform': 'string',
-                                    'Scope': 'Availability Zone'|'Region'
+                                \'ReservedInstancesId\': \'string\',
+                                \'TargetConfiguration\': {
+                                    \'AvailabilityZone\': \'string\',
+                                    \'InstanceCount\': 123,
+                                    \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                    \'Platform\': \'string\',
+                                    \'Scope\': \'Availability Zone\'|\'Region\'
                                 }
                             },
                         ],
-                        'ReservedInstancesIds': [
+                        \'ReservedInstancesIds\': [
                             {
-                                'ReservedInstancesId': 'string'
+                                \'ReservedInstancesId\': \'string\'
                             },
                         ],
-                        'ReservedInstancesModificationId': 'string',
-                        'Status': 'string',
-                        'StatusMessage': 'string',
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'ReservedInstancesModificationId\': \'string\',
+                        \'Status\': \'string\',
+                        \'StatusMessage\': \'string\',
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -23343,30 +23343,30 @@ class Client(BaseClient):
         ::
         
           response = client.describe_reserved_instances_offerings(
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               IncludeMarketplace=True|False,
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+              InstanceType=\'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               MaxDuration=123,
               MaxInstanceCount=123,
               MinDuration=123,
-              OfferingClass='standard'|'convertible',
-              ProductDescription='Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
+              OfferingClass=\'standard\'|\'convertible\',
+              ProductDescription=\'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
               ReservedInstancesOfferingIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
-              InstanceTenancy='default'|'dedicated'|'host',
+              InstanceTenancy=\'default\'|\'dedicated\'|\'host\',
               MaxResults=123,
-              NextToken='string',
-              OfferingType='Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront'
+              NextToken=\'string\',
+              OfferingType=\'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\'
           )
         :type AvailabilityZone: string
         :param AvailabilityZone: 
@@ -23517,36 +23517,36 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesOfferings': [
+                \'ReservedInstancesOfferings\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'Duration': 123,
-                        'FixedPrice': ...,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'ReservedInstancesOfferingId': 'string',
-                        'UsagePrice': ...,
-                        'CurrencyCode': 'USD',
-                        'InstanceTenancy': 'default'|'dedicated'|'host',
-                        'Marketplace': True|False,
-                        'OfferingClass': 'standard'|'convertible',
-                        'OfferingType': 'Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront',
-                        'PricingDetails': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': ...,
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'ReservedInstancesOfferingId\': \'string\',
+                        \'UsagePrice\': ...,
+                        \'CurrencyCode\': \'USD\',
+                        \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                        \'Marketplace\': True|False,
+                        \'OfferingClass\': \'standard\'|\'convertible\',
+                        \'OfferingType\': \'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\',
+                        \'PricingDetails\': [
                             {
-                                'Count': 123,
-                                'Price': 123.0
+                                \'Count\': 123,
+                                \'Price\': 123.0
                             },
                         ],
-                        'RecurringCharges': [
+                        \'RecurringCharges\': [
                             {
-                                'Amount': 123.0,
-                                'Frequency': 'Hourly'
+                                \'Amount\': 123.0,
+                                \'Frequency\': \'Hourly\'
                             },
                         ],
-                        'Scope': 'Availability Zone'|'Region'
+                        \'Scope\': \'Availability Zone\'|\'Region\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -23592,7 +23592,7 @@ class Client(BaseClient):
         
                 - **CurrencyCode** *(string) --* 
         
-                  The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
+                  The currency of the Reserved Instance offering you are purchasing. It\'s specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
         
                 - **InstanceTenancy** *(string) --* 
         
@@ -23600,7 +23600,7 @@ class Client(BaseClient):
         
                 - **Marketplace** *(boolean) --* 
         
-                  Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is ``true`` .
+                  Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance Marketplace offering, this is ``true`` .
         
                 - **OfferingClass** *(string) --* 
         
@@ -23668,17 +23668,17 @@ class Client(BaseClient):
           response = client.describe_route_tables(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               RouteTableIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -23712,7 +23712,7 @@ class Client(BaseClient):
            
           * ``route.origin`` - Describes how the route was created. ``CreateRouteTable`` indicates that the route was automatically created when the route table was created; ``CreateRoute`` indicates that the route was manually added to the route table; ``EnableVgwRoutePropagation`` indicates that the route was propagated by route propagation. 
            
-          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on). 
+          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, the specified NAT instance has been terminated, and so on). 
            
           * ``route.vpc-peering-connection-id`` - The ID of a VPC peering connection specified in a route in the table. 
            
@@ -23788,48 +23788,48 @@ class Client(BaseClient):
           ::
         
             {
-                'RouteTables': [
+                \'RouteTables\': [
                     {
-                        'Associations': [
+                        \'Associations\': [
                             {
-                                'Main': True|False,
-                                'RouteTableAssociationId': 'string',
-                                'RouteTableId': 'string',
-                                'SubnetId': 'string'
+                                \'Main\': True|False,
+                                \'RouteTableAssociationId\': \'string\',
+                                \'RouteTableId\': \'string\',
+                                \'SubnetId\': \'string\'
                             },
                         ],
-                        'PropagatingVgws': [
+                        \'PropagatingVgws\': [
                             {
-                                'GatewayId': 'string'
+                                \'GatewayId\': \'string\'
                             },
                         ],
-                        'RouteTableId': 'string',
-                        'Routes': [
+                        \'RouteTableId\': \'string\',
+                        \'Routes\': [
                             {
-                                'DestinationCidrBlock': 'string',
-                                'DestinationIpv6CidrBlock': 'string',
-                                'DestinationPrefixListId': 'string',
-                                'EgressOnlyInternetGatewayId': 'string',
-                                'GatewayId': 'string',
-                                'InstanceId': 'string',
-                                'InstanceOwnerId': 'string',
-                                'NatGatewayId': 'string',
-                                'NetworkInterfaceId': 'string',
-                                'Origin': 'CreateRouteTable'|'CreateRoute'|'EnableVgwRoutePropagation',
-                                'State': 'active'|'blackhole',
-                                'VpcPeeringConnectionId': 'string'
+                                \'DestinationCidrBlock\': \'string\',
+                                \'DestinationIpv6CidrBlock\': \'string\',
+                                \'DestinationPrefixListId\': \'string\',
+                                \'EgressOnlyInternetGatewayId\': \'string\',
+                                \'GatewayId\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'InstanceOwnerId\': \'string\',
+                                \'NatGatewayId\': \'string\',
+                                \'NetworkInterfaceId\': \'string\',
+                                \'Origin\': \'CreateRouteTable\'|\'CreateRoute\'|\'EnableVgwRoutePropagation\',
+                                \'State\': \'active\'|\'blackhole\',
+                                \'VpcPeeringConnectionId\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -23941,7 +23941,7 @@ class Client(BaseClient):
                        
                     - **State** *(string) --* 
         
-                      The state of the route. The ``blackhole`` state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
+                      The state of the route. The ``blackhole`` state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, or the specified NAT instance has been terminated).
         
                     - **VpcPeeringConnectionId** *(string) --* 
         
@@ -23994,28 +23994,28 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               FirstSlotStartTimeRange={
-                  'EarliestTime': datetime(2015, 1, 1),
-                  'LatestTime': datetime(2015, 1, 1)
+                  \'EarliestTime\': datetime(2015, 1, 1),
+                  \'LatestTime\': datetime(2015, 1, 1)
               },
               MaxResults=123,
               MaxSlotDurationInHours=123,
               MinSlotDurationInHours=123,
-              NextToken='string',
+              NextToken=\'string\',
               Recurrence={
-                  'Frequency': 'string',
-                  'Interval': 123,
-                  'OccurrenceDays': [
+                  \'Frequency\': \'string\',
+                  \'Interval\': 123,
+                  \'OccurrenceDays\': [
                       123,
                   ],
-                  'OccurrenceRelativeToEnd': True|False,
-                  'OccurrenceUnit': 'string'
+                  \'OccurrenceRelativeToEnd\': True|False,
+                  \'OccurrenceUnit\': \'string\'
               }
           )
         :type DryRun: boolean
@@ -24118,17 +24118,17 @@ class Client(BaseClient):
         
           - **OccurrenceDays** *(list) --* 
         
-            The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.
+            The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can\'t specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.
         
             - *(integer) --* 
         
           - **OccurrenceRelativeToEnd** *(boolean) --* 
         
-            Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.
+            Indicates whether the occurrence is relative to the end of the specified week or month. You can\'t specify this value with a daily schedule.
         
           - **OccurrenceUnit** *(string) --* 
         
-            The unit for ``OccurrenceDays`` (``DayOfWeek`` or ``DayOfMonth`` ). This value is required for a monthly schedule. You can't specify ``DayOfWeek`` with a weekly schedule. You can't specify this value with a daily schedule.
+            The unit for ``OccurrenceDays`` (``DayOfWeek`` or ``DayOfMonth`` ). This value is required for a monthly schedule. You can\'t specify ``DayOfWeek`` with a weekly schedule. You can\'t specify this value with a daily schedule.
         
         :rtype: dict
         :returns: 
@@ -24138,30 +24138,30 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ScheduledInstanceAvailabilitySet': [
+                \'NextToken\': \'string\',
+                \'ScheduledInstanceAvailabilitySet\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'AvailableInstanceCount': 123,
-                        'FirstSlotStartTime': datetime(2015, 1, 1),
-                        'HourlyPrice': 'string',
-                        'InstanceType': 'string',
-                        'MaxTermDurationInDays': 123,
-                        'MinTermDurationInDays': 123,
-                        'NetworkPlatform': 'string',
-                        'Platform': 'string',
-                        'PurchaseToken': 'string',
-                        'Recurrence': {
-                            'Frequency': 'string',
-                            'Interval': 123,
-                            'OccurrenceDaySet': [
+                        \'AvailabilityZone\': \'string\',
+                        \'AvailableInstanceCount\': 123,
+                        \'FirstSlotStartTime\': datetime(2015, 1, 1),
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'MaxTermDurationInDays\': 123,
+                        \'MinTermDurationInDays\': 123,
+                        \'NetworkPlatform\': \'string\',
+                        \'Platform\': \'string\',
+                        \'PurchaseToken\': \'string\',
+                        \'Recurrence\': {
+                            \'Frequency\': \'string\',
+                            \'Interval\': 123,
+                            \'OccurrenceDaySet\': [
                                 123,
                             ],
-                            'OccurrenceRelativeToEnd': True|False,
-                            'OccurrenceUnit': 'string'
+                            \'OccurrenceRelativeToEnd\': True|False,
+                            \'OccurrenceUnit\': \'string\'
                         },
-                        'SlotDurationInHours': 123,
-                        'TotalScheduledInstanceHours': 123
+                        \'SlotDurationInHours\': 123,
+                        \'TotalScheduledInstanceHours\': 123
                     },
                 ]
             }
@@ -24272,20 +24272,20 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               ScheduledInstanceIds=[
-                  'string',
+                  \'string\',
               ],
               SlotStartTimeRange={
-                  'EarliestTime': datetime(2015, 1, 1),
-                  'LatestTime': datetime(2015, 1, 1)
+                  \'EarliestTime\': datetime(2015, 1, 1),
+                  \'LatestTime\': datetime(2015, 1, 1)
               }
           )
         :type DryRun: boolean
@@ -24378,32 +24378,32 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ScheduledInstanceSet': [
+                \'NextToken\': \'string\',
+                \'ScheduledInstanceSet\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'HourlyPrice': 'string',
-                        'InstanceCount': 123,
-                        'InstanceType': 'string',
-                        'NetworkPlatform': 'string',
-                        'NextSlotStartTime': datetime(2015, 1, 1),
-                        'Platform': 'string',
-                        'PreviousSlotEndTime': datetime(2015, 1, 1),
-                        'Recurrence': {
-                            'Frequency': 'string',
-                            'Interval': 123,
-                            'OccurrenceDaySet': [
+                        \'AvailabilityZone\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceCount\': 123,
+                        \'InstanceType\': \'string\',
+                        \'NetworkPlatform\': \'string\',
+                        \'NextSlotStartTime\': datetime(2015, 1, 1),
+                        \'Platform\': \'string\',
+                        \'PreviousSlotEndTime\': datetime(2015, 1, 1),
+                        \'Recurrence\': {
+                            \'Frequency\': \'string\',
+                            \'Interval\': 123,
+                            \'OccurrenceDaySet\': [
                                 123,
                             ],
-                            'OccurrenceRelativeToEnd': True|False,
-                            'OccurrenceUnit': 'string'
+                            \'OccurrenceRelativeToEnd\': True|False,
+                            \'OccurrenceUnit\': \'string\'
                         },
-                        'ScheduledInstanceId': 'string',
-                        'SlotDurationInHours': 123,
-                        'TermEndDate': datetime(2015, 1, 1),
-                        'TermStartDate': datetime(2015, 1, 1),
-                        'TotalScheduledInstanceHours': 123
+                        \'ScheduledInstanceId\': \'string\',
+                        \'SlotDurationInHours\': 123,
+                        \'TermEndDate\': datetime(2015, 1, 1),
+                        \'TermStartDate\': datetime(2015, 1, 1),
+                        \'TotalScheduledInstanceHours\': 123
                     },
                 ]
             }
@@ -24521,7 +24521,7 @@ class Client(BaseClient):
           response = client.describe_security_group_references(
               DryRun=True|False,
               GroupId=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -24544,11 +24544,11 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityGroupReferenceSet': [
+                \'SecurityGroupReferenceSet\': [
                     {
-                        'GroupId': 'string',
-                        'ReferencingVpcId': 'string',
-                        'VpcPeeringConnectionId': 'string'
+                        \'GroupId\': \'string\',
+                        \'ReferencingVpcId\': \'string\',
+                        \'VpcPeeringConnectionId\': \'string\'
                     },
                 ]
             }
@@ -24592,20 +24592,20 @@ class Client(BaseClient):
           response = client.describe_security_groups(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               GroupIds=[
-                  'string',
+                  \'string\',
               ],
               GroupNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -24738,94 +24738,94 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityGroups': [
+                \'SecurityGroups\': [
                     {
-                        'Description': 'string',
-                        'GroupName': 'string',
-                        'IpPermissions': [
+                        \'Description\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'IpPermissions\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
                                     {
-                                        'CidrIp': 'string',
-                                        'Description': 'string'
+                                        \'CidrIp\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'Ipv6Ranges': [
+                                \'Ipv6Ranges\': [
                                     {
-                                        'CidrIpv6': 'string',
-                                        'Description': 'string'
+                                        \'CidrIpv6\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'PrefixListIds': [
+                                \'PrefixListIds\': [
                                     {
-                                        'Description': 'string',
-                                        'PrefixListId': 'string'
+                                        \'Description\': \'string\',
+                                        \'PrefixListId\': \'string\'
                                     },
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'OwnerId': 'string',
-                        'GroupId': 'string',
-                        'IpPermissionsEgress': [
+                        \'OwnerId\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'IpPermissionsEgress\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
                                     {
-                                        'CidrIp': 'string',
-                                        'Description': 'string'
+                                        \'CidrIp\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'Ipv6Ranges': [
+                                \'Ipv6Ranges\': [
                                     {
-                                        'CidrIpv6': 'string',
-                                        'Description': 'string'
+                                        \'CidrIpv6\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'PrefixListIds': [
+                                \'PrefixListIds\': [
                                     {
-                                        'Description': 'string',
-                                        'PrefixListId': 'string'
+                                        \'Description\': \'string\',
+                                        \'PrefixListId\': \'string\'
                                     },
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -24863,7 +24863,7 @@ class Client(BaseClient):
         
                       The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
                     - **IpRanges** *(list) --* 
         
@@ -24991,7 +24991,7 @@ class Client(BaseClient):
         
                       The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
                     - **IpRanges** *(list) --* 
         
@@ -25137,8 +25137,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_snapshot_attribute(
-              Attribute='productCodes'|'createVolumePermission',
-              SnapshotId='string',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
+              SnapshotId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -25164,19 +25164,19 @@ class Client(BaseClient):
           ::
         
             {
-                'CreateVolumePermissions': [
+                \'CreateVolumePermissions\': [
                     {
-                        'Group': 'all',
-                        'UserId': 'string'
+                        \'Group\': \'all\',
+                        \'UserId\': \'string\'
                     },
                 ],
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'SnapshotId': 'string'
+                \'SnapshotId\': \'string\'
             }
           **Response Structure** 
         
@@ -25194,11 +25194,11 @@ class Client(BaseClient):
         
                 - **Group** *(string) --* 
         
-                  The specific group that is to be added or removed from a volume's list of create volume permissions.
+                  The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
                 - **UserId** *(string) --* 
         
-                  The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                  The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
             - **ProductCodes** *(list) --* 
         
@@ -25254,22 +25254,22 @@ class Client(BaseClient):
           response = client.describe_snapshots(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               OwnerIds=[
-                  'string',
+                  \'string\',
               ],
               RestorableByUserIds=[
-                  'string',
+                  \'string\',
               ],
               SnapshotIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -25380,30 +25380,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Snapshots': [
+                \'Snapshots\': [
                     {
-                        'DataEncryptionKeyId': 'string',
-                        'Description': 'string',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'OwnerId': 'string',
-                        'Progress': 'string',
-                        'SnapshotId': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'State': 'pending'|'completed'|'error',
-                        'StateMessage': 'string',
-                        'VolumeId': 'string',
-                        'VolumeSize': 123,
-                        'OwnerAlias': 'string',
-                        'Tags': [
+                        \'DataEncryptionKeyId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'OwnerId\': \'string\',
+                        \'Progress\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'State\': \'pending\'|\'completed\'|\'error\',
+                        \'StateMessage\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'VolumeSize\': 123,
+                        \'OwnerAlias\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -25522,15 +25522,15 @@ class Client(BaseClient):
           ::
         
             {
-                'SpotDatafeedSubscription': {
-                    'Bucket': 'string',
-                    'Fault': {
-                        'Code': 'string',
-                        'Message': 'string'
+                \'SpotDatafeedSubscription\': {
+                    \'Bucket\': \'string\',
+                    \'Fault\': {
+                        \'Code\': \'string\',
+                        \'Message\': \'string\'
                     },
-                    'OwnerId': 'string',
-                    'Prefix': 'string',
-                    'State': 'Active'|'Inactive'
+                    \'OwnerId\': \'string\',
+                    \'Prefix\': \'string\',
+                    \'State\': \'Active\'|\'Inactive\'
                 }
             }
           **Response Structure** 
@@ -25585,8 +25585,8 @@ class Client(BaseClient):
           response = client.describe_spot_fleet_instances(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
-              SpotFleetRequestId='string'
+              NextToken=\'string\',
+              SpotFleetRequestId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -25616,16 +25616,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ActiveInstances': [
+                \'ActiveInstances\': [
                     {
-                        'InstanceId': 'string',
-                        'InstanceType': 'string',
-                        'SpotInstanceRequestId': 'string',
-                        'InstanceHealth': 'healthy'|'unhealthy'
+                        \'InstanceId\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'InstanceHealth\': \'healthy\'|\'unhealthy\'
                     },
                 ],
-                'NextToken': 'string',
-                'SpotFleetRequestId': 'string'
+                \'NextToken\': \'string\',
+                \'SpotFleetRequestId\': \'string\'
             }
           **Response Structure** 
         
@@ -25680,10 +25680,10 @@ class Client(BaseClient):
         
           response = client.describe_spot_fleet_request_history(
               DryRun=True|False,
-              EventType='instanceChange'|'fleetRequestChange'|'error',
+              EventType=\'instanceChange\'|\'fleetRequestChange\'|\'error\',
               MaxResults=123,
-              NextToken='string',
-              SpotFleetRequestId='string',
+              NextToken=\'string\',
+              SpotFleetRequestId=\'string\',
               StartTime=datetime(2015, 1, 1)
           )
         :type DryRun: boolean
@@ -25724,21 +25724,21 @@ class Client(BaseClient):
           ::
         
             {
-                'HistoryRecords': [
+                \'HistoryRecords\': [
                     {
-                        'EventInformation': {
-                            'EventDescription': 'string',
-                            'EventSubType': 'string',
-                            'InstanceId': 'string'
+                        \'EventInformation\': {
+                            \'EventDescription\': \'string\',
+                            \'EventSubType\': \'string\',
+                            \'InstanceId\': \'string\'
                         },
-                        'EventType': 'instanceChange'|'fleetRequestChange'|'error',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'EventType\': \'instanceChange\'|\'fleetRequestChange\'|\'error\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'LastEvaluatedTime': datetime(2015, 1, 1),
-                'NextToken': 'string',
-                'SpotFleetRequestId': 'string',
-                'StartTime': datetime(2015, 1, 1)
+                \'LastEvaluatedTime\': datetime(2015, 1, 1),
+                \'NextToken\': \'string\',
+                \'SpotFleetRequestId\': \'string\',
+                \'StartTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -25774,7 +25774,7 @@ class Client(BaseClient):
                      
                     * ``spotFleetRequestConfigurationInvalid`` - The configuration is not valid. For more information, see the description of the event. 
                      
-                    * ``spotInstanceCountLimitExceeded`` - You've reached the limit on the number of Spot Instances that you can launch. 
+                    * ``spotInstanceCountLimitExceeded`` - You\'ve reached the limit on the number of Spot Instances that you can launch. 
                      
                     The following are the ``fleetRequestChange`` events:
         
@@ -25862,9 +25862,9 @@ class Client(BaseClient):
           response = client.describe_spot_fleet_requests(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               SpotFleetRequestIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -25897,154 +25897,154 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'SpotFleetRequestConfigs': [
+                \'NextToken\': \'string\',
+                \'SpotFleetRequestConfigs\': [
                     {
-                        'ActivityStatus': 'error'|'pending_fulfillment'|'pending_termination'|'fulfilled',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'SpotFleetRequestConfig': {
-                            'AllocationStrategy': 'lowestPrice'|'diversified',
-                            'OnDemandAllocationStrategy': 'lowestPrice'|'prioritized',
-                            'ClientToken': 'string',
-                            'ExcessCapacityTerminationPolicy': 'noTermination'|'default',
-                            'FulfilledCapacity': 123.0,
-                            'OnDemandFulfilledCapacity': 123.0,
-                            'IamFleetRole': 'string',
-                            'LaunchSpecifications': [
+                        \'ActivityStatus\': \'error\'|\'pending_fulfillment\'|\'pending_termination\'|\'fulfilled\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'SpotFleetRequestConfig\': {
+                            \'AllocationStrategy\': \'lowestPrice\'|\'diversified\',
+                            \'OnDemandAllocationStrategy\': \'lowestPrice\'|\'prioritized\',
+                            \'ClientToken\': \'string\',
+                            \'ExcessCapacityTerminationPolicy\': \'noTermination\'|\'default\',
+                            \'FulfilledCapacity\': 123.0,
+                            \'OnDemandFulfilledCapacity\': 123.0,
+                            \'IamFleetRole\': \'string\',
+                            \'LaunchSpecifications\': [
                                 {
-                                    'SecurityGroups': [
+                                    \'SecurityGroups\': [
                                         {
-                                            'GroupName': 'string',
-                                            'GroupId': 'string'
+                                            \'GroupName\': \'string\',
+                                            \'GroupId\': \'string\'
                                         },
                                     ],
-                                    'AddressingType': 'string',
-                                    'BlockDeviceMappings': [
+                                    \'AddressingType\': \'string\',
+                                    \'BlockDeviceMappings\': [
                                         {
-                                            'DeviceName': 'string',
-                                            'VirtualName': 'string',
-                                            'Ebs': {
-                                                'DeleteOnTermination': True|False,
-                                                'Iops': 123,
-                                                'SnapshotId': 'string',
-                                                'VolumeSize': 123,
-                                                'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                                'Encrypted': True|False,
-                                                'KmsKeyId': 'string'
+                                            \'DeviceName\': \'string\',
+                                            \'VirtualName\': \'string\',
+                                            \'Ebs\': {
+                                                \'DeleteOnTermination\': True|False,
+                                                \'Iops\': 123,
+                                                \'SnapshotId\': \'string\',
+                                                \'VolumeSize\': 123,
+                                                \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                                \'Encrypted\': True|False,
+                                                \'KmsKeyId\': \'string\'
                                             },
-                                            'NoDevice': 'string'
+                                            \'NoDevice\': \'string\'
                                         },
                                     ],
-                                    'EbsOptimized': True|False,
-                                    'IamInstanceProfile': {
-                                        'Arn': 'string',
-                                        'Name': 'string'
+                                    \'EbsOptimized\': True|False,
+                                    \'IamInstanceProfile\': {
+                                        \'Arn\': \'string\',
+                                        \'Name\': \'string\'
                                     },
-                                    'ImageId': 'string',
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                    'KernelId': 'string',
-                                    'KeyName': 'string',
-                                    'Monitoring': {
-                                        'Enabled': True|False
+                                    \'ImageId\': \'string\',
+                                    \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                    \'KernelId\': \'string\',
+                                    \'KeyName\': \'string\',
+                                    \'Monitoring\': {
+                                        \'Enabled\': True|False
                                     },
-                                    'NetworkInterfaces': [
+                                    \'NetworkInterfaces\': [
                                         {
-                                            'AssociatePublicIpAddress': True|False,
-                                            'DeleteOnTermination': True|False,
-                                            'Description': 'string',
-                                            'DeviceIndex': 123,
-                                            'Groups': [
-                                                'string',
+                                            \'AssociatePublicIpAddress\': True|False,
+                                            \'DeleteOnTermination\': True|False,
+                                            \'Description\': \'string\',
+                                            \'DeviceIndex\': 123,
+                                            \'Groups\': [
+                                                \'string\',
                                             ],
-                                            'Ipv6AddressCount': 123,
-                                            'Ipv6Addresses': [
+                                            \'Ipv6AddressCount\': 123,
+                                            \'Ipv6Addresses\': [
                                                 {
-                                                    'Ipv6Address': 'string'
+                                                    \'Ipv6Address\': \'string\'
                                                 },
                                             ],
-                                            'NetworkInterfaceId': 'string',
-                                            'PrivateIpAddress': 'string',
-                                            'PrivateIpAddresses': [
+                                            \'NetworkInterfaceId\': \'string\',
+                                            \'PrivateIpAddress\': \'string\',
+                                            \'PrivateIpAddresses\': [
                                                 {
-                                                    'Primary': True|False,
-                                                    'PrivateIpAddress': 'string'
+                                                    \'Primary\': True|False,
+                                                    \'PrivateIpAddress\': \'string\'
                                                 },
                                             ],
-                                            'SecondaryPrivateIpAddressCount': 123,
-                                            'SubnetId': 'string'
+                                            \'SecondaryPrivateIpAddressCount\': 123,
+                                            \'SubnetId\': \'string\'
                                         },
                                     ],
-                                    'Placement': {
-                                        'AvailabilityZone': 'string',
-                                        'GroupName': 'string',
-                                        'Tenancy': 'default'|'dedicated'|'host'
+                                    \'Placement\': {
+                                        \'AvailabilityZone\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                                     },
-                                    'RamdiskId': 'string',
-                                    'SpotPrice': 'string',
-                                    'SubnetId': 'string',
-                                    'UserData': 'string',
-                                    'WeightedCapacity': 123.0,
-                                    'TagSpecifications': [
+                                    \'RamdiskId\': \'string\',
+                                    \'SpotPrice\': \'string\',
+                                    \'SubnetId\': \'string\',
+                                    \'UserData\': \'string\',
+                                    \'WeightedCapacity\': 123.0,
+                                    \'TagSpecifications\': [
                                         {
-                                            'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                                            'Tags': [
+                                            \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                                            \'Tags\': [
                                                 {
-                                                    'Key': 'string',
-                                                    'Value': 'string'
+                                                    \'Key\': \'string\',
+                                                    \'Value\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
                             ],
-                            'LaunchTemplateConfigs': [
+                            \'LaunchTemplateConfigs\': [
                                 {
-                                    'LaunchTemplateSpecification': {
-                                        'LaunchTemplateId': 'string',
-                                        'LaunchTemplateName': 'string',
-                                        'Version': 'string'
+                                    \'LaunchTemplateSpecification\': {
+                                        \'LaunchTemplateId\': \'string\',
+                                        \'LaunchTemplateName\': \'string\',
+                                        \'Version\': \'string\'
                                     },
-                                    'Overrides': [
+                                    \'Overrides\': [
                                         {
-                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                            'SpotPrice': 'string',
-                                            'SubnetId': 'string',
-                                            'AvailabilityZone': 'string',
-                                            'WeightedCapacity': 123.0,
-                                            'Priority': 123.0
+                                            \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                            \'SpotPrice\': \'string\',
+                                            \'SubnetId\': \'string\',
+                                            \'AvailabilityZone\': \'string\',
+                                            \'WeightedCapacity\': 123.0,
+                                            \'Priority\': 123.0
                                         },
                                     ]
                                 },
                             ],
-                            'SpotPrice': 'string',
-                            'TargetCapacity': 123,
-                            'OnDemandTargetCapacity': 123,
-                            'TerminateInstancesWithExpiration': True|False,
-                            'Type': 'request'|'maintain',
-                            'ValidFrom': datetime(2015, 1, 1),
-                            'ValidUntil': datetime(2015, 1, 1),
-                            'ReplaceUnhealthyInstances': True|False,
-                            'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate',
-                            'LoadBalancersConfig': {
-                                'ClassicLoadBalancersConfig': {
-                                    'ClassicLoadBalancers': [
+                            \'SpotPrice\': \'string\',
+                            \'TargetCapacity\': 123,
+                            \'OnDemandTargetCapacity\': 123,
+                            \'TerminateInstancesWithExpiration\': True|False,
+                            \'Type\': \'request\'|\'maintain\',
+                            \'ValidFrom\': datetime(2015, 1, 1),
+                            \'ValidUntil\': datetime(2015, 1, 1),
+                            \'ReplaceUnhealthyInstances\': True|False,
+                            \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\',
+                            \'LoadBalancersConfig\': {
+                                \'ClassicLoadBalancersConfig\': {
+                                    \'ClassicLoadBalancers\': [
                                         {
-                                            'Name': 'string'
+                                            \'Name\': \'string\'
                                         },
                                     ]
                                 },
-                                'TargetGroupsConfig': {
-                                    'TargetGroups': [
+                                \'TargetGroupsConfig\': {
+                                    \'TargetGroups\': [
                                         {
-                                            'Arn': 'string'
+                                            \'Arn\': \'string\'
                                         },
                                     ]
                                 }
                             },
-                            'InstancePoolsToUseCount': 123
+                            \'InstancePoolsToUseCount\': 123
                         },
-                        'SpotFleetRequestId': 'string',
-                        'SpotFleetRequestState': 'submitted'|'active'|'cancelled'|'failed'|'cancelled_running'|'cancelled_terminating'|'modifying'
+                        \'SpotFleetRequestId\': \'string\',
+                        \'SpotFleetRequestState\': \'submitted\'|\'active\'|\'cancelled\'|\'failed\'|\'cancelled_running\'|\'cancelled_terminating\'|\'modifying\'
                     },
                 ]
             }
@@ -26136,7 +26136,7 @@ class Client(BaseClient):
         
                       - **BlockDeviceMappings** *(list) --* 
         
-                        One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+                        One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
                         - *(dict) --* 
         
@@ -26180,7 +26180,7 @@ class Client(BaseClient):
         
                               Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                              Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                              Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                             - **VolumeType** *(string) --* 
         
@@ -26206,7 +26206,7 @@ class Client(BaseClient):
         
                       - **EbsOptimized** *(boolean) --* 
         
-                        Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                        Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                         Default: ``false``  
         
@@ -26280,11 +26280,11 @@ class Client(BaseClient):
                         
                           - **Ipv6AddressCount** *(integer) --* 
         
-                            A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                            A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
                           - **Ipv6Addresses** *(list) --* 
         
-                            One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                            One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                             - *(dict) --* 
         
@@ -26300,11 +26300,11 @@ class Client(BaseClient):
         
                           - **PrivateIpAddress** *(string) --* 
         
-                            The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                           - **PrivateIpAddresses** *(list) --* 
         
-                            One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                             - *(dict) --* 
         
@@ -26320,7 +26320,7 @@ class Client(BaseClient):
         
                           - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                            The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                           - **SubnetId** *(string) --* 
         
@@ -26334,7 +26334,7 @@ class Client(BaseClient):
         
                           The Availability Zone.
         
-                          [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                          [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
                         - **GroupName** *(string) --* 
         
@@ -26354,7 +26354,7 @@ class Client(BaseClient):
         
                       - **SubnetId** *(string) --* 
         
-                        The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-a61dafcf, subnet-65ea5f08".
+                        The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \"subnet-a61dafcf, subnet-65ea5f08\".
         
                       - **UserData** *(string) --* 
         
@@ -26558,15 +26558,15 @@ class Client(BaseClient):
           response = client.describe_spot_instance_requests(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               SpotInstanceRequestIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -26706,110 +26706,110 @@ class Client(BaseClient):
           ::
         
             {
-                'SpotInstanceRequests': [
+                \'SpotInstanceRequests\': [
                     {
-                        'ActualBlockHourlyPrice': 'string',
-                        'AvailabilityZoneGroup': 'string',
-                        'BlockDurationMinutes': 123,
-                        'CreateTime': datetime(2015, 1, 1),
-                        'Fault': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'ActualBlockHourlyPrice\': \'string\',
+                        \'AvailabilityZoneGroup\': \'string\',
+                        \'BlockDurationMinutes\': 123,
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'Fault\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'InstanceId': 'string',
-                        'LaunchGroup': 'string',
-                        'LaunchSpecification': {
-                            'UserData': 'string',
-                            'SecurityGroups': [
+                        \'InstanceId\': \'string\',
+                        \'LaunchGroup\': \'string\',
+                        \'LaunchSpecification\': {
+                            \'UserData\': \'string\',
+                            \'SecurityGroups\': [
                                 {
-                                    'GroupName': 'string',
-                                    'GroupId': 'string'
+                                    \'GroupName\': \'string\',
+                                    \'GroupId\': \'string\'
                                 },
                             ],
-                            'AddressingType': 'string',
-                            'BlockDeviceMappings': [
+                            \'AddressingType\': \'string\',
+                            \'BlockDeviceMappings\': [
                                 {
-                                    'DeviceName': 'string',
-                                    'VirtualName': 'string',
-                                    'Ebs': {
-                                        'DeleteOnTermination': True|False,
-                                        'Iops': 123,
-                                        'SnapshotId': 'string',
-                                        'VolumeSize': 123,
-                                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                        'Encrypted': True|False,
-                                        'KmsKeyId': 'string'
+                                    \'DeviceName\': \'string\',
+                                    \'VirtualName\': \'string\',
+                                    \'Ebs\': {
+                                        \'DeleteOnTermination\': True|False,
+                                        \'Iops\': 123,
+                                        \'SnapshotId\': \'string\',
+                                        \'VolumeSize\': 123,
+                                        \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                        \'Encrypted\': True|False,
+                                        \'KmsKeyId\': \'string\'
                                     },
-                                    'NoDevice': 'string'
+                                    \'NoDevice\': \'string\'
                                 },
                             ],
-                            'EbsOptimized': True|False,
-                            'IamInstanceProfile': {
-                                'Arn': 'string',
-                                'Name': 'string'
+                            \'EbsOptimized\': True|False,
+                            \'IamInstanceProfile\': {
+                                \'Arn\': \'string\',
+                                \'Name\': \'string\'
                             },
-                            'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                            'KernelId': 'string',
-                            'KeyName': 'string',
-                            'NetworkInterfaces': [
+                            \'ImageId\': \'string\',
+                            \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                            \'KernelId\': \'string\',
+                            \'KeyName\': \'string\',
+                            \'NetworkInterfaces\': [
                                 {
-                                    'AssociatePublicIpAddress': True|False,
-                                    'DeleteOnTermination': True|False,
-                                    'Description': 'string',
-                                    'DeviceIndex': 123,
-                                    'Groups': [
-                                        'string',
+                                    \'AssociatePublicIpAddress\': True|False,
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Description\': \'string\',
+                                    \'DeviceIndex\': 123,
+                                    \'Groups\': [
+                                        \'string\',
                                     ],
-                                    'Ipv6AddressCount': 123,
-                                    'Ipv6Addresses': [
+                                    \'Ipv6AddressCount\': 123,
+                                    \'Ipv6Addresses\': [
                                         {
-                                            'Ipv6Address': 'string'
+                                            \'Ipv6Address\': \'string\'
                                         },
                                     ],
-                                    'NetworkInterfaceId': 'string',
-                                    'PrivateIpAddress': 'string',
-                                    'PrivateIpAddresses': [
+                                    \'NetworkInterfaceId\': \'string\',
+                                    \'PrivateIpAddress\': \'string\',
+                                    \'PrivateIpAddresses\': [
                                         {
-                                            'Primary': True|False,
-                                            'PrivateIpAddress': 'string'
+                                            \'Primary\': True|False,
+                                            \'PrivateIpAddress\': \'string\'
                                         },
                                     ],
-                                    'SecondaryPrivateIpAddressCount': 123,
-                                    'SubnetId': 'string'
+                                    \'SecondaryPrivateIpAddressCount\': 123,
+                                    \'SubnetId\': \'string\'
                                 },
                             ],
-                            'Placement': {
-                                'AvailabilityZone': 'string',
-                                'GroupName': 'string',
-                                'Tenancy': 'default'|'dedicated'|'host'
+                            \'Placement\': {
+                                \'AvailabilityZone\': \'string\',
+                                \'GroupName\': \'string\',
+                                \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                             },
-                            'RamdiskId': 'string',
-                            'SubnetId': 'string',
-                            'Monitoring': {
-                                'Enabled': True|False
+                            \'RamdiskId\': \'string\',
+                            \'SubnetId\': \'string\',
+                            \'Monitoring\': {
+                                \'Enabled\': True|False
                             }
                         },
-                        'LaunchedAvailabilityZone': 'string',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'SpotInstanceRequestId': 'string',
-                        'SpotPrice': 'string',
-                        'State': 'open'|'active'|'closed'|'cancelled'|'failed',
-                        'Status': {
-                            'Code': 'string',
-                            'Message': 'string',
-                            'UpdateTime': datetime(2015, 1, 1)
+                        \'LaunchedAvailabilityZone\': \'string\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'SpotPrice\': \'string\',
+                        \'State\': \'open\'|\'active\'|\'closed\'|\'cancelled\'|\'failed\',
+                        \'Status\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\',
+                            \'UpdateTime\': datetime(2015, 1, 1)
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Type': 'one-time'|'persistent',
-                        'ValidFrom': datetime(2015, 1, 1),
-                        'ValidUntil': datetime(2015, 1, 1),
-                        'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                        \'Type\': \'one-time\'|\'persistent\',
+                        \'ValidFrom\': datetime(2015, 1, 1),
+                        \'ValidUntil\': datetime(2015, 1, 1),
+                        \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                     },
                 ]
             }
@@ -26937,7 +26937,7 @@ class Client(BaseClient):
         
                           Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                          Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                          Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                         - **VolumeType** *(string) --* 
         
@@ -26963,7 +26963,7 @@ class Client(BaseClient):
         
                   - **EbsOptimized** *(boolean) --* 
         
-                    Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                    Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                     Default: ``false``  
         
@@ -27027,11 +27027,11 @@ class Client(BaseClient):
                     
                       - **Ipv6AddressCount** *(integer) --* 
         
-                        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
                       - **Ipv6Addresses** *(list) --* 
         
-                        One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                        One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                         - *(dict) --* 
         
@@ -27047,11 +27047,11 @@ class Client(BaseClient):
         
                       - **PrivateIpAddress** *(string) --* 
         
-                        The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                       - **PrivateIpAddresses** *(list) --* 
         
-                        One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                         - *(dict) --* 
         
@@ -27067,7 +27067,7 @@ class Client(BaseClient):
         
                       - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                        The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                       - **SubnetId** *(string) --* 
         
@@ -27081,7 +27081,7 @@ class Client(BaseClient):
         
                       The Availability Zone.
         
-                      [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                      [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
                     - **GroupName** *(string) --* 
         
@@ -27195,22 +27195,22 @@ class Client(BaseClient):
           response = client.describe_spot_price_history(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               InstanceTypes=[
-                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+                  \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               ProductDescriptions=[
-                  'string',
+                  \'string\',
               ],
               StartTime=datetime(2015, 1, 1)
           )
@@ -27315,14 +27315,14 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'SpotPriceHistory': [
+                \'NextToken\': \'string\',
+                \'SpotPriceHistory\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'SpotPrice': 'string',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'AvailabilityZone\': \'string\',
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'SpotPrice\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -27378,8 +27378,8 @@ class Client(BaseClient):
           response = client.describe_stale_security_groups(
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
-              VpcId='string'
+              NextToken=\'string\',
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -27409,61 +27409,61 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'StaleSecurityGroupSet': [
+                \'NextToken\': \'string\',
+                \'StaleSecurityGroupSet\': [
                     {
-                        'Description': 'string',
-                        'GroupId': 'string',
-                        'GroupName': 'string',
-                        'StaleIpPermissions': [
+                        \'Description\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'StaleIpPermissions\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
-                                    'string',
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
+                                    \'string\',
                                 ],
-                                'PrefixListIds': [
-                                    'string',
+                                \'PrefixListIds\': [
+                                    \'string\',
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'StaleIpPermissionsEgress': [
+                        \'StaleIpPermissionsEgress\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
-                                    'string',
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
+                                    \'string\',
                                 ],
-                                'PrefixListIds': [
-                                    'string',
+                                \'PrefixListIds\': [
+                                    \'string\',
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ]
             }
@@ -27667,14 +27667,14 @@ class Client(BaseClient):
           response = client.describe_subnets(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -27687,7 +27687,7 @@ class Client(BaseClient):
            
           * ``available-ip-address-count`` - The number of IPv4 addresses in the subnet that are available. 
            
-          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
+          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet\'s CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
            
           * ``defaultForAz`` - Indicates whether this is the default subnet for the Availability Zone. You can also use ``default-for-az`` as the filter name. 
            
@@ -27763,31 +27763,31 @@ class Client(BaseClient):
           ::
         
             {
-                'Subnets': [
+                \'Subnets\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'AvailableIpAddressCount': 123,
-                        'CidrBlock': 'string',
-                        'DefaultForAz': True|False,
-                        'MapPublicIpOnLaunch': True|False,
-                        'State': 'pending'|'available',
-                        'SubnetId': 'string',
-                        'VpcId': 'string',
-                        'AssignIpv6AddressOnCreation': True|False,
-                        'Ipv6CidrBlockAssociationSet': [
+                        \'AvailabilityZone\': \'string\',
+                        \'AvailableIpAddressCount\': 123,
+                        \'CidrBlock\': \'string\',
+                        \'DefaultForAz\': True|False,
+                        \'MapPublicIpOnLaunch\': True|False,
+                        \'State\': \'pending\'|\'available\',
+                        \'SubnetId\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'AssignIpv6AddressOnCreation\': True|False,
+                        \'Ipv6CidrBlockAssociationSet\': [
                             {
-                                'AssociationId': 'string',
-                                'Ipv6CidrBlock': 'string',
-                                'Ipv6CidrBlockState': {
-                                    'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                    'StatusMessage': 'string'
+                                \'AssociationId\': \'string\',
+                                \'Ipv6CidrBlock\': \'string\',
+                                \'Ipv6CidrBlockState\': {
+                                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                    \'StatusMessage\': \'string\'
                                 }
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -27906,14 +27906,14 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -27931,7 +27931,7 @@ class Client(BaseClient):
            
           * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ). 
            
-          * ``tag`` :<key> - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA". 
+          * ``tag`` :<key> - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\". 
            
           * ``value`` - The tag value. 
            
@@ -27987,13 +27987,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Tags': [
+                \'NextToken\': \'string\',
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'ResourceId': 'string',
-                        'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -28043,8 +28043,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_volume_attribute(
-              Attribute='autoEnableIO'|'productCodes',
-              VolumeId='string',
+              Attribute=\'autoEnableIO\'|\'productCodes\',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -28070,16 +28070,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoEnableIO': {
-                    'Value': True|False
+                \'AutoEnableIO\': {
+                    \'Value\': True|False
                 },
-                'ProductCodes': [
+                \'ProductCodes\': [
                     {
-                        'ProductCodeId': 'string',
-                        'ProductCodeType': 'devpay'|'marketplace'
+                        \'ProductCodeId\': \'string\',
+                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                     },
                 ],
-                'VolumeId': 'string'
+                \'VolumeId\': \'string\'
             }
           **Response Structure** 
         
@@ -28139,16 +28139,16 @@ class Client(BaseClient):
           response = client.describe_volume_status(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -28247,36 +28247,36 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'VolumeStatuses': [
+                \'NextToken\': \'string\',
+                \'VolumeStatuses\': [
                     {
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Code': 'string',
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string'
+                                \'Code\': \'string\',
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'Events': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Events\': [
                             {
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string',
-                                'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\',
+                                \'NotAfter\': datetime(2015, 1, 1),
+                                \'NotBefore\': datetime(2015, 1, 1)
                             },
                         ],
-                        'VolumeId': 'string',
-                        'VolumeStatus': {
-                            'Details': [
+                        \'VolumeId\': \'string\',
+                        \'VolumeStatus\': {
+                            \'Details\': [
                                 {
-                                    'Name': 'io-enabled'|'io-performance',
-                                    'Status': 'string'
+                                    \'Name\': \'io-enabled\'|\'io-performance\',
+                                    \'Status\': \'string\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'
                         }
                     },
                 ]
@@ -28401,18 +28401,18 @@ class Client(BaseClient):
           response = client.describe_volumes(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type Filters: list
         :param Filters: 
@@ -28513,37 +28513,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Volumes': [
+                \'Volumes\': [
                     {
-                        'Attachments': [
+                        \'Attachments\': [
                             {
-                                'AttachTime': datetime(2015, 1, 1),
-                                'Device': 'string',
-                                'InstanceId': 'string',
-                                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                                'VolumeId': 'string',
-                                'DeleteOnTermination': True|False
+                                \'AttachTime\': datetime(2015, 1, 1),
+                                \'Device\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                                \'VolumeId\': \'string\',
+                                \'DeleteOnTermination\': True|False
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'Size': 123,
-                        'SnapshotId': 'string',
-                        'State': 'creating'|'available'|'in-use'|'deleting'|'deleted'|'error',
-                        'VolumeId': 'string',
-                        'Iops': 123,
-                        'Tags': [
+                        \'AvailabilityZone\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'Size\': 123,
+                        \'SnapshotId\': \'string\',
+                        \'State\': \'creating\'|\'available\'|\'in-use\'|\'deleting\'|\'deleted\'|\'error\',
+                        \'VolumeId\': \'string\',
+                        \'Iops\': 123,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                        \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -28667,7 +28667,7 @@ class Client(BaseClient):
         
         Current-generation EBS volumes support modification of attributes including type, size, and (for ``io1`` volumes) IOPS provisioning while either attached to or detached from an instance. Following an action from the API or the console to modify a volume, the status of the modification may be ``modifying`` , ``optimizing`` , ``completed`` , or ``failed`` . If a volume has never been modified, then certain elements of the returned ``VolumeModification`` objects are null. 
         
-        You can also use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the `Amazon CloudWatch Events User Guide <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/>`__ . For more information, see `Monitoring Volume Modifications" <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You can also use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the `Amazon CloudWatch Events User Guide <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/>`__ . For more information, see `Monitoring Volume Modifications\" <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumesModifications>`_
         
@@ -28677,17 +28677,17 @@ class Client(BaseClient):
           response = client.describe_volumes_modifications(
               DryRun=True|False,
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DryRun: boolean
@@ -28759,23 +28759,23 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumesModifications': [
+                \'VolumesModifications\': [
                     {
-                        'VolumeId': 'string',
-                        'ModificationState': 'modifying'|'optimizing'|'completed'|'failed',
-                        'StatusMessage': 'string',
-                        'TargetSize': 123,
-                        'TargetIops': 123,
-                        'TargetVolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                        'OriginalSize': 123,
-                        'OriginalIops': 123,
-                        'OriginalVolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                        'Progress': 123,
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1)
+                        \'VolumeId\': \'string\',
+                        \'ModificationState\': \'modifying\'|\'optimizing\'|\'completed\'|\'failed\',
+                        \'StatusMessage\': \'string\',
+                        \'TargetSize\': 123,
+                        \'TargetIops\': 123,
+                        \'TargetVolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                        \'OriginalSize\': 123,
+                        \'OriginalIops\': 123,
+                        \'OriginalVolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                        \'Progress\': 123,
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -28855,8 +28855,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_vpc_attribute(
-              Attribute='enableDnsSupport'|'enableDnsHostnames',
-              VpcId='string',
+              Attribute=\'enableDnsSupport\'|\'enableDnsHostnames\',
+              VpcId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -28882,12 +28882,12 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcId': 'string',
-                'EnableDnsHostnames': {
-                    'Value': True|False
+                \'VpcId\': \'string\',
+                \'EnableDnsHostnames\': {
+                    \'Value\': True|False
                 },
-                'EnableDnsSupport': {
-                    'Value': True|False
+                \'EnableDnsSupport\': {
+                    \'Value\': True|False
                 }
             }
           **Response Structure** 
@@ -28928,15 +28928,15 @@ class Client(BaseClient):
           response = client.describe_vpc_classic_link(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               VpcIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -29004,16 +29004,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Vpcs': [
+                \'Vpcs\': [
                     {
-                        'ClassicLinkEnabled': True|False,
-                        'Tags': [
+                        \'ClassicLinkEnabled\': True|False,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ]
             }
@@ -29070,9 +29070,9 @@ class Client(BaseClient):
         
           response = client.describe_vpc_classic_link_dns_support(
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               VpcIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type MaxResults: integer
@@ -29100,11 +29100,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Vpcs': [
+                \'NextToken\': \'string\',
+                \'Vpcs\': [
                     {
-                        'ClassicLinkDnsSupported': True|False,
-                        'VpcId': 'string'
+                        \'ClassicLinkDnsSupported\': True|False,
+                        \'VpcId\': \'string\'
                     },
                 ]
             }
@@ -29145,17 +29145,17 @@ class Client(BaseClient):
         
           response = client.describe_vpc_endpoint_connection_notifications(
               DryRun=True|False,
-              ConnectionNotificationId='string',
+              ConnectionNotificationId=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -29236,20 +29236,20 @@ class Client(BaseClient):
           ::
         
             {
-                'ConnectionNotificationSet': [
+                \'ConnectionNotificationSet\': [
                     {
-                        'ConnectionNotificationId': 'string',
-                        'ServiceId': 'string',
-                        'VpcEndpointId': 'string',
-                        'ConnectionNotificationType': 'Topic',
-                        'ConnectionNotificationArn': 'string',
-                        'ConnectionEvents': [
-                            'string',
+                        \'ConnectionNotificationId\': \'string\',
+                        \'ServiceId\': \'string\',
+                        \'VpcEndpointId\': \'string\',
+                        \'ConnectionNotificationType\': \'Topic\',
+                        \'ConnectionNotificationArn\': \'string\',
+                        \'ConnectionEvents\': [
+                            \'string\',
                         ],
-                        'ConnectionNotificationState': 'Enabled'|'Disabled'
+                        \'ConnectionNotificationState\': \'Enabled\'|\'Disabled\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -29312,14 +29312,14 @@ class Client(BaseClient):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -29391,16 +29391,16 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcEndpointConnections': [
+                \'VpcEndpointConnections\': [
                     {
-                        'ServiceId': 'string',
-                        'VpcEndpointId': 'string',
-                        'VpcEndpointOwner': 'string',
-                        'VpcEndpointState': 'PendingAcceptance'|'Pending'|'Available'|'Deleting'|'Deleted'|'Rejected'|'Failed'|'Expired',
-                        'CreationTimestamp': datetime(2015, 1, 1)
+                        \'ServiceId\': \'string\',
+                        \'VpcEndpointId\': \'string\',
+                        \'VpcEndpointOwner\': \'string\',
+                        \'VpcEndpointState\': \'PendingAcceptance\'|\'Pending\'|\'Available\'|\'Deleting\'|\'Deleted\'|\'Rejected\'|\'Failed\'|\'Expired\',
+                        \'CreationTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -29452,18 +29452,18 @@ class Client(BaseClient):
           response = client.describe_vpc_endpoint_service_configurations(
               DryRun=True|False,
               ServiceIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -29540,30 +29540,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceConfigurations': [
+                \'ServiceConfigurations\': [
                     {
-                        'ServiceType': [
+                        \'ServiceType\': [
                             {
-                                'ServiceType': 'Interface'|'Gateway'
+                                \'ServiceType\': \'Interface\'|\'Gateway\'
                             },
                         ],
-                        'ServiceId': 'string',
-                        'ServiceName': 'string',
-                        'ServiceState': 'Pending'|'Available'|'Deleting'|'Deleted'|'Failed',
-                        'AvailabilityZones': [
-                            'string',
+                        \'ServiceId\': \'string\',
+                        \'ServiceName\': \'string\',
+                        \'ServiceState\': \'Pending\'|\'Available\'|\'Deleting\'|\'Deleted\'|\'Failed\',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'AcceptanceRequired': True|False,
-                        'NetworkLoadBalancerArns': [
-                            'string',
+                        \'AcceptanceRequired\': True|False,
+                        \'NetworkLoadBalancerArns\': [
+                            \'string\',
                         ],
-                        'BaseEndpointDnsNames': [
-                            'string',
+                        \'BaseEndpointDnsNames\': [
+                            \'string\',
                         ],
-                        'PrivateDnsName': 'string'
+                        \'PrivateDnsName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -29644,17 +29644,17 @@ class Client(BaseClient):
         
           response = client.describe_vpc_endpoint_service_permissions(
               DryRun=True|False,
-              ServiceId='string',
+              ServiceId=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -29727,13 +29727,13 @@ class Client(BaseClient):
           ::
         
             {
-                'AllowedPrincipals': [
+                \'AllowedPrincipals\': [
                     {
-                        'PrincipalType': 'All'|'Service'|'OrganizationUnit'|'Account'|'User'|'Role',
-                        'Principal': 'string'
+                        \'PrincipalType\': \'All\'|\'Service\'|\'OrganizationUnit\'|\'Account\'|\'User\'|\'Role\',
+                        \'Principal\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -29773,18 +29773,18 @@ class Client(BaseClient):
           response = client.describe_vpc_endpoint_services(
               DryRun=True|False,
               ServiceNames=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -29859,30 +29859,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceNames': [
-                    'string',
+                \'ServiceNames\': [
+                    \'string\',
                 ],
-                'ServiceDetails': [
+                \'ServiceDetails\': [
                     {
-                        'ServiceName': 'string',
-                        'ServiceType': [
+                        \'ServiceName\': \'string\',
+                        \'ServiceType\': [
                             {
-                                'ServiceType': 'Interface'|'Gateway'
+                                \'ServiceType\': \'Interface\'|\'Gateway\'
                             },
                         ],
-                        'AvailabilityZones': [
-                            'string',
+                        \'AvailabilityZones\': [
+                            \'string\',
                         ],
-                        'Owner': 'string',
-                        'BaseEndpointDnsNames': [
-                            'string',
+                        \'Owner\': \'string\',
+                        \'BaseEndpointDnsNames\': [
+                            \'string\',
                         ],
-                        'PrivateDnsName': 'string',
-                        'VpcEndpointPolicySupported': True|False,
-                        'AcceptanceRequired': True|False
+                        \'PrivateDnsName\': \'string\',
+                        \'VpcEndpointPolicySupported\': True|False,
+                        \'AcceptanceRequired\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -29966,18 +29966,18 @@ class Client(BaseClient):
           response = client.describe_vpc_endpoints(
               DryRun=True|False,
               VpcEndpointIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -30058,40 +30058,40 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcEndpoints': [
+                \'VpcEndpoints\': [
                     {
-                        'VpcEndpointId': 'string',
-                        'VpcEndpointType': 'Interface'|'Gateway',
-                        'VpcId': 'string',
-                        'ServiceName': 'string',
-                        'State': 'PendingAcceptance'|'Pending'|'Available'|'Deleting'|'Deleted'|'Rejected'|'Failed'|'Expired',
-                        'PolicyDocument': 'string',
-                        'RouteTableIds': [
-                            'string',
+                        \'VpcEndpointId\': \'string\',
+                        \'VpcEndpointType\': \'Interface\'|\'Gateway\',
+                        \'VpcId\': \'string\',
+                        \'ServiceName\': \'string\',
+                        \'State\': \'PendingAcceptance\'|\'Pending\'|\'Available\'|\'Deleting\'|\'Deleted\'|\'Rejected\'|\'Failed\'|\'Expired\',
+                        \'PolicyDocument\': \'string\',
+                        \'RouteTableIds\': [
+                            \'string\',
                         ],
-                        'SubnetIds': [
-                            'string',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'GroupId': 'string',
-                                'GroupName': 'string'
+                                \'GroupId\': \'string\',
+                                \'GroupName\': \'string\'
                             },
                         ],
-                        'PrivateDnsEnabled': True|False,
-                        'NetworkInterfaceIds': [
-                            'string',
+                        \'PrivateDnsEnabled\': True|False,
+                        \'NetworkInterfaceIds\': [
+                            \'string\',
                         ],
-                        'DnsEntries': [
+                        \'DnsEntries\': [
                             {
-                                'DnsName': 'string',
-                                'HostedZoneId': 'string'
+                                \'DnsName\': \'string\',
+                                \'HostedZoneId\': \'string\'
                             },
                         ],
-                        'CreationTimestamp': datetime(2015, 1, 1)
+                        \'CreationTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -30207,15 +30207,15 @@ class Client(BaseClient):
           response = client.describe_vpc_peering_connections(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               VpcPeeringConnectionIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Filters: list
@@ -30231,7 +30231,7 @@ class Client(BaseClient):
            
           * ``expiration-time`` - The expiration date and time for the VPC peering connection. 
            
-          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester's VPC. 
+          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester\'s VPC. 
            
           * ``requester-vpc-info.owner-id`` - The AWS account ID of the owner of the requester VPC. 
            
@@ -30303,62 +30303,62 @@ class Client(BaseClient):
           ::
         
             {
-                'VpcPeeringConnections': [
+                \'VpcPeeringConnections\': [
                     {
-                        'AccepterVpcInfo': {
-                            'CidrBlock': 'string',
-                            'Ipv6CidrBlockSet': [
+                        \'AccepterVpcInfo\': {
+                            \'CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockSet\': [
                                 {
-                                    'Ipv6CidrBlock': 'string'
+                                    \'Ipv6CidrBlock\': \'string\'
                                 },
                             ],
-                            'CidrBlockSet': [
+                            \'CidrBlockSet\': [
                                 {
-                                    'CidrBlock': 'string'
+                                    \'CidrBlock\': \'string\'
                                 },
                             ],
-                            'OwnerId': 'string',
-                            'PeeringOptions': {
-                                'AllowDnsResolutionFromRemoteVpc': True|False,
-                                'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                                'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                            \'OwnerId\': \'string\',
+                            \'PeeringOptions\': {
+                                \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                                \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                                \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                             },
-                            'VpcId': 'string',
-                            'Region': 'string'
+                            \'VpcId\': \'string\',
+                            \'Region\': \'string\'
                         },
-                        'ExpirationTime': datetime(2015, 1, 1),
-                        'RequesterVpcInfo': {
-                            'CidrBlock': 'string',
-                            'Ipv6CidrBlockSet': [
+                        \'ExpirationTime\': datetime(2015, 1, 1),
+                        \'RequesterVpcInfo\': {
+                            \'CidrBlock\': \'string\',
+                            \'Ipv6CidrBlockSet\': [
                                 {
-                                    'Ipv6CidrBlock': 'string'
+                                    \'Ipv6CidrBlock\': \'string\'
                                 },
                             ],
-                            'CidrBlockSet': [
+                            \'CidrBlockSet\': [
                                 {
-                                    'CidrBlock': 'string'
+                                    \'CidrBlock\': \'string\'
                                 },
                             ],
-                            'OwnerId': 'string',
-                            'PeeringOptions': {
-                                'AllowDnsResolutionFromRemoteVpc': True|False,
-                                'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                                'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                            \'OwnerId\': \'string\',
+                            \'PeeringOptions\': {
+                                \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                                \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                                \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                             },
-                            'VpcId': 'string',
-                            'Region': 'string'
+                            \'VpcId\': \'string\',
+                            \'Region\': \'string\'
                         },
-                        'Status': {
-                            'Code': 'initiating-request'|'pending-acceptance'|'active'|'deleted'|'rejected'|'failed'|'expired'|'provisioning'|'deleting',
-                            'Message': 'string'
+                        \'Status\': {
+                            \'Code\': \'initiating-request\'|\'pending-acceptance\'|\'active\'|\'deleted\'|\'rejected\'|\'failed\'|\'expired\'|\'provisioning\'|\'deleting\',
+                            \'Message\': \'string\'
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcPeeringConnectionId': 'string'
+                        \'VpcPeeringConnectionId\': \'string\'
                     },
                 ]
             }
@@ -30548,14 +30548,14 @@ class Client(BaseClient):
           response = client.describe_vpcs(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpcIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -30564,7 +30564,7 @@ class Client(BaseClient):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -30646,38 +30646,38 @@ class Client(BaseClient):
           ::
         
             {
-                'Vpcs': [
+                \'Vpcs\': [
                     {
-                        'CidrBlock': 'string',
-                        'DhcpOptionsId': 'string',
-                        'State': 'pending'|'available',
-                        'VpcId': 'string',
-                        'InstanceTenancy': 'default'|'dedicated'|'host',
-                        'Ipv6CidrBlockAssociationSet': [
+                        \'CidrBlock\': \'string\',
+                        \'DhcpOptionsId\': \'string\',
+                        \'State\': \'pending\'|\'available\',
+                        \'VpcId\': \'string\',
+                        \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                        \'Ipv6CidrBlockAssociationSet\': [
                             {
-                                'AssociationId': 'string',
-                                'Ipv6CidrBlock': 'string',
-                                'Ipv6CidrBlockState': {
-                                    'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                    'StatusMessage': 'string'
+                                \'AssociationId\': \'string\',
+                                \'Ipv6CidrBlock\': \'string\',
+                                \'Ipv6CidrBlockState\': {
+                                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                    \'StatusMessage\': \'string\'
                                 }
                             },
                         ],
-                        'CidrBlockAssociationSet': [
+                        \'CidrBlockAssociationSet\': [
                             {
-                                'AssociationId': 'string',
-                                'CidrBlock': 'string',
-                                'CidrBlockState': {
-                                    'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                                    'StatusMessage': 'string'
+                                \'AssociationId\': \'string\',
+                                \'CidrBlock\': \'string\',
+                                \'CidrBlockState\': {
+                                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                                    \'StatusMessage\': \'string\'
                                 }
                             },
                         ],
-                        'IsDefault': True|False,
-                        'Tags': [
+                        \'IsDefault\': True|False,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -30701,7 +30701,7 @@ class Client(BaseClient):
         
                 - **DhcpOptionsId** *(string) --* 
         
-                  The ID of the set of DHCP options you've associated with the VPC (or ``default`` if the default options are associated with the VPC).
+                  The ID of the set of DHCP options you\'ve associated with the VPC (or ``default`` if the default options are associated with the VPC).
         
                 - **State** *(string) --* 
         
@@ -30811,14 +30811,14 @@ class Client(BaseClient):
           response = client.describe_vpn_connections(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpnConnectionIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -30905,38 +30905,38 @@ class Client(BaseClient):
           ::
         
             {
-                'VpnConnections': [
+                \'VpnConnections\': [
                     {
-                        'CustomerGatewayConfiguration': 'string',
-                        'CustomerGatewayId': 'string',
-                        'Category': 'string',
-                        'State': 'pending'|'available'|'deleting'|'deleted',
-                        'Type': 'ipsec.1',
-                        'VpnConnectionId': 'string',
-                        'VpnGatewayId': 'string',
-                        'Options': {
-                            'StaticRoutesOnly': True|False
+                        \'CustomerGatewayConfiguration\': \'string\',
+                        \'CustomerGatewayId\': \'string\',
+                        \'Category\': \'string\',
+                        \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'Type\': \'ipsec.1\',
+                        \'VpnConnectionId\': \'string\',
+                        \'VpnGatewayId\': \'string\',
+                        \'Options\': {
+                            \'StaticRoutesOnly\': True|False
                         },
-                        'Routes': [
+                        \'Routes\': [
                             {
-                                'DestinationCidrBlock': 'string',
-                                'Source': 'Static',
-                                'State': 'pending'|'available'|'deleting'|'deleted'
+                                \'DestinationCidrBlock\': \'string\',
+                                \'Source\': \'Static\',
+                                \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VgwTelemetry': [
+                        \'VgwTelemetry\': [
                             {
-                                'AcceptedRouteCount': 123,
-                                'LastStatusChange': datetime(2015, 1, 1),
-                                'OutsideIpAddress': 'string',
-                                'Status': 'UP'|'DOWN',
-                                'StatusMessage': 'string'
+                                \'AcceptedRouteCount\': 123,
+                                \'LastStatusChange\': datetime(2015, 1, 1),
+                                \'OutsideIpAddress\': \'string\',
+                                \'Status\': \'UP\'|\'DOWN\',
+                                \'StatusMessage\': \'string\'
                             },
                         ]
                     },
@@ -30958,7 +30958,7 @@ class Client(BaseClient):
         
                 - **CustomerGatewayConfiguration** *(string) --* 
         
-                  The configuration information for the VPN connection's customer gateway (in the native XML format). This element is always present in the  CreateVpnConnection response; however, it's present in the  DescribeVpnConnections response only if the VPN connection is in the ``pending`` or ``available`` state.
+                  The configuration information for the VPN connection\'s customer gateway (in the native XML format). This element is always present in the  CreateVpnConnection response; however, it\'s present in the  DescribeVpnConnections response only if the VPN connection is in the ``pending`` or ``available`` state.
         
                 - **CustomerGatewayId** *(string) --* 
         
@@ -30990,7 +30990,7 @@ class Client(BaseClient):
         
                   - **StaticRoutesOnly** *(boolean) --* 
         
-                    Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+                    Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don\'t support BGP.
         
                 - **Routes** *(list) --* 
         
@@ -31050,7 +31050,7 @@ class Client(BaseClient):
         
                     - **OutsideIpAddress** *(string) --* 
         
-                      The Internet-routable IP address of the virtual private gateway's outside interface.
+                      The Internet-routable IP address of the virtual private gateway\'s outside interface.
         
                     - **Status** *(string) --* 
         
@@ -31076,14 +31076,14 @@ class Client(BaseClient):
           response = client.describe_vpn_gateways(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpnGatewayIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -31166,23 +31166,23 @@ class Client(BaseClient):
           ::
         
             {
-                'VpnGateways': [
+                \'VpnGateways\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'State': 'pending'|'available'|'deleting'|'deleted',
-                        'Type': 'ipsec.1',
-                        'VpcAttachments': [
+                        \'AvailabilityZone\': \'string\',
+                        \'State\': \'pending\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'Type\': \'ipsec.1\',
+                        \'VpcAttachments\': [
                             {
-                                'State': 'attaching'|'attached'|'detaching'|'detached',
-                                'VpcId': 'string'
+                                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                \'VpcId\': \'string\'
                             },
                         ],
-                        'VpnGatewayId': 'string',
-                        'AmazonSideAsn': 123,
-                        'Tags': [
+                        \'VpnGatewayId\': \'string\',
+                        \'AmazonSideAsn\': 123,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -31271,8 +31271,8 @@ class Client(BaseClient):
         
           response = client.detach_classic_link_vpc(
               DryRun=True|False,
-              InstanceId='string',
-              VpcId='string'
+              InstanceId=\'string\',
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -31297,7 +31297,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -31320,8 +31320,8 @@ class Client(BaseClient):
         
           response = client.detach_internet_gateway(
               DryRun=True|False,
-              InternetGatewayId='string',
-              VpcId='string'
+              InternetGatewayId=\'string\',
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -31351,7 +31351,7 @@ class Client(BaseClient):
         ::
         
           response = client.detach_network_interface(
-              AttachmentId='string',
+              AttachmentId=\'string\',
               DryRun=True|False,
               Force=True|False
           )
@@ -31387,10 +31387,10 @@ class Client(BaseClient):
         ::
         
           response = client.detach_volume(
-              Device='string',
+              Device=\'string\',
               Force=True|False,
-              InstanceId='string',
-              VolumeId='string',
+              InstanceId=\'string\',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type Device: string
@@ -31401,7 +31401,7 @@ class Client(BaseClient):
         :type Force: boolean
         :param Force: 
         
-          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
+          Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won\'t have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
         
         :type InstanceId: string
         :param InstanceId: 
@@ -31426,12 +31426,12 @@ class Client(BaseClient):
           ::
         
             {
-                'AttachTime': datetime(2015, 1, 1),
-                'Device': 'string',
-                'InstanceId': 'string',
-                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                'VolumeId': 'string',
-                'DeleteOnTermination': True|False
+                \'AttachTime\': datetime(2015, 1, 1),
+                \'Device\': \'string\',
+                \'InstanceId\': \'string\',
+                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                \'VolumeId\': \'string\',
+                \'DeleteOnTermination\': True|False
             }
           **Response Structure** 
         
@@ -31469,7 +31469,7 @@ class Client(BaseClient):
     def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> NoReturn:
         """
         
-        You must wait for the attachment's state to switch to ``detached`` before you can delete the VPC or attach a different VPC to the virtual private gateway.
+        You must wait for the attachment\'s state to switch to ``detached`` before you can delete the VPC or attach a different VPC to the virtual private gateway.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVpnGateway>`_
         
@@ -31477,8 +31477,8 @@ class Client(BaseClient):
         ::
         
           response = client.detach_vpn_gateway(
-              VpcId='string',
-              VpnGatewayId='string',
+              VpcId=\'string\',
+              VpnGatewayId=\'string\',
               DryRun=True|False
           )
         :type VpcId: string
@@ -31509,8 +31509,8 @@ class Client(BaseClient):
         ::
         
           response = client.disable_vgw_route_propagation(
-              GatewayId='string',
-              RouteTableId='string'
+              GatewayId=\'string\',
+              RouteTableId=\'string\'
           )
         :type GatewayId: string
         :param GatewayId: **[REQUIRED]** 
@@ -31536,7 +31536,7 @@ class Client(BaseClient):
         
           response = client.disable_vpc_classic_link(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -31556,7 +31556,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -31578,7 +31578,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_vpc_classic_link_dns_support(
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type VpcId: string
         :param VpcId: 
@@ -31593,7 +31593,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -31611,7 +31611,7 @@ class Client(BaseClient):
         
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+        This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress>`_
         
@@ -31619,8 +31619,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_address(
-              AssociationId='string',
-              PublicIp='string',
+              AssociationId=\'string\',
+              PublicIp=\'string\',
               DryRun=True|False
           )
         :type AssociationId: string
@@ -31653,7 +31653,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_iam_instance_profile(
-              AssociationId='string'
+              AssociationId=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -31668,15 +31668,15 @@ class Client(BaseClient):
           ::
         
             {
-                'IamInstanceProfileAssociation': {
-                    'AssociationId': 'string',
-                    'InstanceId': 'string',
-                    'IamInstanceProfile': {
-                        'Arn': 'string',
-                        'Id': 'string'
+                \'IamInstanceProfileAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'IamInstanceProfile\': {
+                        \'Arn\': \'string\',
+                        \'Id\': \'string\'
                     },
-                    'State': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'Timestamp': datetime(2015, 1, 1)
+                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                    \'Timestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -31721,7 +31721,7 @@ class Client(BaseClient):
     def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> NoReturn:
         """
         
-        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC\'s main route table. For more information about route tables, see `Route Tables <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable>`_
         
@@ -31729,7 +31729,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_route_table(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False
           )
         :type AssociationId: string
@@ -31755,7 +31755,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_subnet_cidr_block(
-              AssociationId='string'
+              AssociationId=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -31770,15 +31770,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Ipv6CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'Ipv6CidrBlock': 'string',
-                    'Ipv6CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'Ipv6CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'Ipv6CidrBlock\': \'string\',
+                    \'Ipv6CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'SubnetId': 'string'
+                \'SubnetId\': \'string\'
             }
           **Response Structure** 
         
@@ -31826,7 +31826,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_vpc_cidr_block(
-              AssociationId='string'
+              AssociationId=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -31841,23 +31841,23 @@ class Client(BaseClient):
           ::
         
             {
-                'Ipv6CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'Ipv6CidrBlock': 'string',
-                    'Ipv6CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'Ipv6CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'Ipv6CidrBlock\': \'string\',
+                    \'Ipv6CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'CidrBlockAssociation': {
-                    'AssociationId': 'string',
-                    'CidrBlock': 'string',
-                    'CidrBlockState': {
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
-                        'StatusMessage': 'string'
+                \'CidrBlockAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'CidrBlock\': \'string\',
+                    \'CidrBlockState\': {
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\'|\'failing\'|\'failed\',
+                        \'StatusMessage\': \'string\'
                     }
                 },
-                'VpcId': 'string'
+                \'VpcId\': \'string\'
             }
           **Response Structure** 
         
@@ -31927,8 +31927,8 @@ class Client(BaseClient):
         ::
         
           response = client.enable_vgw_route_propagation(
-              GatewayId='string',
-              RouteTableId='string'
+              GatewayId=\'string\',
+              RouteTableId=\'string\'
           )
         :type GatewayId: string
         :param GatewayId: **[REQUIRED]** 
@@ -31954,7 +31954,7 @@ class Client(BaseClient):
         
           response = client.enable_volume_io(
               DryRun=True|False,
-              VolumeId='string'
+              VolumeId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -31980,7 +31980,7 @@ class Client(BaseClient):
         
           response = client.enable_vpc_classic_link(
               DryRun=True|False,
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -32000,7 +32000,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -32022,7 +32022,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_vpc_classic_link_dns_support(
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type VpcId: string
         :param VpcId: 
@@ -32037,7 +32037,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -32066,7 +32066,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -32087,7 +32087,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_console_output(
-              InstanceId='string',
+              InstanceId=\'string\',
               DryRun=True|False,
               Latest=True|False
           )
@@ -32116,9 +32116,9 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceId': 'string',
-                'Output': 'string',
-                'Timestamp': datetime(2015, 1, 1)
+                \'InstanceId\': \'string\',
+                \'Output\': \'string\',
+                \'Timestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -32153,7 +32153,7 @@ class Client(BaseClient):
         
           response = client.get_console_screenshot(
               DryRun=True|False,
-              InstanceId='string',
+              InstanceId=\'string\',
               WakeUp=True|False
           )
         :type DryRun: boolean
@@ -32169,7 +32169,7 @@ class Client(BaseClient):
         :type WakeUp: boolean
         :param WakeUp: 
         
-          When set to ``true`` , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
+          When set to ``true`` , acts as keystroke input and wakes up an instance that\'s in standby or \"sleep\" mode.
         
         :rtype: dict
         :returns: 
@@ -32179,8 +32179,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageData': 'string',
-                'InstanceId': 'string'
+                \'ImageData\': \'string\',
+                \'InstanceId\': \'string\'
             }
           **Response Structure** 
         
@@ -32211,9 +32211,9 @@ class Client(BaseClient):
         
           response = client.get_host_reservation_purchase_preview(
               HostIdSet=[
-                  'string',
+                  \'string\',
               ],
-              OfferingId='string'
+              OfferingId=\'string\'
           )
         :type HostIdSet: list
         :param HostIdSet: **[REQUIRED]** 
@@ -32235,23 +32235,23 @@ class Client(BaseClient):
           ::
         
             {
-                'CurrencyCode': 'USD',
-                'Purchase': [
+                \'CurrencyCode\': \'USD\',
+                \'Purchase\': [
                     {
-                        'CurrencyCode': 'USD',
-                        'Duration': 123,
-                        'HostIdSet': [
-                            'string',
+                        \'CurrencyCode\': \'USD\',
+                        \'Duration\': 123,
+                        \'HostIdSet\': [
+                            \'string\',
                         ],
-                        'HostReservationId': 'string',
-                        'HourlyPrice': 'string',
-                        'InstanceFamily': 'string',
-                        'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
-                        'UpfrontPrice': 'string'
+                        \'HostReservationId\': \'string\',
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceFamily\': \'string\',
+                        \'PaymentOption\': \'AllUpfront\'|\'PartialUpfront\'|\'NoUpfront\',
+                        \'UpfrontPrice\': \'string\'
                     },
                 ],
-                'TotalHourlyPrice': 'string',
-                'TotalUpfrontPrice': 'string'
+                \'TotalHourlyPrice\': \'string\',
+                \'TotalUpfrontPrice\': \'string\'
             }
           **Response Structure** 
         
@@ -32275,7 +32275,7 @@ class Client(BaseClient):
         
                 - **Duration** *(integer) --* 
         
-                  The duration of the reservation's term in seconds.
+                  The duration of the reservation\'s term in seconds.
         
                 - **HostIdSet** *(list) --* 
         
@@ -32324,7 +32324,7 @@ class Client(BaseClient):
         
           response = client.get_launch_template_data(
               DryRun=True|False,
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -32344,117 +32344,117 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplateData': {
-                    'KernelId': 'string',
-                    'EbsOptimized': True|False,
-                    'IamInstanceProfile': {
-                        'Arn': 'string',
-                        'Name': 'string'
+                \'LaunchTemplateData\': {
+                    \'KernelId\': \'string\',
+                    \'EbsOptimized\': True|False,
+                    \'IamInstanceProfile\': {
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'BlockDeviceMappings': [
+                    \'BlockDeviceMappings\': [
                         {
-                            'DeviceName': 'string',
-                            'VirtualName': 'string',
-                            'Ebs': {
-                                'Encrypted': True|False,
-                                'DeleteOnTermination': True|False,
-                                'Iops': 123,
-                                'KmsKeyId': 'string',
-                                'SnapshotId': 'string',
-                                'VolumeSize': 123,
-                                'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                            \'DeviceName\': \'string\',
+                            \'VirtualName\': \'string\',
+                            \'Ebs\': {
+                                \'Encrypted\': True|False,
+                                \'DeleteOnTermination\': True|False,
+                                \'Iops\': 123,
+                                \'KmsKeyId\': \'string\',
+                                \'SnapshotId\': \'string\',
+                                \'VolumeSize\': 123,
+                                \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                             },
-                            'NoDevice': 'string'
+                            \'NoDevice\': \'string\'
                         },
                     ],
-                    'NetworkInterfaces': [
+                    \'NetworkInterfaces\': [
                         {
-                            'AssociatePublicIpAddress': True|False,
-                            'DeleteOnTermination': True|False,
-                            'Description': 'string',
-                            'DeviceIndex': 123,
-                            'Groups': [
-                                'string',
+                            \'AssociatePublicIpAddress\': True|False,
+                            \'DeleteOnTermination\': True|False,
+                            \'Description\': \'string\',
+                            \'DeviceIndex\': 123,
+                            \'Groups\': [
+                                \'string\',
                             ],
-                            'Ipv6AddressCount': 123,
-                            'Ipv6Addresses': [
+                            \'Ipv6AddressCount\': 123,
+                            \'Ipv6Addresses\': [
                                 {
-                                    'Ipv6Address': 'string'
+                                    \'Ipv6Address\': \'string\'
                                 },
                             ],
-                            'NetworkInterfaceId': 'string',
-                            'PrivateIpAddress': 'string',
-                            'PrivateIpAddresses': [
+                            \'NetworkInterfaceId\': \'string\',
+                            \'PrivateIpAddress\': \'string\',
+                            \'PrivateIpAddresses\': [
                                 {
-                                    'Primary': True|False,
-                                    'PrivateIpAddress': 'string'
+                                    \'Primary\': True|False,
+                                    \'PrivateIpAddress\': \'string\'
                                 },
                             ],
-                            'SecondaryPrivateIpAddressCount': 123,
-                            'SubnetId': 'string'
+                            \'SecondaryPrivateIpAddressCount\': 123,
+                            \'SubnetId\': \'string\'
                         },
                     ],
-                    'ImageId': 'string',
-                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                    'KeyName': 'string',
-                    'Monitoring': {
-                        'Enabled': True|False
+                    \'ImageId\': \'string\',
+                    \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                    \'KeyName\': \'string\',
+                    \'Monitoring\': {
+                        \'Enabled\': True|False
                     },
-                    'Placement': {
-                        'AvailabilityZone': 'string',
-                        'Affinity': 'string',
-                        'GroupName': 'string',
-                        'HostId': 'string',
-                        'Tenancy': 'default'|'dedicated'|'host',
-                        'SpreadDomain': 'string'
+                    \'Placement\': {
+                        \'AvailabilityZone\': \'string\',
+                        \'Affinity\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'HostId\': \'string\',
+                        \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                        \'SpreadDomain\': \'string\'
                     },
-                    'RamDiskId': 'string',
-                    'DisableApiTermination': True|False,
-                    'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                    'UserData': 'string',
-                    'TagSpecifications': [
+                    \'RamDiskId\': \'string\',
+                    \'DisableApiTermination\': True|False,
+                    \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                    \'UserData\': \'string\',
+                    \'TagSpecifications\': [
                         {
-                            'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                            'Tags': [
+                            \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
                     ],
-                    'ElasticGpuSpecifications': [
+                    \'ElasticGpuSpecifications\': [
                         {
-                            'Type': 'string'
+                            \'Type\': \'string\'
                         },
                     ],
-                    'SecurityGroupIds': [
-                        'string',
+                    \'SecurityGroupIds\': [
+                        \'string\',
                     ],
-                    'SecurityGroups': [
-                        'string',
+                    \'SecurityGroups\': [
+                        \'string\',
                     ],
-                    'InstanceMarketOptions': {
-                        'MarketType': 'spot',
-                        'SpotOptions': {
-                            'MaxPrice': 'string',
-                            'SpotInstanceType': 'one-time'|'persistent',
-                            'BlockDurationMinutes': 123,
-                            'ValidUntil': datetime(2015, 1, 1),
-                            'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                    \'InstanceMarketOptions\': {
+                        \'MarketType\': \'spot\',
+                        \'SpotOptions\': {
+                            \'MaxPrice\': \'string\',
+                            \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                            \'BlockDurationMinutes\': 123,
+                            \'ValidUntil\': datetime(2015, 1, 1),
+                            \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                         }
                     },
-                    'CreditSpecification': {
-                        'CpuCredits': 'string'
+                    \'CreditSpecification\': {
+                        \'CpuCredits\': \'string\'
                     },
-                    'CpuOptions': {
-                        'CoreCount': 123,
-                        'ThreadsPerCore': 123
+                    \'CpuOptions\': {
+                        \'CoreCount\': 123,
+                        \'ThreadsPerCore\': 123
                     },
-                    'CapacityReservationSpecification': {
-                        'CapacityReservationPreference': 'open'|'none',
-                        'CapacityReservationTarget': {
-                            'CapacityReservationId': 'string'
+                    \'CapacityReservationSpecification\': {
+                        \'CapacityReservationPreference\': \'open\'|\'none\',
+                        \'CapacityReservationTarget\': {
+                            \'CapacityReservationId\': \'string\'
                         }
                     }
                 }
@@ -32751,7 +32751,7 @@ class Client(BaseClient):
         
                   - **MaxPrice** *(string) --* 
         
-                    The maximum hourly price you're willing to pay for the Spot Instances.
+                    The maximum hourly price you\'re willing to pay for the Spot Instances.
         
                   - **SpotInstanceType** *(string) --* 
         
@@ -32795,7 +32795,7 @@ class Client(BaseClient):
         
                 - **CapacityReservationPreference** *(string) --* 
         
-                  Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+                  Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                   * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                    
@@ -32818,10 +32818,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -32841,7 +32841,7 @@ class Client(BaseClient):
         
         The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
         
-        When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
+        When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it\'s available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData>`_
         
@@ -32849,7 +32849,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_password_data(
-              InstanceId='string',
+              InstanceId=\'string\',
               DryRun=True|False
           )
         :type InstanceId: string
@@ -32870,9 +32870,9 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceId': 'string',
-                'PasswordData': 'string',
-                'Timestamp': datetime(2015, 1, 1)
+                \'InstanceId\': \'string\',
+                \'PasswordData\': \'string\',
+                \'Timestamp\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -32906,12 +32906,12 @@ class Client(BaseClient):
           response = client.get_reserved_instances_exchange_quote(
               DryRun=True|False,
               ReservedInstanceIds=[
-                  'string',
+                  \'string\',
               ],
               TargetConfigurations=[
                   {
-                      'InstanceCount': 123,
-                      'OfferingId': 'string'
+                      \'InstanceCount\': 123,
+                      \'OfferingId\': \'string\'
                   },
               ]
           )
@@ -32952,44 +32952,44 @@ class Client(BaseClient):
           ::
         
             {
-                'CurrencyCode': 'string',
-                'IsValidExchange': True|False,
-                'OutputReservedInstancesWillExpireAt': datetime(2015, 1, 1),
-                'PaymentDue': 'string',
-                'ReservedInstanceValueRollup': {
-                    'HourlyPrice': 'string',
-                    'RemainingTotalValue': 'string',
-                    'RemainingUpfrontValue': 'string'
+                \'CurrencyCode\': \'string\',
+                \'IsValidExchange\': True|False,
+                \'OutputReservedInstancesWillExpireAt\': datetime(2015, 1, 1),
+                \'PaymentDue\': \'string\',
+                \'ReservedInstanceValueRollup\': {
+                    \'HourlyPrice\': \'string\',
+                    \'RemainingTotalValue\': \'string\',
+                    \'RemainingUpfrontValue\': \'string\'
                 },
-                'ReservedInstanceValueSet': [
+                \'ReservedInstanceValueSet\': [
                     {
-                        'ReservationValue': {
-                            'HourlyPrice': 'string',
-                            'RemainingTotalValue': 'string',
-                            'RemainingUpfrontValue': 'string'
+                        \'ReservationValue\': {
+                            \'HourlyPrice\': \'string\',
+                            \'RemainingTotalValue\': \'string\',
+                            \'RemainingUpfrontValue\': \'string\'
                         },
-                        'ReservedInstanceId': 'string'
+                        \'ReservedInstanceId\': \'string\'
                     },
                 ],
-                'TargetConfigurationValueRollup': {
-                    'HourlyPrice': 'string',
-                    'RemainingTotalValue': 'string',
-                    'RemainingUpfrontValue': 'string'
+                \'TargetConfigurationValueRollup\': {
+                    \'HourlyPrice\': \'string\',
+                    \'RemainingTotalValue\': \'string\',
+                    \'RemainingUpfrontValue\': \'string\'
                 },
-                'TargetConfigurationValueSet': [
+                \'TargetConfigurationValueSet\': [
                     {
-                        'ReservationValue': {
-                            'HourlyPrice': 'string',
-                            'RemainingTotalValue': 'string',
-                            'RemainingUpfrontValue': 'string'
+                        \'ReservationValue\': {
+                            \'HourlyPrice\': \'string\',
+                            \'RemainingTotalValue\': \'string\',
+                            \'RemainingUpfrontValue\': \'string\'
                         },
-                        'TargetConfiguration': {
-                            'InstanceCount': 123,
-                            'OfferingId': 'string'
+                        \'TargetConfiguration\': {
+                            \'InstanceCount\': 123,
+                            \'OfferingId\': \'string\'
                         }
                     },
                 ],
-                'ValidationFailureReason': 'string'
+                \'ValidationFailureReason\': \'string\'
             }
           **Response Structure** 
         
@@ -33137,35 +33137,35 @@ class Client(BaseClient):
         ::
         
           response = client.import_image(
-              Architecture='string',
+              Architecture=\'string\',
               ClientData={
-                  'Comment': 'string',
-                  'UploadEnd': datetime(2015, 1, 1),
-                  'UploadSize': 123.0,
-                  'UploadStart': datetime(2015, 1, 1)
+                  \'Comment\': \'string\',
+                  \'UploadEnd\': datetime(2015, 1, 1),
+                  \'UploadSize\': 123.0,
+                  \'UploadStart\': datetime(2015, 1, 1)
               },
-              ClientToken='string',
-              Description='string',
+              ClientToken=\'string\',
+              Description=\'string\',
               DiskContainers=[
                   {
-                      'Description': 'string',
-                      'DeviceName': 'string',
-                      'Format': 'string',
-                      'SnapshotId': 'string',
-                      'Url': 'string',
-                      'UserBucket': {
-                          'S3Bucket': 'string',
-                          'S3Key': 'string'
+                      \'Description\': \'string\',
+                      \'DeviceName\': \'string\',
+                      \'Format\': \'string\',
+                      \'SnapshotId\': \'string\',
+                      \'Url\': \'string\',
+                      \'UserBucket\': {
+                          \'S3Bucket\': \'string\',
+                          \'S3Key\': \'string\'
                       }
                   },
               ],
               DryRun=True|False,
               Encrypted=True|False,
-              Hypervisor='string',
-              KmsKeyId='string',
-              LicenseType='string',
-              Platform='string',
-              RoleName='string'
+              Hypervisor=\'string\',
+              KmsKeyId=\'string\',
+              LicenseType=\'string\',
+              Platform=\'string\',
+              RoleName=\'string\'
           )
         :type Architecture: string
         :param Architecture: 
@@ -33303,7 +33303,7 @@ class Client(BaseClient):
         :type RoleName: string
         :param RoleName: 
         
-          The name of the role to use when not using the default role, 'vmimport'.
+          The name of the role to use when not using the default role, \'vmimport\'.
         
         :rtype: dict
         :returns: 
@@ -33313,35 +33313,35 @@ class Client(BaseClient):
           ::
         
             {
-                'Architecture': 'string',
-                'Description': 'string',
-                'Encrypted': True|False,
-                'Hypervisor': 'string',
-                'ImageId': 'string',
-                'ImportTaskId': 'string',
-                'KmsKeyId': 'string',
-                'LicenseType': 'string',
-                'Platform': 'string',
-                'Progress': 'string',
-                'SnapshotDetails': [
+                \'Architecture\': \'string\',
+                \'Description\': \'string\',
+                \'Encrypted\': True|False,
+                \'Hypervisor\': \'string\',
+                \'ImageId\': \'string\',
+                \'ImportTaskId\': \'string\',
+                \'KmsKeyId\': \'string\',
+                \'LicenseType\': \'string\',
+                \'Platform\': \'string\',
+                \'Progress\': \'string\',
+                \'SnapshotDetails\': [
                     {
-                        'Description': 'string',
-                        'DeviceName': 'string',
-                        'DiskImageSize': 123.0,
-                        'Format': 'string',
-                        'Progress': 'string',
-                        'SnapshotId': 'string',
-                        'Status': 'string',
-                        'StatusMessage': 'string',
-                        'Url': 'string',
-                        'UserBucket': {
-                            'S3Bucket': 'string',
-                            'S3Key': 'string'
+                        \'Description\': \'string\',
+                        \'DeviceName\': \'string\',
+                        \'DiskImageSize\': 123.0,
+                        \'Format\': \'string\',
+                        \'Progress\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'Status\': \'string\',
+                        \'StatusMessage\': \'string\',
+                        \'Url\': \'string\',
+                        \'UserBucket\': {
+                            \'S3Bucket\': \'string\',
+                            \'S3Key\': \'string\'
                         }
                     },
                 ],
-                'Status': 'string',
-                'StatusMessage': 'string'
+                \'Status\': \'string\',
+                \'StatusMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -33467,48 +33467,48 @@ class Client(BaseClient):
         ::
         
           response = client.import_instance(
-              Description='string',
+              Description=\'string\',
               DiskImages=[
                   {
-                      'Description': 'string',
-                      'Image': {
-                          'Bytes': 123,
-                          'Format': 'VMDK'|'RAW'|'VHD',
-                          'ImportManifestUrl': 'string'
+                      \'Description\': \'string\',
+                      \'Image\': {
+                          \'Bytes\': 123,
+                          \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                          \'ImportManifestUrl\': \'string\'
                       },
-                      'Volume': {
-                          'Size': 123
+                      \'Volume\': {
+                          \'Size\': 123
                       }
                   },
               ],
               DryRun=True|False,
               LaunchSpecification={
-                  'AdditionalInfo': 'string',
-                  'Architecture': 'i386'|'x86_64',
-                  'GroupIds': [
-                      'string',
+                  \'AdditionalInfo\': \'string\',
+                  \'Architecture\': \'i386\'|\'x86_64\',
+                  \'GroupIds\': [
+                      \'string\',
                   ],
-                  'GroupNames': [
-                      'string',
+                  \'GroupNames\': [
+                      \'string\',
                   ],
-                  'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                  'Monitoring': True|False,
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'Affinity': 'string',
-                      'GroupName': 'string',
-                      'HostId': 'string',
-                      'Tenancy': 'default'|'dedicated'|'host',
-                      'SpreadDomain': 'string'
+                  \'InstanceInitiatedShutdownBehavior\': \'stop\'|\'terminate\',
+                  \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                  \'Monitoring\': True|False,
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'Affinity\': \'string\',
+                      \'GroupName\': \'string\',
+                      \'HostId\': \'string\',
+                      \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                      \'SpreadDomain\': \'string\'
                   },
-                  'PrivateIpAddress': 'string',
-                  'SubnetId': 'string',
-                  'UserData': {
-                      'Data': 'string'
+                  \'PrivateIpAddress\': \'string\',
+                  \'SubnetId\': \'string\',
+                  \'UserData\': {
+                      \'Data\': \'string\'
                   }
               },
-              Platform='Windows'
+              Platform=\'Windows\'
           )
         :type Description: string
         :param Description: 
@@ -33542,7 +33542,7 @@ class Client(BaseClient):
         
               - **ImportManifestUrl** *(string) --* **[REQUIRED]** 
         
-                A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                 For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -33653,54 +33653,54 @@ class Client(BaseClient):
           ::
         
             {
-                'ConversionTask': {
-                    'ConversionTaskId': 'string',
-                    'ExpirationTime': 'string',
-                    'ImportInstance': {
-                        'Description': 'string',
-                        'InstanceId': 'string',
-                        'Platform': 'Windows',
-                        'Volumes': [
+                \'ConversionTask\': {
+                    \'ConversionTaskId\': \'string\',
+                    \'ExpirationTime\': \'string\',
+                    \'ImportInstance\': {
+                        \'Description\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Platform\': \'Windows\',
+                        \'Volumes\': [
                             {
-                                'AvailabilityZone': 'string',
-                                'BytesConverted': 123,
-                                'Description': 'string',
-                                'Image': {
-                                    'Checksum': 'string',
-                                    'Format': 'VMDK'|'RAW'|'VHD',
-                                    'ImportManifestUrl': 'string',
-                                    'Size': 123
+                                \'AvailabilityZone\': \'string\',
+                                \'BytesConverted\': 123,
+                                \'Description\': \'string\',
+                                \'Image\': {
+                                    \'Checksum\': \'string\',
+                                    \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                                    \'ImportManifestUrl\': \'string\',
+                                    \'Size\': 123
                                 },
-                                'Status': 'string',
-                                'StatusMessage': 'string',
-                                'Volume': {
-                                    'Id': 'string',
-                                    'Size': 123
+                                \'Status\': \'string\',
+                                \'StatusMessage\': \'string\',
+                                \'Volume\': {
+                                    \'Id\': \'string\',
+                                    \'Size\': 123
                                 }
                             },
                         ]
                     },
-                    'ImportVolume': {
-                        'AvailabilityZone': 'string',
-                        'BytesConverted': 123,
-                        'Description': 'string',
-                        'Image': {
-                            'Checksum': 'string',
-                            'Format': 'VMDK'|'RAW'|'VHD',
-                            'ImportManifestUrl': 'string',
-                            'Size': 123
+                    \'ImportVolume\': {
+                        \'AvailabilityZone\': \'string\',
+                        \'BytesConverted\': 123,
+                        \'Description\': \'string\',
+                        \'Image\': {
+                            \'Checksum\': \'string\',
+                            \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                            \'ImportManifestUrl\': \'string\',
+                            \'Size\': 123
                         },
-                        'Volume': {
-                            'Id': 'string',
-                            'Size': 123
+                        \'Volume\': {
+                            \'Id\': \'string\',
+                            \'Size\': 123
                         }
                     },
-                    'State': 'active'|'cancelling'|'cancelled'|'completed',
-                    'StatusMessage': 'string',
-                    'Tags': [
+                    \'State\': \'active\'|\'cancelling\'|\'cancelled\'|\'completed\',
+                    \'StatusMessage\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -33721,7 +33721,7 @@ class Client(BaseClient):
         
               - **ExpirationTime** *(string) --* 
         
-                The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
+                The time when the task expires. If the upload isn\'t complete before the expiration time, we automatically cancel the task.
         
               - **ImportInstance** *(dict) --* 
         
@@ -33773,7 +33773,7 @@ class Client(BaseClient):
         
                       - **ImportManifestUrl** *(string) --* 
         
-                        A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                        A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                         For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -33831,7 +33831,7 @@ class Client(BaseClient):
         
                   - **ImportManifestUrl** *(string) --* 
         
-                    A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                    A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                     For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -33894,8 +33894,8 @@ class Client(BaseClient):
         
           response = client.import_key_pair(
               DryRun=True|False,
-              KeyName='string',
-              PublicKeyMaterial=b'bytes'
+              KeyName=\'string\',
+              PublicKeyMaterial=b\'bytes\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -33920,8 +33920,8 @@ class Client(BaseClient):
           ::
         
             {
-                'KeyFingerprint': 'string',
-                'KeyName': 'string'
+                \'KeyFingerprint\': \'string\',
+                \'KeyName\': \'string\'
             }
           **Response Structure** 
         
@@ -33948,26 +33948,26 @@ class Client(BaseClient):
         
           response = client.import_snapshot(
               ClientData={
-                  'Comment': 'string',
-                  'UploadEnd': datetime(2015, 1, 1),
-                  'UploadSize': 123.0,
-                  'UploadStart': datetime(2015, 1, 1)
+                  \'Comment\': \'string\',
+                  \'UploadEnd\': datetime(2015, 1, 1),
+                  \'UploadSize\': 123.0,
+                  \'UploadStart\': datetime(2015, 1, 1)
               },
-              ClientToken='string',
-              Description='string',
+              ClientToken=\'string\',
+              Description=\'string\',
               DiskContainer={
-                  'Description': 'string',
-                  'Format': 'string',
-                  'Url': 'string',
-                  'UserBucket': {
-                      'S3Bucket': 'string',
-                      'S3Key': 'string'
+                  \'Description\': \'string\',
+                  \'Format\': \'string\',
+                  \'Url\': \'string\',
+                  \'UserBucket\': {
+                      \'S3Bucket\': \'string\',
+                      \'S3Key\': \'string\'
                   }
               },
               DryRun=True|False,
               Encrypted=True|False,
-              KmsKeyId='string',
-              RoleName='string'
+              KmsKeyId=\'string\',
+              RoleName=\'string\'
           )
         :type ClientData: dict
         :param ClientData: 
@@ -34063,7 +34063,7 @@ class Client(BaseClient):
         :type RoleName: string
         :param RoleName: 
         
-          The name of the role to use when not using the default role, 'vmimport'.
+          The name of the role to use when not using the default role, \'vmimport\'.
         
         :rtype: dict
         :returns: 
@@ -34073,22 +34073,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Description': 'string',
-                'ImportTaskId': 'string',
-                'SnapshotTaskDetail': {
-                    'Description': 'string',
-                    'DiskImageSize': 123.0,
-                    'Encrypted': True|False,
-                    'Format': 'string',
-                    'KmsKeyId': 'string',
-                    'Progress': 'string',
-                    'SnapshotId': 'string',
-                    'Status': 'string',
-                    'StatusMessage': 'string',
-                    'Url': 'string',
-                    'UserBucket': {
-                        'S3Bucket': 'string',
-                        'S3Key': 'string'
+                \'Description\': \'string\',
+                \'ImportTaskId\': \'string\',
+                \'SnapshotTaskDetail\': {
+                    \'Description\': \'string\',
+                    \'DiskImageSize\': 123.0,
+                    \'Encrypted\': True|False,
+                    \'Format\': \'string\',
+                    \'KmsKeyId\': \'string\',
+                    \'Progress\': \'string\',
+                    \'SnapshotId\': \'string\',
+                    \'Status\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'Url\': \'string\',
+                    \'UserBucket\': {
+                        \'S3Bucket\': \'string\',
+                        \'S3Key\': \'string\'
                     }
                 }
             }
@@ -34176,16 +34176,16 @@ class Client(BaseClient):
         ::
         
           response = client.import_volume(
-              AvailabilityZone='string',
-              Description='string',
+              AvailabilityZone=\'string\',
+              Description=\'string\',
               DryRun=True|False,
               Image={
-                  'Bytes': 123,
-                  'Format': 'VMDK'|'RAW'|'VHD',
-                  'ImportManifestUrl': 'string'
+                  \'Bytes\': 123,
+                  \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                  \'ImportManifestUrl\': \'string\'
               },
               Volume={
-                  'Size': 123
+                  \'Size\': 123
               }
           )
         :type AvailabilityZone: string
@@ -34218,7 +34218,7 @@ class Client(BaseClient):
         
           - **ImportManifestUrl** *(string) --* **[REQUIRED]** 
         
-            A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+            A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
             For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -34239,54 +34239,54 @@ class Client(BaseClient):
           ::
         
             {
-                'ConversionTask': {
-                    'ConversionTaskId': 'string',
-                    'ExpirationTime': 'string',
-                    'ImportInstance': {
-                        'Description': 'string',
-                        'InstanceId': 'string',
-                        'Platform': 'Windows',
-                        'Volumes': [
+                \'ConversionTask\': {
+                    \'ConversionTaskId\': \'string\',
+                    \'ExpirationTime\': \'string\',
+                    \'ImportInstance\': {
+                        \'Description\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'Platform\': \'Windows\',
+                        \'Volumes\': [
                             {
-                                'AvailabilityZone': 'string',
-                                'BytesConverted': 123,
-                                'Description': 'string',
-                                'Image': {
-                                    'Checksum': 'string',
-                                    'Format': 'VMDK'|'RAW'|'VHD',
-                                    'ImportManifestUrl': 'string',
-                                    'Size': 123
+                                \'AvailabilityZone\': \'string\',
+                                \'BytesConverted\': 123,
+                                \'Description\': \'string\',
+                                \'Image\': {
+                                    \'Checksum\': \'string\',
+                                    \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                                    \'ImportManifestUrl\': \'string\',
+                                    \'Size\': 123
                                 },
-                                'Status': 'string',
-                                'StatusMessage': 'string',
-                                'Volume': {
-                                    'Id': 'string',
-                                    'Size': 123
+                                \'Status\': \'string\',
+                                \'StatusMessage\': \'string\',
+                                \'Volume\': {
+                                    \'Id\': \'string\',
+                                    \'Size\': 123
                                 }
                             },
                         ]
                     },
-                    'ImportVolume': {
-                        'AvailabilityZone': 'string',
-                        'BytesConverted': 123,
-                        'Description': 'string',
-                        'Image': {
-                            'Checksum': 'string',
-                            'Format': 'VMDK'|'RAW'|'VHD',
-                            'ImportManifestUrl': 'string',
-                            'Size': 123
+                    \'ImportVolume\': {
+                        \'AvailabilityZone\': \'string\',
+                        \'BytesConverted\': 123,
+                        \'Description\': \'string\',
+                        \'Image\': {
+                            \'Checksum\': \'string\',
+                            \'Format\': \'VMDK\'|\'RAW\'|\'VHD\',
+                            \'ImportManifestUrl\': \'string\',
+                            \'Size\': 123
                         },
-                        'Volume': {
-                            'Id': 'string',
-                            'Size': 123
+                        \'Volume\': {
+                            \'Id\': \'string\',
+                            \'Size\': 123
                         }
                     },
-                    'State': 'active'|'cancelling'|'cancelled'|'completed',
-                    'StatusMessage': 'string',
-                    'Tags': [
+                    \'State\': \'active\'|\'cancelling\'|\'cancelled\'|\'completed\',
+                    \'StatusMessage\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -34307,7 +34307,7 @@ class Client(BaseClient):
         
               - **ExpirationTime** *(string) --* 
         
-                The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel the task.
+                The time when the task expires. If the upload isn\'t complete before the expiration time, we automatically cancel the task.
         
               - **ImportInstance** *(dict) --* 
         
@@ -34359,7 +34359,7 @@ class Client(BaseClient):
         
                       - **ImportManifestUrl** *(string) --* 
         
-                        A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                        A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                         For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -34417,7 +34417,7 @@ class Client(BaseClient):
         
                   - **ImportManifestUrl** *(string) --* 
         
-                    A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
+                    A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the `Authenticating REST Requests <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__ topic in the *Amazon Simple Storage Service Developer Guide* .
         
                     For information about the import manifest referenced by this API action, see `VM Import Manifest <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         
@@ -34477,10 +34477,10 @@ class Client(BaseClient):
         ::
         
           response = client.modify_capacity_reservation(
-              CapacityReservationId='string',
+              CapacityReservationId=\'string\',
               InstanceCount=123,
               EndDate=datetime(2015, 1, 1),
-              EndDateType='unlimited'|'limited',
+              EndDateType=\'unlimited\'|\'limited\',
               DryRun=True|False
           )
         :type CapacityReservationId: string
@@ -34496,7 +34496,7 @@ class Client(BaseClient):
         :type EndDate: datetime
         :param EndDate: 
         
-          The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to ``expired`` when it reaches its end date and time.
+          The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation\'s state changes to ``expired`` when it reaches its end date and time.
         
           The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
         
@@ -34524,7 +34524,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -34549,13 +34549,13 @@ class Client(BaseClient):
         
           response = client.modify_fleet(
               DryRun=True|False,
-              ExcessCapacityTerminationPolicy='no-termination'|'termination',
-              FleetId='string',
+              ExcessCapacityTerminationPolicy=\'no-termination\'|\'termination\',
+              FleetId=\'string\',
               TargetCapacitySpecification={
-                  'TotalTargetCapacity': 123,
-                  'OnDemandTargetCapacity': 123,
-                  'SpotTargetCapacity': 123,
-                  'DefaultTargetCapacityType': 'spot'|'on-demand'
+                  \'TotalTargetCapacity\': 123,
+                  \'OnDemandTargetCapacity\': 123,
+                  \'SpotTargetCapacity\': 123,
+                  \'DefaultTargetCapacityType\': \'spot\'|\'on-demand\'
               }
           )
         :type DryRun: boolean
@@ -34602,7 +34602,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -34625,34 +34625,34 @@ class Client(BaseClient):
         
           response = client.modify_fpga_image_attribute(
               DryRun=True|False,
-              FpgaImageId='string',
-              Attribute='description'|'name'|'loadPermission'|'productCodes',
-              OperationType='add'|'remove',
+              FpgaImageId=\'string\',
+              Attribute=\'description\'|\'name\'|\'loadPermission\'|\'productCodes\',
+              OperationType=\'add\'|\'remove\',
               UserIds=[
-                  'string',
+                  \'string\',
               ],
               UserGroups=[
-                  'string',
+                  \'string\',
               ],
               ProductCodes=[
-                  'string',
+                  \'string\',
               ],
               LoadPermission={
-                  'Add': [
+                  \'Add\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ],
-                  'Remove': [
+                  \'Remove\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ]
               },
-              Description='string',
-              Name='string'
+              Description=\'string\',
+              Name=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -34691,7 +34691,7 @@ class Client(BaseClient):
         :type ProductCodes: list
         :param ProductCodes: 
         
-          One or more product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the ``productCodes`` attribute.
+          One or more product codes. After you add a product code to an AFI, it can\'t be removed. This parameter is valid only when modifying the ``productCodes`` attribute.
         
           - *(string) --* 
         
@@ -34750,20 +34750,20 @@ class Client(BaseClient):
           ::
         
             {
-                'FpgaImageAttribute': {
-                    'FpgaImageId': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'LoadPermissions': [
+                \'FpgaImageAttribute\': {
+                    \'FpgaImageId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'LoadPermissions\': [
                         {
-                            'UserId': 'string',
-                            'Group': 'all'
+                            \'UserId\': \'string\',
+                            \'Group\': \'all\'
                         },
                     ],
-                    'ProductCodes': [
+                    \'ProductCodes\': [
                         {
-                            'ProductCodeId': 'string',
-                            'ProductCodeType': 'devpay'|'marketplace'
+                            \'ProductCodeId\': \'string\',
+                            \'ProductCodeType\': \'devpay\'|\'marketplace\'
                         },
                     ]
                 }
@@ -34832,9 +34832,9 @@ class Client(BaseClient):
         ::
         
           response = client.modify_hosts(
-              AutoPlacement='on'|'off',
+              AutoPlacement=\'on\'|\'off\',
               HostIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AutoPlacement: string
@@ -34857,16 +34857,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
-                    'string',
+                \'Successful\': [
+                    \'string\',
                 ],
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -34912,7 +34912,7 @@ class Client(BaseClient):
         
         This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: ``bundle`` | ``conversion-task`` | ``customer-gateway`` | ``dhcp-options`` | ``elastic-ip-allocation`` | ``elastic-ip-association`` | ``export-task`` | ``flow-log`` | ``image`` | ``import-task`` | ``internet-gateway`` | ``network-acl`` | ``network-acl-association`` | ``network-interface`` | ``network-interface-attachment`` | ``prefix-list`` | ``route-table`` | ``route-table-association`` | ``security-group`` | ``subnet`` | ``subnet-cidr-block-association`` | ``vpc`` | ``vpc-cidr-block-association`` | ``vpc-endpoint`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` .
         
-        This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see `Resource IDs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . 
+        This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you\'re using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see `Resource IDs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . 
         
         Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant ``Describe`` command for the resource type.
         
@@ -34922,7 +34922,7 @@ class Client(BaseClient):
         ::
         
           response = client.modify_id_format(
-              Resource='string',
+              Resource=\'string\',
               UseLongIds=True|False
           )
         :type Resource: string
@@ -34958,8 +34958,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_identity_id_format(
-              PrincipalArn='string',
-              Resource='string',
+              PrincipalArn=\'string\',
+              Resource=\'string\',
               UseLongIds=True|False
           )
         :type PrincipalArn: string
@@ -34996,36 +34996,36 @@ class Client(BaseClient):
         ::
         
           response = client.modify_image_attribute(
-              Attribute='string',
+              Attribute=\'string\',
               Description={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
-              ImageId='string',
+              ImageId=\'string\',
               LaunchPermission={
-                  'Add': [
+                  \'Add\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ],
-                  'Remove': [
+                  \'Remove\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ]
               },
-              OperationType='add'|'remove',
+              OperationType=\'add\'|\'remove\',
               ProductCodes=[
-                  'string',
+                  \'string\',
               ],
               UserGroups=[
-                  'string',
+                  \'string\',
               ],
               UserIds=[
-                  'string',
+                  \'string\',
               ],
-              Value='string',
+              Value=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -35092,7 +35092,7 @@ class Client(BaseClient):
         :type ProductCodes: list
         :param ProductCodes: 
         
-          One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
+          One or more DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
         
           - *(string) --* 
         
@@ -35138,53 +35138,53 @@ class Client(BaseClient):
         
           response = client.modify_instance_attribute(
               SourceDestCheck={
-                  'Value': True|False
+                  \'Value\': True|False
               },
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'VolumeId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'VolumeId\': \'string\'
                       },
-                      'NoDevice': 'string',
-                      'VirtualName': 'string'
+                      \'NoDevice\': \'string\',
+                      \'VirtualName\': \'string\'
                   },
               ],
               DisableApiTermination={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               DryRun=True|False,
               EbsOptimized={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               EnaSupport={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              InstanceId='string',
+              InstanceId=\'string\',
               InstanceInitiatedShutdownBehavior={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               InstanceType={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               Kernel={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               Ramdisk={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               SriovNetSupport={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               UserData={
-                  'Value': b'bytes'
+                  \'Value\': b\'bytes\'
               },
-              Value='string'
+              Value=\'string\'
           )
         :type SourceDestCheck: dict
         :param SourceDestCheck: 
@@ -35238,7 +35238,7 @@ class Client(BaseClient):
         :type DisableApiTermination: dict
         :param DisableApiTermination: 
         
-          If the value is ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+          If the value is ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
         
           - **Value** *(boolean) --* 
         
@@ -35252,7 +35252,7 @@ class Client(BaseClient):
         :type EbsOptimized: dict
         :param EbsOptimized: 
         
-          Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+          Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
           - **Value** *(boolean) --* 
         
@@ -35272,7 +35272,7 @@ class Client(BaseClient):
         :type Groups: list
         :param Groups: 
         
-          [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
+          [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it\'s just the default security group for the VPC. You must specify the security group ID, not the security group name.
         
           - *(string) --* 
         
@@ -35302,7 +35302,7 @@ class Client(BaseClient):
         :type Kernel: dict
         :param Kernel: 
         
-          Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
+          Changes the instance\'s kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
         
           - **Value** *(string) --* 
         
@@ -35311,7 +35311,7 @@ class Client(BaseClient):
         :type Ramdisk: dict
         :param Ramdisk: 
         
-          Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
+          Changes the instance\'s RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html>`__ .
         
           - **Value** *(string) --* 
         
@@ -35333,7 +35333,7 @@ class Client(BaseClient):
         :type UserData: dict
         :param UserData: 
         
-          Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+          Changes the instance\'s user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
         
           - **Value** *(bytes) --* 
         
@@ -35355,11 +35355,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_instance_capacity_reservation_attributes(
-              InstanceId='string',
+              InstanceId=\'string\',
               CapacityReservationSpecification={
-                  'CapacityReservationPreference': 'open'|'none',
-                  'CapacityReservationTarget': {
-                      'CapacityReservationId': 'string'
+                  \'CapacityReservationPreference\': \'open\'|\'none\',
+                  \'CapacityReservationTarget\': {
+                      \'CapacityReservationId\': \'string\'
                   }
               },
               DryRun=True|False
@@ -35376,7 +35376,7 @@ class Client(BaseClient):
         
           - **CapacityReservationPreference** *(string) --* 
         
-            Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+            Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
             * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
              
@@ -35403,7 +35403,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -35428,11 +35428,11 @@ class Client(BaseClient):
         
           response = client.modify_instance_credit_specification(
               DryRun=True|False,
-              ClientToken='string',
+              ClientToken=\'string\',
               InstanceCreditSpecifications=[
                   {
-                      'InstanceId': 'string',
-                      'CpuCredits': 'string'
+                      \'InstanceId\': \'string\',
+                      \'CpuCredits\': \'string\'
                   },
               ]
           )
@@ -35471,17 +35471,17 @@ class Client(BaseClient):
           ::
         
             {
-                'SuccessfulInstanceCreditSpecifications': [
+                \'SuccessfulInstanceCreditSpecifications\': [
                     {
-                        'InstanceId': 'string'
+                        \'InstanceId\': \'string\'
                     },
                 ],
-                'UnsuccessfulInstanceCreditSpecifications': [
+                \'UnsuccessfulInstanceCreditSpecifications\': [
                     {
-                        'InstanceId': 'string',
-                        'Error': {
-                            'Code': 'InvalidInstanceID.Malformed'|'InvalidInstanceID.NotFound'|'IncorrectInstanceState'|'InstanceCreditSpecification.NotSupported',
-                            'Message': 'string'
+                        \'InstanceId\': \'string\',
+                        \'Error\': {
+                            \'Code\': \'InvalidInstanceID.Malformed\'|\'InvalidInstanceID.NotFound\'|\'IncorrectInstanceState\'|\'InstanceCreditSpecification.NotSupported\',
+                            \'Message\': \'string\'
                         }
                     },
                 ]
@@ -35551,11 +35551,11 @@ class Client(BaseClient):
         ::
         
           response = client.modify_instance_placement(
-              Affinity='default'|'host',
-              GroupName='string',
-              HostId='string',
-              InstanceId='string',
-              Tenancy='dedicated'|'host'
+              Affinity=\'default\'|\'host\',
+              GroupName=\'string\',
+              HostId=\'string\',
+              InstanceId=\'string\',
+              Tenancy=\'dedicated\'|\'host\'
           )
         :type Affinity: string
         :param Affinity: 
@@ -35567,7 +35567,7 @@ class Client(BaseClient):
         
           The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of ``default`` . For cluster placement groups, the instance must have a tenancy of ``default`` or ``dedicated`` .
         
-          To remove an instance from a placement group, specify an empty string ("").
+          To remove an instance from a placement group, specify an empty string (\"\").
         
         :type HostId: string
         :param HostId: 
@@ -35592,7 +35592,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -35615,10 +35615,10 @@ class Client(BaseClient):
         
           response = client.modify_launch_template(
               DryRun=True|False,
-              ClientToken='string',
-              LaunchTemplateId='string',
-              LaunchTemplateName='string',
-              DefaultVersion='string'
+              ClientToken=\'string\',
+              LaunchTemplateId=\'string\',
+              LaunchTemplateName=\'string\',
+              DefaultVersion=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -35653,17 +35653,17 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchTemplate': {
-                    'LaunchTemplateId': 'string',
-                    'LaunchTemplateName': 'string',
-                    'CreateTime': datetime(2015, 1, 1),
-                    'CreatedBy': 'string',
-                    'DefaultVersionNumber': 123,
-                    'LatestVersionNumber': 123,
-                    'Tags': [
+                \'LaunchTemplate\': {
+                    \'LaunchTemplateId\': \'string\',
+                    \'LaunchTemplateName\': \'string\',
+                    \'CreateTime\': datetime(2015, 1, 1),
+                    \'CreatedBy\': \'string\',
+                    \'DefaultVersionNumber\': 123,
+                    \'LatestVersionNumber\': 123,
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -35733,25 +35733,25 @@ class Client(BaseClient):
         
           response = client.modify_network_interface_attribute(
               Attachment={
-                  'AttachmentId': 'string',
-                  'DeleteOnTermination': True|False
+                  \'AttachmentId\': \'string\',
+                  \'DeleteOnTermination\': True|False
               },
               Description={
-                  'Value': 'string'
+                  \'Value\': \'string\'
               },
               DryRun=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              NetworkInterfaceId='string',
+              NetworkInterfaceId=\'string\',
               SourceDestCheck={
-                  'Value': True|False
+                  \'Value\': True|False
               }
           )
         :type Attachment: dict
         :param Attachment: 
         
-          Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.
+          Information about the interface attachment. If modifying the \'delete on termination\' attribute, you must specify the ID of the interface attachment.
         
           - **AttachmentId** *(string) --* 
         
@@ -35778,7 +35778,7 @@ class Client(BaseClient):
         :type Groups: list
         :param Groups: 
         
-          Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
+          Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it\'s just the default security group in the VPC. You must specify the ID of the security group, not the name.
         
           - *(string) --* 
         
@@ -35812,16 +35812,16 @@ class Client(BaseClient):
         
           response = client.modify_reserved_instances(
               ReservedInstancesIds=[
-                  'string',
+                  \'string\',
               ],
-              ClientToken='string',
+              ClientToken=\'string\',
               TargetConfigurations=[
                   {
-                      'AvailabilityZone': 'string',
-                      'InstanceCount': 123,
-                      'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                      'Platform': 'string',
-                      'Scope': 'Availability Zone'|'Region'
+                      \'AvailabilityZone\': \'string\',
+                      \'InstanceCount\': 123,
+                      \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                      \'Platform\': \'string\',
+                      \'Scope\': \'Availability Zone\'|\'Region\'
                   },
               ]
           )
@@ -35874,7 +35874,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesModificationId': 'string'
+                \'ReservedInstancesModificationId\': \'string\'
             }
           **Response Structure** 
         
@@ -35902,28 +35902,28 @@ class Client(BaseClient):
         ::
         
           response = client.modify_snapshot_attribute(
-              Attribute='productCodes'|'createVolumePermission',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
               CreateVolumePermission={
-                  'Add': [
+                  \'Add\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ],
-                  'Remove': [
+                  \'Remove\': [
                       {
-                          'Group': 'all',
-                          'UserId': 'string'
+                          \'Group\': \'all\',
+                          \'UserId\': \'string\'
                       },
                   ]
               },
               GroupNames=[
-                  'string',
+                  \'string\',
               ],
-              OperationType='add'|'remove',
-              SnapshotId='string',
+              OperationType=\'add\'|\'remove\',
+              SnapshotId=\'string\',
               UserIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -35939,7 +35939,7 @@ class Client(BaseClient):
         
           - **Add** *(list) --* 
         
-            Adds a specific AWS account ID or group to a volume's list of create volume permissions.
+            Adds a specific AWS account ID or group to a volume\'s list of create volume permissions.
         
             - *(dict) --* 
         
@@ -35947,15 +35947,15 @@ class Client(BaseClient):
         
               - **Group** *(string) --* 
         
-                The specific group that is to be added or removed from a volume's list of create volume permissions.
+                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
               - **UserId** *(string) --* 
         
-                The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
           - **Remove** *(list) --* 
         
-            Removes a specific AWS account ID or group from a volume's list of create volume permissions.
+            Removes a specific AWS account ID or group from a volume\'s list of create volume permissions.
         
             - *(dict) --* 
         
@@ -35963,11 +35963,11 @@ class Client(BaseClient):
         
               - **Group** *(string) --* 
         
-                The specific group that is to be added or removed from a volume's list of create volume permissions.
+                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
         
               - **UserId** *(string) --* 
         
-                The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
         
         :type GroupNames: list
         :param GroupNames: 
@@ -36019,8 +36019,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_spot_fleet_request(
-              ExcessCapacityTerminationPolicy='noTermination'|'default',
-              SpotFleetRequestId='string',
+              ExcessCapacityTerminationPolicy=\'noTermination\'|\'default\',
+              SpotFleetRequestId=\'string\',
               TargetCapacity=123
           )
         :type ExcessCapacityTerminationPolicy: string
@@ -36046,7 +36046,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -36071,19 +36071,19 @@ class Client(BaseClient):
         
           response = client.modify_subnet_attribute(
               AssignIpv6AddressOnCreation={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               MapPublicIpOnLaunch={
-                  'Value': True|False
+                  \'Value\': True|False
               },
-              SubnetId='string'
+              SubnetId=\'string\'
           )
         :type AssignIpv6AddressOnCreation: dict
         :param AssignIpv6AddressOnCreation: 
         
-          Specify ``true`` to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). 
+          Specify ``true`` to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that\'s created when launching an instance into the subnet (the instance therefore receives an IPv6 address). 
         
-          If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version ``2016-11-15`` or later of the Amazon EC2 API.
+          If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it\'s created using version ``2016-11-15`` or later of the Amazon EC2 API.
         
           - **Value** *(boolean) --* 
         
@@ -36092,7 +36092,7 @@ class Client(BaseClient):
         :type MapPublicIpOnLaunch: dict
         :param MapPublicIpOnLaunch: 
         
-          Specify ``true`` to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
+          Specify ``true`` to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that\'s created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
         
           - **Value** *(boolean) --* 
         
@@ -36110,7 +36110,7 @@ class Client(BaseClient):
     def modify_volume(self, VolumeId: str, DryRun: bool = None, Size: int = None, VolumeType: str = None, Iops: int = None) -> Dict:
         """
         
-        When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For information about extending a Linux file system, see `Extending a Linux File System <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux>`__ . For information about extending a Windows file system, see `Extending a Windows File System <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows>`__ . 
+        When you complete a resize operation on your volume, you need to extend the volume\'s file-system size to take advantage of the new storage capacity. For information about extending a Linux file system, see `Extending a Linux File System <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux>`__ . For information about extending a Windows file system, see `Extending a Windows File System <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows>`__ . 
         
         You can use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the `Amazon CloudWatch Events User Guide <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/>`__ . You can also track the status of a modification using the  DescribeVolumesModifications API. For information about tracking status changes using either method, see `Monitoring Volume Modifications <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods>`__ . 
         
@@ -36125,9 +36125,9 @@ class Client(BaseClient):
         
           response = client.modify_volume(
               DryRun=True|False,
-              VolumeId='string',
+              VolumeId=\'string\',
               Size=123,
-              VolumeType='standard'|'io1'|'gp2'|'sc1'|'st1',
+              VolumeType=\'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
               Iops=123
           )
         :type DryRun: boolean
@@ -36171,19 +36171,19 @@ class Client(BaseClient):
           ::
         
             {
-                'VolumeModification': {
-                    'VolumeId': 'string',
-                    'ModificationState': 'modifying'|'optimizing'|'completed'|'failed',
-                    'StatusMessage': 'string',
-                    'TargetSize': 123,
-                    'TargetIops': 123,
-                    'TargetVolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                    'OriginalSize': 123,
-                    'OriginalIops': 123,
-                    'OriginalVolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                    'Progress': 123,
-                    'StartTime': datetime(2015, 1, 1),
-                    'EndTime': datetime(2015, 1, 1)
+                \'VolumeModification\': {
+                    \'VolumeId\': \'string\',
+                    \'ModificationState\': \'modifying\'|\'optimizing\'|\'completed\'|\'failed\',
+                    \'StatusMessage\': \'string\',
+                    \'TargetSize\': 123,
+                    \'TargetIops\': 123,
+                    \'TargetVolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                    \'OriginalSize\': 123,
+                    \'OriginalIops\': 123,
+                    \'OriginalVolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                    \'Progress\': 123,
+                    \'StartTime\': datetime(2015, 1, 1),
+                    \'EndTime\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -36259,9 +36259,9 @@ class Client(BaseClient):
         
           response = client.modify_volume_attribute(
               AutoEnableIO={
-                  'Value': True|False
+                  \'Value\': True|False
               },
-              VolumeId='string',
+              VolumeId=\'string\',
               DryRun=True|False
           )
         :type AutoEnableIO: dict
@@ -36297,19 +36297,19 @@ class Client(BaseClient):
         
           response = client.modify_vpc_attribute(
               EnableDnsHostnames={
-                  'Value': True|False
+                  \'Value\': True|False
               },
               EnableDnsSupport={
-                  'Value': True|False
+                  \'Value\': True|False
               },
-              VpcId='string'
+              VpcId=\'string\'
           )
         :type EnableDnsHostnames: dict
         :param EnableDnsHostnames: 
         
           Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.
         
-          You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.
+          You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you\'ve enabled DNS support.
         
           - **Value** *(boolean) --* 
         
@@ -36318,7 +36318,7 @@ class Client(BaseClient):
         :type EnableDnsSupport: dict
         :param EnableDnsSupport: 
         
-          Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.
+          Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.
         
           You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.
         
@@ -36345,26 +36345,26 @@ class Client(BaseClient):
         
           response = client.modify_vpc_endpoint(
               DryRun=True|False,
-              VpcEndpointId='string',
+              VpcEndpointId=\'string\',
               ResetPolicy=True|False,
-              PolicyDocument='string',
+              PolicyDocument=\'string\',
               AddRouteTableIds=[
-                  'string',
+                  \'string\',
               ],
               RemoveRouteTableIds=[
-                  'string',
+                  \'string\',
               ],
               AddSubnetIds=[
-                  'string',
+                  \'string\',
               ],
               RemoveSubnetIds=[
-                  'string',
+                  \'string\',
               ],
               AddSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               RemoveSecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               PrivateDnsEnabled=True|False
           )
@@ -36443,7 +36443,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -36466,10 +36466,10 @@ class Client(BaseClient):
         
           response = client.modify_vpc_endpoint_connection_notification(
               DryRun=True|False,
-              ConnectionNotificationId='string',
-              ConnectionNotificationArn='string',
+              ConnectionNotificationId=\'string\',
+              ConnectionNotificationArn=\'string\',
               ConnectionEvents=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -36502,7 +36502,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReturnValue': True|False
+                \'ReturnValue\': True|False
             }
           **Response Structure** 
         
@@ -36525,13 +36525,13 @@ class Client(BaseClient):
         
           response = client.modify_vpc_endpoint_service_configuration(
               DryRun=True|False,
-              ServiceId='string',
+              ServiceId=\'string\',
               AcceptanceRequired=True|False,
               AddNetworkLoadBalancerArns=[
-                  'string',
+                  \'string\',
               ],
               RemoveNetworkLoadBalancerArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -36571,7 +36571,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -36596,12 +36596,12 @@ class Client(BaseClient):
         
           response = client.modify_vpc_endpoint_service_permissions(
               DryRun=True|False,
-              ServiceId='string',
+              ServiceId=\'string\',
               AddAllowedPrincipals=[
-                  'string',
+                  \'string\',
               ],
               RemoveAllowedPrincipals=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -36636,7 +36636,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReturnValue': True|False
+                \'ReturnValue\': True|False
             }
           **Response Structure** 
         
@@ -36653,9 +36653,9 @@ class Client(BaseClient):
         """
         Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:
         
-        * Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC. 
+        * Enable/disable communication over the peering connection between an EC2-Classic instance that\'s linked to your VPC (using ClassicLink) and instances in the peer VPC. 
          
-        * Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC. 
+        * Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that\'s linked to the peer VPC. 
          
         * Enable/disable the ability to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC. 
          
@@ -36668,17 +36668,17 @@ class Client(BaseClient):
         
           response = client.modify_vpc_peering_connection_options(
               AccepterPeeringConnectionOptions={
-                  'AllowDnsResolutionFromRemoteVpc': True|False,
-                  'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                  'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                  \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                  \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                  \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
               },
               DryRun=True|False,
               RequesterPeeringConnectionOptions={
-                  'AllowDnsResolutionFromRemoteVpc': True|False,
-                  'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                  'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                  \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                  \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                  \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
               },
-              VpcPeeringConnectionId='string'
+              VpcPeeringConnectionId=\'string\'
           )
         :type AccepterPeeringConnectionOptions: dict
         :param AccepterPeeringConnectionOptions: 
@@ -36691,11 +36691,11 @@ class Client(BaseClient):
         
           - **AllowEgressFromLocalClassicLinkToRemoteVpc** *(boolean) --* 
         
-            If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+            If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC using ClassicLink to instances in a peer VPC.
         
           - **AllowEgressFromLocalVpcToRemoteClassicLink** *(boolean) --* 
         
-            If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+            If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.
         
         :type DryRun: boolean
         :param DryRun: 
@@ -36713,11 +36713,11 @@ class Client(BaseClient):
         
           - **AllowEgressFromLocalClassicLinkToRemoteVpc** *(boolean) --* 
         
-            If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+            If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC using ClassicLink to instances in a peer VPC.
         
           - **AllowEgressFromLocalVpcToRemoteClassicLink** *(boolean) --* 
         
-            If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+            If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.
         
         :type VpcPeeringConnectionId: string
         :param VpcPeeringConnectionId: **[REQUIRED]** 
@@ -36732,15 +36732,15 @@ class Client(BaseClient):
           ::
         
             {
-                'AccepterPeeringConnectionOptions': {
-                    'AllowDnsResolutionFromRemoteVpc': True|False,
-                    'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                    'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                \'AccepterPeeringConnectionOptions\': {
+                    \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                    \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                    \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                 },
-                'RequesterPeeringConnectionOptions': {
-                    'AllowDnsResolutionFromRemoteVpc': True|False,
-                    'AllowEgressFromLocalClassicLinkToRemoteVpc': True|False,
-                    'AllowEgressFromLocalVpcToRemoteClassicLink': True|False
+                \'RequesterPeeringConnectionOptions\': {
+                    \'AllowDnsResolutionFromRemoteVpc\': True|False,
+                    \'AllowEgressFromLocalClassicLinkToRemoteVpc\': True|False,
+                    \'AllowEgressFromLocalVpcToRemoteClassicLink\': True|False
                 }
             }
           **Response Structure** 
@@ -36757,11 +36757,11 @@ class Client(BaseClient):
         
               - **AllowEgressFromLocalClassicLinkToRemoteVpc** *(boolean) --* 
         
-                If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+                If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC using ClassicLink to instances in a peer VPC.
         
               - **AllowEgressFromLocalVpcToRemoteClassicLink** *(boolean) --* 
         
-                If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+                If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.
         
             - **RequesterPeeringConnectionOptions** *(dict) --* 
         
@@ -36773,11 +36773,11 @@ class Client(BaseClient):
         
               - **AllowEgressFromLocalClassicLinkToRemoteVpc** *(boolean) --* 
         
-                If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+                If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC using ClassicLink to instances in a peer VPC.
         
               - **AllowEgressFromLocalVpcToRemoteClassicLink** *(boolean) --* 
         
-                If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+                If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.
         
         """
         pass
@@ -36795,8 +36795,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_vpc_tenancy(
-              VpcId='string',
-              InstanceTenancy='default',
+              VpcId=\'string\',
+              InstanceTenancy=\'default\',
               DryRun=True|False
           )
         :type VpcId: string
@@ -36822,7 +36822,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReturnValue': True|False
+                \'ReturnValue\': True|False
             }
           **Response Structure** 
         
@@ -36847,7 +36847,7 @@ class Client(BaseClient):
         
           response = client.monitor_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -36871,11 +36871,11 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -36919,7 +36919,7 @@ class Client(BaseClient):
         
           response = client.move_address_to_vpc(
               DryRun=True|False,
-              PublicIp='string'
+              PublicIp=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -36939,8 +36939,8 @@ class Client(BaseClient):
           ::
         
             {
-                'AllocationId': 'string',
-                'Status': 'MoveInProgress'|'InVpc'|'InClassic'
+                \'AllocationId\': \'string\',
+                \'Status\': \'MoveInProgress\'|\'InVpc\'|\'InClassic\'
             }
           **Response Structure** 
         
@@ -36970,18 +36970,18 @@ class Client(BaseClient):
         ::
         
           response = client.provision_byoip_cidr(
-              Cidr='string',
+              Cidr=\'string\',
               CidrAuthorizationContext={
-                  'Message': 'string',
-                  'Signature': 'string'
+                  \'Message\': \'string\',
+                  \'Signature\': \'string\'
               },
-              Description='string',
+              Description=\'string\',
               DryRun=True|False
           )
         :type Cidr: string
         :param Cidr: **[REQUIRED]** 
         
-          The public IPv4 address range, in CIDR notation. The most specific prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this or another region.
+          The public IPv4 address range, in CIDR notation. The most specific prefix that you can specify is /24. The address range cannot overlap with another address range that you\'ve brought to this or another region.
         
         :type CidrAuthorizationContext: dict
         :param CidrAuthorizationContext: 
@@ -37014,11 +37014,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ByoipCidr': {
-                    'Cidr': 'string',
-                    'Description': 'string',
-                    'StatusMessage': 'string',
-                    'State': 'advertised'|'deprovisioned'|'failed-deprovision'|'failed-provision'|'pending-deprovision'|'pending-provision'|'provisioned'
+                \'ByoipCidr\': {
+                    \'Cidr\': \'string\',
+                    \'Description\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'State\': \'advertised\'|\'deprovisioned\'|\'failed-deprovision\'|\'failed-provision\'|\'pending-deprovision\'|\'pending-provision\'|\'provisioned\'
                 }
             }
           **Response Structure** 
@@ -37057,13 +37057,13 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_host_reservation(
-              ClientToken='string',
-              CurrencyCode='USD',
+              ClientToken=\'string\',
+              CurrencyCode=\'USD\',
               HostIdSet=[
-                  'string',
+                  \'string\',
               ],
-              LimitPrice='string',
-              OfferingId='string'
+              LimitPrice=\'string\',
+              OfferingId=\'string\'
           )
         :type ClientToken: string
         :param ClientToken: 
@@ -37085,7 +37085,7 @@ class Client(BaseClient):
         :type LimitPrice: string
         :param LimitPrice: 
         
-          The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is ``USD`` . For example, to indicate a limit price of USD 100, specify 100.00.
+          The specified limit is checked against the total upfront cost of the reservation (calculated as the offering\'s upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is ``USD`` . For example, to indicate a limit price of USD 100, specify 100.00.
         
         :type OfferingId: string
         :param OfferingId: **[REQUIRED]** 
@@ -37100,24 +37100,24 @@ class Client(BaseClient):
           ::
         
             {
-                'ClientToken': 'string',
-                'CurrencyCode': 'USD',
-                'Purchase': [
+                \'ClientToken\': \'string\',
+                \'CurrencyCode\': \'USD\',
+                \'Purchase\': [
                     {
-                        'CurrencyCode': 'USD',
-                        'Duration': 123,
-                        'HostIdSet': [
-                            'string',
+                        \'CurrencyCode\': \'USD\',
+                        \'Duration\': 123,
+                        \'HostIdSet\': [
+                            \'string\',
                         ],
-                        'HostReservationId': 'string',
-                        'HourlyPrice': 'string',
-                        'InstanceFamily': 'string',
-                        'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
-                        'UpfrontPrice': 'string'
+                        \'HostReservationId\': \'string\',
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceFamily\': \'string\',
+                        \'PaymentOption\': \'AllUpfront\'|\'PartialUpfront\'|\'NoUpfront\',
+                        \'UpfrontPrice\': \'string\'
                     },
                 ],
-                'TotalHourlyPrice': 'string',
-                'TotalUpfrontPrice': 'string'
+                \'TotalHourlyPrice\': \'string\',
+                \'TotalUpfrontPrice\': \'string\'
             }
           **Response Structure** 
         
@@ -37145,7 +37145,7 @@ class Client(BaseClient):
         
                 - **Duration** *(integer) --* 
         
-                  The duration of the reservation's term in seconds.
+                  The duration of the reservation\'s term in seconds.
         
                 - **HostIdSet** *(list) --* 
         
@@ -37187,7 +37187,7 @@ class Client(BaseClient):
     def purchase_reserved_instances_offering(self, InstanceCount: int, ReservedInstancesOfferingId: str, DryRun: bool = None, LimitPrice: Dict = None) -> Dict:
         """
         
-        Use  DescribeReservedInstancesOfferings to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with  DescribeReservedInstances .
+        Use  DescribeReservedInstancesOfferings to get a list of Reserved Instance offerings that match your specifications. After you\'ve purchased a Reserved Instance, you can check for your new Reserved Instance with  DescribeReservedInstances .
         
         For more information, see `Reserved Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html>`__ and `Reserved Instance Marketplace <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -37198,11 +37198,11 @@ class Client(BaseClient):
         
           response = client.purchase_reserved_instances_offering(
               InstanceCount=123,
-              ReservedInstancesOfferingId='string',
+              ReservedInstancesOfferingId=\'string\',
               DryRun=True|False,
               LimitPrice={
-                  'Amount': 123.0,
-                  'CurrencyCode': 'USD'
+                  \'Amount\': 123.0,
+                  \'CurrencyCode\': \'USD\'
               }
           )
         :type InstanceCount: integer
@@ -37241,7 +37241,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ReservedInstancesId': 'string'
+                \'ReservedInstancesId\': \'string\'
             }
           **Response Structure** 
         
@@ -37261,7 +37261,7 @@ class Client(BaseClient):
         
         Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call  DescribeScheduledInstanceAvailability to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call  RunScheduledInstances during each scheduled time period.
         
-        After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
+        After you purchase a Scheduled Instance, you can\'t cancel, modify, or resell your purchase.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseScheduledInstances>`_
         
@@ -37269,12 +37269,12 @@ class Client(BaseClient):
         ::
         
           response = client.purchase_scheduled_instances(
-              ClientToken='string',
+              ClientToken=\'string\',
               DryRun=True|False,
               PurchaseRequests=[
                   {
-                      'InstanceCount': 123,
-                      'PurchaseToken': 'string'
+                      \'InstanceCount\': 123,
+                      \'PurchaseToken\': \'string\'
                   },
               ]
           )
@@ -37315,31 +37315,31 @@ class Client(BaseClient):
           ::
         
             {
-                'ScheduledInstanceSet': [
+                \'ScheduledInstanceSet\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'HourlyPrice': 'string',
-                        'InstanceCount': 123,
-                        'InstanceType': 'string',
-                        'NetworkPlatform': 'string',
-                        'NextSlotStartTime': datetime(2015, 1, 1),
-                        'Platform': 'string',
-                        'PreviousSlotEndTime': datetime(2015, 1, 1),
-                        'Recurrence': {
-                            'Frequency': 'string',
-                            'Interval': 123,
-                            'OccurrenceDaySet': [
+                        \'AvailabilityZone\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'HourlyPrice\': \'string\',
+                        \'InstanceCount\': 123,
+                        \'InstanceType\': \'string\',
+                        \'NetworkPlatform\': \'string\',
+                        \'NextSlotStartTime\': datetime(2015, 1, 1),
+                        \'Platform\': \'string\',
+                        \'PreviousSlotEndTime\': datetime(2015, 1, 1),
+                        \'Recurrence\': {
+                            \'Frequency\': \'string\',
+                            \'Interval\': 123,
+                            \'OccurrenceDaySet\': [
                                 123,
                             ],
-                            'OccurrenceRelativeToEnd': True|False,
-                            'OccurrenceUnit': 'string'
+                            \'OccurrenceRelativeToEnd\': True|False,
+                            \'OccurrenceUnit\': \'string\'
                         },
-                        'ScheduledInstanceId': 'string',
-                        'SlotDurationInHours': 123,
-                        'TermEndDate': datetime(2015, 1, 1),
-                        'TermStartDate': datetime(2015, 1, 1),
-                        'TotalScheduledInstanceHours': 123
+                        \'ScheduledInstanceId\': \'string\',
+                        \'SlotDurationInHours\': 123,
+                        \'TermEndDate\': datetime(2015, 1, 1),
+                        \'TermStartDate\': datetime(2015, 1, 1),
+                        \'TotalScheduledInstanceHours\': 123
                     },
                 ]
             }
@@ -37456,7 +37456,7 @@ class Client(BaseClient):
         
           response = client.reboot_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -37481,11 +37481,11 @@ class Client(BaseClient):
         
         .. note::
         
-          For Amazon EBS-backed instances,  CreateImage creates and registers the AMI in a single request, so you don't have to register the AMI yourself.
+          For Amazon EBS-backed instances,  CreateImage creates and registers the AMI in a single request, so you don\'t have to register the AMI yourself.
         
         You can also use ``RegisterImage`` to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see `Launching a Linux Instance from a Backup <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
-        You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
+        You can\'t register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
         
         Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and instances launched from such an AMI are not able to connect to package update infrastructure. If you purchase a Reserved Instance offering for one of these Linux distributions and launch instances using an AMI that does not contain the required billing code, your Reserved Instance is not applied to these instances.
         
@@ -37499,36 +37499,36 @@ class Client(BaseClient):
         ::
         
           response = client.register_image(
-              ImageLocation='string',
-              Architecture='i386'|'x86_64',
+              ImageLocation=\'string\',
+              Architecture=\'i386\'|\'x86_64\',
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               EnaSupport=True|False,
-              KernelId='string',
-              Name='string',
+              KernelId=\'string\',
+              Name=\'string\',
               BillingProducts=[
-                  'string',
+                  \'string\',
               ],
-              RamdiskId='string',
-              RootDeviceName='string',
-              SriovNetSupport='string',
-              VirtualizationType='string'
+              RamdiskId=\'string\',
+              RootDeviceName=\'string\',
+              SriovNetSupport=\'string\',
+              VirtualizationType=\'string\'
           )
         :type ImageLocation: string
         :param ImageLocation: 
@@ -37589,7 +37589,7 @@ class Client(BaseClient):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -37640,7 +37640,7 @@ class Client(BaseClient):
         
           A name for your AMI.
         
-          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+          Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes (\'), at-signs (@), or underscores(_)
         
         :type BillingProducts: list
         :param BillingProducts: 
@@ -37683,7 +37683,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ImageId': 'string'
+                \'ImageId\': \'string\'
             }
           **Response Structure** 
         
@@ -37708,9 +37708,9 @@ class Client(BaseClient):
         
           response = client.reject_vpc_endpoint_connections(
               DryRun=True|False,
-              ServiceId='string',
+              ServiceId=\'string\',
               VpcEndpointIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DryRun: boolean
@@ -37738,13 +37738,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -37789,7 +37789,7 @@ class Client(BaseClient):
         
           response = client.reject_vpc_peering_connection(
               DryRun=True|False,
-              VpcPeeringConnectionId='string'
+              VpcPeeringConnectionId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -37809,7 +37809,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -37825,11 +37825,11 @@ class Client(BaseClient):
     def release_address(self, AllocationId: str = None, PublicIp: str = None, DryRun: bool = None) -> NoReturn:
         """
         
-        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
+        [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it\'s associated with. To disassociate an Elastic IP address without releasing it, use  DisassociateAddress .
         
         [Nondefault VPC] You must use  DisassociateAddress to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (``InvalidIPAddress.InUse`` ).
         
-        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
+        After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you\'ll get an ``AuthFailure`` error if the address is already allocated to another AWS account.
         
         [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see  AllocateAddress .
         
@@ -37839,8 +37839,8 @@ class Client(BaseClient):
         ::
         
           response = client.release_address(
-              AllocationId='string',
-              PublicIp='string',
+              AllocationId=\'string\',
+              PublicIp=\'string\',
               DryRun=True|False
           )
         :type AllocationId: string
@@ -37876,7 +37876,7 @@ class Client(BaseClient):
         
           response = client.release_hosts(
               HostIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type HostIds: list
@@ -37894,16 +37894,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Successful': [
-                    'string',
+                \'Successful\': [
+                    \'string\',
                 ],
-                'Unsuccessful': [
+                \'Unsuccessful\': [
                     {
-                        'Error': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'Error\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'ResourceId': 'string'
+                        \'ResourceId\': \'string\'
                     },
                 ]
             }
@@ -37956,10 +37956,10 @@ class Client(BaseClient):
         
           response = client.replace_iam_instance_profile_association(
               IamInstanceProfile={
-                  'Arn': 'string',
-                  'Name': 'string'
+                  \'Arn\': \'string\',
+                  \'Name\': \'string\'
               },
-              AssociationId='string'
+              AssociationId=\'string\'
           )
         :type IamInstanceProfile: dict
         :param IamInstanceProfile: **[REQUIRED]** 
@@ -37987,15 +37987,15 @@ class Client(BaseClient):
           ::
         
             {
-                'IamInstanceProfileAssociation': {
-                    'AssociationId': 'string',
-                    'InstanceId': 'string',
-                    'IamInstanceProfile': {
-                        'Arn': 'string',
-                        'Id': 'string'
+                \'IamInstanceProfileAssociation\': {
+                    \'AssociationId\': \'string\',
+                    \'InstanceId\': \'string\',
+                    \'IamInstanceProfile\': {
+                        \'Arn\': \'string\',
+                        \'Id\': \'string\'
                     },
-                    'State': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'Timestamp': datetime(2015, 1, 1)
+                    \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                    \'Timestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -38048,9 +38048,9 @@ class Client(BaseClient):
         ::
         
           response = client.replace_network_acl_association(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False,
-              NetworkAclId='string'
+              NetworkAclId=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -38075,7 +38075,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NewAssociationId': 'string'
+                \'NewAssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -38097,21 +38097,21 @@ class Client(BaseClient):
         ::
         
           response = client.replace_network_acl_entry(
-              CidrBlock='string',
+              CidrBlock=\'string\',
               DryRun=True|False,
               Egress=True|False,
               IcmpTypeCode={
-                  'Code': 123,
-                  'Type': 123
+                  \'Code\': 123,
+                  \'Type\': 123
               },
-              Ipv6CidrBlock='string',
-              NetworkAclId='string',
+              Ipv6CidrBlock=\'string\',
+              NetworkAclId=\'string\',
               PortRange={
-                  'From': 123,
-                  'To': 123
+                  \'From\': 123,
+                  \'To\': 123
               },
-              Protocol='string',
-              RuleAction='allow'|'deny',
+              Protocol=\'string\',
+              RuleAction=\'allow\'|\'deny\',
               RuleNumber=123
           )
         :type CidrBlock: string
@@ -38170,7 +38170,7 @@ class Client(BaseClient):
         :type Protocol: string
         :param Protocol: **[REQUIRED]** 
         
-          The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+          The protocol number. A value of \"-1\" means all protocols. If you specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\" (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
         
         :type RuleAction: string
         :param RuleAction: **[REQUIRED]** 
@@ -38197,16 +38197,16 @@ class Client(BaseClient):
         ::
         
           response = client.replace_route(
-              DestinationCidrBlock='string',
-              DestinationIpv6CidrBlock='string',
+              DestinationCidrBlock=\'string\',
+              DestinationIpv6CidrBlock=\'string\',
               DryRun=True|False,
-              EgressOnlyInternetGatewayId='string',
-              GatewayId='string',
-              InstanceId='string',
-              NatGatewayId='string',
-              NetworkInterfaceId='string',
-              RouteTableId='string',
-              VpcPeeringConnectionId='string'
+              EgressOnlyInternetGatewayId=\'string\',
+              GatewayId=\'string\',
+              InstanceId=\'string\',
+              NatGatewayId=\'string\',
+              NetworkInterfaceId=\'string\',
+              RouteTableId=\'string\',
+              VpcPeeringConnectionId=\'string\'
           )
         :type DestinationCidrBlock: string
         :param DestinationCidrBlock: 
@@ -38265,7 +38265,7 @@ class Client(BaseClient):
     def replace_route_table_association(self, AssociationId: str, RouteTableId: str, DryRun: bool = None) -> Dict:
         """
         
-        You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.
+        You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table\'s association ID and the route table to be the new main route table.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRouteTableAssociation>`_
         
@@ -38273,9 +38273,9 @@ class Client(BaseClient):
         ::
         
           response = client.replace_route_table_association(
-              AssociationId='string',
+              AssociationId=\'string\',
               DryRun=True|False,
-              RouteTableId='string'
+              RouteTableId=\'string\'
           )
         :type AssociationId: string
         :param AssociationId: **[REQUIRED]** 
@@ -38300,7 +38300,7 @@ class Client(BaseClient):
           ::
         
             {
-                'NewAssociationId': 'string'
+                \'NewAssociationId\': \'string\'
             }
           **Response Structure** 
         
@@ -38324,17 +38324,17 @@ class Client(BaseClient):
         ::
         
           response = client.report_instance_status(
-              Description='string',
+              Description=\'string\',
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               Instances=[
-                  'string',
+                  \'string\',
               ],
               ReasonCodes=[
-                  'instance-stuck-in-state'|'unresponsive'|'not-accepting-credentials'|'password-not-available'|'performance-network'|'performance-instance-store'|'performance-ebs-volume'|'performance-other'|'other',
+                  \'instance-stuck-in-state\'|\'unresponsive\'|\'not-accepting-credentials\'|\'password-not-available\'|\'performance-network\'|\'performance-instance-store\'|\'performance-ebs-volume\'|\'performance-other\'|\'other\',
               ],
               StartTime=datetime(2015, 1, 1),
-              Status='ok'|'impaired'
+              Status=\'ok\'|\'impaired\'
           )
         :type Description: string
         :param Description: 
@@ -38420,145 +38420,145 @@ class Client(BaseClient):
           response = client.request_spot_fleet(
               DryRun=True|False,
               SpotFleetRequestConfig={
-                  'AllocationStrategy': 'lowestPrice'|'diversified',
-                  'OnDemandAllocationStrategy': 'lowestPrice'|'prioritized',
-                  'ClientToken': 'string',
-                  'ExcessCapacityTerminationPolicy': 'noTermination'|'default',
-                  'FulfilledCapacity': 123.0,
-                  'OnDemandFulfilledCapacity': 123.0,
-                  'IamFleetRole': 'string',
-                  'LaunchSpecifications': [
+                  \'AllocationStrategy\': \'lowestPrice\'|\'diversified\',
+                  \'OnDemandAllocationStrategy\': \'lowestPrice\'|\'prioritized\',
+                  \'ClientToken\': \'string\',
+                  \'ExcessCapacityTerminationPolicy\': \'noTermination\'|\'default\',
+                  \'FulfilledCapacity\': 123.0,
+                  \'OnDemandFulfilledCapacity\': 123.0,
+                  \'IamFleetRole\': \'string\',
+                  \'LaunchSpecifications\': [
                       {
-                          'SecurityGroups': [
+                          \'SecurityGroups\': [
                               {
-                                  'GroupName': 'string',
-                                  'GroupId': 'string'
+                                  \'GroupName\': \'string\',
+                                  \'GroupId\': \'string\'
                               },
                           ],
-                          'AddressingType': 'string',
-                          'BlockDeviceMappings': [
+                          \'AddressingType\': \'string\',
+                          \'BlockDeviceMappings\': [
                               {
-                                  'DeviceName': 'string',
-                                  'VirtualName': 'string',
-                                  'Ebs': {
-                                      'DeleteOnTermination': True|False,
-                                      'Iops': 123,
-                                      'SnapshotId': 'string',
-                                      'VolumeSize': 123,
-                                      'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                      'Encrypted': True|False,
-                                      'KmsKeyId': 'string'
+                                  \'DeviceName\': \'string\',
+                                  \'VirtualName\': \'string\',
+                                  \'Ebs\': {
+                                      \'DeleteOnTermination\': True|False,
+                                      \'Iops\': 123,
+                                      \'SnapshotId\': \'string\',
+                                      \'VolumeSize\': 123,
+                                      \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                      \'Encrypted\': True|False,
+                                      \'KmsKeyId\': \'string\'
                                   },
-                                  'NoDevice': 'string'
+                                  \'NoDevice\': \'string\'
                               },
                           ],
-                          'EbsOptimized': True|False,
-                          'IamInstanceProfile': {
-                              'Arn': 'string',
-                              'Name': 'string'
+                          \'EbsOptimized\': True|False,
+                          \'IamInstanceProfile\': {
+                              \'Arn\': \'string\',
+                              \'Name\': \'string\'
                           },
-                          'ImageId': 'string',
-                          'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                          'KernelId': 'string',
-                          'KeyName': 'string',
-                          'Monitoring': {
-                              'Enabled': True|False
+                          \'ImageId\': \'string\',
+                          \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                          \'KernelId\': \'string\',
+                          \'KeyName\': \'string\',
+                          \'Monitoring\': {
+                              \'Enabled\': True|False
                           },
-                          'NetworkInterfaces': [
+                          \'NetworkInterfaces\': [
                               {
-                                  'AssociatePublicIpAddress': True|False,
-                                  'DeleteOnTermination': True|False,
-                                  'Description': 'string',
-                                  'DeviceIndex': 123,
-                                  'Groups': [
-                                      'string',
+                                  \'AssociatePublicIpAddress\': True|False,
+                                  \'DeleteOnTermination\': True|False,
+                                  \'Description\': \'string\',
+                                  \'DeviceIndex\': 123,
+                                  \'Groups\': [
+                                      \'string\',
                                   ],
-                                  'Ipv6AddressCount': 123,
-                                  'Ipv6Addresses': [
+                                  \'Ipv6AddressCount\': 123,
+                                  \'Ipv6Addresses\': [
                                       {
-                                          'Ipv6Address': 'string'
+                                          \'Ipv6Address\': \'string\'
                                       },
                                   ],
-                                  'NetworkInterfaceId': 'string',
-                                  'PrivateIpAddress': 'string',
-                                  'PrivateIpAddresses': [
+                                  \'NetworkInterfaceId\': \'string\',
+                                  \'PrivateIpAddress\': \'string\',
+                                  \'PrivateIpAddresses\': [
                                       {
-                                          'Primary': True|False,
-                                          'PrivateIpAddress': 'string'
+                                          \'Primary\': True|False,
+                                          \'PrivateIpAddress\': \'string\'
                                       },
                                   ],
-                                  'SecondaryPrivateIpAddressCount': 123,
-                                  'SubnetId': 'string'
+                                  \'SecondaryPrivateIpAddressCount\': 123,
+                                  \'SubnetId\': \'string\'
                               },
                           ],
-                          'Placement': {
-                              'AvailabilityZone': 'string',
-                              'GroupName': 'string',
-                              'Tenancy': 'default'|'dedicated'|'host'
+                          \'Placement\': {
+                              \'AvailabilityZone\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                           },
-                          'RamdiskId': 'string',
-                          'SpotPrice': 'string',
-                          'SubnetId': 'string',
-                          'UserData': 'string',
-                          'WeightedCapacity': 123.0,
-                          'TagSpecifications': [
+                          \'RamdiskId\': \'string\',
+                          \'SpotPrice\': \'string\',
+                          \'SubnetId\': \'string\',
+                          \'UserData\': \'string\',
+                          \'WeightedCapacity\': 123.0,
+                          \'TagSpecifications\': [
                               {
-                                  'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                                  'Tags': [
+                                  \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                                  \'Tags\': [
                                       {
-                                          'Key': 'string',
-                                          'Value': 'string'
+                                          \'Key\': \'string\',
+                                          \'Value\': \'string\'
                                       },
                                   ]
                               },
                           ]
                       },
                   ],
-                  'LaunchTemplateConfigs': [
+                  \'LaunchTemplateConfigs\': [
                       {
-                          'LaunchTemplateSpecification': {
-                              'LaunchTemplateId': 'string',
-                              'LaunchTemplateName': 'string',
-                              'Version': 'string'
+                          \'LaunchTemplateSpecification\': {
+                              \'LaunchTemplateId\': \'string\',
+                              \'LaunchTemplateName\': \'string\',
+                              \'Version\': \'string\'
                           },
-                          'Overrides': [
+                          \'Overrides\': [
                               {
-                                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                  'SpotPrice': 'string',
-                                  'SubnetId': 'string',
-                                  'AvailabilityZone': 'string',
-                                  'WeightedCapacity': 123.0,
-                                  'Priority': 123.0
+                                  \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                  \'SpotPrice\': \'string\',
+                                  \'SubnetId\': \'string\',
+                                  \'AvailabilityZone\': \'string\',
+                                  \'WeightedCapacity\': 123.0,
+                                  \'Priority\': 123.0
                               },
                           ]
                       },
                   ],
-                  'SpotPrice': 'string',
-                  'TargetCapacity': 123,
-                  'OnDemandTargetCapacity': 123,
-                  'TerminateInstancesWithExpiration': True|False,
-                  'Type': 'request'|'maintain',
-                  'ValidFrom': datetime(2015, 1, 1),
-                  'ValidUntil': datetime(2015, 1, 1),
-                  'ReplaceUnhealthyInstances': True|False,
-                  'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate',
-                  'LoadBalancersConfig': {
-                      'ClassicLoadBalancersConfig': {
-                          'ClassicLoadBalancers': [
+                  \'SpotPrice\': \'string\',
+                  \'TargetCapacity\': 123,
+                  \'OnDemandTargetCapacity\': 123,
+                  \'TerminateInstancesWithExpiration\': True|False,
+                  \'Type\': \'request\'|\'maintain\',
+                  \'ValidFrom\': datetime(2015, 1, 1),
+                  \'ValidUntil\': datetime(2015, 1, 1),
+                  \'ReplaceUnhealthyInstances\': True|False,
+                  \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\',
+                  \'LoadBalancersConfig\': {
+                      \'ClassicLoadBalancersConfig\': {
+                          \'ClassicLoadBalancers\': [
                               {
-                                  'Name': 'string'
+                                  \'Name\': \'string\'
                               },
                           ]
                       },
-                      'TargetGroupsConfig': {
-                          'TargetGroups': [
+                      \'TargetGroupsConfig\': {
+                          \'TargetGroups\': [
                               {
-                                  'Arn': 'string'
+                                  \'Arn\': \'string\'
                               },
                           ]
                       }
                   },
-                  'InstancePoolsToUseCount': 123
+                  \'InstancePoolsToUseCount\': 123
               }
           )
         :type DryRun: boolean
@@ -38629,7 +38629,7 @@ class Client(BaseClient):
         
               - **BlockDeviceMappings** *(list) --* 
         
-                One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+                One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
                 - *(dict) --* 
         
@@ -38673,7 +38673,7 @@ class Client(BaseClient):
         
                       Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                      Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                      Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                     - **VolumeType** *(string) --* 
         
@@ -38699,7 +38699,7 @@ class Client(BaseClient):
         
               - **EbsOptimized** *(boolean) --* 
         
-                Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                 Default: ``false``  
         
@@ -38773,11 +38773,11 @@ class Client(BaseClient):
         
                   - **Ipv6AddressCount** *(integer) --* 
         
-                    A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                    A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
                   - **Ipv6Addresses** *(list) --* 
         
-                    One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                    One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                     - *(dict) --* 
         
@@ -38793,11 +38793,11 @@ class Client(BaseClient):
         
                   - **PrivateIpAddress** *(string) --* 
         
-                    The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                    The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                   - **PrivateIpAddresses** *(list) --* 
         
-                    One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                    One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                     - *(dict) --* 
         
@@ -38813,7 +38813,7 @@ class Client(BaseClient):
         
                   - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                    The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                    The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                   - **SubnetId** *(string) --* 
         
@@ -38827,7 +38827,7 @@ class Client(BaseClient):
         
                   The Availability Zone.
         
-                  [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                  [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
                 - **GroupName** *(string) --* 
         
@@ -38847,7 +38847,7 @@ class Client(BaseClient):
         
               - **SubnetId** *(string) --* 
         
-                The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-a61dafcf, subnet-65ea5f08".
+                The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \"subnet-a61dafcf, subnet-65ea5f08\".
         
               - **UserData** *(string) --* 
         
@@ -39033,7 +39033,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SpotFleetRequestId': 'string'
+                \'SpotFleetRequestId\': \'string\'
             }
           **Response Structure** 
         
@@ -39059,89 +39059,89 @@ class Client(BaseClient):
         ::
         
           response = client.request_spot_instances(
-              AvailabilityZoneGroup='string',
+              AvailabilityZoneGroup=\'string\',
               BlockDurationMinutes=123,
-              ClientToken='string',
+              ClientToken=\'string\',
               DryRun=True|False,
               InstanceCount=123,
-              LaunchGroup='string',
+              LaunchGroup=\'string\',
               LaunchSpecification={
-                  'SecurityGroupIds': [
-                      'string',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'SecurityGroups': [
-                      'string',
+                  \'SecurityGroups\': [
+                      \'string\',
                   ],
-                  'AddressingType': 'string',
-                  'BlockDeviceMappings': [
+                  \'AddressingType\': \'string\',
+                  \'BlockDeviceMappings\': [
                       {
-                          'DeviceName': 'string',
-                          'VirtualName': 'string',
-                          'Ebs': {
-                              'DeleteOnTermination': True|False,
-                              'Iops': 123,
-                              'SnapshotId': 'string',
-                              'VolumeSize': 123,
-                              'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                              'Encrypted': True|False,
-                              'KmsKeyId': 'string'
+                          \'DeviceName\': \'string\',
+                          \'VirtualName\': \'string\',
+                          \'Ebs\': {
+                              \'DeleteOnTermination\': True|False,
+                              \'Iops\': 123,
+                              \'SnapshotId\': \'string\',
+                              \'VolumeSize\': 123,
+                              \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                              \'Encrypted\': True|False,
+                              \'KmsKeyId\': \'string\'
                           },
-                          'NoDevice': 'string'
+                          \'NoDevice\': \'string\'
                       },
                   ],
-                  'EbsOptimized': True|False,
-                  'IamInstanceProfile': {
-                      'Arn': 'string',
-                      'Name': 'string'
+                  \'EbsOptimized\': True|False,
+                  \'IamInstanceProfile\': {
+                      \'Arn\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                  'KernelId': 'string',
-                  'KeyName': 'string',
-                  'Monitoring': {
-                      'Enabled': True|False
+                  \'ImageId\': \'string\',
+                  \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                  \'KernelId\': \'string\',
+                  \'KeyName\': \'string\',
+                  \'Monitoring\': {
+                      \'Enabled\': True|False
                   },
-                  'NetworkInterfaces': [
+                  \'NetworkInterfaces\': [
                       {
-                          'AssociatePublicIpAddress': True|False,
-                          'DeleteOnTermination': True|False,
-                          'Description': 'string',
-                          'DeviceIndex': 123,
-                          'Groups': [
-                              'string',
+                          \'AssociatePublicIpAddress\': True|False,
+                          \'DeleteOnTermination\': True|False,
+                          \'Description\': \'string\',
+                          \'DeviceIndex\': 123,
+                          \'Groups\': [
+                              \'string\',
                           ],
-                          'Ipv6AddressCount': 123,
-                          'Ipv6Addresses': [
+                          \'Ipv6AddressCount\': 123,
+                          \'Ipv6Addresses\': [
                               {
-                                  'Ipv6Address': 'string'
+                                  \'Ipv6Address\': \'string\'
                               },
                           ],
-                          'NetworkInterfaceId': 'string',
-                          'PrivateIpAddress': 'string',
-                          'PrivateIpAddresses': [
+                          \'NetworkInterfaceId\': \'string\',
+                          \'PrivateIpAddress\': \'string\',
+                          \'PrivateIpAddresses\': [
                               {
-                                  'Primary': True|False,
-                                  'PrivateIpAddress': 'string'
+                                  \'Primary\': True|False,
+                                  \'PrivateIpAddress\': \'string\'
                               },
                           ],
-                          'SecondaryPrivateIpAddressCount': 123,
-                          'SubnetId': 'string'
+                          \'SecondaryPrivateIpAddressCount\': 123,
+                          \'SubnetId\': \'string\'
                       },
                   ],
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'GroupName': 'string',
-                      'Tenancy': 'default'|'dedicated'|'host'
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'GroupName\': \'string\',
+                      \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                   },
-                  'RamdiskId': 'string',
-                  'SubnetId': 'string',
-                  'UserData': 'string'
+                  \'RamdiskId\': \'string\',
+                  \'SubnetId\': \'string\',
+                  \'UserData\': \'string\'
               },
-              SpotPrice='string',
-              Type='one-time'|'persistent',
+              SpotPrice=\'string\',
+              Type=\'one-time\'|\'persistent\',
               ValidFrom=datetime(2015, 1, 1),
               ValidUntil=datetime(2015, 1, 1),
-              InstanceInterruptionBehavior='hibernate'|'stop'|'terminate'
+              InstanceInterruptionBehavior=\'hibernate\'|\'stop\'|\'terminate\'
           )
         :type AvailabilityZoneGroup: string
         :param AvailabilityZoneGroup: 
@@ -39161,7 +39161,7 @@ class Client(BaseClient):
         
           The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
         
-          You can't specify an Availability Zone group or a launch group if you specify a duration.
+          You can\'t specify an Availability Zone group or a launch group if you specify a duration.
         
         :type ClientToken: string
         :param ClientToken: 
@@ -39210,7 +39210,7 @@ class Client(BaseClient):
         
           - **BlockDeviceMappings** *(list) --* 
         
-            One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+            One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
             - *(dict) --* 
         
@@ -39254,7 +39254,7 @@ class Client(BaseClient):
         
                   Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                  Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                  Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                 - **VolumeType** *(string) --* 
         
@@ -39280,7 +39280,7 @@ class Client(BaseClient):
         
           - **EbsOptimized** *(boolean) --* 
         
-            Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+            Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
             Default: ``false``  
         
@@ -39354,11 +39354,11 @@ class Client(BaseClient):
         
               - **Ipv6AddressCount** *(integer) --* 
         
-                A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
               - **Ipv6Addresses** *(list) --* 
         
-                One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                 - *(dict) --* 
         
@@ -39374,11 +39374,11 @@ class Client(BaseClient):
         
               - **PrivateIpAddress** *(string) --* 
         
-                The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
               - **PrivateIpAddresses** *(list) --* 
         
-                One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                 - *(dict) --* 
         
@@ -39394,7 +39394,7 @@ class Client(BaseClient):
         
               - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
               - **SubnetId** *(string) --* 
         
@@ -39408,7 +39408,7 @@ class Client(BaseClient):
         
               The Availability Zone.
         
-              [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+              [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
             - **GroupName** *(string) --* 
         
@@ -39465,110 +39465,110 @@ class Client(BaseClient):
           ::
         
             {
-                'SpotInstanceRequests': [
+                \'SpotInstanceRequests\': [
                     {
-                        'ActualBlockHourlyPrice': 'string',
-                        'AvailabilityZoneGroup': 'string',
-                        'BlockDurationMinutes': 123,
-                        'CreateTime': datetime(2015, 1, 1),
-                        'Fault': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'ActualBlockHourlyPrice\': \'string\',
+                        \'AvailabilityZoneGroup\': \'string\',
+                        \'BlockDurationMinutes\': 123,
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'Fault\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'InstanceId': 'string',
-                        'LaunchGroup': 'string',
-                        'LaunchSpecification': {
-                            'UserData': 'string',
-                            'SecurityGroups': [
+                        \'InstanceId\': \'string\',
+                        \'LaunchGroup\': \'string\',
+                        \'LaunchSpecification\': {
+                            \'UserData\': \'string\',
+                            \'SecurityGroups\': [
                                 {
-                                    'GroupName': 'string',
-                                    'GroupId': 'string'
+                                    \'GroupName\': \'string\',
+                                    \'GroupId\': \'string\'
                                 },
                             ],
-                            'AddressingType': 'string',
-                            'BlockDeviceMappings': [
+                            \'AddressingType\': \'string\',
+                            \'BlockDeviceMappings\': [
                                 {
-                                    'DeviceName': 'string',
-                                    'VirtualName': 'string',
-                                    'Ebs': {
-                                        'DeleteOnTermination': True|False,
-                                        'Iops': 123,
-                                        'SnapshotId': 'string',
-                                        'VolumeSize': 123,
-                                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                        'Encrypted': True|False,
-                                        'KmsKeyId': 'string'
+                                    \'DeviceName\': \'string\',
+                                    \'VirtualName\': \'string\',
+                                    \'Ebs\': {
+                                        \'DeleteOnTermination\': True|False,
+                                        \'Iops\': 123,
+                                        \'SnapshotId\': \'string\',
+                                        \'VolumeSize\': 123,
+                                        \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                        \'Encrypted\': True|False,
+                                        \'KmsKeyId\': \'string\'
                                     },
-                                    'NoDevice': 'string'
+                                    \'NoDevice\': \'string\'
                                 },
                             ],
-                            'EbsOptimized': True|False,
-                            'IamInstanceProfile': {
-                                'Arn': 'string',
-                                'Name': 'string'
+                            \'EbsOptimized\': True|False,
+                            \'IamInstanceProfile\': {
+                                \'Arn\': \'string\',
+                                \'Name\': \'string\'
                             },
-                            'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                            'KernelId': 'string',
-                            'KeyName': 'string',
-                            'NetworkInterfaces': [
+                            \'ImageId\': \'string\',
+                            \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                            \'KernelId\': \'string\',
+                            \'KeyName\': \'string\',
+                            \'NetworkInterfaces\': [
                                 {
-                                    'AssociatePublicIpAddress': True|False,
-                                    'DeleteOnTermination': True|False,
-                                    'Description': 'string',
-                                    'DeviceIndex': 123,
-                                    'Groups': [
-                                        'string',
+                                    \'AssociatePublicIpAddress\': True|False,
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Description\': \'string\',
+                                    \'DeviceIndex\': 123,
+                                    \'Groups\': [
+                                        \'string\',
                                     ],
-                                    'Ipv6AddressCount': 123,
-                                    'Ipv6Addresses': [
+                                    \'Ipv6AddressCount\': 123,
+                                    \'Ipv6Addresses\': [
                                         {
-                                            'Ipv6Address': 'string'
+                                            \'Ipv6Address\': \'string\'
                                         },
                                     ],
-                                    'NetworkInterfaceId': 'string',
-                                    'PrivateIpAddress': 'string',
-                                    'PrivateIpAddresses': [
+                                    \'NetworkInterfaceId\': \'string\',
+                                    \'PrivateIpAddress\': \'string\',
+                                    \'PrivateIpAddresses\': [
                                         {
-                                            'Primary': True|False,
-                                            'PrivateIpAddress': 'string'
+                                            \'Primary\': True|False,
+                                            \'PrivateIpAddress\': \'string\'
                                         },
                                     ],
-                                    'SecondaryPrivateIpAddressCount': 123,
-                                    'SubnetId': 'string'
+                                    \'SecondaryPrivateIpAddressCount\': 123,
+                                    \'SubnetId\': \'string\'
                                 },
                             ],
-                            'Placement': {
-                                'AvailabilityZone': 'string',
-                                'GroupName': 'string',
-                                'Tenancy': 'default'|'dedicated'|'host'
+                            \'Placement\': {
+                                \'AvailabilityZone\': \'string\',
+                                \'GroupName\': \'string\',
+                                \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                             },
-                            'RamdiskId': 'string',
-                            'SubnetId': 'string',
-                            'Monitoring': {
-                                'Enabled': True|False
+                            \'RamdiskId\': \'string\',
+                            \'SubnetId\': \'string\',
+                            \'Monitoring\': {
+                                \'Enabled\': True|False
                             }
                         },
-                        'LaunchedAvailabilityZone': 'string',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'SpotInstanceRequestId': 'string',
-                        'SpotPrice': 'string',
-                        'State': 'open'|'active'|'closed'|'cancelled'|'failed',
-                        'Status': {
-                            'Code': 'string',
-                            'Message': 'string',
-                            'UpdateTime': datetime(2015, 1, 1)
+                        \'LaunchedAvailabilityZone\': \'string\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'SpotPrice\': \'string\',
+                        \'State\': \'open\'|\'active\'|\'closed\'|\'cancelled\'|\'failed\',
+                        \'Status\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\',
+                            \'UpdateTime\': datetime(2015, 1, 1)
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Type': 'one-time'|'persistent',
-                        'ValidFrom': datetime(2015, 1, 1),
-                        'ValidUntil': datetime(2015, 1, 1),
-                        'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                        \'Type\': \'one-time\'|\'persistent\',
+                        \'ValidFrom\': datetime(2015, 1, 1),
+                        \'ValidUntil\': datetime(2015, 1, 1),
+                        \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                     },
                 ]
             }
@@ -39696,7 +39696,7 @@ class Client(BaseClient):
         
                           Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                          Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                          Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                         - **VolumeType** *(string) --* 
         
@@ -39722,7 +39722,7 @@ class Client(BaseClient):
         
                   - **EbsOptimized** *(boolean) --* 
         
-                    Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                    Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                     Default: ``false``  
         
@@ -39786,11 +39786,11 @@ class Client(BaseClient):
                     
                       - **Ipv6AddressCount** *(integer) --* 
         
-                        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
                       - **Ipv6Addresses** *(list) --* 
         
-                        One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                        One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                         - *(dict) --* 
         
@@ -39806,11 +39806,11 @@ class Client(BaseClient):
         
                       - **PrivateIpAddress** *(string) --* 
         
-                        The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                       - **PrivateIpAddresses** *(list) --* 
         
-                        One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                         - *(dict) --* 
         
@@ -39826,7 +39826,7 @@ class Client(BaseClient):
         
                       - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                        The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                       - **SubnetId** *(string) --* 
         
@@ -39840,7 +39840,7 @@ class Client(BaseClient):
         
                       The Availability Zone.
         
-                      [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                      [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
                     - **GroupName** *(string) --* 
         
@@ -39951,8 +39951,8 @@ class Client(BaseClient):
         
           response = client.reset_fpga_image_attribute(
               DryRun=True|False,
-              FpgaImageId='string',
-              Attribute='loadPermission'
+              FpgaImageId=\'string\',
+              Attribute=\'loadPermission\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -39977,7 +39977,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -39995,7 +39995,7 @@ class Client(BaseClient):
         
         .. note::
         
-          The productCodes attribute can't be reset.
+          The productCodes attribute can\'t be reset.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetImageAttribute>`_
         
@@ -40003,8 +40003,8 @@ class Client(BaseClient):
         ::
         
           response = client.reset_image_attribute(
-              Attribute='launchPermission',
-              ImageId='string',
+              Attribute=\'launchPermission\',
+              ImageId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -40037,9 +40037,9 @@ class Client(BaseClient):
         ::
         
           response = client.reset_instance_attribute(
-              Attribute='instanceType'|'kernel'|'ramdisk'|'userData'|'disableApiTermination'|'instanceInitiatedShutdownBehavior'|'rootDeviceName'|'blockDeviceMapping'|'productCodes'|'sourceDestCheck'|'groupSet'|'ebsOptimized'|'sriovNetSupport'|'enaSupport',
+              Attribute=\'instanceType\'|\'kernel\'|\'ramdisk\'|\'userData\'|\'disableApiTermination\'|\'instanceInitiatedShutdownBehavior\'|\'rootDeviceName\'|\'blockDeviceMapping\'|\'productCodes\'|\'sourceDestCheck\'|\'groupSet\'|\'ebsOptimized\'|\'sriovNetSupport\'|\'enaSupport\',
               DryRun=True|False,
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type Attribute: string
         :param Attribute: **[REQUIRED]** 
@@ -40074,8 +40074,8 @@ class Client(BaseClient):
         
           response = client.reset_network_interface_attribute(
               DryRun=True|False,
-              NetworkInterfaceId='string',
-              SourceDestCheck='string'
+              NetworkInterfaceId=\'string\',
+              SourceDestCheck=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -40107,8 +40107,8 @@ class Client(BaseClient):
         ::
         
           response = client.reset_snapshot_attribute(
-              Attribute='productCodes'|'createVolumePermission',
-              SnapshotId='string',
+              Attribute=\'productCodes\'|\'createVolumePermission\',
+              SnapshotId=\'string\',
               DryRun=True|False
           )
         :type Attribute: string
@@ -40140,7 +40140,7 @@ class Client(BaseClient):
         
           response = client.restore_address_to_classic(
               DryRun=True|False,
-              PublicIp='string'
+              PublicIp=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -40160,8 +40160,8 @@ class Client(BaseClient):
           ::
         
             {
-                'PublicIp': 'string',
-                'Status': 'MoveInProgress'|'InVpc'|'InClassic'
+                \'PublicIp\': \'string\',
+                \'Status\': \'MoveInProgress\'|\'InVpc\'|\'InClassic\'
             }
           **Response Structure** 
         
@@ -40192,49 +40192,49 @@ class Client(BaseClient):
         
           response = client.revoke_security_group_egress(
               DryRun=True|False,
-              GroupId='string',
+              GroupId=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              IpProtocol='string',
+              IpProtocol=\'string\',
               ToPort=123,
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string'
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\'
           )
         :type DryRun: boolean
         :param DryRun: 
@@ -40249,7 +40249,7 @@ class Client(BaseClient):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -40263,7 +40263,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -40406,7 +40406,7 @@ class Client(BaseClient):
         
         .. note::
         
-          [EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
+          [EC2-Classic security groups only] If the values you specify do not match the existing rule\'s values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
         
         Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         
@@ -40418,56 +40418,56 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_security_group_ingress(
-              CidrIp='string',
+              CidrIp=\'string\',
               FromPort=123,
-              GroupId='string',
-              GroupName='string',
+              GroupId=\'string\',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
               ],
-              IpProtocol='string',
-              SourceSecurityGroupName='string',
-              SourceSecurityGroupOwnerId='string',
+              IpProtocol=\'string\',
+              SourceSecurityGroupName=\'string\',
+              SourceSecurityGroupOwnerId=\'string\',
               ToPort=123,
               DryRun=True|False
           )
         :type CidrIp: string
         :param CidrIp: 
         
-          The CIDR IP address range. You can't specify this parameter when specifying a source security group.
+          The CIDR IP address range. You can\'t specify this parameter when specifying a source security group.
         
         :type FromPort: integer
         :param FromPort: 
@@ -40487,7 +40487,7 @@ class Client(BaseClient):
         :type IpPermissions: list
         :param IpPermissions: 
         
-          One or more sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
+          One or more sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
         
           - *(dict) --* 
         
@@ -40501,7 +40501,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -40613,12 +40613,12 @@ class Client(BaseClient):
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName: 
         
-          [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
         
         :type SourceSecurityGroupOwnerId: string
         :param SourceSecurityGroupOwnerId: 
         
-          [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+          [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
         
         :type ToPort: integer
         :param ToPort: 
@@ -40639,17 +40639,17 @@ class Client(BaseClient):
         
         You can specify a number of options, or leave the default options. The following rules apply:
         
-        * [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request. 
+        * [EC2-VPC] If you don\'t specify a subnet ID, we choose a default subnet from your default VPC for you. If you don\'t have a default VPC, you must specify a subnet ID in the request. 
          
-        * [EC2-Classic] If don't specify an Availability Zone, we choose one for you. 
+        * [EC2-Classic] If don\'t specify an Availability Zone, we choose one for you. 
          
         * Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see `Instance Types Available Only in a VPC <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types>`__ . 
          
-        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet. 
+        * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don\'t specify this address, we choose one from the IPv4 range of your subnet. 
          
         * Not all instance types support IPv6 addresses. For more information, see `Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ . 
          
-        * If you don't specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
+        * If you don\'t specify a security group ID, we use the default security group. For more information, see `Security Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ . 
          
         * If any of the AMIs have a product code attached for which the user has not subscribed, the request fails. 
          
@@ -40657,7 +40657,7 @@ class Client(BaseClient):
         
         To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
         
-        An instance is ready for you to use when it's in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
+        An instance is ready for you to use when it\'s in the ``running`` state. You can check the state of your instance using  DescribeInstances . You can tag instances and EBS volumes during launch, after launch, or both. For more information, see  CreateTags and `Tagging Your Amazon EC2 Resources <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ .
         
         Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see `Key Pairs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
@@ -40671,139 +40671,139 @@ class Client(BaseClient):
           response = client.run_instances(
               BlockDeviceMappings=[
                   {
-                      'DeviceName': 'string',
-                      'VirtualName': 'string',
-                      'Ebs': {
-                          'DeleteOnTermination': True|False,
-                          'Iops': 123,
-                          'SnapshotId': 'string',
-                          'VolumeSize': 123,
-                          'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                          'Encrypted': True|False,
-                          'KmsKeyId': 'string'
+                      \'DeviceName\': \'string\',
+                      \'VirtualName\': \'string\',
+                      \'Ebs\': {
+                          \'DeleteOnTermination\': True|False,
+                          \'Iops\': 123,
+                          \'SnapshotId\': \'string\',
+                          \'VolumeSize\': 123,
+                          \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                          \'Encrypted\': True|False,
+                          \'KmsKeyId\': \'string\'
                       },
-                      'NoDevice': 'string'
+                      \'NoDevice\': \'string\'
                   },
               ],
-              ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+              ImageId=\'string\',
+              InstanceType=\'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
-                      'Ipv6Address': 'string'
+                      \'Ipv6Address\': \'string\'
                   },
               ],
-              KernelId='string',
-              KeyName='string',
+              KernelId=\'string\',
+              KeyName=\'string\',
               MaxCount=123,
               MinCount=123,
               Monitoring={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               },
               Placement={
-                  'AvailabilityZone': 'string',
-                  'Affinity': 'string',
-                  'GroupName': 'string',
-                  'HostId': 'string',
-                  'Tenancy': 'default'|'dedicated'|'host',
-                  'SpreadDomain': 'string'
+                  \'AvailabilityZone\': \'string\',
+                  \'Affinity\': \'string\',
+                  \'GroupName\': \'string\',
+                  \'HostId\': \'string\',
+                  \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                  \'SpreadDomain\': \'string\'
               },
-              RamdiskId='string',
+              RamdiskId=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
-              SubnetId='string',
-              UserData='string',
-              AdditionalInfo='string',
-              ClientToken='string',
+              SubnetId=\'string\',
+              UserData=\'string\',
+              AdditionalInfo=\'string\',
+              ClientToken=\'string\',
               DisableApiTermination=True|False,
               DryRun=True|False,
               EbsOptimized=True|False,
               IamInstanceProfile={
-                  'Arn': 'string',
-                  'Name': 'string'
+                  \'Arn\': \'string\',
+                  \'Name\': \'string\'
               },
-              InstanceInitiatedShutdownBehavior='stop'|'terminate',
+              InstanceInitiatedShutdownBehavior=\'stop\'|\'terminate\',
               NetworkInterfaces=[
                   {
-                      'AssociatePublicIpAddress': True|False,
-                      'DeleteOnTermination': True|False,
-                      'Description': 'string',
-                      'DeviceIndex': 123,
-                      'Groups': [
-                          'string',
+                      \'AssociatePublicIpAddress\': True|False,
+                      \'DeleteOnTermination\': True|False,
+                      \'Description\': \'string\',
+                      \'DeviceIndex\': 123,
+                      \'Groups\': [
+                          \'string\',
                       ],
-                      'Ipv6AddressCount': 123,
-                      'Ipv6Addresses': [
+                      \'Ipv6AddressCount\': 123,
+                      \'Ipv6Addresses\': [
                           {
-                              'Ipv6Address': 'string'
+                              \'Ipv6Address\': \'string\'
                           },
                       ],
-                      'NetworkInterfaceId': 'string',
-                      'PrivateIpAddress': 'string',
-                      'PrivateIpAddresses': [
+                      \'NetworkInterfaceId\': \'string\',
+                      \'PrivateIpAddress\': \'string\',
+                      \'PrivateIpAddresses\': [
                           {
-                              'Primary': True|False,
-                              'PrivateIpAddress': 'string'
+                              \'Primary\': True|False,
+                              \'PrivateIpAddress\': \'string\'
                           },
                       ],
-                      'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      \'SecondaryPrivateIpAddressCount\': 123,
+                      \'SubnetId\': \'string\'
                   },
               ],
-              PrivateIpAddress='string',
+              PrivateIpAddress=\'string\',
               ElasticGpuSpecification=[
                   {
-                      'Type': 'string'
+                      \'Type\': \'string\'
                   },
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                      'Tags': [
+                      \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
               ],
               LaunchTemplate={
-                  'LaunchTemplateId': 'string',
-                  'LaunchTemplateName': 'string',
-                  'Version': 'string'
+                  \'LaunchTemplateId\': \'string\',
+                  \'LaunchTemplateName\': \'string\',
+                  \'Version\': \'string\'
               },
               InstanceMarketOptions={
-                  'MarketType': 'spot',
-                  'SpotOptions': {
-                      'MaxPrice': 'string',
-                      'SpotInstanceType': 'one-time'|'persistent',
-                      'BlockDurationMinutes': 123,
-                      'ValidUntil': datetime(2015, 1, 1),
-                      'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                  \'MarketType\': \'spot\',
+                  \'SpotOptions\': {
+                      \'MaxPrice\': \'string\',
+                      \'SpotInstanceType\': \'one-time\'|\'persistent\',
+                      \'BlockDurationMinutes\': 123,
+                      \'ValidUntil\': datetime(2015, 1, 1),
+                      \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\'
                   }
               },
               CreditSpecification={
-                  'CpuCredits': 'string'
+                  \'CpuCredits\': \'string\'
               },
               CpuOptions={
-                  'CoreCount': 123,
-                  'ThreadsPerCore': 123
+                  \'CoreCount\': 123,
+                  \'ThreadsPerCore\': 123
               },
               CapacityReservationSpecification={
-                  'CapacityReservationPreference': 'open'|'none',
-                  'CapacityReservationTarget': {
-                      'CapacityReservationId': 'string'
+                  \'CapacityReservationPreference\': \'open\'|\'none\',
+                  \'CapacityReservationTarget\': {
+                      \'CapacityReservationId\': \'string\'
                   }
               }
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings: 
         
-          One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
           - *(dict) --* 
         
@@ -40847,7 +40847,7 @@ class Client(BaseClient):
         
                 Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
               - **VolumeType** *(string) --* 
         
@@ -40886,12 +40886,12 @@ class Client(BaseClient):
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount: 
         
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
         :type Ipv6Addresses: list
         :param Ipv6Addresses: 
         
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
           - *(dict) --* 
         
@@ -40917,21 +40917,21 @@ class Client(BaseClient):
         
           .. warning::
         
-            If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+            If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
         
         :type MaxCount: integer
         :param MaxCount: **[REQUIRED]** 
         
           The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above ``MinCount`` .
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 FAQ.
         
         :type MinCount: integer
         :param MinCount: **[REQUIRED]** 
         
           The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances.
         
-          Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
+          Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         
         :type Monitoring: dict
         :param Monitoring: 
@@ -41025,7 +41025,7 @@ class Client(BaseClient):
         :type DisableApiTermination: boolean
         :param DisableApiTermination: 
         
-          If you set this parameter to ``true`` , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
+          If you set this parameter to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute . Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate`` , you can terminate the instance by running the shutdown command from the instance.
         
           Default: ``false``  
         
@@ -41037,7 +41037,7 @@ class Client(BaseClient):
         :type EbsOptimized: boolean
         :param EbsOptimized: 
         
-          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+          Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
           Default: ``false``  
         
@@ -41094,11 +41094,11 @@ class Client(BaseClient):
         
             - **Ipv6AddressCount** *(integer) --* 
         
-              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+              A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
             - **Ipv6Addresses** *(list) --* 
         
-              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+              One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
               - *(dict) --* 
         
@@ -41114,11 +41114,11 @@ class Client(BaseClient):
         
             - **PrivateIpAddress** *(string) --* 
         
-              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **PrivateIpAddresses** *(list) --* 
         
-              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
               - *(dict) --* 
         
@@ -41134,7 +41134,7 @@ class Client(BaseClient):
         
             - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-              The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+              The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
             - **SubnetId** *(string) --* 
         
@@ -41145,7 +41145,7 @@ class Client(BaseClient):
         
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
         
-          Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
+          Only one private IP address can be designated as primary. You can\'t specify this option if you\'ve specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you\'re launching more than one instance in the request.
         
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification: 
@@ -41229,7 +41229,7 @@ class Client(BaseClient):
         
             - **MaxPrice** *(string) --* 
         
-              The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
+              The maximum hourly price you\'re willing to pay for the Spot Instances. The default is the On-Demand price.
         
             - **SpotInstanceType** *(string) --* 
         
@@ -41278,7 +41278,7 @@ class Client(BaseClient):
         
           - **CapacityReservationPreference** *(string) --* 
         
-            Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+            Indicates the instance\'s Capacity Reservation preferences. Possible preferences include:
         
             * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
              
@@ -41300,167 +41300,167 @@ class Client(BaseClient):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'GroupName': 'string',
-                        'GroupId': 'string'
+                        \'GroupName\': \'string\',
+                        \'GroupId\': \'string\'
                     },
                 ],
-                'Instances': [
+                \'Instances\': [
                     {
-                        'AmiLaunchIndex': 123,
-                        'ImageId': 'string',
-                        'InstanceId': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'KernelId': 'string',
-                        'KeyName': 'string',
-                        'LaunchTime': datetime(2015, 1, 1),
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'AmiLaunchIndex\': 123,
+                        \'ImageId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'KernelId\': \'string\',
+                        \'KeyName\': \'string\',
+                        \'LaunchTime\': datetime(2015, 1, 1),
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         },
-                        'Placement': {
-                            'AvailabilityZone': 'string',
-                            'Affinity': 'string',
-                            'GroupName': 'string',
-                            'HostId': 'string',
-                            'Tenancy': 'default'|'dedicated'|'host',
-                            'SpreadDomain': 'string'
+                        \'Placement\': {
+                            \'AvailabilityZone\': \'string\',
+                            \'Affinity\': \'string\',
+                            \'GroupName\': \'string\',
+                            \'HostId\': \'string\',
+                            \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                            \'SpreadDomain\': \'string\'
                         },
-                        'Platform': 'Windows',
-                        'PrivateDnsName': 'string',
-                        'PrivateIpAddress': 'string',
-                        'ProductCodes': [
+                        \'Platform\': \'Windows\',
+                        \'PrivateDnsName\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'ProductCodes\': [
                             {
-                                'ProductCodeId': 'string',
-                                'ProductCodeType': 'devpay'|'marketplace'
+                                \'ProductCodeId\': \'string\',
+                                \'ProductCodeType\': \'devpay\'|\'marketplace\'
                             },
                         ],
-                        'PublicDnsName': 'string',
-                        'PublicIpAddress': 'string',
-                        'RamdiskId': 'string',
-                        'State': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'PublicDnsName\': \'string\',
+                        \'PublicIpAddress\': \'string\',
+                        \'RamdiskId\': \'string\',
+                        \'State\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'StateTransitionReason': 'string',
-                        'SubnetId': 'string',
-                        'VpcId': 'string',
-                        'Architecture': 'i386'|'x86_64',
-                        'BlockDeviceMappings': [
+                        \'StateTransitionReason\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Architecture\': \'i386\'|\'x86_64\',
+                        \'BlockDeviceMappings\': [
                             {
-                                'DeviceName': 'string',
-                                'Ebs': {
-                                    'AttachTime': datetime(2015, 1, 1),
-                                    'DeleteOnTermination': True|False,
-                                    'Status': 'attaching'|'attached'|'detaching'|'detached',
-                                    'VolumeId': 'string'
+                                \'DeviceName\': \'string\',
+                                \'Ebs\': {
+                                    \'AttachTime\': datetime(2015, 1, 1),
+                                    \'DeleteOnTermination\': True|False,
+                                    \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                    \'VolumeId\': \'string\'
                                 }
                             },
                         ],
-                        'ClientToken': 'string',
-                        'EbsOptimized': True|False,
-                        'EnaSupport': True|False,
-                        'Hypervisor': 'ovm'|'xen',
-                        'IamInstanceProfile': {
-                            'Arn': 'string',
-                            'Id': 'string'
+                        \'ClientToken\': \'string\',
+                        \'EbsOptimized\': True|False,
+                        \'EnaSupport\': True|False,
+                        \'Hypervisor\': \'ovm\'|\'xen\',
+                        \'IamInstanceProfile\': {
+                            \'Arn\': \'string\',
+                            \'Id\': \'string\'
                         },
-                        'InstanceLifecycle': 'spot'|'scheduled',
-                        'ElasticGpuAssociations': [
+                        \'InstanceLifecycle\': \'spot\'|\'scheduled\',
+                        \'ElasticGpuAssociations\': [
                             {
-                                'ElasticGpuId': 'string',
-                                'ElasticGpuAssociationId': 'string',
-                                'ElasticGpuAssociationState': 'string',
-                                'ElasticGpuAssociationTime': 'string'
+                                \'ElasticGpuId\': \'string\',
+                                \'ElasticGpuAssociationId\': \'string\',
+                                \'ElasticGpuAssociationState\': \'string\',
+                                \'ElasticGpuAssociationTime\': \'string\'
                             },
                         ],
-                        'NetworkInterfaces': [
+                        \'NetworkInterfaces\': [
                             {
-                                'Association': {
-                                    'IpOwnerId': 'string',
-                                    'PublicDnsName': 'string',
-                                    'PublicIp': 'string'
+                                \'Association\': {
+                                    \'IpOwnerId\': \'string\',
+                                    \'PublicDnsName\': \'string\',
+                                    \'PublicIp\': \'string\'
                                 },
-                                'Attachment': {
-                                    'AttachTime': datetime(2015, 1, 1),
-                                    'AttachmentId': 'string',
-                                    'DeleteOnTermination': True|False,
-                                    'DeviceIndex': 123,
-                                    'Status': 'attaching'|'attached'|'detaching'|'detached'
+                                \'Attachment\': {
+                                    \'AttachTime\': datetime(2015, 1, 1),
+                                    \'AttachmentId\': \'string\',
+                                    \'DeleteOnTermination\': True|False,
+                                    \'DeviceIndex\': 123,
+                                    \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                                 },
-                                'Description': 'string',
-                                'Groups': [
+                                \'Description\': \'string\',
+                                \'Groups\': [
                                     {
-                                        'GroupName': 'string',
-                                        'GroupId': 'string'
+                                        \'GroupName\': \'string\',
+                                        \'GroupId\': \'string\'
                                     },
                                 ],
-                                'Ipv6Addresses': [
+                                \'Ipv6Addresses\': [
                                     {
-                                        'Ipv6Address': 'string'
+                                        \'Ipv6Address\': \'string\'
                                     },
                                 ],
-                                'MacAddress': 'string',
-                                'NetworkInterfaceId': 'string',
-                                'OwnerId': 'string',
-                                'PrivateDnsName': 'string',
-                                'PrivateIpAddress': 'string',
-                                'PrivateIpAddresses': [
+                                \'MacAddress\': \'string\',
+                                \'NetworkInterfaceId\': \'string\',
+                                \'OwnerId\': \'string\',
+                                \'PrivateDnsName\': \'string\',
+                                \'PrivateIpAddress\': \'string\',
+                                \'PrivateIpAddresses\': [
                                     {
-                                        'Association': {
-                                            'IpOwnerId': 'string',
-                                            'PublicDnsName': 'string',
-                                            'PublicIp': 'string'
+                                        \'Association\': {
+                                            \'IpOwnerId\': \'string\',
+                                            \'PublicDnsName\': \'string\',
+                                            \'PublicIp\': \'string\'
                                         },
-                                        'Primary': True|False,
-                                        'PrivateDnsName': 'string',
-                                        'PrivateIpAddress': 'string'
+                                        \'Primary\': True|False,
+                                        \'PrivateDnsName\': \'string\',
+                                        \'PrivateIpAddress\': \'string\'
                                     },
                                 ],
-                                'SourceDestCheck': True|False,
-                                'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                                'SubnetId': 'string',
-                                'VpcId': 'string'
+                                \'SourceDestCheck\': True|False,
+                                \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                                \'SubnetId\': \'string\',
+                                \'VpcId\': \'string\'
                             },
                         ],
-                        'RootDeviceName': 'string',
-                        'RootDeviceType': 'ebs'|'instance-store',
-                        'SecurityGroups': [
+                        \'RootDeviceName\': \'string\',
+                        \'RootDeviceType\': \'ebs\'|\'instance-store\',
+                        \'SecurityGroups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'SourceDestCheck': True|False,
-                        'SpotInstanceRequestId': 'string',
-                        'SriovNetSupport': 'string',
-                        'StateReason': {
-                            'Code': 'string',
-                            'Message': 'string'
+                        \'SourceDestCheck\': True|False,
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'SriovNetSupport\': \'string\',
+                        \'StateReason\': {
+                            \'Code\': \'string\',
+                            \'Message\': \'string\'
                         },
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VirtualizationType': 'hvm'|'paravirtual',
-                        'CpuOptions': {
-                            'CoreCount': 123,
-                            'ThreadsPerCore': 123
+                        \'VirtualizationType\': \'hvm\'|\'paravirtual\',
+                        \'CpuOptions\': {
+                            \'CoreCount\': 123,
+                            \'ThreadsPerCore\': 123
                         },
-                        'CapacityReservationId': 'string',
-                        'CapacityReservationSpecification': {
-                            'CapacityReservationPreference': 'open'|'none',
-                            'CapacityReservationTarget': {
-                                'CapacityReservationId': 'string'
+                        \'CapacityReservationId\': \'string\',
+                        \'CapacityReservationSpecification\': {
+                            \'CapacityReservationPreference\': \'open\'|\'none\',
+                            \'CapacityReservationTarget\': {
+                                \'CapacityReservationId\': \'string\'
                             }
                         }
                     },
                 ],
-                'OwnerId': 'string',
-                'RequesterId': 'string',
-                'ReservationId': 'string'
+                \'OwnerId\': \'string\',
+                \'RequesterId\': \'string\',
+                \'ReservationId\': \'string\'
             }
           **Response Structure** 
         
@@ -41564,7 +41564,7 @@ class Client(BaseClient):
         
                   (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the ``running`` state. 
         
-                  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
+                  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you\'ve enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
         
                 - **PrivateIpAddress** *(string) --* 
         
@@ -41588,7 +41588,7 @@ class Client(BaseClient):
         
                 - **PublicDnsName** *(string) --* 
         
-                  (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+                  (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you\'ve enabled DNS hostnames for your VPC.
         
                 - **PublicIpAddress** *(string) --* 
         
@@ -41676,7 +41676,7 @@ class Client(BaseClient):
         
                 - **EbsOptimized** *(boolean) --* 
         
-                  Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                  Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                 - **EnaSupport** *(boolean) --* 
         
@@ -41994,7 +41994,7 @@ class Client(BaseClient):
         
                   - **CapacityReservationPreference** *(string) --* 
         
-                    Describes the instance's Capacity Reservation preferences. Possible preferences include:
+                    Describes the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                     * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                      
@@ -42028,7 +42028,7 @@ class Client(BaseClient):
         
         Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using  PurchaseScheduledInstances .
         
-        You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see `Scheduled Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        You must launch a Scheduled Instance during its scheduled time period. You can\'t stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see `Scheduled Instances <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunScheduledInstances>`_
         
@@ -42036,76 +42036,76 @@ class Client(BaseClient):
         ::
         
           response = client.run_scheduled_instances(
-              ClientToken='string',
+              ClientToken=\'string\',
               DryRun=True|False,
               InstanceCount=123,
               LaunchSpecification={
-                  'BlockDeviceMappings': [
+                  \'BlockDeviceMappings\': [
                       {
-                          'DeviceName': 'string',
-                          'Ebs': {
-                              'DeleteOnTermination': True|False,
-                              'Encrypted': True|False,
-                              'Iops': 123,
-                              'SnapshotId': 'string',
-                              'VolumeSize': 123,
-                              'VolumeType': 'string'
+                          \'DeviceName\': \'string\',
+                          \'Ebs\': {
+                              \'DeleteOnTermination\': True|False,
+                              \'Encrypted\': True|False,
+                              \'Iops\': 123,
+                              \'SnapshotId\': \'string\',
+                              \'VolumeSize\': 123,
+                              \'VolumeType\': \'string\'
                           },
-                          'NoDevice': 'string',
-                          'VirtualName': 'string'
+                          \'NoDevice\': \'string\',
+                          \'VirtualName\': \'string\'
                       },
                   ],
-                  'EbsOptimized': True|False,
-                  'IamInstanceProfile': {
-                      'Arn': 'string',
-                      'Name': 'string'
+                  \'EbsOptimized\': True|False,
+                  \'IamInstanceProfile\': {
+                      \'Arn\': \'string\',
+                      \'Name\': \'string\'
                   },
-                  'ImageId': 'string',
-                  'InstanceType': 'string',
-                  'KernelId': 'string',
-                  'KeyName': 'string',
-                  'Monitoring': {
-                      'Enabled': True|False
+                  \'ImageId\': \'string\',
+                  \'InstanceType\': \'string\',
+                  \'KernelId\': \'string\',
+                  \'KeyName\': \'string\',
+                  \'Monitoring\': {
+                      \'Enabled\': True|False
                   },
-                  'NetworkInterfaces': [
+                  \'NetworkInterfaces\': [
                       {
-                          'AssociatePublicIpAddress': True|False,
-                          'DeleteOnTermination': True|False,
-                          'Description': 'string',
-                          'DeviceIndex': 123,
-                          'Groups': [
-                              'string',
+                          \'AssociatePublicIpAddress\': True|False,
+                          \'DeleteOnTermination\': True|False,
+                          \'Description\': \'string\',
+                          \'DeviceIndex\': 123,
+                          \'Groups\': [
+                              \'string\',
                           ],
-                          'Ipv6AddressCount': 123,
-                          'Ipv6Addresses': [
+                          \'Ipv6AddressCount\': 123,
+                          \'Ipv6Addresses\': [
                               {
-                                  'Ipv6Address': 'string'
+                                  \'Ipv6Address\': \'string\'
                               },
                           ],
-                          'NetworkInterfaceId': 'string',
-                          'PrivateIpAddress': 'string',
-                          'PrivateIpAddressConfigs': [
+                          \'NetworkInterfaceId\': \'string\',
+                          \'PrivateIpAddress\': \'string\',
+                          \'PrivateIpAddressConfigs\': [
                               {
-                                  'Primary': True|False,
-                                  'PrivateIpAddress': 'string'
+                                  \'Primary\': True|False,
+                                  \'PrivateIpAddress\': \'string\'
                               },
                           ],
-                          'SecondaryPrivateIpAddressCount': 123,
-                          'SubnetId': 'string'
+                          \'SecondaryPrivateIpAddressCount\': 123,
+                          \'SubnetId\': \'string\'
                       },
                   ],
-                  'Placement': {
-                      'AvailabilityZone': 'string',
-                      'GroupName': 'string'
+                  \'Placement\': {
+                      \'AvailabilityZone\': \'string\',
+                      \'GroupName\': \'string\'
                   },
-                  'RamdiskId': 'string',
-                  'SecurityGroupIds': [
-                      'string',
+                  \'RamdiskId\': \'string\',
+                  \'SecurityGroupIds\': [
+                      \'string\',
                   ],
-                  'SubnetId': 'string',
-                  'UserData': 'string'
+                  \'SubnetId\': \'string\',
+                  \'UserData\': \'string\'
               },
-              ScheduledInstanceId='string'
+              ScheduledInstanceId=\'string\'
           )
         :type ClientToken: string
         :param ClientToken: 
@@ -42171,7 +42171,7 @@ class Client(BaseClient):
         
                   The size of the volume, in GiB.
         
-                  Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                  Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                 - **VolumeType** *(string) --* 
         
@@ -42191,7 +42191,7 @@ class Client(BaseClient):
         
           - **EbsOptimized** *(boolean) --* 
         
-            Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+            Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         
             Default: ``false``  
         
@@ -42352,8 +42352,8 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceIdSet': [
-                    'string',
+                \'InstanceIdSet\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -42389,9 +42389,9 @@ class Client(BaseClient):
         
           response = client.start_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
-              AdditionalInfo='string',
+              AdditionalInfo=\'string\',
               DryRun=True|False
           )
         :type InstanceIds: list
@@ -42419,16 +42419,16 @@ class Client(BaseClient):
           ::
         
             {
-                'StartingInstances': [
+                \'StartingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -42505,9 +42505,9 @@ class Client(BaseClient):
     def stop_instances(self, InstanceIds: List, DryRun: bool = None, Force: bool = None) -> Dict:
         """
         
-        We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
+        We don\'t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
         
-        You can't start or stop Spot Instances, and you can't stop instance store-backed instances.
+        You can\'t start or stop Spot Instances, and you can\'t stop instance store-backed instances.
         
         When you stop an instance, we shut it down. You can restart your instance at any time. Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
         
@@ -42522,7 +42522,7 @@ class Client(BaseClient):
         
           response = client.stop_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               Force=True|False
@@ -42554,16 +42554,16 @@ class Client(BaseClient):
           ::
         
             {
-                'StoppingInstances': [
+                \'StoppingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -42657,7 +42657,7 @@ class Client(BaseClient):
         
           response = client.terminate_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -42683,16 +42683,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TerminatingInstances': [
+                \'TerminatingInstances\': [
                     {
-                        'CurrentState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'CurrentState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceId': 'string',
-                        'PreviousState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'PreviousState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         }
                     },
                 ]
@@ -42776,9 +42776,9 @@ class Client(BaseClient):
         
           response = client.unassign_ipv6_addresses(
               Ipv6Addresses=[
-                  'string',
+                  \'string\',
               ],
-              NetworkInterfaceId='string'
+              NetworkInterfaceId=\'string\'
           )
         :type Ipv6Addresses: list
         :param Ipv6Addresses: **[REQUIRED]** 
@@ -42800,9 +42800,9 @@ class Client(BaseClient):
           ::
         
             {
-                'NetworkInterfaceId': 'string',
-                'UnassignedIpv6Addresses': [
-                    'string',
+                \'NetworkInterfaceId\': \'string\',
+                \'UnassignedIpv6Addresses\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -42831,9 +42831,9 @@ class Client(BaseClient):
         ::
         
           response = client.unassign_private_ip_addresses(
-              NetworkInterfaceId='string',
+              NetworkInterfaceId=\'string\',
               PrivateIpAddresses=[
-                  'string',
+                  \'string\',
               ]
           )
         :type NetworkInterfaceId: string
@@ -42862,7 +42862,7 @@ class Client(BaseClient):
         
           response = client.unmonitor_instances(
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False
           )
@@ -42886,11 +42886,11 @@ class Client(BaseClient):
           ::
         
             {
-                'InstanceMonitorings': [
+                \'InstanceMonitorings\': [
                     {
-                        'InstanceId': 'string',
-                        'Monitoring': {
-                            'State': 'disabled'|'disabling'|'enabled'|'pending'
+                        \'InstanceId\': \'string\',
+                        \'Monitoring\': {
+                            \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                         }
                     },
                 ]
@@ -42936,40 +42936,40 @@ class Client(BaseClient):
         
           response = client.update_security_group_rule_descriptions_egress(
               DryRun=True|False,
-              GroupId='string',
-              GroupName='string',
+              GroupId=\'string\',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
@@ -43007,7 +43007,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -43119,7 +43119,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -43144,40 +43144,40 @@ class Client(BaseClient):
         
           response = client.update_security_group_rule_descriptions_ingress(
               DryRun=True|False,
-              GroupId='string',
-              GroupName='string',
+              GroupId=\'string\',
+              GroupName=\'string\',
               IpPermissions=[
                   {
-                      'FromPort': 123,
-                      'IpProtocol': 'string',
-                      'IpRanges': [
+                      \'FromPort\': 123,
+                      \'IpProtocol\': \'string\',
+                      \'IpRanges\': [
                           {
-                              'CidrIp': 'string',
-                              'Description': 'string'
+                              \'CidrIp\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'Ipv6Ranges': [
+                      \'Ipv6Ranges\': [
                           {
-                              'CidrIpv6': 'string',
-                              'Description': 'string'
+                              \'CidrIpv6\': \'string\',
+                              \'Description\': \'string\'
                           },
                       ],
-                      'PrefixListIds': [
+                      \'PrefixListIds\': [
                           {
-                              'Description': 'string',
-                              'PrefixListId': 'string'
+                              \'Description\': \'string\',
+                              \'PrefixListId\': \'string\'
                           },
                       ],
-                      'ToPort': 123,
-                      'UserIdGroupPairs': [
+                      \'ToPort\': 123,
+                      \'UserIdGroupPairs\': [
                           {
-                              'Description': 'string',
-                              'GroupId': 'string',
-                              'GroupName': 'string',
-                              'PeeringStatus': 'string',
-                              'UserId': 'string',
-                              'VpcId': 'string',
-                              'VpcPeeringConnectionId': 'string'
+                              \'Description\': \'string\',
+                              \'GroupId\': \'string\',
+                              \'GroupName\': \'string\',
+                              \'PeeringStatus\': \'string\',
+                              \'UserId\': \'string\',
+                              \'VpcId\': \'string\',
+                              \'VpcPeeringConnectionId\': \'string\'
                           },
                       ]
                   },
@@ -43215,7 +43215,7 @@ class Client(BaseClient):
         
               The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
             - **IpRanges** *(list) --* 
         
@@ -43327,7 +43327,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Return': True|False
+                \'Return\': True|False
             }
           **Response Structure** 
         
@@ -43353,7 +43353,7 @@ class Client(BaseClient):
         ::
         
           response = client.withdraw_byoip_cidr(
-              Cidr='string',
+              Cidr=\'string\',
               DryRun=True|False
           )
         :type Cidr: string
@@ -43374,11 +43374,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ByoipCidr': {
-                    'Cidr': 'string',
-                    'Description': 'string',
-                    'StatusMessage': 'string',
-                    'State': 'advertised'|'deprovisioned'|'failed-deprovision'|'failed-provision'|'pending-deprovision'|'pending-provision'|'provisioned'
+                \'ByoipCidr\': {
+                    \'Cidr\': \'string\',
+                    \'Description\': \'string\',
+                    \'StatusMessage\': \'string\',
+                    \'State\': \'advertised\'|\'deprovisioned\'|\'failed-deprovision\'|\'failed-provision\'|\'pending-deprovision\'|\'pending-provision\'|\'provisioned\'
                 }
             }
           **Response Structure** 

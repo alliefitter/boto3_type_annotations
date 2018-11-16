@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -15,20 +15,20 @@ class BundleTaskComplete(Waiter):
         
           waiter.wait(
               BundleIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type BundleIds: list
@@ -133,12 +133,12 @@ class ConversionTaskCancelled(Waiter):
         
           waiter.wait(
               ConversionTaskIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ConversionTaskIds: list
@@ -182,12 +182,12 @@ class ConversionTaskCompleted(Waiter):
         
           waiter.wait(
               ConversionTaskIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ConversionTaskIds: list
@@ -231,12 +231,12 @@ class ConversionTaskDeleted(Waiter):
         
           waiter.wait(
               ConversionTaskIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ConversionTaskIds: list
@@ -280,20 +280,20 @@ class CustomerGatewayAvailable(Waiter):
         
           waiter.wait(
               CustomerGatewayIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type CustomerGatewayIds: list
@@ -310,11 +310,11 @@ class CustomerGatewayAvailable(Waiter):
         
           One or more filters.
         
-          * ``bgp-asn`` - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). 
+          * ``bgp-asn`` - The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN). 
            
           * ``customer-gateway-id`` - The ID of the customer gateway. 
            
-          * ``ip-address`` - The IP address of the customer gateway's Internet-routable external interface. 
+          * ``ip-address`` - The IP address of the customer gateway\'s Internet-routable external interface. 
            
           * ``state`` - The state of the customer gateway (``pending`` | ``available`` | ``deleting`` | ``deleted`` ). 
            
@@ -392,11 +392,11 @@ class ExportTaskCancelled(Waiter):
         
           waiter.wait(
               ExportTaskIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ExportTaskIds: list
@@ -435,11 +435,11 @@ class ExportTaskCompleted(Waiter):
         
           waiter.wait(
               ExportTaskIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ExportTaskIds: list
@@ -478,26 +478,26 @@ class ImageAvailable(Waiter):
         
           waiter.wait(
               ExecutableUsers=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImageIds=[
-                  'string',
+                  \'string\',
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ExecutableUsers: list
@@ -656,26 +656,26 @@ class ImageExists(Waiter):
         
           waiter.wait(
               ExecutableUsers=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ImageIds=[
-                  'string',
+                  \'string\',
               ],
               Owners=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type ExecutableUsers: list
@@ -835,21 +835,21 @@ class InstanceExists(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -991,11 +991,11 @@ class InstanceExists(Waiter):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -1109,21 +1109,21 @@ class InstanceRunning(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -1265,11 +1265,11 @@ class InstanceRunning(Waiter):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -1383,22 +1383,22 @@ class InstanceStatusOk(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               DryRun=True|False,
               IncludeAllInstances=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -1525,21 +1525,21 @@ class InstanceStopped(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -1681,11 +1681,11 @@ class InstanceStopped(Waiter):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -1799,21 +1799,21 @@ class InstanceTerminated(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -1955,11 +1955,11 @@ class InstanceTerminated(Waiter):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -2073,19 +2073,19 @@ class KeyPairExists(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               KeyNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2175,20 +2175,20 @@ class NatGatewayAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
               NatGatewayIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2291,21 +2291,21 @@ class NetworkInterfaceAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkInterfaceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2469,11 +2469,11 @@ class PasswordDataAvailable(Waiter):
         ::
         
           waiter.wait(
-              InstanceId='string',
+              InstanceId=\'string\',
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type InstanceId: string
@@ -2516,27 +2516,27 @@ class SnapshotCompleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               OwnerIds=[
-                  'string',
+                  \'string\',
               ],
               RestorableByUserIds=[
-                  'string',
+                  \'string\',
               ],
               SnapshotIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2668,19 +2668,19 @@ class SpotInstanceRequestFulfilled(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               SpotInstanceRequestIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2842,19 +2842,19 @@ class SubnetAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -2866,7 +2866,7 @@ class SubnetAvailable(Waiter):
            
           * ``available-ip-address-count`` - The number of IPv4 addresses in the subnet that are available. 
            
-          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
+          * ``cidrBlock`` - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet\'s CIDR block for information to be returned for the subnet. You can also use ``cidr`` or ``cidr-block`` as the filter names. 
            
           * ``defaultForAz`` - Indicates whether this is the default subnet for the Availability Zone. You can also use ``default-for-az`` as the filter name. 
            
@@ -2964,22 +2964,22 @@ class SystemStatusOk(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               DryRun=True|False,
               IncludeAllInstances=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3106,21 +3106,21 @@ class VolumeAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3244,21 +3244,21 @@ class VolumeDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3382,21 +3382,21 @@ class VolumeInUse(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3520,19 +3520,19 @@ class VpcAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpcIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3540,7 +3540,7 @@ class VpcAvailable(Waiter):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -3644,19 +3644,19 @@ class VpcExists(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpcIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3664,7 +3664,7 @@ class VpcExists(Waiter):
         
           One or more filters.
         
-          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ). 
            
           * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC. 
            
@@ -3768,19 +3768,19 @@ class VpcPeeringConnectionDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               VpcPeeringConnectionIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3796,7 +3796,7 @@ class VpcPeeringConnectionDeleted(Waiter):
            
           * ``expiration-time`` - The expiration date and time for the VPC peering connection. 
            
-          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester's VPC. 
+          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester\'s VPC. 
            
           * ``requester-vpc-info.owner-id`` - The AWS account ID of the owner of the requester VPC. 
            
@@ -3890,19 +3890,19 @@ class VpcPeeringConnectionExists(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               VpcPeeringConnectionIds=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -3918,7 +3918,7 @@ class VpcPeeringConnectionExists(Waiter):
            
           * ``expiration-time`` - The expiration date and time for the VPC peering connection. 
            
-          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester's VPC. 
+          * ``requester-vpc-info.cidr-block`` - The IPv4 CIDR block of the requester\'s VPC. 
            
           * ``requester-vpc-info.owner-id`` - The AWS account ID of the owner of the requester VPC. 
            
@@ -4012,19 +4012,19 @@ class VpnConnectionAvailable(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpnConnectionIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list
@@ -4132,19 +4132,19 @@ class VpnConnectionDeleted(Waiter):
           waiter.wait(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VpnConnectionIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Filters: list

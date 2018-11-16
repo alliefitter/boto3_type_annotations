@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
+from typing import IO
 from typing import NoReturn
 from botocore.client import BaseClient
-from typing import IO
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -41,7 +41,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -53,10 +53,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -93,7 +93,7 @@ class Client(BaseClient):
          
         For more information, see `Searching Your Data <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html>`__ in the *Amazon CloudSearch Developer Guide* .
         
-        The endpoint for submitting ``Search`` requests is domain-specific. You submit search requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
+        The endpoint for submitting ``Search`` requests is domain-specific. You submit search requests to a domain\'s search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain\'s endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudsearchdomain-2013-01-01/Search>`_
         
@@ -101,20 +101,20 @@ class Client(BaseClient):
         ::
         
           response = client.search(
-              cursor='string',
-              expr='string',
-              facet='string',
-              filterQuery='string',
-              highlight='string',
+              cursor=\'string\',
+              expr=\'string\',
+              facet=\'string\',
+              filterQuery=\'string\',
+              highlight=\'string\',
               partial=True|False,
-              query='string',
-              queryOptions='string',
-              queryParser='simple'|'structured'|'lucene'|'dismax',
-              returnFields='string',
+              query=\'string\',
+              queryOptions=\'string\',
+              queryParser=\'simple\'|\'structured\'|\'lucene\'|\'dismax\',
+              returnFields=\'string\',
               size=123,
-              sort='string',
+              sort=\'string\',
               start=123,
-              stats='string'
+              stats=\'string\'
           )
         :type cursor: string
         :param cursor: 
@@ -128,16 +128,16 @@ class Client(BaseClient):
         
           Defines one or more numeric expressions that can be used to sort results or specify search or filter criteria. You can also specify expressions as return fields. 
         
-          You specify the expressions in JSON using the form ``{"EXPRESSIONNAME":"EXPRESSION"}`` . You can define and use multiple expressions in a search request. For example:
+          You specify the expressions in JSON using the form ``{\"EXPRESSIONNAME\":\"EXPRESSION\"}`` . You can define and use multiple expressions in a search request. For example:
         
-          ``{"expression1":"_score*rating", "expression2":"(1/rank)*year"}``  
+          ``{\"expression1\":\"_score*rating\", \"expression2\":\"(1/rank)*year\"}``  
         
           For information about the variables, operators, and functions you can use in expressions, see `Writing Expressions <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions>`__ in the *Amazon CloudSearch Developer Guide* .
         
         :type facet: string
         :param facet: 
         
-          Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form ``{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}`` .
+          Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form ``{\"FIELD\":{\"OPTION\":VALUE,\"OPTION:\"STRING\"},\"FIELD\":{\"OPTION\":VALUE,\"OPTION\":\"STRING\"}}`` .
         
           You can specify the following faceting options:
         
@@ -151,15 +151,15 @@ class Client(BaseClient):
         
           To count particular buckets of values, use the ``buckets`` option. For example, the following request uses the ``buckets`` option to calculate and return facet counts by decade.
         
-          ``{"year":{"buckets":["[1970,1979]","[1980,1989]","[1990,1999]","[2000,2009]","[2010,}"]}}`` 
+          ``{\"year\":{\"buckets\":[\"[1970,1979]\",\"[1980,1989]\",\"[1990,1999]\",\"[2000,2009]\",\"[2010,}\"]}}`` 
         
           To sort facets by facet count, use the ``count`` option. For example, the following request sets the ``sort`` option to ``count`` to sort the facet values by facet count, with the facet values that have the most matching documents listed first. Setting the ``size`` option to 3 returns only the top three facet values.
         
-          ``{"year":{"sort":"count","size":3}}`` 
+          ``{\"year\":{\"sort\":\"count\",\"size\":3}}`` 
         
           To sort the facets by value, use the ``bucket`` option. For example, the following request sets the ``sort`` option to ``bucket`` to sort the facet values numerically by year, with earliest year listed first. 
         
-          ``{"year":{"sort":"bucket"}}`` 
+          ``{\"year\":{\"sort\":\"bucket\"}}`` 
         
           For more information, see `Getting and Using Facet Information <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html>`__ in the *Amazon CloudSearch Developer Guide* .
         
@@ -173,7 +173,7 @@ class Client(BaseClient):
         :type highlight: string
         :param highlight: 
         
-          Retrieves highlights for matches in the specified ``text`` or ``text-array`` fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form ``{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}`` .
+          Retrieves highlights for matches in the specified ``text`` or ``text-array`` fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form ``{\"FIELD\":{\"OPTION\":VALUE,\"OPTION:\"STRING\"},\"FIELD\":{\"OPTION\":VALUE,\"OPTION\":\"STRING\"}}`` .
         
           You can specify the following highlight options:
         
@@ -189,12 +189,12 @@ class Client(BaseClient):
         
           For example, the following request retrieves highlights for the ``actors`` and ``title`` fields.
         
-           ``{ "actors": {}, "title": {"format": "text","max_phrases": 2,"pre_tag": "**","post_tag": "** "} }`` 
+           ``{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"**\",\"post_tag\": \"** \"} }`` 
         
         :type partial: boolean
         :param partial: 
         
-          Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users' search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.
+          Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users\' search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.
         
         :type query: string
         :param query: **[REQUIRED]** 
@@ -206,23 +206,23 @@ class Client(BaseClient):
         :type queryOptions: string
         :param queryOptions: 
         
-          Configures options for the query parser specified in the ``queryParser`` parameter. You specify the options in JSON using the following form ``{"OPTION1":"VALUE1","OPTION2":VALUE2"..."OPTIONN":"VALUEN"}.`` 
+          Configures options for the query parser specified in the ``queryParser`` parameter. You specify the options in JSON using the following form ``{\"OPTION1\":\"VALUE1\",\"OPTION2\":VALUE2\"...\"OPTIONN\":\"VALUEN\"}.`` 
         
           The options you can configure vary according to which parser you use:
         
-          * ``defaultOperator`` : The default operator used to combine individual terms in the search string. For example: ``defaultOperator: 'or'`` . For the ``dismax`` parser, you specify a percentage that represents the percentage of terms in the search string (rounded down) that must match, rather than a default operator. A value of ``0%`` is the equivalent to OR, and a value of ``100%`` is equivalent to AND. The percentage must be specified as a value in the range 0-100 followed by the percent (%) symbol. For example, ``defaultOperator: 50%`` . Valid values: ``and`` , ``or`` , a percentage in the range 0%-100% (``dismax`` ). Default: ``and`` (``simple`` , ``structured`` , ``lucene`` ) or ``100`` (``dismax`` ). Valid for: ``simple`` , ``structured`` , ``lucene`` , and ``dismax`` .
+          * ``defaultOperator`` : The default operator used to combine individual terms in the search string. For example: ``defaultOperator: \'or\'`` . For the ``dismax`` parser, you specify a percentage that represents the percentage of terms in the search string (rounded down) that must match, rather than a default operator. A value of ``0%`` is the equivalent to OR, and a value of ``100%`` is equivalent to AND. The percentage must be specified as a value in the range 0-100 followed by the percent (%) symbol. For example, ``defaultOperator: 50%`` . Valid values: ``and`` , ``or`` , a percentage in the range 0%-100% (``dismax`` ). Default: ``and`` (``simple`` , ``structured`` , ``lucene`` ) or ``100`` (``dismax`` ). Valid for: ``simple`` , ``structured`` , ``lucene`` , and ``dismax`` .
            
-          * ``fields`` : An array of the fields to search when no fields are specified in a search. If no fields are specified in a search and this option is not specified, all text and text-array fields are searched. You can specify a weight for each field to control the relative importance of each field when Amazon CloudSearch calculates relevance scores. To specify a field weight, append a caret (``^`` ) symbol and the weight to the field name. For example, to boost the importance of the ``title`` field over the ``description`` field you could specify: ``"fields":["title^5","description"]`` . Valid values: The name of any configured field and an optional numeric value greater than zero. Default: All ``text`` and ``text-array`` fields. Valid for: ``simple`` , ``structured`` , ``lucene`` , and ``dismax`` .
+          * ``fields`` : An array of the fields to search when no fields are specified in a search. If no fields are specified in a search and this option is not specified, all text and text-array fields are searched. You can specify a weight for each field to control the relative importance of each field when Amazon CloudSearch calculates relevance scores. To specify a field weight, append a caret (``^`` ) symbol and the weight to the field name. For example, to boost the importance of the ``title`` field over the ``description`` field you could specify: ``\"fields\":[\"title^5\",\"description\"]`` . Valid values: The name of any configured field and an optional numeric value greater than zero. Default: All ``text`` and ``text-array`` fields. Valid for: ``simple`` , ``structured`` , ``lucene`` , and ``dismax`` .
            
-          * ``operators`` : An array of the operators or special characters you want to disable for the simple query parser. If you disable the ``and`` , ``or`` , or ``not`` operators, the corresponding operators (``+`` , ``|`` , ``-`` ) have no special meaning and are dropped from the search string. Similarly, disabling ``prefix`` disables the wildcard operator (``*`` ) and disabling ``phrase`` disables the ability to search for phrases by enclosing phrases in double quotes. Disabling precedence disables the ability to control order of precedence using parentheses. Disabling ``near`` disables the ability to use the ~ operator to perform a sloppy phrase search. Disabling the ``fuzzy`` operator disables the ability to use the ~ operator to perform a fuzzy search. ``escape`` disables the ability to use a backslash (``\`` ) to escape special characters within the search string. Disabling whitespace is an advanced option that prevents the parser from tokenizing on whitespace, which can be useful for Vietnamese. (It prevents Vietnamese words from being split incorrectly.) For example, you could disable all operators other than the phrase operator to support just simple term and phrase queries: ``"operators":["and","not","or", "prefix"]`` . Valid values: ``and`` , ``escape`` , ``fuzzy`` , ``near`` , ``not`` , ``or`` , ``phrase`` , ``precedence`` , ``prefix`` , ``whitespace`` . Default: All operators and special characters are enabled. Valid for: ``simple`` .
+          * ``operators`` : An array of the operators or special characters you want to disable for the simple query parser. If you disable the ``and`` , ``or`` , or ``not`` operators, the corresponding operators (``+`` , ``|`` , ``-`` ) have no special meaning and are dropped from the search string. Similarly, disabling ``prefix`` disables the wildcard operator (``*`` ) and disabling ``phrase`` disables the ability to search for phrases by enclosing phrases in double quotes. Disabling precedence disables the ability to control order of precedence using parentheses. Disabling ``near`` disables the ability to use the ~ operator to perform a sloppy phrase search. Disabling the ``fuzzy`` operator disables the ability to use the ~ operator to perform a fuzzy search. ``escape`` disables the ability to use a backslash (``\`` ) to escape special characters within the search string. Disabling whitespace is an advanced option that prevents the parser from tokenizing on whitespace, which can be useful for Vietnamese. (It prevents Vietnamese words from being split incorrectly.) For example, you could disable all operators other than the phrase operator to support just simple term and phrase queries: ``\"operators\":[\"and\",\"not\",\"or\", \"prefix\"]`` . Valid values: ``and`` , ``escape`` , ``fuzzy`` , ``near`` , ``not`` , ``or`` , ``phrase`` , ``precedence`` , ``prefix`` , ``whitespace`` . Default: All operators and special characters are enabled. Valid for: ``simple`` .
            
-          * ``phraseFields`` : An array of the ``text`` or ``text-array`` fields you want to use for phrase searches. When the terms in the search string appear in close proximity within a field, the field scores higher. You can specify a weight for each field to boost that score. The ``phraseSlop`` option controls how much the matches can deviate from the search string and still be boosted. To specify a field weight, append a caret (``^`` ) symbol and the weight to the field name. For example, to boost phrase matches in the ``title`` field over the ``abstract`` field, you could specify: ``"phraseFields":["title^3", "plot"]`` Valid values: The name of any ``text`` or ``text-array`` field and an optional numeric value greater than zero. Default: No fields. If you don't specify any fields with ``phraseFields`` , proximity scoring is disabled even if ``phraseSlop`` is specified. Valid for: ``dismax`` .
+          * ``phraseFields`` : An array of the ``text`` or ``text-array`` fields you want to use for phrase searches. When the terms in the search string appear in close proximity within a field, the field scores higher. You can specify a weight for each field to boost that score. The ``phraseSlop`` option controls how much the matches can deviate from the search string and still be boosted. To specify a field weight, append a caret (``^`` ) symbol and the weight to the field name. For example, to boost phrase matches in the ``title`` field over the ``abstract`` field, you could specify: ``\"phraseFields\":[\"title^3\", \"plot\"]`` Valid values: The name of any ``text`` or ``text-array`` field and an optional numeric value greater than zero. Default: No fields. If you don\'t specify any fields with ``phraseFields`` , proximity scoring is disabled even if ``phraseSlop`` is specified. Valid for: ``dismax`` .
            
           * ``phraseSlop`` : An integer value that specifies how much matches can deviate from the search phrase and still be boosted according to the weights specified in the ``phraseFields`` option; for example, ``phraseSlop: 2`` . You must also specify ``phraseFields`` to enable proximity scoring. Valid values: positive integers. Default: 0. Valid for: ``dismax`` .
            
-          * ``explicitPhraseSlop`` : An integer value that specifies how much a match can deviate from the search phrase when the phrase is enclosed in double quotes in the search string. (Phrases that exceed this proximity distance are not considered a match.) For example, to specify a slop of three for dismax phrase queries, you would specify ``"explicitPhraseSlop":3`` . Valid values: positive integers. Default: 0. Valid for: ``dismax`` .
+          * ``explicitPhraseSlop`` : An integer value that specifies how much a match can deviate from the search phrase when the phrase is enclosed in double quotes in the search string. (Phrases that exceed this proximity distance are not considered a match.) For example, to specify a slop of three for dismax phrase queries, you would specify ``\"explicitPhraseSlop\":3`` . Valid values: positive integers. Default: 0. Valid for: ``dismax`` .
            
-          * ``tieBreaker`` : When a term in the search string is found in a document's field, a score is calculated for that field based on how common the word is in that field compared to other documents. If the term occurs in multiple fields within a document, by default only the highest scoring field contributes to the document's overall score. You can specify a ``tieBreaker`` value to enable the matches in lower-scoring fields to contribute to the document's score. That way, if two documents have the same max field score for a particular term, the score for the document that has matches in more fields will be higher. The formula for calculating the score with a tieBreaker is ``(max field score) + (tieBreaker) * (sum of the scores for the rest of the matching fields)`` . Set ``tieBreaker`` to 0 to disregard all but the highest scoring field (pure max): ``"tieBreaker":0`` . Set to 1 to sum the scores from all fields (pure sum): ``"tieBreaker":1`` . Valid values: 0.0 to 1.0. Default: 0.0. Valid for: ``dismax`` . 
+          * ``tieBreaker`` : When a term in the search string is found in a document\'s field, a score is calculated for that field based on how common the word is in that field compared to other documents. If the term occurs in multiple fields within a document, by default only the highest scoring field contributes to the document\'s overall score. You can specify a ``tieBreaker`` value to enable the matches in lower-scoring fields to contribute to the document\'s score. That way, if two documents have the same max field score for a particular term, the score for the document that has matches in more fields will be higher. The formula for calculating the score with a tieBreaker is ``(max field score) + (tieBreaker) * (sum of the scores for the rest of the matching fields)`` . Set ``tieBreaker`` to 0 to disregard all but the highest scoring field (pure max): ``\"tieBreaker\":0`` . Set to 1 to sum the scores from all fields (pure sum): ``\"tieBreaker\":1`` . Valid values: 0.0 to 1.0. Default: 0.0. Valid for: ``dismax`` . 
            
         :type queryParser: string
         :param queryParser: 
@@ -268,7 +268,7 @@ class Client(BaseClient):
         
           Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:
         
-           ``{"FIELD-A":{},"FIELD-B":{}}``  
+           ``{\"FIELD-A\":{},\"FIELD-B\":{}}``  
         
           There are currently no options supported for statistics.
         
@@ -280,51 +280,51 @@ class Client(BaseClient):
           ::
         
             {
-                'status': {
-                    'timems': 123,
-                    'rid': 'string'
+                \'status\': {
+                    \'timems\': 123,
+                    \'rid\': \'string\'
                 },
-                'hits': {
-                    'found': 123,
-                    'start': 123,
-                    'cursor': 'string',
-                    'hit': [
+                \'hits\': {
+                    \'found\': 123,
+                    \'start\': 123,
+                    \'cursor\': \'string\',
+                    \'hit\': [
                         {
-                            'id': 'string',
-                            'fields': {
-                                'string': [
-                                    'string',
+                            \'id\': \'string\',
+                            \'fields\': {
+                                \'string\': [
+                                    \'string\',
                                 ]
                             },
-                            'exprs': {
-                                'string': 'string'
+                            \'exprs\': {
+                                \'string\': \'string\'
                             },
-                            'highlights': {
-                                'string': 'string'
+                            \'highlights\': {
+                                \'string\': \'string\'
                             }
                         },
                     ]
                 },
-                'facets': {
-                    'string': {
-                        'buckets': [
+                \'facets\': {
+                    \'string\': {
+                        \'buckets\': [
                             {
-                                'value': 'string',
-                                'count': 123
+                                \'value\': \'string\',
+                                \'count\': 123
                             },
                         ]
                     }
                 },
-                'stats': {
-                    'string': {
-                        'min': 'string',
-                        'max': 'string',
-                        'count': 123,
-                        'missing': 123,
-                        'sum': 123.0,
-                        'sumOfSquares': 123.0,
-                        'mean': 'string',
-                        'stddev': 123.0
+                \'stats\': {
+                    \'string\': {
+                        \'min\': \'string\',
+                        \'max\': \'string\',
+                        \'count\': 123,
+                        \'missing\': 123,
+                        \'sum\': 123.0,
+                        \'sumOfSquares\': 123.0,
+                        \'mean\': \'string\',
+                        \'stddev\': 123.0
                     }
                 }
             }
@@ -482,7 +482,7 @@ class Client(BaseClient):
         
         For more information about configuring suggesters and retrieving suggestions, see `Getting Suggestions <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html>`__ in the *Amazon CloudSearch Developer Guide* . 
         
-        The endpoint for submitting ``Suggest`` requests is domain-specific. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
+        The endpoint for submitting ``Suggest`` requests is domain-specific. You submit suggest requests to a domain\'s search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain\'s endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudsearchdomain-2013-01-01/Suggest>`_
         
@@ -490,8 +490,8 @@ class Client(BaseClient):
         ::
         
           response = client.suggest(
-              query='string',
-              suggester='string',
+              query=\'string\',
+              suggester=\'string\',
               size=123
           )
         :type query: string
@@ -517,18 +517,18 @@ class Client(BaseClient):
           ::
         
             {
-                'status': {
-                    'timems': 123,
-                    'rid': 'string'
+                \'status\': {
+                    \'timems\': 123,
+                    \'rid\': \'string\'
                 },
-                'suggest': {
-                    'query': 'string',
-                    'found': 123,
-                    'suggestions': [
+                \'suggest\': {
+                    \'query\': \'string\',
+                    \'found\': 123,
+                    \'suggestions\': [
                         {
-                            'suggestion': 'string',
-                            'score': 123,
-                            'id': 'string'
+                            \'suggestion\': \'string\',
+                            \'score\': 123,
+                            \'id\': \'string\'
                         },
                     ]
                 }
@@ -589,7 +589,7 @@ class Client(BaseClient):
     def upload_documents(self, documents: Union[bytes, IO], contentType: str) -> Dict:
         """
         
-        The endpoint for submitting ``UploadDocuments`` requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
+        The endpoint for submitting ``UploadDocuments`` requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service ``DescribeDomains`` action. A domain\'s endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. 
         
         For more information about formatting your data for Amazon CloudSearch, see `Preparing Your Data <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html>`__ in the *Amazon CloudSearch Developer Guide* . For more information about uploading data for indexing, see `Uploading Data <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html>`__ in the *Amazon CloudSearch Developer Guide* . 
         
@@ -599,8 +599,8 @@ class Client(BaseClient):
         ::
         
           response = client.upload_documents(
-              documents=b'bytes'|file,
-              contentType='application/json'|'application/xml'
+              documents=b\'bytes\'|file,
+              contentType=\'application/json\'|\'application/xml\'
           )
         :type documents: bytes or seekable file-like object
         :param documents: **[REQUIRED]** 
@@ -624,12 +624,12 @@ class Client(BaseClient):
           ::
         
             {
-                'status': 'string',
-                'adds': 123,
-                'deletes': 123,
-                'warnings': [
+                \'status\': \'string\',
+                \'adds\': 123,
+                \'deletes\': 123,
+                \'warnings\': [
                     {
-                        'message': 'string'
+                        \'message\': \'string\'
                     },
                 ]
             }

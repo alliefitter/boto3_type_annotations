@@ -13,11 +13,11 @@ class DescribeStackEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              StackName='string',
+              StackName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StackName: string
@@ -25,7 +25,7 @@ class DescribeStackEvents(Paginator):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -56,19 +56,19 @@ class DescribeStackEvents(Paginator):
           ::
         
             {
-                'StackEvents': [
+                \'StackEvents\': [
                     {
-                        'StackId': 'string',
-                        'EventId': 'string',
-                        'StackName': 'string',
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Timestamp': datetime(2015, 1, 1),
-                        'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                        'ResourceStatusReason': 'string',
-                        'ResourceProperties': 'string',
-                        'ClientRequestToken': 'string'
+                        \'StackId\': \'string\',
+                        \'EventId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                        \'ResourceStatusReason\': \'string\',
+                        \'ResourceProperties\': \'string\',
+                        \'ClientRequestToken\': \'string\'
                     },
                 ],
                 
@@ -149,11 +149,11 @@ class DescribeStacks(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              StackName='string',
+              StackName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StackName: string
@@ -161,7 +161,7 @@ class DescribeStacks(Paginator):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -192,63 +192,63 @@ class DescribeStacks(Paginator):
           ::
         
             {
-                'Stacks': [
+                \'Stacks\': [
                     {
-                        'StackId': 'string',
-                        'StackName': 'string',
-                        'ChangeSetId': 'string',
-                        'Description': 'string',
-                        'Parameters': [
+                        \'StackId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'ChangeSetId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Parameters\': [
                             {
-                                'ParameterKey': 'string',
-                                'ParameterValue': 'string',
-                                'UsePreviousValue': True|False,
-                                'ResolvedValue': 'string'
+                                \'ParameterKey\': \'string\',
+                                \'ParameterValue\': \'string\',
+                                \'UsePreviousValue\': True|False,
+                                \'ResolvedValue\': \'string\'
                             },
                         ],
-                        'CreationTime': datetime(2015, 1, 1),
-                        'DeletionTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'RollbackConfiguration': {
-                            'RollbackTriggers': [
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'DeletionTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'RollbackConfiguration\': {
+                            \'RollbackTriggers\': [
                                 {
-                                    'Arn': 'string',
-                                    'Type': 'string'
+                                    \'Arn\': \'string\',
+                                    \'Type\': \'string\'
                                 },
                             ],
-                            'MonitoringTimeInMinutes': 123
+                            \'MonitoringTimeInMinutes\': 123
                         },
-                        'StackStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
-                        'StackStatusReason': 'string',
-                        'DisableRollback': True|False,
-                        'NotificationARNs': [
-                            'string',
+                        \'StackStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
+                        \'StackStatusReason\': \'string\',
+                        \'DisableRollback\': True|False,
+                        \'NotificationARNs\': [
+                            \'string\',
                         ],
-                        'TimeoutInMinutes': 123,
-                        'Capabilities': [
-                            'CAPABILITY_IAM'|'CAPABILITY_NAMED_IAM',
+                        \'TimeoutInMinutes\': 123,
+                        \'Capabilities\': [
+                            \'CAPABILITY_IAM\'|\'CAPABILITY_NAMED_IAM\',
                         ],
-                        'Outputs': [
+                        \'Outputs\': [
                             {
-                                'OutputKey': 'string',
-                                'OutputValue': 'string',
-                                'Description': 'string',
-                                'ExportName': 'string'
+                                \'OutputKey\': \'string\',
+                                \'OutputValue\': \'string\',
+                                \'Description\': \'string\',
+                                \'ExportName\': \'string\'
                             },
                         ],
-                        'RoleARN': 'string',
-                        'Tags': [
+                        \'RoleARN\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'EnableTerminationProtection': True|False,
-                        'ParentId': 'string',
-                        'RootId': 'string',
-                        'DriftInformation': {
-                            'StackDriftStatus': 'DRIFTED'|'IN_SYNC'|'UNKNOWN'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'EnableTerminationProtection\': True|False,
+                        \'ParentId\': \'string\',
+                        \'RootId\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackDriftStatus\': \'DRIFTED\'|\'IN_SYNC\'|\'UNKNOWN\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
@@ -294,7 +294,7 @@ class DescribeStacks(Paginator):
         
                     - **ParameterKey** *(string) --* 
         
-                      The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+                      The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         
                     - **ParameterValue** *(string) --* 
         
@@ -330,9 +330,9 @@ class DescribeStacks(Paginator):
         
                     By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:
         
-                    * To use the rollback triggers previously specified for this stack, if any, don't specify this parameter. 
+                    * To use the rollback triggers previously specified for this stack, if any, don\'t specify this parameter. 
                      
-                    * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack. 
+                    * To specify new or updated rollback triggers, you must specify *all* the triggers that you want used for this stack, even triggers you\'ve specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don\'t include in the updated list of triggers are no longer applied to the stack. 
                      
                     * To remove all currently specified triggers, specify an empty list for this parameter. 
                      
@@ -420,7 +420,7 @@ class DescribeStacks(Paginator):
         
                 - **RoleARN** *(string) --* 
         
-                  The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
+                  The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role\'s credentials to make calls on your behalf.
         
                 - **Tags** *(list) --* 
         
@@ -458,17 +458,17 @@ class DescribeStacks(Paginator):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Information on whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information on whether a stack\'s actual configuration differs, or has *drifted* , from it\'s expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackDriftStatus** *(string) --* 
         
-                    Status of the stack's actual configuration compared to its expected template configuration. 
+                    Status of the stack\'s actual configuration compared to its expected template configuration. 
         
                     * ``DRIFTED`` : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted. 
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the stack differs from its expected template configuration. 
                      
-                    * ``IN_SYNC`` : The stack's actual configuration matches its expected template configuration. 
+                    * ``IN_SYNC`` : The stack\'s actual configuration matches its expected template configuration. 
                      
                     * ``UNKNOWN`` : This value is reserved for future use. 
                      
@@ -491,9 +491,9 @@ class ListExports(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -521,11 +521,11 @@ class ListExports(Paginator):
           ::
         
             {
-                'Exports': [
+                \'Exports\': [
                     {
-                        'ExportingStackId': 'string',
-                        'Name': 'string',
-                        'Value': 'string'
+                        \'ExportingStackId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
                 
@@ -548,11 +548,11 @@ class ListExports(Paginator):
         
                 - **Name** *(string) --* 
         
-                  The name of exported output value. Use this name and the ``Fn::ImportValue`` function to import the associated value into other stacks. The name is defined in the ``Export`` field in the associated stack's ``Outputs`` section.
+                  The name of exported output value. Use this name and the ``Fn::ImportValue`` function to import the associated value into other stacks. The name is defined in the ``Export`` field in the associated stack\'s ``Outputs`` section.
         
                 - **Value** *(string) --* 
         
-                  The value of the exported output, such as a resource physical ID. This value is defined in the ``Export`` field in the associated stack's ``Outputs`` section.
+                  The value of the exported output, such as a resource physical ID. This value is defined in the ``Export`` field in the associated stack\'s ``Outputs`` section.
         
         """
         pass
@@ -568,11 +568,11 @@ class ListImports(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ExportName='string',
+              ExportName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ExportName: string
@@ -605,8 +605,8 @@ class ListImports(Paginator):
           ::
         
             {
-                'Imports': [
-                    'string',
+                \'Imports\': [
+                    \'string\',
                 ],
                 
             }
@@ -634,11 +634,11 @@ class ListStackResources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              StackName='string',
+              StackName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StackName: string
@@ -646,7 +646,7 @@ class ListStackResources(Paginator):
         
           The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
         
-          * Running stacks: You can specify either the stack's name or its unique stack ID. 
+          * Running stacks: You can specify either the stack\'s name or its unique stack ID. 
            
           * Deleted stacks: You must specify the unique stack ID. 
            
@@ -677,17 +677,17 @@ class ListStackResources(Paginator):
           ::
         
             {
-                'StackResourceSummaries': [
+                \'StackResourceSummaries\': [
                     {
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'LastUpdatedTimestamp': datetime(2015, 1, 1),
-                        'ResourceStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'DELETE_SKIPPED'|'UPDATE_IN_PROGRESS'|'UPDATE_FAILED'|'UPDATE_COMPLETE',
-                        'ResourceStatusReason': 'string',
-                        'DriftInformation': {
-                            'StackResourceDriftStatus': 'IN_SYNC'|'MODIFIED'|'DELETED'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'LastUpdatedTimestamp\': datetime(2015, 1, 1),
+                        \'ResourceStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'DELETE_SKIPPED\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_FAILED\'|\'UPDATE_COMPLETE\',
+                        \'ResourceStatusReason\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackResourceDriftStatus\': \'IN_SYNC\'|\'MODIFIED\'|\'DELETED\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
@@ -733,11 +733,11 @@ class ListStackResources(Paginator):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Information about whether the resource's actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information about whether the resource\'s actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackResourceDriftStatus** *(string) --* 
         
-                    Status of the resource's actual configuration compared to its expected configuration
+                    Status of the resource\'s actual configuration compared to its expected configuration
         
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                      
@@ -745,7 +745,7 @@ class ListStackResources(Paginator):
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
                      
-                    * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
+                    * ``IN_SYNC`` : The resources\'s actual configuration matches its expected configuration. 
                      
                   - **LastCheckTimestamp** *(datetime) --* 
         
@@ -766,12 +766,12 @@ class ListStacks(Paginator):
         
           response_iterator = paginator.paginate(
               StackStatusFilter=[
-                  'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
+                  \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type StackStatusFilter: list
@@ -806,21 +806,21 @@ class ListStacks(Paginator):
           ::
         
             {
-                'StackSummaries': [
+                \'StackSummaries\': [
                     {
-                        'StackId': 'string',
-                        'StackName': 'string',
-                        'TemplateDescription': 'string',
-                        'CreationTime': datetime(2015, 1, 1),
-                        'LastUpdatedTime': datetime(2015, 1, 1),
-                        'DeletionTime': datetime(2015, 1, 1),
-                        'StackStatus': 'CREATE_IN_PROGRESS'|'CREATE_FAILED'|'CREATE_COMPLETE'|'ROLLBACK_IN_PROGRESS'|'ROLLBACK_FAILED'|'ROLLBACK_COMPLETE'|'DELETE_IN_PROGRESS'|'DELETE_FAILED'|'DELETE_COMPLETE'|'UPDATE_IN_PROGRESS'|'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_COMPLETE'|'UPDATE_ROLLBACK_IN_PROGRESS'|'UPDATE_ROLLBACK_FAILED'|'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS'|'UPDATE_ROLLBACK_COMPLETE'|'REVIEW_IN_PROGRESS',
-                        'StackStatusReason': 'string',
-                        'ParentId': 'string',
-                        'RootId': 'string',
-                        'DriftInformation': {
-                            'StackDriftStatus': 'DRIFTED'|'IN_SYNC'|'UNKNOWN'|'NOT_CHECKED',
-                            'LastCheckTimestamp': datetime(2015, 1, 1)
+                        \'StackId\': \'string\',
+                        \'StackName\': \'string\',
+                        \'TemplateDescription\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1),
+                        \'LastUpdatedTime\': datetime(2015, 1, 1),
+                        \'DeletionTime\': datetime(2015, 1, 1),
+                        \'StackStatus\': \'CREATE_IN_PROGRESS\'|\'CREATE_FAILED\'|\'CREATE_COMPLETE\'|\'ROLLBACK_IN_PROGRESS\'|\'ROLLBACK_FAILED\'|\'ROLLBACK_COMPLETE\'|\'DELETE_IN_PROGRESS\'|\'DELETE_FAILED\'|\'DELETE_COMPLETE\'|\'UPDATE_IN_PROGRESS\'|\'UPDATE_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_COMPLETE\'|\'UPDATE_ROLLBACK_IN_PROGRESS\'|\'UPDATE_ROLLBACK_FAILED\'|\'UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS\'|\'UPDATE_ROLLBACK_COMPLETE\'|\'REVIEW_IN_PROGRESS\',
+                        \'StackStatusReason\': \'string\',
+                        \'ParentId\': \'string\',
+                        \'RootId\': \'string\',
+                        \'DriftInformation\': {
+                            \'StackDriftStatus\': \'DRIFTED\'|\'IN_SYNC\'|\'UNKNOWN\'|\'NOT_CHECKED\',
+                            \'LastCheckTimestamp\': datetime(2015, 1, 1)
                         }
                     },
                 ],
@@ -886,17 +886,17 @@ class ListStacks(Paginator):
         
                 - **DriftInformation** *(dict) --* 
         
-                  Summarizes information on whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Summarizes information on whether a stack\'s actual configuration differs, or has *drifted* , from it\'s expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         
                   - **StackDriftStatus** *(string) --* 
         
-                    Status of the stack's actual configuration compared to its expected template configuration. 
+                    Status of the stack\'s actual configuration compared to its expected template configuration. 
         
                     * ``DRIFTED`` : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted. 
                      
                     * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the stack differs from its expected template configuration. 
                      
-                    * ``IN_SYNC`` : The stack's actual configuration matches its expected template configuration. 
+                    * ``IN_SYNC`` : The stack\'s actual configuration matches its expected template configuration. 
                      
                     * ``UNKNOWN`` : This value is reserved for future use. 
                      

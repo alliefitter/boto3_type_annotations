@@ -14,9 +14,9 @@ class ListCACertificates(Paginator):
           response_iterator = paginator.paginate(
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ascendingOrder: boolean
@@ -49,15 +49,15 @@ class ListCACertificates(Paginator):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -111,9 +111,9 @@ class ListCertificates(Paginator):
           response_iterator = paginator.paginate(
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ascendingOrder: boolean
@@ -146,15 +146,15 @@ class ListCertificates(Paginator):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -206,12 +206,12 @@ class ListCertificatesByCA(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              caCertificateId='string',
+              caCertificateId=\'string\',
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type caCertificateId: string
@@ -249,15 +249,15 @@ class ListCertificatesByCA(Paginator):
           ::
         
             {
-                'certificates': [
+                \'certificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'status': 'ACTIVE'|'INACTIVE'|'REVOKED'|'PENDING_TRANSFER'|'REGISTER_INACTIVE'|'PENDING_ACTIVATION',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'status\': \'ACTIVE\'|\'INACTIVE\'|\'REVOKED\'|\'PENDING_TRANSFER\'|\'REGISTER_INACTIVE\'|\'PENDING_ACTIVATION\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -311,9 +311,9 @@ class ListOutgoingCertificates(Paginator):
           response_iterator = paginator.paginate(
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ascendingOrder: boolean
@@ -346,17 +346,17 @@ class ListOutgoingCertificates(Paginator):
           ::
         
             {
-                'outgoingCertificates': [
+                \'outgoingCertificates\': [
                     {
-                        'certificateArn': 'string',
-                        'certificateId': 'string',
-                        'transferredTo': 'string',
-                        'transferDate': datetime(2015, 1, 1),
-                        'transferMessage': 'string',
-                        'creationDate': datetime(2015, 1, 1)
+                        \'certificateArn\': \'string\',
+                        \'certificateId\': \'string\',
+                        \'transferredTo\': \'string\',
+                        \'transferDate\': datetime(2015, 1, 1),
+                        \'transferMessage\': \'string\',
+                        \'creationDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -416,9 +416,9 @@ class ListPolicies(Paginator):
           response_iterator = paginator.paginate(
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ascendingOrder: boolean
@@ -451,13 +451,13 @@ class ListPolicies(Paginator):
           ::
         
             {
-                'policies': [
+                \'policies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -503,12 +503,12 @@ class ListPolicyPrincipals(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              policyName='string',
+              policyName=\'string\',
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type policyName: string
@@ -546,10 +546,10 @@ class ListPolicyPrincipals(Paginator):
           ::
         
             {
-                'principals': [
-                    'string',
+                \'principals\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -585,12 +585,12 @@ class ListPrincipalPolicies(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              principal='string',
+              principal=\'string\',
               ascendingOrder=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type principal: string
@@ -628,13 +628,13 @@ class ListPrincipalPolicies(Paginator):
           ::
         
             {
-                'policies': [
+                \'policies\': [
                     {
-                        'policyName': 'string',
-                        'policyArn': 'string'
+                        \'policyName\': \'string\',
+                        \'policyArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -676,11 +676,11 @@ class ListPrincipalThings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              principal='string',
+              principal=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type principal: string
@@ -713,10 +713,10 @@ class ListPrincipalThings(Paginator):
           ::
         
             {
-                'things': [
-                    'string',
+                \'things\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -748,11 +748,11 @@ class ListThingTypes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              thingTypeName='string',
+              thingTypeName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type thingTypeName: string
@@ -785,24 +785,24 @@ class ListThingTypes(Paginator):
           ::
         
             {
-                'thingTypes': [
+                \'thingTypes\': [
                     {
-                        'thingTypeName': 'string',
-                        'thingTypeArn': 'string',
-                        'thingTypeProperties': {
-                            'thingTypeDescription': 'string',
-                            'searchableAttributes': [
-                                'string',
+                        \'thingTypeName\': \'string\',
+                        \'thingTypeArn\': \'string\',
+                        \'thingTypeProperties\': {
+                            \'thingTypeDescription\': \'string\',
+                            \'searchableAttributes\': [
+                                \'string\',
                             ]
                         },
-                        'thingTypeMetadata': {
-                            'deprecated': True|False,
-                            'deprecationDate': datetime(2015, 1, 1),
-                            'creationDate': datetime(2015, 1, 1)
+                        \'thingTypeMetadata\': {
+                            \'deprecated\': True|False,
+                            \'deprecationDate\': datetime(2015, 1, 1),
+                            \'creationDate\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -874,13 +874,13 @@ class ListThings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              attributeName='string',
-              attributeValue='string',
-              thingTypeName='string',
+              attributeName=\'string\',
+              attributeValue=\'string\',
+              thingTypeName=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type attributeName: string
@@ -923,18 +923,18 @@ class ListThings(Paginator):
           ::
         
             {
-                'things': [
+                \'things\': [
                     {
-                        'thingName': 'string',
-                        'thingTypeName': 'string',
-                        'thingArn': 'string',
-                        'attributes': {
-                            'string': 'string'
+                        \'thingName\': \'string\',
+                        \'thingTypeName\': \'string\',
+                        \'thingArn\': \'string\',
+                        \'attributes\': {
+                            \'string\': \'string\'
                         },
-                        'version': 123
+                        \'version\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -992,12 +992,12 @@ class ListTopicRules(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              topic='string',
+              topic=\'string\',
               ruleDisabled=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type topic: string
@@ -1035,16 +1035,16 @@ class ListTopicRules(Paginator):
           ::
         
             {
-                'rules': [
+                \'rules\': [
                     {
-                        'ruleArn': 'string',
-                        'ruleName': 'string',
-                        'topicPattern': 'string',
-                        'createdAt': datetime(2015, 1, 1),
-                        'ruleDisabled': True|False
+                        \'ruleArn\': \'string\',
+                        \'ruleName\': \'string\',
+                        \'topicPattern\': \'string\',
+                        \'createdAt\': datetime(2015, 1, 1),
+                        \'ruleDisabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

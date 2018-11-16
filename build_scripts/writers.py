@@ -23,17 +23,21 @@ def add_indentation_to_docstring(docstring: str, levels: int) -> str:
 
 
 def clean_doc(doc: str) -> str:
+
+    def append_line(next_line: str):
+        cleaned_doc.append(next_line.replace('\'', '\\\'').replace('"', '\\\"'))
+
     cleaned_doc = []
     previous_line = None
     for line in doc.split('\n'):
         if isinstance(previous_line, str) and previous_line.endswith(':'):
-            cleaned_doc.append(previous_line)
-            cleaned_doc.append(line)
+            append_line(previous_line)
+            append_line(line)
         elif isinstance(previous_line, str) and previous_line.strip() == '' and line.strip() == '':
             previous_line = line
             continue
         elif isinstance(previous_line, str) and not line.endswith(':'):
-            cleaned_doc.append(line)
+            append_line(line)
         previous_line = line
     return '\n'.join(cleaned_doc)
 

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,9 +18,9 @@ class Client(BaseClient):
         ::
         
           response = client.accept_portfolio_share(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              PortfolioShareType='IMPORTED'|'AWS_SERVICECATALOG'|'AWS_ORGANIZATIONS'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              PortfolioShareType=\'IMPORTED\'|\'AWS_SERVICECATALOG\'|\'AWS_ORGANIZATIONS\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -49,7 +49,7 @@ class Client(BaseClient):
            
           * ``AWS_SERVICECATALOG`` - Not supported. (Throws ResourceNotFoundException.) 
            
-          For example, ``aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS``  
+          For example, ``aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS``  
         
         :rtype: dict
         :returns: 
@@ -74,10 +74,10 @@ class Client(BaseClient):
         ::
         
           response = client.associate_principal_with_portfolio(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              PrincipalARN='string',
-              PrincipalType='IAM'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              PrincipalARN=\'string\',
+              PrincipalType=\'IAM\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -128,10 +128,10 @@ class Client(BaseClient):
         ::
         
           response = client.associate_product_with_portfolio(
-              AcceptLanguage='string',
-              ProductId='string',
-              PortfolioId='string',
-              SourcePortfolioId='string'
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              PortfolioId=\'string\',
+              SourcePortfolioId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -182,10 +182,10 @@ class Client(BaseClient):
         ::
         
           response = client.associate_service_action_with_provisioning_artifact(
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              ServiceActionId='string',
-              AcceptLanguage='string'
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              ServiceActionId=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type ProductId: string
         :param ProductId: **[REQUIRED]** 
@@ -236,8 +236,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_tag_option_with_resource(
-              ResourceId='string',
-              TagOptionId='string'
+              ResourceId=\'string\',
+              TagOptionId=\'string\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -274,12 +274,12 @@ class Client(BaseClient):
           response = client.batch_associate_service_action_with_provisioning_artifact(
               ServiceActionAssociations=[
                   {
-                      'ServiceActionId': 'string',
-                      'ProductId': 'string',
-                      'ProvisioningArtifactId': 'string'
+                      \'ServiceActionId\': \'string\',
+                      \'ProductId\': \'string\',
+                      \'ProvisioningArtifactId\': \'string\'
                   },
               ],
-              AcceptLanguage='string'
+              AcceptLanguage=\'string\'
           )
         :type ServiceActionAssociations: list
         :param ServiceActionAssociations: **[REQUIRED]** 
@@ -321,13 +321,13 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedServiceActionAssociations': [
+                \'FailedServiceActionAssociations\': [
                     {
-                        'ServiceActionId': 'string',
-                        'ProductId': 'string',
-                        'ProvisioningArtifactId': 'string',
-                        'ErrorCode': 'DUPLICATE_RESOURCE'|'INTERNAL_FAILURE'|'LIMIT_EXCEEDED'|'RESOURCE_NOT_FOUND'|'THROTTLING',
-                        'ErrorMessage': 'string'
+                        \'ServiceActionId\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'ProvisioningArtifactId\': \'string\',
+                        \'ErrorCode\': \'DUPLICATE_RESOURCE\'|\'INTERNAL_FAILURE\'|\'LIMIT_EXCEEDED\'|\'RESOURCE_NOT_FOUND\'|\'THROTTLING\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -377,12 +377,12 @@ class Client(BaseClient):
           response = client.batch_disassociate_service_action_from_provisioning_artifact(
               ServiceActionAssociations=[
                   {
-                      'ServiceActionId': 'string',
-                      'ProductId': 'string',
-                      'ProvisioningArtifactId': 'string'
+                      \'ServiceActionId\': \'string\',
+                      \'ProductId\': \'string\',
+                      \'ProvisioningArtifactId\': \'string\'
                   },
               ],
-              AcceptLanguage='string'
+              AcceptLanguage=\'string\'
           )
         :type ServiceActionAssociations: list
         :param ServiceActionAssociations: **[REQUIRED]** 
@@ -424,13 +424,13 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedServiceActionAssociations': [
+                \'FailedServiceActionAssociations\': [
                     {
-                        'ServiceActionId': 'string',
-                        'ProductId': 'string',
-                        'ProvisioningArtifactId': 'string',
-                        'ErrorCode': 'DUPLICATE_RESOURCE'|'INTERNAL_FAILURE'|'LIMIT_EXCEEDED'|'RESOURCE_NOT_FOUND'|'THROTTLING',
-                        'ErrorMessage': 'string'
+                        \'ServiceActionId\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'ProvisioningArtifactId\': \'string\',
+                        \'ErrorCode\': \'DUPLICATE_RESOURCE\'|\'INTERNAL_FAILURE\'|\'LIMIT_EXCEEDED\'|\'RESOURCE_NOT_FOUND\'|\'THROTTLING\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -475,10 +475,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -498,19 +498,19 @@ class Client(BaseClient):
         ::
         
           response = client.copy_product(
-              AcceptLanguage='string',
-              SourceProductArn='string',
-              TargetProductId='string',
-              TargetProductName='string',
+              AcceptLanguage=\'string\',
+              SourceProductArn=\'string\',
+              TargetProductId=\'string\',
+              TargetProductName=\'string\',
               SourceProvisioningArtifactIdentifiers=[
                   {
-                      'string': 'string'
+                      \'string\': \'string\'
                   },
               ],
               CopyOptions=[
-                  'CopyTags',
+                  \'CopyTags\',
               ],
-              IdempotencyToken='string'
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -571,7 +571,7 @@ class Client(BaseClient):
           ::
         
             {
-                'CopyProductToken': 'string'
+                \'CopyProductToken\': \'string\'
             }
           **Response Structure** 
         
@@ -593,13 +593,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_constraint(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              ProductId='string',
-              Parameters='string',
-              Type='string',
-              Description='string',
-              IdempotencyToken='string'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              ProductId=\'string\',
+              Parameters=\'string\',
+              Type=\'string\',
+              Description=\'string\',
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -631,13 +631,13 @@ class Client(BaseClient):
         
           Specify the ``RoleArn`` property as follows:
         
-          \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"
+          \\"RoleArn\\" : \\"arn:aws:iam::123456789012:role/LaunchRole\\"
         
             NOTIFICATION  
         
           Specify the ``NotificationArns`` property as follows:
         
-          \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]
+          \\"NotificationArns\\" : [\\"arn:aws:sns:us-east-1:123456789012:Topic\\"]
         
             TEMPLATE  
         
@@ -674,14 +674,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ConstraintDetail': {
-                    'ConstraintId': 'string',
-                    'Type': 'string',
-                    'Description': 'string',
-                    'Owner': 'string'
+                \'ConstraintDetail\': {
+                    \'ConstraintId\': \'string\',
+                    \'Type\': \'string\',
+                    \'Description\': \'string\',
+                    \'Owner\': \'string\'
                 },
-                'ConstraintParameters': 'string',
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'ConstraintParameters\': \'string\',
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -733,17 +733,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_portfolio(
-              AcceptLanguage='string',
-              DisplayName='string',
-              Description='string',
-              ProviderName='string',
+              AcceptLanguage=\'string\',
+              DisplayName=\'string\',
+              Description=\'string\',
+              ProviderName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
-              IdempotencyToken='string'
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -803,18 +803,18 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetail': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'DisplayName': 'string',
-                    'Description': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'ProviderName': 'string'
+                \'PortfolioDetail\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'Description\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'ProviderName\': \'string\'
                 },
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -878,12 +878,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_portfolio_share(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              AccountId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              AccountId=\'string\',
               OrganizationNode={
-                  'Type': 'ORGANIZATION'|'ORGANIZATIONAL_UNIT'|'ACCOUNT',
-                  'Value': 'string'
+                  \'Type\': \'ORGANIZATION\'|\'ORGANIZATIONAL_UNIT\'|\'ACCOUNT\',
+                  \'Value\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -924,7 +924,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioShareToken': 'string'
+                \'PortfolioShareToken\': \'string\'
             }
           **Response Structure** 
         
@@ -946,30 +946,30 @@ class Client(BaseClient):
         ::
         
           response = client.create_product(
-              AcceptLanguage='string',
-              Name='string',
-              Owner='string',
-              Description='string',
-              Distributor='string',
-              SupportDescription='string',
-              SupportEmail='string',
-              SupportUrl='string',
-              ProductType='CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
+              AcceptLanguage=\'string\',
+              Name=\'string\',
+              Owner=\'string\',
+              Description=\'string\',
+              Distributor=\'string\',
+              SupportDescription=\'string\',
+              SupportEmail=\'string\',
+              SupportUrl=\'string\',
+              ProductType=\'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               ProvisioningArtifactParameters={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'Info': {
-                      'string': 'string'
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'Info\': {
+                      \'string\': \'string\'
                   },
-                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR'
+                  \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\'
               },
-              IdempotencyToken='string'
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -1056,7 +1056,7 @@ class Client(BaseClient):
         
             The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
         
-             ``"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."``  
+             ``\"LoadTemplateFromURL\": \"https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/...\"``  
         
             - *(string) --* 
         
@@ -1087,36 +1087,36 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewDetail': {
-                    'ProductViewSummary': {
-                        'Id': 'string',
-                        'ProductId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'ShortDescription': 'string',
-                        'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                        'Distributor': 'string',
-                        'HasDefaultPath': True|False,
-                        'SupportEmail': 'string',
-                        'SupportDescription': 'string',
-                        'SupportUrl': 'string'
+                \'ProductViewDetail\': {
+                    \'ProductViewSummary\': {
+                        \'Id\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'ShortDescription\': \'string\',
+                        \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                        \'Distributor\': \'string\',
+                        \'HasDefaultPath\': True|False,
+                        \'SupportEmail\': \'string\',
+                        \'SupportDescription\': \'string\',
+                        \'SupportUrl\': \'string\'
                     },
-                    'Status': 'AVAILABLE'|'CREATING'|'FAILED',
-                    'ProductARN': 'string',
-                    'CreatedTime': datetime(2015, 1, 1)
+                    \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\',
+                    \'ProductARN\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1)
                 },
-                'ProvisioningArtifactDetail': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'Active': True|False
+                \'ProvisioningArtifactDetail\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'Active\': True|False
                 },
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -1260,28 +1260,28 @@ class Client(BaseClient):
         ::
         
           response = client.create_provisioned_product_plan(
-              AcceptLanguage='string',
-              PlanName='string',
-              PlanType='CLOUDFORMATION',
+              AcceptLanguage=\'string\',
+              PlanName=\'string\',
+              PlanType=\'CLOUDFORMATION\',
               NotificationArns=[
-                  'string',
+                  \'string\',
               ],
-              PathId='string',
-              ProductId='string',
-              ProvisionedProductName='string',
-              ProvisioningArtifactId='string',
+              PathId=\'string\',
+              ProductId=\'string\',
+              ProvisionedProductName=\'string\',
+              ProvisioningArtifactId=\'string\',
               ProvisioningParameters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'UsePreviousValue': True|False
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'UsePreviousValue\': True|False
                   },
               ],
-              IdempotencyToken='string',
+              IdempotencyToken=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1386,11 +1386,11 @@ class Client(BaseClient):
           ::
         
             {
-                'PlanName': 'string',
-                'PlanId': 'string',
-                'ProvisionProductId': 'string',
-                'ProvisionedProductName': 'string',
-                'ProvisioningArtifactId': 'string'
+                \'PlanName\': \'string\',
+                \'PlanId\': \'string\',
+                \'ProvisionProductId\': \'string\',
+                \'ProvisionedProductName\': \'string\',
+                \'ProvisioningArtifactId\': \'string\'
             }
           **Response Structure** 
         
@@ -1430,17 +1430,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_provisioning_artifact(
-              AcceptLanguage='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
               Parameters={
-                  'Name': 'string',
-                  'Description': 'string',
-                  'Info': {
-                      'string': 'string'
+                  \'Name\': \'string\',
+                  \'Description\': \'string\',
+                  \'Info\': {
+                      \'string\': \'string\'
                   },
-                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR'
+                  \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\'
               },
-              IdempotencyToken='string'
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -1475,7 +1475,7 @@ class Client(BaseClient):
         
             The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
         
-             ``"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."``  
+             ``\"LoadTemplateFromURL\": \"https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/...\"``  
         
             - *(string) --* 
         
@@ -1506,18 +1506,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactDetail': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'Active': True|False
+                \'ProvisioningArtifactDetail\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'Active\': True|False
                 },
-                'Info': {
-                    'string': 'string'
+                \'Info\': {
+                    \'string\': \'string\'
                 },
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -1581,14 +1581,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_service_action(
-              Name='string',
-              DefinitionType='SSM_AUTOMATION',
+              Name=\'string\',
+              DefinitionType=\'SSM_AUTOMATION\',
               Definition={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              Description='string',
-              AcceptLanguage='string',
-              IdempotencyToken='string'
+              Description=\'string\',
+              AcceptLanguage=\'string\',
+              IdempotencyToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1611,19 +1611,19 @@ class Client(BaseClient):
         
             Version  
         
-          The AWS Systems Manager automation document version. For example, ``"Version": "1"``  
+          The AWS Systems Manager automation document version. For example, ``\"Version\": \"1\"``  
         
             AssumeRole  
         
-          The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, ``"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"`` .
+          The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, ``\"AssumeRole\": \"arn:aws:iam::12345678910:role/ActionRole\"`` .
         
-          To reuse the provisioned product launch role, set to ``"AssumeRole": "LAUNCH_ROLE"`` .
+          To reuse the provisioned product launch role, set to ``\"AssumeRole\": \"LAUNCH_ROLE\"`` .
         
             Parameters  
         
           The list of parameters in JSON format.
         
-          For example: ``[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]`` .
+          For example: ``[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}]`` .
         
           - *(string) --* 
         
@@ -1660,15 +1660,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceActionDetail': {
-                    'ServiceActionSummary': {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DefinitionType': 'SSM_AUTOMATION'
+                \'ServiceActionDetail\': {
+                    \'ServiceActionSummary\': {
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefinitionType\': \'SSM_AUTOMATION\'
                     },
-                    'Definition': {
-                        'string': 'string'
+                    \'Definition\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -1720,8 +1720,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_tag_option(
-              Key='string',
-              Value='string'
+              Key=\'string\',
+              Value=\'string\'
           )
         :type Key: string
         :param Key: **[REQUIRED]** 
@@ -1741,11 +1741,11 @@ class Client(BaseClient):
           ::
         
             {
-                'TagOptionDetail': {
-                    'Key': 'string',
-                    'Value': 'string',
-                    'Active': True|False,
-                    'Id': 'string'
+                \'TagOptionDetail\': {
+                    \'Key\': \'string\',
+                    \'Value\': \'string\',
+                    \'Active\': True|False,
+                    \'Id\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1784,8 +1784,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_constraint(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -1828,8 +1828,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_portfolio(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -1870,12 +1870,12 @@ class Client(BaseClient):
         ::
         
           response = client.delete_portfolio_share(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              AccountId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              AccountId=\'string\',
               OrganizationNode={
-                  'Type': 'ORGANIZATION'|'ORGANIZATIONAL_UNIT'|'ACCOUNT',
-                  'Value': 'string'
+                  \'Type\': \'ORGANIZATION\'|\'ORGANIZATIONAL_UNIT\'|\'ACCOUNT\',
+                  \'Value\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -1916,7 +1916,7 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioShareToken': 'string'
+                \'PortfolioShareToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1940,8 +1940,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_product(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -1982,8 +1982,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_provisioned_product_plan(
-              AcceptLanguage='string',
-              PlanId='string',
+              AcceptLanguage=\'string\',
+              PlanId=\'string\',
               IgnoreErrors=True|False
           )
         :type AcceptLanguage: string
@@ -2032,9 +2032,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_provisioning_artifact(
-              AcceptLanguage='string',
-              ProductId='string',
-              ProvisioningArtifactId='string'
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2080,8 +2080,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_service_action(
-              Id='string',
-              AcceptLanguage='string'
+              Id=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2124,7 +2124,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tag_option(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2154,8 +2154,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_constraint(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2181,14 +2181,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ConstraintDetail': {
-                    'ConstraintId': 'string',
-                    'Type': 'string',
-                    'Description': 'string',
-                    'Owner': 'string'
+                \'ConstraintDetail\': {
+                    \'ConstraintId\': \'string\',
+                    \'Type\': \'string\',
+                    \'Description\': \'string\',
+                    \'Owner\': \'string\'
                 },
-                'ConstraintParameters': 'string',
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'ConstraintParameters\': \'string\',
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -2240,8 +2240,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_copy_product_status(
-              AcceptLanguage='string',
-              CopyProductToken='string'
+              AcceptLanguage=\'string\',
+              CopyProductToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2267,9 +2267,9 @@ class Client(BaseClient):
           ::
         
             {
-                'CopyProductStatus': 'SUCCEEDED'|'IN_PROGRESS'|'FAILED',
-                'TargetProductId': 'string',
-                'StatusDetail': 'string'
+                \'CopyProductStatus\': \'SUCCEEDED\'|\'IN_PROGRESS\'|\'FAILED\',
+                \'TargetProductId\': \'string\',
+                \'StatusDetail\': \'string\'
             }
           **Response Structure** 
         
@@ -2299,8 +2299,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_portfolio(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2326,26 +2326,26 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetail': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'DisplayName': 'string',
-                    'Description': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'ProviderName': 'string'
+                \'PortfolioDetail\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'Description\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'ProviderName\': \'string\'
                 },
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'TagOptions': [
+                \'TagOptions\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'Active': True|False,
-                        'Id': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'Active\': True|False,
+                        \'Id\': \'string\'
                     },
                 ]
             }
@@ -2433,7 +2433,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_portfolio_share_status(
-              PortfolioShareToken='string'
+              PortfolioShareToken=\'string\'
           )
         :type PortfolioShareToken: string
         :param PortfolioShareToken: **[REQUIRED]** 
@@ -2448,21 +2448,21 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioShareToken': 'string',
-                'PortfolioId': 'string',
-                'OrganizationNodeValue': 'string',
-                'Status': 'NOT_STARTED'|'IN_PROGRESS'|'COMPLETED'|'COMPLETED_WITH_ERRORS'|'ERROR',
-                'ShareDetails': {
-                    'SuccessfulShares': [
-                        'string',
+                \'PortfolioShareToken\': \'string\',
+                \'PortfolioId\': \'string\',
+                \'OrganizationNodeValue\': \'string\',
+                \'Status\': \'NOT_STARTED\'|\'IN_PROGRESS\'|\'COMPLETED\'|\'COMPLETED_WITH_ERRORS\'|\'ERROR\',
+                \'ShareDetails\': {
+                    \'SuccessfulShares\': [
+                        \'string\',
                     ],
-                    'ShareErrors': [
+                    \'ShareErrors\': [
                         {
-                            'Accounts': [
-                                'string',
+                            \'Accounts\': [
+                                \'string\',
                             ],
-                            'Message': 'string',
-                            'Error': 'string'
+                            \'Message\': \'string\',
+                            \'Error\': \'string\'
                         },
                     ]
                 }
@@ -2531,8 +2531,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_product(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2558,25 +2558,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewSummary': {
-                    'Id': 'string',
-                    'ProductId': 'string',
-                    'Name': 'string',
-                    'Owner': 'string',
-                    'ShortDescription': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                    'Distributor': 'string',
-                    'HasDefaultPath': True|False,
-                    'SupportEmail': 'string',
-                    'SupportDescription': 'string',
-                    'SupportUrl': 'string'
+                \'ProductViewSummary\': {
+                    \'Id\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Owner\': \'string\',
+                    \'ShortDescription\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                    \'Distributor\': \'string\',
+                    \'HasDefaultPath\': True|False,
+                    \'SupportEmail\': \'string\',
+                    \'SupportDescription\': \'string\',
+                    \'SupportUrl\': \'string\'
                 },
-                'ProvisioningArtifacts': [
+                \'ProvisioningArtifacts\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -2668,8 +2668,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_product_as_admin(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2695,47 +2695,47 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewDetail': {
-                    'ProductViewSummary': {
-                        'Id': 'string',
-                        'ProductId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'ShortDescription': 'string',
-                        'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                        'Distributor': 'string',
-                        'HasDefaultPath': True|False,
-                        'SupportEmail': 'string',
-                        'SupportDescription': 'string',
-                        'SupportUrl': 'string'
+                \'ProductViewDetail\': {
+                    \'ProductViewSummary\': {
+                        \'Id\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'ShortDescription\': \'string\',
+                        \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                        \'Distributor\': \'string\',
+                        \'HasDefaultPath\': True|False,
+                        \'SupportEmail\': \'string\',
+                        \'SupportDescription\': \'string\',
+                        \'SupportUrl\': \'string\'
                     },
-                    'Status': 'AVAILABLE'|'CREATING'|'FAILED',
-                    'ProductARN': 'string',
-                    'CreatedTime': datetime(2015, 1, 1)
+                    \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\',
+                    \'ProductARN\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1)
                 },
-                'ProvisioningArtifactSummaries': [
+                \'ProvisioningArtifactSummaries\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProvisioningArtifactMetadata': {
-                            'string': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProvisioningArtifactMetadata\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'TagOptions': [
+                \'TagOptions\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'Active': True|False,
-                        'Id': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'Active\': True|False,
+                        \'Id\': \'string\'
                     },
                 ]
             }
@@ -2897,8 +2897,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_product_view(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -2924,25 +2924,25 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewSummary': {
-                    'Id': 'string',
-                    'ProductId': 'string',
-                    'Name': 'string',
-                    'Owner': 'string',
-                    'ShortDescription': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                    'Distributor': 'string',
-                    'HasDefaultPath': True|False,
-                    'SupportEmail': 'string',
-                    'SupportDescription': 'string',
-                    'SupportUrl': 'string'
+                \'ProductViewSummary\': {
+                    \'Id\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'Name\': \'string\',
+                    \'Owner\': \'string\',
+                    \'ShortDescription\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                    \'Distributor\': \'string\',
+                    \'HasDefaultPath\': True|False,
+                    \'SupportEmail\': \'string\',
+                    \'SupportDescription\': \'string\',
+                    \'SupportUrl\': \'string\'
                 },
-                'ProvisioningArtifacts': [
+                \'ProvisioningArtifacts\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -3034,8 +3034,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_provisioned_product(
-              AcceptLanguage='string',
-              Id='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -3061,22 +3061,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedProductDetail': {
-                    'Name': 'string',
-                    'Arn': 'string',
-                    'Type': 'string',
-                    'Id': 'string',
-                    'Status': 'AVAILABLE'|'UNDER_CHANGE'|'TAINTED'|'ERROR'|'PLAN_IN_PROGRESS',
-                    'StatusMessage': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'IdempotencyToken': 'string',
-                    'LastRecordId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string'
+                \'ProvisionedProductDetail\': {
+                    \'Name\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Type\': \'string\',
+                    \'Id\': \'string\',
+                    \'Status\': \'AVAILABLE\'|\'UNDER_CHANGE\'|\'TAINTED\'|\'ERROR\'|\'PLAN_IN_PROGRESS\',
+                    \'StatusMessage\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'IdempotencyToken\': \'string\',
+                    \'LastRecordId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\'
                 },
-                'CloudWatchDashboards': [
+                \'CloudWatchDashboards\': [
                     {
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ]
             }
@@ -3164,10 +3164,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_provisioned_product_plan(
-              AcceptLanguage='string',
-              PlanId='string',
+              AcceptLanguage=\'string\',
+              PlanId=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -3203,60 +3203,60 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedProductPlanDetails': {
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'PathId': 'string',
-                    'ProductId': 'string',
-                    'PlanName': 'string',
-                    'PlanId': 'string',
-                    'ProvisionProductId': 'string',
-                    'ProvisionProductName': 'string',
-                    'PlanType': 'CLOUDFORMATION',
-                    'ProvisioningArtifactId': 'string',
-                    'Status': 'CREATE_IN_PROGRESS'|'CREATE_SUCCESS'|'CREATE_FAILED'|'EXECUTE_IN_PROGRESS'|'EXECUTE_SUCCESS'|'EXECUTE_FAILED',
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'NotificationArns': [
-                        'string',
+                \'ProvisionedProductPlanDetails\': {
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'PathId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'PlanName\': \'string\',
+                    \'PlanId\': \'string\',
+                    \'ProvisionProductId\': \'string\',
+                    \'ProvisionProductName\': \'string\',
+                    \'PlanType\': \'CLOUDFORMATION\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'Status\': \'CREATE_IN_PROGRESS\'|\'CREATE_SUCCESS\'|\'CREATE_FAILED\'|\'EXECUTE_IN_PROGRESS\'|\'EXECUTE_SUCCESS\'|\'EXECUTE_FAILED\',
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'NotificationArns\': [
+                        \'string\',
                     ],
-                    'ProvisioningParameters': [
+                    \'ProvisioningParameters\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string',
-                            'UsePreviousValue': True|False
+                            \'Key\': \'string\',
+                            \'Value\': \'string\',
+                            \'UsePreviousValue\': True|False
                         },
                     ],
-                    'Tags': [
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ],
-                    'StatusMessage': 'string'
+                    \'StatusMessage\': \'string\'
                 },
-                'ResourceChanges': [
+                \'ResourceChanges\': [
                     {
-                        'Action': 'ADD'|'MODIFY'|'REMOVE',
-                        'LogicalResourceId': 'string',
-                        'PhysicalResourceId': 'string',
-                        'ResourceType': 'string',
-                        'Replacement': 'TRUE'|'FALSE'|'CONDITIONAL',
-                        'Scope': [
-                            'PROPERTIES'|'METADATA'|'CREATIONPOLICY'|'UPDATEPOLICY'|'DELETIONPOLICY'|'TAGS',
+                        \'Action\': \'ADD\'|\'MODIFY\'|\'REMOVE\',
+                        \'LogicalResourceId\': \'string\',
+                        \'PhysicalResourceId\': \'string\',
+                        \'ResourceType\': \'string\',
+                        \'Replacement\': \'TRUE\'|\'FALSE\'|\'CONDITIONAL\',
+                        \'Scope\': [
+                            \'PROPERTIES\'|\'METADATA\'|\'CREATIONPOLICY\'|\'UPDATEPOLICY\'|\'DELETIONPOLICY\'|\'TAGS\',
                         ],
-                        'Details': [
+                        \'Details\': [
                             {
-                                'Target': {
-                                    'Attribute': 'PROPERTIES'|'METADATA'|'CREATIONPOLICY'|'UPDATEPOLICY'|'DELETIONPOLICY'|'TAGS',
-                                    'Name': 'string',
-                                    'RequiresRecreation': 'NEVER'|'CONDITIONALLY'|'ALWAYS'
+                                \'Target\': {
+                                    \'Attribute\': \'PROPERTIES\'|\'METADATA\'|\'CREATIONPOLICY\'|\'UPDATEPOLICY\'|\'DELETIONPOLICY\'|\'TAGS\',
+                                    \'Name\': \'string\',
+                                    \'RequiresRecreation\': \'NEVER\'|\'CONDITIONALLY\'|\'ALWAYS\'
                                 },
-                                'Evaluation': 'STATIC'|'DYNAMIC',
-                                'CausingEntity': 'string'
+                                \'Evaluation\': \'STATIC\'|\'DYNAMIC\',
+                                \'CausingEntity\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3438,9 +3438,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_provisioning_artifact(
-              AcceptLanguage='string',
-              ProvisioningArtifactId='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              ProvisioningArtifactId=\'string\',
+              ProductId=\'string\',
               Verbose=True|False
           )
         :type AcceptLanguage: string
@@ -3477,18 +3477,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactDetail': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'Active': True|False
+                \'ProvisioningArtifactDetail\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'Active\': True|False
                 },
-                'Info': {
-                    'string': 'string'
+                \'Info\': {
+                    \'string\': \'string\'
                 },
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -3546,7 +3546,7 @@ class Client(BaseClient):
     def describe_provisioning_parameters(self, ProductId: str, ProvisioningArtifactId: str, AcceptLanguage: str = None, PathId: str = None) -> Dict:
         """
         
-        If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to  ProvisionProduct , do not include conflicted TagOption keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[*N* ]:*Value* ". Tag the provisioned product with the value ``sc-tagoption-conflict-portfolioId-productId`` .
+        If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to  ProvisionProduct , do not include conflicted TagOption keys as tags, or this causes the error \"Parameter validation failed: Missing required parameter in Tags[*N* ]:*Value* \". Tag the provisioned product with the value ``sc-tagoption-conflict-portfolioId-productId`` .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DescribeProvisioningParameters>`_
         
@@ -3554,10 +3554,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_provisioning_parameters(
-              AcceptLanguage='string',
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              PathId='string'
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              PathId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -3593,37 +3593,37 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactParameters': [
+                \'ProvisioningArtifactParameters\': [
                     {
-                        'ParameterKey': 'string',
-                        'DefaultValue': 'string',
-                        'ParameterType': 'string',
-                        'IsNoEcho': True|False,
-                        'Description': 'string',
-                        'ParameterConstraints': {
-                            'AllowedValues': [
-                                'string',
+                        \'ParameterKey\': \'string\',
+                        \'DefaultValue\': \'string\',
+                        \'ParameterType\': \'string\',
+                        \'IsNoEcho\': True|False,
+                        \'Description\': \'string\',
+                        \'ParameterConstraints\': {
+                            \'AllowedValues\': [
+                                \'string\',
                             ]
                         }
                     },
                 ],
-                'ConstraintSummaries': [
+                \'ConstraintSummaries\': [
                     {
-                        'Type': 'string',
-                        'Description': 'string'
+                        \'Type\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'UsageInstructions': [
+                \'UsageInstructions\': [
                     {
-                        'Type': 'string',
-                        'Value': 'string'
+                        \'Type\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'TagOptions': [
+                \'TagOptions\': [
                     {
-                        'Key': 'string',
-                        'Values': [
-                            'string',
+                        \'Key\': \'string\',
+                        \'Values\': [
+                            \'string\',
                         ]
                     },
                 ]
@@ -3740,9 +3740,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_record(
-              AcceptLanguage='string',
-              Id='string',
-              PageToken='string',
+              AcceptLanguage=\'string\',
+              Id=\'string\',
+              PageToken=\'string\',
               PageSize=123
           )
         :type AcceptLanguage: string
@@ -3779,39 +3779,39 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 },
-                'RecordOutputs': [
+                \'RecordOutputs\': [
                     {
-                        'OutputKey': 'string',
-                        'OutputValue': 'string',
-                        'Description': 'string'
+                        \'OutputKey\': \'string\',
+                        \'OutputValue\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3949,8 +3949,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_service_action(
-              Id='string',
-              AcceptLanguage='string'
+              Id=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -3976,15 +3976,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceActionDetail': {
-                    'ServiceActionSummary': {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DefinitionType': 'SSM_AUTOMATION'
+                \'ServiceActionDetail\': {
+                    \'ServiceActionSummary\': {
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefinitionType\': \'SSM_AUTOMATION\'
                     },
-                    'Definition': {
-                        'string': 'string'
+                    \'Definition\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -4036,7 +4036,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tag_option(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -4051,11 +4051,11 @@ class Client(BaseClient):
           ::
         
             {
-                'TagOptionDetail': {
-                    'Key': 'string',
-                    'Value': 'string',
-                    'Active': True|False,
-                    'Id': 'string'
+                \'TagOptionDetail\': {
+                    \'Key\': \'string\',
+                    \'Value\': \'string\',
+                    \'Active\': True|False,
+                    \'Id\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4118,9 +4118,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_principal_from_portfolio(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              PrincipalARN='string'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              PrincipalARN=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -4166,9 +4166,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_product_from_portfolio(
-              AcceptLanguage='string',
-              ProductId='string',
-              PortfolioId='string'
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              PortfolioId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -4214,10 +4214,10 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_service_action_from_provisioning_artifact(
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              ServiceActionId='string',
-              AcceptLanguage='string'
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              ServiceActionId=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type ProductId: string
         :param ProductId: **[REQUIRED]** 
@@ -4268,8 +4268,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_tag_option_from_resource(
-              ResourceId='string',
-              TagOptionId='string'
+              ResourceId=\'string\',
+              TagOptionId=\'string\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -4330,9 +4330,9 @@ class Client(BaseClient):
         ::
         
           response = client.execute_provisioned_product_plan(
-              AcceptLanguage='string',
-              PlanId='string',
-              IdempotencyToken='string'
+              AcceptLanguage=\'string\',
+              PlanId=\'string\',
+              IdempotencyToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -4365,28 +4365,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -4503,10 +4503,10 @@ class Client(BaseClient):
         ::
         
           response = client.execute_provisioned_product_service_action(
-              ProvisionedProductId='string',
-              ServiceActionId='string',
-              ExecuteToken='string',
-              AcceptLanguage='string'
+              ProvisionedProductId=\'string\',
+              ServiceActionId=\'string\',
+              ExecuteToken=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type ProvisionedProductId: string
         :param ProvisionedProductId: **[REQUIRED]** 
@@ -4544,28 +4544,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -4689,7 +4689,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -4713,7 +4713,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AccessStatus': 'ENABLED'|'UNDER_CHANGE'|'DISABLED'
+                \'AccessStatus\': \'ENABLED\'|\'UNDER_CHANGE\'|\'DISABLED\'
             }
           **Response Structure** 
         
@@ -4732,10 +4732,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -4767,10 +4767,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_accepted_portfolio_shares(
-              AcceptLanguage='string',
-              PageToken='string',
+              AcceptLanguage=\'string\',
+              PageToken=\'string\',
               PageSize=123,
-              PortfolioShareType='IMPORTED'|'AWS_SERVICECATALOG'|'AWS_ORGANIZATIONS'
+              PortfolioShareType=\'IMPORTED\'|\'AWS_SERVICECATALOG\'|\'AWS_ORGANIZATIONS\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -4812,17 +4812,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4876,11 +4876,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_constraints_for_portfolio(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              ProductId=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -4921,15 +4921,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ConstraintDetails': [
+                \'ConstraintDetails\': [
                     {
-                        'ConstraintId': 'string',
-                        'Type': 'string',
-                        'Description': 'string',
-                        'Owner': 'string'
+                        \'ConstraintId\': \'string\',
+                        \'Type\': \'string\',
+                        \'Description\': \'string\',
+                        \'Owner\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -4981,10 +4981,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_launch_paths(
-              AcceptLanguage='string',
-              ProductId='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -5020,25 +5020,25 @@ class Client(BaseClient):
           ::
         
             {
-                'LaunchPathSummaries': [
+                \'LaunchPathSummaries\': [
                     {
-                        'Id': 'string',
-                        'ConstraintSummaries': [
+                        \'Id\': \'string\',
+                        \'ConstraintSummaries\': [
                             {
-                                'Type': 'string',
-                                'Description': 'string'
+                                \'Type\': \'string\',
+                                \'Description\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5114,10 +5114,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_organization_portfolio_access(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              OrganizationNodeType='ORGANIZATION'|'ORGANIZATIONAL_UNIT'|'ACCOUNT',
-              PageToken='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              OrganizationNodeType=\'ORGANIZATION\'|\'ORGANIZATIONAL_UNIT\'|\'ACCOUNT\',
+              PageToken=\'string\',
               PageSize=123
           )
         :type AcceptLanguage: string
@@ -5165,13 +5165,13 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationNodes': [
+                \'OrganizationNodes\': [
                     {
-                        'Type': 'ORGANIZATION'|'ORGANIZATIONAL_UNIT'|'ACCOUNT',
-                        'Value': 'string'
+                        \'Type\': \'ORGANIZATION\'|\'ORGANIZATIONAL_UNIT\'|\'ACCOUNT\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5203,8 +5203,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_portfolio_access(
-              AcceptLanguage='string',
-              PortfolioId='string'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -5230,10 +5230,10 @@ class Client(BaseClient):
           ::
         
             {
-                'AccountIds': [
-                    'string',
+                \'AccountIds\': [
+                    \'string\',
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5261,8 +5261,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_portfolios(
-              AcceptLanguage='string',
-              PageToken='string',
+              AcceptLanguage=\'string\',
+              PageToken=\'string\',
               PageSize=123
           )
         :type AcceptLanguage: string
@@ -5294,17 +5294,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5358,9 +5358,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_portfolios_for_product(
-              AcceptLanguage='string',
-              ProductId='string',
-              PageToken='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              PageToken=\'string\',
               PageSize=123
           )
         :type AcceptLanguage: string
@@ -5397,17 +5397,17 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetails': [
+                \'PortfolioDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'DisplayName': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'ProviderName': 'string'
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'ProviderName\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5461,10 +5461,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_principals_for_portfolio(
-              AcceptLanguage='string',
-              PortfolioId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -5500,13 +5500,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Principals': [
+                \'Principals\': [
                     {
-                        'PrincipalARN': 'string',
-                        'PrincipalType': 'IAM'
+                        \'PrincipalARN\': \'string\',
+                        \'PrincipalType\': \'IAM\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5544,13 +5544,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_provisioned_product_plans(
-              AcceptLanguage='string',
-              ProvisionProductId='string',
+              AcceptLanguage=\'string\',
+              ProvisionProductId=\'string\',
               PageSize=123,
-              PageToken='string',
+              PageToken=\'string\',
               AccessLevelFilter={
-                  'Key': 'Account'|'Role'|'User',
-                  'Value': 'string'
+                  \'Key\': \'Account\'|\'Role\'|\'User\',
+                  \'Value\': \'string\'
               }
           )
         :type AcceptLanguage: string
@@ -5606,17 +5606,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedProductPlans': [
+                \'ProvisionedProductPlans\': [
                     {
-                        'PlanName': 'string',
-                        'PlanId': 'string',
-                        'ProvisionProductId': 'string',
-                        'ProvisionProductName': 'string',
-                        'PlanType': 'CLOUDFORMATION',
-                        'ProvisioningArtifactId': 'string'
+                        \'PlanName\': \'string\',
+                        \'PlanId\': \'string\',
+                        \'ProvisionProductId\': \'string\',
+                        \'ProvisionProductName\': \'string\',
+                        \'PlanType\': \'CLOUDFORMATION\',
+                        \'ProvisioningArtifactId\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5670,8 +5670,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_provisioning_artifacts(
-              AcceptLanguage='string',
-              ProductId='string'
+              AcceptLanguage=\'string\',
+              ProductId=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -5697,17 +5697,17 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactDetails': [
+                \'ProvisioningArtifactDetails\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'Active': True|False
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'Active\': True|False
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5767,10 +5767,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_provisioning_artifacts_for_service_action(
-              ServiceActionId='string',
+              ServiceActionId=\'string\',
               PageSize=123,
-              PageToken='string',
-              AcceptLanguage='string'
+              PageToken=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type ServiceActionId: string
         :param ServiceActionId: **[REQUIRED]** 
@@ -5806,30 +5806,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactViews': [
+                \'ProvisioningArtifactViews\': [
                     {
-                        'ProductViewSummary': {
-                            'Id': 'string',
-                            'ProductId': 'string',
-                            'Name': 'string',
-                            'Owner': 'string',
-                            'ShortDescription': 'string',
-                            'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                            'Distributor': 'string',
-                            'HasDefaultPath': True|False,
-                            'SupportEmail': 'string',
-                            'SupportDescription': 'string',
-                            'SupportUrl': 'string'
+                        \'ProductViewSummary\': {
+                            \'Id\': \'string\',
+                            \'ProductId\': \'string\',
+                            \'Name\': \'string\',
+                            \'Owner\': \'string\',
+                            \'ShortDescription\': \'string\',
+                            \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                            \'Distributor\': \'string\',
+                            \'HasDefaultPath\': True|False,
+                            \'SupportEmail\': \'string\',
+                            \'SupportDescription\': \'string\',
+                            \'SupportUrl\': \'string\'
                         },
-                        'ProvisioningArtifact': {
-                            'Id': 'string',
-                            'Name': 'string',
-                            'Description': 'string',
-                            'CreatedTime': datetime(2015, 1, 1)
+                        \'ProvisioningArtifact\': {
+                            \'Id\': \'string\',
+                            \'Name\': \'string\',
+                            \'Description\': \'string\',
+                            \'CreatedTime\': datetime(2015, 1, 1)
                         }
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5927,17 +5927,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_record_history(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               AccessLevelFilter={
-                  'Key': 'Account'|'Role'|'User',
-                  'Value': 'string'
+                  \'Key\': \'Account\'|\'Role\'|\'User\',
+                  \'Value\': \'string\'
               },
               SearchFilter={
-                  'Key': 'string',
-                  'Value': 'string'
+                  \'Key\': \'string\',
+                  \'Value\': \'string\'
               },
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -6004,34 +6004,34 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetails': [
+                \'RecordDetails\': [
                     {
-                        'RecordId': 'string',
-                        'ProvisionedProductName': 'string',
-                        'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'UpdatedTime': datetime(2015, 1, 1),
-                        'ProvisionedProductType': 'string',
-                        'RecordType': 'string',
-                        'ProvisionedProductId': 'string',
-                        'ProductId': 'string',
-                        'ProvisioningArtifactId': 'string',
-                        'PathId': 'string',
-                        'RecordErrors': [
+                        \'RecordId\': \'string\',
+                        \'ProvisionedProductName\': \'string\',
+                        \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'UpdatedTime\': datetime(2015, 1, 1),
+                        \'ProvisionedProductType\': \'string\',
+                        \'RecordType\': \'string\',
+                        \'ProvisionedProductId\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'ProvisioningArtifactId\': \'string\',
+                        \'PathId\': \'string\',
+                        \'RecordErrors\': [
                             {
-                                'Code': 'string',
-                                'Description': 'string'
+                                \'Code\': \'string\',
+                                \'Description\': \'string\'
                             },
                         ],
-                        'RecordTags': [
+                        \'RecordTags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6153,10 +6153,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_resources_for_tag_option(
-              TagOptionId='string',
-              ResourceType='string',
+              TagOptionId=\'string\',
+              ResourceType=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type TagOptionId: string
         :param TagOptionId: **[REQUIRED]** 
@@ -6190,16 +6190,16 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceDetails': [
+                \'ResourceDetails\': [
                     {
-                        'Id': 'string',
-                        'ARN': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'ARN\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'PageToken': 'string'
+                \'PageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6249,9 +6249,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_service_actions(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -6282,15 +6282,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceActionSummaries': [
+                \'ServiceActionSummaries\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DefinitionType': 'SSM_AUTOMATION'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefinitionType\': \'SSM_AUTOMATION\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6336,11 +6336,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_service_actions_for_provisioning_artifact(
-              ProductId='string',
-              ProvisioningArtifactId='string',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
               PageSize=123,
-              PageToken='string',
-              AcceptLanguage='string'
+              PageToken=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type ProductId: string
         :param ProductId: **[REQUIRED]** 
@@ -6381,15 +6381,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceActionSummaries': [
+                \'ServiceActionSummaries\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DefinitionType': 'SSM_AUTOMATION'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefinitionType\': \'SSM_AUTOMATION\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6436,12 +6436,12 @@ class Client(BaseClient):
         
           response = client.list_tag_options(
               Filters={
-                  'Key': 'string',
-                  'Value': 'string',
-                  'Active': True|False
+                  \'Key\': \'string\',
+                  \'Value\': \'string\',
+                  \'Active\': True|False
               },
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type Filters: dict
         :param Filters: 
@@ -6478,15 +6478,15 @@ class Client(BaseClient):
           ::
         
             {
-                'TagOptionDetails': [
+                \'TagOptionDetails\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string',
-                        'Active': True|False,
-                        'Id': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\',
+                        \'Active\': True|False,
+                        \'Id\': \'string\'
                     },
                 ],
-                'PageToken': 'string'
+                \'PageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6528,7 +6528,7 @@ class Client(BaseClient):
         
         A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources. You can check the status of this request using  DescribeRecord .
         
-        If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[*N* ]:*Value* ".
+        If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error \"Parameter validation failed: Missing required parameter in Tags[*N* ]:*Value* \".
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ProvisionProduct>`_
         
@@ -6536,27 +6536,27 @@ class Client(BaseClient):
         ::
         
           response = client.provision_product(
-              AcceptLanguage='string',
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              PathId='string',
-              ProvisionedProductName='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              PathId=\'string\',
+              ProvisionedProductName=\'string\',
               ProvisioningParameters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               NotificationArns=[
-                  'string',
+                  \'string\',
               ],
-              ProvisionToken='string'
+              ProvisionToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -6645,28 +6645,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -6783,9 +6783,9 @@ class Client(BaseClient):
         ::
         
           response = client.reject_portfolio_share(
-              AcceptLanguage='string',
-              PortfolioId='string',
-              PortfolioShareType='IMPORTED'|'AWS_SERVICECATALOG'|'AWS_ORGANIZATIONS'
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
+              PortfolioShareType=\'IMPORTED\'|\'AWS_SERVICECATALOG\'|\'AWS_ORGANIZATIONS\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -6814,7 +6814,7 @@ class Client(BaseClient):
            
           * ``AWS_SERVICECATALOG`` - Not supported. (Throws ResourceNotFoundException.) 
            
-          For example, ``aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS``  
+          For example, ``aws servicecatalog reject-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS``  
         
         :rtype: dict
         :returns: 
@@ -6841,13 +6841,13 @@ class Client(BaseClient):
         ::
         
           response = client.scan_provisioned_products(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               AccessLevelFilter={
-                  'Key': 'Account'|'Role'|'User',
-                  'Value': 'string'
+                  \'Key\': \'Account\'|\'Role\'|\'User\',
+                  \'Value\': \'string\'
               },
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -6897,22 +6897,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedProducts': [
+                \'ProvisionedProducts\': [
                     {
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'Type': 'string',
-                        'Id': 'string',
-                        'Status': 'AVAILABLE'|'UNDER_CHANGE'|'TAINTED'|'ERROR'|'PLAN_IN_PROGRESS',
-                        'StatusMessage': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'IdempotencyToken': 'string',
-                        'LastRecordId': 'string',
-                        'ProductId': 'string',
-                        'ProvisioningArtifactId': 'string'
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Type\': \'string\',
+                        \'Id\': \'string\',
+                        \'Status\': \'AVAILABLE\'|\'UNDER_CHANGE\'|\'TAINTED\'|\'ERROR\'|\'PLAN_IN_PROGRESS\',
+                        \'StatusMessage\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'IdempotencyToken\': \'string\',
+                        \'LastRecordId\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'ProvisioningArtifactId\': \'string\'
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -6994,16 +6994,16 @@ class Client(BaseClient):
         ::
         
           response = client.search_products(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
               PageSize=123,
-              SortBy='Title'|'VersionCount'|'CreationDate',
-              SortOrder='ASCENDING'|'DESCENDING',
-              PageToken='string'
+              SortBy=\'Title\'|\'VersionCount\'|\'CreationDate\',
+              SortOrder=\'ASCENDING\'|\'DESCENDING\',
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -7055,30 +7055,30 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewSummaries': [
+                \'ProductViewSummaries\': [
                     {
-                        'Id': 'string',
-                        'ProductId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'ShortDescription': 'string',
-                        'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                        'Distributor': 'string',
-                        'HasDefaultPath': True|False,
-                        'SupportEmail': 'string',
-                        'SupportDescription': 'string',
-                        'SupportUrl': 'string'
+                        \'Id\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'ShortDescription\': \'string\',
+                        \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                        \'Distributor\': \'string\',
+                        \'HasDefaultPath\': True|False,
+                        \'SupportEmail\': \'string\',
+                        \'SupportDescription\': \'string\',
+                        \'SupportUrl\': \'string\'
                     },
                 ],
-                'ProductViewAggregations': {
-                    'string': [
+                \'ProductViewAggregations\': {
+                    \'string\': [
                         {
-                            'Value': 'string',
-                            'ApproximateCount': 123
+                            \'Value\': \'string\',
+                            \'ApproximateCount\': 123
                         },
                     ]
                 },
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7172,18 +7172,18 @@ class Client(BaseClient):
         ::
         
           response = client.search_products_as_admin(
-              AcceptLanguage='string',
-              PortfolioId='string',
+              AcceptLanguage=\'string\',
+              PortfolioId=\'string\',
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              SortBy='Title'|'VersionCount'|'CreationDate',
-              SortOrder='ASCENDING'|'DESCENDING',
-              PageToken='string',
+              SortBy=\'Title\'|\'VersionCount\'|\'CreationDate\',
+              SortOrder=\'ASCENDING\'|\'DESCENDING\',
+              PageToken=\'string\',
               PageSize=123,
-              ProductSource='ACCOUNT'
+              ProductSource=\'ACCOUNT\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -7245,27 +7245,27 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewDetails': [
+                \'ProductViewDetails\': [
                     {
-                        'ProductViewSummary': {
-                            'Id': 'string',
-                            'ProductId': 'string',
-                            'Name': 'string',
-                            'Owner': 'string',
-                            'ShortDescription': 'string',
-                            'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                            'Distributor': 'string',
-                            'HasDefaultPath': True|False,
-                            'SupportEmail': 'string',
-                            'SupportDescription': 'string',
-                            'SupportUrl': 'string'
+                        \'ProductViewSummary\': {
+                            \'Id\': \'string\',
+                            \'ProductId\': \'string\',
+                            \'Name\': \'string\',
+                            \'Owner\': \'string\',
+                            \'ShortDescription\': \'string\',
+                            \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                            \'Distributor\': \'string\',
+                            \'HasDefaultPath\': True|False,
+                            \'SupportEmail\': \'string\',
+                            \'SupportDescription\': \'string\',
+                            \'SupportUrl\': \'string\'
                         },
-                        'Status': 'AVAILABLE'|'CREATING'|'FAILED',
-                        'ProductARN': 'string',
-                        'CreatedTime': datetime(2015, 1, 1)
+                        \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\',
+                        \'ProductARN\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextPageToken': 'string'
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7361,20 +7361,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_provisioned_products(
-              AcceptLanguage='string',
+              AcceptLanguage=\'string\',
               AccessLevelFilter={
-                  'Key': 'Account'|'Role'|'User',
-                  'Value': 'string'
+                  \'Key\': \'Account\'|\'Role\'|\'User\',
+                  \'Value\': \'string\'
               },
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              SortBy='string',
-              SortOrder='ASCENDING'|'DESCENDING',
+              SortBy=\'string\',
+              SortOrder=\'ASCENDING\'|\'DESCENDING\',
               PageSize=123,
-              PageToken='string'
+              PageToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -7413,7 +7413,7 @@ class Client(BaseClient):
         
           When the key is ``SearchQuery`` , the searchable fields are ``arn`` , ``createdTime`` , ``id`` , ``lastRecordId`` , ``idempotencyToken`` , ``name`` , ``physicalId`` , ``productId`` , ``provisioningArtifact`` , ``type`` , ``status`` , ``tags`` , ``userArn`` , and ``userArnSession`` .
         
-          Example: ``"SearchQuery":["status:AVAILABLE"]``  
+          Example: ``\"SearchQuery\":[\"status:AVAILABLE\"]``  
         
           - *(string) --* 
         
@@ -7449,32 +7449,32 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedProducts': [
+                \'ProvisionedProducts\': [
                     {
-                        'Name': 'string',
-                        'Arn': 'string',
-                        'Type': 'string',
-                        'Id': 'string',
-                        'Status': 'AVAILABLE'|'UNDER_CHANGE'|'TAINTED'|'ERROR'|'PLAN_IN_PROGRESS',
-                        'StatusMessage': 'string',
-                        'CreatedTime': datetime(2015, 1, 1),
-                        'IdempotencyToken': 'string',
-                        'LastRecordId': 'string',
-                        'Tags': [
+                        \'Name\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Type\': \'string\',
+                        \'Id\': \'string\',
+                        \'Status\': \'AVAILABLE\'|\'UNDER_CHANGE\'|\'TAINTED\'|\'ERROR\'|\'PLAN_IN_PROGRESS\',
+                        \'StatusMessage\': \'string\',
+                        \'CreatedTime\': datetime(2015, 1, 1),
+                        \'IdempotencyToken\': \'string\',
+                        \'LastRecordId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'PhysicalId': 'string',
-                        'ProductId': 'string',
-                        'ProvisioningArtifactId': 'string',
-                        'UserArn': 'string',
-                        'UserArnSession': 'string'
+                        \'PhysicalId\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'ProvisioningArtifactId\': \'string\',
+                        \'UserArn\': \'string\',
+                        \'UserArnSession\': \'string\'
                     },
                 ],
-                'TotalResultsCount': 123,
-                'NextPageToken': 'string'
+                \'TotalResultsCount\': 123,
+                \'NextPageToken\': \'string\'
             }
           **Response Structure** 
         
@@ -7592,11 +7592,11 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_provisioned_product(
-              ProvisionedProductName='string',
-              ProvisionedProductId='string',
-              TerminateToken='string',
+              ProvisionedProductName=\'string\',
+              ProvisionedProductId=\'string\',
+              TerminateToken=\'string\',
               IgnoreErrors=True|False,
-              AcceptLanguage='string'
+              AcceptLanguage=\'string\'
           )
         :type ProvisionedProductName: string
         :param ProvisionedProductName: 
@@ -7639,28 +7639,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -7777,9 +7777,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_constraint(
-              AcceptLanguage='string',
-              Id='string',
-              Description='string'
+              AcceptLanguage=\'string\',
+              Id=\'string\',
+              Description=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -7810,14 +7810,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ConstraintDetail': {
-                    'ConstraintId': 'string',
-                    'Type': 'string',
-                    'Description': 'string',
-                    'Owner': 'string'
+                \'ConstraintDetail\': {
+                    \'ConstraintId\': \'string\',
+                    \'Type\': \'string\',
+                    \'Description\': \'string\',
+                    \'Owner\': \'string\'
                 },
-                'ConstraintParameters': 'string',
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'ConstraintParameters\': \'string\',
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -7871,19 +7871,19 @@ class Client(BaseClient):
         ::
         
           response = client.update_portfolio(
-              AcceptLanguage='string',
-              Id='string',
-              DisplayName='string',
-              Description='string',
-              ProviderName='string',
+              AcceptLanguage=\'string\',
+              Id=\'string\',
+              DisplayName=\'string\',
+              Description=\'string\',
+              ProviderName=\'string\',
               AddTags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               RemoveTags=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AcceptLanguage: string
@@ -7949,18 +7949,18 @@ class Client(BaseClient):
           ::
         
             {
-                'PortfolioDetail': {
-                    'Id': 'string',
-                    'ARN': 'string',
-                    'DisplayName': 'string',
-                    'Description': 'string',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'ProviderName': 'string'
+                \'PortfolioDetail\': {
+                    \'Id\': \'string\',
+                    \'ARN\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'Description\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'ProviderName\': \'string\'
                 },
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -8024,23 +8024,23 @@ class Client(BaseClient):
         ::
         
           response = client.update_product(
-              AcceptLanguage='string',
-              Id='string',
-              Name='string',
-              Owner='string',
-              Description='string',
-              Distributor='string',
-              SupportDescription='string',
-              SupportEmail='string',
-              SupportUrl='string',
+              AcceptLanguage=\'string\',
+              Id=\'string\',
+              Name=\'string\',
+              Owner=\'string\',
+              Description=\'string\',
+              Distributor=\'string\',
+              SupportDescription=\'string\',
+              SupportEmail=\'string\',
+              SupportUrl=\'string\',
               AddTags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               RemoveTags=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AcceptLanguage: string
@@ -8126,28 +8126,28 @@ class Client(BaseClient):
           ::
         
             {
-                'ProductViewDetail': {
-                    'ProductViewSummary': {
-                        'Id': 'string',
-                        'ProductId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'ShortDescription': 'string',
-                        'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE',
-                        'Distributor': 'string',
-                        'HasDefaultPath': True|False,
-                        'SupportEmail': 'string',
-                        'SupportDescription': 'string',
-                        'SupportUrl': 'string'
+                \'ProductViewDetail\': {
+                    \'ProductViewSummary\': {
+                        \'Id\': \'string\',
+                        \'ProductId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'ShortDescription\': \'string\',
+                        \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE\',
+                        \'Distributor\': \'string\',
+                        \'HasDefaultPath\': True|False,
+                        \'SupportEmail\': \'string\',
+                        \'SupportDescription\': \'string\',
+                        \'SupportUrl\': \'string\'
                     },
-                    'Status': 'AVAILABLE'|'CREATING'|'FAILED',
-                    'ProductARN': 'string',
-                    'CreatedTime': datetime(2015, 1, 1)
+                    \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\',
+                    \'ProductARN\': \'string\',
+                    \'CreatedTime\': datetime(2015, 1, 1)
                 },
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -8257,20 +8257,20 @@ class Client(BaseClient):
         ::
         
           response = client.update_provisioned_product(
-              AcceptLanguage='string',
-              ProvisionedProductName='string',
-              ProvisionedProductId='string',
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              PathId='string',
+              AcceptLanguage=\'string\',
+              ProvisionedProductName=\'string\',
+              ProvisionedProductId=\'string\',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              PathId=\'string\',
               ProvisioningParameters=[
                   {
-                      'Key': 'string',
-                      'Value': 'string',
-                      'UsePreviousValue': True|False
+                      \'Key\': \'string\',
+                      \'Value\': \'string\',
+                      \'UsePreviousValue\': True|False
                   },
               ],
-              UpdateToken='string'
+              UpdateToken=\'string\'
           )
         :type AcceptLanguage: string
         :param AcceptLanguage: 
@@ -8344,28 +8344,28 @@ class Client(BaseClient):
           ::
         
             {
-                'RecordDetail': {
-                    'RecordId': 'string',
-                    'ProvisionedProductName': 'string',
-                    'Status': 'CREATED'|'IN_PROGRESS'|'IN_PROGRESS_IN_ERROR'|'SUCCEEDED'|'FAILED',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'UpdatedTime': datetime(2015, 1, 1),
-                    'ProvisionedProductType': 'string',
-                    'RecordType': 'string',
-                    'ProvisionedProductId': 'string',
-                    'ProductId': 'string',
-                    'ProvisioningArtifactId': 'string',
-                    'PathId': 'string',
-                    'RecordErrors': [
+                \'RecordDetail\': {
+                    \'RecordId\': \'string\',
+                    \'ProvisionedProductName\': \'string\',
+                    \'Status\': \'CREATED\'|\'IN_PROGRESS\'|\'IN_PROGRESS_IN_ERROR\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'UpdatedTime\': datetime(2015, 1, 1),
+                    \'ProvisionedProductType\': \'string\',
+                    \'RecordType\': \'string\',
+                    \'ProvisionedProductId\': \'string\',
+                    \'ProductId\': \'string\',
+                    \'ProvisioningArtifactId\': \'string\',
+                    \'PathId\': \'string\',
+                    \'RecordErrors\': [
                         {
-                            'Code': 'string',
-                            'Description': 'string'
+                            \'Code\': \'string\',
+                            \'Description\': \'string\'
                         },
                     ],
-                    'RecordTags': [
+                    \'RecordTags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -8484,11 +8484,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_provisioning_artifact(
-              AcceptLanguage='string',
-              ProductId='string',
-              ProvisioningArtifactId='string',
-              Name='string',
-              Description='string',
+              AcceptLanguage=\'string\',
+              ProductId=\'string\',
+              ProvisioningArtifactId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
               Active=True|False
           )
         :type AcceptLanguage: string
@@ -8535,18 +8535,18 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisioningArtifactDetail': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'Description': 'string',
-                    'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
-                    'CreatedTime': datetime(2015, 1, 1),
-                    'Active': True|False
+                \'ProvisioningArtifactDetail\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\',
+                    \'Type\': \'CLOUD_FORMATION_TEMPLATE\'|\'MARKETPLACE_AMI\'|\'MARKETPLACE_CAR\',
+                    \'CreatedTime\': datetime(2015, 1, 1),
+                    \'Active\': True|False
                 },
-                'Info': {
-                    'string': 'string'
+                \'Info\': {
+                    \'string\': \'string\'
                 },
-                'Status': 'AVAILABLE'|'CREATING'|'FAILED'
+                \'Status\': \'AVAILABLE\'|\'CREATING\'|\'FAILED\'
             }
           **Response Structure** 
         
@@ -8610,13 +8610,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_service_action(
-              Id='string',
-              Name='string',
+              Id=\'string\',
+              Name=\'string\',
               Definition={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              Description='string',
-              AcceptLanguage='string'
+              Description=\'string\',
+              AcceptLanguage=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -8661,15 +8661,15 @@ class Client(BaseClient):
           ::
         
             {
-                'ServiceActionDetail': {
-                    'ServiceActionSummary': {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'DefinitionType': 'SSM_AUTOMATION'
+                \'ServiceActionDetail\': {
+                    \'ServiceActionSummary\': {
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'DefinitionType\': \'SSM_AUTOMATION\'
                     },
-                    'Definition': {
-                        'string': 'string'
+                    \'Definition\': {
+                        \'string\': \'string\'
                     }
                 }
             }
@@ -8721,8 +8721,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_tag_option(
-              Id='string',
-              Value='string',
+              Id=\'string\',
+              Value=\'string\',
               Active=True|False
           )
         :type Id: string
@@ -8748,11 +8748,11 @@ class Client(BaseClient):
           ::
         
             {
-                'TagOptionDetail': {
-                    'Key': 'string',
-                    'Value': 'string',
-                    'Active': True|False,
-                    'Id': 'string'
+                \'TagOptionDetail\': {
+                    \'Key\': \'string\',
+                    \'Value\': \'string\',
+                    \'Active\': True|False,
+                    \'Id\': \'string\'
                 }
             }
           **Response Structure** 

@@ -12,12 +12,12 @@ class ListAliases(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              OrganizationId='string',
-              EntityId='string',
+              OrganizationId=\'string\',
+              EntityId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type OrganizationId: string
@@ -55,8 +55,8 @@ class ListAliases(Paginator):
           ::
         
             {
-                'Aliases': [
-                    'string',
+                \'Aliases\': [
+                    \'string\',
                 ],
                 
             }
@@ -66,7 +66,7 @@ class ListAliases(Paginator):
             
             - **Aliases** *(list) --* 
         
-              The entity's paginated aliases.
+              The entity\'s paginated aliases.
         
               - *(string) --* 
           
@@ -84,12 +84,12 @@ class ListGroupMembers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              OrganizationId='string',
-              GroupId='string',
+              OrganizationId=\'string\',
+              GroupId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type OrganizationId: string
@@ -127,14 +127,14 @@ class ListGroupMembers(Paginator):
           ::
         
             {
-                'Members': [
+                \'Members\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Type': 'GROUP'|'USER',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'GROUP\'|\'USER\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -189,11 +189,11 @@ class ListGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              OrganizationId='string',
+              OrganizationId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type OrganizationId: string
@@ -226,14 +226,14 @@ class ListGroups(Paginator):
           ::
         
             {
-                'Groups': [
+                \'Groups\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -289,9 +289,9 @@ class ListOrganizations(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -319,12 +319,12 @@ class ListOrganizations(Paginator):
           ::
         
             {
-                'OrganizationSummaries': [
+                \'OrganizationSummaries\': [
                     {
-                        'OrganizationId': 'string',
-                        'Alias': 'string',
-                        'ErrorMessage': 'string',
-                        'State': 'string'
+                        \'OrganizationId\': \'string\',
+                        \'Alias\': \'string\',
+                        \'ErrorMessage\': \'string\',
+                        \'State\': \'string\'
                     },
                 ],
                 
@@ -371,11 +371,11 @@ class ListResources(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              OrganizationId='string',
+              OrganizationId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type OrganizationId: string
@@ -408,15 +408,15 @@ class ListResources(Paginator):
           ::
         
             {
-                'Resources': [
+                \'Resources\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Type': 'ROOM'|'EQUIPMENT',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'ROOM\'|\'EQUIPMENT\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -427,7 +427,7 @@ class ListResources(Paginator):
             
             - **Resources** *(list) --* 
         
-              One page of the organization's resource representation.
+              One page of the organization\'s resource representation.
         
               - *(dict) --* 
         
@@ -475,11 +475,11 @@ class ListUsers(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              OrganizationId='string',
+              OrganizationId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type OrganizationId: string
@@ -512,16 +512,16 @@ class ListUsers(Paginator):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'Id': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'DisplayName': 'string',
-                        'State': 'ENABLED'|'DISABLED'|'DELETED',
-                        'UserRole': 'USER'|'RESOURCE'|'SYSTEM_USER',
-                        'EnabledDate': datetime(2015, 1, 1),
-                        'DisabledDate': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'State\': \'ENABLED\'|\'DISABLED\'|\'DELETED\',
+                        \'UserRole\': \'USER\'|\'RESOURCE\'|\'SYSTEM_USER\',
+                        \'EnabledDate\': datetime(2015, 1, 1),
+                        \'DisabledDate\': datetime(2015, 1, 1)
                     },
                 ],
                 

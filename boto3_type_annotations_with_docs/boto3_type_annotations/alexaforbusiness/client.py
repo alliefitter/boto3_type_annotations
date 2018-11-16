@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,7 +18,7 @@ class Client(BaseClient):
         ::
         
           response = client.approve_skill(
-              SkillId='string'
+              SkillId=\'string\'
           )
         :type SkillId: string
         :param SkillId: **[REQUIRED]** 
@@ -48,8 +48,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_contact_with_address_book(
-              ContactArn='string',
-              AddressBookArn='string'
+              ContactArn=\'string\',
+              AddressBookArn=\'string\'
           )
         :type ContactArn: string
         :param ContactArn: **[REQUIRED]** 
@@ -84,8 +84,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_device_with_room(
-              DeviceArn='string',
-              RoomArn='string'
+              DeviceArn=\'string\',
+              RoomArn=\'string\'
           )
         :type DeviceArn: string
         :param DeviceArn: 
@@ -120,8 +120,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_skill_group_with_room(
-              SkillGroupArn='string',
-              RoomArn='string'
+              SkillGroupArn=\'string\',
+              RoomArn=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -156,8 +156,8 @@ class Client(BaseClient):
         ::
         
           response = client.associate_skill_with_skill_group(
-              SkillGroupArn='string',
-              SkillId='string'
+              SkillGroupArn=\'string\',
+              SkillId=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -189,10 +189,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -208,9 +208,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_address_book(
-              Name='string',
-              Description='string',
-              ClientRequestToken='string'
+              Name=\'string\',
+              Description=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -237,7 +237,7 @@ class Client(BaseClient):
           ::
         
             {
-                'AddressBookArn': 'string'
+                \'AddressBookArn\': \'string\'
             }
           **Response Structure** 
         
@@ -259,22 +259,22 @@ class Client(BaseClient):
         ::
         
           response = client.create_conference_provider(
-              ConferenceProviderName='string',
-              ConferenceProviderType='CHIME'|'BLUEJEANS'|'FUZE'|'GOOGLE_HANGOUTS'|'POLYCOM'|'RINGCENTRAL'|'SKYPE_FOR_BUSINESS'|'WEBEX'|'ZOOM'|'CUSTOM',
+              ConferenceProviderName=\'string\',
+              ConferenceProviderType=\'CHIME\'|\'BLUEJEANS\'|\'FUZE\'|\'GOOGLE_HANGOUTS\'|\'POLYCOM\'|\'RINGCENTRAL\'|\'SKYPE_FOR_BUSINESS\'|\'WEBEX\'|\'ZOOM\'|\'CUSTOM\',
               IPDialIn={
-                  'Endpoint': 'string',
-                  'CommsProtocol': 'SIP'|'SIPS'|'H323'
+                  \'Endpoint\': \'string\',
+                  \'CommsProtocol\': \'SIP\'|\'SIPS\'|\'H323\'
               },
               PSTNDialIn={
-                  'CountryCode': 'string',
-                  'PhoneNumber': 'string',
-                  'OneClickIdDelay': 'string',
-                  'OneClickPinDelay': 'string'
+                  \'CountryCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'OneClickIdDelay\': \'string\',
+                  \'OneClickPinDelay\': \'string\'
               },
               MeetingSetting={
-                  'RequirePin': 'YES'|'NO'|'OPTIONAL'
+                  \'RequirePin\': \'YES\'|\'NO\'|\'OPTIONAL\'
               },
-              ClientRequestToken='string'
+              ClientRequestToken=\'string\'
           )
         :type ConferenceProviderName: string
         :param ConferenceProviderName: **[REQUIRED]** 
@@ -344,7 +344,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ConferenceProviderArn': 'string'
+                \'ConferenceProviderArn\': \'string\'
             }
           **Response Structure** 
         
@@ -366,11 +366,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_contact(
-              DisplayName='string',
-              FirstName='string',
-              LastName='string',
-              PhoneNumber='string',
-              ClientRequestToken='string'
+              DisplayName=\'string\',
+              FirstName=\'string\',
+              LastName=\'string\',
+              PhoneNumber=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type DisplayName: string
         :param DisplayName: 
@@ -407,7 +407,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ContactArn': 'string'
+                \'ContactArn\': \'string\'
             }
           **Response Structure** 
         
@@ -429,13 +429,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_profile(
-              ProfileName='string',
-              Timezone='string',
-              Address='string',
-              DistanceUnit='METRIC'|'IMPERIAL',
-              TemperatureUnit='FAHRENHEIT'|'CELSIUS',
-              WakeWord='ALEXA'|'AMAZON'|'ECHO'|'COMPUTER',
-              ClientRequestToken='string',
+              ProfileName=\'string\',
+              Timezone=\'string\',
+              Address=\'string\',
+              DistanceUnit=\'METRIC\'|\'IMPERIAL\',
+              TemperatureUnit=\'FAHRENHEIT\'|\'CELSIUS\',
+              WakeWord=\'ALEXA\'|\'AMAZON\'|\'ECHO\'|\'COMPUTER\',
+              ClientRequestToken=\'string\',
               SetupModeDisabled=True|False,
               MaxVolumeLimit=123,
               PSTNEnabled=True|False
@@ -500,7 +500,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ProfileArn': 'string'
+                \'ProfileArn\': \'string\'
             }
           **Response Structure** 
         
@@ -522,15 +522,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_room(
-              RoomName='string',
-              Description='string',
-              ProfileArn='string',
-              ProviderCalendarId='string',
-              ClientRequestToken='string',
+              RoomName=\'string\',
+              Description=\'string\',
+              ProfileArn=\'string\',
+              ProviderCalendarId=\'string\',
+              ClientRequestToken=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -586,7 +586,7 @@ class Client(BaseClient):
           ::
         
             {
-                'RoomArn': 'string'
+                \'RoomArn\': \'string\'
             }
           **Response Structure** 
         
@@ -608,9 +608,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_skill_group(
-              SkillGroupName='string',
-              Description='string',
-              ClientRequestToken='string'
+              SkillGroupName=\'string\',
+              Description=\'string\',
+              ClientRequestToken=\'string\'
           )
         :type SkillGroupName: string
         :param SkillGroupName: **[REQUIRED]** 
@@ -637,7 +637,7 @@ class Client(BaseClient):
           ::
         
             {
-                'SkillGroupArn': 'string'
+                \'SkillGroupArn\': \'string\'
             }
           **Response Structure** 
         
@@ -659,15 +659,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              UserId='string',
-              FirstName='string',
-              LastName='string',
-              Email='string',
-              ClientRequestToken='string',
+              UserId=\'string\',
+              FirstName=\'string\',
+              LastName=\'string\',
+              Email=\'string\',
+              ClientRequestToken=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -723,7 +723,7 @@ class Client(BaseClient):
           ::
         
             {
-                'UserArn': 'string'
+                \'UserArn\': \'string\'
             }
           **Response Structure** 
         
@@ -745,7 +745,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_address_book(
-              AddressBookArn='string'
+              AddressBookArn=\'string\'
           )
         :type AddressBookArn: string
         :param AddressBookArn: **[REQUIRED]** 
@@ -775,7 +775,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_conference_provider(
-              ConferenceProviderArn='string'
+              ConferenceProviderArn=\'string\'
           )
         :type ConferenceProviderArn: string
         :param ConferenceProviderArn: **[REQUIRED]** 
@@ -805,7 +805,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_contact(
-              ContactArn='string'
+              ContactArn=\'string\'
           )
         :type ContactArn: string
         :param ContactArn: **[REQUIRED]** 
@@ -835,7 +835,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_device(
-              DeviceArn='string'
+              DeviceArn=\'string\'
           )
         :type DeviceArn: string
         :param DeviceArn: **[REQUIRED]** 
@@ -865,7 +865,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_profile(
-              ProfileArn='string'
+              ProfileArn=\'string\'
           )
         :type ProfileArn: string
         :param ProfileArn: 
@@ -895,7 +895,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_room(
-              RoomArn='string'
+              RoomArn=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: 
@@ -925,9 +925,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_room_skill_parameter(
-              RoomArn='string',
-              SkillId='string',
-              ParameterKey='string'
+              RoomArn=\'string\',
+              SkillId=\'string\',
+              ParameterKey=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: 
@@ -967,8 +967,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_skill_authorization(
-              SkillId='string',
-              RoomArn='string'
+              SkillId=\'string\',
+              RoomArn=\'string\'
           )
         :type SkillId: string
         :param SkillId: **[REQUIRED]** 
@@ -1003,7 +1003,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_skill_group(
-              SkillGroupArn='string'
+              SkillGroupArn=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -1033,8 +1033,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              UserArn='string',
-              EnrollmentId='string'
+              UserArn=\'string\',
+              EnrollmentId=\'string\'
           )
         :type UserArn: string
         :param UserArn: 
@@ -1044,7 +1044,7 @@ class Client(BaseClient):
         :type EnrollmentId: string
         :param EnrollmentId: **[REQUIRED]** 
         
-          The ARN of the user's enrollment in the organization. Required.
+          The ARN of the user\'s enrollment in the organization. Required.
         
         :rtype: dict
         :returns: 
@@ -1069,8 +1069,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_contact_from_address_book(
-              ContactArn='string',
-              AddressBookArn='string'
+              ContactArn=\'string\',
+              AddressBookArn=\'string\'
           )
         :type ContactArn: string
         :param ContactArn: **[REQUIRED]** 
@@ -1105,7 +1105,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_device_from_room(
-              DeviceArn='string'
+              DeviceArn=\'string\'
           )
         :type DeviceArn: string
         :param DeviceArn: 
@@ -1135,8 +1135,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_skill_from_skill_group(
-              SkillGroupArn='string',
-              SkillId='string'
+              SkillGroupArn=\'string\',
+              SkillId=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -1171,8 +1171,8 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_skill_group_from_room(
-              SkillGroupArn='string',
-              RoomArn='string'
+              SkillGroupArn=\'string\',
+              RoomArn=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -1207,7 +1207,7 @@ class Client(BaseClient):
         ::
         
           response = client.forget_smart_home_appliances(
-              RoomArn='string'
+              RoomArn=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: **[REQUIRED]** 
@@ -1244,7 +1244,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1259,7 +1259,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_address_book(
-              AddressBookArn='string'
+              AddressBookArn=\'string\'
           )
         :type AddressBookArn: string
         :param AddressBookArn: **[REQUIRED]** 
@@ -1274,10 +1274,10 @@ class Client(BaseClient):
           ::
         
             {
-                'AddressBook': {
-                    'AddressBookArn': 'string',
-                    'Name': 'string',
-                    'Description': 'string'
+                \'AddressBook\': {
+                    \'AddressBookArn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1321,8 +1321,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Preference': {
-                    'DefaultConferenceProviderArn': 'string'
+                \'Preference\': {
+                    \'DefaultConferenceProviderArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1349,7 +1349,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_conference_provider(
-              ConferenceProviderArn='string'
+              ConferenceProviderArn=\'string\'
           )
         :type ConferenceProviderArn: string
         :param ConferenceProviderArn: **[REQUIRED]** 
@@ -1364,22 +1364,22 @@ class Client(BaseClient):
           ::
         
             {
-                'ConferenceProvider': {
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'Type': 'CHIME'|'BLUEJEANS'|'FUZE'|'GOOGLE_HANGOUTS'|'POLYCOM'|'RINGCENTRAL'|'SKYPE_FOR_BUSINESS'|'WEBEX'|'ZOOM'|'CUSTOM',
-                    'IPDialIn': {
-                        'Endpoint': 'string',
-                        'CommsProtocol': 'SIP'|'SIPS'|'H323'
+                \'ConferenceProvider\': {
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'Type\': \'CHIME\'|\'BLUEJEANS\'|\'FUZE\'|\'GOOGLE_HANGOUTS\'|\'POLYCOM\'|\'RINGCENTRAL\'|\'SKYPE_FOR_BUSINESS\'|\'WEBEX\'|\'ZOOM\'|\'CUSTOM\',
+                    \'IPDialIn\': {
+                        \'Endpoint\': \'string\',
+                        \'CommsProtocol\': \'SIP\'|\'SIPS\'|\'H323\'
                     },
-                    'PSTNDialIn': {
-                        'CountryCode': 'string',
-                        'PhoneNumber': 'string',
-                        'OneClickIdDelay': 'string',
-                        'OneClickPinDelay': 'string'
+                    \'PSTNDialIn\': {
+                        \'CountryCode\': \'string\',
+                        \'PhoneNumber\': \'string\',
+                        \'OneClickIdDelay\': \'string\',
+                        \'OneClickPinDelay\': \'string\'
                     },
-                    'MeetingSetting': {
-                        'RequirePin': 'YES'|'NO'|'OPTIONAL'
+                    \'MeetingSetting\': {
+                        \'RequirePin\': \'YES\'|\'NO\'|\'OPTIONAL\'
                     }
                 }
             }
@@ -1455,7 +1455,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_contact(
-              ContactArn='string'
+              ContactArn=\'string\'
           )
         :type ContactArn: string
         :param ContactArn: **[REQUIRED]** 
@@ -1470,12 +1470,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Contact': {
-                    'ContactArn': 'string',
-                    'DisplayName': 'string',
-                    'FirstName': 'string',
-                    'LastName': 'string',
-                    'PhoneNumber': 'string'
+                \'Contact\': {
+                    \'ContactArn\': \'string\',
+                    \'DisplayName\': \'string\',
+                    \'FirstName\': \'string\',
+                    \'LastName\': \'string\',
+                    \'PhoneNumber\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1518,7 +1518,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_device(
-              DeviceArn='string'
+              DeviceArn=\'string\'
           )
         :type DeviceArn: string
         :param DeviceArn: 
@@ -1533,22 +1533,22 @@ class Client(BaseClient):
           ::
         
             {
-                'Device': {
-                    'DeviceArn': 'string',
-                    'DeviceSerialNumber': 'string',
-                    'DeviceType': 'string',
-                    'DeviceName': 'string',
-                    'SoftwareVersion': 'string',
-                    'MacAddress': 'string',
-                    'RoomArn': 'string',
-                    'DeviceStatus': 'READY'|'PENDING'|'WAS_OFFLINE'|'DEREGISTERED',
-                    'DeviceStatusInfo': {
-                        'DeviceStatusDetails': [
+                \'Device\': {
+                    \'DeviceArn\': \'string\',
+                    \'DeviceSerialNumber\': \'string\',
+                    \'DeviceType\': \'string\',
+                    \'DeviceName\': \'string\',
+                    \'SoftwareVersion\': \'string\',
+                    \'MacAddress\': \'string\',
+                    \'RoomArn\': \'string\',
+                    \'DeviceStatus\': \'READY\'|\'PENDING\'|\'WAS_OFFLINE\'|\'DEREGISTERED\',
+                    \'DeviceStatusInfo\': {
+                        \'DeviceStatusDetails\': [
                             {
-                                'Code': 'DEVICE_SOFTWARE_UPDATE_NEEDED'|'DEVICE_WAS_OFFLINE'
+                                \'Code\': \'DEVICE_SOFTWARE_UPDATE_NEEDED\'|\'DEVICE_WAS_OFFLINE\'
                             },
                         ],
-                        'ConnectionStatus': 'ONLINE'|'OFFLINE'
+                        \'ConnectionStatus\': \'ONLINE\'|\'OFFLINE\'
                     }
                 }
             }
@@ -1594,7 +1594,7 @@ class Client(BaseClient):
         
               - **DeviceStatusInfo** *(dict) --* 
         
-                Detailed information about a device's status.
+                Detailed information about a device\'s status.
         
                 - **DeviceStatusDetails** *(list) --* 
         
@@ -1621,10 +1621,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1644,7 +1644,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_profile(
-              ProfileArn='string'
+              ProfileArn=\'string\'
           )
         :type ProfileArn: string
         :param ProfileArn: 
@@ -1659,19 +1659,19 @@ class Client(BaseClient):
           ::
         
             {
-                'Profile': {
-                    'ProfileArn': 'string',
-                    'ProfileName': 'string',
-                    'IsDefault': True|False,
-                    'Address': 'string',
-                    'Timezone': 'string',
-                    'DistanceUnit': 'METRIC'|'IMPERIAL',
-                    'TemperatureUnit': 'FAHRENHEIT'|'CELSIUS',
-                    'WakeWord': 'ALEXA'|'AMAZON'|'ECHO'|'COMPUTER',
-                    'SetupModeDisabled': True|False,
-                    'MaxVolumeLimit': 123,
-                    'PSTNEnabled': True|False,
-                    'AddressBookArn': 'string'
+                \'Profile\': {
+                    \'ProfileArn\': \'string\',
+                    \'ProfileName\': \'string\',
+                    \'IsDefault\': True|False,
+                    \'Address\': \'string\',
+                    \'Timezone\': \'string\',
+                    \'DistanceUnit\': \'METRIC\'|\'IMPERIAL\',
+                    \'TemperatureUnit\': \'FAHRENHEIT\'|\'CELSIUS\',
+                    \'WakeWord\': \'ALEXA\'|\'AMAZON\'|\'ECHO\'|\'COMPUTER\',
+                    \'SetupModeDisabled\': True|False,
+                    \'MaxVolumeLimit\': 123,
+                    \'PSTNEnabled\': True|False,
+                    \'AddressBookArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1742,7 +1742,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_room(
-              RoomArn='string'
+              RoomArn=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: 
@@ -1757,12 +1757,12 @@ class Client(BaseClient):
           ::
         
             {
-                'Room': {
-                    'RoomArn': 'string',
-                    'RoomName': 'string',
-                    'Description': 'string',
-                    'ProviderCalendarId': 'string',
-                    'ProfileArn': 'string'
+                \'Room\': {
+                    \'RoomArn\': \'string\',
+                    \'RoomName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ProviderCalendarId\': \'string\',
+                    \'ProfileArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1805,9 +1805,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_room_skill_parameter(
-              RoomArn='string',
-              SkillId='string',
-              ParameterKey='string'
+              RoomArn=\'string\',
+              SkillId=\'string\',
+              ParameterKey=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: 
@@ -1832,9 +1832,9 @@ class Client(BaseClient):
           ::
         
             {
-                'RoomSkillParameter': {
-                    'ParameterKey': 'string',
-                    'ParameterValue': 'string'
+                \'RoomSkillParameter\': {
+                    \'ParameterKey\': \'string\',
+                    \'ParameterValue\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1865,7 +1865,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_skill_group(
-              SkillGroupArn='string'
+              SkillGroupArn=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 
@@ -1880,10 +1880,10 @@ class Client(BaseClient):
           ::
         
             {
-                'SkillGroup': {
-                    'SkillGroupArn': 'string',
-                    'SkillGroupName': 'string',
-                    'Description': 'string'
+                \'SkillGroup\': {
+                    \'SkillGroupArn\': \'string\',
+                    \'SkillGroupName\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1930,7 +1930,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_conference_providers(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -1951,27 +1951,27 @@ class Client(BaseClient):
           ::
         
             {
-                'ConferenceProviders': [
+                \'ConferenceProviders\': [
                     {
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Type': 'CHIME'|'BLUEJEANS'|'FUZE'|'GOOGLE_HANGOUTS'|'POLYCOM'|'RINGCENTRAL'|'SKYPE_FOR_BUSINESS'|'WEBEX'|'ZOOM'|'CUSTOM',
-                        'IPDialIn': {
-                            'Endpoint': 'string',
-                            'CommsProtocol': 'SIP'|'SIPS'|'H323'
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'CHIME\'|\'BLUEJEANS\'|\'FUZE\'|\'GOOGLE_HANGOUTS\'|\'POLYCOM\'|\'RINGCENTRAL\'|\'SKYPE_FOR_BUSINESS\'|\'WEBEX\'|\'ZOOM\'|\'CUSTOM\',
+                        \'IPDialIn\': {
+                            \'Endpoint\': \'string\',
+                            \'CommsProtocol\': \'SIP\'|\'SIPS\'|\'H323\'
                         },
-                        'PSTNDialIn': {
-                            'CountryCode': 'string',
-                            'PhoneNumber': 'string',
-                            'OneClickIdDelay': 'string',
-                            'OneClickPinDelay': 'string'
+                        \'PSTNDialIn\': {
+                            \'CountryCode\': \'string\',
+                            \'PhoneNumber\': \'string\',
+                            \'OneClickIdDelay\': \'string\',
+                            \'OneClickPinDelay\': \'string\'
                         },
-                        'MeetingSetting': {
-                            'RequirePin': 'YES'|'NO'|'OPTIONAL'
+                        \'MeetingSetting\': {
+                            \'RequirePin\': \'YES\'|\'NO\'|\'OPTIONAL\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2053,9 +2053,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_device_events(
-              DeviceArn='string',
-              EventType='CONNECTION_STATUS'|'DEVICE_STATUS',
-              NextToken='string',
+              DeviceArn=\'string\',
+              EventType=\'CONNECTION_STATUS\'|\'DEVICE_STATUS\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type DeviceArn: string
@@ -2066,7 +2066,7 @@ class Client(BaseClient):
         :type EventType: string
         :param EventType: 
         
-          The event type to filter device events. If EventType isn't specified, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order. 
+          The event type to filter device events. If EventType isn\'t specified, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order. 
         
         :type NextToken: string
         :param NextToken: 
@@ -2086,14 +2086,14 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceEvents': [
+                \'DeviceEvents\': [
                     {
-                        'Type': 'CONNECTION_STATUS'|'DEVICE_STATUS',
-                        'Value': 'string',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'Type\': \'CONNECTION_STATUS\'|\'DEVICE_STATUS\',
+                        \'Value\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2135,10 +2135,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_skills(
-              SkillGroupArn='string',
-              EnablementType='ENABLED'|'PENDING',
-              SkillType='PUBLIC'|'PRIVATE'|'ALL',
-              NextToken='string',
+              SkillGroupArn=\'string\',
+              EnablementType=\'ENABLED\'|\'PENDING\',
+              SkillType=\'PUBLIC\'|\'PRIVATE\'|\'ALL\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type SkillGroupArn: string
@@ -2149,7 +2149,7 @@ class Client(BaseClient):
         :type EnablementType: string
         :param EnablementType: 
         
-          Whether the skill is enabled under the user's account, or if it requires linking to be used.
+          Whether the skill is enabled under the user\'s account, or if it requires linking to be used.
         
         :type SkillType: string
         :param SkillType: 
@@ -2174,16 +2174,16 @@ class Client(BaseClient):
           ::
         
             {
-                'SkillSummaries': [
+                \'SkillSummaries\': [
                     {
-                        'SkillId': 'string',
-                        'SkillName': 'string',
-                        'SupportsLinking': True|False,
-                        'EnablementType': 'ENABLED'|'PENDING',
-                        'SkillType': 'PUBLIC'|'PRIVATE'
+                        \'SkillId\': \'string\',
+                        \'SkillName\': \'string\',
+                        \'SupportsLinking\': True|False,
+                        \'EnablementType\': \'ENABLED\'|\'PENDING\',
+                        \'SkillType\': \'PUBLIC\'|\'PRIVATE\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2211,7 +2211,7 @@ class Client(BaseClient):
         
                 - **EnablementType** *(string) --* 
         
-                  Whether the skill is enabled under the user's account, or if it requires linking to be used.
+                  Whether the skill is enabled under the user\'s account, or if it requires linking to be used.
         
                 - **SkillType** *(string) --* 
         
@@ -2233,7 +2233,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_skills_store_categories(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
@@ -2254,13 +2254,13 @@ class Client(BaseClient):
           ::
         
             {
-                'CategoryList': [
+                \'CategoryList\': [
                     {
-                        'CategoryId': 123,
-                        'CategoryName': 'string'
+                        \'CategoryId\': 123,
+                        \'CategoryName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2299,7 +2299,7 @@ class Client(BaseClient):
         
           response = client.list_skills_store_skills_by_category(
               CategoryId=123,
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type CategoryId: integer
@@ -2325,46 +2325,46 @@ class Client(BaseClient):
           ::
         
             {
-                'SkillsStoreSkills': [
+                \'SkillsStoreSkills\': [
                     {
-                        'SkillId': 'string',
-                        'SkillName': 'string',
-                        'ShortDescription': 'string',
-                        'IconUrl': 'string',
-                        'SampleUtterances': [
-                            'string',
+                        \'SkillId\': \'string\',
+                        \'SkillName\': \'string\',
+                        \'ShortDescription\': \'string\',
+                        \'IconUrl\': \'string\',
+                        \'SampleUtterances\': [
+                            \'string\',
                         ],
-                        'SkillDetails': {
-                            'ProductDescription': 'string',
-                            'InvocationPhrase': 'string',
-                            'ReleaseDate': 'string',
-                            'EndUserLicenseAgreement': 'string',
-                            'GenericKeywords': [
-                                'string',
+                        \'SkillDetails\': {
+                            \'ProductDescription\': \'string\',
+                            \'InvocationPhrase\': \'string\',
+                            \'ReleaseDate\': \'string\',
+                            \'EndUserLicenseAgreement\': \'string\',
+                            \'GenericKeywords\': [
+                                \'string\',
                             ],
-                            'BulletPoints': [
-                                'string',
+                            \'BulletPoints\': [
+                                \'string\',
                             ],
-                            'NewInThisVersionBulletPoints': [
-                                'string',
+                            \'NewInThisVersionBulletPoints\': [
+                                \'string\',
                             ],
-                            'SkillTypes': [
-                                'string',
+                            \'SkillTypes\': [
+                                \'string\',
                             ],
-                            'Reviews': {
-                                'string': 'string'
+                            \'Reviews\': {
+                                \'string\': \'string\'
                             },
-                            'DeveloperInfo': {
-                                'DeveloperName': 'string',
-                                'PrivacyPolicy': 'string',
-                                'Email': 'string',
-                                'Url': 'string'
+                            \'DeveloperInfo\': {
+                                \'DeveloperName\': \'string\',
+                                \'PrivacyPolicy\': \'string\',
+                                \'Email\': \'string\',
+                                \'Url\': \'string\'
                             }
                         },
-                        'SupportsLinking': True|False
+                        \'SupportsLinking\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2492,9 +2492,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_smart_home_appliances(
-              RoomArn='string',
+              RoomArn=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: **[REQUIRED]** 
@@ -2519,14 +2519,14 @@ class Client(BaseClient):
           ::
         
             {
-                'SmartHomeAppliances': [
+                \'SmartHomeAppliances\': [
                     {
-                        'FriendlyName': 'string',
-                        'Description': 'string',
-                        'ManufacturerName': 'string'
+                        \'FriendlyName\': \'string\',
+                        \'Description\': \'string\',
+                        \'ManufacturerName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2568,8 +2568,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              Arn='string',
-              NextToken='string',
+              Arn=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Arn: string
@@ -2595,13 +2595,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2640,7 +2640,7 @@ class Client(BaseClient):
         
           response = client.put_conference_preference(
               ConferencePreference={
-                  'DefaultConferenceProviderArn': 'string'
+                  \'DefaultConferenceProviderArn\': \'string\'
               }
           )
         :type ConferencePreference: dict
@@ -2675,11 +2675,11 @@ class Client(BaseClient):
         ::
         
           response = client.put_room_skill_parameter(
-              RoomArn='string',
-              SkillId='string',
+              RoomArn=\'string\',
+              SkillId=\'string\',
               RoomSkillParameter={
-                  'ParameterKey': 'string',
-                  'ParameterValue': 'string'
+                  \'ParameterKey\': \'string\',
+                  \'ParameterValue\': \'string\'
               }
           )
         :type RoomArn: string
@@ -2729,15 +2729,15 @@ class Client(BaseClient):
         
           response = client.put_skill_authorization(
               AuthorizationResult={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
-              SkillId='string',
-              RoomArn='string'
+              SkillId=\'string\',
+              RoomArn=\'string\'
           )
         :type AuthorizationResult: dict
         :param AuthorizationResult: **[REQUIRED]** 
         
-          The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
+          The authorization result specific to OAUTH code grant output. \"Code” must be populated in the AuthorizationResult map to establish the authorization.
         
           - *(string) --* 
         
@@ -2776,11 +2776,11 @@ class Client(BaseClient):
         ::
         
           response = client.register_avs_device(
-              ClientId='string',
-              UserCode='string',
-              ProductId='string',
-              DeviceSerialNumber='string',
-              AmazonId='string'
+              ClientId=\'string\',
+              UserCode=\'string\',
+              ProductId=\'string\',
+              DeviceSerialNumber=\'string\',
+              AmazonId=\'string\'
           )
         :type ClientId: string
         :param ClientId: **[REQUIRED]** 
@@ -2805,7 +2805,7 @@ class Client(BaseClient):
         :type AmazonId: string
         :param AmazonId: **[REQUIRED]** 
         
-          The device type ID for your AVS device generated by Amazon when the OEM creates a new product on Amazon's Developer Console.
+          The device type ID for your AVS device generated by Amazon when the OEM creates a new product on Amazon\'s Developer Console.
         
         :rtype: dict
         :returns: 
@@ -2815,7 +2815,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeviceArn': 'string'
+                \'DeviceArn\': \'string\'
             }
           **Response Structure** 
         
@@ -2837,7 +2837,7 @@ class Client(BaseClient):
         ::
         
           response = client.reject_skill(
-              SkillId='string'
+              SkillId=\'string\'
           )
         :type SkillId: string
         :param SkillId: **[REQUIRED]** 
@@ -2867,8 +2867,8 @@ class Client(BaseClient):
         ::
         
           response = client.resolve_room(
-              UserId='string',
-              SkillId='string'
+              UserId=\'string\',
+              SkillId=\'string\'
           )
         :type UserId: string
         :param UserId: **[REQUIRED]** 
@@ -2888,12 +2888,12 @@ class Client(BaseClient):
           ::
         
             {
-                'RoomArn': 'string',
-                'RoomName': 'string',
-                'RoomSkillParameters': [
+                \'RoomArn\': \'string\',
+                \'RoomName\': \'string\',
+                \'RoomSkillParameters\': [
                     {
-                        'ParameterKey': 'string',
-                        'ParameterValue': 'string'
+                        \'ParameterKey\': \'string\',
+                        \'ParameterValue\': \'string\'
                     },
                 ]
             }
@@ -2937,8 +2937,8 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_invitation(
-              UserArn='string',
-              EnrollmentId='string'
+              UserArn=\'string\',
+              EnrollmentId=\'string\'
           )
         :type UserArn: string
         :param UserArn: 
@@ -2975,19 +2975,19 @@ class Client(BaseClient):
           response = client.search_address_books(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -3044,15 +3044,15 @@ class Client(BaseClient):
           ::
         
             {
-                'AddressBooks': [
+                \'AddressBooks\': [
                     {
-                        'AddressBookArn': 'string',
-                        'Name': 'string',
-                        'Description': 'string'
+                        \'AddressBookArn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3100,19 +3100,19 @@ class Client(BaseClient):
           response = client.search_contacts(
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: list
@@ -3169,17 +3169,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Contacts': [
+                \'Contacts\': [
                     {
-                        'ContactArn': 'string',
-                        'DisplayName': 'string',
-                        'FirstName': 'string',
-                        'LastName': 'string',
-                        'PhoneNumber': 'string'
+                        \'ContactArn\': \'string\',
+                        \'DisplayName\': \'string\',
+                        \'FirstName\': \'string\',
+                        \'LastName\': \'string\',
+                        \'PhoneNumber\': \'string\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3233,20 +3233,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_devices(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -3304,29 +3304,29 @@ class Client(BaseClient):
           ::
         
             {
-                'Devices': [
+                \'Devices\': [
                     {
-                        'DeviceArn': 'string',
-                        'DeviceSerialNumber': 'string',
-                        'DeviceType': 'string',
-                        'DeviceName': 'string',
-                        'SoftwareVersion': 'string',
-                        'MacAddress': 'string',
-                        'DeviceStatus': 'READY'|'PENDING'|'WAS_OFFLINE'|'DEREGISTERED',
-                        'RoomArn': 'string',
-                        'RoomName': 'string',
-                        'DeviceStatusInfo': {
-                            'DeviceStatusDetails': [
+                        \'DeviceArn\': \'string\',
+                        \'DeviceSerialNumber\': \'string\',
+                        \'DeviceType\': \'string\',
+                        \'DeviceName\': \'string\',
+                        \'SoftwareVersion\': \'string\',
+                        \'MacAddress\': \'string\',
+                        \'DeviceStatus\': \'READY\'|\'PENDING\'|\'WAS_OFFLINE\'|\'DEREGISTERED\',
+                        \'RoomArn\': \'string\',
+                        \'RoomName\': \'string\',
+                        \'DeviceStatusInfo\': {
+                            \'DeviceStatusDetails\': [
                                 {
-                                    'Code': 'DEVICE_SOFTWARE_UPDATE_NEEDED'|'DEVICE_WAS_OFFLINE'
+                                    \'Code\': \'DEVICE_SOFTWARE_UPDATE_NEEDED\'|\'DEVICE_WAS_OFFLINE\'
                                 },
                             ],
-                            'ConnectionStatus': 'ONLINE'|'OFFLINE'
+                            \'ConnectionStatus\': \'ONLINE\'|\'OFFLINE\'
                         }
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3378,7 +3378,7 @@ class Client(BaseClient):
         
                 - **DeviceStatusInfo** *(dict) --* 
         
-                  Detailed information about a device's status.
+                  Detailed information about a device\'s status.
         
                   - **DeviceStatusDetails** *(list) --* 
         
@@ -3416,20 +3416,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_profiles(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -3487,20 +3487,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Profiles': [
+                \'Profiles\': [
                     {
-                        'ProfileArn': 'string',
-                        'ProfileName': 'string',
-                        'IsDefault': True|False,
-                        'Address': 'string',
-                        'Timezone': 'string',
-                        'DistanceUnit': 'METRIC'|'IMPERIAL',
-                        'TemperatureUnit': 'FAHRENHEIT'|'CELSIUS',
-                        'WakeWord': 'ALEXA'|'AMAZON'|'ECHO'|'COMPUTER'
+                        \'ProfileArn\': \'string\',
+                        \'ProfileName\': \'string\',
+                        \'IsDefault\': True|False,
+                        \'Address\': \'string\',
+                        \'Timezone\': \'string\',
+                        \'DistanceUnit\': \'METRIC\'|\'IMPERIAL\',
+                        \'TemperatureUnit\': \'FAHRENHEIT\'|\'CELSIUS\',
+                        \'WakeWord\': \'ALEXA\'|\'AMAZON\'|\'ECHO\'|\'COMPUTER\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3566,20 +3566,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_rooms(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -3637,18 +3637,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Rooms': [
+                \'Rooms\': [
                     {
-                        'RoomArn': 'string',
-                        'RoomName': 'string',
-                        'Description': 'string',
-                        'ProviderCalendarId': 'string',
-                        'ProfileArn': 'string',
-                        'ProfileName': 'string'
+                        \'RoomArn\': \'string\',
+                        \'RoomName\': \'string\',
+                        \'Description\': \'string\',
+                        \'ProviderCalendarId\': \'string\',
+                        \'ProfileArn\': \'string\',
+                        \'ProfileName\': \'string\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3706,20 +3706,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_skill_groups(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -3777,15 +3777,15 @@ class Client(BaseClient):
           ::
         
             {
-                'SkillGroups': [
+                \'SkillGroups\': [
                     {
-                        'SkillGroupArn': 'string',
-                        'SkillGroupName': 'string',
-                        'Description': 'string'
+                        \'SkillGroupArn\': \'string\',
+                        \'SkillGroupName\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3831,20 +3831,20 @@ class Client(BaseClient):
         ::
         
           response = client.search_users(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters=[
                   {
-                      'Key': 'string',
-                      'Values': [
-                          'string',
+                      \'Key\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               SortCriteria=[
                   {
-                      'Key': 'string',
-                      'Value': 'ASC'|'DESC'
+                      \'Key\': \'string\',
+                      \'Value\': \'ASC\'|\'DESC\'
                   },
               ]
           )
@@ -3902,18 +3902,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Users': [
+                \'Users\': [
                     {
-                        'UserArn': 'string',
-                        'FirstName': 'string',
-                        'LastName': 'string',
-                        'Email': 'string',
-                        'EnrollmentStatus': 'INITIALIZED'|'PENDING'|'REGISTERED'|'DISASSOCIATING'|'DEREGISTERING',
-                        'EnrollmentId': 'string'
+                        \'UserArn\': \'string\',
+                        \'FirstName\': \'string\',
+                        \'LastName\': \'string\',
+                        \'Email\': \'string\',
+                        \'EnrollmentStatus\': \'INITIALIZED\'|\'PENDING\'|\'REGISTERED\'|\'DISASSOCIATING\'|\'DEREGISTERING\',
+                        \'EnrollmentId\': \'string\'
                     },
                 ],
-                'NextToken': 'string',
-                'TotalCount': 123
+                \'NextToken\': \'string\',
+                \'TotalCount\': 123
             }
           **Response Structure** 
         
@@ -3971,7 +3971,7 @@ class Client(BaseClient):
         ::
         
           response = client.send_invitation(
-              UserArn='string'
+              UserArn=\'string\'
           )
         :type UserArn: string
         :param UserArn: 
@@ -4001,10 +4001,10 @@ class Client(BaseClient):
         ::
         
           response = client.start_device_sync(
-              RoomArn='string',
-              DeviceArn='string',
+              RoomArn=\'string\',
+              DeviceArn=\'string\',
               Features=[
-                  'BLUETOOTH'|'VOLUME'|'NOTIFICATIONS'|'LISTS'|'SKILLS'|'ALL',
+                  \'BLUETOOTH\'|\'VOLUME\'|\'NOTIFICATIONS\'|\'LISTS\'|\'SKILLS\'|\'ALL\',
               ]
           )
         :type RoomArn: string
@@ -4047,7 +4047,7 @@ class Client(BaseClient):
         ::
         
           response = client.start_smart_home_appliance_discovery(
-              RoomArn='string'
+              RoomArn=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: **[REQUIRED]** 
@@ -4077,11 +4077,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              Arn='string',
+              Arn=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -4130,9 +4130,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              Arn='string',
+              Arn=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Arn: string
@@ -4170,9 +4170,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_address_book(
-              AddressBookArn='string',
-              Name='string',
-              Description='string'
+              AddressBookArn=\'string\',
+              Name=\'string\',
+              Description=\'string\'
           )
         :type AddressBookArn: string
         :param AddressBookArn: **[REQUIRED]** 
@@ -4212,20 +4212,20 @@ class Client(BaseClient):
         ::
         
           response = client.update_conference_provider(
-              ConferenceProviderArn='string',
-              ConferenceProviderType='CHIME'|'BLUEJEANS'|'FUZE'|'GOOGLE_HANGOUTS'|'POLYCOM'|'RINGCENTRAL'|'SKYPE_FOR_BUSINESS'|'WEBEX'|'ZOOM'|'CUSTOM',
+              ConferenceProviderArn=\'string\',
+              ConferenceProviderType=\'CHIME\'|\'BLUEJEANS\'|\'FUZE\'|\'GOOGLE_HANGOUTS\'|\'POLYCOM\'|\'RINGCENTRAL\'|\'SKYPE_FOR_BUSINESS\'|\'WEBEX\'|\'ZOOM\'|\'CUSTOM\',
               IPDialIn={
-                  'Endpoint': 'string',
-                  'CommsProtocol': 'SIP'|'SIPS'|'H323'
+                  \'Endpoint\': \'string\',
+                  \'CommsProtocol\': \'SIP\'|\'SIPS\'|\'H323\'
               },
               PSTNDialIn={
-                  'CountryCode': 'string',
-                  'PhoneNumber': 'string',
-                  'OneClickIdDelay': 'string',
-                  'OneClickPinDelay': 'string'
+                  \'CountryCode\': \'string\',
+                  \'PhoneNumber\': \'string\',
+                  \'OneClickIdDelay\': \'string\',
+                  \'OneClickPinDelay\': \'string\'
               },
               MeetingSetting={
-                  'RequirePin': 'YES'|'NO'|'OPTIONAL'
+                  \'RequirePin\': \'YES\'|\'NO\'|\'OPTIONAL\'
               }
           )
         :type ConferenceProviderArn: string
@@ -4304,11 +4304,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_contact(
-              ContactArn='string',
-              DisplayName='string',
-              FirstName='string',
-              LastName='string',
-              PhoneNumber='string'
+              ContactArn=\'string\',
+              DisplayName=\'string\',
+              FirstName=\'string\',
+              LastName=\'string\',
+              PhoneNumber=\'string\'
           )
         :type ContactArn: string
         :param ContactArn: **[REQUIRED]** 
@@ -4358,8 +4358,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_device(
-              DeviceArn='string',
-              DeviceName='string'
+              DeviceArn=\'string\',
+              DeviceName=\'string\'
           )
         :type DeviceArn: string
         :param DeviceArn: 
@@ -4394,14 +4394,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_profile(
-              ProfileArn='string',
-              ProfileName='string',
+              ProfileArn=\'string\',
+              ProfileName=\'string\',
               IsDefault=True|False,
-              Timezone='string',
-              Address='string',
-              DistanceUnit='METRIC'|'IMPERIAL',
-              TemperatureUnit='FAHRENHEIT'|'CELSIUS',
-              WakeWord='ALEXA'|'AMAZON'|'ECHO'|'COMPUTER',
+              Timezone=\'string\',
+              Address=\'string\',
+              DistanceUnit=\'METRIC\'|\'IMPERIAL\',
+              TemperatureUnit=\'FAHRENHEIT\'|\'CELSIUS\',
+              WakeWord=\'ALEXA\'|\'AMAZON\'|\'ECHO\'|\'COMPUTER\',
               SetupModeDisabled=True|False,
               MaxVolumeLimit=123,
               PSTNEnabled=True|False
@@ -4484,11 +4484,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_room(
-              RoomArn='string',
-              RoomName='string',
-              Description='string',
-              ProviderCalendarId='string',
-              ProfileArn='string'
+              RoomArn=\'string\',
+              RoomName=\'string\',
+              Description=\'string\',
+              ProviderCalendarId=\'string\',
+              ProfileArn=\'string\'
           )
         :type RoomArn: string
         :param RoomArn: 
@@ -4538,9 +4538,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_skill_group(
-              SkillGroupArn='string',
-              SkillGroupName='string',
-              Description='string'
+              SkillGroupArn=\'string\',
+              SkillGroupName=\'string\',
+              Description=\'string\'
           )
         :type SkillGroupArn: string
         :param SkillGroupArn: 

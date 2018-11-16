@@ -13,10 +13,10 @@ class EndpointDeleted(Waiter):
         ::
         
           waiter.wait(
-              EndpointName='string',
+              EndpointName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type EndpointName: string
@@ -52,10 +52,10 @@ class EndpointInService(Waiter):
         ::
         
           waiter.wait(
-              EndpointName='string',
+              EndpointName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type EndpointName: string
@@ -91,10 +91,10 @@ class NotebookInstanceDeleted(Waiter):
         ::
         
           waiter.wait(
-              NotebookInstanceName='string',
+              NotebookInstanceName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type NotebookInstanceName: string
@@ -130,10 +130,10 @@ class NotebookInstanceInService(Waiter):
         ::
         
           waiter.wait(
-              NotebookInstanceName='string',
+              NotebookInstanceName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type NotebookInstanceName: string
@@ -169,10 +169,10 @@ class NotebookInstanceStopped(Waiter):
         ::
         
           waiter.wait(
-              NotebookInstanceName='string',
+              NotebookInstanceName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type NotebookInstanceName: string
@@ -208,10 +208,10 @@ class TrainingJobCompletedOrStopped(Waiter):
         ::
         
           waiter.wait(
-              TrainingJobName='string',
+              TrainingJobName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TrainingJobName: string
@@ -247,10 +247,10 @@ class TransformJobCompletedOrStopped(Waiter):
         ::
         
           waiter.wait(
-              TransformJobName='string',
+              TransformJobName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type TransformJobName: string

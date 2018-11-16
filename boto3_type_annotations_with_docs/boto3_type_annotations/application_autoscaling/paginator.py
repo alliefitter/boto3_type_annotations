@@ -13,15 +13,15 @@ class DescribeScalableTargets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceNamespace='ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
+              ServiceNamespace=\'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
               ResourceIds=[
-                  'string',
+                  \'string\',
               ],
-              ScalableDimension='ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
+              ScalableDimension=\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceNamespace: string
@@ -106,15 +106,15 @@ class DescribeScalableTargets(Paginator):
           ::
         
             {
-                'ScalableTargets': [
+                \'ScalableTargets\': [
                     {
-                        'ServiceNamespace': 'ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
-                        'ResourceId': 'string',
-                        'ScalableDimension': 'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
-                        'MinCapacity': 123,
-                        'MaxCapacity': 123,
-                        'RoleARN': 'string',
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'ServiceNamespace\': \'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
+                        \'ResourceId\': \'string\',
+                        \'ScalableDimension\': \'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
+                        \'MinCapacity\': 123,
+                        \'MaxCapacity\': 123,
+                        \'RoleARN\': \'string\',
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -213,13 +213,13 @@ class DescribeScalingActivities(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ServiceNamespace='ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
-              ResourceId='string',
-              ScalableDimension='ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
+              ServiceNamespace=\'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
+              ResourceId=\'string\',
+              ScalableDimension=\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ServiceNamespace: string
@@ -302,19 +302,19 @@ class DescribeScalingActivities(Paginator):
           ::
         
             {
-                'ScalingActivities': [
+                \'ScalingActivities\': [
                     {
-                        'ActivityId': 'string',
-                        'ServiceNamespace': 'ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
-                        'ResourceId': 'string',
-                        'ScalableDimension': 'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
-                        'Description': 'string',
-                        'Cause': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'EndTime': datetime(2015, 1, 1),
-                        'StatusCode': 'Pending'|'InProgress'|'Successful'|'Overridden'|'Unfulfilled'|'Failed',
-                        'StatusMessage': 'string',
-                        'Details': 'string'
+                        \'ActivityId\': \'string\',
+                        \'ServiceNamespace\': \'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
+                        \'ResourceId\': \'string\',
+                        \'ScalableDimension\': \'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
+                        \'Description\': \'string\',
+                        \'Cause\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'EndTime\': datetime(2015, 1, 1),
+                        \'StatusCode\': \'Pending\'|\'InProgress\'|\'Successful\'|\'Overridden\'|\'Unfulfilled\'|\'Failed\',
+                        \'StatusMessage\': \'string\',
+                        \'Details\': \'string\'
                     },
                 ],
                 
@@ -430,15 +430,15 @@ class DescribeScalingPolicies(Paginator):
         
           response_iterator = paginator.paginate(
               PolicyNames=[
-                  'string',
+                  \'string\',
               ],
-              ServiceNamespace='ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
-              ResourceId='string',
-              ScalableDimension='ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
+              ServiceNamespace=\'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
+              ResourceId=\'string\',
+              ScalableDimension=\'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PolicyNames: list
@@ -528,56 +528,56 @@ class DescribeScalingPolicies(Paginator):
           ::
         
             {
-                'ScalingPolicies': [
+                \'ScalingPolicies\': [
                     {
-                        'PolicyARN': 'string',
-                        'PolicyName': 'string',
-                        'ServiceNamespace': 'ecs'|'elasticmapreduce'|'ec2'|'appstream'|'dynamodb'|'rds'|'sagemaker'|'custom-resource',
-                        'ResourceId': 'string',
-                        'ScalableDimension': 'ecs:service:DesiredCount'|'ec2:spot-fleet-request:TargetCapacity'|'elasticmapreduce:instancegroup:InstanceCount'|'appstream:fleet:DesiredCapacity'|'dynamodb:table:ReadCapacityUnits'|'dynamodb:table:WriteCapacityUnits'|'dynamodb:index:ReadCapacityUnits'|'dynamodb:index:WriteCapacityUnits'|'rds:cluster:ReadReplicaCount'|'sagemaker:variant:DesiredInstanceCount'|'custom-resource:ResourceType:Property',
-                        'PolicyType': 'StepScaling'|'TargetTrackingScaling',
-                        'StepScalingPolicyConfiguration': {
-                            'AdjustmentType': 'ChangeInCapacity'|'PercentChangeInCapacity'|'ExactCapacity',
-                            'StepAdjustments': [
+                        \'PolicyARN\': \'string\',
+                        \'PolicyName\': \'string\',
+                        \'ServiceNamespace\': \'ecs\'|\'elasticmapreduce\'|\'ec2\'|\'appstream\'|\'dynamodb\'|\'rds\'|\'sagemaker\'|\'custom-resource\',
+                        \'ResourceId\': \'string\',
+                        \'ScalableDimension\': \'ecs:service:DesiredCount\'|\'ec2:spot-fleet-request:TargetCapacity\'|\'elasticmapreduce:instancegroup:InstanceCount\'|\'appstream:fleet:DesiredCapacity\'|\'dynamodb:table:ReadCapacityUnits\'|\'dynamodb:table:WriteCapacityUnits\'|\'dynamodb:index:ReadCapacityUnits\'|\'dynamodb:index:WriteCapacityUnits\'|\'rds:cluster:ReadReplicaCount\'|\'sagemaker:variant:DesiredInstanceCount\'|\'custom-resource:ResourceType:Property\',
+                        \'PolicyType\': \'StepScaling\'|\'TargetTrackingScaling\',
+                        \'StepScalingPolicyConfiguration\': {
+                            \'AdjustmentType\': \'ChangeInCapacity\'|\'PercentChangeInCapacity\'|\'ExactCapacity\',
+                            \'StepAdjustments\': [
                                 {
-                                    'MetricIntervalLowerBound': 123.0,
-                                    'MetricIntervalUpperBound': 123.0,
-                                    'ScalingAdjustment': 123
+                                    \'MetricIntervalLowerBound\': 123.0,
+                                    \'MetricIntervalUpperBound\': 123.0,
+                                    \'ScalingAdjustment\': 123
                                 },
                             ],
-                            'MinAdjustmentMagnitude': 123,
-                            'Cooldown': 123,
-                            'MetricAggregationType': 'Average'|'Minimum'|'Maximum'
+                            \'MinAdjustmentMagnitude\': 123,
+                            \'Cooldown\': 123,
+                            \'MetricAggregationType\': \'Average\'|\'Minimum\'|\'Maximum\'
                         },
-                        'TargetTrackingScalingPolicyConfiguration': {
-                            'TargetValue': 123.0,
-                            'PredefinedMetricSpecification': {
-                                'PredefinedMetricType': 'DynamoDBReadCapacityUtilization'|'DynamoDBWriteCapacityUtilization'|'ALBRequestCountPerTarget'|'RDSReaderAverageCPUUtilization'|'RDSReaderAverageDatabaseConnections'|'EC2SpotFleetRequestAverageCPUUtilization'|'EC2SpotFleetRequestAverageNetworkIn'|'EC2SpotFleetRequestAverageNetworkOut'|'SageMakerVariantInvocationsPerInstance'|'ECSServiceAverageCPUUtilization'|'ECSServiceAverageMemoryUtilization',
-                                'ResourceLabel': 'string'
+                        \'TargetTrackingScalingPolicyConfiguration\': {
+                            \'TargetValue\': 123.0,
+                            \'PredefinedMetricSpecification\': {
+                                \'PredefinedMetricType\': \'DynamoDBReadCapacityUtilization\'|\'DynamoDBWriteCapacityUtilization\'|\'ALBRequestCountPerTarget\'|\'RDSReaderAverageCPUUtilization\'|\'RDSReaderAverageDatabaseConnections\'|\'EC2SpotFleetRequestAverageCPUUtilization\'|\'EC2SpotFleetRequestAverageNetworkIn\'|\'EC2SpotFleetRequestAverageNetworkOut\'|\'SageMakerVariantInvocationsPerInstance\'|\'ECSServiceAverageCPUUtilization\'|\'ECSServiceAverageMemoryUtilization\',
+                                \'ResourceLabel\': \'string\'
                             },
-                            'CustomizedMetricSpecification': {
-                                'MetricName': 'string',
-                                'Namespace': 'string',
-                                'Dimensions': [
+                            \'CustomizedMetricSpecification\': {
+                                \'MetricName\': \'string\',
+                                \'Namespace\': \'string\',
+                                \'Dimensions\': [
                                     {
-                                        'Name': 'string',
-                                        'Value': 'string'
+                                        \'Name\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'Statistic': 'Average'|'Minimum'|'Maximum'|'SampleCount'|'Sum',
-                                'Unit': 'string'
+                                \'Statistic\': \'Average\'|\'Minimum\'|\'Maximum\'|\'SampleCount\'|\'Sum\',
+                                \'Unit\': \'string\'
                             },
-                            'ScaleOutCooldown': 123,
-                            'ScaleInCooldown': 123,
-                            'DisableScaleIn': True|False
+                            \'ScaleOutCooldown\': 123,
+                            \'ScaleInCooldown\': 123,
+                            \'DisableScaleIn\': True|False
                         },
-                        'Alarms': [
+                        \'Alarms\': [
                             {
-                                'AlarmName': 'string',
-                                'AlarmARN': 'string'
+                                \'AlarmName\': \'string\',
+                                \'AlarmARN\': \'string\'
                             },
                         ],
-                        'CreationTime': datetime(2015, 1, 1)
+                        \'CreationTime\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -672,7 +672,7 @@ class DescribeScalingPolicies(Paginator):
         
                     - *(dict) --* 
         
-                      Represents a step adjustment for a  StepScalingPolicyConfiguration . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. 
+                      Represents a step adjustment for a  StepScalingPolicyConfiguration . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you\'ve defined for the alarm. 
         
                       For the following examples, suppose that you have an alarm with a breach threshold of 50:
         
@@ -682,13 +682,13 @@ class DescribeScalingPolicies(Paginator):
                        
                       There are a few rules for the step adjustments for your step policy:
         
-                      * The ranges of your step adjustments can't overlap or have a gap. 
+                      * The ranges of your step adjustments can\'t overlap or have a gap. 
                        
                       * At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound. 
                        
                       * At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound. 
                        
-                      * The upper and lower bound can't be null in the same step adjustment. 
+                      * The upper and lower bound can\'t be null in the same step adjustment. 
                        
                       - **MetricIntervalLowerBound** *(float) --* 
         
@@ -714,7 +714,7 @@ class DescribeScalingPolicies(Paginator):
         
                     For scale out policies, while the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a cooldown period of 5 minutes starts. During the Cooldown period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count.
         
-                    For scale in policies, the cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+                    For scale in policies, the cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
         
                   - **MetricAggregationType** *(string) --* 
         
@@ -738,7 +738,7 @@ class DescribeScalingPolicies(Paginator):
         
                     - **ResourceLabel** *(string) --* 
         
-                      Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot fleet request or ECS service.
+                      Identifies the resource associated with the metric type. You can\'t specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot fleet request or ECS service.
         
                       The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
         
@@ -792,11 +792,11 @@ class DescribeScalingPolicies(Paginator):
         
                     The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         
-                    The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+                    The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
         
                   - **DisableScaleIn** *(boolean) --* 
         
-                    Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
+                    Indicates whether scale in by the target tracking policy is disabled. If the value is ``true`` , scale in is disabled and the target tracking policy won\'t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is ``false`` .
         
                 - **Alarms** *(list) --* 
         

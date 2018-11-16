@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,9 +18,9 @@ class Client(BaseClient):
         ::
         
           response = client.associate_ip_groups(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               GroupIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -60,11 +60,11 @@ class Client(BaseClient):
         ::
         
           response = client.authorize_ip_rules(
-              GroupId='string',
+              GroupId=\'string\',
               UserRules=[
                   {
-                      'ipRule': 'string',
-                      'ruleDesc': 'string'
+                      \'ipRule\': \'string\',
+                      \'ruleDesc\': \'string\'
                   },
               ]
           )
@@ -110,10 +110,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -125,7 +125,7 @@ class Client(BaseClient):
         
         An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using  AuthorizeIpRules .
         
-        There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.
+        There is a default IP access control group associated with your directory. If you don\'t associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateIpGroup>`_
         
@@ -133,12 +133,12 @@ class Client(BaseClient):
         ::
         
           response = client.create_ip_group(
-              GroupName='string',
-              GroupDesc='string',
+              GroupName=\'string\',
+              GroupDesc=\'string\',
               UserRules=[
                   {
-                      'ipRule': 'string',
-                      'ruleDesc': 'string'
+                      \'ipRule\': \'string\',
+                      \'ruleDesc\': \'string\'
                   },
               ]
           )
@@ -177,7 +177,7 @@ class Client(BaseClient):
           ::
         
             {
-                'GroupId': 'string'
+                \'GroupId\': \'string\'
             }
           **Response Structure** 
         
@@ -199,11 +199,11 @@ class Client(BaseClient):
         ::
         
           response = client.create_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -256,23 +256,23 @@ class Client(BaseClient):
           response = client.create_workspaces(
               Workspaces=[
                   {
-                      'DirectoryId': 'string',
-                      'UserName': 'string',
-                      'BundleId': 'string',
-                      'VolumeEncryptionKey': 'string',
-                      'UserVolumeEncryptionEnabled': True|False,
-                      'RootVolumeEncryptionEnabled': True|False,
-                      'WorkspaceProperties': {
-                          'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                          'RunningModeAutoStopTimeoutInMinutes': 123,
-                          'RootVolumeSizeGib': 123,
-                          'UserVolumeSizeGib': 123,
-                          'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                      \'DirectoryId\': \'string\',
+                      \'UserName\': \'string\',
+                      \'BundleId\': \'string\',
+                      \'VolumeEncryptionKey\': \'string\',
+                      \'UserVolumeEncryptionEnabled\': True|False,
+                      \'RootVolumeEncryptionEnabled\': True|False,
+                      \'WorkspaceProperties\': {
+                          \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                          \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                          \'RootVolumeSizeGib\': 123,
+                          \'UserVolumeSizeGib\': 123,
+                          \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                       },
-                      'Tags': [
+                      \'Tags\': [
                           {
-                              'Key': 'string',
-                              'Value': 'string'
+                              \'Key\': \'string\',
+                              \'Value\': \'string\'
                           },
                       ]
                   },
@@ -359,59 +359,59 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceRequest': {
-                            'DirectoryId': 'string',
-                            'UserName': 'string',
-                            'BundleId': 'string',
-                            'VolumeEncryptionKey': 'string',
-                            'UserVolumeEncryptionEnabled': True|False,
-                            'RootVolumeEncryptionEnabled': True|False,
-                            'WorkspaceProperties': {
-                                'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                                'RunningModeAutoStopTimeoutInMinutes': 123,
-                                'RootVolumeSizeGib': 123,
-                                'UserVolumeSizeGib': 123,
-                                'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'WorkspaceRequest\': {
+                            \'DirectoryId\': \'string\',
+                            \'UserName\': \'string\',
+                            \'BundleId\': \'string\',
+                            \'VolumeEncryptionKey\': \'string\',
+                            \'UserVolumeEncryptionEnabled\': True|False,
+                            \'RootVolumeEncryptionEnabled\': True|False,
+                            \'WorkspaceProperties\': {
+                                \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                                \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                                \'RootVolumeSizeGib\': 123,
+                                \'UserVolumeSizeGib\': 123,
+                                \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                             },
-                            'Tags': [
+                            \'Tags\': [
                                 {
-                                    'Key': 'string',
-                                    'Value': 'string'
+                                    \'Key\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         },
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ],
-                'PendingRequests': [
+                \'PendingRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'DirectoryId': 'string',
-                        'UserName': 'string',
-                        'IpAddress': 'string',
-                        'State': 'PENDING'|'AVAILABLE'|'IMPAIRED'|'UNHEALTHY'|'REBOOTING'|'STARTING'|'REBUILDING'|'MAINTENANCE'|'ADMIN_MAINTENANCE'|'TERMINATING'|'TERMINATED'|'SUSPENDED'|'UPDATING'|'STOPPING'|'STOPPED'|'ERROR',
-                        'BundleId': 'string',
-                        'SubnetId': 'string',
-                        'ErrorMessage': 'string',
-                        'ErrorCode': 'string',
-                        'ComputerName': 'string',
-                        'VolumeEncryptionKey': 'string',
-                        'UserVolumeEncryptionEnabled': True|False,
-                        'RootVolumeEncryptionEnabled': True|False,
-                        'WorkspaceProperties': {
-                            'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                            'RunningModeAutoStopTimeoutInMinutes': 123,
-                            'RootVolumeSizeGib': 123,
-                            'UserVolumeSizeGib': 123,
-                            'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'WorkspaceId\': \'string\',
+                        \'DirectoryId\': \'string\',
+                        \'UserName\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'State\': \'PENDING\'|\'AVAILABLE\'|\'IMPAIRED\'|\'UNHEALTHY\'|\'REBOOTING\'|\'STARTING\'|\'REBUILDING\'|\'MAINTENANCE\'|\'ADMIN_MAINTENANCE\'|\'TERMINATING\'|\'TERMINATED\'|\'SUSPENDED\'|\'UPDATING\'|\'STOPPING\'|\'STOPPED\'|\'ERROR\',
+                        \'BundleId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'ErrorMessage\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ComputerName\': \'string\',
+                        \'VolumeEncryptionKey\': \'string\',
+                        \'UserVolumeEncryptionEnabled\': True|False,
+                        \'RootVolumeEncryptionEnabled\': True|False,
+                        \'WorkspaceProperties\': {
+                            \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                            \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                            \'RootVolumeSizeGib\': 123,
+                            \'UserVolumeSizeGib\': 123,
+                            \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                         },
-                        'ModificationStates': [
+                        \'ModificationStates\': [
                             {
-                                'Resource': 'ROOT_VOLUME'|'USER_VOLUME'|'COMPUTE_TYPE',
-                                'State': 'UPDATE_INITIATED'|'UPDATE_IN_PROGRESS'
+                                \'Resource\': \'ROOT_VOLUME\'|\'USER_VOLUME\'|\'COMPUTE_TYPE\',
+                                \'State\': \'UPDATE_INITIATED\'|\'UPDATE_IN_PROGRESS\'
                             },
                         ]
                     },
@@ -621,7 +621,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ip_group(
-              GroupId='string'
+              GroupId=\'string\'
           )
         :type GroupId: string
         :param GroupId: **[REQUIRED]** 
@@ -651,9 +651,9 @@ class Client(BaseClient):
         ::
         
           response = client.delete_tags(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceId: string
@@ -692,9 +692,9 @@ class Client(BaseClient):
         
           response = client.describe_ip_groups(
               GroupIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type GroupIds: list
@@ -722,20 +722,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Result': [
+                \'Result\': [
                     {
-                        'groupId': 'string',
-                        'groupName': 'string',
-                        'groupDesc': 'string',
-                        'userRules': [
+                        \'groupId\': \'string\',
+                        \'groupName\': \'string\',
+                        \'groupDesc\': \'string\',
+                        \'userRules\': [
                             {
-                                'ipRule': 'string',
-                                'ruleDesc': 'string'
+                                \'ipRule\': \'string\',
+                                \'ruleDesc\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -793,7 +793,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_tags(
-              ResourceId='string'
+              ResourceId=\'string\'
           )
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]** 
@@ -808,10 +808,10 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -850,10 +850,10 @@ class Client(BaseClient):
         
           response = client.describe_workspace_bundles(
               BundleIds=[
-                  'string',
+                  \'string\',
               ],
-              Owner='string',
-              NextToken='string'
+              Owner=\'string\',
+              NextToken=\'string\'
           )
         :type BundleIds: list
         :param BundleIds: 
@@ -882,24 +882,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Bundles': [
+                \'Bundles\': [
                     {
-                        'BundleId': 'string',
-                        'Name': 'string',
-                        'Owner': 'string',
-                        'Description': 'string',
-                        'RootStorage': {
-                            'Capacity': 'string'
+                        \'BundleId\': \'string\',
+                        \'Name\': \'string\',
+                        \'Owner\': \'string\',
+                        \'Description\': \'string\',
+                        \'RootStorage\': {
+                            \'Capacity\': \'string\'
                         },
-                        'UserStorage': {
-                            'Capacity': 'string'
+                        \'UserStorage\': {
+                            \'Capacity\': \'string\'
                         },
-                        'ComputeType': {
-                            'Name': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'ComputeType\': {
+                            \'Name\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -970,9 +970,9 @@ class Client(BaseClient):
         
           response = client.describe_workspace_directories(
               DirectoryIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DirectoryIds: list
         :param DirectoryIds: 
@@ -994,36 +994,36 @@ class Client(BaseClient):
           ::
         
             {
-                'Directories': [
+                \'Directories\': [
                     {
-                        'DirectoryId': 'string',
-                        'Alias': 'string',
-                        'DirectoryName': 'string',
-                        'RegistrationCode': 'string',
-                        'SubnetIds': [
-                            'string',
+                        \'DirectoryId\': \'string\',
+                        \'Alias\': \'string\',
+                        \'DirectoryName\': \'string\',
+                        \'RegistrationCode\': \'string\',
+                        \'SubnetIds\': [
+                            \'string\',
                         ],
-                        'DnsIpAddresses': [
-                            'string',
+                        \'DnsIpAddresses\': [
+                            \'string\',
                         ],
-                        'CustomerUserName': 'string',
-                        'IamRoleId': 'string',
-                        'DirectoryType': 'SIMPLE_AD'|'AD_CONNECTOR',
-                        'WorkspaceSecurityGroupId': 'string',
-                        'State': 'REGISTERING'|'REGISTERED'|'DEREGISTERING'|'DEREGISTERED'|'ERROR',
-                        'WorkspaceCreationProperties': {
-                            'EnableWorkDocs': True|False,
-                            'EnableInternetAccess': True|False,
-                            'DefaultOu': 'string',
-                            'CustomSecurityGroupId': 'string',
-                            'UserEnabledAsLocalAdministrator': True|False
+                        \'CustomerUserName\': \'string\',
+                        \'IamRoleId\': \'string\',
+                        \'DirectoryType\': \'SIMPLE_AD\'|\'AD_CONNECTOR\',
+                        \'WorkspaceSecurityGroupId\': \'string\',
+                        \'State\': \'REGISTERING\'|\'REGISTERED\'|\'DEREGISTERING\'|\'DEREGISTERED\'|\'ERROR\',
+                        \'WorkspaceCreationProperties\': {
+                            \'EnableWorkDocs\': True|False,
+                            \'EnableInternetAccess\': True|False,
+                            \'DefaultOu\': \'string\',
+                            \'CustomSecurityGroupId\': \'string\',
+                            \'UserEnabledAsLocalAdministrator\': True|False
                         },
-                        'ipGroupIds': [
-                            'string',
+                        \'ipGroupIds\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1083,7 +1083,7 @@ class Client(BaseClient):
         
                 - **State** *(string) --* 
         
-                  The state of the directory's registration with Amazon WorkSpaces
+                  The state of the directory\'s registration with Amazon WorkSpaces
         
                 - **WorkspaceCreationProperties** *(dict) --* 
         
@@ -1134,13 +1134,13 @@ class Client(BaseClient):
         
           response = client.describe_workspaces(
               WorkspaceIds=[
-                  'string',
+                  \'string\',
               ],
-              DirectoryId='string',
-              UserName='string',
-              BundleId='string',
+              DirectoryId=\'string\',
+              UserName=\'string\',
+              BundleId=\'string\',
               Limit=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WorkspaceIds: list
         :param WorkspaceIds: 
@@ -1184,37 +1184,37 @@ class Client(BaseClient):
           ::
         
             {
-                'Workspaces': [
+                \'Workspaces\': [
                     {
-                        'WorkspaceId': 'string',
-                        'DirectoryId': 'string',
-                        'UserName': 'string',
-                        'IpAddress': 'string',
-                        'State': 'PENDING'|'AVAILABLE'|'IMPAIRED'|'UNHEALTHY'|'REBOOTING'|'STARTING'|'REBUILDING'|'MAINTENANCE'|'ADMIN_MAINTENANCE'|'TERMINATING'|'TERMINATED'|'SUSPENDED'|'UPDATING'|'STOPPING'|'STOPPED'|'ERROR',
-                        'BundleId': 'string',
-                        'SubnetId': 'string',
-                        'ErrorMessage': 'string',
-                        'ErrorCode': 'string',
-                        'ComputerName': 'string',
-                        'VolumeEncryptionKey': 'string',
-                        'UserVolumeEncryptionEnabled': True|False,
-                        'RootVolumeEncryptionEnabled': True|False,
-                        'WorkspaceProperties': {
-                            'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                            'RunningModeAutoStopTimeoutInMinutes': 123,
-                            'RootVolumeSizeGib': 123,
-                            'UserVolumeSizeGib': 123,
-                            'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                        \'WorkspaceId\': \'string\',
+                        \'DirectoryId\': \'string\',
+                        \'UserName\': \'string\',
+                        \'IpAddress\': \'string\',
+                        \'State\': \'PENDING\'|\'AVAILABLE\'|\'IMPAIRED\'|\'UNHEALTHY\'|\'REBOOTING\'|\'STARTING\'|\'REBUILDING\'|\'MAINTENANCE\'|\'ADMIN_MAINTENANCE\'|\'TERMINATING\'|\'TERMINATED\'|\'SUSPENDED\'|\'UPDATING\'|\'STOPPING\'|\'STOPPED\'|\'ERROR\',
+                        \'BundleId\': \'string\',
+                        \'SubnetId\': \'string\',
+                        \'ErrorMessage\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ComputerName\': \'string\',
+                        \'VolumeEncryptionKey\': \'string\',
+                        \'UserVolumeEncryptionEnabled\': True|False,
+                        \'RootVolumeEncryptionEnabled\': True|False,
+                        \'WorkspaceProperties\': {
+                            \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                            \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                            \'RootVolumeSizeGib\': 123,
+                            \'UserVolumeSizeGib\': 123,
+                            \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
                         },
-                        'ModificationStates': [
+                        \'ModificationStates\': [
                             {
-                                'Resource': 'ROOT_VOLUME'|'USER_VOLUME'|'COMPUTE_TYPE',
-                                'State': 'UPDATE_INITIATED'|'UPDATE_IN_PROGRESS'
+                                \'Resource\': \'ROOT_VOLUME\'|\'USER_VOLUME\'|\'COMPUTE_TYPE\',
+                                \'State\': \'UPDATE_INITIATED\'|\'UPDATE_IN_PROGRESS\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1339,9 +1339,9 @@ class Client(BaseClient):
         
           response = client.describe_workspaces_connection_status(
               WorkspaceIds=[
-                  'string',
+                  \'string\',
               ],
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type WorkspaceIds: list
         :param WorkspaceIds: 
@@ -1363,15 +1363,15 @@ class Client(BaseClient):
           ::
         
             {
-                'WorkspacesConnectionStatus': [
+                \'WorkspacesConnectionStatus\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ConnectionState': 'CONNECTED'|'DISCONNECTED'|'UNKNOWN',
-                        'ConnectionStateCheckTimestamp': datetime(2015, 1, 1),
-                        'LastKnownUserConnectionTimestamp': datetime(2015, 1, 1)
+                        \'WorkspaceId\': \'string\',
+                        \'ConnectionState\': \'CONNECTED\'|\'DISCONNECTED\'|\'UNKNOWN\',
+                        \'ConnectionStateCheckTimestamp\': datetime(2015, 1, 1),
+                        \'LastKnownUserConnectionTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1417,9 +1417,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_ip_groups(
-              DirectoryId='string',
+              DirectoryId=\'string\',
               GroupIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DirectoryId: string
@@ -1464,7 +1464,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1476,10 +1476,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1511,13 +1511,13 @@ class Client(BaseClient):
         ::
         
           response = client.modify_workspace_properties(
-              WorkspaceId='string',
+              WorkspaceId=\'string\',
               WorkspaceProperties={
-                  'RunningMode': 'AUTO_STOP'|'ALWAYS_ON',
-                  'RunningModeAutoStopTimeoutInMinutes': 123,
-                  'RootVolumeSizeGib': 123,
-                  'UserVolumeSizeGib': 123,
-                  'ComputeTypeName': 'VALUE'|'STANDARD'|'PERFORMANCE'|'POWER'|'GRAPHICS'|'POWERPRO'|'GRAPHICSPRO'
+                  \'RunningMode\': \'AUTO_STOP\'|\'ALWAYS_ON\',
+                  \'RunningModeAutoStopTimeoutInMinutes\': 123,
+                  \'RootVolumeSizeGib\': 123,
+                  \'UserVolumeSizeGib\': 123,
+                  \'ComputeTypeName\': \'VALUE\'|\'STANDARD\'|\'PERFORMANCE\'|\'POWER\'|\'GRAPHICS\'|\'POWERPRO\'|\'GRAPHICSPRO\'
               }
           )
         :type WorkspaceId: string
@@ -1575,8 +1575,8 @@ class Client(BaseClient):
         ::
         
           response = client.modify_workspace_state(
-              WorkspaceId='string',
-              WorkspaceState='AVAILABLE'|'ADMIN_MAINTENANCE'
+              WorkspaceId=\'string\',
+              WorkspaceState=\'AVAILABLE\'|\'ADMIN_MAINTENANCE\'
           )
         :type WorkspaceId: string
         :param WorkspaceId: **[REQUIRED]** 
@@ -1617,7 +1617,7 @@ class Client(BaseClient):
           response = client.reboot_workspaces(
               RebootWorkspaceRequests=[
                   {
-                      'WorkspaceId': 'string'
+                      \'WorkspaceId\': \'string\'
                   },
               ]
           )
@@ -1642,11 +1642,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'WorkspaceId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1694,7 +1694,7 @@ class Client(BaseClient):
           response = client.rebuild_workspaces(
               RebuildWorkspaceRequests=[
                   {
-                      'WorkspaceId': 'string'
+                      \'WorkspaceId\': \'string\'
                   },
               ]
           )
@@ -1719,11 +1719,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'WorkspaceId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1763,9 +1763,9 @@ class Client(BaseClient):
         ::
         
           response = client.revoke_ip_rules(
-              GroupId='string',
+              GroupId=\'string\',
               UserRules=[
-                  'string',
+                  \'string\',
               ]
           )
         :type GroupId: string
@@ -1807,7 +1807,7 @@ class Client(BaseClient):
           response = client.start_workspaces(
               StartWorkspaceRequests=[
                   {
-                      'WorkspaceId': 'string'
+                      \'WorkspaceId\': \'string\'
                   },
               ]
           )
@@ -1832,11 +1832,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'WorkspaceId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1880,7 +1880,7 @@ class Client(BaseClient):
           response = client.stop_workspaces(
               StopWorkspaceRequests=[
                   {
-                      'WorkspaceId': 'string'
+                      \'WorkspaceId\': \'string\'
                   },
               ]
           )
@@ -1905,11 +1905,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'WorkspaceId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -1943,7 +1943,7 @@ class Client(BaseClient):
     def terminate_workspaces(self, TerminateWorkspaceRequests: List) -> Dict:
         """
         
-        Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
+        Terminating a WorkSpace is a permanent action and cannot be undone. The user\'s data is destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
         
         You can terminate a WorkSpace that is in any state except ``SUSPENDED`` .
         
@@ -1957,7 +1957,7 @@ class Client(BaseClient):
           response = client.terminate_workspaces(
               TerminateWorkspaceRequests=[
                   {
-                      'WorkspaceId': 'string'
+                      \'WorkspaceId\': \'string\'
                   },
               ]
           )
@@ -1982,11 +1982,11 @@ class Client(BaseClient):
           ::
         
             {
-                'FailedRequests': [
+                \'FailedRequests\': [
                     {
-                        'WorkspaceId': 'string',
-                        'ErrorCode': 'string',
-                        'ErrorMessage': 'string'
+                        \'WorkspaceId\': \'string\',
+                        \'ErrorCode\': \'string\',
+                        \'ErrorMessage\': \'string\'
                     },
                 ]
             }
@@ -2026,11 +2026,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_rules_of_ip_group(
-              GroupId='string',
+              GroupId=\'string\',
               UserRules=[
                   {
-                      'ipRule': 'string',
-                      'ruleDesc': 'string'
+                      \'ipRule\': \'string\',
+                      \'ruleDesc\': \'string\'
                   },
               ]
           )

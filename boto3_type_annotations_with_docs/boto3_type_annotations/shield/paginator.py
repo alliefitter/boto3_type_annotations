@@ -13,9 +13,9 @@ class ListProtections(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,11 +43,11 @@ class ListProtections(Paginator):
           ::
         
             {
-                'Protections': [
+                \'Protections\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'ResourceArn': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'ResourceArn\': \'string\'
                     },
                 ],
                 

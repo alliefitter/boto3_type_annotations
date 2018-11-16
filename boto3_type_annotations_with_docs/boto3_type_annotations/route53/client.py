@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,7 +14,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          To perform the association, the VPC and the private hosted zone must already exist. You can't convert a public hosted zone into a private hosted zone.
+          To perform the association, the VPC and the private hosted zone must already exist. You can\'t convert a public hosted zone into a private hosted zone.
         
         .. note::
         
@@ -26,19 +26,19 @@ class Client(BaseClient):
         ::
         
           response = client.associate_vpc_with_hosted_zone(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               VPC={
-                  'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                  'VPCId': 'string'
+                  \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                  \'VPCId\': \'string\'
               },
-              Comment='string'
+              Comment=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
         
           The ID of the private hosted zone that you want to associate an Amazon VPC with.
         
-          Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
+          Note that you can\'t associate a VPC with a hosted zone that doesn\'t have an existing VPC association.
         
         :type VPC: dict
         :param VPC: **[REQUIRED]** 
@@ -66,11 +66,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -110,10 +110,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -131,11 +131,11 @@ class Client(BaseClient):
         
         .. warning::
         
-          Due to the nature of transactional changes, you can't delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Route 53 returns an ``InvalidChangeBatch`` error.
+          Due to the nature of transactional changes, you can\'t delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Route 53 returns an ``InvalidChangeBatch`` error.
         
          **Traffic Flow**  
         
-        To create resource record sets for complex routing configurations, use either the traffic flow visual editor in the Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn't performing as expected. For more information, see `Using Traffic Flow to Route DNS Traffic <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html>`__ in the *Amazon Route 53 Developer Guide* .
+        To create resource record sets for complex routing configurations, use either the traffic flow visual editor in the Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn\'t performing as expected. For more information, see `Using Traffic Flow to Route DNS Traffic <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html>`__ in the *Amazon Route 53 Developer Guide* .
         
          **Create, Delete, and Upsert**  
         
@@ -151,9 +151,9 @@ class Client(BaseClient):
         
         The syntax for a request depends on the type of resource record set that you want to create, delete, or update, such as weighted, alias, or failover. The XML elements in your request must appear in the order listed in the syntax. 
         
-        For an example for each type of resource record set, see "Examples."
+        For an example for each type of resource record set, see \"Examples.\"
         
-        Don't refer to the syntax in the "Parameter Syntax" section, which includes all of the elements for every kind of resource record set that you can create, delete, or update by using ``ChangeResourceRecordSets`` . 
+        Don\'t refer to the syntax in the \"Parameter Syntax\" section, which includes all of the elements for every kind of resource record set that you can create, delete, or update by using ``ChangeResourceRecordSets`` . 
         
          **Change Propagation to Route 53 DNS Servers**  
         
@@ -169,38 +169,38 @@ class Client(BaseClient):
         ::
         
           response = client.change_resource_record_sets(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               ChangeBatch={
-                  'Comment': 'string',
-                  'Changes': [
+                  \'Comment\': \'string\',
+                  \'Changes\': [
                       {
-                          'Action': 'CREATE'|'DELETE'|'UPSERT',
-                          'ResourceRecordSet': {
-                              'Name': 'string',
-                              'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                              'SetIdentifier': 'string',
-                              'Weight': 123,
-                              'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'cn-north-1'|'cn-northwest-1'|'ap-south-1',
-                              'GeoLocation': {
-                                  'ContinentCode': 'string',
-                                  'CountryCode': 'string',
-                                  'SubdivisionCode': 'string'
+                          \'Action\': \'CREATE\'|\'DELETE\'|\'UPSERT\',
+                          \'ResourceRecordSet\': {
+                              \'Name\': \'string\',
+                              \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                              \'SetIdentifier\': \'string\',
+                              \'Weight\': 123,
+                              \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'cn-north-1\'|\'cn-northwest-1\'|\'ap-south-1\',
+                              \'GeoLocation\': {
+                                  \'ContinentCode\': \'string\',
+                                  \'CountryCode\': \'string\',
+                                  \'SubdivisionCode\': \'string\'
                               },
-                              'Failover': 'PRIMARY'|'SECONDARY',
-                              'MultiValueAnswer': True|False,
-                              'TTL': 123,
-                              'ResourceRecords': [
+                              \'Failover\': \'PRIMARY\'|\'SECONDARY\',
+                              \'MultiValueAnswer\': True|False,
+                              \'TTL\': 123,
+                              \'ResourceRecords\': [
                                   {
-                                      'Value': 'string'
+                                      \'Value\': \'string\'
                                   },
                               ],
-                              'AliasTarget': {
-                                  'HostedZoneId': 'string',
-                                  'DNSName': 'string',
-                                  'EvaluateTargetHealth': True|False
+                              \'AliasTarget\': {
+                                  \'HostedZoneId\': \'string\',
+                                  \'DNSName\': \'string\',
+                                  \'EvaluateTargetHealth\': True|False
                               },
-                              'HealthCheckId': 'string',
-                              'TrafficPolicyInstanceId': 'string'
+                              \'HealthCheckId\': \'string\',
+                              \'TrafficPolicyInstanceId\': \'string\'
                           }
                       },
                   ]
@@ -238,9 +238,9 @@ class Client(BaseClient):
         
                 .. warning::
         
-                   To delete the resource record set that is associated with a traffic policy instance, use ``  DeleteTrafficPolicyInstance `` . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.  
+                   To delete the resource record set that is associated with a traffic policy instance, use ``  DeleteTrafficPolicyInstance `` . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn\'t automatically delete the traffic policy instance, and you\'ll continue to be charged for it even though it\'s no longer in use.  
         
-                * ``UPSERT`` : If a resource record set doesn't already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request. 
+                * ``UPSERT`` : If a resource record set doesn\'t already exist, Route 53 creates it. If a resource record set does exist, Route 53 updates it with the values in the request. 
                  
               - **ResourceRecordSet** *(dict) --* **[REQUIRED]** 
         
@@ -258,17 +258,17 @@ class Client(BaseClient):
         
                   You can use the asterisk (*) wildcard to replace the leftmost label in a domain name, for example, ``*.example.com`` . Note the following:
         
-                  * The * must replace the entire label. For example, you can't specify ``*prod.example.com`` or ``prod*.example.com`` . 
+                  * The * must replace the entire label. For example, you can\'t specify ``*prod.example.com`` or ``prod*.example.com`` . 
                    
-                  * The * can't replace any of the middle labels, for example, marketing.*.example.com. 
+                  * The * can\'t replace any of the middle labels, for example, marketing.*.example.com. 
                    
                   * If you include * in any position other than the leftmost label in a domain name, DNS treats it as an * character (ASCII 42), not as a wildcard. 
         
                   .. warning::
         
-                     You can't use the * wildcard for resource records sets that have a type of NS. 
+                     You can\'t use the * wildcard for resource records sets that have a type of NS. 
         
-                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can't use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can't specify ``prod*.example.com`` .
+                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can\'t use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can\'t specify ``prod*.example.com`` .
         
                 - **Type** *(string) --* **[REQUIRED]** 
         
@@ -282,7 +282,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
+                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, \"...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it.\" In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
         
                   Values for alias resource record sets:
         
@@ -294,11 +294,11 @@ class Client(BaseClient):
                    
                   * **Amazon S3 buckets:**  ``A``   
                    
-                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you're creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
+                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you\'re creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
         
                   .. note::
         
-                     If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record. 
+                     If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record. 
         
                 - **SetIdentifier** *(string) --* 
         
@@ -308,13 +308,13 @@ class Client(BaseClient):
         
                 - **Weight** *(integer) --* 
         
-                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
+                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource\'s weight to the total. Note the following:
         
                   * You must specify a value for the ``Weight`` element for every weighted resource record set. 
                    
                   * You can only specify one ``ResourceRecord`` per weighted resource record set. 
                    
-                  * You can't create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
+                  * You can\'t create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
                    
                   * You can create a maximum of 100 weighted resource record sets that have the same values for the ``Name`` and ``Type`` elements. 
                    
@@ -336,9 +336,9 @@ class Client(BaseClient):
                    
                   * You can only create one latency resource record set for each Amazon EC2 Region. 
                    
-                  * You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
+                  * You aren\'t required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
                    
-                  * You can't create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
+                  * You can\'t create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
                    
                 - **GeoLocation** *(dict) --* 
         
@@ -350,15 +350,15 @@ class Client(BaseClient):
         
                   If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
         
-                  You can't create two geolocation resource record sets that specify the same geographic location.
+                  You can\'t create two geolocation resource record sets that specify the same geographic location.
         
-                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren't specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
+                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren\'t specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
         
                   .. warning::
         
-                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a ``*`` resource record set, Route 53 returns a "no answer" response for queries from those locations.
+                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren\'t mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can\'t identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven\'t created geolocation resource record sets and queries from IP addresses that aren\'t mapped to a location. If you don\'t create a ``*`` resource record set, Route 53 returns a \"no answer\" response for queries from those locations.
         
-                  You can't create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
+                  You can\'t create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
         
                   - **ContinentCode** *(string) --* 
         
@@ -390,7 +390,7 @@ class Client(BaseClient):
                    
                   * If you omit the ``HealthCheckId`` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint. 
                    
-                  You can't create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
+                  You can\'t create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
         
                   For failover alias resource record sets, you must also include the ``EvaluateTargetHealth`` element and set the value to true.
         
@@ -406,7 +406,7 @@ class Client(BaseClient):
         
                   * If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy. 
                    
-                  * If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
+                  * If you don\'t associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
                    
                   * Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records. 
                    
@@ -416,15 +416,15 @@ class Client(BaseClient):
                    
                   * If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response. 
                    
-                  You can't create multivalue answer alias records.
+                  You can\'t create multivalue answer alias records.
         
                 - **TTL** *(integer) --* 
         
                   The resource record cache time to live (TTL), in seconds. Note the following:
         
-                  * If you're creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
+                  * If you\'re creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
                    
-                  * If you're associating this resource record set with a health check (if you're adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
+                  * If you\'re associating this resource record set with a health check (if you\'re adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
                    
                   * All of the resource record sets in a group of weighted resource record sets must have the same value for ``TTL`` . 
                    
@@ -436,7 +436,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    If you're creating an alias resource record set, omit ``ResourceRecords`` .
+                    If you\'re creating an alias resource record set, omit ``ResourceRecords`` .
         
                   - *(dict) --* 
         
@@ -444,7 +444,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      If you're creating an alias resource record set, omit ``ResourceRecord`` .
+                      If you\'re creating an alias resource record set, omit ``ResourceRecord`` .
         
                     - **Value** *(string) --* **[REQUIRED]** 
         
@@ -454,15 +454,15 @@ class Client(BaseClient):
         
                       .. note::
         
-                        If you're creating an alias resource record set, omit ``Value`` .
+                        If you\'re creating an alias resource record set, omit ``Value`` .
         
                 - **AliasTarget** *(dict) --* 
         
-                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you're redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
+                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you\'re redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
         
-                  If you're creating resource records sets for a private hosted zone, note the following:
+                  If you\'re creating resource records sets for a private hosted zone, note the following:
         
-                  * You can't create alias resource record sets for CloudFront distributions in a private hosted zone. 
+                  * You can\'t create alias resource record sets for CloudFront distributions in a private hosted zone. 
                    
                   * Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported. 
                    
@@ -478,17 +478,17 @@ class Client(BaseClient):
         
                     .. note::
         
-                      Alias resource record sets for CloudFront can't be created in a private zone.
+                      Alias resource record sets for CloudFront can\'t be created in a private zone.
         
                       Elastic Beanstalk environment  
         
-                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       ELB load balancer  
         
                     Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
         
-                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
+                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
                      
                     * **AWS Management Console** : Go to the Amazon EC2 page, choose **Load Balancers** in the navigation pane, select the load balancer, and get the value of the **Hosted zone** field on the **Description** tab. 
                      
@@ -506,11 +506,11 @@ class Client(BaseClient):
                        
                       An Amazon S3 bucket configured as a static website  
         
-                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       Another Route 53 resource record set in your hosted zone  
         
-                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)
+                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can\'t reference a resource record set in a different hosted zone.)
         
                   - **DNSName** *(string) --* **[REQUIRED]** 
         
@@ -524,7 +524,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution. 
+                      For failover alias records, you can\'t specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can\'t include the same alternate domain name in more than one distribution. 
         
                       Elastic Beanstalk environment  
         
@@ -532,7 +532,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.
+                      For environments that were created before early 2016, the domain name doesn\'t include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can\'t create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can\'t create a record that routes traffic for example.com to your Elastic Beanstalk environment.
         
                     For Elastic Beanstalk environments that have regionalized subdomains, specify the ``CNAME`` attribute for the environment. You can use the following methods to get the value of the CNAME attribute:
         
@@ -546,7 +546,7 @@ class Client(BaseClient):
         
                     Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console, the ELB API, or the AWS CLI. 
         
-                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you're routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
+                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you\'re routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
                      
                     * **Elastic Load Balancing API** : Use ``DescribeLoadBalancers`` to get the value of ``DNSName`` . For more information, see the applicable guide: 
         
@@ -570,7 +570,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
+                      If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record.
         
                   - **EvaluateTargetHealth** *(boolean) --* **[REQUIRED]** 
         
@@ -580,7 +580,7 @@ class Client(BaseClient):
         
                       CloudFront distributions  
         
-                    You can't set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
+                    You can\'t set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
         
                       Elastic Beanstalk environments that have regionalized subdomains  
         
@@ -602,7 +602,7 @@ class Client(BaseClient):
                        
                     .. note::
         
-                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
+                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they\'re not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
         
                       S3 buckets  
         
@@ -628,7 +628,7 @@ class Client(BaseClient):
                    
                   .. warning::
         
-                    Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
+                    Route 53 doesn\'t check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
         
                   For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
         
@@ -642,7 +642,7 @@ class Client(BaseClient):
         
                   Specifying a value for ``HealthCheckId`` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check. Configuring health checks makes sense only in the following configurations:
         
-                  * **Non-alias resource record sets** : You're checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
+                  * **Non-alias resource record sets** : You\'re checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
                    
                   * **Alias resource record sets** : You specify the following settings: 
         
@@ -688,7 +688,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use. 
+                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn\'t automatically delete the traffic policy instance, and you\'ll continue to be charged for it even though it\'s no longer in use. 
         
         :rtype: dict
         :returns: 
@@ -698,11 +698,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -749,16 +749,16 @@ class Client(BaseClient):
         ::
         
           response = client.change_tags_for_resource(
-              ResourceType='healthcheck'|'hostedzone',
-              ResourceId='string',
+              ResourceType=\'healthcheck\'|\'hostedzone\',
+              ResourceId=\'string\',
               AddTags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               RemoveTagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceType: string
@@ -796,7 +796,7 @@ class Client(BaseClient):
                
               * **Delete a key** : ``Key`` is the name of the tag you want to remove. 
                
-              * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you've given to each health check. 
+              * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you\'ve given to each health check. 
                
             - **Value** *(string) --* 
         
@@ -837,7 +837,7 @@ class Client(BaseClient):
         
          **ELB Load Balancers**  
         
-        If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
+        If you\'re registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
         
          **Private Hosted Zones**  
         
@@ -855,32 +855,32 @@ class Client(BaseClient):
         ::
         
           response = client.create_health_check(
-              CallerReference='string',
+              CallerReference=\'string\',
               HealthCheckConfig={
-                  'IPAddress': 'string',
-                  'Port': 123,
-                  'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                  'ResourcePath': 'string',
-                  'FullyQualifiedDomainName': 'string',
-                  'SearchString': 'string',
-                  'RequestInterval': 123,
-                  'FailureThreshold': 123,
-                  'MeasureLatency': True|False,
-                  'Inverted': True|False,
-                  'Disabled': True|False,
-                  'HealthThreshold': 123,
-                  'ChildHealthChecks': [
-                      'string',
+                  \'IPAddress\': \'string\',
+                  \'Port\': 123,
+                  \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                  \'ResourcePath\': \'string\',
+                  \'FullyQualifiedDomainName\': \'string\',
+                  \'SearchString\': \'string\',
+                  \'RequestInterval\': 123,
+                  \'FailureThreshold\': 123,
+                  \'MeasureLatency\': True|False,
+                  \'Inverted\': True|False,
+                  \'Disabled\': True|False,
+                  \'HealthThreshold\': 123,
+                  \'ChildHealthChecks\': [
+                      \'string\',
                   ],
-                  'EnableSNI': True|False,
-                  'Regions': [
-                      'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                  \'EnableSNI\': True|False,
+                  \'Regions\': [
+                      \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                   ],
-                  'AlarmIdentifier': {
-                      'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                      'Name': 'string'
+                  \'AlarmIdentifier\': {
+                      \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                      \'Name\': \'string\'
                   },
-                  'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                  \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
               }
           )
         :type CallerReference: string
@@ -888,7 +888,7 @@ class Client(BaseClient):
         
           A unique string that identifies the request and that allows you to retry a failed ``CreateHealthCheck`` request without the risk of creating two identical health checks:
         
-          * If you send a ``CreateHealthCheck`` request with the same ``CallerReference`` and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Route 53 returns the settings for the existing health check. 
+          * If you send a ``CreateHealthCheck`` request with the same ``CallerReference`` and settings as a previous request, and if the health check doesn\'t exist, Amazon Route 53 creates the health check. If the health check does exist, Route 53 returns the settings for the existing health check. 
            
           * If you send a ``CreateHealthCheck`` request with the same ``CallerReference`` as a deleted health check, regardless of the settings, Route 53 returns a ``HealthCheckAlreadyExists`` error. 
            
@@ -903,7 +903,7 @@ class Client(BaseClient):
         
           - **IPAddress** *(string) --* 
         
-            The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+            The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
             Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -915,7 +915,7 @@ class Client(BaseClient):
         
             For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-            Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+            Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
             * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
              
@@ -935,7 +935,7 @@ class Client(BaseClient):
         
             .. warning::
         
-              You can't change the value of ``Type`` after you create a health check.
+              You can\'t change the value of ``Type`` after you create a health check.
         
             You can create the following types of health checks:
         
@@ -953,7 +953,7 @@ class Client(BaseClient):
              
             * **TCP** : Route 53 tries to establish a TCP connection. 
              
-            * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+            * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
              
             * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
              
@@ -979,15 +979,15 @@ class Client(BaseClient):
              
             * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
              
-            If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+            If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-             **If you don't specify a value for ``IPAddress`` ** :
+             **If you don\'t specify a value for ``IPAddress`` ** :
         
             Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
             .. note::
         
-              If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+              If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
             If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -995,7 +995,7 @@ class Client(BaseClient):
         
               In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-            In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+            In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
           - **SearchString** *(string) --* 
         
@@ -1009,15 +1009,15 @@ class Client(BaseClient):
         
             .. warning::
         
-              You can't change the value of ``RequestInterval`` after you create a health check.
+              You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-            If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+            If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
           - **FailureThreshold** *(integer) --* 
         
             The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-            If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+            If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
           - **MeasureLatency** *(boolean) --* 
         
@@ -1025,7 +1025,7 @@ class Client(BaseClient):
         
             .. warning::
         
-              You can't change the value of ``MeasureLatency`` after you create a health check.
+              You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
           - **Inverted** *(boolean) --* 
         
@@ -1033,7 +1033,7 @@ class Client(BaseClient):
         
           - **Disabled** *(boolean) --* 
         
-            Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+            Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
             * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
              
@@ -1065,7 +1065,7 @@ class Client(BaseClient):
         
             Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-            Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+            Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
             The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -1073,7 +1073,7 @@ class Client(BaseClient):
         
             A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-            If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+            If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
             If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -1097,9 +1097,9 @@ class Client(BaseClient):
         
                 Route 53 supports CloudWatch alarms with the following features:
         
-                * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                  
-                * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                  
           - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -1119,57 +1119,57 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheck': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                \'HealthCheck\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     },
-                    'HealthCheckConfig': {
-                        'IPAddress': 'string',
-                        'Port': 123,
-                        'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                        'ResourcePath': 'string',
-                        'FullyQualifiedDomainName': 'string',
-                        'SearchString': 'string',
-                        'RequestInterval': 123,
-                        'FailureThreshold': 123,
-                        'MeasureLatency': True|False,
-                        'Inverted': True|False,
-                        'Disabled': True|False,
-                        'HealthThreshold': 123,
-                        'ChildHealthChecks': [
-                            'string',
+                    \'HealthCheckConfig\': {
+                        \'IPAddress\': \'string\',
+                        \'Port\': 123,
+                        \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                        \'ResourcePath\': \'string\',
+                        \'FullyQualifiedDomainName\': \'string\',
+                        \'SearchString\': \'string\',
+                        \'RequestInterval\': 123,
+                        \'FailureThreshold\': 123,
+                        \'MeasureLatency\': True|False,
+                        \'Inverted\': True|False,
+                        \'Disabled\': True|False,
+                        \'HealthThreshold\': 123,
+                        \'ChildHealthChecks\': [
+                            \'string\',
                         ],
-                        'EnableSNI': True|False,
-                        'Regions': [
-                            'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                        \'EnableSNI\': True|False,
+                        \'Regions\': [
+                            \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                         ],
-                        'AlarmIdentifier': {
-                            'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                            'Name': 'string'
+                        \'AlarmIdentifier\': {
+                            \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                            \'Name\': \'string\'
                         },
-                        'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                        \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
                     },
-                    'HealthCheckVersion': 123,
-                    'CloudWatchAlarmConfiguration': {
-                        'EvaluationPeriods': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'Period': 123,
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'Average'|'Sum'|'SampleCount'|'Maximum'|'Minimum',
-                        'Dimensions': [
+                    \'HealthCheckVersion\': 123,
+                    \'CloudWatchAlarmConfiguration\': {
+                        \'EvaluationPeriods\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'Period\': 123,
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'Average\'|\'Sum\'|\'SampleCount\'|\'Maximum\'|\'Minimum\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     }
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -1191,15 +1191,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53. 
+                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
               - **HealthCheckConfig** *(dict) --* 
         
@@ -1207,7 +1207,7 @@ class Client(BaseClient):
         
                 - **IPAddress** *(string) --* 
         
-                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
                   Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -1219,7 +1219,7 @@ class Client(BaseClient):
         
                   For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-                  Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+                  Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
                   * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                    
@@ -1239,7 +1239,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``Type`` after you create a health check.
+                    You can\'t change the value of ``Type`` after you create a health check.
         
                   You can create the following types of health checks:
         
@@ -1257,7 +1257,7 @@ class Client(BaseClient):
                    
                   * **TCP** : Route 53 tries to establish a TCP connection. 
                    
-                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                    
                   * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
                    
@@ -1283,15 +1283,15 @@ class Client(BaseClient):
                    
                   * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
                    
-                  If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+                  If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-                   **If you don't specify a value for ``IPAddress`` ** :
+                   **If you don\'t specify a value for ``IPAddress`` ** :
         
                   Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
                   .. note::
         
-                    If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+                    If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
                   If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -1299,7 +1299,7 @@ class Client(BaseClient):
         
                     In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
                 - **SearchString** *(string) --* 
         
@@ -1313,15 +1313,15 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``RequestInterval`` after you create a health check.
+                    You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-                  If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+                  If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
                 - **FailureThreshold** *(integer) --* 
         
                   The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+                  If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
                 - **MeasureLatency** *(boolean) --* 
         
@@ -1329,7 +1329,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``MeasureLatency`` after you create a health check.
+                    You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
                 - **Inverted** *(boolean) --* 
         
@@ -1337,7 +1337,7 @@ class Client(BaseClient):
         
                 - **Disabled** *(boolean) --* 
         
-                  Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+                  Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
                   * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                    
@@ -1369,7 +1369,7 @@ class Client(BaseClient):
         
                   Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
                   The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -1377,7 +1377,7 @@ class Client(BaseClient):
         
                   A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-                  If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+                  If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
                   If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -1401,9 +1401,9 @@ class Client(BaseClient):
         
                       Route 53 supports CloudWatch alarms with the following features:
         
-                      * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                      * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                        
-                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                        
                 - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -1479,13 +1479,13 @@ class Client(BaseClient):
         
         .. warning::
         
-          You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
+          You can\'t convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
         
         For more information about charges for hosted zones, see `Amazon Route 53 Pricing <http://aws.amazon.com/route53/pricing/>`__ .
         
         Note the following:
         
-        * You can't create a hosted zone for a top-level domain (TLD) such as .com. 
+        * You can\'t create a hosted zone for a top-level domain (TLD) such as .com. 
          
         * For public hosted zones, Amazon Route 53 automatically creates a default SOA record and four NS records for the zone. For more information about SOA and NS records, see `NS and SOA Records that Route 53 Creates for a Hosted Zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html>`__ in the *Amazon Route 53 Developer Guide* . If you want to use the same name servers for multiple public hosted zones, you can optionally associate a reusable delegation set with the hosted zone. See the ``DelegationSetId`` element. 
          
@@ -1499,29 +1499,29 @@ class Client(BaseClient):
         ::
         
           response = client.create_hosted_zone(
-              Name='string',
+              Name=\'string\',
               VPC={
-                  'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                  'VPCId': 'string'
+                  \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                  \'VPCId\': \'string\'
               },
-              CallerReference='string',
+              CallerReference=\'string\',
               HostedZoneConfig={
-                  'Comment': 'string',
-                  'PrivateZone': True|False
+                  \'Comment\': \'string\',
+                  \'PrivateZone\': True|False
               },
-              DelegationSetId='string'
+              DelegationSetId=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
         
           The name of the domain. Specify a fully qualified domain name, for example, *www.example.com* . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
         
-          If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that ``CreateHostedZone`` returns in ``DelegationSet`` .
+          If you\'re creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that ``CreateHostedZone`` returns in ``DelegationSet`` .
         
         :type VPC: dict
         :param VPC: 
         
-          (Private hosted zones only) A complex type that contains information about the Amazon VPC that you're associating with this hosted zone.
+          (Private hosted zones only) A complex type that contains information about the Amazon VPC that you\'re associating with this hosted zone.
         
           You can specify only one Amazon VPC when you create a private hosted zone. To associate additional Amazon VPCs with the hosted zone, use  AssociateVPCWithHostedZone after you create a hosted zone.
         
@@ -1547,7 +1547,7 @@ class Client(BaseClient):
            
           * For private hosted zones, an optional ``PrivateZone`` element 
            
-          If you don't specify a comment or the ``PrivateZone`` element, omit ``HostedZoneConfig`` and the other elements.
+          If you don\'t specify a comment or the ``PrivateZone`` element, omit ``HostedZoneConfig`` and the other elements.
         
           - **Comment** *(string) --* 
         
@@ -1570,38 +1570,38 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZone': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'CallerReference': 'string',
-                    'Config': {
-                        'Comment': 'string',
-                        'PrivateZone': True|False
+                \'HostedZone\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'Config\': {
+                        \'Comment\': \'string\',
+                        \'PrivateZone\': True|False
                     },
-                    'ResourceRecordSetCount': 123,
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                    \'ResourceRecordSetCount\': 123,
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     }
                 },
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 },
-                'DelegationSet': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'NameServers': [
-                        'string',
+                \'DelegationSet\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'NameServers\': [
+                        \'string\',
                     ]
                 },
-                'VPC': {
-                    'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                    'VPCId': 'string'
+                \'VPC\': {
+                    \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                    \'VPCId\': \'string\'
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -1629,7 +1629,7 @@ class Client(BaseClient):
         
               - **Config** *(dict) --* 
         
-                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                 - **Comment** *(string) --* 
         
@@ -1645,15 +1645,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
             - **ChangeInfo** *(dict) --* 
         
@@ -1741,13 +1741,13 @@ class Client(BaseClient):
            
           * You must use the same AWS account to create the log group and the hosted zone that you want to configure query logging for. 
            
-          * When you create log groups for query logging, we recommend that you use a consistent prefix, for example:  ``/aws/route53/*hosted zone name* ``   In the next step, you'll create a resource policy, which controls access to one or more log groups and the associated AWS resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that you can create, so we recommend that you use a consistent prefix so you can use the same resource policy for all the log groups that you create for query logging. 
+          * When you create log groups for query logging, we recommend that you use a consistent prefix, for example:  ``/aws/route53/*hosted zone name* ``   In the next step, you\'ll create a resource policy, which controls access to one or more log groups and the associated AWS resources, such as Route 53 hosted zones. There\'s a limit on the number of resource policies that you can create, so we recommend that you use a consistent prefix so you can use the same resource policy for all the log groups that you create for query logging. 
            
         * Create a CloudWatch Logs resource policy, and give it the permissions that Route 53 needs to create log streams and to send query logs to log streams. For the value of ``Resource`` , specify the ARN for the log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups that you created for query logging configurations, replace the hosted zone name with ``*`` , for example:  ``arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*``   
         
         .. note::
         
-           You can't use the CloudWatch console to create or edit a resource policy. You must use the CloudWatch API, one of the AWS SDKs, or the AWS CLI. 
+           You can\'t use the CloudWatch console to create or edit a resource policy. You must use the CloudWatch API, one of the AWS SDKs, or the AWS CLI. 
         
           Log Streams and Edge Locations  
         
@@ -1761,11 +1761,11 @@ class Client(BaseClient):
         
          `` *hosted zone ID* /*edge location code* ``  
         
-        The edge location code is a three-letter code and an arbitrarily assigned number, for example, DFW3. The three-letter code typically corresponds with the International Air Transport Association airport code for an airport near the edge location. (These abbreviations might change in the future.) For a list of edge locations, see "The Route 53 Global Network" on the `Route 53 Product Details <http://aws.amazon.com/route53/details/>`__ page.
+        The edge location code is a three-letter code and an arbitrarily assigned number, for example, DFW3. The three-letter code typically corresponds with the International Air Transport Association airport code for an airport near the edge location. (These abbreviations might change in the future.) For a list of edge locations, see \"The Route 53 Global Network\" on the `Route 53 Product Details <http://aws.amazon.com/route53/details/>`__ page.
         
           Queries That Are Logged  
         
-        Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue to return the cached response. It doesn't forward another query to Route 53 until the TTL for the corresponding resource record set expires. Depending on how many DNS queries are submitted for a resource record set, and depending on the TTL for that resource record set, query logs might contain information about only one query out of every several thousand queries that are submitted to DNS. For more information about how DNS works, see `Routing Internet Traffic to Your Website or Web Application <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html>`__ in the *Amazon Route 53 Developer Guide* .
+        Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue to return the cached response. It doesn\'t forward another query to Route 53 until the TTL for the corresponding resource record set expires. Depending on how many DNS queries are submitted for a resource record set, and depending on the TTL for that resource record set, query logs might contain information about only one query out of every several thousand queries that are submitted to DNS. For more information about how DNS works, see `Routing Internet Traffic to Your Website or Web Application <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html>`__ in the *Amazon Route 53 Developer Guide* .
         
           Log File Format  
         
@@ -1785,8 +1785,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_query_logging_config(
-              HostedZoneId='string',
-              CloudWatchLogsLogGroupArn='string'
+              HostedZoneId=\'string\',
+              CloudWatchLogsLogGroupArn=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -1810,12 +1810,12 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryLoggingConfig': {
-                    'Id': 'string',
-                    'HostedZoneId': 'string',
-                    'CloudWatchLogsLogGroupArn': 'string'
+                \'QueryLoggingConfig\': {
+                    \'Id\': \'string\',
+                    \'HostedZoneId\': \'string\',
+                    \'CloudWatchLogsLogGroupArn\': \'string\'
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -1849,7 +1849,7 @@ class Client(BaseClient):
         
         .. note::
         
-          You can't associate a reusable delegation set with a private hosted zone.
+          You can\'t associate a reusable delegation set with a private hosted zone.
         
         For information about using a reusable delegation set to configure white label name servers, see `Configuring White Label Name Servers <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html>`__ .
         
@@ -1861,19 +1861,19 @@ class Client(BaseClient):
          
         * Recreate resource record sets in the new hosted zones. 
          
-        * Change the registrar's name servers to use the name servers for the new hosted zones. 
+        * Change the registrar\'s name servers to use the name servers for the new hosted zones. 
          
         * Monitor traffic for the website or application. 
          
         * Change TTLs back to their original values. 
          
-        If you want to migrate existing hosted zones to use a reusable delegation set, the existing hosted zones can't use any of the name servers that are assigned to the reusable delegation set. If one or more hosted zones do use one or more name servers that are assigned to the reusable delegation set, you can do one of the following:
+        If you want to migrate existing hosted zones to use a reusable delegation set, the existing hosted zones can\'t use any of the name servers that are assigned to the reusable delegation set. If one or more hosted zones do use one or more name servers that are assigned to the reusable delegation set, you can do one of the following:
         
-        * For small numbers of hosted zones—up to a few hundred—it's relatively easy to create reusable delegation sets until you get one that has four name servers that don't overlap with any of the name servers in your hosted zones. 
+        * For small numbers of hosted zones—up to a few hundred—it\'s relatively easy to create reusable delegation sets until you get one that has four name servers that don\'t overlap with any of the name servers in your hosted zones. 
          
         * For larger numbers of hosted zones, the easiest solution is to use more than one reusable delegation set. 
          
-        * For larger numbers of hosted zones, you can also migrate hosted zones that have overlapping name servers to hosted zones that don't have overlapping name servers, then migrate the hosted zones again to use the reusable delegation set. 
+        * For larger numbers of hosted zones, you can also migrate hosted zones that have overlapping name servers to hosted zones that don\'t have overlapping name servers, then migrate the hosted zones again to use the reusable delegation set. 
          
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/CreateReusableDelegationSet>`_
         
@@ -1881,8 +1881,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_reusable_delegation_set(
-              CallerReference='string',
-              HostedZoneId='string'
+              CallerReference=\'string\',
+              HostedZoneId=\'string\'
           )
         :type CallerReference: string
         :param CallerReference: **[REQUIRED]** 
@@ -1902,14 +1902,14 @@ class Client(BaseClient):
           ::
         
             {
-                'DelegationSet': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'NameServers': [
-                        'string',
+                \'DelegationSet\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'NameServers\': [
+                        \'string\',
                     ]
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -1949,9 +1949,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_traffic_policy(
-              Name='string',
-              Document='string',
-              Comment='string'
+              Name=\'string\',
+              Document=\'string\',
+              Comment=\'string\'
           )
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -1976,15 +1976,15 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicy': {
-                    'Id': 'string',
-                    'Version': 123,
-                    'Name': 'string',
-                    'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                    'Document': 'string',
-                    'Comment': 'string'
+                \'TrafficPolicy\': {
+                    \'Id\': \'string\',
+                    \'Version\': 123,
+                    \'Name\': \'string\',
+                    \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                    \'Document\': \'string\',
+                    \'Comment\': \'string\'
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -2036,10 +2036,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_traffic_policy_instance(
-              HostedZoneId='string',
-              Name='string',
+              HostedZoneId=\'string\',
+              Name=\'string\',
               TTL=123,
-              TrafficPolicyId='string',
+              TrafficPolicyId=\'string\',
               TrafficPolicyVersion=123
           )
         :type HostedZoneId: string
@@ -2075,18 +2075,18 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstance': {
-                    'Id': 'string',
-                    'HostedZoneId': 'string',
-                    'Name': 'string',
-                    'TTL': 123,
-                    'State': 'string',
-                    'Message': 'string',
-                    'TrafficPolicyId': 'string',
-                    'TrafficPolicyVersion': 123,
-                    'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                \'TrafficPolicyInstance\': {
+                    \'Id\': \'string\',
+                    \'HostedZoneId\': \'string\',
+                    \'Name\': \'string\',
+                    \'TTL\': 123,
+                    \'State\': \'string\',
+                    \'Message\': \'string\',
+                    \'TrafficPolicyId\': \'string\',
+                    \'TrafficPolicyVersion\': 123,
+                    \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -2128,7 +2128,7 @@ class Client(BaseClient):
         
                   Failed  
         
-                Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
               - **Message** *(string) --* 
         
@@ -2162,9 +2162,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_traffic_policy_version(
-              Id='string',
-              Document='string',
-              Comment='string'
+              Id=\'string\',
+              Document=\'string\',
+              Comment=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2189,15 +2189,15 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicy': {
-                    'Id': 'string',
-                    'Version': 123,
-                    'Name': 'string',
-                    'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                    'Document': 'string',
-                    'Comment': 'string'
+                \'TrafficPolicy\': {
+                    \'Id\': \'string\',
+                    \'Version\': 123,
+                    \'Name\': \'string\',
+                    \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                    \'Document\': \'string\',
+                    \'Comment\': \'string\'
                 },
-                'Location': 'string'
+                \'Location\': \'string\'
             }
           **Response Structure** 
         
@@ -2253,10 +2253,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_vpc_association_authorization(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               VPC={
-                  'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                  'VPCId': 'string'
+                  \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                  \'VPCId\': \'string\'
               }
           )
         :type HostedZoneId: string
@@ -2285,10 +2285,10 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZoneId': 'string',
-                'VPC': {
-                    'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                    'VPCId': 'string'
+                \'HostedZoneId\': \'string\',
+                \'VPC\': {
+                    \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                    \'VPCId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2321,7 +2321,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don't update the associated resource record sets, the future status of the health check can't be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see `Replacing and Deleting Health Checks <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html>`__ in the *Amazon Route 53 Developer Guide* .
+          Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don\'t update the associated resource record sets, the future status of the health check can\'t be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see `Replacing and Deleting Health Checks <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html>`__ in the *Amazon Route 53 Developer Guide* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/DeleteHealthCheck>`_
         
@@ -2329,7 +2329,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_health_check(
-              HealthCheckId='string'
+              HealthCheckId=\'string\'
           )
         :type HealthCheckId: string
         :param HealthCheckId: **[REQUIRED]** 
@@ -2360,7 +2360,7 @@ class Client(BaseClient):
         
           If the name servers for the hosted zone are associated with a domain and if you want to make the domain unavailable on the Internet, we recommend that you delete the name servers from the domain to prevent future DNS queries from possibly being misrouted. If the domain is registered with Amazon Route 53, see ``UpdateDomainNameservers`` . If the domain is registered with another registrar, use the method provided by the registrar to delete name servers for the domain.
         
-          Some domain registries don't allow you to remove all of the name servers for a domain. If the registry for your domain requires one or more name servers, we recommend that you delete the hosted zone only if you transfer DNS service to another service provider, and you replace the name servers for the domain with name servers from the new provider.
+          Some domain registries don\'t allow you to remove all of the name servers for a domain. If the registry for your domain requires one or more name servers, we recommend that you delete the hosted zone only if you transfer DNS service to another service provider, and you replace the name servers for the domain with name servers from the new provider.
         
         You can delete a hosted zone only if it contains only the default SOA record and NS resource record sets. If the hosted zone contains other resource record sets, you must delete them before you can delete the hosted zone. If you try to delete a hosted zone that contains other resource record sets, the request fails, and Route 53 returns a ``HostedZoneNotEmpty`` error. For information about deleting records from your hosted zone, see  ChangeResourceRecordSets .
         
@@ -2376,7 +2376,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hosted_zone(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2391,11 +2391,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2440,7 +2440,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_query_logging_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2466,7 +2466,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          You can delete a reusable delegation set only if it isn't associated with any hosted zones.
+          You can delete a reusable delegation set only if it isn\'t associated with any hosted zones.
         
         To verify that the reusable delegation set is not associated with any hosted zones, submit a  GetReusableDelegationSet request and specify the ID of the reusable delegation set that you want to delete.
         
@@ -2476,7 +2476,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_reusable_delegation_set(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2509,7 +2509,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_traffic_policy(
-              Id='string',
+              Id=\'string\',
               Version=123
           )
         :type Id: string
@@ -2552,7 +2552,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_traffic_policy_instance(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2585,7 +2585,7 @@ class Client(BaseClient):
         
         .. warning::
         
-          Sending this request only prevents the AWS account that created the VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone, ``DeleteVPCAssociationAuthorization`` won't disassociate the VPC from the hosted zone. If you want to delete an existing association, use ``DisassociateVPCFromHostedZone`` .
+          Sending this request only prevents the AWS account that created the VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone, ``DeleteVPCAssociationAuthorization`` won\'t disassociate the VPC from the hosted zone. If you want to delete an existing association, use ``DisassociateVPCFromHostedZone`` .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/DeleteVPCAssociationAuthorization>`_
         
@@ -2593,10 +2593,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vpc_association_authorization(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               VPC={
-                  'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                  'VPCId': 'string'
+                  \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                  \'VPCId\': \'string\'
               }
           )
         :type HostedZoneId: string
@@ -2638,9 +2638,9 @@ class Client(BaseClient):
         """
         Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
         
-        * You can't disassociate the last VPC from a private hosted zone. 
+        * You can\'t disassociate the last VPC from a private hosted zone. 
          
-        * You can't convert a private hosted zone into a public hosted zone. 
+        * You can\'t convert a private hosted zone into a public hosted zone. 
          
         * You can submit a ``DisassociateVPCFromHostedZone`` request using either the account that created the hosted zone or the account that created the VPC. 
          
@@ -2650,12 +2650,12 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_vpc_from_hosted_zone(
-              HostedZoneId='string',
+              HostedZoneId=\'string\',
               VPC={
-                  'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                  'VPCId': 'string'
+                  \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                  \'VPCId\': \'string\'
               },
-              Comment='string'
+              Comment=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -2665,7 +2665,7 @@ class Client(BaseClient):
         :type VPC: dict
         :param VPC: **[REQUIRED]** 
         
-          A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
+          A complex type that contains information about the VPC that you\'re disassociating from the specified hosted zone.
         
           - **VPCRegion** *(string) --* 
         
@@ -2688,11 +2688,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2742,7 +2742,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2759,7 +2759,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_account_limit(
-              Type='MAX_HEALTH_CHECKS_BY_OWNER'|'MAX_HOSTED_ZONES_BY_OWNER'|'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER'|'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER'|'MAX_TRAFFIC_POLICIES_BY_OWNER'
+              Type=\'MAX_HEALTH_CHECKS_BY_OWNER\'|\'MAX_HOSTED_ZONES_BY_OWNER\'|\'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER\'|\'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER\'|\'MAX_TRAFFIC_POLICIES_BY_OWNER\'
           )
         :type Type: string
         :param Type: **[REQUIRED]** 
@@ -2784,11 +2784,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Limit': {
-                    'Type': 'MAX_HEALTH_CHECKS_BY_OWNER'|'MAX_HOSTED_ZONES_BY_OWNER'|'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER'|'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER'|'MAX_TRAFFIC_POLICIES_BY_OWNER',
-                    'Value': 123
+                \'Limit\': {
+                    \'Type\': \'MAX_HEALTH_CHECKS_BY_OWNER\'|\'MAX_HOSTED_ZONES_BY_OWNER\'|\'MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER\'|\'MAX_REUSABLE_DELEGATION_SETS_BY_OWNER\'|\'MAX_TRAFFIC_POLICIES_BY_OWNER\',
+                    \'Value\': 123
                 },
-                'Count': 123
+                \'Count\': 123
             }
           **Response Structure** 
         
@@ -2839,7 +2839,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_change(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -2854,11 +2854,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ChangeInfo': {
-                    'Id': 'string',
-                    'Status': 'PENDING'|'INSYNC',
-                    'SubmittedAt': datetime(2015, 1, 1),
-                    'Comment': 'string'
+                \'ChangeInfo\': {
+                    \'Id\': \'string\',
+                    \'Status\': \'PENDING\'|\'INSYNC\',
+                    \'SubmittedAt\': datetime(2015, 1, 1),
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2913,8 +2913,8 @@ class Client(BaseClient):
           ::
         
             {
-                'CheckerIpRanges': [
-                    'string',
+                \'CheckerIpRanges\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2949,9 +2949,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_geo_location(
-              ContinentCode='string',
-              CountryCode='string',
-              SubdivisionCode='string'
+              ContinentCode=\'string\',
+              CountryCode=\'string\',
+              SubdivisionCode=\'string\'
           )
         :type ContinentCode: string
         :param ContinentCode: 
@@ -2980,7 +2980,7 @@ class Client(BaseClient):
         :type SubdivisionCode: string
         :param SubdivisionCode: 
         
-          Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in `ISO standard 3166-1 alpha-2 <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>`__ . Route 53 doesn't support subdivision codes for all countries. If you specify ``subdivisioncode`` , you must also specify ``countrycode`` . 
+          Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in `ISO standard 3166-1 alpha-2 <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>`__ . Route 53 doesn\'t support subdivision codes for all countries. If you specify ``subdivisioncode`` , you must also specify ``countrycode`` . 
         
         :rtype: dict
         :returns: 
@@ -2990,13 +2990,13 @@ class Client(BaseClient):
           ::
         
             {
-                'GeoLocationDetails': {
-                    'ContinentCode': 'string',
-                    'ContinentName': 'string',
-                    'CountryCode': 'string',
-                    'CountryName': 'string',
-                    'SubdivisionCode': 'string',
-                    'SubdivisionName': 'string'
+                \'GeoLocationDetails\': {
+                    \'ContinentCode\': \'string\',
+                    \'ContinentName\': \'string\',
+                    \'CountryCode\': \'string\',
+                    \'CountryName\': \'string\',
+                    \'SubdivisionCode\': \'string\',
+                    \'SubdivisionName\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3045,7 +3045,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_health_check(
-              HealthCheckId='string'
+              HealthCheckId=\'string\'
           )
         :type HealthCheckId: string
         :param HealthCheckId: **[REQUIRED]** 
@@ -3060,52 +3060,52 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheck': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                \'HealthCheck\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     },
-                    'HealthCheckConfig': {
-                        'IPAddress': 'string',
-                        'Port': 123,
-                        'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                        'ResourcePath': 'string',
-                        'FullyQualifiedDomainName': 'string',
-                        'SearchString': 'string',
-                        'RequestInterval': 123,
-                        'FailureThreshold': 123,
-                        'MeasureLatency': True|False,
-                        'Inverted': True|False,
-                        'Disabled': True|False,
-                        'HealthThreshold': 123,
-                        'ChildHealthChecks': [
-                            'string',
+                    \'HealthCheckConfig\': {
+                        \'IPAddress\': \'string\',
+                        \'Port\': 123,
+                        \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                        \'ResourcePath\': \'string\',
+                        \'FullyQualifiedDomainName\': \'string\',
+                        \'SearchString\': \'string\',
+                        \'RequestInterval\': 123,
+                        \'FailureThreshold\': 123,
+                        \'MeasureLatency\': True|False,
+                        \'Inverted\': True|False,
+                        \'Disabled\': True|False,
+                        \'HealthThreshold\': 123,
+                        \'ChildHealthChecks\': [
+                            \'string\',
                         ],
-                        'EnableSNI': True|False,
-                        'Regions': [
-                            'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                        \'EnableSNI\': True|False,
+                        \'Regions\': [
+                            \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                         ],
-                        'AlarmIdentifier': {
-                            'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                            'Name': 'string'
+                        \'AlarmIdentifier\': {
+                            \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                            \'Name\': \'string\'
                         },
-                        'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                        \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
                     },
-                    'HealthCheckVersion': 123,
-                    'CloudWatchAlarmConfiguration': {
-                        'EvaluationPeriods': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'Period': 123,
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'Average'|'Sum'|'SampleCount'|'Maximum'|'Minimum',
-                        'Dimensions': [
+                    \'HealthCheckVersion\': 123,
+                    \'CloudWatchAlarmConfiguration\': {
+                        \'EvaluationPeriods\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'Period\': 123,
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'Average\'|\'Sum\'|\'SampleCount\'|\'Maximum\'|\'Minimum\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     }
@@ -3131,15 +3131,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53. 
+                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
               - **HealthCheckConfig** *(dict) --* 
         
@@ -3147,7 +3147,7 @@ class Client(BaseClient):
         
                 - **IPAddress** *(string) --* 
         
-                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
                   Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -3159,7 +3159,7 @@ class Client(BaseClient):
         
                   For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-                  Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+                  Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
                   * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                    
@@ -3179,7 +3179,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``Type`` after you create a health check.
+                    You can\'t change the value of ``Type`` after you create a health check.
         
                   You can create the following types of health checks:
         
@@ -3197,7 +3197,7 @@ class Client(BaseClient):
                    
                   * **TCP** : Route 53 tries to establish a TCP connection. 
                    
-                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                    
                   * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
                    
@@ -3223,15 +3223,15 @@ class Client(BaseClient):
                    
                   * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
                    
-                  If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+                  If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-                   **If you don't specify a value for ``IPAddress`` ** :
+                   **If you don\'t specify a value for ``IPAddress`` ** :
         
                   Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
                   .. note::
         
-                    If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+                    If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
                   If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -3239,7 +3239,7 @@ class Client(BaseClient):
         
                     In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
                 - **SearchString** *(string) --* 
         
@@ -3253,15 +3253,15 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``RequestInterval`` after you create a health check.
+                    You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-                  If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+                  If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
                 - **FailureThreshold** *(integer) --* 
         
                   The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+                  If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
                 - **MeasureLatency** *(boolean) --* 
         
@@ -3269,7 +3269,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``MeasureLatency`` after you create a health check.
+                    You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
                 - **Inverted** *(boolean) --* 
         
@@ -3277,7 +3277,7 @@ class Client(BaseClient):
         
                 - **Disabled** *(boolean) --* 
         
-                  Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+                  Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
                   * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                    
@@ -3309,7 +3309,7 @@ class Client(BaseClient):
         
                   Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
                   The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -3317,7 +3317,7 @@ class Client(BaseClient):
         
                   A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-                  If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+                  If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
                   If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -3341,9 +3341,9 @@ class Client(BaseClient):
         
                       Route 53 supports CloudWatch alarms with the following features:
         
-                      * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                      * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                        
-                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                        
                 - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -3428,7 +3428,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheckCount': 123
+                \'HealthCheckCount\': 123
             }
           **Response Structure** 
         
@@ -3452,7 +3452,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_health_check_last_failure_reason(
-              HealthCheckId='string'
+              HealthCheckId=\'string\'
           )
         :type HealthCheckId: string
         :param HealthCheckId: **[REQUIRED]** 
@@ -3461,7 +3461,7 @@ class Client(BaseClient):
         
           .. note::
         
-            If you want to get the last failure reason for a calculated health check, you must use the Amazon Route 53 console or the CloudWatch console. You can't use ``GetHealthCheckLastFailureReason`` for a calculated health check.
+            If you want to get the last failure reason for a calculated health check, you must use the Amazon Route 53 console or the CloudWatch console. You can\'t use ``GetHealthCheckLastFailureReason`` for a calculated health check.
         
         :rtype: dict
         :returns: 
@@ -3471,13 +3471,13 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheckObservations': [
+                \'HealthCheckObservations\': [
                     {
-                        'Region': 'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
-                        'IPAddress': 'string',
-                        'StatusReport': {
-                            'Status': 'string',
-                            'CheckedTime': datetime(2015, 1, 1)
+                        \'Region\': \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
+                        \'IPAddress\': \'string\',
+                        \'StatusReport\': {
+                            \'Status\': \'string\',
+                            \'CheckedTime\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -3528,7 +3528,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_health_check_status(
-              HealthCheckId='string'
+              HealthCheckId=\'string\'
           )
         :type HealthCheckId: string
         :param HealthCheckId: **[REQUIRED]** 
@@ -3537,7 +3537,7 @@ class Client(BaseClient):
         
           .. note::
         
-            If you want to check the status of a calculated health check, you must use the Amazon Route 53 console or the CloudWatch console. You can't use ``GetHealthCheckStatus`` to get the status of a calculated health check.
+            If you want to check the status of a calculated health check, you must use the Amazon Route 53 console or the CloudWatch console. You can\'t use ``GetHealthCheckStatus`` to get the status of a calculated health check.
         
         :rtype: dict
         :returns: 
@@ -3547,13 +3547,13 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheckObservations': [
+                \'HealthCheckObservations\': [
                     {
-                        'Region': 'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
-                        'IPAddress': 'string',
-                        'StatusReport': {
-                            'Status': 'string',
-                            'CheckedTime': datetime(2015, 1, 1)
+                        \'Region\': \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
+                        \'IPAddress\': \'string\',
+                        \'StatusReport\': {
+                            \'Status\': \'string\',
+                            \'CheckedTime\': datetime(2015, 1, 1)
                         }
                     },
                 ]
@@ -3604,7 +3604,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_hosted_zone(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -3619,31 +3619,31 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZone': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'CallerReference': 'string',
-                    'Config': {
-                        'Comment': 'string',
-                        'PrivateZone': True|False
+                \'HostedZone\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'Config\': {
+                        \'Comment\': \'string\',
+                        \'PrivateZone\': True|False
                     },
-                    'ResourceRecordSetCount': 123,
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                    \'ResourceRecordSetCount\': 123,
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     }
                 },
-                'DelegationSet': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'NameServers': [
-                        'string',
+                \'DelegationSet\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'NameServers\': [
+                        \'string\',
                     ]
                 },
-                'VPCs': [
+                \'VPCs\': [
                     {
-                        'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                        'VPCId': 'string'
+                        \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                        \'VPCId\': \'string\'
                     },
                 ]
             }
@@ -3673,7 +3673,7 @@ class Client(BaseClient):
         
               - **Config** *(dict) --* 
         
-                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                 - **Comment** *(string) --* 
         
@@ -3689,15 +3689,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
             - **DelegationSet** *(dict) --* 
         
@@ -3754,7 +3754,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZoneCount': 123
+                \'HostedZoneCount\': 123
             }
           **Response Structure** 
         
@@ -3780,8 +3780,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_hosted_zone_limit(
-              Type='MAX_RRSETS_BY_ZONE'|'MAX_VPCS_ASSOCIATED_BY_ZONE',
-              HostedZoneId='string'
+              Type=\'MAX_RRSETS_BY_ZONE\'|\'MAX_VPCS_ASSOCIATED_BY_ZONE\',
+              HostedZoneId=\'string\'
           )
         :type Type: string
         :param Type: **[REQUIRED]** 
@@ -3805,11 +3805,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Limit': {
-                    'Type': 'MAX_RRSETS_BY_ZONE'|'MAX_VPCS_ASSOCIATED_BY_ZONE',
-                    'Value': 123
+                \'Limit\': {
+                    \'Type\': \'MAX_RRSETS_BY_ZONE\'|\'MAX_VPCS_ASSOCIATED_BY_ZONE\',
+                    \'Value\': 123
                 },
-                'Count': 123
+                \'Count\': 123
             }
           **Response Structure** 
         
@@ -3846,10 +3846,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -3871,7 +3871,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_query_logging_config(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -3886,10 +3886,10 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryLoggingConfig': {
-                    'Id': 'string',
-                    'HostedZoneId': 'string',
-                    'CloudWatchLogsLogGroupArn': 'string'
+                \'QueryLoggingConfig\': {
+                    \'Id\': \'string\',
+                    \'HostedZoneId\': \'string\',
+                    \'CloudWatchLogsLogGroupArn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3924,7 +3924,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_reusable_delegation_set(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -3939,11 +3939,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DelegationSet': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'NameServers': [
-                        'string',
+                \'DelegationSet\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'NameServers\': [
+                        \'string\',
                     ]
                 }
             }
@@ -3985,8 +3985,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_reusable_delegation_set_limit(
-              Type='MAX_ZONES_BY_REUSABLE_DELEGATION_SET',
-              DelegationSetId='string'
+              Type=\'MAX_ZONES_BY_REUSABLE_DELEGATION_SET\',
+              DelegationSetId=\'string\'
           )
         :type Type: string
         :param Type: **[REQUIRED]** 
@@ -4006,11 +4006,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Limit': {
-                    'Type': 'MAX_ZONES_BY_REUSABLE_DELEGATION_SET',
-                    'Value': 123
+                \'Limit\': {
+                    \'Type\': \'MAX_ZONES_BY_REUSABLE_DELEGATION_SET\',
+                    \'Value\': 123
                 },
-                'Count': 123
+                \'Count\': 123
             }
           **Response Structure** 
         
@@ -4046,7 +4046,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_traffic_policy(
-              Id='string',
+              Id=\'string\',
               Version=123
           )
         :type Id: string
@@ -4067,13 +4067,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicy': {
-                    'Id': 'string',
-                    'Version': 123,
-                    'Name': 'string',
-                    'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                    'Document': 'string',
-                    'Comment': 'string'
+                \'TrafficPolicy\': {
+                    \'Id\': \'string\',
+                    \'Version\': 123,
+                    \'Name\': \'string\',
+                    \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                    \'Document\': \'string\',
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4118,7 +4118,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
+          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
         
         .. note::
         
@@ -4130,7 +4130,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_traffic_policy_instance(
-              Id='string'
+              Id=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -4145,16 +4145,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstance': {
-                    'Id': 'string',
-                    'HostedZoneId': 'string',
-                    'Name': 'string',
-                    'TTL': 123,
-                    'State': 'string',
-                    'Message': 'string',
-                    'TrafficPolicyId': 'string',
-                    'TrafficPolicyVersion': 123,
-                    'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                \'TrafficPolicyInstance\': {
+                    \'Id\': \'string\',
+                    \'HostedZoneId\': \'string\',
+                    \'Name\': \'string\',
+                    \'TTL\': 123,
+                    \'State\': \'string\',
+                    \'Message\': \'string\',
+                    \'TrafficPolicyId\': \'string\',
+                    \'TrafficPolicyVersion\': 123,
+                    \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                 }
             }
           **Response Structure** 
@@ -4197,7 +4197,7 @@ class Client(BaseClient):
         
                   Failed  
         
-                Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
               - **Message** *(string) --* 
         
@@ -4236,7 +4236,7 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstanceCount': 123
+                \'TrafficPolicyInstanceCount\': 123
             }
           **Response Structure** 
         
@@ -4274,17 +4274,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_geo_locations(
-              StartContinentCode='string',
-              StartCountryCode='string',
-              StartSubdivisionCode='string',
-              MaxItems='string'
+              StartContinentCode=\'string\',
+              StartCountryCode=\'string\',
+              StartSubdivisionCode=\'string\',
+              MaxItems=\'string\'
           )
         :type StartContinentCode: string
         :param StartContinentCode: 
         
           The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if ``IsTruncated`` is true, and if ``NextContinentCode`` from the previous response has a value, enter that value in ``startcontinentcode`` to return the next page of results.
         
-          Include ``startcontinentcode`` only if you want to list continents. Don't include ``startcontinentcode`` when you're listing countries or countries with their subdivisions.
+          Include ``startcontinentcode`` only if you want to list continents. Don\'t include ``startcontinentcode`` when you\'re listing countries or countries with their subdivisions.
         
         :type StartCountryCode: string
         :param StartCountryCode: 
@@ -4313,21 +4313,21 @@ class Client(BaseClient):
           ::
         
             {
-                'GeoLocationDetailsList': [
+                \'GeoLocationDetailsList\': [
                     {
-                        'ContinentCode': 'string',
-                        'ContinentName': 'string',
-                        'CountryCode': 'string',
-                        'CountryName': 'string',
-                        'SubdivisionCode': 'string',
-                        'SubdivisionName': 'string'
+                        \'ContinentCode\': \'string\',
+                        \'ContinentName\': \'string\',
+                        \'CountryCode\': \'string\',
+                        \'CountryName\': \'string\',
+                        \'SubdivisionCode\': \'string\',
+                        \'SubdivisionName\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextContinentCode': 'string',
-                'NextCountryCode': 'string',
-                'NextSubdivisionCode': 'string',
-                'MaxItems': 'string'
+                \'IsTruncated\': True|False,
+                \'NextContinentCode\': \'string\',
+                \'NextCountryCode\': \'string\',
+                \'NextSubdivisionCode\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -4399,8 +4399,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_health_checks(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -4424,62 +4424,62 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthChecks': [
+                \'HealthChecks\': [
                     {
-                        'Id': 'string',
-                        'CallerReference': 'string',
-                        'LinkedService': {
-                            'ServicePrincipal': 'string',
-                            'Description': 'string'
+                        \'Id\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'LinkedService\': {
+                            \'ServicePrincipal\': \'string\',
+                            \'Description\': \'string\'
                         },
-                        'HealthCheckConfig': {
-                            'IPAddress': 'string',
-                            'Port': 123,
-                            'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                            'ResourcePath': 'string',
-                            'FullyQualifiedDomainName': 'string',
-                            'SearchString': 'string',
-                            'RequestInterval': 123,
-                            'FailureThreshold': 123,
-                            'MeasureLatency': True|False,
-                            'Inverted': True|False,
-                            'Disabled': True|False,
-                            'HealthThreshold': 123,
-                            'ChildHealthChecks': [
-                                'string',
+                        \'HealthCheckConfig\': {
+                            \'IPAddress\': \'string\',
+                            \'Port\': 123,
+                            \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                            \'ResourcePath\': \'string\',
+                            \'FullyQualifiedDomainName\': \'string\',
+                            \'SearchString\': \'string\',
+                            \'RequestInterval\': 123,
+                            \'FailureThreshold\': 123,
+                            \'MeasureLatency\': True|False,
+                            \'Inverted\': True|False,
+                            \'Disabled\': True|False,
+                            \'HealthThreshold\': 123,
+                            \'ChildHealthChecks\': [
+                                \'string\',
                             ],
-                            'EnableSNI': True|False,
-                            'Regions': [
-                                'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                            \'EnableSNI\': True|False,
+                            \'Regions\': [
+                                \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                             ],
-                            'AlarmIdentifier': {
-                                'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                                'Name': 'string'
+                            \'AlarmIdentifier\': {
+                                \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                                \'Name\': \'string\'
                             },
-                            'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                            \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
                         },
-                        'HealthCheckVersion': 123,
-                        'CloudWatchAlarmConfiguration': {
-                            'EvaluationPeriods': 123,
-                            'Threshold': 123.0,
-                            'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                            'Period': 123,
-                            'MetricName': 'string',
-                            'Namespace': 'string',
-                            'Statistic': 'Average'|'Sum'|'SampleCount'|'Maximum'|'Minimum',
-                            'Dimensions': [
+                        \'HealthCheckVersion\': 123,
+                        \'CloudWatchAlarmConfiguration\': {
+                            \'EvaluationPeriods\': 123,
+                            \'Threshold\': 123.0,
+                            \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                            \'Period\': 123,
+                            \'MetricName\': \'string\',
+                            \'Namespace\': \'string\',
+                            \'Statistic\': \'Average\'|\'Sum\'|\'SampleCount\'|\'Maximum\'|\'Minimum\',
+                            \'Dimensions\': [
                                 {
-                                    'Name': 'string',
-                                    'Value': 'string'
+                                    \'Name\': \'string\',
+                                    \'Value\': \'string\'
                                 },
                             ]
                         }
                     },
                 ],
-                'Marker': 'string',
-                'IsTruncated': True|False,
-                'NextMarker': 'string',
-                'MaxItems': 'string'
+                \'Marker\': \'string\',
+                \'IsTruncated\': True|False,
+                \'NextMarker\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -4505,15 +4505,15 @@ class Client(BaseClient):
         
                 - **LinkedService** *(dict) --* 
         
-                  If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **ServicePrincipal** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **Description** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **HealthCheckConfig** *(dict) --* 
         
@@ -4521,7 +4521,7 @@ class Client(BaseClient):
         
                   - **IPAddress** *(string) --* 
         
-                    The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+                    The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
                     Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -4533,7 +4533,7 @@ class Client(BaseClient):
         
                     For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-                    Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+                    Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
                     * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                      
@@ -4553,7 +4553,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      You can't change the value of ``Type`` after you create a health check.
+                      You can\'t change the value of ``Type`` after you create a health check.
         
                     You can create the following types of health checks:
         
@@ -4571,7 +4571,7 @@ class Client(BaseClient):
                      
                     * **TCP** : Route 53 tries to establish a TCP connection. 
                      
-                    * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+                    * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                      
                     * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
                      
@@ -4597,15 +4597,15 @@ class Client(BaseClient):
                      
                     * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
                      
-                    If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+                    If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-                     **If you don't specify a value for ``IPAddress`` ** :
+                     **If you don\'t specify a value for ``IPAddress`` ** :
         
                     Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
                     .. note::
         
-                      If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+                      If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
                     If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -4613,7 +4613,7 @@ class Client(BaseClient):
         
                       In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-                    In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+                    In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
                   - **SearchString** *(string) --* 
         
@@ -4627,15 +4627,15 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      You can't change the value of ``RequestInterval`` after you create a health check.
+                      You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-                    If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+                    If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
                   - **FailureThreshold** *(integer) --* 
         
                     The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                    If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+                    If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
                   - **MeasureLatency** *(boolean) --* 
         
@@ -4643,7 +4643,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      You can't change the value of ``MeasureLatency`` after you create a health check.
+                      You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
                   - **Inverted** *(boolean) --* 
         
@@ -4651,7 +4651,7 @@ class Client(BaseClient):
         
                   - **Disabled** *(boolean) --* 
         
-                    Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+                    Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
                     * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                      
@@ -4683,7 +4683,7 @@ class Client(BaseClient):
         
                     Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-                    Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+                    Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
                     The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -4691,7 +4691,7 @@ class Client(BaseClient):
         
                     A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-                    If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+                    If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
                     If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -4715,9 +4715,9 @@ class Client(BaseClient):
         
                         Route 53 supports CloudWatch alarms with the following features:
         
-                        * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                        * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                          
-                        * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                        * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                          
                   - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -4811,9 +4811,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_hosted_zones(
-              Marker='string',
-              MaxItems='string',
-              DelegationSetId='string'
+              Marker=\'string\',
+              MaxItems=\'string\',
+              DelegationSetId=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -4832,7 +4832,7 @@ class Client(BaseClient):
         :type DelegationSetId: string
         :param DelegationSetId: 
         
-          If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set. 
+          If you\'re using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set. 
         
         :rtype: dict
         :returns: 
@@ -4842,26 +4842,26 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZones': [
+                \'HostedZones\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Config': {
-                            'Comment': 'string',
-                            'PrivateZone': True|False
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Config\': {
+                            \'Comment\': \'string\',
+                            \'PrivateZone\': True|False
                         },
-                        'ResourceRecordSetCount': 123,
-                        'LinkedService': {
-                            'ServicePrincipal': 'string',
-                            'Description': 'string'
+                        \'ResourceRecordSetCount\': 123,
+                        \'LinkedService\': {
+                            \'ServicePrincipal\': \'string\',
+                            \'Description\': \'string\'
                         }
                     },
                 ],
-                'Marker': 'string',
-                'IsTruncated': True|False,
-                'NextMarker': 'string',
-                'MaxItems': 'string'
+                \'Marker\': \'string\',
+                \'IsTruncated\': True|False,
+                \'NextMarker\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -4891,7 +4891,7 @@ class Client(BaseClient):
         
                 - **Config** *(dict) --* 
         
-                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                   - **Comment** *(string) --* 
         
@@ -4907,15 +4907,15 @@ class Client(BaseClient):
         
                 - **LinkedService** *(dict) --* 
         
-                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                   - **ServicePrincipal** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **Description** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
             - **Marker** *(string) --* 
         
@@ -4969,14 +4969,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_hosted_zones_by_name(
-              DNSName='string',
-              HostedZoneId='string',
-              MaxItems='string'
+              DNSName=\'string\',
+              HostedZoneId=\'string\',
+              MaxItems=\'string\'
           )
         :type DNSName: string
         :param DNSName: 
         
-          (Optional) For your first request to ``ListHostedZonesByName`` , include the ``dnsname`` parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the ``dnsname`` parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both ``dnsname`` and ``hostedzoneid`` parameters. For ``dnsname`` , specify the value of ``NextDNSName`` from the previous response.
+          (Optional) For your first request to ``ListHostedZonesByName`` , include the ``dnsname`` parameter only if you want to specify the name of the first hosted zone in the response. If you don\'t include the ``dnsname`` parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both ``dnsname`` and ``hostedzoneid`` parameters. For ``dnsname`` , specify the value of ``NextDNSName`` from the previous response.
         
         :type HostedZoneId: string
         :param HostedZoneId: 
@@ -4998,28 +4998,28 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZones': [
+                \'HostedZones\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'CallerReference': 'string',
-                        'Config': {
-                            'Comment': 'string',
-                            'PrivateZone': True|False
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'Config\': {
+                            \'Comment\': \'string\',
+                            \'PrivateZone\': True|False
                         },
-                        'ResourceRecordSetCount': 123,
-                        'LinkedService': {
-                            'ServicePrincipal': 'string',
-                            'Description': 'string'
+                        \'ResourceRecordSetCount\': 123,
+                        \'LinkedService\': {
+                            \'ServicePrincipal\': \'string\',
+                            \'Description\': \'string\'
                         }
                     },
                 ],
-                'DNSName': 'string',
-                'HostedZoneId': 'string',
-                'IsTruncated': True|False,
-                'NextDNSName': 'string',
-                'NextHostedZoneId': 'string',
-                'MaxItems': 'string'
+                \'DNSName\': \'string\',
+                \'HostedZoneId\': \'string\',
+                \'IsTruncated\': True|False,
+                \'NextDNSName\': \'string\',
+                \'NextHostedZoneId\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -5051,7 +5051,7 @@ class Client(BaseClient):
         
                 - **Config** *(dict) --* 
         
-                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                  A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                   - **Comment** *(string) --* 
         
@@ -5067,15 +5067,15 @@ class Client(BaseClient):
         
                 - **LinkedService** *(dict) --* 
         
-                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                  If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                   - **ServicePrincipal** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                   - **Description** *(string) --* 
         
-                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                    If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
             - **DNSName** *(string) --* 
         
@@ -5119,16 +5119,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_query_logging_configs(
-              HostedZoneId='string',
-              NextToken='string',
-              MaxResults='string'
+              HostedZoneId=\'string\',
+              NextToken=\'string\',
+              MaxResults=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: 
         
           (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in ``HostedZoneId`` . 
         
-          If you don't specify a hosted zone ID, ``ListQueryLoggingConfigs`` returns all of the configurations that are associated with the current AWS account.
+          If you don\'t specify a hosted zone ID, ``ListQueryLoggingConfigs`` returns all of the configurations that are associated with the current AWS account.
         
         :type NextToken: string
         :param NextToken: 
@@ -5144,7 +5144,7 @@ class Client(BaseClient):
         
           (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than ``MaxResults`` configurations, use the value of  ListQueryLoggingConfigsResponse$NextToken in the response to get the next page of results.
         
-          If you don't specify a value for ``MaxResults`` , Route 53 returns up to 100 configurations.
+          If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 100 configurations.
         
         :rtype: dict
         :returns: 
@@ -5154,14 +5154,14 @@ class Client(BaseClient):
           ::
         
             {
-                'QueryLoggingConfigs': [
+                \'QueryLoggingConfigs\': [
                     {
-                        'Id': 'string',
-                        'HostedZoneId': 'string',
-                        'CloudWatchLogsLogGroupArn': 'string'
+                        \'Id\': \'string\',
+                        \'HostedZoneId\': \'string\',
+                        \'CloudWatchLogsLogGroupArn\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -5189,9 +5189,9 @@ class Client(BaseClient):
         
             - **NextToken** *(string) --* 
         
-              If a response includes the last of the query logging configurations that are associated with the current AWS account, ``NextToken`` doesn't appear in the response.
+              If a response includes the last of the query logging configurations that are associated with the current AWS account, ``NextToken`` doesn\'t appear in the response.
         
-              If a response doesn't include the last of the configurations, you can get more configurations by submitting another  ListQueryLoggingConfigs request. Get the value of ``NextToken`` that Amazon Route 53 returned in the previous response and include it in ``NextToken`` in the next request.
+              If a response doesn\'t include the last of the configurations, you can get more configurations by submitting another  ListQueryLoggingConfigs request. Get the value of ``NextToken`` that Amazon Route 53 returned in the previous response and include it in ``NextToken`` in the next request.
         
         """
         pass
@@ -5207,7 +5207,7 @@ class Client(BaseClient):
         
          ``com.example.www.``  
         
-        Note the trailing dot, which can change the sort order when the record name contains characters that appear before ``.`` (decimal 46) in the ASCII table. These characters include the following: ``! " # $ % & ' ( ) * + , -``  
+        Note the trailing dot, which can change the sort order when the record name contains characters that appear before ``.`` (decimal 46) in the ASCII table. These characters include the following: ``! \" # $ % & \' ( ) * + , -``  
         
         When multiple records have the same DNS name, ``ListResourceRecordSets`` sorts results by the record type.
         
@@ -5237,7 +5237,7 @@ class Client(BaseClient):
         
          **Changing resource record sets**  
         
-        To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a ``ChangeResourceRecordSets`` request while you're paging through the results of a ``ListResourceRecordSets`` request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes.
+        To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a ``ChangeResourceRecordSets`` request while you\'re paging through the results of a ``ListResourceRecordSets`` request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes.
         
          **Displaying the next page of results**  
         
@@ -5249,11 +5249,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_resource_record_sets(
-              HostedZoneId='string',
-              StartRecordName='string',
-              StartRecordType='SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-              StartRecordIdentifier='string',
-              MaxItems='string'
+              HostedZoneId=\'string\',
+              StartRecordName=\'string\',
+              StartRecordType=\'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+              StartRecordIdentifier=\'string\',
+              MaxItems=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -5306,40 +5306,40 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceRecordSets': [
+                \'ResourceRecordSets\': [
                     {
-                        'Name': 'string',
-                        'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                        'SetIdentifier': 'string',
-                        'Weight': 123,
-                        'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'cn-north-1'|'cn-northwest-1'|'ap-south-1',
-                        'GeoLocation': {
-                            'ContinentCode': 'string',
-                            'CountryCode': 'string',
-                            'SubdivisionCode': 'string'
+                        \'Name\': \'string\',
+                        \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                        \'SetIdentifier\': \'string\',
+                        \'Weight\': 123,
+                        \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'cn-north-1\'|\'cn-northwest-1\'|\'ap-south-1\',
+                        \'GeoLocation\': {
+                            \'ContinentCode\': \'string\',
+                            \'CountryCode\': \'string\',
+                            \'SubdivisionCode\': \'string\'
                         },
-                        'Failover': 'PRIMARY'|'SECONDARY',
-                        'MultiValueAnswer': True|False,
-                        'TTL': 123,
-                        'ResourceRecords': [
+                        \'Failover\': \'PRIMARY\'|\'SECONDARY\',
+                        \'MultiValueAnswer\': True|False,
+                        \'TTL\': 123,
+                        \'ResourceRecords\': [
                             {
-                                'Value': 'string'
+                                \'Value\': \'string\'
                             },
                         ],
-                        'AliasTarget': {
-                            'HostedZoneId': 'string',
-                            'DNSName': 'string',
-                            'EvaluateTargetHealth': True|False
+                        \'AliasTarget\': {
+                            \'HostedZoneId\': \'string\',
+                            \'DNSName\': \'string\',
+                            \'EvaluateTargetHealth\': True|False
                         },
-                        'HealthCheckId': 'string',
-                        'TrafficPolicyInstanceId': 'string'
+                        \'HealthCheckId\': \'string\',
+                        \'TrafficPolicyInstanceId\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextRecordName': 'string',
-                'NextRecordType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                'NextRecordIdentifier': 'string',
-                'MaxItems': 'string'
+                \'IsTruncated\': True|False,
+                \'NextRecordName\': \'string\',
+                \'NextRecordType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                \'NextRecordIdentifier\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -5367,17 +5367,17 @@ class Client(BaseClient):
         
                   You can use the asterisk (*) wildcard to replace the leftmost label in a domain name, for example, ``*.example.com`` . Note the following:
         
-                  * The * must replace the entire label. For example, you can't specify ``*prod.example.com`` or ``prod*.example.com`` . 
+                  * The * must replace the entire label. For example, you can\'t specify ``*prod.example.com`` or ``prod*.example.com`` . 
                    
-                  * The * can't replace any of the middle labels, for example, marketing.*.example.com. 
+                  * The * can\'t replace any of the middle labels, for example, marketing.*.example.com. 
                    
                   * If you include * in any position other than the leftmost label in a domain name, DNS treats it as an * character (ASCII 42), not as a wildcard. 
         
                   .. warning::
         
-                     You can't use the * wildcard for resource records sets that have a type of NS. 
+                     You can\'t use the * wildcard for resource records sets that have a type of NS. 
         
-                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can't use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can't specify ``prod*.example.com`` .
+                  You can use the * wildcard as the leftmost label in a domain name, for example, ``*.example.com`` . You can\'t use an * for one of the middle labels, for example, ``marketing.*.example.com`` . In addition, the * must replace the entire label; for example, you can\'t specify ``prod*.example.com`` .
         
                 - **Type** *(string) --* 
         
@@ -5391,7 +5391,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
+                    SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, \"...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it.\" In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
         
                   Values for alias resource record sets:
         
@@ -5403,11 +5403,11 @@ class Client(BaseClient):
                    
                   * **Amazon S3 buckets:**  ``A``   
                    
-                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you're creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
+                  * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you\'re creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
         
                   .. note::
         
-                     If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record. 
+                     If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record. 
         
                 - **SetIdentifier** *(string) --* 
         
@@ -5417,13 +5417,13 @@ class Client(BaseClient):
         
                 - **Weight** *(integer) --* 
         
-                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
+                   *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource\'s weight to the total. Note the following:
         
                   * You must specify a value for the ``Weight`` element for every weighted resource record set. 
                    
                   * You can only specify one ``ResourceRecord`` per weighted resource record set. 
                    
-                  * You can't create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
+                  * You can\'t create latency, failover, or geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as weighted resource record sets. 
                    
                   * You can create a maximum of 100 weighted resource record sets that have the same values for the ``Name`` and ``Type`` elements. 
                    
@@ -5445,9 +5445,9 @@ class Client(BaseClient):
                    
                   * You can only create one latency resource record set for each Amazon EC2 Region. 
                    
-                  * You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
+                  * You aren\'t required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for. 
                    
-                  * You can't create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
+                  * You can\'t create non-latency resource record sets that have the same values for the ``Name`` and ``Type`` elements as latency resource record sets. 
                    
                 - **GeoLocation** *(dict) --* 
         
@@ -5459,15 +5459,15 @@ class Client(BaseClient):
         
                   If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
         
-                  You can't create two geolocation resource record sets that specify the same geographic location.
+                  You can\'t create two geolocation resource record sets that specify the same geographic location.
         
-                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren't specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
+                  The value ``*`` in the ``CountryCode`` element matches all geographic locations that aren\'t specified in other geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements.
         
                   .. warning::
         
-                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a ``*`` resource record set, Route 53 returns a "no answer" response for queries from those locations.
+                    Geolocation works by mapping IP addresses to locations. However, some IP addresses aren\'t mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can\'t identify. We recommend that you create a resource record set for which the value of ``CountryCode`` is ``*`` , which handles both queries that come from locations for which you haven\'t created geolocation resource record sets and queries from IP addresses that aren\'t mapped to a location. If you don\'t create a ``*`` resource record set, Route 53 returns a \"no answer\" response for queries from those locations.
         
-                  You can't create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
+                  You can\'t create non-geolocation resource record sets that have the same values for the ``Name`` and ``Type`` elements as geolocation resource record sets.
         
                   - **ContinentCode** *(string) --* 
         
@@ -5499,7 +5499,7 @@ class Client(BaseClient):
                    
                   * If you omit the ``HealthCheckId`` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint. 
                    
-                  You can't create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
+                  You can\'t create non-failover resource record sets that have the same values for the ``Name`` and ``Type`` elements as failover resource record sets.
         
                   For failover alias resource record sets, you must also include the ``EvaluateTargetHealth`` element and set the value to true.
         
@@ -5515,7 +5515,7 @@ class Client(BaseClient):
         
                   * If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy. 
                    
-                  * If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
+                  * If you don\'t associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy. 
                    
                   * Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records. 
                    
@@ -5525,15 +5525,15 @@ class Client(BaseClient):
                    
                   * If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response. 
                    
-                  You can't create multivalue answer alias records.
+                  You can\'t create multivalue answer alias records.
         
                 - **TTL** *(integer) --* 
         
                   The resource record cache time to live (TTL), in seconds. Note the following:
         
-                  * If you're creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
+                  * If you\'re creating or updating an alias resource record set, omit ``TTL`` . Amazon Route 53 uses the value of ``TTL`` for the alias target.  
                    
-                  * If you're associating this resource record set with a health check (if you're adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
+                  * If you\'re associating this resource record set with a health check (if you\'re adding a ``HealthCheckId`` element), we recommend that you specify a ``TTL`` of 60 seconds or less so clients respond quickly to changes in health status. 
                    
                   * All of the resource record sets in a group of weighted resource record sets must have the same value for ``TTL`` . 
                    
@@ -5545,7 +5545,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    If you're creating an alias resource record set, omit ``ResourceRecords`` .
+                    If you\'re creating an alias resource record set, omit ``ResourceRecords`` .
         
                   - *(dict) --* 
         
@@ -5553,7 +5553,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      If you're creating an alias resource record set, omit ``ResourceRecord`` .
+                      If you\'re creating an alias resource record set, omit ``ResourceRecord`` .
         
                     - **Value** *(string) --* 
         
@@ -5563,15 +5563,15 @@ class Client(BaseClient):
         
                       .. note::
         
-                        If you're creating an alias resource record set, omit ``Value`` .
+                        If you\'re creating an alias resource record set, omit ``Value`` .
         
                 - **AliasTarget** *(dict) --* 
         
-                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you're redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
+                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you\'re redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
         
-                  If you're creating resource records sets for a private hosted zone, note the following:
+                  If you\'re creating resource records sets for a private hosted zone, note the following:
         
-                  * You can't create alias resource record sets for CloudFront distributions in a private hosted zone. 
+                  * You can\'t create alias resource record sets for CloudFront distributions in a private hosted zone. 
                    
                   * Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported. 
                    
@@ -5587,17 +5587,17 @@ class Client(BaseClient):
         
                     .. note::
         
-                      Alias resource record sets for CloudFront can't be created in a private zone.
+                      Alias resource record sets for CloudFront can\'t be created in a private zone.
         
                       Elastic Beanstalk environment  
         
-                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       ELB load balancer  
         
                     Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
         
-                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
+                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
                      
                     * **AWS Management Console** : Go to the Amazon EC2 page, choose **Load Balancers** in the navigation pane, select the load balancer, and get the value of the **Hosted zone** field on the **Description** tab. 
                      
@@ -5615,11 +5615,11 @@ class Client(BaseClient):
                        
                       An Amazon S3 bucket configured as a static website  
         
-                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
+                    Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the `Amazon Simple Storage Service Website Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__ table in the \"AWS Regions and Endpoints\" chapter of the *Amazon Web Services General Reference* .
         
                       Another Route 53 resource record set in your hosted zone  
         
-                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)
+                    Specify the hosted zone ID of your hosted zone. (An alias resource record set can\'t reference a resource record set in a different hosted zone.)
         
                   - **DNSName** *(string) --* 
         
@@ -5633,7 +5633,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution. 
+                      For failover alias records, you can\'t specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can\'t include the same alternate domain name in more than one distribution. 
         
                       Elastic Beanstalk environment  
         
@@ -5641,7 +5641,7 @@ class Client(BaseClient):
         
                     .. warning::
         
-                      For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.
+                      For environments that were created before early 2016, the domain name doesn\'t include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can\'t create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can\'t create a record that routes traffic for example.com to your Elastic Beanstalk environment.
         
                     For Elastic Beanstalk environments that have regionalized subdomains, specify the ``CNAME`` attribute for the environment. You can use the following methods to get the value of the CNAME attribute:
         
@@ -5655,7 +5655,7 @@ class Client(BaseClient):
         
                     Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console, the ELB API, or the AWS CLI. 
         
-                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you're routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
+                    * **AWS Management Console** : Go to the EC2 page, choose **Load Balancers** in the navigation pane, choose the load balancer, choose the **Description** tab, and get the value of the **DNS name** field. (If you\'re routing traffic to a Classic Load Balancer, get the value that begins with **dualstack** .)  
                      
                     * **Elastic Load Balancing API** : Use ``DescribeLoadBalancers`` to get the value of ``DNSName`` . For more information, see the applicable guide: 
         
@@ -5679,7 +5679,7 @@ class Client(BaseClient):
         
                     .. note::
         
-                      If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
+                      If you\'re creating an alias record that has the same name as the hosted zone (known as the zone apex), you can\'t specify the domain name for a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record that you\'re routing traffic to, and creating a CNAME record for the zone apex isn\'t supported even for an alias record.
         
                   - **EvaluateTargetHealth** *(boolean) --* 
         
@@ -5689,7 +5689,7 @@ class Client(BaseClient):
         
                       CloudFront distributions  
         
-                    You can't set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
+                    You can\'t set ``EvaluateTargetHealth`` to ``true`` when the alias target is a CloudFront distribution.
         
                       Elastic Beanstalk environments that have regionalized subdomains  
         
@@ -5711,7 +5711,7 @@ class Client(BaseClient):
                        
                     .. note::
         
-                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
+                      When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they\'re not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
         
                       S3 buckets  
         
@@ -5737,7 +5737,7 @@ class Client(BaseClient):
                    
                   .. warning::
         
-                    Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
+                    Route 53 doesn\'t check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
         
                   For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
         
@@ -5751,7 +5751,7 @@ class Client(BaseClient):
         
                   Specifying a value for ``HealthCheckId`` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check. Configuring health checks makes sense only in the following configurations:
         
-                  * **Non-alias resource record sets** : You're checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
+                  * **Non-alias resource record sets** : You\'re checking the health of a group of non-alias resource record sets that have the same routing policy, name, and type (such as multiple weighted records named www.example.com with a type of A) and you specify health check IDs for all the resource record sets.  If the health check status for a resource record set is healthy, Route 53 includes the record among the records that it responds to DNS queries with. If the health check status for a resource record set is unhealthy, Route 53 stops responding to DNS queries using the value for that resource record set. If the health check status for all resource record sets in the group is unhealthy, Route 53 considers all resource record sets in the group healthy and responds to DNS queries accordingly.  
                    
                   * **Alias resource record sets** : You specify the following settings: 
         
@@ -5797,7 +5797,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use. 
+                    To delete the resource record set that is associated with a traffic policy instance, use ``DeleteTrafficPolicyInstance`` . Route 53 will delete the resource record set automatically. If you delete the resource record set by using ``ChangeResourceRecordSets`` , Route 53 doesn\'t automatically delete the traffic policy instance, and you\'ll continue to be charged for it even though it\'s no longer in use. 
         
             - **IsTruncated** *(boolean) --* 
         
@@ -5837,8 +5837,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_reusable_delegation_sets(
-              Marker='string',
-              MaxItems='string'
+              Marker=\'string\',
+              MaxItems=\'string\'
           )
         :type Marker: string
         :param Marker: 
@@ -5862,19 +5862,19 @@ class Client(BaseClient):
           ::
         
             {
-                'DelegationSets': [
+                \'DelegationSets\': [
                     {
-                        'Id': 'string',
-                        'CallerReference': 'string',
-                        'NameServers': [
-                            'string',
+                        \'Id\': \'string\',
+                        \'CallerReference\': \'string\',
+                        \'NameServers\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'Marker': 'string',
-                'IsTruncated': True|False,
-                'NextMarker': 'string',
-                'MaxItems': 'string'
+                \'Marker\': \'string\',
+                \'IsTruncated\': True|False,
+                \'NextMarker\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -5934,8 +5934,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resource(
-              ResourceType='healthcheck'|'hostedzone',
-              ResourceId='string'
+              ResourceType=\'healthcheck\'|\'hostedzone\',
+              ResourceId=\'string\'
           )
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]** 
@@ -5959,13 +5959,13 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceTagSet': {
-                    'ResourceType': 'healthcheck'|'hostedzone',
-                    'ResourceId': 'string',
-                    'Tags': [
+                \'ResourceTagSet\': {
+                    \'ResourceType\': \'healthcheck\'|\'hostedzone\',
+                    \'ResourceId\': \'string\',
+                    \'Tags\': [
                         {
-                            'Key': 'string',
-                            'Value': 'string'
+                            \'Key\': \'string\',
+                            \'Value\': \'string\'
                         },
                     ]
                 }
@@ -6010,7 +6010,7 @@ class Client(BaseClient):
                      
                     * **Delete a key** : ``Key`` is the name of the tag you want to remove. 
                      
-                    * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you've given to each health check. 
+                    * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you\'ve given to each health check. 
                      
                   - **Value** *(string) --* 
         
@@ -6034,9 +6034,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_resources(
-              ResourceType='healthcheck'|'hostedzone',
+              ResourceType=\'healthcheck\'|\'hostedzone\',
               ResourceIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceType: string
@@ -6063,14 +6063,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ResourceTagSets': [
+                \'ResourceTagSets\': [
                     {
-                        'ResourceType': 'healthcheck'|'hostedzone',
-                        'ResourceId': 'string',
-                        'Tags': [
+                        \'ResourceType\': \'healthcheck\'|\'hostedzone\',
+                        \'ResourceId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -6120,7 +6120,7 @@ class Client(BaseClient):
                        
                       * **Delete a key** : ``Key`` is the name of the tag you want to remove. 
                        
-                      * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you've given to each health check. 
+                      * **Give a name to a health check** : Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a **Name** column that lets you see the name that you\'ve given to each health check. 
                        
                     - **Value** *(string) --* 
         
@@ -6142,13 +6142,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_traffic_policies(
-              TrafficPolicyIdMarker='string',
-              MaxItems='string'
+              TrafficPolicyIdMarker=\'string\',
+              MaxItems=\'string\'
           )
         :type TrafficPolicyIdMarker: string
         :param TrafficPolicyIdMarker: 
         
-          (Conditional) For your first request to ``ListTrafficPolicies`` , don't include the ``TrafficPolicyIdMarker`` parameter.
+          (Conditional) For your first request to ``ListTrafficPolicies`` , don\'t include the ``TrafficPolicyIdMarker`` parameter.
         
           If you have more traffic policies than the value of ``MaxItems`` , ``ListTrafficPolicies`` returns only the first ``MaxItems`` traffic policies. To get the next group of policies, submit another request to ``ListTrafficPolicies`` . For the value of ``TrafficPolicyIdMarker`` , specify the value of ``TrafficPolicyIdMarker`` that was returned in the previous response.
         
@@ -6165,18 +6165,18 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicySummaries': [
+                \'TrafficPolicySummaries\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                        'LatestVersion': 123,
-                        'TrafficPolicyCount': 123
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                        \'LatestVersion\': 123,
+                        \'TrafficPolicyCount\': 123
                     },
                 ],
-                'IsTruncated': True|False,
-                'TrafficPolicyIdMarker': 'string',
-                'MaxItems': 'string'
+                \'IsTruncated\': True|False,
+                \'TrafficPolicyIdMarker\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -6232,7 +6232,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After you submit an ``UpdateTrafficPolicyInstance`` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
+          After you submit an ``UpdateTrafficPolicyInstance`` request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
         
         Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the ``MaxItems`` parameter to list them in groups of up to 100.
         
@@ -6242,10 +6242,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_traffic_policy_instances(
-              HostedZoneIdMarker='string',
-              TrafficPolicyInstanceNameMarker='string',
-              TrafficPolicyInstanceTypeMarker='SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-              MaxItems='string'
+              HostedZoneIdMarker=\'string\',
+              TrafficPolicyInstanceNameMarker=\'string\',
+              TrafficPolicyInstanceTypeMarker=\'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+              MaxItems=\'string\'
           )
         :type HostedZoneIdMarker: string
         :param HostedZoneIdMarker: 
@@ -6281,24 +6281,24 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstances': [
+                \'TrafficPolicyInstances\': [
                     {
-                        'Id': 'string',
-                        'HostedZoneId': 'string',
-                        'Name': 'string',
-                        'TTL': 123,
-                        'State': 'string',
-                        'Message': 'string',
-                        'TrafficPolicyId': 'string',
-                        'TrafficPolicyVersion': 123,
-                        'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                        \'Id\': \'string\',
+                        \'HostedZoneId\': \'string\',
+                        \'Name\': \'string\',
+                        \'TTL\': 123,
+                        \'State\': \'string\',
+                        \'Message\': \'string\',
+                        \'TrafficPolicyId\': \'string\',
+                        \'TrafficPolicyVersion\': 123,
+                        \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                     },
                 ],
-                'HostedZoneIdMarker': 'string',
-                'TrafficPolicyInstanceNameMarker': 'string',
-                'TrafficPolicyInstanceTypeMarker': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                'IsTruncated': True|False,
-                'MaxItems': 'string'
+                \'HostedZoneIdMarker\': \'string\',
+                \'TrafficPolicyInstanceNameMarker\': \'string\',
+                \'TrafficPolicyInstanceTypeMarker\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -6344,7 +6344,7 @@ class Client(BaseClient):
         
                     Failed  
         
-                  Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                  Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
                 - **Message** *(string) --* 
         
@@ -6390,7 +6390,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
+          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
         
         Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the ``MaxItems`` parameter to list them in groups of up to 100.
         
@@ -6400,10 +6400,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_traffic_policy_instances_by_hosted_zone(
-              HostedZoneId='string',
-              TrafficPolicyInstanceNameMarker='string',
-              TrafficPolicyInstanceTypeMarker='SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-              MaxItems='string'
+              HostedZoneId=\'string\',
+              TrafficPolicyInstanceNameMarker=\'string\',
+              TrafficPolicyInstanceTypeMarker=\'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+              MaxItems=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -6437,23 +6437,23 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstances': [
+                \'TrafficPolicyInstances\': [
                     {
-                        'Id': 'string',
-                        'HostedZoneId': 'string',
-                        'Name': 'string',
-                        'TTL': 123,
-                        'State': 'string',
-                        'Message': 'string',
-                        'TrafficPolicyId': 'string',
-                        'TrafficPolicyVersion': 123,
-                        'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                        \'Id\': \'string\',
+                        \'HostedZoneId\': \'string\',
+                        \'Name\': \'string\',
+                        \'TTL\': 123,
+                        \'State\': \'string\',
+                        \'Message\': \'string\',
+                        \'TrafficPolicyId\': \'string\',
+                        \'TrafficPolicyVersion\': 123,
+                        \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                     },
                 ],
-                'TrafficPolicyInstanceNameMarker': 'string',
-                'TrafficPolicyInstanceTypeMarker': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                'IsTruncated': True|False,
-                'MaxItems': 'string'
+                \'TrafficPolicyInstanceNameMarker\': \'string\',
+                \'TrafficPolicyInstanceTypeMarker\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -6499,7 +6499,7 @@ class Client(BaseClient):
         
                     Failed  
         
-                  Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                  Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
                 - **Message** *(string) --* 
         
@@ -6541,7 +6541,7 @@ class Client(BaseClient):
         
         .. note::
         
-          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
+          After you submit a ``CreateTrafficPolicyInstance`` or an ``UpdateTrafficPolicyInstance`` request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the ``State`` response element.
         
         Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the ``MaxItems`` parameter to list them in groups of up to 100.
         
@@ -6551,12 +6551,12 @@ class Client(BaseClient):
         ::
         
           response = client.list_traffic_policy_instances_by_policy(
-              TrafficPolicyId='string',
+              TrafficPolicyId=\'string\',
               TrafficPolicyVersion=123,
-              HostedZoneIdMarker='string',
-              TrafficPolicyInstanceNameMarker='string',
-              TrafficPolicyInstanceTypeMarker='SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-              MaxItems='string'
+              HostedZoneIdMarker=\'string\',
+              TrafficPolicyInstanceNameMarker=\'string\',
+              TrafficPolicyInstanceTypeMarker=\'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+              MaxItems=\'string\'
           )
         :type TrafficPolicyId: string
         :param TrafficPolicyId: **[REQUIRED]** 
@@ -6608,24 +6608,24 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstances': [
+                \'TrafficPolicyInstances\': [
                     {
-                        'Id': 'string',
-                        'HostedZoneId': 'string',
-                        'Name': 'string',
-                        'TTL': 123,
-                        'State': 'string',
-                        'Message': 'string',
-                        'TrafficPolicyId': 'string',
-                        'TrafficPolicyVersion': 123,
-                        'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                        \'Id\': \'string\',
+                        \'HostedZoneId\': \'string\',
+                        \'Name\': \'string\',
+                        \'TTL\': 123,
+                        \'State\': \'string\',
+                        \'Message\': \'string\',
+                        \'TrafficPolicyId\': \'string\',
+                        \'TrafficPolicyVersion\': 123,
+                        \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                     },
                 ],
-                'HostedZoneIdMarker': 'string',
-                'TrafficPolicyInstanceNameMarker': 'string',
-                'TrafficPolicyInstanceTypeMarker': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                'IsTruncated': True|False,
-                'MaxItems': 'string'
+                \'HostedZoneIdMarker\': \'string\',
+                \'TrafficPolicyInstanceNameMarker\': \'string\',
+                \'TrafficPolicyInstanceTypeMarker\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                \'IsTruncated\': True|False,
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -6671,7 +6671,7 @@ class Client(BaseClient):
         
                     Failed  
         
-                  Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                  Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
                 - **Message** *(string) --* 
         
@@ -6723,9 +6723,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_traffic_policy_versions(
-              Id='string',
-              TrafficPolicyVersionMarker='string',
-              MaxItems='string'
+              Id=\'string\',
+              TrafficPolicyVersionMarker=\'string\',
+              MaxItems=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -6735,7 +6735,7 @@ class Client(BaseClient):
         :type TrafficPolicyVersionMarker: string
         :param TrafficPolicyVersionMarker: 
         
-          For your first request to ``ListTrafficPolicyVersions`` , don't include the ``TrafficPolicyVersionMarker`` parameter.
+          For your first request to ``ListTrafficPolicyVersions`` , don\'t include the ``TrafficPolicyVersionMarker`` parameter.
         
           If you have more traffic policy versions than the value of ``MaxItems`` , ``ListTrafficPolicyVersions`` returns only the first group of ``MaxItems`` versions. To get more traffic policy versions, submit another ``ListTrafficPolicyVersions`` request. For the value of ``TrafficPolicyVersionMarker`` , specify the value of ``TrafficPolicyVersionMarker`` in the previous response.
         
@@ -6752,19 +6752,19 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicies': [
+                \'TrafficPolicies\': [
                     {
-                        'Id': 'string',
-                        'Version': 123,
-                        'Name': 'string',
-                        'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                        'Document': 'string',
-                        'Comment': 'string'
+                        \'Id\': \'string\',
+                        \'Version\': 123,
+                        \'Name\': \'string\',
+                        \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                        \'Document\': \'string\',
+                        \'Comment\': \'string\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'TrafficPolicyVersionMarker': 'string',
-                'MaxItems': 'string'
+                \'IsTruncated\': True|False,
+                \'TrafficPolicyVersionMarker\': \'string\',
+                \'MaxItems\': \'string\'
             }
           **Response Structure** 
         
@@ -6832,9 +6832,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_vpc_association_authorizations(
-              HostedZoneId='string',
-              NextToken='string',
-              MaxResults='string'
+              HostedZoneId=\'string\',
+              NextToken=\'string\',
+              MaxResults=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -6849,7 +6849,7 @@ class Client(BaseClient):
         :type MaxResults: string
         :param MaxResults: 
         
-           *Optional* : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don't specify a value for ``MaxResults`` , Route 53 returns up to 50 VPCs per page.
+           *Optional* : An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return. If you don\'t specify a value for ``MaxResults`` , Route 53 returns up to 50 VPCs per page.
         
         :rtype: dict
         :returns: 
@@ -6859,12 +6859,12 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZoneId': 'string',
-                'NextToken': 'string',
-                'VPCs': [
+                \'HostedZoneId\': \'string\',
+                \'NextToken\': \'string\',
+                \'VPCs\': [
                     {
-                        'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1'|'ca-central-1'|'cn-north-1',
-                        'VPCId': 'string'
+                        \'VPCRegion\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'eu-central-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-south-1\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\'|\'ca-central-1\'|\'cn-north-1\',
+                        \'VPCId\': \'string\'
                     },
                 ]
             }
@@ -6910,12 +6910,12 @@ class Client(BaseClient):
         ::
         
           response = client.test_dns_answer(
-              HostedZoneId='string',
-              RecordName='string',
-              RecordType='SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-              ResolverIP='string',
-              EDNS0ClientSubnetIP='string',
-              EDNS0ClientSubnetMask='string'
+              HostedZoneId=\'string\',
+              RecordName=\'string\',
+              RecordType=\'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+              ResolverIP=\'string\',
+              EDNS0ClientSubnetIP=\'string\',
+              EDNS0ClientSubnetMask=\'string\'
           )
         :type HostedZoneId: string
         :param HostedZoneId: **[REQUIRED]** 
@@ -6961,14 +6961,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Nameserver': 'string',
-                'RecordName': 'string',
-                'RecordType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                'RecordData': [
-                    'string',
+                \'Nameserver\': \'string\',
+                \'RecordName\': \'string\',
+                \'RecordType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                \'RecordData\': [
+                    \'string\',
                 ],
-                'ResponseCode': 'string',
-                'Protocol': 'string'
+                \'ResponseCode\': \'string\',
+                \'Protocol\': \'string\'
             }
           **Response Structure** 
         
@@ -7026,31 +7026,31 @@ class Client(BaseClient):
         ::
         
           response = client.update_health_check(
-              HealthCheckId='string',
+              HealthCheckId=\'string\',
               HealthCheckVersion=123,
-              IPAddress='string',
+              IPAddress=\'string\',
               Port=123,
-              ResourcePath='string',
-              FullyQualifiedDomainName='string',
-              SearchString='string',
+              ResourcePath=\'string\',
+              FullyQualifiedDomainName=\'string\',
+              SearchString=\'string\',
               FailureThreshold=123,
               Inverted=True|False,
               Disabled=True|False,
               HealthThreshold=123,
               ChildHealthChecks=[
-                  'string',
+                  \'string\',
               ],
               EnableSNI=True|False,
               Regions=[
-                  'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                  \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
               ],
               AlarmIdentifier={
-                  'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                  'Name': 'string'
+                  \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                  \'Name\': \'string\'
               },
-              InsufficientDataHealthStatus='Healthy'|'Unhealthy'|'LastKnownStatus',
+              InsufficientDataHealthStatus=\'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\',
               ResetElements=[
-                  'FullyQualifiedDomainName'|'Regions'|'ResourcePath'|'ChildHealthChecks',
+                  \'FullyQualifiedDomainName\'|\'Regions\'|\'ResourcePath\'|\'ChildHealthChecks\',
               ]
           )
         :type HealthCheckId: string
@@ -7072,7 +7072,7 @@ class Client(BaseClient):
         :type IPAddress: string
         :param IPAddress: 
         
-          The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address that is returned by DNS, Route 53 then checks the health of the endpoint.
+          The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address that is returned by DNS, Route 53 then checks the health of the endpoint.
         
           Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -7088,11 +7088,11 @@ class Client(BaseClient):
            
           .. note::
         
-            If a health check already has a value for ``IPAddress`` , you can change the value. However, you can't update an existing health check to add or remove the value of ``IPAddress`` . 
+            If a health check already has a value for ``IPAddress`` , you can change the value. However, you can\'t update an existing health check to add or remove the value of ``IPAddress`` . 
         
           For more information, see  UpdateHealthCheckRequest$FullyQualifiedDomainName .
         
-          Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+          Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
           * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
            
@@ -7119,7 +7119,7 @@ class Client(BaseClient):
         
           .. note::
         
-            If a health check already has a value for ``IPAddress`` , you can change the value. However, you can't update an existing health check to add or remove the value of ``IPAddress`` . 
+            If a health check already has a value for ``IPAddress`` , you can change the value. However, you can\'t update an existing health check to add or remove the value of ``IPAddress`` . 
         
            **If you specify a value for**  ``IPAddress`` :
         
@@ -7133,15 +7133,15 @@ class Client(BaseClient):
            
           * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes * ``FullyQualifiedDomainName`` :``Port`` * to the endpoint in the ``Host`` header. 
            
-          If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the above cases.
+          If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the above cases.
         
-           **If you don't specify a value for**  ``IPAddress`` :
+           **If you don\'t specify a value for**  ``IPAddress`` :
         
-          If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to the domain that you specify in ``FullyQualifiedDomainName`` at the interval you specify in ``RequestInterval`` . Using an IPv4 address that is returned by DNS, Route 53 then checks the health of the endpoint.
+          If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to the domain that you specify in ``FullyQualifiedDomainName`` at the interval you specify in ``RequestInterval`` . Using an IPv4 address that is returned by DNS, Route 53 then checks the health of the endpoint.
         
           .. note::
         
-            If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+            If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
           If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as ``us-east-2-www.example.com`` ), not the name of the resource record sets (www.example.com).
         
@@ -7149,19 +7149,19 @@ class Client(BaseClient):
         
             In this configuration, if the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-          In addition, if the value of ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+          In addition, if the value of ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
         :type SearchString: string
         :param SearchString: 
         
-          If the value of ``Type`` is ``HTTP_STR_MATCH`` or ``HTTP_STR_MATCH`` , the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy. (You can't change the value of ``Type`` when you update a health check.)
+          If the value of ``Type`` is ``HTTP_STR_MATCH`` or ``HTTP_STR_MATCH`` , the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy. (You can\'t change the value of ``Type`` when you update a health check.)
         
         :type FailureThreshold: integer
         :param FailureThreshold: 
         
           The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-          If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+          If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
         :type Inverted: boolean
         :param Inverted: 
@@ -7171,7 +7171,7 @@ class Client(BaseClient):
         :type Disabled: boolean
         :param Disabled: 
         
-          Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+          Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
           * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
            
@@ -7206,7 +7206,7 @@ class Client(BaseClient):
         
           Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during ``TLS`` negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-          Some endpoints require that HTTPS requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be SSL alert ``handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+          Some endpoints require that HTTPS requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be SSL alert ``handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
           The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -7236,9 +7236,9 @@ class Client(BaseClient):
         
               Route 53 supports CloudWatch alarms with the following features:
         
-              * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+              * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                
-              * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+              * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                
         :type InsufficientDataHealthStatus: string
         :param InsufficientDataHealthStatus: 
@@ -7274,52 +7274,52 @@ class Client(BaseClient):
           ::
         
             {
-                'HealthCheck': {
-                    'Id': 'string',
-                    'CallerReference': 'string',
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                \'HealthCheck\': {
+                    \'Id\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     },
-                    'HealthCheckConfig': {
-                        'IPAddress': 'string',
-                        'Port': 123,
-                        'Type': 'HTTP'|'HTTPS'|'HTTP_STR_MATCH'|'HTTPS_STR_MATCH'|'TCP'|'CALCULATED'|'CLOUDWATCH_METRIC',
-                        'ResourcePath': 'string',
-                        'FullyQualifiedDomainName': 'string',
-                        'SearchString': 'string',
-                        'RequestInterval': 123,
-                        'FailureThreshold': 123,
-                        'MeasureLatency': True|False,
-                        'Inverted': True|False,
-                        'Disabled': True|False,
-                        'HealthThreshold': 123,
-                        'ChildHealthChecks': [
-                            'string',
+                    \'HealthCheckConfig\': {
+                        \'IPAddress\': \'string\',
+                        \'Port\': 123,
+                        \'Type\': \'HTTP\'|\'HTTPS\'|\'HTTP_STR_MATCH\'|\'HTTPS_STR_MATCH\'|\'TCP\'|\'CALCULATED\'|\'CLOUDWATCH_METRIC\',
+                        \'ResourcePath\': \'string\',
+                        \'FullyQualifiedDomainName\': \'string\',
+                        \'SearchString\': \'string\',
+                        \'RequestInterval\': 123,
+                        \'FailureThreshold\': 123,
+                        \'MeasureLatency\': True|False,
+                        \'Inverted\': True|False,
+                        \'Disabled\': True|False,
+                        \'HealthThreshold\': 123,
+                        \'ChildHealthChecks\': [
+                            \'string\',
                         ],
-                        'EnableSNI': True|False,
-                        'Regions': [
-                            'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
+                        \'EnableSNI\': True|False,
+                        \'Regions\': [
+                            \'us-east-1\'|\'us-west-1\'|\'us-west-2\'|\'eu-west-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'sa-east-1\',
                         ],
-                        'AlarmIdentifier': {
-                            'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'sa-east-1',
-                            'Name': 'string'
+                        \'AlarmIdentifier\': {
+                            \'Region\': \'us-east-1\'|\'us-east-2\'|\'us-west-1\'|\'us-west-2\'|\'ca-central-1\'|\'eu-central-1\'|\'eu-west-1\'|\'eu-west-2\'|\'eu-west-3\'|\'ap-south-1\'|\'ap-southeast-1\'|\'ap-southeast-2\'|\'ap-northeast-1\'|\'ap-northeast-2\'|\'ap-northeast-3\'|\'sa-east-1\',
+                            \'Name\': \'string\'
                         },
-                        'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
+                        \'InsufficientDataHealthStatus\': \'Healthy\'|\'Unhealthy\'|\'LastKnownStatus\'
                     },
-                    'HealthCheckVersion': 123,
-                    'CloudWatchAlarmConfiguration': {
-                        'EvaluationPeriods': 123,
-                        'Threshold': 123.0,
-                        'ComparisonOperator': 'GreaterThanOrEqualToThreshold'|'GreaterThanThreshold'|'LessThanThreshold'|'LessThanOrEqualToThreshold',
-                        'Period': 123,
-                        'MetricName': 'string',
-                        'Namespace': 'string',
-                        'Statistic': 'Average'|'Sum'|'SampleCount'|'Maximum'|'Minimum',
-                        'Dimensions': [
+                    \'HealthCheckVersion\': 123,
+                    \'CloudWatchAlarmConfiguration\': {
+                        \'EvaluationPeriods\': 123,
+                        \'Threshold\': 123.0,
+                        \'ComparisonOperator\': \'GreaterThanOrEqualToThreshold\'|\'GreaterThanThreshold\'|\'LessThanThreshold\'|\'LessThanOrEqualToThreshold\',
+                        \'Period\': 123,
+                        \'MetricName\': \'string\',
+                        \'Namespace\': \'string\',
+                        \'Statistic\': \'Average\'|\'Sum\'|\'SampleCount\'|\'Maximum\'|\'Minimum\',
+                        \'Dimensions\': [
                             {
-                                'Name': 'string',
-                                'Value': 'string'
+                                \'Name\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     }
@@ -7343,15 +7343,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53. 
+                If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
               - **HealthCheckConfig** *(dict) --* 
         
@@ -7359,7 +7359,7 @@ class Client(BaseClient):
         
                 - **IPAddress** *(string) --* 
         
-                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
+                  The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don\'t specify a value for ``IPAddress`` , Route 53 sends a DNS request to resolve the domain name that you specify in ``FullyQualifiedDomainName`` at the interval that you specify in ``RequestInterval`` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
         
                   Use one of the following formats for the value of ``IPAddress`` : 
         
@@ -7371,7 +7371,7 @@ class Client(BaseClient):
         
                   For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
         
-                  Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
+                  Constraints: Route 53 can\'t check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can\'t create health checks, see the following documents:
         
                   * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                    
@@ -7391,7 +7391,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``Type`` after you create a health check.
+                    You can\'t change the value of ``Type`` after you create a health check.
         
                   You can create the following types of health checks:
         
@@ -7409,7 +7409,7 @@ class Client(BaseClient):
                    
                   * **TCP** : Route 53 tries to establish a TCP connection. 
                    
-                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
+                  * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn\'t have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                    
                   * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
                    
@@ -7435,15 +7435,15 @@ class Client(BaseClient):
                    
                   * If you specify another value for ``Port`` and any value except ``TCP`` for ``Type`` , Route 53 passes ``FullyQualifiedDomainName:Port`` to the endpoint in the ``Host`` header. 
                    
-                  If you don't specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
+                  If you don\'t specify a value for ``FullyQualifiedDomainName`` , Route 53 substitutes the value of ``IPAddress`` in the ``Host`` header in each of the preceding cases.
         
-                   **If you don't specify a value for ``IPAddress`` ** :
+                   **If you don\'t specify a value for ``IPAddress`` ** :
         
                   Route 53 sends a DNS request to the domain that you specify for ``FullyQualifiedDomainName`` at the interval that you specify for ``RequestInterval`` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
         
                   .. note::
         
-                    If you don't specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a "DNS resolution failed" error.
+                    If you don\'t specify a value for ``IPAddress`` , Route 53 uses only IPv4 to send health checks to the endpoint. If there\'s no resource record set with a type of A for the name that you specify for ``FullyQualifiedDomainName`` , the health check fails with a \"DNS resolution failed\" error.
         
                   If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by ``FullyQualifiedDomainName`` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of ``FullyQualifiedDomainName`` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the resource record sets (www.example.com).
         
@@ -7451,7 +7451,7 @@ class Client(BaseClient):
         
                     In this configuration, if you create a health check for which the value of ``FullyQualifiedDomainName`` matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
         
-                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn't pass a ``Host`` header.
+                  In addition, if the value that you specify for ``Type`` is ``HTTP`` , ``HTTPS`` , ``HTTP_STR_MATCH`` , or ``HTTPS_STR_MATCH`` , Route 53 passes the value of ``FullyQualifiedDomainName`` in the ``Host`` header, as it does when you specify a value for ``IPAddress`` . If the value of ``Type`` is ``TCP`` , Route 53 doesn\'t pass a ``Host`` header.
         
                 - **SearchString** *(string) --* 
         
@@ -7465,15 +7465,15 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``RequestInterval`` after you create a health check.
+                    You can\'t change the value of ``RequestInterval`` after you create a health check.
         
-                  If you don't specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
+                  If you don\'t specify a value for ``RequestInterval`` , the default value is ``30`` seconds.
         
                 - **FailureThreshold** *(integer) --* 
         
                   The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
         
-                  If you don't specify a value for ``FailureThreshold`` , the default value is three health checks.
+                  If you don\'t specify a value for ``FailureThreshold`` , the default value is three health checks.
         
                 - **MeasureLatency** *(boolean) --* 
         
@@ -7481,7 +7481,7 @@ class Client(BaseClient):
         
                   .. warning::
         
-                    You can't change the value of ``MeasureLatency`` after you create a health check.
+                    You can\'t change the value of ``MeasureLatency`` after you create a health check.
         
                 - **Inverted** *(boolean) --* 
         
@@ -7489,7 +7489,7 @@ class Client(BaseClient):
         
                 - **Disabled** *(boolean) --* 
         
-                  Stops Route 53 from performing health checks. When you disable a health check, here's what happens:
+                  Stops Route 53 from performing health checks. When you disable a health check, here\'s what happens:
         
                   * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                    
@@ -7521,7 +7521,7 @@ class Client(BaseClient):
         
                   Specify whether you want Amazon Route 53 to send the value of ``FullyQualifiedDomainName`` to the endpoint in the ``client_hello`` message during TLS negotiation. This allows the endpoint to respond to ``HTTPS`` health check requests with the applicable SSL/TLS certificate.
         
-                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don't enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you're still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
+                  Some endpoints require that ``HTTPS`` requests include the host name in the ``client_hello`` message. If you don\'t enable SNI, the status of the health check will be ``SSL alert handshake_failure`` . A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL/TLS configuration on your endpoint and confirm that your certificate is valid.
         
                   The SSL/TLS certificate on your endpoint includes a domain name in the ``Common Name`` field and possibly several more in the ``Subject Alternative Names`` field. One of the domain names in the certificate should match the value that you specify for ``FullyQualifiedDomainName`` . If the endpoint responds to the ``client_hello`` message with a certificate that does not include the domain name that you specified in ``FullyQualifiedDomainName`` , a health checker will retry the handshake. In the second attempt, the health checker will omit ``FullyQualifiedDomainName`` from the ``client_hello`` message.
         
@@ -7529,7 +7529,7 @@ class Client(BaseClient):
         
                   A complex type that contains one ``Region`` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
         
-                  If you don't specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
+                  If you don\'t specify any regions, Route 53 health checkers automatically performs checks from all of the regions that are listed under **Valid Values** .
         
                   If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions). 
         
@@ -7553,9 +7553,9 @@ class Client(BaseClient):
         
                       Route 53 supports CloudWatch alarms with the following features:
         
-                      * Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
+                      * Standard-resolution metrics. High-resolution metrics aren\'t supported. For more information, see `High-Resolution Metrics <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics>`__ in the *Amazon CloudWatch User Guide* . 
                        
-                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported. 
+                      * Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren\'t supported. 
                        
                 - **InsufficientDataHealthStatus** *(string) --* 
         
@@ -7631,8 +7631,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_hosted_zone_comment(
-              Id='string',
-              Comment='string'
+              Id=\'string\',
+              Comment=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -7642,7 +7642,7 @@ class Client(BaseClient):
         :type Comment: string
         :param Comment: 
         
-          The new comment for the hosted zone. If you don't specify a value for ``Comment`` , Amazon Route 53 deletes the existing value of the ``Comment`` element, if any.
+          The new comment for the hosted zone. If you don\'t specify a value for ``Comment`` , Amazon Route 53 deletes the existing value of the ``Comment`` element, if any.
         
         :rtype: dict
         :returns: 
@@ -7652,18 +7652,18 @@ class Client(BaseClient):
           ::
         
             {
-                'HostedZone': {
-                    'Id': 'string',
-                    'Name': 'string',
-                    'CallerReference': 'string',
-                    'Config': {
-                        'Comment': 'string',
-                        'PrivateZone': True|False
+                \'HostedZone\': {
+                    \'Id\': \'string\',
+                    \'Name\': \'string\',
+                    \'CallerReference\': \'string\',
+                    \'Config\': {
+                        \'Comment\': \'string\',
+                        \'PrivateZone\': True|False
                     },
-                    'ResourceRecordSetCount': 123,
-                    'LinkedService': {
-                        'ServicePrincipal': 'string',
-                        'Description': 'string'
+                    \'ResourceRecordSetCount\': 123,
+                    \'LinkedService\': {
+                        \'ServicePrincipal\': \'string\',
+                        \'Description\': \'string\'
                     }
                 }
             }
@@ -7693,7 +7693,7 @@ class Client(BaseClient):
         
               - **Config** *(dict) --* 
         
-                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don't appear in the response.
+                A complex type that includes the ``Comment`` and ``PrivateZone`` elements. If you omitted the ``HostedZoneConfig`` and ``Comment`` elements from the request, the ``Config`` and ``Comment`` elements don\'t appear in the response.
         
                 - **Comment** *(string) --* 
         
@@ -7709,15 +7709,15 @@ class Client(BaseClient):
         
               - **LinkedService** *(dict) --* 
         
-                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53. 
+                If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can\'t edit or delete it using Route 53. 
         
                 - **ServicePrincipal** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
                 - **Description** *(string) --* 
         
-                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. 
+                  If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can\'t edit or delete it using Amazon Route 53. 
         
         """
         pass
@@ -7731,9 +7731,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_traffic_policy_comment(
-              Id='string',
+              Id=\'string\',
               Version=123,
-              Comment='string'
+              Comment=\'string\'
           )
         :type Id: string
         :param Id: **[REQUIRED]** 
@@ -7758,13 +7758,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicy': {
-                    'Id': 'string',
-                    'Version': 123,
-                    'Name': 'string',
-                    'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
-                    'Document': 'string',
-                    'Comment': 'string'
+                \'TrafficPolicy\': {
+                    \'Id\': \'string\',
+                    \'Version\': 123,
+                    \'Name\': \'string\',
+                    \'Type\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\',
+                    \'Document\': \'string\',
+                    \'Comment\': \'string\'
                 }
             }
           **Response Structure** 
@@ -7821,9 +7821,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_traffic_policy_instance(
-              Id='string',
+              Id=\'string\',
               TTL=123,
-              TrafficPolicyId='string',
+              TrafficPolicyId=\'string\',
               TrafficPolicyVersion=123
           )
         :type Id: string
@@ -7854,16 +7854,16 @@ class Client(BaseClient):
           ::
         
             {
-                'TrafficPolicyInstance': {
-                    'Id': 'string',
-                    'HostedZoneId': 'string',
-                    'Name': 'string',
-                    'TTL': 123,
-                    'State': 'string',
-                    'Message': 'string',
-                    'TrafficPolicyId': 'string',
-                    'TrafficPolicyVersion': 123,
-                    'TrafficPolicyType': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA'
+                \'TrafficPolicyInstance\': {
+                    \'Id\': \'string\',
+                    \'HostedZoneId\': \'string\',
+                    \'Name\': \'string\',
+                    \'TTL\': 123,
+                    \'State\': \'string\',
+                    \'Message\': \'string\',
+                    \'TrafficPolicyId\': \'string\',
+                    \'TrafficPolicyVersion\': 123,
+                    \'TrafficPolicyType\': \'SOA\'|\'A\'|\'TXT\'|\'NS\'|\'CNAME\'|\'MX\'|\'NAPTR\'|\'PTR\'|\'SRV\'|\'SPF\'|\'AAAA\'|\'CAA\'
                 }
             }
           **Response Structure** 
@@ -7906,7 +7906,7 @@ class Client(BaseClient):
         
                   Failed  
         
-                Route 53 wasn't able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
+                Route 53 wasn\'t able to create or update the resource record sets. When the value of ``State`` is ``Failed`` , see ``Message`` for an explanation of what caused the request to fail.
         
               - **Message** *(string) --* 
         

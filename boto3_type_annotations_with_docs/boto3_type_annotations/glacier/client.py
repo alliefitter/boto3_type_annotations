@@ -1,11 +1,11 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
+from typing import IO
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
-from typing import IO
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -17,7 +17,7 @@ class Client(BaseClient):
         
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Working with Archives in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html>`__ and `Abort Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -27,15 +27,15 @@ class Client(BaseClient):
         ::
         
           response = client.abort_multipart_upload(
-              vaultName='string',
-              uploadId='string'
+              vaultName=\'string\',
+              uploadId=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -64,14 +64,14 @@ class Client(BaseClient):
         ::
         
           response = client.abort_vault_lock(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -91,17 +91,17 @@ class Client(BaseClient):
         ::
         
           response = client.add_tags_to_vault(
-              vaultName='string',
+              vaultName=\'string\',
               Tags={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -127,10 +127,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -146,7 +146,7 @@ class Client(BaseClient):
         
         Complete Multipart Upload is an idempotent operation. After your first successful complete multipart upload, if you call the operation again within a short period, the operation will succeed and return the same archive ID. This is useful in the event you experience a network issue that causes an aborted connection or receive a 500 server error, in which case you can repeat your Complete Multipart Upload request and get the same archive ID without creating duplicate archives. Note, however, that after the multipart upload completes, you cannot call the List Parts operation and the multipart upload will not appear in List Multipart Uploads response, even if idempotent complete is possible.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Complete Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -156,17 +156,17 @@ class Client(BaseClient):
         ::
         
           response = client.complete_multipart_upload(
-              vaultName='string',
-              uploadId='string',
-              archiveSize='string',
-              checksum='string'
+              vaultName=\'string\',
+              uploadId=\'string\',
+              archiveSize=\'string\',
+              checksum=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -197,7 +197,7 @@ class Client(BaseClient):
                 But if you prefer, you can also use botocore.utils.calculate_tree_hash()
                 to compute it from raw file by::
         
-                    checksum = calculate_tree_hash(open('your_file.txt', 'rb'))
+                    checksum = calculate_tree_hash(open(\'your_file.txt\', \'rb\'))
         
         :rtype: dict
         :returns: 
@@ -207,9 +207,9 @@ class Client(BaseClient):
           ::
         
             {
-                'location': 'string',
-                'checksum': 'string',
-                'archiveId': 'string'
+                \'location\': \'string\',
+                \'checksum\': \'string\',
+                \'archiveId\': \'string\'
             }
           **Response Structure** 
         
@@ -247,15 +247,15 @@ class Client(BaseClient):
         ::
         
           response = client.complete_vault_lock(
-              vaultName='string',
-              lockId='string'
+              vaultName=\'string\',
+              lockId=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -278,11 +278,11 @@ class Client(BaseClient):
         
         * Names can be between 1 and 255 characters long. 
          
-        * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period). 
+        * Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), and \'.\' (period). 
          
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Creating a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html>`__ and `Create Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -292,14 +292,14 @@ class Client(BaseClient):
         ::
         
           response = client.create_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -314,7 +314,7 @@ class Client(BaseClient):
           ::
         
             {
-                'location': 'string'
+                \'location\': \'string\'
             }
           **Response Structure** 
         
@@ -339,7 +339,7 @@ class Client(BaseClient):
          
         This operation is idempotent. Attempting to delete an already-deleted archive does not result in an error.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Deleting an Archive in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html>`__ and `Delete Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -349,15 +349,15 @@ class Client(BaseClient):
         ::
         
           response = client.delete_archive(
-              vaultName='string',
-              archiveId='string'
+              vaultName=\'string\',
+              archiveId=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -378,7 +378,7 @@ class Client(BaseClient):
         
         This operation is idempotent.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Deleting a Vault in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html>`__ and `Delete Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -388,14 +388,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -417,14 +417,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vault_access_policy(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -438,7 +438,7 @@ class Client(BaseClient):
     def delete_vault_notifications(self, vaultName: str, accountId: str = None) -> NoReturn:
         """
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ and `Delete Vault Notification Configuration <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html>`__ in the Amazon Glacier Developer Guide. 
         
@@ -448,14 +448,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_vault_notifications(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -475,7 +475,7 @@ class Client(BaseClient):
         
         A job ID will not expire for at least 24 hours after Amazon Glacier completes the job.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For more information about using this operation, see the documentation for the underlying REST API `Describe Job <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -485,15 +485,15 @@ class Client(BaseClient):
         ::
         
           response = client.describe_job(
-              vaultName='string',
-              jobId='string'
+              vaultName=\'string\',
+              jobId=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -513,83 +513,83 @@ class Client(BaseClient):
           ::
         
             {
-                'JobId': 'string',
-                'JobDescription': 'string',
-                'Action': 'ArchiveRetrieval'|'InventoryRetrieval'|'Select',
-                'ArchiveId': 'string',
-                'VaultARN': 'string',
-                'CreationDate': 'string',
-                'Completed': True|False,
-                'StatusCode': 'InProgress'|'Succeeded'|'Failed',
-                'StatusMessage': 'string',
-                'ArchiveSizeInBytes': 123,
-                'InventorySizeInBytes': 123,
-                'SNSTopic': 'string',
-                'CompletionDate': 'string',
-                'SHA256TreeHash': 'string',
-                'ArchiveSHA256TreeHash': 'string',
-                'RetrievalByteRange': 'string',
-                'Tier': 'string',
-                'InventoryRetrievalParameters': {
-                    'Format': 'string',
-                    'StartDate': 'string',
-                    'EndDate': 'string',
-                    'Limit': 'string',
-                    'Marker': 'string'
+                \'JobId\': \'string\',
+                \'JobDescription\': \'string\',
+                \'Action\': \'ArchiveRetrieval\'|\'InventoryRetrieval\'|\'Select\',
+                \'ArchiveId\': \'string\',
+                \'VaultARN\': \'string\',
+                \'CreationDate\': \'string\',
+                \'Completed\': True|False,
+                \'StatusCode\': \'InProgress\'|\'Succeeded\'|\'Failed\',
+                \'StatusMessage\': \'string\',
+                \'ArchiveSizeInBytes\': 123,
+                \'InventorySizeInBytes\': 123,
+                \'SNSTopic\': \'string\',
+                \'CompletionDate\': \'string\',
+                \'SHA256TreeHash\': \'string\',
+                \'ArchiveSHA256TreeHash\': \'string\',
+                \'RetrievalByteRange\': \'string\',
+                \'Tier\': \'string\',
+                \'InventoryRetrievalParameters\': {
+                    \'Format\': \'string\',
+                    \'StartDate\': \'string\',
+                    \'EndDate\': \'string\',
+                    \'Limit\': \'string\',
+                    \'Marker\': \'string\'
                 },
-                'JobOutputPath': 'string',
-                'SelectParameters': {
-                    'InputSerialization': {
-                        'csv': {
-                            'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                            'Comments': 'string',
-                            'QuoteEscapeCharacter': 'string',
-                            'RecordDelimiter': 'string',
-                            'FieldDelimiter': 'string',
-                            'QuoteCharacter': 'string'
+                \'JobOutputPath\': \'string\',
+                \'SelectParameters\': {
+                    \'InputSerialization\': {
+                        \'csv\': {
+                            \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                            \'Comments\': \'string\',
+                            \'QuoteEscapeCharacter\': \'string\',
+                            \'RecordDelimiter\': \'string\',
+                            \'FieldDelimiter\': \'string\',
+                            \'QuoteCharacter\': \'string\'
                         }
                     },
-                    'ExpressionType': 'SQL',
-                    'Expression': 'string',
-                    'OutputSerialization': {
-                        'csv': {
-                            'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                            'QuoteEscapeCharacter': 'string',
-                            'RecordDelimiter': 'string',
-                            'FieldDelimiter': 'string',
-                            'QuoteCharacter': 'string'
+                    \'ExpressionType\': \'SQL\',
+                    \'Expression\': \'string\',
+                    \'OutputSerialization\': {
+                        \'csv\': {
+                            \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                            \'QuoteEscapeCharacter\': \'string\',
+                            \'RecordDelimiter\': \'string\',
+                            \'FieldDelimiter\': \'string\',
+                            \'QuoteCharacter\': \'string\'
                         }
                     }
                 },
-                'OutputLocation': {
-                    'S3': {
-                        'BucketName': 'string',
-                        'Prefix': 'string',
-                        'Encryption': {
-                            'EncryptionType': 'aws:kms'|'AES256',
-                            'KMSKeyId': 'string',
-                            'KMSContext': 'string'
+                \'OutputLocation\': {
+                    \'S3\': {
+                        \'BucketName\': \'string\',
+                        \'Prefix\': \'string\',
+                        \'Encryption\': {
+                            \'EncryptionType\': \'aws:kms\'|\'AES256\',
+                            \'KMSKeyId\': \'string\',
+                            \'KMSContext\': \'string\'
                         },
-                        'CannedACL': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                        'AccessControlList': [
+                        \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                        \'AccessControlList\': [
                             {
-                                'Grantee': {
-                                    'Type': 'AmazonCustomerByEmail'|'CanonicalUser'|'Group',
-                                    'DisplayName': 'string',
-                                    'URI': 'string',
-                                    'ID': 'string',
-                                    'EmailAddress': 'string'
+                                \'Grantee\': {
+                                    \'Type\': \'AmazonCustomerByEmail\'|\'CanonicalUser\'|\'Group\',
+                                    \'DisplayName\': \'string\',
+                                    \'URI\': \'string\',
+                                    \'ID\': \'string\',
+                                    \'EmailAddress\': \'string\'
                                 },
-                                'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                             },
                         ],
-                        'Tagging': {
-                            'string': 'string'
+                        \'Tagging\': {
+                            \'string\': \'string\'
                         },
-                        'UserMetadata': {
-                            'string': 'string'
+                        \'UserMetadata\': {
+                            \'string\': \'string\'
                         },
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'
                     }
                 }
             }
@@ -621,11 +621,11 @@ class Client(BaseClient):
         
             - **CreationDate** *(string) --* 
         
-              The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``"2012-03-20T17:03:43.221Z"`` .
+              The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``\"2012-03-20T17:03:43.221Z\"`` .
         
             - **Completed** *(boolean) --* 
         
-              The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
+              The job status. When a job is completed, you get the job\'s output using Get Job Output (GET output).
         
             - **StatusCode** *(string) --* 
         
@@ -879,7 +879,7 @@ class Client(BaseClient):
     def describe_vault(self, vaultName: str, accountId: str = None) -> Dict:
         """
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Retrieving Vault Metadata in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html>`__ and `Describe Vault <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -889,14 +889,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -911,12 +911,12 @@ class Client(BaseClient):
           ::
         
             {
-                'VaultARN': 'string',
-                'VaultName': 'string',
-                'CreationDate': 'string',
-                'LastInventoryDate': 'string',
-                'NumberOfArchives': 123,
-                'SizeInBytes': 123
+                \'VaultARN\': \'string\',
+                \'VaultName\': \'string\',
+                \'CreationDate\': \'string\',
+                \'LastInventoryDate\': \'string\',
+                \'NumberOfArchives\': 123,
+                \'SizeInBytes\': 123
             }
           **Response Structure** 
         
@@ -967,7 +967,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -987,9 +987,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :rtype: dict
         :returns: 
@@ -999,11 +999,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'Rules': [
+                \'Policy\': {
+                    \'Rules\': [
                         {
-                            'Strategy': 'string',
-                            'BytesPerHour': 123
+                            \'Strategy\': \'string\',
+                            \'BytesPerHour\': 123
                         },
                     ]
                 }
@@ -1054,7 +1054,7 @@ class Client(BaseClient):
         
         A job ID does not expire for at least 24 hours after Amazon Glacier completes the job. That is, you can download the job output within the 24 hours period after Amazon Glacier completes the job.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and the underlying REST API, see `Downloading a Vault Inventory <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html>`__ , `Downloading an Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html>`__ , and `Get Job Output <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html>`__  
         
@@ -1064,16 +1064,16 @@ class Client(BaseClient):
         ::
         
           response = client.get_job_output(
-              vaultName='string',
-              jobId='string',
-              range='string'
+              vaultName=\'string\',
+              jobId=\'string\',
+              range=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1108,13 +1108,13 @@ class Client(BaseClient):
           ::
         
             {
-                'body': StreamingBody(),
-                'checksum': 'string',
-                'status': 123,
-                'contentRange': 'string',
-                'acceptRanges': 'string',
-                'contentType': 'string',
-                'archiveDescription': 'string'
+                \'body\': StreamingBody(),
+                \'checksum\': \'string\',
+                \'status\': 123,
+                \'contentRange\': \'string\',
+                \'acceptRanges\': \'string\',
+                \'contentType\': \'string\',
+                \'archiveDescription\': \'string\'
             }
           **Response Structure** 
         
@@ -1165,10 +1165,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1188,14 +1188,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_vault_access_policy(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1210,8 +1210,8 @@ class Client(BaseClient):
           ::
         
             {
-                'policy': {
-                    'Policy': 'string'
+                \'policy\': {
+                    \'Policy\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1252,14 +1252,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_vault_lock(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1274,10 +1274,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': 'string',
-                'State': 'string',
-                'ExpirationDate': 'string',
-                'CreationDate': 'string'
+                \'Policy\': \'string\',
+                \'State\': \'string\',
+                \'ExpirationDate\': \'string\',
+                \'CreationDate\': \'string\'
             }
           **Response Structure** 
         
@@ -1287,7 +1287,7 @@ class Client(BaseClient):
         
             - **Policy** *(string) --* 
         
-              The vault lock policy as a JSON string, which uses "\" as an escape character.
+              The vault lock policy as a JSON string, which uses \"\\" as an escape character.
         
             - **State** *(string) --* 
         
@@ -1309,7 +1309,7 @@ class Client(BaseClient):
         
         For information about setting a notification configuration on a vault, see  SetVaultNotifications . If a notification configuration for a vault is not set, the operation returns a ``404 Not Found`` error. For more information about vault notifications, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ . 
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ and `Get Vault Notification Configuration <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -1319,14 +1319,14 @@ class Client(BaseClient):
         ::
         
           response = client.get_vault_notifications(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1341,10 +1341,10 @@ class Client(BaseClient):
           ::
         
             {
-                'vaultNotificationConfig': {
-                    'SNSTopic': 'string',
-                    'Events': [
-                        'string',
+                \'vaultNotificationConfig\': {
+                    \'SNSTopic\': \'string\',
+                    \'Events\': [
+                        \'string\',
                     ]
                 }
             }
@@ -1392,73 +1392,73 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_job(
-              vaultName='string',
+              vaultName=\'string\',
               jobParameters={
-                  'Format': 'string',
-                  'Type': 'string',
-                  'ArchiveId': 'string',
-                  'Description': 'string',
-                  'SNSTopic': 'string',
-                  'RetrievalByteRange': 'string',
-                  'Tier': 'string',
-                  'InventoryRetrievalParameters': {
-                      'StartDate': 'string',
-                      'EndDate': 'string',
-                      'Limit': 'string',
-                      'Marker': 'string'
+                  \'Format\': \'string\',
+                  \'Type\': \'string\',
+                  \'ArchiveId\': \'string\',
+                  \'Description\': \'string\',
+                  \'SNSTopic\': \'string\',
+                  \'RetrievalByteRange\': \'string\',
+                  \'Tier\': \'string\',
+                  \'InventoryRetrievalParameters\': {
+                      \'StartDate\': \'string\',
+                      \'EndDate\': \'string\',
+                      \'Limit\': \'string\',
+                      \'Marker\': \'string\'
                   },
-                  'SelectParameters': {
-                      'InputSerialization': {
-                          'csv': {
-                              'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                              'Comments': 'string',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string'
+                  \'SelectParameters\': {
+                      \'InputSerialization\': {
+                          \'csv\': {
+                              \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                              \'Comments\': \'string\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\'
                           }
                       },
-                      'ExpressionType': 'SQL',
-                      'Expression': 'string',
-                      'OutputSerialization': {
-                          'csv': {
-                              'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                              'QuoteEscapeCharacter': 'string',
-                              'RecordDelimiter': 'string',
-                              'FieldDelimiter': 'string',
-                              'QuoteCharacter': 'string'
+                      \'ExpressionType\': \'SQL\',
+                      \'Expression\': \'string\',
+                      \'OutputSerialization\': {
+                          \'csv\': {
+                              \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                              \'QuoteEscapeCharacter\': \'string\',
+                              \'RecordDelimiter\': \'string\',
+                              \'FieldDelimiter\': \'string\',
+                              \'QuoteCharacter\': \'string\'
                           }
                       }
                   },
-                  'OutputLocation': {
-                      'S3': {
-                          'BucketName': 'string',
-                          'Prefix': 'string',
-                          'Encryption': {
-                              'EncryptionType': 'aws:kms'|'AES256',
-                              'KMSKeyId': 'string',
-                              'KMSContext': 'string'
+                  \'OutputLocation\': {
+                      \'S3\': {
+                          \'BucketName\': \'string\',
+                          \'Prefix\': \'string\',
+                          \'Encryption\': {
+                              \'EncryptionType\': \'aws:kms\'|\'AES256\',
+                              \'KMSKeyId\': \'string\',
+                              \'KMSContext\': \'string\'
                           },
-                          'CannedACL': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                          'AccessControlList': [
+                          \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                          \'AccessControlList\': [
                               {
-                                  'Grantee': {
-                                      'Type': 'AmazonCustomerByEmail'|'CanonicalUser'|'Group',
-                                      'DisplayName': 'string',
-                                      'URI': 'string',
-                                      'ID': 'string',
-                                      'EmailAddress': 'string'
+                                  \'Grantee\': {
+                                      \'Type\': \'AmazonCustomerByEmail\'|\'CanonicalUser\'|\'Group\',
+                                      \'DisplayName\': \'string\',
+                                      \'URI\': \'string\',
+                                      \'ID\': \'string\',
+                                      \'EmailAddress\': \'string\'
                                   },
-                                  'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                  \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                               },
                           ],
-                          'Tagging': {
-                              'string': 'string'
+                          \'Tagging\': {
+                              \'string\': \'string\'
                           },
-                          'UserMetadata': {
-                              'string': 'string'
+                          \'UserMetadata\': {
+                              \'string\': \'string\'
                           },
-                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'
+                          \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'
                       }
                   }
               }
@@ -1466,9 +1466,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1482,11 +1482,11 @@ class Client(BaseClient):
         
           - **Format** *(string) --* 
         
-            When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".
+            When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are \"CSV\" and \"JSON\".
         
           - **Type** *(string) --* 
         
-            The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are "select", "archive-retrieval" and "inventory-retrieval".
+            The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are \"select\", \"archive-retrieval\" and \"inventory-retrieval\".
         
           - **ArchiveId** *(string) --* 
         
@@ -1502,7 +1502,7 @@ class Client(BaseClient):
         
           - **RetrievalByteRange** *(string) --* 
         
-            The byte range to retrieve for an archive retrieval. in the form "*StartByteValue* -*EndByteValue* " If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that *StartByteValue* must be divisible by 1 MB and *EndByteValue* plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response. 
+            The byte range to retrieve for an archive retrieval. in the form \"*StartByteValue* -*EndByteValue* \" If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that *StartByteValue* must be divisible by 1 MB and *EndByteValue* plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response. 
         
             An error occurs if you specify this field for an inventory retrieval job request.
         
@@ -1702,9 +1702,9 @@ class Client(BaseClient):
           ::
         
             {
-                'location': 'string',
-                'jobId': 'string',
-                'jobOutputPath': 'string'
+                \'location\': \'string\',
+                \'jobId\': \'string\',
+                \'jobOutputPath\': \'string\'
             }
           **Response Structure** 
         
@@ -1736,11 +1736,11 @@ class Client(BaseClient):
         
         .. note::
         
-          You don't need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.
+          You don\'t need to know the size of the archive when you start a multipart upload because Amazon Glacier does not require you to specify the overall archive size.
         
         After you complete the multipart upload, Amazon Glacier removes the multipart upload resource referenced by the ID. Amazon Glacier also removes the multipart upload resource if you cancel the multipart upload or it may be removed if there is no activity for a period of 24 hours.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Initiate Multipart Upload <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -1750,16 +1750,16 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_multipart_upload(
-              vaultName='string',
-              archiveDescription='string',
-              partSize='string'
+              vaultName=\'string\',
+              archiveDescription=\'string\',
+              partSize=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1786,8 +1786,8 @@ class Client(BaseClient):
           ::
         
             {
-                'location': 'string',
-                'uploadId': 'string'
+                \'location\': \'string\',
+                \'uploadId\': \'string\'
             }
           **Response Structure** 
         
@@ -1832,17 +1832,17 @@ class Client(BaseClient):
         ::
         
           response = client.initiate_vault_lock(
-              vaultName='string',
+              vaultName=\'string\',
               policy={
-                  'Policy': 'string'
+                  \'Policy\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1852,7 +1852,7 @@ class Client(BaseClient):
         :type policy: dict
         :param policy: 
         
-          The vault lock policy as a JSON string, which uses "\" as an escape character.
+          The vault lock policy as a JSON string, which uses \"\\" as an escape character.
         
           - **Policy** *(string) --* 
         
@@ -1866,7 +1866,7 @@ class Client(BaseClient):
           ::
         
             {
-                'lockId': 'string'
+                \'lockId\': \'string\'
             }
           **Response Structure** 
         
@@ -1902,18 +1902,18 @@ class Client(BaseClient):
         ::
         
           response = client.list_jobs(
-              vaultName='string',
-              limit='string',
-              marker='string',
-              statuscode='string',
-              completed='string'
+              vaultName=\'string\',
+              limit=\'string\',
+              marker=\'string\',
+              statuscode=\'string\',
+              completed=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -1948,90 +1948,90 @@ class Client(BaseClient):
           ::
         
             {
-                'JobList': [
+                \'JobList\': [
                     {
-                        'JobId': 'string',
-                        'JobDescription': 'string',
-                        'Action': 'ArchiveRetrieval'|'InventoryRetrieval'|'Select',
-                        'ArchiveId': 'string',
-                        'VaultARN': 'string',
-                        'CreationDate': 'string',
-                        'Completed': True|False,
-                        'StatusCode': 'InProgress'|'Succeeded'|'Failed',
-                        'StatusMessage': 'string',
-                        'ArchiveSizeInBytes': 123,
-                        'InventorySizeInBytes': 123,
-                        'SNSTopic': 'string',
-                        'CompletionDate': 'string',
-                        'SHA256TreeHash': 'string',
-                        'ArchiveSHA256TreeHash': 'string',
-                        'RetrievalByteRange': 'string',
-                        'Tier': 'string',
-                        'InventoryRetrievalParameters': {
-                            'Format': 'string',
-                            'StartDate': 'string',
-                            'EndDate': 'string',
-                            'Limit': 'string',
-                            'Marker': 'string'
+                        \'JobId\': \'string\',
+                        \'JobDescription\': \'string\',
+                        \'Action\': \'ArchiveRetrieval\'|\'InventoryRetrieval\'|\'Select\',
+                        \'ArchiveId\': \'string\',
+                        \'VaultARN\': \'string\',
+                        \'CreationDate\': \'string\',
+                        \'Completed\': True|False,
+                        \'StatusCode\': \'InProgress\'|\'Succeeded\'|\'Failed\',
+                        \'StatusMessage\': \'string\',
+                        \'ArchiveSizeInBytes\': 123,
+                        \'InventorySizeInBytes\': 123,
+                        \'SNSTopic\': \'string\',
+                        \'CompletionDate\': \'string\',
+                        \'SHA256TreeHash\': \'string\',
+                        \'ArchiveSHA256TreeHash\': \'string\',
+                        \'RetrievalByteRange\': \'string\',
+                        \'Tier\': \'string\',
+                        \'InventoryRetrievalParameters\': {
+                            \'Format\': \'string\',
+                            \'StartDate\': \'string\',
+                            \'EndDate\': \'string\',
+                            \'Limit\': \'string\',
+                            \'Marker\': \'string\'
                         },
-                        'JobOutputPath': 'string',
-                        'SelectParameters': {
-                            'InputSerialization': {
-                                'csv': {
-                                    'FileHeaderInfo': 'USE'|'IGNORE'|'NONE',
-                                    'Comments': 'string',
-                                    'QuoteEscapeCharacter': 'string',
-                                    'RecordDelimiter': 'string',
-                                    'FieldDelimiter': 'string',
-                                    'QuoteCharacter': 'string'
+                        \'JobOutputPath\': \'string\',
+                        \'SelectParameters\': {
+                            \'InputSerialization\': {
+                                \'csv\': {
+                                    \'FileHeaderInfo\': \'USE\'|\'IGNORE\'|\'NONE\',
+                                    \'Comments\': \'string\',
+                                    \'QuoteEscapeCharacter\': \'string\',
+                                    \'RecordDelimiter\': \'string\',
+                                    \'FieldDelimiter\': \'string\',
+                                    \'QuoteCharacter\': \'string\'
                                 }
                             },
-                            'ExpressionType': 'SQL',
-                            'Expression': 'string',
-                            'OutputSerialization': {
-                                'csv': {
-                                    'QuoteFields': 'ALWAYS'|'ASNEEDED',
-                                    'QuoteEscapeCharacter': 'string',
-                                    'RecordDelimiter': 'string',
-                                    'FieldDelimiter': 'string',
-                                    'QuoteCharacter': 'string'
+                            \'ExpressionType\': \'SQL\',
+                            \'Expression\': \'string\',
+                            \'OutputSerialization\': {
+                                \'csv\': {
+                                    \'QuoteFields\': \'ALWAYS\'|\'ASNEEDED\',
+                                    \'QuoteEscapeCharacter\': \'string\',
+                                    \'RecordDelimiter\': \'string\',
+                                    \'FieldDelimiter\': \'string\',
+                                    \'QuoteCharacter\': \'string\'
                                 }
                             }
                         },
-                        'OutputLocation': {
-                            'S3': {
-                                'BucketName': 'string',
-                                'Prefix': 'string',
-                                'Encryption': {
-                                    'EncryptionType': 'aws:kms'|'AES256',
-                                    'KMSKeyId': 'string',
-                                    'KMSContext': 'string'
+                        \'OutputLocation\': {
+                            \'S3\': {
+                                \'BucketName\': \'string\',
+                                \'Prefix\': \'string\',
+                                \'Encryption\': {
+                                    \'EncryptionType\': \'aws:kms\'|\'AES256\',
+                                    \'KMSKeyId\': \'string\',
+                                    \'KMSContext\': \'string\'
                                 },
-                                'CannedACL': 'private'|'public-read'|'public-read-write'|'aws-exec-read'|'authenticated-read'|'bucket-owner-read'|'bucket-owner-full-control',
-                                'AccessControlList': [
+                                \'CannedACL\': \'private\'|\'public-read\'|\'public-read-write\'|\'aws-exec-read\'|\'authenticated-read\'|\'bucket-owner-read\'|\'bucket-owner-full-control\',
+                                \'AccessControlList\': [
                                     {
-                                        'Grantee': {
-                                            'Type': 'AmazonCustomerByEmail'|'CanonicalUser'|'Group',
-                                            'DisplayName': 'string',
-                                            'URI': 'string',
-                                            'ID': 'string',
-                                            'EmailAddress': 'string'
+                                        \'Grantee\': {
+                                            \'Type\': \'AmazonCustomerByEmail\'|\'CanonicalUser\'|\'Group\',
+                                            \'DisplayName\': \'string\',
+                                            \'URI\': \'string\',
+                                            \'ID\': \'string\',
+                                            \'EmailAddress\': \'string\'
                                         },
-                                        'Permission': 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'
+                                        \'Permission\': \'FULL_CONTROL\'|\'WRITE\'|\'WRITE_ACP\'|\'READ\'|\'READ_ACP\'
                                     },
                                 ],
-                                'Tagging': {
-                                    'string': 'string'
+                                \'Tagging\': {
+                                    \'string\': \'string\'
                                 },
-                                'UserMetadata': {
-                                    'string': 'string'
+                                \'UserMetadata\': {
+                                    \'string\': \'string\'
                                 },
-                                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'
+                                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'
                             }
                         }
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2069,11 +2069,11 @@ class Client(BaseClient):
         
                 - **CreationDate** *(string) --* 
         
-                  The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``"2012-03-20T17:03:43.221Z"`` .
+                  The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example ``\"2012-03-20T17:03:43.221Z\"`` .
         
                 - **Completed** *(boolean) --* 
         
-                  The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
+                  The job status. When a job is completed, you get the job\'s output using Get Job Output (GET output).
         
                 - **StatusCode** *(string) --* 
         
@@ -2335,7 +2335,7 @@ class Client(BaseClient):
         
         Note the difference between this operation and listing parts ( ListParts ). The List Multipart Uploads operation lists all multipart uploads for a vault and does not require a multipart upload ID. The List Parts operation requires a multipart upload ID since parts are associated with a single upload.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and the underlying REST API, see `Working with Archives in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html>`__ and `List Multipart Uploads <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -2345,16 +2345,16 @@ class Client(BaseClient):
         ::
         
           response = client.list_multipart_uploads(
-              vaultName='string',
-              marker='string',
-              limit='string'
+              vaultName=\'string\',
+              marker=\'string\',
+              limit=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -2379,16 +2379,16 @@ class Client(BaseClient):
           ::
         
             {
-                'UploadsList': [
+                \'UploadsList\': [
                     {
-                        'MultipartUploadId': 'string',
-                        'VaultARN': 'string',
-                        'ArchiveDescription': 'string',
-                        'PartSizeInBytes': 123,
-                        'CreationDate': 'string'
+                        \'MultipartUploadId\': \'string\',
+                        \'VaultARN\': \'string\',
+                        \'ArchiveDescription\': \'string\',
+                        \'PartSizeInBytes\': 123,
+                        \'CreationDate\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2436,7 +2436,7 @@ class Client(BaseClient):
         
         The List Parts operation supports pagination. By default, this operation returns up to 50 uploaded parts in the response. You should always check the response for a ``marker`` at which to continue the list; if there are no more items the ``marker`` is ``null`` . To return a list of parts that begins at a specific part, set the ``marker`` request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the ``limit`` parameter in the request. 
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and the underlying REST API, see `Working with Archives in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html>`__ and `List Parts <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -2446,17 +2446,17 @@ class Client(BaseClient):
         ::
         
           response = client.list_parts(
-              vaultName='string',
-              uploadId='string',
-              marker='string',
-              limit='string'
+              vaultName=\'string\',
+              uploadId=\'string\',
+              marker=\'string\',
+              limit=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -2486,18 +2486,18 @@ class Client(BaseClient):
           ::
         
             {
-                'MultipartUploadId': 'string',
-                'VaultARN': 'string',
-                'ArchiveDescription': 'string',
-                'PartSizeInBytes': 123,
-                'CreationDate': 'string',
-                'Parts': [
+                \'MultipartUploadId\': \'string\',
+                \'VaultARN\': \'string\',
+                \'ArchiveDescription\': \'string\',
+                \'PartSizeInBytes\': 123,
+                \'CreationDate\': \'string\',
+                \'Parts\': [
                     {
-                        'RangeInBytes': 'string',
-                        'SHA256TreeHash': 'string'
+                        \'RangeInBytes\': \'string\',
+                        \'SHA256TreeHash\': \'string\'
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2562,9 +2562,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. 
+          The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'-\' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don\'t include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :rtype: dict
         :returns: 
@@ -2574,11 +2574,11 @@ class Client(BaseClient):
           ::
         
             {
-                'ProvisionedCapacityList': [
+                \'ProvisionedCapacityList\': [
                     {
-                        'CapacityId': 'string',
-                        'StartDate': 'string',
-                        'ExpirationDate': 'string'
+                        \'CapacityId\': \'string\',
+                        \'StartDate\': \'string\',
+                        \'ExpirationDate\': \'string\'
                     },
                 ]
             }
@@ -2618,14 +2618,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags_for_vault(
-              vaultName='string'
+              vaultName=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -2640,8 +2640,8 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': {
-                    'string': 'string'
+                \'Tags\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2666,7 +2666,7 @@ class Client(BaseClient):
         
         By default, this operation returns up to 10 items. If there are more vaults to list, the response ``marker`` field contains the vault Amazon Resource Name (ARN) at which to continue the list with a new List Vaults request; otherwise, the ``marker`` field is ``null`` . To return a list of vaults that begins at a specific vault, set the ``marker`` request parameter to the vault ARN you obtained from a previous List Vaults request. You can also limit the number of vaults returned in the response by specifying the ``limit`` parameter in the request. 
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Retrieving Vault Metadata in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html>`__ and `List Vaults <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -2676,15 +2676,15 @@ class Client(BaseClient):
         ::
         
           response = client.list_vaults(
-              marker='string',
-              limit='string'
+              marker=\'string\',
+              limit=\'string\'
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type marker: string
         :param marker: 
@@ -2704,17 +2704,17 @@ class Client(BaseClient):
           ::
         
             {
-                'VaultList': [
+                \'VaultList\': [
                     {
-                        'VaultARN': 'string',
-                        'VaultName': 'string',
-                        'CreationDate': 'string',
-                        'LastInventoryDate': 'string',
-                        'NumberOfArchives': 123,
-                        'SizeInBytes': 123
+                        \'VaultARN\': \'string\',
+                        \'VaultName\': \'string\',
+                        \'CreationDate\': \'string\',
+                        \'LastInventoryDate\': \'string\',
+                        \'NumberOfArchives\': 123,
+                        \'SizeInBytes\': 123
                     },
                 ],
-                'Marker': 'string'
+                \'Marker\': \'string\'
             }
           **Response Structure** 
         
@@ -2775,9 +2775,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. 
+          The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'-\' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don\'t include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :rtype: dict
         :returns: 
@@ -2787,7 +2787,7 @@ class Client(BaseClient):
           ::
         
             {
-                'capacityId': 'string'
+                \'capacityId\': \'string\'
             }
           **Response Structure** 
         
@@ -2809,17 +2809,17 @@ class Client(BaseClient):
         ::
         
           response = client.remove_tags_from_vault(
-              vaultName='string',
+              vaultName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -2849,10 +2849,10 @@ class Client(BaseClient):
         
           response = client.set_data_retrieval_policy(
               Policy={
-                  'Rules': [
+                  \'Rules\': [
                       {
-                          'Strategy': 'string',
-                          'BytesPerHour': 123
+                          \'Strategy\': \'string\',
+                          \'BytesPerHour\': 123
                       },
                   ]
               }
@@ -2860,9 +2860,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type Policy: dict
         :param Policy: 
@@ -2902,17 +2902,17 @@ class Client(BaseClient):
         ::
         
           response = client.set_vault_access_policy(
-              vaultName='string',
+              vaultName=\'string\',
               policy={
-                  'Policy': 'string'
+                  \'Policy\': \'string\'
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -2939,11 +2939,11 @@ class Client(BaseClient):
         
         Amazon SNS topics must grant permission to the vault to be allowed to publish notifications to the topic. You can configure a vault to publish a notification for the following vault events:
         
-        * **ArchiveRetrievalCompleted** This event occurs when a job that was initiated for an archive retrieval is completed ( InitiateJob ). The status of the completed job can be "Succeeded" or "Failed". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
+        * **ArchiveRetrievalCompleted** This event occurs when a job that was initiated for an archive retrieval is completed ( InitiateJob ). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
          
-        * **InventoryRetrievalCompleted** This event occurs when a job that was initiated for an inventory retrieval is completed ( InitiateJob ). The status of the completed job can be "Succeeded" or "Failed". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
+        * **InventoryRetrievalCompleted** This event occurs when a job that was initiated for an inventory retrieval is completed ( InitiateJob ). The status of the completed job can be \"Succeeded\" or \"Failed\". The notification sent to the SNS topic is the same output as returned from  DescribeJob .  
          
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Configuring Vault Notifications in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html>`__ and `Set Vault Notification Configuration <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -2953,20 +2953,20 @@ class Client(BaseClient):
         ::
         
           response = client.set_vault_notifications(
-              vaultName='string',
+              vaultName=\'string\',
               vaultNotificationConfig={
-                  'SNSTopic': 'string',
-                  'Events': [
-                      'string',
+                  \'SNSTopic\': \'string\',
+                  \'Events\': [
+                      \'string\',
                   ]
               }
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID.
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -3003,7 +3003,7 @@ class Client(BaseClient):
         
         Archives are immutable. After you upload an archive, you cannot edit the archive or its description.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading an Archive in Amazon Glacier <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html>`__ and `Upload Archive <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html>`__ in the *Amazon Glacier Developer Guide* . 
         
@@ -3013,9 +3013,9 @@ class Client(BaseClient):
         ::
         
           response = client.upload_archive(
-              vaultName='string',
-              archiveDescription='string',
-              body=b'bytes'|file
+              vaultName=\'string\',
+              archiveDescription=\'string\',
+              body=b\'bytes\'|file
           )
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -3025,9 +3025,9 @@ class Client(BaseClient):
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type archiveDescription: string
         :param archiveDescription: 
@@ -3054,9 +3054,9 @@ class Client(BaseClient):
           ::
         
             {
-                'location': 'string',
-                'checksum': 'string',
-                'archiveId': 'string'
+                \'location\': \'string\',
+                \'checksum\': \'string\',
+                \'archiveId\': \'string\'
             }
           **Response Structure** 
         
@@ -3086,7 +3086,7 @@ class Client(BaseClient):
         
         Amazon Glacier rejects your upload part request if any of the following conditions is true:
         
-        * **SHA256 tree hash does not match** To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don't match, the operation fails. For information about computing a SHA256 tree hash, see `Computing Checksums <http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html>`__ . 
+        * **SHA256 tree hash does not match** To ensure that part data is not corrupted in transmission, you compute a SHA256 tree hash of the part and include it in your request. Upon receiving the part data, Amazon Glacier also computes a SHA256 tree hash. If these hash values don\'t match, the operation fails. For information about computing a SHA256 tree hash, see `Computing Checksums <http://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html>`__ . 
          
         * **Part size does not match** The size of each part except the last must match the size specified in the corresponding  InitiateMultipartUpload request. The size of the last part must be the same size as, or smaller than, the specified size. 
         
@@ -3098,7 +3098,7 @@ class Client(BaseClient):
          
         This operation is idempotent. If you upload the same part multiple times, the data included in the most recent request overwrites the previously uploaded data.
         
-        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
+        An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see `Access Control Using AWS Identity and Access Management (IAM) <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html>`__ .
         
         For conceptual information and underlying REST API, see `Uploading Large Archives in Parts (Multipart Upload) <http://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html>`__ and `Upload Part <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html>`__ in the *Amazon Glacier Developer Guide* .
         
@@ -3108,17 +3108,17 @@ class Client(BaseClient):
         ::
         
           response = client.upload_multipart_part(
-              vaultName='string',
-              uploadId='string',
-              range='string',
-              body=b'bytes'|file
+              vaultName=\'string\',
+              uploadId=\'string\',
+              range=\'string\',
+              body=b\'bytes\'|file
           )
         :type accountId: string
         :param accountId: 
         
-          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '``-`` ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. 
+          The ``AccountId`` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single \'``-`` \' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (\'-\') in the ID. 
         
-            Note: this parameter is set to "-" bydefault if no value is not specified.
+            Note: this parameter is set to \"-\" bydefault if no value is not specified.
         
         :type vaultName: string
         :param vaultName: **[REQUIRED]** 
@@ -3155,7 +3155,7 @@ class Client(BaseClient):
           ::
         
             {
-                'checksum': 'string'
+                \'checksum\': \'string\'
             }
           **Response Structure** 
         

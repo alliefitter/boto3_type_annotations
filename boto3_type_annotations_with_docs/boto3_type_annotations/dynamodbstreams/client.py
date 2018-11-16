@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -14,10 +14,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -39,9 +39,9 @@ class Client(BaseClient):
         ::
         
           response = client.describe_stream(
-              StreamArn='string',
+              StreamArn=\'string\',
               Limit=123,
-              ExclusiveStartShardId='string'
+              ExclusiveStartShardId=\'string\'
           )
         :type StreamArn: string
         :param StreamArn: **[REQUIRED]** 
@@ -66,30 +66,30 @@ class Client(BaseClient):
           ::
         
             {
-                'StreamDescription': {
-                    'StreamArn': 'string',
-                    'StreamLabel': 'string',
-                    'StreamStatus': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED',
-                    'StreamViewType': 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY',
-                    'CreationRequestDateTime': datetime(2015, 1, 1),
-                    'TableName': 'string',
-                    'KeySchema': [
+                \'StreamDescription\': {
+                    \'StreamArn\': \'string\',
+                    \'StreamLabel\': \'string\',
+                    \'StreamStatus\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\',
+                    \'StreamViewType\': \'NEW_IMAGE\'|\'OLD_IMAGE\'|\'NEW_AND_OLD_IMAGES\'|\'KEYS_ONLY\',
+                    \'CreationRequestDateTime\': datetime(2015, 1, 1),
+                    \'TableName\': \'string\',
+                    \'KeySchema\': [
                         {
-                            'AttributeName': 'string',
-                            'KeyType': 'HASH'|'RANGE'
+                            \'AttributeName\': \'string\',
+                            \'KeyType\': \'HASH\'|\'RANGE\'
                         },
                     ],
-                    'Shards': [
+                    \'Shards\': [
                         {
-                            'ShardId': 'string',
-                            'SequenceNumberRange': {
-                                'StartingSequenceNumber': 'string',
-                                'EndingSequenceNumber': 'string'
+                            \'ShardId\': \'string\',
+                            \'SequenceNumberRange\': {
+                                \'StartingSequenceNumber\': \'string\',
+                                \'EndingSequenceNumber\': \'string\'
                             },
-                            'ParentShardId': 'string'
+                            \'ParentShardId\': \'string\'
                         },
                     ],
-                    'LastEvaluatedShardId': 'string'
+                    \'LastEvaluatedShardId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -152,7 +152,7 @@ class Client(BaseClient):
         
               - **KeySchema** *(list) --* 
         
-                The key attribute(s) of the stream's DynamoDB table.
+                The key attribute(s) of the stream\'s DynamoDB table.
         
                 - *(dict) --* 
         
@@ -162,9 +162,9 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                    The partition key of an item is also known as its *hash attribute* . The term \"hash attribute\" derives from DynamoDB\'s usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
         
-                    The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+                    The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         
                   - **AttributeName** *(string) --* 
         
@@ -200,13 +200,13 @@ class Client(BaseClient):
         
                   - **ParentShardId** *(string) --* 
         
-                    The shard ID of the current shard's parent.
+                    The shard ID of the current shard\'s parent.
         
               - **LastEvaluatedShardId** *(string) --* 
         
                 The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
         
-                If ``LastEvaluatedShardId`` is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
+                If ``LastEvaluatedShardId`` is empty, then the \"last page\" of results has been processed and there is currently no more data to be retrieved.
         
                 If ``LastEvaluatedShardId`` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when ``LastEvaluatedShardId`` is empty.
         
@@ -229,7 +229,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -241,10 +241,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -270,7 +270,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_records(
-              ShardIterator='string',
+              ShardIterator=\'string\',
               Limit=123
           )
         :type ShardIterator: string
@@ -291,98 +291,98 @@ class Client(BaseClient):
           ::
         
             {
-                'Records': [
+                \'Records\': [
                     {
-                        'eventID': 'string',
-                        'eventName': 'INSERT'|'MODIFY'|'REMOVE',
-                        'eventVersion': 'string',
-                        'eventSource': 'string',
-                        'awsRegion': 'string',
-                        'dynamodb': {
-                            'ApproximateCreationDateTime': datetime(2015, 1, 1),
-                            'Keys': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 'string',
-                                    'B': b'bytes',
-                                    'SS': [
-                                        'string',
+                        \'eventID\': \'string\',
+                        \'eventName\': \'INSERT\'|\'MODIFY\'|\'REMOVE\',
+                        \'eventVersion\': \'string\',
+                        \'eventSource\': \'string\',
+                        \'awsRegion\': \'string\',
+                        \'dynamodb\': {
+                            \'ApproximateCreationDateTime\': datetime(2015, 1, 1),
+                            \'Keys\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': \'string\',
+                                    \'B\': b\'bytes\',
+                                    \'SS\': [
+                                        \'string\',
                                     ],
-                                    'NS': [
-                                        'string',
+                                    \'NS\': [
+                                        \'string\',
                                     ],
-                                    'BS': [
-                                        b'bytes',
+                                    \'BS\': [
+                                        b\'bytes\',
                                     ],
-                                    'M': {
-                                        'string': {'... recursive ...'}
+                                    \'M\': {
+                                        \'string\': {\'... recursive ...\'}
                                     },
-                                    'L': [
-                                        {'... recursive ...'},
+                                    \'L\': [
+                                        {\'... recursive ...\'},
                                     ],
-                                    'NULL': True|False,
-                                    'BOOL': True|False
+                                    \'NULL\': True|False,
+                                    \'BOOL\': True|False
                                 }
                             },
-                            'NewImage': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 'string',
-                                    'B': b'bytes',
-                                    'SS': [
-                                        'string',
+                            \'NewImage\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': \'string\',
+                                    \'B\': b\'bytes\',
+                                    \'SS\': [
+                                        \'string\',
                                     ],
-                                    'NS': [
-                                        'string',
+                                    \'NS\': [
+                                        \'string\',
                                     ],
-                                    'BS': [
-                                        b'bytes',
+                                    \'BS\': [
+                                        b\'bytes\',
                                     ],
-                                    'M': {
-                                        'string': {'... recursive ...'}
+                                    \'M\': {
+                                        \'string\': {\'... recursive ...\'}
                                     },
-                                    'L': [
-                                        {'... recursive ...'},
+                                    \'L\': [
+                                        {\'... recursive ...\'},
                                     ],
-                                    'NULL': True|False,
-                                    'BOOL': True|False
+                                    \'NULL\': True|False,
+                                    \'BOOL\': True|False
                                 }
                             },
-                            'OldImage': {
-                                'string': {
-                                    'S': 'string',
-                                    'N': 'string',
-                                    'B': b'bytes',
-                                    'SS': [
-                                        'string',
+                            \'OldImage\': {
+                                \'string\': {
+                                    \'S\': \'string\',
+                                    \'N\': \'string\',
+                                    \'B\': b\'bytes\',
+                                    \'SS\': [
+                                        \'string\',
                                     ],
-                                    'NS': [
-                                        'string',
+                                    \'NS\': [
+                                        \'string\',
                                     ],
-                                    'BS': [
-                                        b'bytes',
+                                    \'BS\': [
+                                        b\'bytes\',
                                     ],
-                                    'M': {
-                                        'string': {'... recursive ...'}
+                                    \'M\': {
+                                        \'string\': {\'... recursive ...\'}
                                     },
-                                    'L': [
-                                        {'... recursive ...'},
+                                    \'L\': [
+                                        {\'... recursive ...\'},
                                     ],
-                                    'NULL': True|False,
-                                    'BOOL': True|False
+                                    \'NULL\': True|False,
+                                    \'BOOL\': True|False
                                 }
                             },
-                            'SequenceNumber': 'string',
-                            'SizeBytes': 123,
-                            'StreamViewType': 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
+                            \'SequenceNumber\': \'string\',
+                            \'SizeBytes\': 123,
+                            \'StreamViewType\': \'NEW_IMAGE\'|\'OLD_IMAGE\'|\'NEW_AND_OLD_IMAGES\'|\'KEYS_ONLY\'
                         },
-                        'userIdentity': {
-                            'PrincipalId': 'string',
-                            'Type': 'string'
+                        \'userIdentity\': {
+                            \'PrincipalId\': \'string\',
+                            \'Type\': \'string\'
                         }
                     },
                 ],
-                'NextShardIterator': 'string'
+                \'NextShardIterator\': \'string\'
             }
           **Response Structure** 
         
@@ -408,7 +408,7 @@ class Client(BaseClient):
         
                   * ``INSERT`` - a new item was added to the table. 
                    
-                  * ``MODIFY`` - one or more of an existing item's attributes were modified. 
+                  * ``MODIFY`` - one or more of an existing item\'s attributes were modified. 
                    
                   * ``REMOVE`` - the item was deleted from the table 
                    
@@ -674,17 +674,17 @@ class Client(BaseClient):
         
                   Items that are deleted by the Time to Live process after expiration have the following fields: 
         
-                  * Records[].userIdentity.type "Service" 
+                  * Records[].userIdentity.type \"Service\" 
                    
-                  * Records[].userIdentity.principalId "dynamodb.amazonaws.com" 
+                  * Records[].userIdentity.principalId \"dynamodb.amazonaws.com\" 
                    
                   - **PrincipalId** *(string) --* 
         
-                    A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+                    A unique identifier for the entity that made the call. For Time To Live, the principalId is \"dynamodb.amazonaws.com\".
         
                   - **Type** *(string) --* 
         
-                    The type of the identity. For Time To Live, the type is "Service".
+                    The type of the identity. For Time To Live, the type is \"Service\".
         
             - **NextShardIterator** *(string) --* 
         
@@ -706,10 +706,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_shard_iterator(
-              StreamArn='string',
-              ShardId='string',
-              ShardIteratorType='TRIM_HORIZON'|'LATEST'|'AT_SEQUENCE_NUMBER'|'AFTER_SEQUENCE_NUMBER',
-              SequenceNumber='string'
+              StreamArn=\'string\',
+              ShardId=\'string\',
+              ShardIteratorType=\'TRIM_HORIZON\'|\'LATEST\'|\'AT_SEQUENCE_NUMBER\'|\'AFTER_SEQUENCE_NUMBER\',
+              SequenceNumber=\'string\'
           )
         :type StreamArn: string
         :param StreamArn: **[REQUIRED]** 
@@ -747,7 +747,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ShardIterator': 'string'
+                \'ShardIterator\': \'string\'
             }
           **Response Structure** 
         
@@ -787,9 +787,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_streams(
-              TableName='string',
+              TableName=\'string\',
               Limit=123,
-              ExclusiveStartStreamArn='string'
+              ExclusiveStartStreamArn=\'string\'
           )
         :type TableName: string
         :param TableName: 
@@ -814,14 +814,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Streams': [
+                \'Streams\': [
                     {
-                        'StreamArn': 'string',
-                        'TableName': 'string',
-                        'StreamLabel': 'string'
+                        \'StreamArn\': \'string\',
+                        \'TableName\': \'string\',
+                        \'StreamLabel\': \'string\'
                     },
                 ],
-                'LastEvaluatedStreamArn': 'string'
+                \'LastEvaluatedStreamArn\': \'string\'
             }
           **Response Structure** 
         
@@ -861,7 +861,7 @@ class Client(BaseClient):
         
               The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
         
-              If ``LastEvaluatedStreamArn`` is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
+              If ``LastEvaluatedStreamArn`` is empty, then the \"last page\" of results has been processed and there is no more data to be retrieved.
         
               If ``LastEvaluatedStreamArn`` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when ``LastEvaluatedStreamArn`` is empty.
         

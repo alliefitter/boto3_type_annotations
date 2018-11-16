@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -16,10 +16,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,29 +35,29 @@ class Client(BaseClient):
         ::
         
           response = client.create_cluster(
-              ClusterName='string',
-              NodeType='string',
-              Description='string',
+              ClusterName=\'string\',
+              NodeType=\'string\',
+              Description=\'string\',
               ReplicationFactor=123,
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
-              SubnetGroupName='string',
+              SubnetGroupName=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ],
-              PreferredMaintenanceWindow='string',
-              NotificationTopicArn='string',
-              IamRoleArn='string',
-              ParameterGroupName='string',
+              PreferredMaintenanceWindow=\'string\',
+              NotificationTopicArn=\'string\',
+              IamRoleArn=\'string\',
+              ParameterGroupName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ],
               SSESpecification={
-                  'Enabled': True|False
+                  \'Enabled\': True|False
               }
           )
         :type ClusterName: string
@@ -140,7 +140,7 @@ class Client(BaseClient):
         
           .. note::
         
-            If you don't specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.
+            If you don\'t specify a preferred maintenance window when you create or modify a cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected day of the week.
         
         :type NotificationTopicArn: string
         :param NotificationTopicArn: 
@@ -154,7 +154,7 @@ class Client(BaseClient):
         :type IamRoleArn: string
         :param IamRoleArn: **[REQUIRED]** 
         
-          A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+          A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
         :type ParameterGroupName: string
         :param ParameterGroupName: 
@@ -199,56 +199,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -384,7 +384,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -432,8 +432,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_parameter_group(
-              ParameterGroupName='string',
-              Description='string'
+              ParameterGroupName=\'string\',
+              Description=\'string\'
           )
         :type ParameterGroupName: string
         :param ParameterGroupName: **[REQUIRED]** 
@@ -453,9 +453,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ParameterGroup': {
-                    'ParameterGroupName': 'string',
-                    'Description': 'string'
+                \'ParameterGroup\': {
+                    \'ParameterGroupName\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -486,10 +486,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_subnet_group(
-              SubnetGroupName='string',
-              Description='string',
+              SubnetGroupName=\'string\',
+              Description=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SubnetGroupName: string
@@ -517,14 +517,14 @@ class Client(BaseClient):
           ::
         
             {
-                'SubnetGroup': {
-                    'SubnetGroupName': 'string',
-                    'Description': 'string',
-                    'VpcId': 'string',
-                    'Subnets': [
+                \'SubnetGroup\': {
+                    \'SubnetGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': \'string\'
                         },
                     ]
                 }
@@ -581,13 +581,13 @@ class Client(BaseClient):
         ::
         
           response = client.decrease_replication_factor(
-              ClusterName='string',
+              ClusterName=\'string\',
               NewReplicationFactor=123,
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ],
               NodeIdsToRemove=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterName: string
@@ -622,56 +622,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -807,7 +807,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -855,7 +855,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster(
-              ClusterName='string'
+              ClusterName=\'string\'
           )
         :type ClusterName: string
         :param ClusterName: **[REQUIRED]** 
@@ -870,56 +870,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -1055,7 +1055,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -1103,7 +1103,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_parameter_group(
-              ParameterGroupName='string'
+              ParameterGroupName=\'string\'
           )
         :type ParameterGroupName: string
         :param ParameterGroupName: **[REQUIRED]** 
@@ -1118,7 +1118,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletionMessage': 'string'
+                \'DeletionMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -1144,7 +1144,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_subnet_group(
-              SubnetGroupName='string'
+              SubnetGroupName=\'string\'
           )
         :type SubnetGroupName: string
         :param SubnetGroupName: **[REQUIRED]** 
@@ -1159,7 +1159,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DeletionMessage': 'string'
+                \'DeletionMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -1190,10 +1190,10 @@ class Client(BaseClient):
         
           response = client.describe_clusters(
               ClusterNames=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ClusterNames: list
         :param ClusterNames: 
@@ -1222,58 +1222,58 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Clusters': [
+                \'NextToken\': \'string\',
+                \'Clusters\': [
                     {
-                        'ClusterName': 'string',
-                        'Description': 'string',
-                        'ClusterArn': 'string',
-                        'TotalNodes': 123,
-                        'ActiveNodes': 123,
-                        'NodeType': 'string',
-                        'Status': 'string',
-                        'ClusterDiscoveryEndpoint': {
-                            'Address': 'string',
-                            'Port': 123
+                        \'ClusterName\': \'string\',
+                        \'Description\': \'string\',
+                        \'ClusterArn\': \'string\',
+                        \'TotalNodes\': 123,
+                        \'ActiveNodes\': 123,
+                        \'NodeType\': \'string\',
+                        \'Status\': \'string\',
+                        \'ClusterDiscoveryEndpoint\': {
+                            \'Address\': \'string\',
+                            \'Port\': 123
                         },
-                        'NodeIdsToRemove': [
-                            'string',
+                        \'NodeIdsToRemove\': [
+                            \'string\',
                         ],
-                        'Nodes': [
+                        \'Nodes\': [
                             {
-                                'NodeId': 'string',
-                                'Endpoint': {
-                                    'Address': 'string',
-                                    'Port': 123
+                                \'NodeId\': \'string\',
+                                \'Endpoint\': {
+                                    \'Address\': \'string\',
+                                    \'Port\': 123
                                 },
-                                'NodeCreateTime': datetime(2015, 1, 1),
-                                'AvailabilityZone': 'string',
-                                'NodeStatus': 'string',
-                                'ParameterGroupStatus': 'string'
+                                \'NodeCreateTime\': datetime(2015, 1, 1),
+                                \'AvailabilityZone\': \'string\',
+                                \'NodeStatus\': \'string\',
+                                \'ParameterGroupStatus\': \'string\'
                             },
                         ],
-                        'PreferredMaintenanceWindow': 'string',
-                        'NotificationConfiguration': {
-                            'TopicArn': 'string',
-                            'TopicStatus': 'string'
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'NotificationConfiguration\': {
+                            \'TopicArn\': \'string\',
+                            \'TopicStatus\': \'string\'
                         },
-                        'SubnetGroup': 'string',
-                        'SecurityGroups': [
+                        \'SubnetGroup\': \'string\',
+                        \'SecurityGroups\': [
                             {
-                                'SecurityGroupIdentifier': 'string',
-                                'Status': 'string'
+                                \'SecurityGroupIdentifier\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'IamRoleArn': 'string',
-                        'ParameterGroup': {
-                            'ParameterGroupName': 'string',
-                            'ParameterApplyStatus': 'string',
-                            'NodeIdsToReboot': [
-                                'string',
+                        \'IamRoleArn\': \'string\',
+                        \'ParameterGroup\': {
+                            \'ParameterGroupName\': \'string\',
+                            \'ParameterApplyStatus\': \'string\',
+                            \'NodeIdsToReboot\': [
+                                \'string\',
                             ]
                         },
-                        'SSEDescription': {
-                            'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                        \'SSEDescription\': {
+                            \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                         }
                     },
                 ]
@@ -1418,7 +1418,7 @@ class Client(BaseClient):
         
                 - **IamRoleArn** *(string) --* 
         
-                  A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                  A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
                 - **ParameterGroup** *(dict) --* 
         
@@ -1467,7 +1467,7 @@ class Client(BaseClient):
         
           response = client.describe_default_parameters(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: 
@@ -1489,24 +1489,24 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Parameters': [
+                \'NextToken\': \'string\',
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterType': 'DEFAULT'|'NODE_TYPE_SPECIFIC',
-                        'ParameterValue': 'string',
-                        'NodeTypeSpecificValues': [
+                        \'ParameterName\': \'string\',
+                        \'ParameterType\': \'DEFAULT\'|\'NODE_TYPE_SPECIFIC\',
+                        \'ParameterValue\': \'string\',
+                        \'NodeTypeSpecificValues\': [
                             {
-                                'NodeType': 'string',
-                                'Value': 'string'
+                                \'NodeType\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': 'TRUE'|'FALSE'|'CONDITIONAL',
-                        'ChangeType': 'IMMEDIATE'|'REQUIRES_REBOOT'
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': \'TRUE\'|\'FALSE\'|\'CONDITIONAL\',
+                        \'ChangeType\': \'IMMEDIATE\'|\'REQUIRES_REBOOT\'
                     },
                 ]
             }
@@ -1584,7 +1584,7 @@ class Client(BaseClient):
     def describe_events(self, SourceName: str = None, SourceType: str = None, StartTime: datetime = None, EndTime: datetime = None, Duration: int = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
         
-        By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.
+        By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days\' worth of events if necessary.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dax-2017-04-19/DescribeEvents>`_
         
@@ -1592,13 +1592,13 @@ class Client(BaseClient):
         ::
         
           response = client.describe_events(
-              SourceName='string',
-              SourceType='CLUSTER'|'PARAMETER_GROUP'|'SUBNET_GROUP',
+              SourceName=\'string\',
+              SourceType=\'CLUSTER\'|\'PARAMETER_GROUP\'|\'SUBNET_GROUP\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type SourceName: string
         :param SourceName: 
@@ -1623,7 +1623,7 @@ class Client(BaseClient):
         :type Duration: integer
         :param Duration: 
         
-          The number of minutes' worth of events to retrieve.
+          The number of minutes\' worth of events to retrieve.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -1645,13 +1645,13 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Events': [
+                \'NextToken\': \'string\',
+                \'Events\': [
                     {
-                        'SourceName': 'string',
-                        'SourceType': 'CLUSTER'|'PARAMETER_GROUP'|'SUBNET_GROUP',
-                        'Message': 'string',
-                        'Date': datetime(2015, 1, 1)
+                        \'SourceName\': \'string\',
+                        \'SourceType\': \'CLUSTER\'|\'PARAMETER_GROUP\'|\'SUBNET_GROUP\',
+                        \'Message\': \'string\',
+                        \'Date\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -1700,10 +1700,10 @@ class Client(BaseClient):
         
           response = client.describe_parameter_groups(
               ParameterGroupNames=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ParameterGroupNames: list
         :param ParameterGroupNames: 
@@ -1732,11 +1732,11 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ParameterGroups': [
+                \'NextToken\': \'string\',
+                \'ParameterGroups\': [
                     {
-                        'ParameterGroupName': 'string',
-                        'Description': 'string'
+                        \'ParameterGroupName\': \'string\',
+                        \'Description\': \'string\'
                     },
                 ]
             }
@@ -1776,10 +1776,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_parameters(
-              ParameterGroupName='string',
-              Source='string',
+              ParameterGroupName=\'string\',
+              Source=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ParameterGroupName: string
         :param ParameterGroupName: **[REQUIRED]** 
@@ -1811,24 +1811,24 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'Parameters': [
+                \'NextToken\': \'string\',
+                \'Parameters\': [
                     {
-                        'ParameterName': 'string',
-                        'ParameterType': 'DEFAULT'|'NODE_TYPE_SPECIFIC',
-                        'ParameterValue': 'string',
-                        'NodeTypeSpecificValues': [
+                        \'ParameterName\': \'string\',
+                        \'ParameterType\': \'DEFAULT\'|\'NODE_TYPE_SPECIFIC\',
+                        \'ParameterValue\': \'string\',
+                        \'NodeTypeSpecificValues\': [
                             {
-                                'NodeType': 'string',
-                                'Value': 'string'
+                                \'NodeType\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'Description': 'string',
-                        'Source': 'string',
-                        'DataType': 'string',
-                        'AllowedValues': 'string',
-                        'IsModifiable': 'TRUE'|'FALSE'|'CONDITIONAL',
-                        'ChangeType': 'IMMEDIATE'|'REQUIRES_REBOOT'
+                        \'Description\': \'string\',
+                        \'Source\': \'string\',
+                        \'DataType\': \'string\',
+                        \'AllowedValues\': \'string\',
+                        \'IsModifiable\': \'TRUE\'|\'FALSE\'|\'CONDITIONAL\',
+                        \'ChangeType\': \'IMMEDIATE\'|\'REQUIRES_REBOOT\'
                     },
                 ]
             }
@@ -1913,10 +1913,10 @@ class Client(BaseClient):
         
           response = client.describe_subnet_groups(
               SubnetGroupNames=[
-                  'string',
+                  \'string\',
               ],
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type SubnetGroupNames: list
         :param SubnetGroupNames: 
@@ -1945,16 +1945,16 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'SubnetGroups': [
+                \'NextToken\': \'string\',
+                \'SubnetGroups\': [
                     {
-                        'SubnetGroupName': 'string',
-                        'Description': 'string',
-                        'VpcId': 'string',
-                        'Subnets': [
+                        \'SubnetGroupName\': \'string\',
+                        \'Description\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': \'string\'
                             },
                         ]
                     },
@@ -2027,7 +2027,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2039,10 +2039,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2074,10 +2074,10 @@ class Client(BaseClient):
         ::
         
           response = client.increase_replication_factor(
-              ClusterName='string',
+              ClusterName=\'string\',
               NewReplicationFactor=123,
               AvailabilityZones=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterName: string
@@ -2105,56 +2105,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -2290,7 +2290,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -2338,8 +2338,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              ResourceName='string',
-              NextToken='string'
+              ResourceName=\'string\',
+              NextToken=\'string\'
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]** 
@@ -2359,13 +2359,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2407,8 +2407,8 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_node(
-              ClusterName='string',
-              NodeId='string'
+              ClusterName=\'string\',
+              NodeId=\'string\'
           )
         :type ClusterName: string
         :param ClusterName: **[REQUIRED]** 
@@ -2428,56 +2428,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -2613,7 +2613,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -2661,11 +2661,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               Tags=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -2703,10 +2703,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -2746,9 +2746,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              ResourceName='string',
+              ResourceName=\'string\',
               TagKeys=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceName: string
@@ -2771,10 +2771,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -2814,14 +2814,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_cluster(
-              ClusterName='string',
-              Description='string',
-              PreferredMaintenanceWindow='string',
-              NotificationTopicArn='string',
-              NotificationTopicStatus='string',
-              ParameterGroupName='string',
+              ClusterName=\'string\',
+              Description=\'string\',
+              PreferredMaintenanceWindow=\'string\',
+              NotificationTopicArn=\'string\',
+              NotificationTopicStatus=\'string\',
+              ParameterGroupName=\'string\',
               SecurityGroupIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ClusterName: string
@@ -2869,56 +2869,56 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'ClusterName': 'string',
-                    'Description': 'string',
-                    'ClusterArn': 'string',
-                    'TotalNodes': 123,
-                    'ActiveNodes': 123,
-                    'NodeType': 'string',
-                    'Status': 'string',
-                    'ClusterDiscoveryEndpoint': {
-                        'Address': 'string',
-                        'Port': 123
+                \'Cluster\': {
+                    \'ClusterName\': \'string\',
+                    \'Description\': \'string\',
+                    \'ClusterArn\': \'string\',
+                    \'TotalNodes\': 123,
+                    \'ActiveNodes\': 123,
+                    \'NodeType\': \'string\',
+                    \'Status\': \'string\',
+                    \'ClusterDiscoveryEndpoint\': {
+                        \'Address\': \'string\',
+                        \'Port\': 123
                     },
-                    'NodeIdsToRemove': [
-                        'string',
+                    \'NodeIdsToRemove\': [
+                        \'string\',
                     ],
-                    'Nodes': [
+                    \'Nodes\': [
                         {
-                            'NodeId': 'string',
-                            'Endpoint': {
-                                'Address': 'string',
-                                'Port': 123
+                            \'NodeId\': \'string\',
+                            \'Endpoint\': {
+                                \'Address\': \'string\',
+                                \'Port\': 123
                             },
-                            'NodeCreateTime': datetime(2015, 1, 1),
-                            'AvailabilityZone': 'string',
-                            'NodeStatus': 'string',
-                            'ParameterGroupStatus': 'string'
+                            \'NodeCreateTime\': datetime(2015, 1, 1),
+                            \'AvailabilityZone\': \'string\',
+                            \'NodeStatus\': \'string\',
+                            \'ParameterGroupStatus\': \'string\'
                         },
                     ],
-                    'PreferredMaintenanceWindow': 'string',
-                    'NotificationConfiguration': {
-                        'TopicArn': 'string',
-                        'TopicStatus': 'string'
+                    \'PreferredMaintenanceWindow\': \'string\',
+                    \'NotificationConfiguration\': {
+                        \'TopicArn\': \'string\',
+                        \'TopicStatus\': \'string\'
                     },
-                    'SubnetGroup': 'string',
-                    'SecurityGroups': [
+                    \'SubnetGroup\': \'string\',
+                    \'SecurityGroups\': [
                         {
-                            'SecurityGroupIdentifier': 'string',
-                            'Status': 'string'
+                            \'SecurityGroupIdentifier\': \'string\',
+                            \'Status\': \'string\'
                         },
                     ],
-                    'IamRoleArn': 'string',
-                    'ParameterGroup': {
-                        'ParameterGroupName': 'string',
-                        'ParameterApplyStatus': 'string',
-                        'NodeIdsToReboot': [
-                            'string',
+                    \'IamRoleArn\': \'string\',
+                    \'ParameterGroup\': {
+                        \'ParameterGroupName\': \'string\',
+                        \'ParameterApplyStatus\': \'string\',
+                        \'NodeIdsToReboot\': [
+                            \'string\',
                         ]
                     },
-                    'SSEDescription': {
-                        'Status': 'ENABLING'|'ENABLED'|'DISABLING'|'DISABLED'
+                    \'SSEDescription\': {
+                        \'Status\': \'ENABLING\'|\'ENABLED\'|\'DISABLING\'|\'DISABLED\'
                     }
                 }
             }
@@ -3054,7 +3054,7 @@ class Client(BaseClient):
         
               - **IamRoleArn** *(string) --* 
         
-                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+                A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role\'s permissions to access DynamoDB on your behalf.
         
               - **ParameterGroup** *(dict) --* 
         
@@ -3102,11 +3102,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_parameter_group(
-              ParameterGroupName='string',
+              ParameterGroupName=\'string\',
               ParameterNameValues=[
                   {
-                      'ParameterName': 'string',
-                      'ParameterValue': 'string'
+                      \'ParameterName\': \'string\',
+                      \'ParameterValue\': \'string\'
                   },
               ]
           )
@@ -3140,9 +3140,9 @@ class Client(BaseClient):
           ::
         
             {
-                'ParameterGroup': {
-                    'ParameterGroupName': 'string',
-                    'Description': 'string'
+                \'ParameterGroup\': {
+                    \'ParameterGroupName\': \'string\',
+                    \'Description\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3173,10 +3173,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_subnet_group(
-              SubnetGroupName='string',
-              Description='string',
+              SubnetGroupName=\'string\',
+              Description=\'string\',
               SubnetIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type SubnetGroupName: string
@@ -3204,14 +3204,14 @@ class Client(BaseClient):
           ::
         
             {
-                'SubnetGroup': {
-                    'SubnetGroupName': 'string',
-                    'Description': 'string',
-                    'VpcId': 'string',
-                    'Subnets': [
+                \'SubnetGroup\': {
+                    \'SubnetGroupName\': \'string\',
+                    \'Description\': \'string\',
+                    \'VpcId\': \'string\',
+                    \'Subnets\': [
                         {
-                            'SubnetIdentifier': 'string',
-                            'SubnetAvailabilityZone': 'string'
+                            \'SubnetIdentifier\': \'string\',
+                            \'SubnetAvailabilityZone\': \'string\'
                         },
                     ]
                 }

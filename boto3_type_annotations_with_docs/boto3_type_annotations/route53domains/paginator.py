@@ -14,9 +14,9 @@ class ListDomains(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -44,15 +44,15 @@ class ListDomains(Paginator):
           ::
         
             {
-                'Domains': [
+                \'Domains\': [
                     {
-                        'DomainName': 'string',
-                        'AutoRenew': True|False,
-                        'TransferLock': True|False,
-                        'Expiry': datetime(2015, 1, 1)
+                        \'DomainName\': \'string\',
+                        \'AutoRenew\': True|False,
+                        \'TransferLock\': True|False,
+                        \'Expiry\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -104,9 +104,9 @@ class ListOperations(Paginator):
           response_iterator = paginator.paginate(
               SubmittedSince=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SubmittedSince: datetime
@@ -139,15 +139,15 @@ class ListOperations(Paginator):
           ::
         
             {
-                'Operations': [
+                \'Operations\': [
                     {
-                        'OperationId': 'string',
-                        'Status': 'SUBMITTED'|'IN_PROGRESS'|'ERROR'|'SUCCESSFUL'|'FAILED',
-                        'Type': 'REGISTER_DOMAIN'|'DELETE_DOMAIN'|'TRANSFER_IN_DOMAIN'|'UPDATE_DOMAIN_CONTACT'|'UPDATE_NAMESERVER'|'CHANGE_PRIVACY_PROTECTION'|'DOMAIN_LOCK'|'ENABLE_AUTORENEW'|'DISABLE_AUTORENEW'|'ADD_DNSSEC'|'REMOVE_DNSSEC'|'EXPIRE_DOMAIN'|'TRANSFER_OUT_DOMAIN'|'CHANGE_DOMAIN_OWNER'|'RENEW_DOMAIN'|'PUSH_DOMAIN',
-                        'SubmittedDate': datetime(2015, 1, 1)
+                        \'OperationId\': \'string\',
+                        \'Status\': \'SUBMITTED\'|\'IN_PROGRESS\'|\'ERROR\'|\'SUCCESSFUL\'|\'FAILED\',
+                        \'Type\': \'REGISTER_DOMAIN\'|\'DELETE_DOMAIN\'|\'TRANSFER_IN_DOMAIN\'|\'UPDATE_DOMAIN_CONTACT\'|\'UPDATE_NAMESERVER\'|\'CHANGE_PRIVACY_PROTECTION\'|\'DOMAIN_LOCK\'|\'ENABLE_AUTORENEW\'|\'DISABLE_AUTORENEW\'|\'ADD_DNSSEC\'|\'REMOVE_DNSSEC\'|\'EXPIRE_DOMAIN\'|\'TRANSFER_OUT_DOMAIN\'|\'CHANGE_DOMAIN_OWNER\'|\'RENEW_DOMAIN\'|\'PUSH_DOMAIN\',
+                        \'SubmittedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

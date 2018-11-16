@@ -16,16 +16,16 @@ class DescribeCertificates(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -70,21 +70,21 @@ class DescribeCertificates(Paginator):
           ::
         
             {
-                'Certificates': [
+                \'Certificates\': [
                     {
-                        'CertificateIdentifier': 'string',
-                        'CertificateCreationDate': datetime(2015, 1, 1),
-                        'CertificatePem': 'string',
-                        'CertificateWallet': b'bytes',
-                        'CertificateArn': 'string',
-                        'CertificateOwner': 'string',
-                        'ValidFromDate': datetime(2015, 1, 1),
-                        'ValidToDate': datetime(2015, 1, 1),
-                        'SigningAlgorithm': 'string',
-                        'KeyLength': 123
+                        \'CertificateIdentifier\': \'string\',
+                        \'CertificateCreationDate\': datetime(2015, 1, 1),
+                        \'CertificatePem\': \'string\',
+                        \'CertificateWallet\': b\'bytes\',
+                        \'CertificateArn\': \'string\',
+                        \'CertificateOwner\': \'string\',
+                        \'ValidFromDate\': datetime(2015, 1, 1),
+                        \'ValidToDate\': datetime(2015, 1, 1),
+                        \'SigningAlgorithm\': \'string\',
+                        \'KeyLength\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -158,16 +158,16 @@ class DescribeConnections(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -214,17 +214,17 @@ class DescribeConnections(Paginator):
           ::
         
             {
-                'Connections': [
+                \'Connections\': [
                     {
-                        'ReplicationInstanceArn': 'string',
-                        'EndpointArn': 'string',
-                        'Status': 'string',
-                        'LastFailureMessage': 'string',
-                        'EndpointIdentifier': 'string',
-                        'ReplicationInstanceIdentifier': 'string'
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'LastFailureMessage\': \'string\',
+                        \'EndpointIdentifier\': \'string\',
+                        \'ReplicationInstanceIdentifier\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -280,16 +280,16 @@ class DescribeEndpointTypes(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -336,15 +336,15 @@ class DescribeEndpointTypes(Paginator):
           ::
         
             {
-                'SupportedEndpointTypes': [
+                \'SupportedEndpointTypes\': [
                     {
-                        'EngineName': 'string',
-                        'SupportsCDC': True|False,
-                        'EndpointType': 'source'|'target',
-                        'EngineDisplayName': 'string'
+                        \'EngineName\': \'string\',
+                        \'SupportsCDC\': True|False,
+                        \'EndpointType\': \'source\'|\'target\',
+                        \'EngineDisplayName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -370,7 +370,7 @@ class DescribeEndpointTypes(Paginator):
         
                 - **EngineDisplayName** *(string) --* 
         
-                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
             - **NextToken** *(string) --* 
         
@@ -392,16 +392,16 @@ class DescribeEndpoints(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -448,58 +448,58 @@ class DescribeEndpoints(Paginator):
           ::
         
             {
-                'Endpoints': [
+                \'Endpoints\': [
                     {
-                        'EndpointIdentifier': 'string',
-                        'EndpointType': 'source'|'target',
-                        'EngineName': 'string',
-                        'EngineDisplayName': 'string',
-                        'Username': 'string',
-                        'ServerName': 'string',
-                        'Port': 123,
-                        'DatabaseName': 'string',
-                        'ExtraConnectionAttributes': 'string',
-                        'Status': 'string',
-                        'KmsKeyId': 'string',
-                        'EndpointArn': 'string',
-                        'CertificateArn': 'string',
-                        'SslMode': 'none'|'require'|'verify-ca'|'verify-full',
-                        'ServiceAccessRoleArn': 'string',
-                        'ExternalTableDefinition': 'string',
-                        'ExternalId': 'string',
-                        'DynamoDbSettings': {
-                            'ServiceAccessRoleArn': 'string'
+                        \'EndpointIdentifier\': \'string\',
+                        \'EndpointType\': \'source\'|\'target\',
+                        \'EngineName\': \'string\',
+                        \'EngineDisplayName\': \'string\',
+                        \'Username\': \'string\',
+                        \'ServerName\': \'string\',
+                        \'Port\': 123,
+                        \'DatabaseName\': \'string\',
+                        \'ExtraConnectionAttributes\': \'string\',
+                        \'Status\': \'string\',
+                        \'KmsKeyId\': \'string\',
+                        \'EndpointArn\': \'string\',
+                        \'CertificateArn\': \'string\',
+                        \'SslMode\': \'none\'|\'require\'|\'verify-ca\'|\'verify-full\',
+                        \'ServiceAccessRoleArn\': \'string\',
+                        \'ExternalTableDefinition\': \'string\',
+                        \'ExternalId\': \'string\',
+                        \'DynamoDbSettings\': {
+                            \'ServiceAccessRoleArn\': \'string\'
                         },
-                        'S3Settings': {
-                            'ServiceAccessRoleArn': 'string',
-                            'ExternalTableDefinition': 'string',
-                            'CsvRowDelimiter': 'string',
-                            'CsvDelimiter': 'string',
-                            'BucketFolder': 'string',
-                            'BucketName': 'string',
-                            'CompressionType': 'none'|'gzip'
+                        \'S3Settings\': {
+                            \'ServiceAccessRoleArn\': \'string\',
+                            \'ExternalTableDefinition\': \'string\',
+                            \'CsvRowDelimiter\': \'string\',
+                            \'CsvDelimiter\': \'string\',
+                            \'BucketFolder\': \'string\',
+                            \'BucketName\': \'string\',
+                            \'CompressionType\': \'none\'|\'gzip\'
                         },
-                        'DmsTransferSettings': {
-                            'ServiceAccessRoleArn': 'string',
-                            'BucketName': 'string'
+                        \'DmsTransferSettings\': {
+                            \'ServiceAccessRoleArn\': \'string\',
+                            \'BucketName\': \'string\'
                         },
-                        'MongoDbSettings': {
-                            'Username': 'string',
-                            'Password': 'string',
-                            'ServerName': 'string',
-                            'Port': 123,
-                            'DatabaseName': 'string',
-                            'AuthType': 'no'|'password',
-                            'AuthMechanism': 'default'|'mongodb_cr'|'scram_sha_1',
-                            'NestingLevel': 'none'|'one',
-                            'ExtractDocId': 'string',
-                            'DocsToInvestigate': 'string',
-                            'AuthSource': 'string',
-                            'KmsKeyId': 'string'
+                        \'MongoDbSettings\': {
+                            \'Username\': \'string\',
+                            \'Password\': \'string\',
+                            \'ServerName\': \'string\',
+                            \'Port\': 123,
+                            \'DatabaseName\': \'string\',
+                            \'AuthType\': \'no\'|\'password\',
+                            \'AuthMechanism\': \'default\'|\'mongodb_cr\'|\'scram_sha_1\',
+                            \'NestingLevel\': \'none\'|\'one\',
+                            \'ExtractDocId\': \'string\',
+                            \'DocsToInvestigate\': \'string\',
+                            \'AuthSource\': \'string\',
+                            \'KmsKeyId\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -525,7 +525,7 @@ class DescribeEndpoints(Paginator):
         
                 - **EngineDisplayName** *(string) --* 
         
-                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is "aurora," this value would be "Amazon Aurora MySQL."
+                  The expanded name for the engine name. For example, if the ``EngineName`` parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
         
                 - **Username** *(string) --* 
         
@@ -639,7 +639,7 @@ class DescribeEndpoints(Paginator):
         
                   JSON syntax:
         
-                  { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } 
+                  { \"ServiceAccessRoleArn\": \"string\", \"BucketName\": \"string\", \"CompressionType\": \"none\"|\"gzip\" } 
         
                   - **ServiceAccessRoleArn** *(string) --* 
         
@@ -737,19 +737,19 @@ class DescribeEventSubscriptions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SubscriptionName='string',
+              SubscriptionName=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SubscriptionName: string
@@ -799,24 +799,24 @@ class DescribeEventSubscriptions(Paginator):
           ::
         
             {
-                'EventSubscriptionsList': [
+                \'EventSubscriptionsList\': [
                     {
-                        'CustomerAwsId': 'string',
-                        'CustSubscriptionId': 'string',
-                        'SnsTopicArn': 'string',
-                        'Status': 'string',
-                        'SubscriptionCreationTime': 'string',
-                        'SourceType': 'string',
-                        'SourceIdsList': [
-                            'string',
+                        \'CustomerAwsId\': \'string\',
+                        \'CustSubscriptionId\': \'string\',
+                        \'SnsTopicArn\': \'string\',
+                        \'Status\': \'string\',
+                        \'SubscriptionCreationTime\': \'string\',
+                        \'SourceType\': \'string\',
+                        \'SourceIdsList\': [
+                            \'string\',
                         ],
-                        'EventCategoriesList': [
-                            'string',
+                        \'EventCategoriesList\': [
+                            \'string\',
                         ],
-                        'Enabled': True|False
+                        \'Enabled\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -848,7 +848,7 @@ class DescribeEventSubscriptions(Paginator):
         
                   Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
         
-                  The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+                  The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
         
                 - **SubscriptionCreationTime** *(string) --* 
         
@@ -894,26 +894,26 @@ class DescribeEvents(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              SourceIdentifier='string',
-              SourceType='replication-instance',
+              SourceIdentifier=\'string\',
+              SourceType=\'replication-instance\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Duration=123,
               EventCategories=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type SourceIdentifier: string
@@ -992,18 +992,18 @@ class DescribeEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'SourceIdentifier': 'string',
-                        'SourceType': 'replication-instance',
-                        'Message': 'string',
-                        'EventCategories': [
-                            'string',
+                        \'SourceIdentifier\': \'string\',
+                        \'SourceType\': \'replication-instance\',
+                        \'Message\': \'string\',
+                        \'EventCategories\': [
+                            \'string\',
                         ],
-                        'Date': datetime(2015, 1, 1)
+                        \'Date\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1060,9 +1060,9 @@ class DescribeOrderableReplicationInstances(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -1090,18 +1090,18 @@ class DescribeOrderableReplicationInstances(Paginator):
           ::
         
             {
-                'OrderableReplicationInstances': [
+                \'OrderableReplicationInstances\': [
                     {
-                        'EngineVersion': 'string',
-                        'ReplicationInstanceClass': 'string',
-                        'StorageType': 'string',
-                        'MinAllocatedStorage': 123,
-                        'MaxAllocatedStorage': 123,
-                        'DefaultAllocatedStorage': 123,
-                        'IncludedAllocatedStorage': 123
+                        \'EngineVersion\': \'string\',
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'StorageType\': \'string\',
+                        \'MinAllocatedStorage\': 123,
+                        \'MaxAllocatedStorage\': 123,
+                        \'DefaultAllocatedStorage\': 123,
+                        \'IncludedAllocatedStorage\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1163,16 +1163,16 @@ class DescribeReplicationInstances(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1219,61 +1219,61 @@ class DescribeReplicationInstances(Paginator):
           ::
         
             {
-                'ReplicationInstances': [
+                \'ReplicationInstances\': [
                     {
-                        'ReplicationInstanceIdentifier': 'string',
-                        'ReplicationInstanceClass': 'string',
-                        'ReplicationInstanceStatus': 'string',
-                        'AllocatedStorage': 123,
-                        'InstanceCreateTime': datetime(2015, 1, 1),
-                        'VpcSecurityGroups': [
+                        \'ReplicationInstanceIdentifier\': \'string\',
+                        \'ReplicationInstanceClass\': \'string\',
+                        \'ReplicationInstanceStatus\': \'string\',
+                        \'AllocatedStorage\': 123,
+                        \'InstanceCreateTime\': datetime(2015, 1, 1),
+                        \'VpcSecurityGroups\': [
                             {
-                                'VpcSecurityGroupId': 'string',
-                                'Status': 'string'
+                                \'VpcSecurityGroupId\': \'string\',
+                                \'Status\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'ReplicationSubnetGroup': {
-                            'ReplicationSubnetGroupIdentifier': 'string',
-                            'ReplicationSubnetGroupDescription': 'string',
-                            'VpcId': 'string',
-                            'SubnetGroupStatus': 'string',
-                            'Subnets': [
+                        \'AvailabilityZone\': \'string\',
+                        \'ReplicationSubnetGroup\': {
+                            \'ReplicationSubnetGroupIdentifier\': \'string\',
+                            \'ReplicationSubnetGroupDescription\': \'string\',
+                            \'VpcId\': \'string\',
+                            \'SubnetGroupStatus\': \'string\',
+                            \'Subnets\': [
                                 {
-                                    'SubnetIdentifier': 'string',
-                                    'SubnetAvailabilityZone': {
-                                        'Name': 'string'
+                                    \'SubnetIdentifier\': \'string\',
+                                    \'SubnetAvailabilityZone\': {
+                                        \'Name\': \'string\'
                                     },
-                                    'SubnetStatus': 'string'
+                                    \'SubnetStatus\': \'string\'
                                 },
                             ]
                         },
-                        'PreferredMaintenanceWindow': 'string',
-                        'PendingModifiedValues': {
-                            'ReplicationInstanceClass': 'string',
-                            'AllocatedStorage': 123,
-                            'MultiAZ': True|False,
-                            'EngineVersion': 'string'
+                        \'PreferredMaintenanceWindow\': \'string\',
+                        \'PendingModifiedValues\': {
+                            \'ReplicationInstanceClass\': \'string\',
+                            \'AllocatedStorage\': 123,
+                            \'MultiAZ\': True|False,
+                            \'EngineVersion\': \'string\'
                         },
-                        'MultiAZ': True|False,
-                        'EngineVersion': 'string',
-                        'AutoMinorVersionUpgrade': True|False,
-                        'KmsKeyId': 'string',
-                        'ReplicationInstanceArn': 'string',
-                        'ReplicationInstancePublicIpAddress': 'string',
-                        'ReplicationInstancePrivateIpAddress': 'string',
-                        'ReplicationInstancePublicIpAddresses': [
-                            'string',
+                        \'MultiAZ\': True|False,
+                        \'EngineVersion\': \'string\',
+                        \'AutoMinorVersionUpgrade\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'ReplicationInstancePublicIpAddress\': \'string\',
+                        \'ReplicationInstancePrivateIpAddress\': \'string\',
+                        \'ReplicationInstancePublicIpAddresses\': [
+                            \'string\',
                         ],
-                        'ReplicationInstancePrivateIpAddresses': [
-                            'string',
+                        \'ReplicationInstancePrivateIpAddresses\': [
+                            \'string\',
                         ],
-                        'PubliclyAccessible': True|False,
-                        'SecondaryAvailabilityZone': 'string',
-                        'FreeUntil': datetime(2015, 1, 1)
+                        \'PubliclyAccessible\': True|False,
+                        \'SecondaryAvailabilityZone\': \'string\',
+                        \'FreeUntil\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1475,16 +1475,16 @@ class DescribeReplicationSubnetGroups(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1529,24 +1529,24 @@ class DescribeReplicationSubnetGroups(Paginator):
           ::
         
             {
-                'ReplicationSubnetGroups': [
+                \'ReplicationSubnetGroups\': [
                     {
-                        'ReplicationSubnetGroupIdentifier': 'string',
-                        'ReplicationSubnetGroupDescription': 'string',
-                        'VpcId': 'string',
-                        'SubnetGroupStatus': 'string',
-                        'Subnets': [
+                        \'ReplicationSubnetGroupIdentifier\': \'string\',
+                        \'ReplicationSubnetGroupDescription\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'SubnetGroupStatus\': \'string\',
+                        \'Subnets\': [
                             {
-                                'SubnetIdentifier': 'string',
-                                'SubnetAvailabilityZone': {
-                                    'Name': 'string'
+                                \'SubnetIdentifier\': \'string\',
+                                \'SubnetAvailabilityZone\': {
+                                    \'Name\': \'string\'
                                 },
-                                'SubnetStatus': 'string'
+                                \'SubnetStatus\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1614,11 +1614,11 @@ class DescribeReplicationTaskAssessmentResults(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReplicationTaskArn='string',
+              ReplicationTaskArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReplicationTaskArn: string
@@ -1651,19 +1651,19 @@ class DescribeReplicationTaskAssessmentResults(Paginator):
           ::
         
             {
-                'BucketName': 'string',
-                'ReplicationTaskAssessmentResults': [
+                \'BucketName\': \'string\',
+                \'ReplicationTaskAssessmentResults\': [
                     {
-                        'ReplicationTaskIdentifier': 'string',
-                        'ReplicationTaskArn': 'string',
-                        'ReplicationTaskLastAssessmentDate': datetime(2015, 1, 1),
-                        'AssessmentStatus': 'string',
-                        'AssessmentResultsFile': 'string',
-                        'AssessmentResults': 'string',
-                        'S3ObjectUrl': 'string'
+                        \'ReplicationTaskIdentifier\': \'string\',
+                        \'ReplicationTaskArn\': \'string\',
+                        \'ReplicationTaskLastAssessmentDate\': datetime(2015, 1, 1),
+                        \'AssessmentStatus\': \'string\',
+                        \'AssessmentResultsFile\': \'string\',
+                        \'AssessmentResults\': \'string\',
+                        \'S3ObjectUrl\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1729,16 +1729,16 @@ class DescribeReplicationTasks(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1785,35 +1785,35 @@ class DescribeReplicationTasks(Paginator):
           ::
         
             {
-                'ReplicationTasks': [
+                \'ReplicationTasks\': [
                     {
-                        'ReplicationTaskIdentifier': 'string',
-                        'SourceEndpointArn': 'string',
-                        'TargetEndpointArn': 'string',
-                        'ReplicationInstanceArn': 'string',
-                        'MigrationType': 'full-load'|'cdc'|'full-load-and-cdc',
-                        'TableMappings': 'string',
-                        'ReplicationTaskSettings': 'string',
-                        'Status': 'string',
-                        'LastFailureMessage': 'string',
-                        'StopReason': 'string',
-                        'ReplicationTaskCreationDate': datetime(2015, 1, 1),
-                        'ReplicationTaskStartDate': datetime(2015, 1, 1),
-                        'CdcStartPosition': 'string',
-                        'CdcStopPosition': 'string',
-                        'RecoveryCheckpoint': 'string',
-                        'ReplicationTaskArn': 'string',
-                        'ReplicationTaskStats': {
-                            'FullLoadProgressPercent': 123,
-                            'ElapsedTimeMillis': 123,
-                            'TablesLoaded': 123,
-                            'TablesLoading': 123,
-                            'TablesQueued': 123,
-                            'TablesErrored': 123
+                        \'ReplicationTaskIdentifier\': \'string\',
+                        \'SourceEndpointArn\': \'string\',
+                        \'TargetEndpointArn\': \'string\',
+                        \'ReplicationInstanceArn\': \'string\',
+                        \'MigrationType\': \'full-load\'|\'cdc\'|\'full-load-and-cdc\',
+                        \'TableMappings\': \'string\',
+                        \'ReplicationTaskSettings\': \'string\',
+                        \'Status\': \'string\',
+                        \'LastFailureMessage\': \'string\',
+                        \'StopReason\': \'string\',
+                        \'ReplicationTaskCreationDate\': datetime(2015, 1, 1),
+                        \'ReplicationTaskStartDate\': datetime(2015, 1, 1),
+                        \'CdcStartPosition\': \'string\',
+                        \'CdcStopPosition\': \'string\',
+                        \'RecoveryCheckpoint\': \'string\',
+                        \'ReplicationTaskArn\': \'string\',
+                        \'ReplicationTaskStats\': {
+                            \'FullLoadProgressPercent\': 123,
+                            \'ElapsedTimeMillis\': 123,
+                            \'TablesLoaded\': 123,
+                            \'TablesLoading\': 123,
+                            \'TablesQueued\': 123,
+                            \'TablesErrored\': 123
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1889,7 +1889,7 @@ class DescribeReplicationTasks(Paginator):
         
                   Date Example: --cdc-start-position “2018-03-08T12:12:12”
         
-                  Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+                  Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
         
                   LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
         
@@ -1955,11 +1955,11 @@ class DescribeSchemas(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              EndpointArn='string',
+              EndpointArn=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type EndpointArn: string
@@ -1992,10 +1992,10 @@ class DescribeSchemas(Paginator):
           ::
         
             {
-                'Schemas': [
-                    'string',
+                \'Schemas\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2025,19 +2025,19 @@ class DescribeTableStatistics(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ReplicationTaskArn='string',
+              ReplicationTaskArn=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ReplicationTaskArn: string
@@ -2091,28 +2091,28 @@ class DescribeTableStatistics(Paginator):
           ::
         
             {
-                'ReplicationTaskArn': 'string',
-                'TableStatistics': [
+                \'ReplicationTaskArn\': \'string\',
+                \'TableStatistics\': [
                     {
-                        'SchemaName': 'string',
-                        'TableName': 'string',
-                        'Inserts': 123,
-                        'Deletes': 123,
-                        'Updates': 123,
-                        'Ddls': 123,
-                        'FullLoadRows': 123,
-                        'FullLoadCondtnlChkFailedRows': 123,
-                        'FullLoadErrorRows': 123,
-                        'LastUpdateTime': datetime(2015, 1, 1),
-                        'TableState': 'string',
-                        'ValidationPendingRecords': 123,
-                        'ValidationFailedRecords': 123,
-                        'ValidationSuspendedRecords': 123,
-                        'ValidationState': 'string',
-                        'ValidationStateDetails': 'string'
+                        \'SchemaName\': \'string\',
+                        \'TableName\': \'string\',
+                        \'Inserts\': 123,
+                        \'Deletes\': 123,
+                        \'Updates\': 123,
+                        \'Ddls\': 123,
+                        \'FullLoadRows\': 123,
+                        \'FullLoadCondtnlChkFailedRows\': 123,
+                        \'FullLoadErrorRows\': 123,
+                        \'LastUpdateTime\': datetime(2015, 1, 1),
+                        \'TableState\': \'string\',
+                        \'ValidationPendingRecords\': 123,
+                        \'ValidationFailedRecords\': 123,
+                        \'ValidationSuspendedRecords\': 123,
+                        \'ValidationState\': \'string\',
+                        \'ValidationStateDetails\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

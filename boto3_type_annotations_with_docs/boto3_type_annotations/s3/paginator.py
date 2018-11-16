@@ -12,14 +12,14 @@ class ListMultipartUploads(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              Prefix='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              Prefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Bucket: string
@@ -65,36 +65,36 @@ class ListMultipartUploads(Paginator):
           ::
         
             {
-                'Bucket': 'string',
-                'KeyMarker': 'string',
-                'UploadIdMarker': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxUploads': 123,
-                'IsTruncated': True|False,
-                'Uploads': [
+                \'Bucket\': \'string\',
+                \'KeyMarker\': \'string\',
+                \'UploadIdMarker\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxUploads\': 123,
+                \'IsTruncated\': True|False,
+                \'Uploads\': [
                     {
-                        'UploadId': 'string',
-                        'Key': 'string',
-                        'Initiated': datetime(2015, 1, 1),
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'UploadId\': \'string\',
+                        \'Key\': \'string\',
+                        \'Initiated\': datetime(2015, 1, 1),
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         },
-                        'Initiator': {
-                            'ID': 'string',
-                            'DisplayName': 'string'
+                        \'Initiator\': {
+                            \'ID\': \'string\',
+                            \'DisplayName\': \'string\'
                         }
                     },
                 ],
-                'CommonPrefixes': [
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url',
-                'NextToken': 'string'
+                \'EncodingType\': \'url\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -192,14 +192,14 @@ class ListObjectVersions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              Prefix='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              Prefix=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Bucket: string
@@ -245,47 +245,47 @@ class ListObjectVersions(Paginator):
           ::
         
             {
-                'IsTruncated': True|False,
-                'KeyMarker': 'string',
-                'VersionIdMarker': 'string',
-                'Versions': [
+                \'IsTruncated\': True|False,
+                \'KeyMarker\': \'string\',
+                \'VersionIdMarker\': \'string\',
+                \'Versions\': [
                     {
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD',
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'IsLatest': True|False,
-                        'LastModified': datetime(2015, 1, 1),
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\',
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsLatest\': True|False,
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'DeleteMarkers': [
+                \'DeleteMarkers\': [
                     {
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         },
-                        'Key': 'string',
-                        'VersionId': 'string',
-                        'IsLatest': True|False,
-                        'LastModified': datetime(2015, 1, 1)
+                        \'Key\': \'string\',
+                        \'VersionId\': \'string\',
+                        \'IsLatest\': True|False,
+                        \'LastModified\': datetime(2015, 1, 1)
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url',
-                'NextToken': 'string'
+                \'EncodingType\': \'url\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -399,15 +399,15 @@ class ListObjects(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              Prefix='string',
-              RequestPayer='requester',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              Prefix=\'string\',
+              RequestPayer=\'requester\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Bucket: string
@@ -458,33 +458,33 @@ class ListObjects(Paginator):
           ::
         
             {
-                'IsTruncated': True|False,
-                'Marker': 'string',
-                'NextMarker': 'string',
-                'Contents': [
+                \'IsTruncated\': True|False,
+                \'Marker\': \'string\',
+                \'NextMarker\': \'string\',
+                \'Contents\': [
                     {
-                        'Key': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Key\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url',
-                'NextToken': 'string'
+                \'EncodingType\': \'url\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -558,17 +558,17 @@ class ListObjectsV2(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Bucket='string',
-              Delimiter='string',
-              EncodingType='url',
-              Prefix='string',
+              Bucket=\'string\',
+              Delimiter=\'string\',
+              EncodingType=\'url\',
+              Prefix=\'string\',
               FetchOwner=True|False,
-              StartAfter='string',
-              RequestPayer='requester',
+              StartAfter=\'string\',
+              RequestPayer=\'requester\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Bucket: string
@@ -631,34 +631,34 @@ class ListObjectsV2(Paginator):
           ::
         
             {
-                'IsTruncated': True|False,
-                'Contents': [
+                \'IsTruncated\': True|False,
+                \'Contents\': [
                     {
-                        'Key': 'string',
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA',
-                        'Owner': {
-                            'DisplayName': 'string',
-                            'ID': 'string'
+                        \'Key\': \'string\',
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123,
+                        \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'GLACIER\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                        \'Owner\': {
+                            \'DisplayName\': \'string\',
+                            \'ID\': \'string\'
                         }
                     },
                 ],
-                'Name': 'string',
-                'Prefix': 'string',
-                'Delimiter': 'string',
-                'MaxKeys': 123,
-                'CommonPrefixes': [
+                \'Name\': \'string\',
+                \'Prefix\': \'string\',
+                \'Delimiter\': \'string\',
+                \'MaxKeys\': 123,
+                \'CommonPrefixes\': [
                     {
-                        'Prefix': 'string'
+                        \'Prefix\': \'string\'
                     },
                 ],
-                'EncodingType': 'url',
-                'KeyCount': 123,
-                'ContinuationToken': 'string',
-                'StartAfter': 'string',
-                'NextToken': 'string'
+                \'EncodingType\': \'url\',
+                \'KeyCount\': 123,
+                \'ContinuationToken\': \'string\',
+                \'StartAfter\': \'string\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -750,14 +750,14 @@ class ListParts(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              Bucket='string',
-              Key='string',
-              UploadId='string',
-              RequestPayer='requester',
+              Bucket=\'string\',
+              Key=\'string\',
+              UploadId=\'string\',
+              RequestPayer=\'requester\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Bucket: string
@@ -801,33 +801,33 @@ class ListParts(Paginator):
           ::
         
             {
-                'AbortDate': datetime(2015, 1, 1),
-                'AbortRuleId': 'string',
-                'Bucket': 'string',
-                'Key': 'string',
-                'UploadId': 'string',
-                'PartNumberMarker': 123,
-                'MaxParts': 123,
-                'IsTruncated': True|False,
-                'Parts': [
+                \'AbortDate\': datetime(2015, 1, 1),
+                \'AbortRuleId\': \'string\',
+                \'Bucket\': \'string\',
+                \'Key\': \'string\',
+                \'UploadId\': \'string\',
+                \'PartNumberMarker\': 123,
+                \'MaxParts\': 123,
+                \'IsTruncated\': True|False,
+                \'Parts\': [
                     {
-                        'PartNumber': 123,
-                        'LastModified': datetime(2015, 1, 1),
-                        'ETag': 'string',
-                        'Size': 123
+                        \'PartNumber\': 123,
+                        \'LastModified\': datetime(2015, 1, 1),
+                        \'ETag\': \'string\',
+                        \'Size\': 123
                     },
                 ],
-                'Initiator': {
-                    'ID': 'string',
-                    'DisplayName': 'string'
+                \'Initiator\': {
+                    \'ID\': \'string\',
+                    \'DisplayName\': \'string\'
                 },
-                'Owner': {
-                    'DisplayName': 'string',
-                    'ID': 'string'
+                \'Owner\': {
+                    \'DisplayName\': \'string\',
+                    \'ID\': \'string\'
                 },
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA',
-                'RequestCharged': 'requester',
-                'NextToken': 'string'
+                \'StorageClass\': \'STANDARD\'|\'REDUCED_REDUNDANCY\'|\'STANDARD_IA\'|\'ONEZONE_IA\',
+                \'RequestCharged\': \'requester\',
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

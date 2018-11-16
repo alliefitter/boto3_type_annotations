@@ -14,12 +14,12 @@ class DescribeTapeArchives(Paginator):
         
           response_iterator = paginator.paginate(
               TapeARNs=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type TapeARNs: list
@@ -54,20 +54,20 @@ class DescribeTapeArchives(Paginator):
           ::
         
             {
-                'TapeArchives': [
+                \'TapeArchives\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeBarcode': 'string',
-                        'TapeCreatedDate': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'CompletionTime': datetime(2015, 1, 1),
-                        'RetrievedTo': 'string',
-                        'TapeStatus': 'string',
-                        'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeBarcode\': \'string\',
+                        \'TapeCreatedDate\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'CompletionTime\': datetime(2015, 1, 1),
+                        \'RetrievedTo\': \'string\',
+                        \'TapeStatus\': \'string\',
+                        \'TapeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -103,7 +103,7 @@ class DescribeTapeArchives(Paginator):
         
                   The time that the archiving of the virtual tape was completed.
         
-                  The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+                  The default time stamp format is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
         
                 - **RetrievedTo** *(string) --* 
         
@@ -145,11 +145,11 @@ class DescribeTapeRecoveryPoints(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GatewayARN: string
@@ -182,16 +182,16 @@ class DescribeTapeRecoveryPoints(Paginator):
           ::
         
             {
-                'GatewayARN': 'string',
-                'TapeRecoveryPointInfos': [
+                \'GatewayARN\': \'string\',
+                \'TapeRecoveryPointInfos\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeRecoveryPointTime': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'TapeStatus': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeRecoveryPointTime\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'TapeStatus\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -219,7 +219,7 @@ class DescribeTapeRecoveryPoints(Paginator):
         
                   The time when the point-in-time view of the virtual tape was replicated for later recovery.
         
-                  The default time stamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+                  The default time stamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
         
                 - **TapeSizeInBytes** *(integer) --* 
         
@@ -245,14 +245,14 @@ class DescribeTapes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               TapeARNs=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GatewayARN: string
@@ -292,20 +292,20 @@ class DescribeTapes(Paginator):
           ::
         
             {
-                'Tapes': [
+                \'Tapes\': [
                     {
-                        'TapeARN': 'string',
-                        'TapeBarcode': 'string',
-                        'TapeCreatedDate': datetime(2015, 1, 1),
-                        'TapeSizeInBytes': 123,
-                        'TapeStatus': 'string',
-                        'VTLDevice': 'string',
-                        'Progress': 123.0,
-                        'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        \'TapeARN\': \'string\',
+                        \'TapeBarcode\': \'string\',
+                        \'TapeCreatedDate\': datetime(2015, 1, 1),
+                        \'TapeSizeInBytes\': 123,
+                        \'TapeStatus\': \'string\',
+                        \'VTLDevice\': \'string\',
+                        \'Progress\': 123.0,
+                        \'TapeUsedInBytes\': 123,
+                        \'KMSKey\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -381,14 +381,14 @@ class DescribeVTLDevices(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               VTLDeviceARNs=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GatewayARN: string
@@ -432,22 +432,22 @@ class DescribeVTLDevices(Paginator):
           ::
         
             {
-                'GatewayARN': 'string',
-                'VTLDevices': [
+                \'GatewayARN\': \'string\',
+                \'VTLDevices\': [
                     {
-                        'VTLDeviceARN': 'string',
-                        'VTLDeviceType': 'string',
-                        'VTLDeviceVendor': 'string',
-                        'VTLDeviceProductIdentifier': 'string',
-                        'DeviceiSCSIAttributes': {
-                            'TargetARN': 'string',
-                            'NetworkInterfaceId': 'string',
-                            'NetworkInterfacePort': 123,
-                            'ChapEnabled': True|False
+                        \'VTLDeviceARN\': \'string\',
+                        \'VTLDeviceType\': \'string\',
+                        \'VTLDeviceVendor\': \'string\',
+                        \'VTLDeviceProductIdentifier\': \'string\',
+                        \'DeviceiSCSIAttributes\': {
+                            \'TargetARN\': \'string\',
+                            \'NetworkInterfaceId\': \'string\',
+                            \'NetworkInterfacePort\': 123,
+                            \'ChapEnabled\': True|False
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -516,9 +516,9 @@ class ListGateways(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -546,16 +546,16 @@ class ListGateways(Paginator):
           ::
         
             {
-                'Gateways': [
+                \'Gateways\': [
                     {
-                        'GatewayId': 'string',
-                        'GatewayARN': 'string',
-                        'GatewayType': 'string',
-                        'GatewayOperationalState': 'string',
-                        'GatewayName': 'string'
+                        \'GatewayId\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'GatewayType\': \'string\',
+                        \'GatewayOperationalState\': \'string\',
+                        \'GatewayName\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -607,11 +607,11 @@ class ListVolumes(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              GatewayARN='string',
+              GatewayARN=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type GatewayARN: string
@@ -644,18 +644,18 @@ class ListVolumes(Paginator):
           ::
         
             {
-                'GatewayARN': 'string',
-                'VolumeInfos': [
+                \'GatewayARN\': \'string\',
+                \'VolumeInfos\': [
                     {
-                        'VolumeARN': 'string',
-                        'VolumeId': 'string',
-                        'GatewayARN': 'string',
-                        'GatewayId': 'string',
-                        'VolumeType': 'string',
-                        'VolumeSizeInBytes': 123
+                        \'VolumeARN\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'GatewayARN\': \'string\',
+                        \'GatewayId\': \'string\',
+                        \'VolumeType\': \'string\',
+                        \'VolumeSizeInBytes\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

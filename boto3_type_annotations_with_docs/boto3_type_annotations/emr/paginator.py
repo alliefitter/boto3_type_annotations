@@ -14,11 +14,11 @@ class ListBootstrapActions(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterId='string',
+              ClusterId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterId: string
@@ -51,16 +51,16 @@ class ListBootstrapActions(Paginator):
           ::
         
             {
-                'BootstrapActions': [
+                \'BootstrapActions\': [
                     {
-                        'Name': 'string',
-                        'ScriptPath': 'string',
-                        'Args': [
-                            'string',
+                        \'Name\': \'string\',
+                        \'ScriptPath\': \'string\',
+                        \'Args\': [
+                            \'string\',
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -111,12 +111,12 @@ class ListClusters(Paginator):
               CreatedAfter=datetime(2015, 1, 1),
               CreatedBefore=datetime(2015, 1, 1),
               ClusterStates=[
-                  'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'TERMINATING'|'TERMINATED'|'TERMINATED_WITH_ERRORS',
+                  \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'TERMINATING\'|\'TERMINATED\'|\'TERMINATED_WITH_ERRORS\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CreatedAfter: datetime
@@ -161,26 +161,26 @@ class ListClusters(Paginator):
           ::
         
             {
-                'Clusters': [
+                \'Clusters\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Status': {
-                            'State': 'STARTING'|'BOOTSTRAPPING'|'RUNNING'|'WAITING'|'TERMINATING'|'TERMINATED'|'TERMINATED_WITH_ERRORS',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'INSTANCE_FLEET_TIMEOUT'|'BOOTSTRAP_FAILURE'|'USER_REQUEST'|'STEP_FAILURE'|'ALL_STEPS_COMPLETED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': {
+                            \'State\': \'STARTING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'WAITING\'|\'TERMINATING\'|\'TERMINATED\'|\'TERMINATED_WITH_ERRORS\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'INSTANCE_FLEET_TIMEOUT\'|\'BOOTSTRAP_FAILURE\'|\'USER_REQUEST\'|\'STEP_FAILURE\'|\'ALL_STEPS_COMPLETED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'NormalizedInstanceHours': 123
+                        \'NormalizedInstanceHours\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -262,11 +262,11 @@ class ListInstanceFleets(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterId='string',
+              ClusterId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterId: string
@@ -299,65 +299,65 @@ class ListInstanceFleets(Paginator):
           ::
         
             {
-                'InstanceFleets': [
+                \'InstanceFleets\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': {
+                            \'State\': \'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'RESIZING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'InstanceFleetType': 'MASTER'|'CORE'|'TASK',
-                        'TargetOnDemandCapacity': 123,
-                        'TargetSpotCapacity': 123,
-                        'ProvisionedOnDemandCapacity': 123,
-                        'ProvisionedSpotCapacity': 123,
-                        'InstanceTypeSpecifications': [
+                        \'InstanceFleetType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                        \'TargetOnDemandCapacity\': 123,
+                        \'TargetSpotCapacity\': 123,
+                        \'ProvisionedOnDemandCapacity\': 123,
+                        \'ProvisionedSpotCapacity\': 123,
+                        \'InstanceTypeSpecifications\': [
                             {
-                                'InstanceType': 'string',
-                                'WeightedCapacity': 123,
-                                'BidPrice': 'string',
-                                'BidPriceAsPercentageOfOnDemandPrice': 123.0,
-                                'Configurations': [
+                                \'InstanceType\': \'string\',
+                                \'WeightedCapacity\': 123,
+                                \'BidPrice\': \'string\',
+                                \'BidPriceAsPercentageOfOnDemandPrice\': 123.0,
+                                \'Configurations\': [
                                     {
-                                        'Classification': 'string',
-                                        'Configurations': {'... recursive ...'},
-                                        'Properties': {
-                                            'string': 'string'
+                                        \'Classification\': \'string\',
+                                        \'Configurations\': {\'... recursive ...\'},
+                                        \'Properties\': {
+                                            \'string\': \'string\'
                                         }
                                     },
                                 ],
-                                'EbsBlockDevices': [
+                                \'EbsBlockDevices\': [
                                     {
-                                        'VolumeSpecification': {
-                                            'VolumeType': 'string',
-                                            'Iops': 123,
-                                            'SizeInGB': 123
+                                        \'VolumeSpecification\': {
+                                            \'VolumeType\': \'string\',
+                                            \'Iops\': 123,
+                                            \'SizeInGB\': 123
                                         },
-                                        'Device': 'string'
+                                        \'Device\': \'string\'
                                     },
                                 ],
-                                'EbsOptimized': True|False
+                                \'EbsOptimized\': True|False
                             },
                         ],
-                        'LaunchSpecifications': {
-                            'SpotSpecification': {
-                                'TimeoutDurationMinutes': 123,
-                                'TimeoutAction': 'SWITCH_TO_ON_DEMAND'|'TERMINATE_CLUSTER',
-                                'BlockDurationMinutes': 123
+                        \'LaunchSpecifications\': {
+                            \'SpotSpecification\': {
+                                \'TimeoutDurationMinutes\': 123,
+                                \'TimeoutAction\': \'SWITCH_TO_ON_DEMAND\'|\'TERMINATE_CLUSTER\',
+                                \'BlockDurationMinutes\': 123
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -399,7 +399,7 @@ class ListInstanceFleets(Paginator):
                      
                     * ``RESIZING`` —A resize operation is underway. EC2 instances are either being added or removed. 
                      
-                    * ``SUSPENDED`` —A resize operation could not complete. Existing EC2 instances are running, but instances can't be added or removed. 
+                    * ``SUSPENDED`` —A resize operation could not complete. Existing EC2 instances are running, but instances can\'t be added or removed. 
                      
                     * ``TERMINATING`` —The instance fleet is terminating EC2 instances. 
                      
@@ -587,11 +587,11 @@ class ListInstanceGroups(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterId='string',
+              ClusterId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterId: string
@@ -624,98 +624,98 @@ class ListInstanceGroups(Paginator):
           ::
         
             {
-                'InstanceGroups': [
+                \'InstanceGroups\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Market': 'ON_DEMAND'|'SPOT',
-                        'InstanceGroupType': 'MASTER'|'CORE'|'TASK',
-                        'BidPrice': 'string',
-                        'InstanceType': 'string',
-                        'RequestedInstanceCount': 123,
-                        'RunningInstanceCount': 123,
-                        'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                        \'InstanceGroupType\': \'MASTER\'|\'CORE\'|\'TASK\',
+                        \'BidPrice\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'RequestedInstanceCount\': 123,
+                        \'RunningInstanceCount\': 123,
+                        \'Status\': {
+                            \'State\': \'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'RESIZING\'|\'SUSPENDED\'|\'TERMINATING\'|\'TERMINATED\'|\'ARRESTED\'|\'SHUTTING_DOWN\'|\'ENDED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'Configurations': [
+                        \'Configurations\': [
                             {
-                                'Classification': 'string',
-                                'Configurations': {'... recursive ...'},
-                                'Properties': {
-                                    'string': 'string'
+                                \'Classification\': \'string\',
+                                \'Configurations\': {\'... recursive ...\'},
+                                \'Properties\': {
+                                    \'string\': \'string\'
                                 }
                             },
                         ],
-                        'EbsBlockDevices': [
+                        \'EbsBlockDevices\': [
                             {
-                                'VolumeSpecification': {
-                                    'VolumeType': 'string',
-                                    'Iops': 123,
-                                    'SizeInGB': 123
+                                \'VolumeSpecification\': {
+                                    \'VolumeType\': \'string\',
+                                    \'Iops\': 123,
+                                    \'SizeInGB\': 123
                                 },
-                                'Device': 'string'
+                                \'Device\': \'string\'
                             },
                         ],
-                        'EbsOptimized': True|False,
-                        'ShrinkPolicy': {
-                            'DecommissionTimeout': 123,
-                            'InstanceResizePolicy': {
-                                'InstancesToTerminate': [
-                                    'string',
+                        \'EbsOptimized\': True|False,
+                        \'ShrinkPolicy\': {
+                            \'DecommissionTimeout\': 123,
+                            \'InstanceResizePolicy\': {
+                                \'InstancesToTerminate\': [
+                                    \'string\',
                                 ],
-                                'InstancesToProtect': [
-                                    'string',
+                                \'InstancesToProtect\': [
+                                    \'string\',
                                 ],
-                                'InstanceTerminationTimeout': 123
+                                \'InstanceTerminationTimeout\': 123
                             }
                         },
-                        'AutoScalingPolicy': {
-                            'Status': {
-                                'State': 'PENDING'|'ATTACHING'|'ATTACHED'|'DETACHING'|'DETACHED'|'FAILED',
-                                'StateChangeReason': {
-                                    'Code': 'USER_REQUEST'|'PROVISION_FAILURE'|'CLEANUP_FAILURE',
-                                    'Message': 'string'
+                        \'AutoScalingPolicy\': {
+                            \'Status\': {
+                                \'State\': \'PENDING\'|\'ATTACHING\'|\'ATTACHED\'|\'DETACHING\'|\'DETACHED\'|\'FAILED\',
+                                \'StateChangeReason\': {
+                                    \'Code\': \'USER_REQUEST\'|\'PROVISION_FAILURE\'|\'CLEANUP_FAILURE\',
+                                    \'Message\': \'string\'
                                 }
                             },
-                            'Constraints': {
-                                'MinCapacity': 123,
-                                'MaxCapacity': 123
+                            \'Constraints\': {
+                                \'MinCapacity\': 123,
+                                \'MaxCapacity\': 123
                             },
-                            'Rules': [
+                            \'Rules\': [
                                 {
-                                    'Name': 'string',
-                                    'Description': 'string',
-                                    'Action': {
-                                        'Market': 'ON_DEMAND'|'SPOT',
-                                        'SimpleScalingPolicyConfiguration': {
-                                            'AdjustmentType': 'CHANGE_IN_CAPACITY'|'PERCENT_CHANGE_IN_CAPACITY'|'EXACT_CAPACITY',
-                                            'ScalingAdjustment': 123,
-                                            'CoolDown': 123
+                                    \'Name\': \'string\',
+                                    \'Description\': \'string\',
+                                    \'Action\': {
+                                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                                        \'SimpleScalingPolicyConfiguration\': {
+                                            \'AdjustmentType\': \'CHANGE_IN_CAPACITY\'|\'PERCENT_CHANGE_IN_CAPACITY\'|\'EXACT_CAPACITY\',
+                                            \'ScalingAdjustment\': 123,
+                                            \'CoolDown\': 123
                                         }
                                     },
-                                    'Trigger': {
-                                        'CloudWatchAlarmDefinition': {
-                                            'ComparisonOperator': 'GREATER_THAN_OR_EQUAL'|'GREATER_THAN'|'LESS_THAN'|'LESS_THAN_OR_EQUAL',
-                                            'EvaluationPeriods': 123,
-                                            'MetricName': 'string',
-                                            'Namespace': 'string',
-                                            'Period': 123,
-                                            'Statistic': 'SAMPLE_COUNT'|'AVERAGE'|'SUM'|'MINIMUM'|'MAXIMUM',
-                                            'Threshold': 123.0,
-                                            'Unit': 'NONE'|'SECONDS'|'MICRO_SECONDS'|'MILLI_SECONDS'|'BYTES'|'KILO_BYTES'|'MEGA_BYTES'|'GIGA_BYTES'|'TERA_BYTES'|'BITS'|'KILO_BITS'|'MEGA_BITS'|'GIGA_BITS'|'TERA_BITS'|'PERCENT'|'COUNT'|'BYTES_PER_SECOND'|'KILO_BYTES_PER_SECOND'|'MEGA_BYTES_PER_SECOND'|'GIGA_BYTES_PER_SECOND'|'TERA_BYTES_PER_SECOND'|'BITS_PER_SECOND'|'KILO_BITS_PER_SECOND'|'MEGA_BITS_PER_SECOND'|'GIGA_BITS_PER_SECOND'|'TERA_BITS_PER_SECOND'|'COUNT_PER_SECOND',
-                                            'Dimensions': [
+                                    \'Trigger\': {
+                                        \'CloudWatchAlarmDefinition\': {
+                                            \'ComparisonOperator\': \'GREATER_THAN_OR_EQUAL\'|\'GREATER_THAN\'|\'LESS_THAN\'|\'LESS_THAN_OR_EQUAL\',
+                                            \'EvaluationPeriods\': 123,
+                                            \'MetricName\': \'string\',
+                                            \'Namespace\': \'string\',
+                                            \'Period\': 123,
+                                            \'Statistic\': \'SAMPLE_COUNT\'|\'AVERAGE\'|\'SUM\'|\'MINIMUM\'|\'MAXIMUM\',
+                                            \'Threshold\': 123.0,
+                                            \'Unit\': \'NONE\'|\'SECONDS\'|\'MICRO_SECONDS\'|\'MILLI_SECONDS\'|\'BYTES\'|\'KILO_BYTES\'|\'MEGA_BYTES\'|\'GIGA_BYTES\'|\'TERA_BYTES\'|\'BITS\'|\'KILO_BITS\'|\'MEGA_BITS\'|\'GIGA_BITS\'|\'TERA_BITS\'|\'PERCENT\'|\'COUNT\'|\'BYTES_PER_SECOND\'|\'KILO_BYTES_PER_SECOND\'|\'MEGA_BYTES_PER_SECOND\'|\'GIGA_BYTES_PER_SECOND\'|\'TERA_BYTES_PER_SECOND\'|\'BITS_PER_SECOND\'|\'KILO_BITS_PER_SECOND\'|\'MEGA_BITS_PER_SECOND\'|\'GIGA_BITS_PER_SECOND\'|\'TERA_BITS_PER_SECOND\'|\'COUNT_PER_SECOND\',
+                                            \'Dimensions\': [
                                                 {
-                                                    'Key': 'string',
-                                                    'Value': 'string'
+                                                    \'Key\': \'string\',
+                                                    \'Value\': \'string\'
                                                 },
                                             ]
                                         }
@@ -725,7 +725,7 @@ class ListInstanceGroups(Paginator):
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -973,7 +973,7 @@ class ListInstanceGroups(Paginator):
         
                           - **ScalingAdjustment** *(integer) --* 
         
-                            The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+                            The amount by which to scale in or scale out, based on the specified ``AdjustmentType`` . A positive value adds to the instance group\'s EC2 instance count while a negative number removes instances. If ``AdjustmentType`` is set to ``EXACT_CAPACITY`` , the number should only be a positive integer. If ``AdjustmentType`` is set to ``PERCENT_CHANGE_IN_CAPACITY`` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
         
                           - **CoolDown** *(integer) --* 
         
@@ -1053,20 +1053,20 @@ class ListInstances(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterId='string',
-              InstanceGroupId='string',
+              ClusterId=\'string\',
+              InstanceGroupId=\'string\',
               InstanceGroupTypes=[
-                  'MASTER'|'CORE'|'TASK',
+                  \'MASTER\'|\'CORE\'|\'TASK\',
               ],
-              InstanceFleetId='string',
-              InstanceFleetType='MASTER'|'CORE'|'TASK',
+              InstanceFleetId=\'string\',
+              InstanceFleetType=\'MASTER\'|\'CORE\'|\'TASK\',
               InstanceStates=[
-                  'AWAITING_FULFILLMENT'|'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'TERMINATED',
+                  \'AWAITING_FULFILLMENT\'|\'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'TERMINATED\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterId: string
@@ -1128,39 +1128,39 @@ class ListInstances(Paginator):
           ::
         
             {
-                'Instances': [
+                \'Instances\': [
                     {
-                        'Id': 'string',
-                        'Ec2InstanceId': 'string',
-                        'PublicDnsName': 'string',
-                        'PublicIpAddress': 'string',
-                        'PrivateDnsName': 'string',
-                        'PrivateIpAddress': 'string',
-                        'Status': {
-                            'State': 'AWAITING_FULFILLMENT'|'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'TERMINATED',
-                            'StateChangeReason': {
-                                'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'BOOTSTRAP_FAILURE'|'CLUSTER_TERMINATED',
-                                'Message': 'string'
+                        \'Id\': \'string\',
+                        \'Ec2InstanceId\': \'string\',
+                        \'PublicDnsName\': \'string\',
+                        \'PublicIpAddress\': \'string\',
+                        \'PrivateDnsName\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'Status\': {
+                            \'State\': \'AWAITING_FULFILLMENT\'|\'PROVISIONING\'|\'BOOTSTRAPPING\'|\'RUNNING\'|\'TERMINATED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'INTERNAL_ERROR\'|\'VALIDATION_ERROR\'|\'INSTANCE_FAILURE\'|\'BOOTSTRAP_FAILURE\'|\'CLUSTER_TERMINATED\',
+                                \'Message\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'ReadyDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'ReadyDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         },
-                        'InstanceGroupId': 'string',
-                        'InstanceFleetId': 'string',
-                        'Market': 'ON_DEMAND'|'SPOT',
-                        'InstanceType': 'string',
-                        'EbsVolumes': [
+                        \'InstanceGroupId\': \'string\',
+                        \'InstanceFleetId\': \'string\',
+                        \'Market\': \'ON_DEMAND\'|\'SPOT\',
+                        \'InstanceType\': \'string\',
+                        \'EbsVolumes\': [
                             {
-                                'Device': 'string',
-                                'VolumeId': 'string'
+                                \'Device\': \'string\',
+                                \'VolumeId\': \'string\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1258,7 +1258,7 @@ class ListInstances(Paginator):
         
                   - *(dict) --* 
         
-                    EBS block device that's attached to an EC2 instance.
+                    EBS block device that\'s attached to an EC2 instance.
         
                     - **Device** *(string) --* 
         
@@ -1286,17 +1286,17 @@ class ListSteps(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              ClusterId='string',
+              ClusterId=\'string\',
               StepStates=[
-                  'PENDING'|'CANCEL_PENDING'|'RUNNING'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
+                  \'PENDING\'|\'CANCEL_PENDING\'|\'RUNNING\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
               ],
               StepIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type ClusterId: string
@@ -1343,41 +1343,41 @@ class ListSteps(Paginator):
           ::
         
             {
-                'Steps': [
+                \'Steps\': [
                     {
-                        'Id': 'string',
-                        'Name': 'string',
-                        'Config': {
-                            'Jar': 'string',
-                            'Properties': {
-                                'string': 'string'
+                        \'Id\': \'string\',
+                        \'Name\': \'string\',
+                        \'Config\': {
+                            \'Jar\': \'string\',
+                            \'Properties\': {
+                                \'string\': \'string\'
                             },
-                            'MainClass': 'string',
-                            'Args': [
-                                'string',
+                            \'MainClass\': \'string\',
+                            \'Args\': [
+                                \'string\',
                             ]
                         },
-                        'ActionOnFailure': 'TERMINATE_JOB_FLOW'|'TERMINATE_CLUSTER'|'CANCEL_AND_WAIT'|'CONTINUE',
-                        'Status': {
-                            'State': 'PENDING'|'CANCEL_PENDING'|'RUNNING'|'COMPLETED'|'CANCELLED'|'FAILED'|'INTERRUPTED',
-                            'StateChangeReason': {
-                                'Code': 'NONE',
-                                'Message': 'string'
+                        \'ActionOnFailure\': \'TERMINATE_JOB_FLOW\'|\'TERMINATE_CLUSTER\'|\'CANCEL_AND_WAIT\'|\'CONTINUE\',
+                        \'Status\': {
+                            \'State\': \'PENDING\'|\'CANCEL_PENDING\'|\'RUNNING\'|\'COMPLETED\'|\'CANCELLED\'|\'FAILED\'|\'INTERRUPTED\',
+                            \'StateChangeReason\': {
+                                \'Code\': \'NONE\',
+                                \'Message\': \'string\'
                             },
-                            'FailureDetails': {
-                                'Reason': 'string',
-                                'Message': 'string',
-                                'LogFile': 'string'
+                            \'FailureDetails\': {
+                                \'Reason\': \'string\',
+                                \'Message\': \'string\',
+                                \'LogFile\': \'string\'
                             },
-                            'Timeline': {
-                                'CreationDateTime': datetime(2015, 1, 1),
-                                'StartDateTime': datetime(2015, 1, 1),
-                                'EndDateTime': datetime(2015, 1, 1)
+                            \'Timeline\': {
+                                \'CreationDateTime\': datetime(2015, 1, 1),
+                                \'StartDateTime\': datetime(2015, 1, 1),
+                                \'EndDateTime\': datetime(2015, 1, 1)
                             }
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1423,7 +1423,7 @@ class ListSteps(Paginator):
         
                   - **Args** *(list) --* 
         
-                    The list of command line arguments to pass to the JAR file's main function for execution.
+                    The list of command line arguments to pass to the JAR file\'s main function for execution.
         
                     - *(string) --* 
                 
@@ -1457,7 +1457,7 @@ class ListSteps(Paginator):
         
                     - **Reason** *(string) --* 
         
-                      The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
+                      The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.
         
                     - **Message** *(string) --* 
         

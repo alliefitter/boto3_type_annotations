@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -27,13 +27,13 @@ class Client(BaseClient):
           response = client.batch_meter_usage(
               UsageRecords=[
                   {
-                      'Timestamp': datetime(2015, 1, 1),
-                      'CustomerIdentifier': 'string',
-                      'Dimension': 'string',
-                      'Quantity': 123
+                      \'Timestamp\': datetime(2015, 1, 1),
+                      \'CustomerIdentifier\': \'string\',
+                      \'Dimension\': \'string\',
+                      \'Quantity\': 123
                   },
               ],
-              ProductCode='string'
+              ProductCode=\'string\'
           )
         :type UsageRecords: list
         :param UsageRecords: **[REQUIRED]** 
@@ -77,24 +77,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Results': [
+                \'Results\': [
                     {
-                        'UsageRecord': {
-                            'Timestamp': datetime(2015, 1, 1),
-                            'CustomerIdentifier': 'string',
-                            'Dimension': 'string',
-                            'Quantity': 123
+                        \'UsageRecord\': {
+                            \'Timestamp\': datetime(2015, 1, 1),
+                            \'CustomerIdentifier\': \'string\',
+                            \'Dimension\': \'string\',
+                            \'Quantity\': 123
                         },
-                        'MeteringRecordId': 'string',
-                        'Status': 'Success'|'CustomerNotSubscribed'|'DuplicateRecord'
+                        \'MeteringRecordId\': \'string\',
+                        \'Status\': \'Success\'|\'CustomerNotSubscribed\'|\'DuplicateRecord\'
                     },
                 ],
-                'UnprocessedRecords': [
+                \'UnprocessedRecords\': [
                     {
-                        'Timestamp': datetime(2015, 1, 1),
-                        'CustomerIdentifier': 'string',
-                        'Dimension': 'string',
-                        'Quantity': 123
+                        \'Timestamp\': datetime(2015, 1, 1),
+                        \'CustomerIdentifier\': \'string\',
+                        \'Dimension\': \'string\',
+                        \'Quantity\': 123
                     },
                 ]
             }
@@ -185,10 +185,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -211,7 +211,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -223,10 +223,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -252,7 +252,7 @@ class Client(BaseClient):
     def meter_usage(self, ProductCode: str, Timestamp: datetime, UsageDimension: str, UsageQuantity: int, DryRun: bool) -> Dict:
         """
         
-        MeterUsage is authenticated on the buyer's AWS account, generally when running from an EC2 instance on the AWS Marketplace.
+        MeterUsage is authenticated on the buyer\'s AWS account, generally when running from an EC2 instance on the AWS Marketplace.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/meteringmarketplace-2016-01-14/MeterUsage>`_
         
@@ -260,9 +260,9 @@ class Client(BaseClient):
         ::
         
           response = client.meter_usage(
-              ProductCode='string',
+              ProductCode=\'string\',
               Timestamp=datetime(2015, 1, 1),
-              UsageDimension='string',
+              UsageDimension=\'string\',
               UsageQuantity=123,
               DryRun=True|False
           )
@@ -299,7 +299,7 @@ class Client(BaseClient):
           ::
         
             {
-                'MeteringRecordId': 'string'
+                \'MeteringRecordId\': \'string\'
             }
           **Response Structure** 
         
@@ -318,7 +318,7 @@ class Client(BaseClient):
         ::
         
           response = client.resolve_customer(
-              RegistrationToken='string'
+              RegistrationToken=\'string\'
           )
         :type RegistrationToken: string
         :param RegistrationToken: **[REQUIRED]** 
@@ -333,8 +333,8 @@ class Client(BaseClient):
           ::
         
             {
-                'CustomerIdentifier': 'string',
-                'ProductCode': 'string'
+                \'CustomerIdentifier\': \'string\',
+                \'ProductCode\': \'string\'
             }
           **Response Structure** 
         

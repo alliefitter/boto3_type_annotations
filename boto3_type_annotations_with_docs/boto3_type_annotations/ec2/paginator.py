@@ -15,20 +15,20 @@ class DescribeIamInstanceProfileAssociations(Paginator):
         
           response_iterator = paginator.paginate(
               AssociationIds=[
-                  'string',
+                  \'string\',
               ],
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AssociationIds: list
@@ -106,16 +106,16 @@ class DescribeIamInstanceProfileAssociations(Paginator):
           ::
         
             {
-                'IamInstanceProfileAssociations': [
+                \'IamInstanceProfileAssociations\': [
                     {
-                        'AssociationId': 'string',
-                        'InstanceId': 'string',
-                        'IamInstanceProfile': {
-                            'Arn': 'string',
-                            'Id': 'string'
+                        \'AssociationId\': \'string\',
+                        \'InstanceId\': \'string\',
+                        \'IamInstanceProfile\': {
+                            \'Arn\': \'string\',
+                            \'Id\': \'string\'
                         },
-                        'State': 'associating'|'associated'|'disassociating'|'disassociated',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'State\': \'associating\'|\'associated\'|\'disassociating\'|\'disassociated\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ],
                 
@@ -176,21 +176,21 @@ class DescribeInstanceStatus(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               IncludeAllInstances=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -302,41 +302,41 @@ class DescribeInstanceStatus(Paginator):
           ::
         
             {
-                'InstanceStatuses': [
+                \'InstanceStatuses\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'Events': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Events\': [
                             {
-                                'Code': 'instance-reboot'|'system-reboot'|'system-maintenance'|'instance-retirement'|'instance-stop',
-                                'Description': 'string',
-                                'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                \'Code\': \'instance-reboot\'|\'system-reboot\'|\'system-maintenance\'|\'instance-retirement\'|\'instance-stop\',
+                                \'Description\': \'string\',
+                                \'NotAfter\': datetime(2015, 1, 1),
+                                \'NotBefore\': datetime(2015, 1, 1)
                             },
                         ],
-                        'InstanceId': 'string',
-                        'InstanceState': {
-                            'Code': 123,
-                            'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                        \'InstanceId\': \'string\',
+                        \'InstanceState\': {
+                            \'Code\': 123,
+                            \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                         },
-                        'InstanceStatus': {
-                            'Details': [
+                        \'InstanceStatus\': {
+                            \'Details\': [
                                 {
-                                    'ImpairedSince': datetime(2015, 1, 1),
-                                    'Name': 'reachability',
-                                    'Status': 'passed'|'failed'|'insufficient-data'|'initializing'
+                                    \'ImpairedSince\': datetime(2015, 1, 1),
+                                    \'Name\': \'reachability\',
+                                    \'Status\': \'passed\'|\'failed\'|\'insufficient-data\'|\'initializing\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'|'not-applicable'|'initializing'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'|\'not-applicable\'|\'initializing\'
                         },
-                        'SystemStatus': {
-                            'Details': [
+                        \'SystemStatus\': {
+                            \'Details\': [
                                 {
-                                    'ImpairedSince': datetime(2015, 1, 1),
-                                    'Name': 'reachability',
-                                    'Status': 'passed'|'failed'|'insufficient-data'|'initializing'
+                                    \'ImpairedSince\': datetime(2015, 1, 1),
+                                    \'Name\': \'reachability\',
+                                    \'Status\': \'passed\'|\'failed\'|\'insufficient-data\'|\'initializing\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'|'not-applicable'|'initializing'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'|\'not-applicable\'|\'initializing\'
                         }
                     },
                 ],
@@ -486,20 +486,20 @@ class DescribeInstances(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               InstanceIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -641,11 +641,11 @@ class DescribeInstances(Paginator):
            
           * ``ramdisk-id`` - The RAM disk ID. 
            
-          * ``reason`` - The reason for the current state of the instance (for example, shows "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code filter. 
+          * ``reason`` - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter. 
            
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on). 
            
-          * ``reservation-id`` - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
+          * ``reservation-id`` - The ID of the instance\'s reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID. 
            
           * ``root-device-name`` - The device name of the root device volume (for example, ``/dev/sda1`` ). 
            
@@ -744,169 +744,169 @@ class DescribeInstances(Paginator):
           ::
         
             {
-                'Reservations': [
+                \'Reservations\': [
                     {
-                        'Groups': [
+                        \'Groups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'Instances': [
+                        \'Instances\': [
                             {
-                                'AmiLaunchIndex': 123,
-                                'ImageId': 'string',
-                                'InstanceId': 'string',
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                'KernelId': 'string',
-                                'KeyName': 'string',
-                                'LaunchTime': datetime(2015, 1, 1),
-                                'Monitoring': {
-                                    'State': 'disabled'|'disabling'|'enabled'|'pending'
+                                \'AmiLaunchIndex\': 123,
+                                \'ImageId\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                \'KernelId\': \'string\',
+                                \'KeyName\': \'string\',
+                                \'LaunchTime\': datetime(2015, 1, 1),
+                                \'Monitoring\': {
+                                    \'State\': \'disabled\'|\'disabling\'|\'enabled\'|\'pending\'
                                 },
-                                'Placement': {
-                                    'AvailabilityZone': 'string',
-                                    'Affinity': 'string',
-                                    'GroupName': 'string',
-                                    'HostId': 'string',
-                                    'Tenancy': 'default'|'dedicated'|'host',
-                                    'SpreadDomain': 'string'
+                                \'Placement\': {
+                                    \'AvailabilityZone\': \'string\',
+                                    \'Affinity\': \'string\',
+                                    \'GroupName\': \'string\',
+                                    \'HostId\': \'string\',
+                                    \'Tenancy\': \'default\'|\'dedicated\'|\'host\',
+                                    \'SpreadDomain\': \'string\'
                                 },
-                                'Platform': 'Windows',
-                                'PrivateDnsName': 'string',
-                                'PrivateIpAddress': 'string',
-                                'ProductCodes': [
+                                \'Platform\': \'Windows\',
+                                \'PrivateDnsName\': \'string\',
+                                \'PrivateIpAddress\': \'string\',
+                                \'ProductCodes\': [
                                     {
-                                        'ProductCodeId': 'string',
-                                        'ProductCodeType': 'devpay'|'marketplace'
+                                        \'ProductCodeId\': \'string\',
+                                        \'ProductCodeType\': \'devpay\'|\'marketplace\'
                                     },
                                 ],
-                                'PublicDnsName': 'string',
-                                'PublicIpAddress': 'string',
-                                'RamdiskId': 'string',
-                                'State': {
-                                    'Code': 123,
-                                    'Name': 'pending'|'running'|'shutting-down'|'terminated'|'stopping'|'stopped'
+                                \'PublicDnsName\': \'string\',
+                                \'PublicIpAddress\': \'string\',
+                                \'RamdiskId\': \'string\',
+                                \'State\': {
+                                    \'Code\': 123,
+                                    \'Name\': \'pending\'|\'running\'|\'shutting-down\'|\'terminated\'|\'stopping\'|\'stopped\'
                                 },
-                                'StateTransitionReason': 'string',
-                                'SubnetId': 'string',
-                                'VpcId': 'string',
-                                'Architecture': 'i386'|'x86_64',
-                                'BlockDeviceMappings': [
+                                \'StateTransitionReason\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'VpcId\': \'string\',
+                                \'Architecture\': \'i386\'|\'x86_64\',
+                                \'BlockDeviceMappings\': [
                                     {
-                                        'DeviceName': 'string',
-                                        'Ebs': {
-                                            'AttachTime': datetime(2015, 1, 1),
-                                            'DeleteOnTermination': True|False,
-                                            'Status': 'attaching'|'attached'|'detaching'|'detached',
-                                            'VolumeId': 'string'
+                                        \'DeviceName\': \'string\',
+                                        \'Ebs\': {
+                                            \'AttachTime\': datetime(2015, 1, 1),
+                                            \'DeleteOnTermination\': True|False,
+                                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\',
+                                            \'VolumeId\': \'string\'
                                         }
                                     },
                                 ],
-                                'ClientToken': 'string',
-                                'EbsOptimized': True|False,
-                                'EnaSupport': True|False,
-                                'Hypervisor': 'ovm'|'xen',
-                                'IamInstanceProfile': {
-                                    'Arn': 'string',
-                                    'Id': 'string'
+                                \'ClientToken\': \'string\',
+                                \'EbsOptimized\': True|False,
+                                \'EnaSupport\': True|False,
+                                \'Hypervisor\': \'ovm\'|\'xen\',
+                                \'IamInstanceProfile\': {
+                                    \'Arn\': \'string\',
+                                    \'Id\': \'string\'
                                 },
-                                'InstanceLifecycle': 'spot'|'scheduled',
-                                'ElasticGpuAssociations': [
+                                \'InstanceLifecycle\': \'spot\'|\'scheduled\',
+                                \'ElasticGpuAssociations\': [
                                     {
-                                        'ElasticGpuId': 'string',
-                                        'ElasticGpuAssociationId': 'string',
-                                        'ElasticGpuAssociationState': 'string',
-                                        'ElasticGpuAssociationTime': 'string'
+                                        \'ElasticGpuId\': \'string\',
+                                        \'ElasticGpuAssociationId\': \'string\',
+                                        \'ElasticGpuAssociationState\': \'string\',
+                                        \'ElasticGpuAssociationTime\': \'string\'
                                     },
                                 ],
-                                'NetworkInterfaces': [
+                                \'NetworkInterfaces\': [
                                     {
-                                        'Association': {
-                                            'IpOwnerId': 'string',
-                                            'PublicDnsName': 'string',
-                                            'PublicIp': 'string'
+                                        \'Association\': {
+                                            \'IpOwnerId\': \'string\',
+                                            \'PublicDnsName\': \'string\',
+                                            \'PublicIp\': \'string\'
                                         },
-                                        'Attachment': {
-                                            'AttachTime': datetime(2015, 1, 1),
-                                            'AttachmentId': 'string',
-                                            'DeleteOnTermination': True|False,
-                                            'DeviceIndex': 123,
-                                            'Status': 'attaching'|'attached'|'detaching'|'detached'
+                                        \'Attachment\': {
+                                            \'AttachTime\': datetime(2015, 1, 1),
+                                            \'AttachmentId\': \'string\',
+                                            \'DeleteOnTermination\': True|False,
+                                            \'DeviceIndex\': 123,
+                                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                                         },
-                                        'Description': 'string',
-                                        'Groups': [
+                                        \'Description\': \'string\',
+                                        \'Groups\': [
                                             {
-                                                'GroupName': 'string',
-                                                'GroupId': 'string'
+                                                \'GroupName\': \'string\',
+                                                \'GroupId\': \'string\'
                                             },
                                         ],
-                                        'Ipv6Addresses': [
+                                        \'Ipv6Addresses\': [
                                             {
-                                                'Ipv6Address': 'string'
+                                                \'Ipv6Address\': \'string\'
                                             },
                                         ],
-                                        'MacAddress': 'string',
-                                        'NetworkInterfaceId': 'string',
-                                        'OwnerId': 'string',
-                                        'PrivateDnsName': 'string',
-                                        'PrivateIpAddress': 'string',
-                                        'PrivateIpAddresses': [
+                                        \'MacAddress\': \'string\',
+                                        \'NetworkInterfaceId\': \'string\',
+                                        \'OwnerId\': \'string\',
+                                        \'PrivateDnsName\': \'string\',
+                                        \'PrivateIpAddress\': \'string\',
+                                        \'PrivateIpAddresses\': [
                                             {
-                                                'Association': {
-                                                    'IpOwnerId': 'string',
-                                                    'PublicDnsName': 'string',
-                                                    'PublicIp': 'string'
+                                                \'Association\': {
+                                                    \'IpOwnerId\': \'string\',
+                                                    \'PublicDnsName\': \'string\',
+                                                    \'PublicIp\': \'string\'
                                                 },
-                                                'Primary': True|False,
-                                                'PrivateDnsName': 'string',
-                                                'PrivateIpAddress': 'string'
+                                                \'Primary\': True|False,
+                                                \'PrivateDnsName\': \'string\',
+                                                \'PrivateIpAddress\': \'string\'
                                             },
                                         ],
-                                        'SourceDestCheck': True|False,
-                                        'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                                        'SubnetId': 'string',
-                                        'VpcId': 'string'
+                                        \'SourceDestCheck\': True|False,
+                                        \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                                        \'SubnetId\': \'string\',
+                                        \'VpcId\': \'string\'
                                     },
                                 ],
-                                'RootDeviceName': 'string',
-                                'RootDeviceType': 'ebs'|'instance-store',
-                                'SecurityGroups': [
+                                \'RootDeviceName\': \'string\',
+                                \'RootDeviceType\': \'ebs\'|\'instance-store\',
+                                \'SecurityGroups\': [
                                     {
-                                        'GroupName': 'string',
-                                        'GroupId': 'string'
+                                        \'GroupName\': \'string\',
+                                        \'GroupId\': \'string\'
                                     },
                                 ],
-                                'SourceDestCheck': True|False,
-                                'SpotInstanceRequestId': 'string',
-                                'SriovNetSupport': 'string',
-                                'StateReason': {
-                                    'Code': 'string',
-                                    'Message': 'string'
+                                \'SourceDestCheck\': True|False,
+                                \'SpotInstanceRequestId\': \'string\',
+                                \'SriovNetSupport\': \'string\',
+                                \'StateReason\': {
+                                    \'Code\': \'string\',
+                                    \'Message\': \'string\'
                                 },
-                                'Tags': [
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ],
-                                'VirtualizationType': 'hvm'|'paravirtual',
-                                'CpuOptions': {
-                                    'CoreCount': 123,
-                                    'ThreadsPerCore': 123
+                                \'VirtualizationType\': \'hvm\'|\'paravirtual\',
+                                \'CpuOptions\': {
+                                    \'CoreCount\': 123,
+                                    \'ThreadsPerCore\': 123
                                 },
-                                'CapacityReservationId': 'string',
-                                'CapacityReservationSpecification': {
-                                    'CapacityReservationPreference': 'open'|'none',
-                                    'CapacityReservationTarget': {
-                                        'CapacityReservationId': 'string'
+                                \'CapacityReservationId\': \'string\',
+                                \'CapacityReservationSpecification\': {
+                                    \'CapacityReservationPreference\': \'open\'|\'none\',
+                                    \'CapacityReservationTarget\': {
+                                        \'CapacityReservationId\': \'string\'
                                     }
                                 }
                             },
                         ],
-                        'OwnerId': 'string',
-                        'RequesterId': 'string',
-                        'ReservationId': 'string'
+                        \'OwnerId\': \'string\',
+                        \'RequesterId\': \'string\',
+                        \'ReservationId\': \'string\'
                     },
                 ],
                 
@@ -1021,7 +1021,7 @@ class DescribeInstances(Paginator):
         
                       (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the ``running`` state. 
         
-                      [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
+                      [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you\'ve enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
         
                     - **PrivateIpAddress** *(string) --* 
         
@@ -1045,7 +1045,7 @@ class DescribeInstances(Paginator):
         
                     - **PublicDnsName** *(string) --* 
         
-                      (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+                      (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the ``running`` state. For EC2-VPC, this name is only available if you\'ve enabled DNS hostnames for your VPC.
         
                     - **PublicIpAddress** *(string) --* 
         
@@ -1133,7 +1133,7 @@ class DescribeInstances(Paginator):
         
                     - **EbsOptimized** *(boolean) --* 
         
-                      Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                      Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                     - **EnaSupport** *(boolean) --* 
         
@@ -1451,7 +1451,7 @@ class DescribeInstances(Paginator):
         
                       - **CapacityReservationPreference** *(string) --* 
         
-                        Describes the instance's Capacity Reservation preferences. Possible preferences include:
+                        Describes the instance\'s Capacity Reservation preferences. Possible preferences include:
         
                         * ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). 
                          
@@ -1493,19 +1493,19 @@ class DescribeNatGateways(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               NatGatewayIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1591,35 +1591,35 @@ class DescribeNatGateways(Paginator):
           ::
         
             {
-                'NatGateways': [
+                \'NatGateways\': [
                     {
-                        'CreateTime': datetime(2015, 1, 1),
-                        'DeleteTime': datetime(2015, 1, 1),
-                        'FailureCode': 'string',
-                        'FailureMessage': 'string',
-                        'NatGatewayAddresses': [
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'DeleteTime\': datetime(2015, 1, 1),
+                        \'FailureCode\': \'string\',
+                        \'FailureMessage\': \'string\',
+                        \'NatGatewayAddresses\': [
                             {
-                                'AllocationId': 'string',
-                                'NetworkInterfaceId': 'string',
-                                'PrivateIp': 'string',
-                                'PublicIp': 'string'
+                                \'AllocationId\': \'string\',
+                                \'NetworkInterfaceId\': \'string\',
+                                \'PrivateIp\': \'string\',
+                                \'PublicIp\': \'string\'
                             },
                         ],
-                        'NatGatewayId': 'string',
-                        'ProvisionedBandwidth': {
-                            'ProvisionTime': datetime(2015, 1, 1),
-                            'Provisioned': 'string',
-                            'RequestTime': datetime(2015, 1, 1),
-                            'Requested': 'string',
-                            'Status': 'string'
+                        \'NatGatewayId\': \'string\',
+                        \'ProvisionedBandwidth\': {
+                            \'ProvisionTime\': datetime(2015, 1, 1),
+                            \'Provisioned\': \'string\',
+                            \'RequestTime\': datetime(2015, 1, 1),
+                            \'Requested\': \'string\',
+                            \'Status\': \'string\'
                         },
-                        'State': 'pending'|'failed'|'available'|'deleting'|'deleted',
-                        'SubnetId': 'string',
-                        'VpcId': 'string',
-                        'Tags': [
+                        \'State\': \'pending\'|\'failed\'|\'available\'|\'deleting\'|\'deleted\',
+                        \'SubnetId\': \'string\',
+                        \'VpcId\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -1654,17 +1654,17 @@ class DescribeNatGateways(Paginator):
         
                   If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
         
-                  * For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway" 
+                  * For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient free addresses to create this NAT gateway\" 
                    
-                  * For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached" 
+                  * For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet gateway attached\" 
                    
-                  * For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway" 
+                  * For InvalidAllocationID.NotFound: \"Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway\" 
                    
-                  * For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated" 
+                  * For Resource.AlreadyAssociated: \"Elastic IP address eipalloc-xxxxxxxx is already associated\" 
                    
-                  * For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again." 
+                  * For InternalError: \"Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.\" 
                    
-                  * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found." 
+                  * For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx does not exist or could not be found.\" 
                    
                 - **NatGatewayAddresses** *(list) --* 
         
@@ -1676,7 +1676,7 @@ class DescribeNatGateways(Paginator):
         
                     - **AllocationId** *(string) --* 
         
-                      The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+                      The allocation ID of the Elastic IP address that\'s associated with the NAT gateway.
         
                     - **NetworkInterfaceId** *(string) --* 
         
@@ -1776,20 +1776,20 @@ class DescribeNetworkInterfaces(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               NetworkInterfaceIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -1940,69 +1940,69 @@ class DescribeNetworkInterfaces(Paginator):
           ::
         
             {
-                'NetworkInterfaces': [
+                \'NetworkInterfaces\': [
                     {
-                        'Association': {
-                            'AllocationId': 'string',
-                            'AssociationId': 'string',
-                            'IpOwnerId': 'string',
-                            'PublicDnsName': 'string',
-                            'PublicIp': 'string'
+                        \'Association\': {
+                            \'AllocationId\': \'string\',
+                            \'AssociationId\': \'string\',
+                            \'IpOwnerId\': \'string\',
+                            \'PublicDnsName\': \'string\',
+                            \'PublicIp\': \'string\'
                         },
-                        'Attachment': {
-                            'AttachTime': datetime(2015, 1, 1),
-                            'AttachmentId': 'string',
-                            'DeleteOnTermination': True|False,
-                            'DeviceIndex': 123,
-                            'InstanceId': 'string',
-                            'InstanceOwnerId': 'string',
-                            'Status': 'attaching'|'attached'|'detaching'|'detached'
+                        \'Attachment\': {
+                            \'AttachTime\': datetime(2015, 1, 1),
+                            \'AttachmentId\': \'string\',
+                            \'DeleteOnTermination\': True|False,
+                            \'DeviceIndex\': 123,
+                            \'InstanceId\': \'string\',
+                            \'InstanceOwnerId\': \'string\',
+                            \'Status\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'
                         },
-                        'AvailabilityZone': 'string',
-                        'Description': 'string',
-                        'Groups': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Description\': \'string\',
+                        \'Groups\': [
                             {
-                                'GroupName': 'string',
-                                'GroupId': 'string'
+                                \'GroupName\': \'string\',
+                                \'GroupId\': \'string\'
                             },
                         ],
-                        'InterfaceType': 'interface'|'natGateway',
-                        'Ipv6Addresses': [
+                        \'InterfaceType\': \'interface\'|\'natGateway\',
+                        \'Ipv6Addresses\': [
                             {
-                                'Ipv6Address': 'string'
+                                \'Ipv6Address\': \'string\'
                             },
                         ],
-                        'MacAddress': 'string',
-                        'NetworkInterfaceId': 'string',
-                        'OwnerId': 'string',
-                        'PrivateDnsName': 'string',
-                        'PrivateIpAddress': 'string',
-                        'PrivateIpAddresses': [
+                        \'MacAddress\': \'string\',
+                        \'NetworkInterfaceId\': \'string\',
+                        \'OwnerId\': \'string\',
+                        \'PrivateDnsName\': \'string\',
+                        \'PrivateIpAddress\': \'string\',
+                        \'PrivateIpAddresses\': [
                             {
-                                'Association': {
-                                    'AllocationId': 'string',
-                                    'AssociationId': 'string',
-                                    'IpOwnerId': 'string',
-                                    'PublicDnsName': 'string',
-                                    'PublicIp': 'string'
+                                \'Association\': {
+                                    \'AllocationId\': \'string\',
+                                    \'AssociationId\': \'string\',
+                                    \'IpOwnerId\': \'string\',
+                                    \'PublicDnsName\': \'string\',
+                                    \'PublicIp\': \'string\'
                                 },
-                                'Primary': True|False,
-                                'PrivateDnsName': 'string',
-                                'PrivateIpAddress': 'string'
+                                \'Primary\': True|False,
+                                \'PrivateDnsName\': \'string\',
+                                \'PrivateIpAddress\': \'string\'
                             },
                         ],
-                        'RequesterId': 'string',
-                        'RequesterManaged': True|False,
-                        'SourceDestCheck': True|False,
-                        'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
-                        'SubnetId': 'string',
-                        'TagSet': [
+                        \'RequesterId\': \'string\',
+                        \'RequesterManaged\': True|False,
+                        \'SourceDestCheck\': True|False,
+                        \'Status\': \'available\'|\'associated\'|\'attaching\'|\'in-use\'|\'detaching\',
+                        \'SubnetId\': \'string\',
+                        \'TagSet\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
                 
@@ -2241,19 +2241,19 @@ class DescribeReservedInstancesModifications(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               ReservedInstancesModificationIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -2353,32 +2353,32 @@ class DescribeReservedInstancesModifications(Paginator):
           ::
         
             {
-                'ReservedInstancesModifications': [
+                \'ReservedInstancesModifications\': [
                     {
-                        'ClientToken': 'string',
-                        'CreateDate': datetime(2015, 1, 1),
-                        'EffectiveDate': datetime(2015, 1, 1),
-                        'ModificationResults': [
+                        \'ClientToken\': \'string\',
+                        \'CreateDate\': datetime(2015, 1, 1),
+                        \'EffectiveDate\': datetime(2015, 1, 1),
+                        \'ModificationResults\': [
                             {
-                                'ReservedInstancesId': 'string',
-                                'TargetConfiguration': {
-                                    'AvailabilityZone': 'string',
-                                    'InstanceCount': 123,
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                    'Platform': 'string',
-                                    'Scope': 'Availability Zone'|'Region'
+                                \'ReservedInstancesId\': \'string\',
+                                \'TargetConfiguration\': {
+                                    \'AvailabilityZone\': \'string\',
+                                    \'InstanceCount\': 123,
+                                    \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                    \'Platform\': \'string\',
+                                    \'Scope\': \'Availability Zone\'|\'Region\'
                                 }
                             },
                         ],
-                        'ReservedInstancesIds': [
+                        \'ReservedInstancesIds\': [
                             {
-                                'ReservedInstancesId': 'string'
+                                \'ReservedInstancesId\': \'string\'
                             },
                         ],
-                        'ReservedInstancesModificationId': 'string',
-                        'Status': 'string',
-                        'StatusMessage': 'string',
-                        'UpdateDate': datetime(2015, 1, 1)
+                        \'ReservedInstancesModificationId\': \'string\',
+                        \'Status\': \'string\',
+                        \'StatusMessage\': \'string\',
+                        \'UpdateDate\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -2486,32 +2486,32 @@ class DescribeReservedInstancesOfferings(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               IncludeMarketplace=True|False,
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+              InstanceType=\'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               MaxDuration=123,
               MaxInstanceCount=123,
               MinDuration=123,
-              OfferingClass='standard'|'convertible',
-              ProductDescription='Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
+              OfferingClass=\'standard\'|\'convertible\',
+              ProductDescription=\'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
               ReservedInstancesOfferingIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
-              InstanceTenancy='default'|'dedicated'|'host',
-              OfferingType='Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront',
+              InstanceTenancy=\'default\'|\'dedicated\'|\'host\',
+              OfferingType=\'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type AvailabilityZone: string
@@ -2668,33 +2668,33 @@ class DescribeReservedInstancesOfferings(Paginator):
           ::
         
             {
-                'ReservedInstancesOfferings': [
+                \'ReservedInstancesOfferings\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'Duration': 123,
-                        'FixedPrice': ...,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'ReservedInstancesOfferingId': 'string',
-                        'UsagePrice': ...,
-                        'CurrencyCode': 'USD',
-                        'InstanceTenancy': 'default'|'dedicated'|'host',
-                        'Marketplace': True|False,
-                        'OfferingClass': 'standard'|'convertible',
-                        'OfferingType': 'Heavy Utilization'|'Medium Utilization'|'Light Utilization'|'No Upfront'|'Partial Upfront'|'All Upfront',
-                        'PricingDetails': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Duration\': 123,
+                        \'FixedPrice\': ...,
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'ReservedInstancesOfferingId\': \'string\',
+                        \'UsagePrice\': ...,
+                        \'CurrencyCode\': \'USD\',
+                        \'InstanceTenancy\': \'default\'|\'dedicated\'|\'host\',
+                        \'Marketplace\': True|False,
+                        \'OfferingClass\': \'standard\'|\'convertible\',
+                        \'OfferingType\': \'Heavy Utilization\'|\'Medium Utilization\'|\'Light Utilization\'|\'No Upfront\'|\'Partial Upfront\'|\'All Upfront\',
+                        \'PricingDetails\': [
                             {
-                                'Count': 123,
-                                'Price': 123.0
+                                \'Count\': 123,
+                                \'Price\': 123.0
                             },
                         ],
-                        'RecurringCharges': [
+                        \'RecurringCharges\': [
                             {
-                                'Amount': 123.0,
-                                'Frequency': 'Hourly'
+                                \'Amount\': 123.0,
+                                \'Frequency\': \'Hourly\'
                             },
                         ],
-                        'Scope': 'Availability Zone'|'Region'
+                        \'Scope\': \'Availability Zone\'|\'Region\'
                     },
                 ],
                 
@@ -2743,7 +2743,7 @@ class DescribeReservedInstancesOfferings(Paginator):
         
                 - **CurrencyCode** *(string) --* 
         
-                  The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
+                  The currency of the Reserved Instance offering you are purchasing. It\'s specified using ISO 4217 standard currency codes. At this time, the only supported currency is ``USD`` .
         
                 - **InstanceTenancy** *(string) --* 
         
@@ -2751,7 +2751,7 @@ class DescribeReservedInstancesOfferings(Paginator):
         
                 - **Marketplace** *(boolean) --* 
         
-                  Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is ``true`` .
+                  Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance Marketplace offering, this is ``true`` .
         
                 - **OfferingClass** *(string) --* 
         
@@ -2813,20 +2813,20 @@ class DescribeRouteTables(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               DryRun=True|False,
               RouteTableIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -2860,7 +2860,7 @@ class DescribeRouteTables(Paginator):
            
           * ``route.origin`` - Describes how the route was created. ``CreateRouteTable`` indicates that the route was automatically created when the route table was created; ``CreateRoute`` indicates that the route was manually added to the route table; ``EnableVgwRoutePropagation`` indicates that the route was propagated by route propagation. 
            
-          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on). 
+          * ``route.state`` - The state of a route in the route table (``active`` | ``blackhole`` ). The blackhole state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, the specified NAT instance has been terminated, and so on). 
            
           * ``route.vpc-peering-connection-id`` - The ID of a VPC peering connection specified in a route in the table. 
            
@@ -2943,45 +2943,45 @@ class DescribeRouteTables(Paginator):
           ::
         
             {
-                'RouteTables': [
+                \'RouteTables\': [
                     {
-                        'Associations': [
+                        \'Associations\': [
                             {
-                                'Main': True|False,
-                                'RouteTableAssociationId': 'string',
-                                'RouteTableId': 'string',
-                                'SubnetId': 'string'
+                                \'Main\': True|False,
+                                \'RouteTableAssociationId\': \'string\',
+                                \'RouteTableId\': \'string\',
+                                \'SubnetId\': \'string\'
                             },
                         ],
-                        'PropagatingVgws': [
+                        \'PropagatingVgws\': [
                             {
-                                'GatewayId': 'string'
+                                \'GatewayId\': \'string\'
                             },
                         ],
-                        'RouteTableId': 'string',
-                        'Routes': [
+                        \'RouteTableId\': \'string\',
+                        \'Routes\': [
                             {
-                                'DestinationCidrBlock': 'string',
-                                'DestinationIpv6CidrBlock': 'string',
-                                'DestinationPrefixListId': 'string',
-                                'EgressOnlyInternetGatewayId': 'string',
-                                'GatewayId': 'string',
-                                'InstanceId': 'string',
-                                'InstanceOwnerId': 'string',
-                                'NatGatewayId': 'string',
-                                'NetworkInterfaceId': 'string',
-                                'Origin': 'CreateRouteTable'|'CreateRoute'|'EnableVgwRoutePropagation',
-                                'State': 'active'|'blackhole',
-                                'VpcPeeringConnectionId': 'string'
+                                \'DestinationCidrBlock\': \'string\',
+                                \'DestinationIpv6CidrBlock\': \'string\',
+                                \'DestinationPrefixListId\': \'string\',
+                                \'EgressOnlyInternetGatewayId\': \'string\',
+                                \'GatewayId\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'InstanceOwnerId\': \'string\',
+                                \'NatGatewayId\': \'string\',
+                                \'NetworkInterfaceId\': \'string\',
+                                \'Origin\': \'CreateRouteTable\'|\'CreateRoute\'|\'EnableVgwRoutePropagation\',
+                                \'State\': \'active\'|\'blackhole\',
+                                \'VpcPeeringConnectionId\': \'string\'
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
                 
@@ -3096,7 +3096,7 @@ class DescribeRouteTables(Paginator):
                        
                     - **State** *(string) --* 
         
-                      The state of the route. The ``blackhole`` state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
+                      The state of the route. The ``blackhole`` state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, or the specified NAT instance has been terminated).
         
                     - **VpcPeeringConnectionId** *(string) --* 
         
@@ -3142,23 +3142,23 @@ class DescribeSecurityGroups(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               GroupIds=[
-                  'string',
+                  \'string\',
               ],
               GroupNames=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -3298,91 +3298,91 @@ class DescribeSecurityGroups(Paginator):
           ::
         
             {
-                'SecurityGroups': [
+                \'SecurityGroups\': [
                     {
-                        'Description': 'string',
-                        'GroupName': 'string',
-                        'IpPermissions': [
+                        \'Description\': \'string\',
+                        \'GroupName\': \'string\',
+                        \'IpPermissions\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
                                     {
-                                        'CidrIp': 'string',
-                                        'Description': 'string'
+                                        \'CidrIp\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'Ipv6Ranges': [
+                                \'Ipv6Ranges\': [
                                     {
-                                        'CidrIpv6': 'string',
-                                        'Description': 'string'
+                                        \'CidrIpv6\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'PrefixListIds': [
+                                \'PrefixListIds\': [
                                     {
-                                        'Description': 'string',
-                                        'PrefixListId': 'string'
+                                        \'Description\': \'string\',
+                                        \'PrefixListId\': \'string\'
                                     },
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'OwnerId': 'string',
-                        'GroupId': 'string',
-                        'IpPermissionsEgress': [
+                        \'OwnerId\': \'string\',
+                        \'GroupId\': \'string\',
+                        \'IpPermissionsEgress\': [
                             {
-                                'FromPort': 123,
-                                'IpProtocol': 'string',
-                                'IpRanges': [
+                                \'FromPort\': 123,
+                                \'IpProtocol\': \'string\',
+                                \'IpRanges\': [
                                     {
-                                        'CidrIp': 'string',
-                                        'Description': 'string'
+                                        \'CidrIp\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'Ipv6Ranges': [
+                                \'Ipv6Ranges\': [
                                     {
-                                        'CidrIpv6': 'string',
-                                        'Description': 'string'
+                                        \'CidrIpv6\': \'string\',
+                                        \'Description\': \'string\'
                                     },
                                 ],
-                                'PrefixListIds': [
+                                \'PrefixListIds\': [
                                     {
-                                        'Description': 'string',
-                                        'PrefixListId': 'string'
+                                        \'Description\': \'string\',
+                                        \'PrefixListId\': \'string\'
                                     },
                                 ],
-                                'ToPort': 123,
-                                'UserIdGroupPairs': [
+                                \'ToPort\': 123,
+                                \'UserIdGroupPairs\': [
                                     {
-                                        'Description': 'string',
-                                        'GroupId': 'string',
-                                        'GroupName': 'string',
-                                        'PeeringStatus': 'string',
-                                        'UserId': 'string',
-                                        'VpcId': 'string',
-                                        'VpcPeeringConnectionId': 'string'
+                                        \'Description\': \'string\',
+                                        \'GroupId\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'PeeringStatus\': \'string\',
+                                        \'UserId\': \'string\',
+                                        \'VpcId\': \'string\',
+                                        \'VpcPeeringConnectionId\': \'string\'
                                     },
                                 ]
                             },
                         ],
-                        'Tags': [
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VpcId': 'string'
+                        \'VpcId\': \'string\'
                     },
                 ],
                 
@@ -3423,7 +3423,7 @@ class DescribeSecurityGroups(Paginator):
         
                       The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
                     - **IpRanges** *(list) --* 
         
@@ -3551,7 +3551,7 @@ class DescribeSecurityGroups(Paginator):
         
                       The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
         
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules. 
         
                     - **IpRanges** *(list) --* 
         
@@ -3695,26 +3695,26 @@ class DescribeSnapshots(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               OwnerIds=[
-                  'string',
+                  \'string\',
               ],
               RestorableByUserIds=[
-                  'string',
+                  \'string\',
               ],
               SnapshotIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -3831,25 +3831,25 @@ class DescribeSnapshots(Paginator):
           ::
         
             {
-                'Snapshots': [
+                \'Snapshots\': [
                     {
-                        'DataEncryptionKeyId': 'string',
-                        'Description': 'string',
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'OwnerId': 'string',
-                        'Progress': 'string',
-                        'SnapshotId': 'string',
-                        'StartTime': datetime(2015, 1, 1),
-                        'State': 'pending'|'completed'|'error',
-                        'StateMessage': 'string',
-                        'VolumeId': 'string',
-                        'VolumeSize': 123,
-                        'OwnerAlias': 'string',
-                        'Tags': [
+                        \'DataEncryptionKeyId\': \'string\',
+                        \'Description\': \'string\',
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'OwnerId\': \'string\',
+                        \'Progress\': \'string\',
+                        \'SnapshotId\': \'string\',
+                        \'StartTime\': datetime(2015, 1, 1),
+                        \'State\': \'pending\'|\'completed\'|\'error\',
+                        \'StateMessage\': \'string\',
+                        \'VolumeId\': \'string\',
+                        \'VolumeSize\': 123,
+                        \'OwnerAlias\': \'string\',
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ]
                     },
@@ -3957,11 +3957,11 @@ class DescribeSpotFleetInstances(Paginator):
         
           response_iterator = paginator.paginate(
               DryRun=True|False,
-              SpotFleetRequestId='string',
+              SpotFleetRequestId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DryRun: boolean
@@ -3999,15 +3999,15 @@ class DescribeSpotFleetInstances(Paginator):
           ::
         
             {
-                'ActiveInstances': [
+                \'ActiveInstances\': [
                     {
-                        'InstanceId': 'string',
-                        'InstanceType': 'string',
-                        'SpotInstanceRequestId': 'string',
-                        'InstanceHealth': 'healthy'|'unhealthy'
+                        \'InstanceId\': \'string\',
+                        \'InstanceType\': \'string\',
+                        \'SpotInstanceRequestId\': \'string\',
+                        \'InstanceHealth\': \'healthy\'|\'unhealthy\'
                     },
                 ],
-                'SpotFleetRequestId': 'string'
+                \'SpotFleetRequestId\': \'string\'
             }
           **Response Structure** 
         
@@ -4059,12 +4059,12 @@ class DescribeSpotFleetRequests(Paginator):
           response_iterator = paginator.paginate(
               DryRun=True|False,
               SpotFleetRequestIds=[
-                  'string',
+                  \'string\',
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DryRun: boolean
@@ -4104,153 +4104,153 @@ class DescribeSpotFleetRequests(Paginator):
           ::
         
             {
-                'SpotFleetRequestConfigs': [
+                \'SpotFleetRequestConfigs\': [
                     {
-                        'ActivityStatus': 'error'|'pending_fulfillment'|'pending_termination'|'fulfilled',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'SpotFleetRequestConfig': {
-                            'AllocationStrategy': 'lowestPrice'|'diversified',
-                            'OnDemandAllocationStrategy': 'lowestPrice'|'prioritized',
-                            'ClientToken': 'string',
-                            'ExcessCapacityTerminationPolicy': 'noTermination'|'default',
-                            'FulfilledCapacity': 123.0,
-                            'OnDemandFulfilledCapacity': 123.0,
-                            'IamFleetRole': 'string',
-                            'LaunchSpecifications': [
+                        \'ActivityStatus\': \'error\'|\'pending_fulfillment\'|\'pending_termination\'|\'fulfilled\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'SpotFleetRequestConfig\': {
+                            \'AllocationStrategy\': \'lowestPrice\'|\'diversified\',
+                            \'OnDemandAllocationStrategy\': \'lowestPrice\'|\'prioritized\',
+                            \'ClientToken\': \'string\',
+                            \'ExcessCapacityTerminationPolicy\': \'noTermination\'|\'default\',
+                            \'FulfilledCapacity\': 123.0,
+                            \'OnDemandFulfilledCapacity\': 123.0,
+                            \'IamFleetRole\': \'string\',
+                            \'LaunchSpecifications\': [
                                 {
-                                    'SecurityGroups': [
+                                    \'SecurityGroups\': [
                                         {
-                                            'GroupName': 'string',
-                                            'GroupId': 'string'
+                                            \'GroupName\': \'string\',
+                                            \'GroupId\': \'string\'
                                         },
                                     ],
-                                    'AddressingType': 'string',
-                                    'BlockDeviceMappings': [
+                                    \'AddressingType\': \'string\',
+                                    \'BlockDeviceMappings\': [
                                         {
-                                            'DeviceName': 'string',
-                                            'VirtualName': 'string',
-                                            'Ebs': {
-                                                'DeleteOnTermination': True|False,
-                                                'Iops': 123,
-                                                'SnapshotId': 'string',
-                                                'VolumeSize': 123,
-                                                'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
-                                                'Encrypted': True|False,
-                                                'KmsKeyId': 'string'
+                                            \'DeviceName\': \'string\',
+                                            \'VirtualName\': \'string\',
+                                            \'Ebs\': {
+                                                \'DeleteOnTermination\': True|False,
+                                                \'Iops\': 123,
+                                                \'SnapshotId\': \'string\',
+                                                \'VolumeSize\': 123,
+                                                \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\',
+                                                \'Encrypted\': True|False,
+                                                \'KmsKeyId\': \'string\'
                                             },
-                                            'NoDevice': 'string'
+                                            \'NoDevice\': \'string\'
                                         },
                                     ],
-                                    'EbsOptimized': True|False,
-                                    'IamInstanceProfile': {
-                                        'Arn': 'string',
-                                        'Name': 'string'
+                                    \'EbsOptimized\': True|False,
+                                    \'IamInstanceProfile\': {
+                                        \'Arn\': \'string\',
+                                        \'Name\': \'string\'
                                     },
-                                    'ImageId': 'string',
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                    'KernelId': 'string',
-                                    'KeyName': 'string',
-                                    'Monitoring': {
-                                        'Enabled': True|False
+                                    \'ImageId\': \'string\',
+                                    \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                    \'KernelId\': \'string\',
+                                    \'KeyName\': \'string\',
+                                    \'Monitoring\': {
+                                        \'Enabled\': True|False
                                     },
-                                    'NetworkInterfaces': [
+                                    \'NetworkInterfaces\': [
                                         {
-                                            'AssociatePublicIpAddress': True|False,
-                                            'DeleteOnTermination': True|False,
-                                            'Description': 'string',
-                                            'DeviceIndex': 123,
-                                            'Groups': [
-                                                'string',
+                                            \'AssociatePublicIpAddress\': True|False,
+                                            \'DeleteOnTermination\': True|False,
+                                            \'Description\': \'string\',
+                                            \'DeviceIndex\': 123,
+                                            \'Groups\': [
+                                                \'string\',
                                             ],
-                                            'Ipv6AddressCount': 123,
-                                            'Ipv6Addresses': [
+                                            \'Ipv6AddressCount\': 123,
+                                            \'Ipv6Addresses\': [
                                                 {
-                                                    'Ipv6Address': 'string'
+                                                    \'Ipv6Address\': \'string\'
                                                 },
                                             ],
-                                            'NetworkInterfaceId': 'string',
-                                            'PrivateIpAddress': 'string',
-                                            'PrivateIpAddresses': [
+                                            \'NetworkInterfaceId\': \'string\',
+                                            \'PrivateIpAddress\': \'string\',
+                                            \'PrivateIpAddresses\': [
                                                 {
-                                                    'Primary': True|False,
-                                                    'PrivateIpAddress': 'string'
+                                                    \'Primary\': True|False,
+                                                    \'PrivateIpAddress\': \'string\'
                                                 },
                                             ],
-                                            'SecondaryPrivateIpAddressCount': 123,
-                                            'SubnetId': 'string'
+                                            \'SecondaryPrivateIpAddressCount\': 123,
+                                            \'SubnetId\': \'string\'
                                         },
                                     ],
-                                    'Placement': {
-                                        'AvailabilityZone': 'string',
-                                        'GroupName': 'string',
-                                        'Tenancy': 'default'|'dedicated'|'host'
+                                    \'Placement\': {
+                                        \'AvailabilityZone\': \'string\',
+                                        \'GroupName\': \'string\',
+                                        \'Tenancy\': \'default\'|\'dedicated\'|\'host\'
                                     },
-                                    'RamdiskId': 'string',
-                                    'SpotPrice': 'string',
-                                    'SubnetId': 'string',
-                                    'UserData': 'string',
-                                    'WeightedCapacity': 123.0,
-                                    'TagSpecifications': [
+                                    \'RamdiskId\': \'string\',
+                                    \'SpotPrice\': \'string\',
+                                    \'SubnetId\': \'string\',
+                                    \'UserData\': \'string\',
+                                    \'WeightedCapacity\': 123.0,
+                                    \'TagSpecifications\': [
                                         {
-                                            'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                                            'Tags': [
+                                            \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                                            \'Tags\': [
                                                 {
-                                                    'Key': 'string',
-                                                    'Value': 'string'
+                                                    \'Key\': \'string\',
+                                                    \'Value\': \'string\'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
                             ],
-                            'LaunchTemplateConfigs': [
+                            \'LaunchTemplateConfigs\': [
                                 {
-                                    'LaunchTemplateSpecification': {
-                                        'LaunchTemplateId': 'string',
-                                        'LaunchTemplateName': 'string',
-                                        'Version': 'string'
+                                    \'LaunchTemplateSpecification\': {
+                                        \'LaunchTemplateId\': \'string\',
+                                        \'LaunchTemplateName\': \'string\',
+                                        \'Version\': \'string\'
                                     },
-                                    'Overrides': [
+                                    \'Overrides\': [
                                         {
-                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                                            'SpotPrice': 'string',
-                                            'SubnetId': 'string',
-                                            'AvailabilityZone': 'string',
-                                            'WeightedCapacity': 123.0,
-                                            'Priority': 123.0
+                                            \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                                            \'SpotPrice\': \'string\',
+                                            \'SubnetId\': \'string\',
+                                            \'AvailabilityZone\': \'string\',
+                                            \'WeightedCapacity\': 123.0,
+                                            \'Priority\': 123.0
                                         },
                                     ]
                                 },
                             ],
-                            'SpotPrice': 'string',
-                            'TargetCapacity': 123,
-                            'OnDemandTargetCapacity': 123,
-                            'TerminateInstancesWithExpiration': True|False,
-                            'Type': 'request'|'maintain',
-                            'ValidFrom': datetime(2015, 1, 1),
-                            'ValidUntil': datetime(2015, 1, 1),
-                            'ReplaceUnhealthyInstances': True|False,
-                            'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate',
-                            'LoadBalancersConfig': {
-                                'ClassicLoadBalancersConfig': {
-                                    'ClassicLoadBalancers': [
+                            \'SpotPrice\': \'string\',
+                            \'TargetCapacity\': 123,
+                            \'OnDemandTargetCapacity\': 123,
+                            \'TerminateInstancesWithExpiration\': True|False,
+                            \'Type\': \'request\'|\'maintain\',
+                            \'ValidFrom\': datetime(2015, 1, 1),
+                            \'ValidUntil\': datetime(2015, 1, 1),
+                            \'ReplaceUnhealthyInstances\': True|False,
+                            \'InstanceInterruptionBehavior\': \'hibernate\'|\'stop\'|\'terminate\',
+                            \'LoadBalancersConfig\': {
+                                \'ClassicLoadBalancersConfig\': {
+                                    \'ClassicLoadBalancers\': [
                                         {
-                                            'Name': 'string'
+                                            \'Name\': \'string\'
                                         },
                                     ]
                                 },
-                                'TargetGroupsConfig': {
-                                    'TargetGroups': [
+                                \'TargetGroupsConfig\': {
+                                    \'TargetGroups\': [
                                         {
-                                            'Arn': 'string'
+                                            \'Arn\': \'string\'
                                         },
                                     ]
                                 }
                             },
-                            'InstancePoolsToUseCount': 123
+                            \'InstancePoolsToUseCount\': 123
                         },
-                        'SpotFleetRequestId': 'string',
-                        'SpotFleetRequestState': 'submitted'|'active'|'cancelled'|'failed'|'cancelled_running'|'cancelled_terminating'|'modifying'
+                        \'SpotFleetRequestId\': \'string\',
+                        \'SpotFleetRequestState\': \'submitted\'|\'active\'|\'cancelled\'|\'failed\'|\'cancelled_running\'|\'cancelled_terminating\'|\'modifying\'
                     },
                 ]
             }
@@ -4338,7 +4338,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                       - **BlockDeviceMappings** *(list) --* 
         
-                        One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+                        One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         
                         - *(dict) --* 
         
@@ -4382,7 +4382,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                               Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
         
-                              Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                              Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
         
                             - **VolumeType** *(string) --* 
         
@@ -4408,7 +4408,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                       - **EbsOptimized** *(boolean) --* 
         
-                        Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                        Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
         
                         Default: ``false``  
         
@@ -4482,11 +4482,11 @@ class DescribeSpotFleetRequests(Paginator):
                         
                           - **Ipv6AddressCount** *(integer) --* 
         
-                            A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                            A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
         
                           - **Ipv6Addresses** *(list) --* 
         
-                            One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                            One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
         
                             - *(dict) --* 
         
@@ -4502,11 +4502,11 @@ class DescribeSpotFleetRequests(Paginator):
         
                           - **PrivateIpAddress** *(string) --* 
         
-                            The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                           - **PrivateIpAddresses** *(list) --* 
         
-                            One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                             - *(dict) --* 
         
@@ -4522,7 +4522,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                           - **SecondaryPrivateIpAddressCount** *(integer) --* 
         
-                            The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                            The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
         
                           - **SubnetId** *(string) --* 
         
@@ -4536,7 +4536,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                           The Availability Zone.
         
-                          [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                          [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
         
                         - **GroupName** *(string) --* 
         
@@ -4556,7 +4556,7 @@ class DescribeSpotFleetRequests(Paginator):
         
                       - **SubnetId** *(string) --* 
         
-                        The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-a61dafcf, subnet-65ea5f08".
+                        The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \"subnet-a61dafcf, subnet-65ea5f08\".
         
                       - **UserData** *(string) --* 
         
@@ -4758,26 +4758,26 @@ class DescribeSpotPriceHistory(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
-              AvailabilityZone='string',
+              AvailabilityZone=\'string\',
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               InstanceTypes=[
-                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
+                  \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
               ],
               ProductDescriptions=[
-                  'string',
+                  \'string\',
               ],
               StartTime=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -4888,13 +4888,13 @@ class DescribeSpotPriceHistory(Paginator):
           ::
         
             {
-                'SpotPriceHistory': [
+                \'SpotPriceHistory\': [
                     {
-                        'AvailabilityZone': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.8xlarge'|'r5.12xlarge'|'r5.16xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.8xlarge'|'r5d.12xlarge'|'r5d.16xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal',
-                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
-                        'SpotPrice': 'string',
-                        'Timestamp': datetime(2015, 1, 1)
+                        \'AvailabilityZone\': \'string\',
+                        \'InstanceType\': \'t1.micro\'|\'t2.nano\'|\'t2.micro\'|\'t2.small\'|\'t2.medium\'|\'t2.large\'|\'t2.xlarge\'|\'t2.2xlarge\'|\'t3.nano\'|\'t3.micro\'|\'t3.small\'|\'t3.medium\'|\'t3.large\'|\'t3.xlarge\'|\'t3.2xlarge\'|\'m1.small\'|\'m1.medium\'|\'m1.large\'|\'m1.xlarge\'|\'m3.medium\'|\'m3.large\'|\'m3.xlarge\'|\'m3.2xlarge\'|\'m4.large\'|\'m4.xlarge\'|\'m4.2xlarge\'|\'m4.4xlarge\'|\'m4.10xlarge\'|\'m4.16xlarge\'|\'m2.xlarge\'|\'m2.2xlarge\'|\'m2.4xlarge\'|\'cr1.8xlarge\'|\'r3.large\'|\'r3.xlarge\'|\'r3.2xlarge\'|\'r3.4xlarge\'|\'r3.8xlarge\'|\'r4.large\'|\'r4.xlarge\'|\'r4.2xlarge\'|\'r4.4xlarge\'|\'r4.8xlarge\'|\'r4.16xlarge\'|\'r5.large\'|\'r5.xlarge\'|\'r5.2xlarge\'|\'r5.4xlarge\'|\'r5.8xlarge\'|\'r5.12xlarge\'|\'r5.16xlarge\'|\'r5.24xlarge\'|\'r5.metal\'|\'r5a.large\'|\'r5a.xlarge\'|\'r5a.2xlarge\'|\'r5a.4xlarge\'|\'r5a.12xlarge\'|\'r5a.24xlarge\'|\'r5d.large\'|\'r5d.xlarge\'|\'r5d.2xlarge\'|\'r5d.4xlarge\'|\'r5d.8xlarge\'|\'r5d.12xlarge\'|\'r5d.16xlarge\'|\'r5d.24xlarge\'|\'r5d.metal\'|\'x1.16xlarge\'|\'x1.32xlarge\'|\'x1e.xlarge\'|\'x1e.2xlarge\'|\'x1e.4xlarge\'|\'x1e.8xlarge\'|\'x1e.16xlarge\'|\'x1e.32xlarge\'|\'i2.xlarge\'|\'i2.2xlarge\'|\'i2.4xlarge\'|\'i2.8xlarge\'|\'i3.large\'|\'i3.xlarge\'|\'i3.2xlarge\'|\'i3.4xlarge\'|\'i3.8xlarge\'|\'i3.16xlarge\'|\'i3.metal\'|\'hi1.4xlarge\'|\'hs1.8xlarge\'|\'c1.medium\'|\'c1.xlarge\'|\'c3.large\'|\'c3.xlarge\'|\'c3.2xlarge\'|\'c3.4xlarge\'|\'c3.8xlarge\'|\'c4.large\'|\'c4.xlarge\'|\'c4.2xlarge\'|\'c4.4xlarge\'|\'c4.8xlarge\'|\'c5.large\'|\'c5.xlarge\'|\'c5.2xlarge\'|\'c5.4xlarge\'|\'c5.9xlarge\'|\'c5.18xlarge\'|\'c5d.large\'|\'c5d.xlarge\'|\'c5d.2xlarge\'|\'c5d.4xlarge\'|\'c5d.9xlarge\'|\'c5d.18xlarge\'|\'cc1.4xlarge\'|\'cc2.8xlarge\'|\'g2.2xlarge\'|\'g2.8xlarge\'|\'g3.4xlarge\'|\'g3.8xlarge\'|\'g3.16xlarge\'|\'g3s.xlarge\'|\'cg1.4xlarge\'|\'p2.xlarge\'|\'p2.8xlarge\'|\'p2.16xlarge\'|\'p3.2xlarge\'|\'p3.8xlarge\'|\'p3.16xlarge\'|\'d2.xlarge\'|\'d2.2xlarge\'|\'d2.4xlarge\'|\'d2.8xlarge\'|\'f1.2xlarge\'|\'f1.4xlarge\'|\'f1.16xlarge\'|\'m5.large\'|\'m5.xlarge\'|\'m5.2xlarge\'|\'m5.4xlarge\'|\'m5.12xlarge\'|\'m5.24xlarge\'|\'m5a.large\'|\'m5a.xlarge\'|\'m5a.2xlarge\'|\'m5a.4xlarge\'|\'m5a.12xlarge\'|\'m5a.24xlarge\'|\'m5d.large\'|\'m5d.xlarge\'|\'m5d.2xlarge\'|\'m5d.4xlarge\'|\'m5d.12xlarge\'|\'m5d.24xlarge\'|\'h1.2xlarge\'|\'h1.4xlarge\'|\'h1.8xlarge\'|\'h1.16xlarge\'|\'z1d.large\'|\'z1d.xlarge\'|\'z1d.2xlarge\'|\'z1d.3xlarge\'|\'z1d.6xlarge\'|\'z1d.12xlarge\'|\'u-6tb1.metal\'|\'u-9tb1.metal\'|\'u-12tb1.metal\',
+                        \'ProductDescription\': \'Linux/UNIX\'|\'Linux/UNIX (Amazon VPC)\'|\'Windows\'|\'Windows (Amazon VPC)\',
+                        \'SpotPrice\': \'string\',
+                        \'Timestamp\': datetime(2015, 1, 1)
                     },
                 ]
             }
@@ -4949,16 +4949,16 @@ class DescribeTags(Paginator):
               DryRun=True|False,
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type DryRun: boolean
@@ -4977,7 +4977,7 @@ class DescribeTags(Paginator):
            
           * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ). 
            
-          * ``tag`` :<key> - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA". 
+          * ``tag`` :<key> - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\". 
            
           * ``value`` - The tag value. 
            
@@ -5040,12 +5040,12 @@ class DescribeTags(Paginator):
           ::
         
             {
-                'Tags': [
+                \'Tags\': [
                     {
-                        'Key': 'string',
-                        'ResourceId': 'string',
-                        'ResourceType': 'customer-gateway'|'dedicated-host'|'dhcp-options'|'image'|'instance'|'internet-gateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'snapshot'|'spot-instances-request'|'subnet'|'security-group'|'volume'|'vpc'|'vpn-connection'|'vpn-gateway',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'ResourceId\': \'string\',
+                        \'ResourceType\': \'customer-gateway\'|\'dedicated-host\'|\'dhcp-options\'|\'image\'|\'instance\'|\'internet-gateway\'|\'network-acl\'|\'network-interface\'|\'reserved-instances\'|\'route-table\'|\'snapshot\'|\'spot-instances-request\'|\'subnet\'|\'security-group\'|\'volume\'|\'vpc\'|\'vpn-connection\'|\'vpn-gateway\',
+                        \'Value\': \'string\'
                     },
                 ]
             }
@@ -5093,20 +5093,20 @@ class DescribeVolumeStatus(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -5211,35 +5211,35 @@ class DescribeVolumeStatus(Paginator):
           ::
         
             {
-                'VolumeStatuses': [
+                \'VolumeStatuses\': [
                     {
-                        'Actions': [
+                        \'Actions\': [
                             {
-                                'Code': 'string',
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string'
+                                \'Code\': \'string\',
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\'
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'Events': [
+                        \'AvailabilityZone\': \'string\',
+                        \'Events\': [
                             {
-                                'Description': 'string',
-                                'EventId': 'string',
-                                'EventType': 'string',
-                                'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                \'Description\': \'string\',
+                                \'EventId\': \'string\',
+                                \'EventType\': \'string\',
+                                \'NotAfter\': datetime(2015, 1, 1),
+                                \'NotBefore\': datetime(2015, 1, 1)
                             },
                         ],
-                        'VolumeId': 'string',
-                        'VolumeStatus': {
-                            'Details': [
+                        \'VolumeId\': \'string\',
+                        \'VolumeStatus\': {
+                            \'Details\': [
                                 {
-                                    'Name': 'io-enabled'|'io-performance',
-                                    'Status': 'string'
+                                    \'Name\': \'io-enabled\'|\'io-performance\',
+                                    \'Status\': \'string\'
                                 },
                             ],
-                            'Status': 'ok'|'impaired'|'insufficient-data'
+                            \'Status\': \'ok\'|\'impaired\'|\'insufficient-data\'
                         }
                     },
                 ]
@@ -5358,20 +5358,20 @@ class DescribeVolumes(Paginator):
           response_iterator = paginator.paginate(
               Filters=[
                   {
-                      'Name': 'string',
-                      'Values': [
-                          'string',
+                      \'Name\': \'string\',
+                      \'Values\': [
+                          \'string\',
                       ]
                   },
               ],
               VolumeIds=[
-                  'string',
+                  \'string\',
               ],
               DryRun=True|False,
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type Filters: list
@@ -5480,34 +5480,34 @@ class DescribeVolumes(Paginator):
           ::
         
             {
-                'Volumes': [
+                \'Volumes\': [
                     {
-                        'Attachments': [
+                        \'Attachments\': [
                             {
-                                'AttachTime': datetime(2015, 1, 1),
-                                'Device': 'string',
-                                'InstanceId': 'string',
-                                'State': 'attaching'|'attached'|'detaching'|'detached'|'busy',
-                                'VolumeId': 'string',
-                                'DeleteOnTermination': True|False
+                                \'AttachTime\': datetime(2015, 1, 1),
+                                \'Device\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'State\': \'attaching\'|\'attached\'|\'detaching\'|\'detached\'|\'busy\',
+                                \'VolumeId\': \'string\',
+                                \'DeleteOnTermination\': True|False
                             },
                         ],
-                        'AvailabilityZone': 'string',
-                        'CreateTime': datetime(2015, 1, 1),
-                        'Encrypted': True|False,
-                        'KmsKeyId': 'string',
-                        'Size': 123,
-                        'SnapshotId': 'string',
-                        'State': 'creating'|'available'|'in-use'|'deleting'|'deleted'|'error',
-                        'VolumeId': 'string',
-                        'Iops': 123,
-                        'Tags': [
+                        \'AvailabilityZone\': \'string\',
+                        \'CreateTime\': datetime(2015, 1, 1),
+                        \'Encrypted\': True|False,
+                        \'KmsKeyId\': \'string\',
+                        \'Size\': 123,
+                        \'SnapshotId\': \'string\',
+                        \'State\': \'creating\'|\'available\'|\'in-use\'|\'deleting\'|\'deleted\'|\'error\',
+                        \'VolumeId\': \'string\',
+                        \'Iops\': 123,
+                        \'Tags\': [
                             {
-                                'Key': 'string',
-                                'Value': 'string'
+                                \'Key\': \'string\',
+                                \'Value\': \'string\'
                             },
                         ],
-                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1'
+                        \'VolumeType\': \'standard\'|\'io1\'|\'gp2\'|\'sc1\'|\'st1\'
                     },
                 ],
                 

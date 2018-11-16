@@ -12,11 +12,11 @@ class ListJobs(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              APIVersion='string',
+              APIVersion=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type APIVersion: string
@@ -47,16 +47,16 @@ class ListJobs(Paginator):
           ::
         
             {
-                'Jobs': [
+                \'Jobs\': [
                     {
-                        'JobId': 'string',
-                        'CreationDate': datetime(2015, 1, 1),
-                        'IsCanceled': True|False,
-                        'JobType': 'Import'|'Export'
+                        \'JobId\': \'string\',
+                        \'CreationDate\': datetime(2015, 1, 1),
+                        \'IsCanceled\': True|False,
+                        \'JobType\': \'Import\'|\'Export\'
                     },
                 ],
-                'IsTruncated': True|False,
-                'NextToken': 'string'
+                \'IsTruncated\': True|False,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -68,7 +68,7 @@ class ListJobs(Paginator):
                 
                 - **JobId** *(string) --* A unique identifier which refers to a particular job.
                 
-                - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example "2010-03-28T20:27:35Z".
+                - **CreationDate** *(datetime) --* Timestamp of the CreateJob request in ISO8601 date format. For example \"2010-03-28T20:27:35Z\".
                 
                 - **IsCanceled** *(boolean) --* Indicates whether the job was canceled.
                 

@@ -13,9 +13,9 @@ class ListCollections(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -43,11 +43,11 @@ class ListCollections(Paginator):
           ::
         
             {
-                'CollectionIds': [
-                    'string',
+                \'CollectionIds\': [
+                    \'string\',
                 ],
-                'FaceModelVersions': [
-                    'string',
+                \'FaceModelVersions\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -80,11 +80,11 @@ class ListFaces(Paginator):
         ::
         
           response_iterator = paginator.paginate(
-              CollectionId='string',
+              CollectionId=\'string\',
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type CollectionId: string
@@ -117,21 +117,21 @@ class ListFaces(Paginator):
           ::
         
             {
-                'Faces': [
+                \'Faces\': [
                     {
-                        'FaceId': 'string',
-                        'BoundingBox': {
-                            'Width': ...,
-                            'Height': ...,
-                            'Left': ...,
-                            'Top': ...
+                        \'FaceId\': \'string\',
+                        \'BoundingBox\': {
+                            \'Width\': ...,
+                            \'Height\': ...,
+                            \'Left\': ...,
+                            \'Top\': ...
                         },
-                        'ImageId': 'string',
-                        'ExternalImageId': 'string',
-                        'Confidence': ...
+                        \'ImageId\': \'string\',
+                        \'ExternalImageId\': \'string\',
+                        \'Confidence\': ...
                     },
                 ],
-                'FaceModelVersion': 'string'
+                \'FaceModelVersion\': \'string\'
             }
           **Response Structure** 
         
@@ -200,9 +200,9 @@ class ListStreamProcessors(Paginator):
         
           response_iterator = paginator.paginate(
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type PaginationConfig: dict
@@ -230,10 +230,10 @@ class ListStreamProcessors(Paginator):
           ::
         
             {
-                'StreamProcessors': [
+                \'StreamProcessors\': [
                     {
-                        'Name': 'string',
-                        'Status': 'STOPPED'|'STARTING'|'RUNNING'|'FAILED'|'STOPPING'
+                        \'Name\': \'string\',
+                        \'Status\': \'STOPPED\'|\'STARTING\'|\'RUNNING\'|\'FAILED\'|\'STOPPING\'
                     },
                 ]
             }

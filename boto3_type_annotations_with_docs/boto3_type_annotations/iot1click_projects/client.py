@@ -1,9 +1,9 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -17,10 +17,10 @@ class Client(BaseClient):
         ::
         
           response = client.associate_device_with_placement(
-              projectName='string',
-              placementName='string',
-              deviceId='string',
-              deviceTemplateName='string'
+              projectName=\'string\',
+              placementName=\'string\',
+              deviceId=\'string\',
+              deviceTemplateName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -62,10 +62,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -81,10 +81,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_placement(
-              placementName='string',
-              projectName='string',
+              placementName=\'string\',
+              projectName=\'string\',
               attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type placementName: string
@@ -129,17 +129,17 @@ class Client(BaseClient):
         ::
         
           response = client.create_project(
-              projectName='string',
-              description='string',
+              projectName=\'string\',
+              description=\'string\',
               placementTemplate={
-                  'defaultAttributes': {
-                      'string': 'string'
+                  \'defaultAttributes\': {
+                      \'string\': \'string\'
                   },
-                  'deviceTemplates': {
-                      'string': {
-                          'deviceType': 'string',
-                          'callbackOverrides': {
-                              'string': 'string'
+                  \'deviceTemplates\': {
+                      \'string\': {
+                          \'deviceType\': \'string\',
+                          \'callbackOverrides\': {
+                              \'string\': \'string\'
                           }
                       }
                   }
@@ -180,7 +180,7 @@ class Client(BaseClient):
         
                 - **deviceType** *(string) --* 
         
-                  The device type, which currently must be ``"button"`` .
+                  The device type, which currently must be ``\"button\"`` .
         
                 - **callbackOverrides** *(dict) --* 
         
@@ -217,8 +217,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_placement(
-              placementName='string',
-              projectName='string'
+              placementName=\'string\',
+              projectName=\'string\'
           )
         :type placementName: string
         :param placementName: **[REQUIRED]** 
@@ -257,7 +257,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_project(
-              projectName='string'
+              projectName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -287,8 +287,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_placement(
-              placementName='string',
-              projectName='string'
+              placementName=\'string\',
+              projectName=\'string\'
           )
         :type placementName: string
         :param placementName: **[REQUIRED]** 
@@ -308,14 +308,14 @@ class Client(BaseClient):
           ::
         
             {
-                'placement': {
-                    'projectName': 'string',
-                    'placementName': 'string',
-                    'attributes': {
-                        'string': 'string'
+                \'placement\': {
+                    \'projectName\': \'string\',
+                    \'placementName\': \'string\',
+                    \'attributes\': {
+                        \'string\': \'string\'
                     },
-                    'createdDate': datetime(2015, 1, 1),
-                    'updatedDate': datetime(2015, 1, 1)
+                    \'createdDate\': datetime(2015, 1, 1),
+                    \'updatedDate\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -362,7 +362,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_project(
-              projectName='string'
+              projectName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -377,20 +377,20 @@ class Client(BaseClient):
           ::
         
             {
-                'project': {
-                    'projectName': 'string',
-                    'description': 'string',
-                    'createdDate': datetime(2015, 1, 1),
-                    'updatedDate': datetime(2015, 1, 1),
-                    'placementTemplate': {
-                        'defaultAttributes': {
-                            'string': 'string'
+                \'project\': {
+                    \'projectName\': \'string\',
+                    \'description\': \'string\',
+                    \'createdDate\': datetime(2015, 1, 1),
+                    \'updatedDate\': datetime(2015, 1, 1),
+                    \'placementTemplate\': {
+                        \'defaultAttributes\': {
+                            \'string\': \'string\'
                         },
-                        'deviceTemplates': {
-                            'string': {
-                                'deviceType': 'string',
-                                'callbackOverrides': {
-                                    'string': 'string'
+                        \'deviceTemplates\': {
+                            \'string\': {
+                                \'deviceType\': \'string\',
+                                \'callbackOverrides\': {
+                                    \'string\': \'string\'
                                 }
                             }
                         }
@@ -423,7 +423,7 @@ class Client(BaseClient):
         
               - **placementTemplate** *(dict) --* 
         
-                An object describing the project's placement specifications.
+                An object describing the project\'s placement specifications.
         
                 - **defaultAttributes** *(dict) --* 
         
@@ -445,7 +445,7 @@ class Client(BaseClient):
         
                       - **deviceType** *(string) --* 
         
-                        The device type, which currently must be ``"button"`` .
+                        The device type, which currently must be ``\"button\"`` .
         
                       - **callbackOverrides** *(dict) --* 
         
@@ -467,9 +467,9 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_device_from_placement(
-              projectName='string',
-              placementName='string',
-              deviceTemplateName='string'
+              projectName=\'string\',
+              placementName=\'string\',
+              deviceTemplateName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -516,7 +516,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -531,8 +531,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_devices_in_placement(
-              projectName='string',
-              placementName='string'
+              projectName=\'string\',
+              placementName=\'string\'
           )
         :type projectName: string
         :param projectName: **[REQUIRED]** 
@@ -552,8 +552,8 @@ class Client(BaseClient):
           ::
         
             {
-                'devices': {
-                    'string': 'string'
+                \'devices\': {
+                    \'string\': \'string\'
                 }
             }
           **Response Structure** 
@@ -577,10 +577,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -612,8 +612,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_placements(
-              projectName='string',
-              nextToken='string',
+              projectName=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type projectName: string
@@ -639,15 +639,15 @@ class Client(BaseClient):
           ::
         
             {
-                'placements': [
+                \'placements\': [
                     {
-                        'projectName': 'string',
-                        'placementName': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'updatedDate': datetime(2015, 1, 1)
+                        \'projectName\': \'string\',
+                        \'placementName\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'updatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -693,7 +693,7 @@ class Client(BaseClient):
         ::
         
           response = client.list_projects(
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123
           )
         :type nextToken: string
@@ -714,14 +714,14 @@ class Client(BaseClient):
           ::
         
             {
-                'projects': [
+                \'projects\': [
                     {
-                        'projectName': 'string',
-                        'createdDate': datetime(2015, 1, 1),
-                        'updatedDate': datetime(2015, 1, 1)
+                        \'projectName\': \'string\',
+                        \'createdDate\': datetime(2015, 1, 1),
+                        \'updatedDate\': datetime(2015, 1, 1)
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -763,10 +763,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_placement(
-              placementName='string',
-              projectName='string',
+              placementName=\'string\',
+              projectName=\'string\',
               attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type placementName: string
@@ -811,17 +811,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_project(
-              projectName='string',
-              description='string',
+              projectName=\'string\',
+              description=\'string\',
               placementTemplate={
-                  'defaultAttributes': {
-                      'string': 'string'
+                  \'defaultAttributes\': {
+                      \'string\': \'string\'
                   },
-                  'deviceTemplates': {
-                      'string': {
-                          'deviceType': 'string',
-                          'callbackOverrides': {
-                              'string': 'string'
+                  \'deviceTemplates\': {
+                      \'string\': {
+                          \'deviceType\': \'string\',
+                          \'callbackOverrides\': {
+                              \'string\': \'string\'
                           }
                       }
                   }
@@ -862,7 +862,7 @@ class Client(BaseClient):
         
                 - **deviceType** *(string) --* 
         
-                  The device type, which currently must be ``"button"`` .
+                  The device type, which currently must be ``\"button\"`` .
         
                 - **callbackOverrides** *(dict) --* 
         

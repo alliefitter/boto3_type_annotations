@@ -1,11 +1,11 @@
 from datetime import datetime
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -16,10 +16,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,26 +35,26 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              Username='string',
-              Password='string',
+              Username=\'string\',
+              Password=\'string\',
               IdentityInfo={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'Email': 'string'
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'Email\': \'string\'
               },
               PhoneConfig={
-                  'PhoneType': 'SOFT_PHONE'|'DESK_PHONE',
-                  'AutoAccept': True|False,
-                  'AfterContactWorkTimeLimit': 123,
-                  'DeskPhoneNumber': 'string'
+                  \'PhoneType\': \'SOFT_PHONE\'|\'DESK_PHONE\',
+                  \'AutoAccept\': True|False,
+                  \'AfterContactWorkTimeLimit\': 123,
+                  \'DeskPhoneNumber\': \'string\'
               },
-              DirectoryUserId='string',
+              DirectoryUserId=\'string\',
               SecurityProfileIds=[
-                  'string',
+                  \'string\',
               ],
-              RoutingProfileId='string',
-              HierarchyGroupId='string',
-              InstanceId='string'
+              RoutingProfileId=\'string\',
+              HierarchyGroupId=\'string\',
+              InstanceId=\'string\'
           )
         :type Username: string
         :param Username: **[REQUIRED]** 
@@ -102,7 +102,7 @@ class Client(BaseClient):
         
           - **DeskPhoneNumber** *(string) --* 
         
-            The phone number for the user's desk phone.
+            The phone number for the user\'s desk phone.
         
         :type DirectoryUserId: string
         :param DirectoryUserId: 
@@ -141,8 +141,8 @@ class Client(BaseClient):
           ::
         
             {
-                'UserId': 'string',
-                'UserArn': 'string'
+                \'UserId\': \'string\',
+                \'UserArn\': \'string\'
             }
           **Response Structure** 
         
@@ -168,8 +168,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              InstanceId='string',
-              UserId='string'
+              InstanceId=\'string\',
+              UserId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -194,8 +194,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user(
-              UserId='string',
-              InstanceId='string'
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type UserId: string
         :param UserId: **[REQUIRED]** 
@@ -215,27 +215,27 @@ class Client(BaseClient):
           ::
         
             {
-                'User': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Username': 'string',
-                    'IdentityInfo': {
-                        'FirstName': 'string',
-                        'LastName': 'string',
-                        'Email': 'string'
+                \'User\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Username\': \'string\',
+                    \'IdentityInfo\': {
+                        \'FirstName\': \'string\',
+                        \'LastName\': \'string\',
+                        \'Email\': \'string\'
                     },
-                    'PhoneConfig': {
-                        'PhoneType': 'SOFT_PHONE'|'DESK_PHONE',
-                        'AutoAccept': True|False,
-                        'AfterContactWorkTimeLimit': 123,
-                        'DeskPhoneNumber': 'string'
+                    \'PhoneConfig\': {
+                        \'PhoneType\': \'SOFT_PHONE\'|\'DESK_PHONE\',
+                        \'AutoAccept\': True|False,
+                        \'AfterContactWorkTimeLimit\': 123,
+                        \'DeskPhoneNumber\': \'string\'
                     },
-                    'DirectoryUserId': 'string',
-                    'SecurityProfileIds': [
-                        'string',
+                    \'DirectoryUserId\': \'string\',
+                    \'SecurityProfileIds\': [
+                        \'string\',
                     ],
-                    'RoutingProfileId': 'string',
-                    'HierarchyGroupId': 'string'
+                    \'RoutingProfileId\': \'string\',
+                    \'HierarchyGroupId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -292,7 +292,7 @@ class Client(BaseClient):
         
                 - **DeskPhoneNumber** *(string) --* 
         
-                  The phone number for the user's desk phone.
+                  The phone number for the user\'s desk phone.
         
               - **DirectoryUserId** *(string) --* 
         
@@ -324,8 +324,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_hierarchy_group(
-              HierarchyGroupId='string',
-              InstanceId='string'
+              HierarchyGroupId=\'string\',
+              InstanceId=\'string\'
           )
         :type HierarchyGroupId: string
         :param HierarchyGroupId: **[REQUIRED]** 
@@ -345,36 +345,36 @@ class Client(BaseClient):
           ::
         
             {
-                'HierarchyGroup': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'LevelId': 'string',
-                    'HierarchyPath': {
-                        'LevelOne': {
-                            'Id': 'string',
-                            'Arn': 'string',
-                            'Name': 'string'
+                \'HierarchyGroup\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'LevelId\': \'string\',
+                    \'HierarchyPath\': {
+                        \'LevelOne\': {
+                            \'Id\': \'string\',
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'LevelTwo': {
-                            'Id': 'string',
-                            'Arn': 'string',
-                            'Name': 'string'
+                        \'LevelTwo\': {
+                            \'Id\': \'string\',
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'LevelThree': {
-                            'Id': 'string',
-                            'Arn': 'string',
-                            'Name': 'string'
+                        \'LevelThree\': {
+                            \'Id\': \'string\',
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'LevelFour': {
-                            'Id': 'string',
-                            'Arn': 'string',
-                            'Name': 'string'
+                        \'LevelFour\': {
+                            \'Id\': \'string\',
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         },
-                        'LevelFive': {
-                            'Id': 'string',
-                            'Arn': 'string',
-                            'Name': 'string'
+                        \'LevelFive\': {
+                            \'Id\': \'string\',
+                            \'Arn\': \'string\',
+                            \'Name\': \'string\'
                         }
                     }
                 }
@@ -499,7 +499,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user_hierarchy_structure(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -514,31 +514,31 @@ class Client(BaseClient):
           ::
         
             {
-                'HierarchyStructure': {
-                    'LevelOne': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                \'HierarchyStructure\': {
+                    \'LevelOne\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'LevelTwo': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                    \'LevelTwo\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'LevelThree': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                    \'LevelThree\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'LevelFour': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                    \'LevelFour\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
-                    'LevelFive': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                    \'LevelFive\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     }
                 }
             }
@@ -649,7 +649,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -666,25 +666,25 @@ class Client(BaseClient):
         ::
         
           response = client.get_current_metric_data(
-              InstanceId='string',
+              InstanceId=\'string\',
               Filters={
-                  'Queues': [
-                      'string',
+                  \'Queues\': [
+                      \'string\',
                   ],
-                  'Channels': [
-                      'VOICE',
+                  \'Channels\': [
+                      \'VOICE\',
                   ]
               },
               Groupings=[
-                  'QUEUE'|'CHANNEL',
+                  \'QUEUE\'|\'CHANNEL\',
               ],
               CurrentMetrics=[
                   {
-                      'Name': 'AGENTS_ONLINE'|'AGENTS_AVAILABLE'|'AGENTS_ON_CALL'|'AGENTS_NON_PRODUCTIVE'|'AGENTS_AFTER_CONTACT_WORK'|'AGENTS_ERROR'|'AGENTS_STAFFED'|'CONTACTS_IN_QUEUE'|'OLDEST_CONTACT_AGE'|'CONTACTS_SCHEDULED',
-                      'Unit': 'SECONDS'|'COUNT'|'PERCENT'
+                      \'Name\': \'AGENTS_ONLINE\'|\'AGENTS_AVAILABLE\'|\'AGENTS_ON_CALL\'|\'AGENTS_NON_PRODUCTIVE\'|\'AGENTS_AFTER_CONTACT_WORK\'|\'AGENTS_ERROR\'|\'AGENTS_STAFFED\'|\'CONTACTS_IN_QUEUE\'|\'OLDEST_CONTACT_AGE\'|\'CONTACTS_SCHEDULED\',
+                      \'Unit\': \'SECONDS\'|\'COUNT\'|\'PERCENT\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -697,7 +697,7 @@ class Client(BaseClient):
         
           A ``Filters`` object that contains a list of queue IDs or queue ARNs, up to 100, or list of Channels to use to filter the metrics returned in the response. Metric data is retrieved only for the resources associated with the queue IDs, ARNs, or Channels included in the filter. You can include both IDs and ARNs in the same request. To retrieve metrics for all queues, add the queue ID or ARN for each queue in your instance. Only VOICE is supported for Channels.
         
-          To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after 'id=' such as ``arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61`` . The queue ID is also included in the URL, and is the string after 'queue/'.
+          To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after \'id=\' such as ``arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61`` . The queue ID is also included in the URL, and is the string after \'queue/\'.
         
           - **Queues** *(list) --* 
         
@@ -799,28 +799,28 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'MetricResults': [
+                \'NextToken\': \'string\',
+                \'MetricResults\': [
                     {
-                        'Dimensions': {
-                            'Queue': {
-                                'Id': 'string',
-                                'Arn': 'string'
+                        \'Dimensions\': {
+                            \'Queue\': {
+                                \'Id\': \'string\',
+                                \'Arn\': \'string\'
                             },
-                            'Channel': 'VOICE'
+                            \'Channel\': \'VOICE\'
                         },
-                        'Collections': [
+                        \'Collections\': [
                             {
-                                'Metric': {
-                                    'Name': 'AGENTS_ONLINE'|'AGENTS_AVAILABLE'|'AGENTS_ON_CALL'|'AGENTS_NON_PRODUCTIVE'|'AGENTS_AFTER_CONTACT_WORK'|'AGENTS_ERROR'|'AGENTS_STAFFED'|'CONTACTS_IN_QUEUE'|'OLDEST_CONTACT_AGE'|'CONTACTS_SCHEDULED',
-                                    'Unit': 'SECONDS'|'COUNT'|'PERCENT'
+                                \'Metric\': {
+                                    \'Name\': \'AGENTS_ONLINE\'|\'AGENTS_AVAILABLE\'|\'AGENTS_ON_CALL\'|\'AGENTS_NON_PRODUCTIVE\'|\'AGENTS_AFTER_CONTACT_WORK\'|\'AGENTS_ERROR\'|\'AGENTS_STAFFED\'|\'CONTACTS_IN_QUEUE\'|\'OLDEST_CONTACT_AGE\'|\'CONTACTS_SCHEDULED\',
+                                    \'Unit\': \'SECONDS\'|\'COUNT\'|\'PERCENT\'
                                 },
-                                'Value': 123.0
+                                \'Value\': 123.0
                             },
                         ]
                     },
                 ],
-                'DataSnapshotTime': datetime(2015, 1, 1)
+                \'DataSnapshotTime\': datetime(2015, 1, 1)
             }
           **Response Structure** 
         
@@ -906,7 +906,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_federation_token(
-              InstanceId='string'
+              InstanceId=\'string\'
           )
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -921,11 +921,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Credentials': {
-                    'AccessToken': 'string',
-                    'AccessTokenExpiration': datetime(2015, 1, 1),
-                    'RefreshToken': 'string',
-                    'RefreshTokenExpiration': datetime(2015, 1, 1)
+                \'Credentials\': {
+                    \'AccessToken\': \'string\',
+                    \'AccessTokenExpiration\': datetime(2015, 1, 1),
+                    \'RefreshToken\': \'string\',
+                    \'RefreshTokenExpiration\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -966,32 +966,32 @@ class Client(BaseClient):
         ::
         
           response = client.get_metric_data(
-              InstanceId='string',
+              InstanceId=\'string\',
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               Filters={
-                  'Queues': [
-                      'string',
+                  \'Queues\': [
+                      \'string\',
                   ],
-                  'Channels': [
-                      'VOICE',
+                  \'Channels\': [
+                      \'VOICE\',
                   ]
               },
               Groupings=[
-                  'QUEUE'|'CHANNEL',
+                  \'QUEUE\'|\'CHANNEL\',
               ],
               HistoricalMetrics=[
                   {
-                      'Name': 'CONTACTS_QUEUED'|'CONTACTS_HANDLED'|'CONTACTS_ABANDONED'|'CONTACTS_CONSULTED'|'CONTACTS_AGENT_HUNG_UP_FIRST'|'CONTACTS_HANDLED_INCOMING'|'CONTACTS_HANDLED_OUTBOUND'|'CONTACTS_HOLD_ABANDONS'|'CONTACTS_TRANSFERRED_IN'|'CONTACTS_TRANSFERRED_OUT'|'CONTACTS_TRANSFERRED_IN_FROM_QUEUE'|'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE'|'CONTACTS_MISSED'|'CALLBACK_CONTACTS_HANDLED'|'API_CONTACTS_HANDLED'|'OCCUPANCY'|'HANDLE_TIME'|'AFTER_CONTACT_WORK_TIME'|'QUEUED_TIME'|'ABANDON_TIME'|'QUEUE_ANSWER_TIME'|'HOLD_TIME'|'INTERACTION_TIME'|'INTERACTION_AND_HOLD_TIME'|'SERVICE_LEVEL',
-                      'Threshold': {
-                          'Comparison': 'LT',
-                          'ThresholdValue': 123.0
+                      \'Name\': \'CONTACTS_QUEUED\'|\'CONTACTS_HANDLED\'|\'CONTACTS_ABANDONED\'|\'CONTACTS_CONSULTED\'|\'CONTACTS_AGENT_HUNG_UP_FIRST\'|\'CONTACTS_HANDLED_INCOMING\'|\'CONTACTS_HANDLED_OUTBOUND\'|\'CONTACTS_HOLD_ABANDONS\'|\'CONTACTS_TRANSFERRED_IN\'|\'CONTACTS_TRANSFERRED_OUT\'|\'CONTACTS_TRANSFERRED_IN_FROM_QUEUE\'|\'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE\'|\'CONTACTS_MISSED\'|\'CALLBACK_CONTACTS_HANDLED\'|\'API_CONTACTS_HANDLED\'|\'OCCUPANCY\'|\'HANDLE_TIME\'|\'AFTER_CONTACT_WORK_TIME\'|\'QUEUED_TIME\'|\'ABANDON_TIME\'|\'QUEUE_ANSWER_TIME\'|\'HOLD_TIME\'|\'INTERACTION_TIME\'|\'INTERACTION_AND_HOLD_TIME\'|\'SERVICE_LEVEL\',
+                      \'Threshold\': {
+                          \'Comparison\': \'LT\',
+                          \'ThresholdValue\': 123.0
                       },
-                      'Statistic': 'SUM'|'MAX'|'AVG',
-                      'Unit': 'SECONDS'|'COUNT'|'PERCENT'
+                      \'Statistic\': \'SUM\'|\'MAX\'|\'AVG\',
+                      \'Unit\': \'SECONDS\'|\'COUNT\'|\'PERCENT\'
                   },
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -1018,7 +1018,7 @@ class Client(BaseClient):
         
           A ``Filters`` object that contains a list of queue IDs or queue ARNs, up to 100, or a list of Channels to use to filter the metrics returned in the response. Metric data is retrieved only for the resources associated with the IDs, ARNs, or Channels included in the filter. You can use both IDs and ARNs together in a request. Only VOICE is supported for Channel.
         
-          To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after 'id=' such as ``arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61`` . The queue ID is also included in the URL, and is the string after 'queue/'.
+          To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after \'id=\' such as ``arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61`` . The queue ID is also included in the URL, and is the string after \'queue/\'.
         
           - **Queues** *(list) --* 
         
@@ -1210,7 +1210,7 @@ class Client(BaseClient):
         
           Statistics: AVG
         
-          Threshold: Only "Less than" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600
+          Threshold: Only \"Less than\" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600
         
           - *(dict) --* 
         
@@ -1226,11 +1226,11 @@ class Client(BaseClient):
         
               - **Comparison** *(string) --* 
         
-                The Threshold to use to compare service level metrics to. Only "Less than" (LT) comparisons are supported.
+                The Threshold to use to compare service level metrics to. Only \"Less than\" (LT) comparisons are supported.
         
               - **ThresholdValue** *(float) --* 
         
-                The value of the threshold to compare the metric to. Only "Less than" (LT) comparisons are supported.
+                The value of the threshold to compare the metric to. Only \"Less than\" (LT) comparisons are supported.
         
             - **Statistic** *(string) --* 
         
@@ -1258,28 +1258,28 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'MetricResults': [
+                \'NextToken\': \'string\',
+                \'MetricResults\': [
                     {
-                        'Dimensions': {
-                            'Queue': {
-                                'Id': 'string',
-                                'Arn': 'string'
+                        \'Dimensions\': {
+                            \'Queue\': {
+                                \'Id\': \'string\',
+                                \'Arn\': \'string\'
                             },
-                            'Channel': 'VOICE'
+                            \'Channel\': \'VOICE\'
                         },
-                        'Collections': [
+                        \'Collections\': [
                             {
-                                'Metric': {
-                                    'Name': 'CONTACTS_QUEUED'|'CONTACTS_HANDLED'|'CONTACTS_ABANDONED'|'CONTACTS_CONSULTED'|'CONTACTS_AGENT_HUNG_UP_FIRST'|'CONTACTS_HANDLED_INCOMING'|'CONTACTS_HANDLED_OUTBOUND'|'CONTACTS_HOLD_ABANDONS'|'CONTACTS_TRANSFERRED_IN'|'CONTACTS_TRANSFERRED_OUT'|'CONTACTS_TRANSFERRED_IN_FROM_QUEUE'|'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE'|'CONTACTS_MISSED'|'CALLBACK_CONTACTS_HANDLED'|'API_CONTACTS_HANDLED'|'OCCUPANCY'|'HANDLE_TIME'|'AFTER_CONTACT_WORK_TIME'|'QUEUED_TIME'|'ABANDON_TIME'|'QUEUE_ANSWER_TIME'|'HOLD_TIME'|'INTERACTION_TIME'|'INTERACTION_AND_HOLD_TIME'|'SERVICE_LEVEL',
-                                    'Threshold': {
-                                        'Comparison': 'LT',
-                                        'ThresholdValue': 123.0
+                                \'Metric\': {
+                                    \'Name\': \'CONTACTS_QUEUED\'|\'CONTACTS_HANDLED\'|\'CONTACTS_ABANDONED\'|\'CONTACTS_CONSULTED\'|\'CONTACTS_AGENT_HUNG_UP_FIRST\'|\'CONTACTS_HANDLED_INCOMING\'|\'CONTACTS_HANDLED_OUTBOUND\'|\'CONTACTS_HOLD_ABANDONS\'|\'CONTACTS_TRANSFERRED_IN\'|\'CONTACTS_TRANSFERRED_OUT\'|\'CONTACTS_TRANSFERRED_IN_FROM_QUEUE\'|\'CONTACTS_TRANSFERRED_OUT_FROM_QUEUE\'|\'CONTACTS_MISSED\'|\'CALLBACK_CONTACTS_HANDLED\'|\'API_CONTACTS_HANDLED\'|\'OCCUPANCY\'|\'HANDLE_TIME\'|\'AFTER_CONTACT_WORK_TIME\'|\'QUEUED_TIME\'|\'ABANDON_TIME\'|\'QUEUE_ANSWER_TIME\'|\'HOLD_TIME\'|\'INTERACTION_TIME\'|\'INTERACTION_AND_HOLD_TIME\'|\'SERVICE_LEVEL\',
+                                    \'Threshold\': {
+                                        \'Comparison\': \'LT\',
+                                        \'ThresholdValue\': 123.0
                                     },
-                                    'Statistic': 'SUM'|'MAX'|'AVG',
-                                    'Unit': 'SECONDS'|'COUNT'|'PERCENT'
+                                    \'Statistic\': \'SUM\'|\'MAX\'|\'AVG\',
+                                    \'Unit\': \'SECONDS\'|\'COUNT\'|\'PERCENT\'
                                 },
-                                'Value': 123.0
+                                \'Value\': 123.0
                             },
                         ]
                     },
@@ -1347,11 +1347,11 @@ class Client(BaseClient):
         
                         - **Comparison** *(string) --* 
         
-                          The Threshold to use to compare service level metrics to. Only "Less than" (LT) comparisons are supported.
+                          The Threshold to use to compare service level metrics to. Only \"Less than\" (LT) comparisons are supported.
         
                         - **ThresholdValue** *(float) --* 
         
-                          The value of the threshold to compare the metric to. Only "Less than" (LT) comparisons are supported.
+                          The value of the threshold to compare the metric to. Only \"Less than\" (LT) comparisons are supported.
         
                       - **Statistic** *(string) --* 
         
@@ -1374,10 +1374,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1409,8 +1409,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_routing_profiles(
-              InstanceId='string',
-              NextToken='string',
+              InstanceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -1436,14 +1436,14 @@ class Client(BaseClient):
           ::
         
             {
-                'RoutingProfileSummaryList': [
+                \'RoutingProfileSummaryList\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1485,8 +1485,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_security_profiles(
-              InstanceId='string',
-              NextToken='string',
+              InstanceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -1512,14 +1512,14 @@ class Client(BaseClient):
           ::
         
             {
-                'SecurityProfileSummaryList': [
+                \'SecurityProfileSummaryList\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1561,8 +1561,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_user_hierarchy_groups(
-              InstanceId='string',
-              NextToken='string',
+              InstanceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -1588,14 +1588,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UserHierarchyGroupSummaryList': [
+                \'UserHierarchyGroupSummaryList\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1637,8 +1637,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              InstanceId='string',
-              NextToken='string',
+              InstanceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type InstanceId: string
@@ -1664,14 +1664,14 @@ class Client(BaseClient):
           ::
         
             {
-                'UserSummaryList': [
+                \'UserSummaryList\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Username': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Username\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1715,14 +1715,14 @@ class Client(BaseClient):
         ::
         
           response = client.start_outbound_voice_contact(
-              DestinationPhoneNumber='string',
-              ContactFlowId='string',
-              InstanceId='string',
-              ClientToken='string',
-              SourcePhoneNumber='string',
-              QueueId='string',
+              DestinationPhoneNumber=\'string\',
+              ContactFlowId=\'string\',
+              InstanceId=\'string\',
+              ClientToken=\'string\',
+              SourcePhoneNumber=\'string\',
+              QueueId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type DestinationPhoneNumber: string
@@ -1735,7 +1735,7 @@ class Client(BaseClient):
         
           The identifier for the contact flow to connect the outbound call to.
         
-          To find the ``ContactFlowId`` , open the contact flow you want to use in the Amazon Connect contact flow editor. The ID for the contact flow is displayed in the address bar as part of the URL. For example, the contact flow ID is the set of characters at the end of the URL, after 'contact-flow/' such as ``78ea8fd5-2659-4f2b-b528-699760ccfc1b`` .
+          To find the ``ContactFlowId`` , open the contact flow you want to use in the Amazon Connect contact flow editor. The ID for the contact flow is displayed in the address bar as part of the URL. For example, the contact flow ID is the set of characters at the end of the URL, after \'contact-flow/\' such as ``78ea8fd5-2659-4f2b-b528-699760ccfc1b`` .
         
         :type InstanceId: string
         :param InstanceId: **[REQUIRED]** 
@@ -1759,7 +1759,7 @@ class Client(BaseClient):
         
           The queue to add the call to. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue used will be the queue defined in the contact flow.
         
-          To find the ``QueueId`` , open the queue you want to use in the Amazon Connect Queue editor. The ID for the queue is displayed in the address bar as part of the URL. For example, the queue ID is the set of characters at the end of the URL, after 'queue/' such as ``queue/aeg40574-2d01-51c3-73d6-bf8624d2168c`` .
+          To find the ``QueueId`` , open the queue you want to use in the Amazon Connect Queue editor. The ID for the queue is displayed in the address bar as part of the URL. For example, the queue ID is the set of characters at the end of the URL, after \'queue/\' such as ``queue/aeg40574-2d01-51c3-73d6-bf8624d2168c`` .
         
         :type Attributes: dict
         :param Attributes: 
@@ -1782,7 +1782,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ContactId': 'string'
+                \'ContactId\': \'string\'
             }
           **Response Structure** 
         
@@ -1806,8 +1806,8 @@ class Client(BaseClient):
         ::
         
           response = client.stop_contact(
-              ContactId='string',
-              InstanceId='string'
+              ContactId=\'string\',
+              InstanceId=\'string\'
           )
         :type ContactId: string
         :param ContactId: **[REQUIRED]** 
@@ -1848,10 +1848,10 @@ class Client(BaseClient):
         ::
         
           response = client.update_contact_attributes(
-              InitialContactId='string',
-              InstanceId='string',
+              InitialContactId=\'string\',
+              InstanceId=\'string\',
               Attributes={
-                  'string': 'string'
+                  \'string\': \'string\'
               }
           )
         :type InitialContactId: string
@@ -1896,9 +1896,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_hierarchy(
-              HierarchyGroupId='string',
-              UserId='string',
-              InstanceId='string'
+              HierarchyGroupId=\'string\',
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type HierarchyGroupId: string
         :param HierarchyGroupId: 
@@ -1929,12 +1929,12 @@ class Client(BaseClient):
         
           response = client.update_user_identity_info(
               IdentityInfo={
-                  'FirstName': 'string',
-                  'LastName': 'string',
-                  'Email': 'string'
+                  \'FirstName\': \'string\',
+                  \'LastName\': \'string\',
+                  \'Email\': \'string\'
               },
-              UserId='string',
-              InstanceId='string'
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type IdentityInfo: dict
         :param IdentityInfo: **[REQUIRED]** 
@@ -1977,13 +1977,13 @@ class Client(BaseClient):
         
           response = client.update_user_phone_config(
               PhoneConfig={
-                  'PhoneType': 'SOFT_PHONE'|'DESK_PHONE',
-                  'AutoAccept': True|False,
-                  'AfterContactWorkTimeLimit': 123,
-                  'DeskPhoneNumber': 'string'
+                  \'PhoneType\': \'SOFT_PHONE\'|\'DESK_PHONE\',
+                  \'AutoAccept\': True|False,
+                  \'AfterContactWorkTimeLimit\': 123,
+                  \'DeskPhoneNumber\': \'string\'
               },
-              UserId='string',
-              InstanceId='string'
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type PhoneConfig: dict
         :param PhoneConfig: **[REQUIRED]** 
@@ -2004,7 +2004,7 @@ class Client(BaseClient):
         
           - **DeskPhoneNumber** *(string) --* 
         
-            The phone number for the user's desk phone.
+            The phone number for the user\'s desk phone.
         
         :type UserId: string
         :param UserId: **[REQUIRED]** 
@@ -2029,9 +2029,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_user_routing_profile(
-              RoutingProfileId='string',
-              UserId='string',
-              InstanceId='string'
+              RoutingProfileId=\'string\',
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type RoutingProfileId: string
         :param RoutingProfileId: **[REQUIRED]** 
@@ -2062,10 +2062,10 @@ class Client(BaseClient):
         
           response = client.update_user_security_profiles(
               SecurityProfileIds=[
-                  'string',
+                  \'string\',
               ],
-              UserId='string',
-              InstanceId='string'
+              UserId=\'string\',
+              InstanceId=\'string\'
           )
         :type SecurityProfileIds: list
         :param SecurityProfileIds: **[REQUIRED]** 

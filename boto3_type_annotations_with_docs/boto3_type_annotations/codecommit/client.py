@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -23,7 +23,7 @@ class Client(BaseClient):
         
           response = client.batch_get_repositories(
               repositoryNames=[
-                  'string',
+                  \'string\',
               ]
           )
         :type repositoryNames: list
@@ -41,22 +41,22 @@ class Client(BaseClient):
           ::
         
             {
-                'repositories': [
+                \'repositories\': [
                     {
-                        'accountId': 'string',
-                        'repositoryId': 'string',
-                        'repositoryName': 'string',
-                        'repositoryDescription': 'string',
-                        'defaultBranch': 'string',
-                        'lastModifiedDate': datetime(2015, 1, 1),
-                        'creationDate': datetime(2015, 1, 1),
-                        'cloneUrlHttp': 'string',
-                        'cloneUrlSsh': 'string',
-                        'Arn': 'string'
+                        \'accountId\': \'string\',
+                        \'repositoryId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'repositoryDescription\': \'string\',
+                        \'defaultBranch\': \'string\',
+                        \'lastModifiedDate\': datetime(2015, 1, 1),
+                        \'creationDate\': datetime(2015, 1, 1),
+                        \'cloneUrlHttp\': \'string\',
+                        \'cloneUrlSsh\': \'string\',
+                        \'Arn\': \'string\'
                     },
                 ],
-                'repositoriesNotFound': [
-                    'string',
+                \'repositoriesNotFound\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -83,7 +83,7 @@ class Client(BaseClient):
         
                 - **repositoryName** *(string) --* 
         
-                  The repository's name.
+                  The repository\'s name.
         
                 - **repositoryDescription** *(string) --* 
         
@@ -91,7 +91,7 @@ class Client(BaseClient):
         
                 - **defaultBranch** *(string) --* 
         
-                  The repository's default branch name.
+                  The repository\'s default branch name.
         
                 - **lastModifiedDate** *(datetime) --* 
         
@@ -128,10 +128,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -143,7 +143,7 @@ class Client(BaseClient):
         
         .. note::
         
-          Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.
+          Calling the create branch operation does not set a repository\'s default branch. To do this, call the update default branch operation.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateBranch>`_
         
@@ -151,9 +151,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_branch(
-              repositoryName='string',
-              branchName='string',
-              commitId='string'
+              repositoryName=\'string\',
+              branchName=\'string\',
+              commitId=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -183,16 +183,16 @@ class Client(BaseClient):
         ::
         
           response = client.create_pull_request(
-              title='string',
-              description='string',
+              title=\'string\',
+              description=\'string\',
               targets=[
                   {
-                      'repositoryName': 'string',
-                      'sourceReference': 'string',
-                      'destinationReference': 'string'
+                      \'repositoryName\': \'string\',
+                      \'sourceReference\': \'string\',
+                      \'destinationReference\': \'string\'
                   },
               ],
-              clientRequestToken='string'
+              clientRequestToken=\'string\'
           )
         :type title: string
         :param title: **[REQUIRED]** 
@@ -244,29 +244,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -365,8 +365,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_repository(
-              repositoryName='string',
-              repositoryDescription='string'
+              repositoryName=\'string\',
+              repositoryDescription=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -375,7 +375,7 @@ class Client(BaseClient):
         
           .. note::
         
-            The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For a full description of the limits on repository names, see `Limits <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html>`__ in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.
+            The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For a full description of the limits on repository names, see `Limits <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html>`__ in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.
         
         :type repositoryDescription: string
         :param repositoryDescription: 
@@ -394,17 +394,17 @@ class Client(BaseClient):
           ::
         
             {
-                'repositoryMetadata': {
-                    'accountId': 'string',
-                    'repositoryId': 'string',
-                    'repositoryName': 'string',
-                    'repositoryDescription': 'string',
-                    'defaultBranch': 'string',
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'cloneUrlHttp': 'string',
-                    'cloneUrlSsh': 'string',
-                    'Arn': 'string'
+                \'repositoryMetadata\': {
+                    \'accountId\': \'string\',
+                    \'repositoryId\': \'string\',
+                    \'repositoryName\': \'string\',
+                    \'repositoryDescription\': \'string\',
+                    \'defaultBranch\': \'string\',
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'cloneUrlHttp\': \'string\',
+                    \'cloneUrlSsh\': \'string\',
+                    \'Arn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -427,7 +427,7 @@ class Client(BaseClient):
         
               - **repositoryName** *(string) --* 
         
-                The repository's name.
+                The repository\'s name.
         
               - **repositoryDescription** *(string) --* 
         
@@ -435,7 +435,7 @@ class Client(BaseClient):
         
               - **defaultBranch** *(string) --* 
         
-                The repository's default branch name.
+                The repository\'s default branch name.
         
               - **lastModifiedDate** *(datetime) --* 
         
@@ -469,8 +469,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_branch(
-              repositoryName='string',
-              branchName='string'
+              repositoryName=\'string\',
+              branchName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -490,9 +490,9 @@ class Client(BaseClient):
           ::
         
             {
-                'deletedBranch': {
-                    'branchName': 'string',
-                    'commitId': 'string'
+                \'deletedBranch\': {
+                    \'branchName\': \'string\',
+                    \'commitId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -525,7 +525,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_comment_content(
-              commentId='string'
+              commentId=\'string\'
           )
         :type commentId: string
         :param commentId: **[REQUIRED]** 
@@ -540,15 +540,15 @@ class Client(BaseClient):
           ::
         
             {
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -603,14 +603,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_file(
-              repositoryName='string',
-              branchName='string',
-              filePath='string',
-              parentCommitId='string',
+              repositoryName=\'string\',
+              branchName=\'string\',
+              filePath=\'string\',
+              parentCommitId=\'string\',
               keepEmptyFolders=True|False,
-              commitMessage='string',
-              name='string',
-              email='string'
+              commitMessage=\'string\',
+              name=\'string\',
+              email=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -645,7 +645,7 @@ class Client(BaseClient):
         :type name: string
         :param name: 
         
-          The name of the author of the commit that deletes the file. If no name is specified, the user's ARN will be used as the author name and committer name.
+          The name of the author of the commit that deletes the file. If no name is specified, the user\'s ARN will be used as the author name and committer name.
         
         :type email: string
         :param email: 
@@ -660,10 +660,10 @@ class Client(BaseClient):
           ::
         
             {
-                'commitId': 'string',
-                'blobId': 'string',
-                'treeId': 'string',
-                'filePath': 'string'
+                \'commitId\': \'string\',
+                \'blobId\': \'string\',
+                \'treeId\': \'string\',
+                \'filePath\': \'string\'
             }
           **Response Structure** 
         
@@ -701,7 +701,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_repository(
-              repositoryName='string'
+              repositoryName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -716,7 +716,7 @@ class Client(BaseClient):
           ::
         
             {
-                'repositoryId': 'string'
+                \'repositoryId\': \'string\'
             }
           **Response Structure** 
         
@@ -740,10 +740,10 @@ class Client(BaseClient):
         ::
         
           response = client.describe_pull_request_events(
-              pullRequestId='string',
-              pullRequestEventType='PULL_REQUEST_CREATED'|'PULL_REQUEST_STATUS_CHANGED'|'PULL_REQUEST_SOURCE_REFERENCE_UPDATED'|'PULL_REQUEST_MERGE_STATE_CHANGED',
-              actorArn='string',
-              nextToken='string',
+              pullRequestId=\'string\',
+              pullRequestEventType=\'PULL_REQUEST_CREATED\'|\'PULL_REQUEST_STATUS_CHANGED\'|\'PULL_REQUEST_SOURCE_REFERENCE_UPDATED\'|\'PULL_REQUEST_MERGE_STATE_CHANGED\',
+              actorArn=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type pullRequestId: string
@@ -779,38 +779,38 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequestEvents': [
+                \'pullRequestEvents\': [
                     {
-                        'pullRequestId': 'string',
-                        'eventDate': datetime(2015, 1, 1),
-                        'pullRequestEventType': 'PULL_REQUEST_CREATED'|'PULL_REQUEST_STATUS_CHANGED'|'PULL_REQUEST_SOURCE_REFERENCE_UPDATED'|'PULL_REQUEST_MERGE_STATE_CHANGED',
-                        'actorArn': 'string',
-                        'pullRequestCreatedEventMetadata': {
-                            'repositoryName': 'string',
-                            'sourceCommitId': 'string',
-                            'destinationCommitId': 'string',
-                            'mergeBase': 'string'
+                        \'pullRequestId\': \'string\',
+                        \'eventDate\': datetime(2015, 1, 1),
+                        \'pullRequestEventType\': \'PULL_REQUEST_CREATED\'|\'PULL_REQUEST_STATUS_CHANGED\'|\'PULL_REQUEST_SOURCE_REFERENCE_UPDATED\'|\'PULL_REQUEST_MERGE_STATE_CHANGED\',
+                        \'actorArn\': \'string\',
+                        \'pullRequestCreatedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'sourceCommitId\': \'string\',
+                            \'destinationCommitId\': \'string\',
+                            \'mergeBase\': \'string\'
                         },
-                        'pullRequestStatusChangedEventMetadata': {
-                            'pullRequestStatus': 'OPEN'|'CLOSED'
+                        \'pullRequestStatusChangedEventMetadata\': {
+                            \'pullRequestStatus\': \'OPEN\'|\'CLOSED\'
                         },
-                        'pullRequestSourceReferenceUpdatedEventMetadata': {
-                            'repositoryName': 'string',
-                            'beforeCommitId': 'string',
-                            'afterCommitId': 'string',
-                            'mergeBase': 'string'
+                        \'pullRequestSourceReferenceUpdatedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'beforeCommitId\': \'string\',
+                            \'afterCommitId\': \'string\',
+                            \'mergeBase\': \'string\'
                         },
-                        'pullRequestMergedStateChangedEventMetadata': {
-                            'repositoryName': 'string',
-                            'destinationReference': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                        \'pullRequestMergedStateChangedEventMetadata\': {
+                            \'repositoryName\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -935,7 +935,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -950,8 +950,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_blob(
-              repositoryName='string',
-              blobId='string'
+              repositoryName=\'string\',
+              blobId=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -971,7 +971,7 @@ class Client(BaseClient):
           ::
         
             {
-                'content': b'bytes'
+                \'content\': b\'bytes\'
             }
           **Response Structure** 
         
@@ -995,8 +995,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_branch(
-              repositoryName='string',
-              branchName='string'
+              repositoryName=\'string\',
+              branchName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: 
@@ -1016,9 +1016,9 @@ class Client(BaseClient):
           ::
         
             {
-                'branch': {
-                    'branchName': 'string',
-                    'commitId': 'string'
+                \'branch\': {
+                    \'branchName\': \'string\',
+                    \'commitId\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1051,7 +1051,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_comment(
-              commentId='string'
+              commentId=\'string\'
           )
         :type commentId: string
         :param commentId: **[REQUIRED]** 
@@ -1066,15 +1066,15 @@ class Client(BaseClient):
           ::
         
             {
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1129,10 +1129,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_comments_for_compared_commit(
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
-              nextToken='string',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type repositoryName: string
@@ -1143,12 +1143,12 @@ class Client(BaseClient):
         :type beforeCommitId: string
         :param beforeCommitId: 
         
-          To establish the directionality of the comparison, the full commit ID of the 'before' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'before\' commit.
         
         :type afterCommitId: string
         :param afterCommitId: **[REQUIRED]** 
         
-          To establish the directionality of the comparison, the full commit ID of the 'after' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'after\' commit.
         
         :type nextToken: string
         :param nextToken: 
@@ -1168,33 +1168,33 @@ class Client(BaseClient):
           ::
         
             {
-                'commentsForComparedCommitData': [
+                \'commentsForComparedCommitData\': [
                     {
-                        'repositoryName': 'string',
-                        'beforeCommitId': 'string',
-                        'afterCommitId': 'string',
-                        'beforeBlobId': 'string',
-                        'afterBlobId': 'string',
-                        'location': {
-                            'filePath': 'string',
-                            'filePosition': 123,
-                            'relativeFileVersion': 'BEFORE'|'AFTER'
+                        \'repositoryName\': \'string\',
+                        \'beforeCommitId\': \'string\',
+                        \'afterCommitId\': \'string\',
+                        \'beforeBlobId\': \'string\',
+                        \'afterBlobId\': \'string\',
+                        \'location\': {
+                            \'filePath\': \'string\',
+                            \'filePosition\': 123,
+                            \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                         },
-                        'comments': [
+                        \'comments\': [
                             {
-                                'commentId': 'string',
-                                'content': 'string',
-                                'inReplyTo': 'string',
-                                'creationDate': datetime(2015, 1, 1),
-                                'lastModifiedDate': datetime(2015, 1, 1),
-                                'authorArn': 'string',
-                                'deleted': True|False,
-                                'clientRequestToken': 'string'
+                                \'commentId\': \'string\',
+                                \'content\': \'string\',
+                                \'inReplyTo\': \'string\',
+                                \'creationDate\': datetime(2015, 1, 1),
+                                \'lastModifiedDate\': datetime(2015, 1, 1),
+                                \'authorArn\': \'string\',
+                                \'deleted\': True|False,
+                                \'clientRequestToken\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1214,23 +1214,23 @@ class Client(BaseClient):
         
                 - **beforeCommitId** *(string) --* 
         
-                  The full commit ID of the commit used to establish the 'before' of the comparison.
+                  The full commit ID of the commit used to establish the \'before\' of the comparison.
         
                 - **afterCommitId** *(string) --* 
         
-                  The full commit ID of the commit used to establish the 'after' of the comparison.
+                  The full commit ID of the commit used to establish the \'after\' of the comparison.
         
                 - **beforeBlobId** *(string) --* 
         
-                  The full blob ID of the commit used to establish the 'before' of the comparison.
+                  The full blob ID of the commit used to establish the \'before\' of the comparison.
         
                 - **afterBlobId** *(string) --* 
         
-                  The full blob ID of the commit used to establish the 'after' of the comparison.
+                  The full blob ID of the commit used to establish the \'after\' of the comparison.
         
                 - **location** *(dict) --* 
         
-                  Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is 'BEFORE' or 'AFTER'.
+                  Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is \'BEFORE\' or \'AFTER\'.
         
                   - **filePath** *(string) --* 
         
@@ -1242,7 +1242,7 @@ class Client(BaseClient):
         
                   - **relativeFileVersion** *(string) --* 
         
-                    In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                    In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
                 - **comments** *(list) --* 
         
@@ -1300,11 +1300,11 @@ class Client(BaseClient):
         ::
         
           response = client.get_comments_for_pull_request(
-              pullRequestId='string',
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
-              nextToken='string',
+              pullRequestId=\'string\',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type pullRequestId: string
@@ -1345,34 +1345,34 @@ class Client(BaseClient):
           ::
         
             {
-                'commentsForPullRequestData': [
+                \'commentsForPullRequestData\': [
                     {
-                        'pullRequestId': 'string',
-                        'repositoryName': 'string',
-                        'beforeCommitId': 'string',
-                        'afterCommitId': 'string',
-                        'beforeBlobId': 'string',
-                        'afterBlobId': 'string',
-                        'location': {
-                            'filePath': 'string',
-                            'filePosition': 123,
-                            'relativeFileVersion': 'BEFORE'|'AFTER'
+                        \'pullRequestId\': \'string\',
+                        \'repositoryName\': \'string\',
+                        \'beforeCommitId\': \'string\',
+                        \'afterCommitId\': \'string\',
+                        \'beforeBlobId\': \'string\',
+                        \'afterBlobId\': \'string\',
+                        \'location\': {
+                            \'filePath\': \'string\',
+                            \'filePosition\': 123,
+                            \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                         },
-                        'comments': [
+                        \'comments\': [
                             {
-                                'commentId': 'string',
-                                'content': 'string',
-                                'inReplyTo': 'string',
-                                'creationDate': datetime(2015, 1, 1),
-                                'lastModifiedDate': datetime(2015, 1, 1),
-                                'authorArn': 'string',
-                                'deleted': True|False,
-                                'clientRequestToken': 'string'
+                                \'commentId\': \'string\',
+                                \'content\': \'string\',
+                                \'inReplyTo\': \'string\',
+                                \'creationDate\': datetime(2015, 1, 1),
+                                \'lastModifiedDate\': datetime(2015, 1, 1),
+                                \'authorArn\': \'string\',
+                                \'deleted\': True|False,
+                                \'clientRequestToken\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1412,7 +1412,7 @@ class Client(BaseClient):
         
                 - **location** *(dict) --* 
         
-                  Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is 'BEFORE' (destination branch) or 'AFTER' (source branch).
+                  Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is \'BEFORE\' (destination branch) or \'AFTER\' (source branch).
         
                   - **filePath** *(string) --* 
         
@@ -1424,7 +1424,7 @@ class Client(BaseClient):
         
                   - **relativeFileVersion** *(string) --* 
         
-                    In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                    In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
                 - **comments** *(list) --* 
         
@@ -1482,8 +1482,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_commit(
-              repositoryName='string',
-              commitId='string'
+              repositoryName=\'string\',
+              commitId=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -1503,24 +1503,24 @@ class Client(BaseClient):
           ::
         
             {
-                'commit': {
-                    'commitId': 'string',
-                    'treeId': 'string',
-                    'parents': [
-                        'string',
+                \'commit\': {
+                    \'commitId\': \'string\',
+                    \'treeId\': \'string\',
+                    \'parents\': [
+                        \'string\',
                     ],
-                    'message': 'string',
-                    'author': {
-                        'name': 'string',
-                        'email': 'string',
-                        'date': 'string'
+                    \'message\': \'string\',
+                    \'author\': {
+                        \'name\': \'string\',
+                        \'email\': \'string\',
+                        \'date\': \'string\'
                     },
-                    'committer': {
-                        'name': 'string',
-                        'email': 'string',
-                        'date': 'string'
+                    \'committer\': {
+                        \'name\': \'string\',
+                        \'email\': \'string\',
+                        \'date\': \'string\'
                     },
-                    'additionalData': 'string'
+                    \'additionalData\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1601,13 +1601,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_differences(
-              repositoryName='string',
-              beforeCommitSpecifier='string',
-              afterCommitSpecifier='string',
-              beforePath='string',
-              afterPath='string',
+              repositoryName=\'string\',
+              beforeCommitSpecifier=\'string\',
+              afterCommitSpecifier=\'string\',
+              beforePath=\'string\',
+              afterPath=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -1652,22 +1652,22 @@ class Client(BaseClient):
           ::
         
             {
-                'differences': [
+                \'differences\': [
                     {
-                        'beforeBlob': {
-                            'blobId': 'string',
-                            'path': 'string',
-                            'mode': 'string'
+                        \'beforeBlob\': {
+                            \'blobId\': \'string\',
+                            \'path\': \'string\',
+                            \'mode\': \'string\'
                         },
-                        'afterBlob': {
-                            'blobId': 'string',
-                            'path': 'string',
-                            'mode': 'string'
+                        \'afterBlob\': {
+                            \'blobId\': \'string\',
+                            \'path\': \'string\',
+                            \'mode\': \'string\'
                         },
-                        'changeType': 'A'|'M'|'D'
+                        \'changeType\': \'A\'|\'M\'|\'D\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1749,9 +1749,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_file(
-              repositoryName='string',
-              commitSpecifier='string',
-              filePath='string'
+              repositoryName=\'string\',
+              commitSpecifier=\'string\',
+              filePath=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -1776,12 +1776,12 @@ class Client(BaseClient):
           ::
         
             {
-                'commitId': 'string',
-                'blobId': 'string',
-                'filePath': 'string',
-                'fileMode': 'EXECUTABLE'|'NORMAL'|'SYMLINK',
-                'fileSize': 123,
-                'fileContent': b'bytes'
+                \'commitId\': \'string\',
+                \'blobId\': \'string\',
+                \'filePath\': \'string\',
+                \'fileMode\': \'EXECUTABLE\'|\'NORMAL\'|\'SYMLINK\',
+                \'fileSize\': 123,
+                \'fileContent\': b\'bytes\'
             }
           **Response Structure** 
         
@@ -1827,9 +1827,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_folder(
-              repositoryName='string',
-              commitSpecifier='string',
-              folderPath='string'
+              repositoryName=\'string\',
+              commitSpecifier=\'string\',
+              folderPath=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -1839,7 +1839,7 @@ class Client(BaseClient):
         :type commitSpecifier: string
         :param commitSpecifier: 
         
-          A fully-qualified reference used to identify a commit that contains the version of the folder's content to return. A fully-qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content will be returned as it exists in the HEAD commit.
+          A fully-qualified reference used to identify a commit that contains the version of the folder\'s content to return. A fully-qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content will be returned as it exists in the HEAD commit.
         
         :type folderPath: string
         :param folderPath: **[REQUIRED]** 
@@ -1854,37 +1854,37 @@ class Client(BaseClient):
           ::
         
             {
-                'commitId': 'string',
-                'folderPath': 'string',
-                'treeId': 'string',
-                'subFolders': [
+                \'commitId\': \'string\',
+                \'folderPath\': \'string\',
+                \'treeId\': \'string\',
+                \'subFolders\': [
                     {
-                        'treeId': 'string',
-                        'absolutePath': 'string',
-                        'relativePath': 'string'
+                        \'treeId\': \'string\',
+                        \'absolutePath\': \'string\',
+                        \'relativePath\': \'string\'
                     },
                 ],
-                'files': [
+                \'files\': [
                     {
-                        'blobId': 'string',
-                        'absolutePath': 'string',
-                        'relativePath': 'string',
-                        'fileMode': 'EXECUTABLE'|'NORMAL'|'SYMLINK'
+                        \'blobId\': \'string\',
+                        \'absolutePath\': \'string\',
+                        \'relativePath\': \'string\',
+                        \'fileMode\': \'EXECUTABLE\'|\'NORMAL\'|\'SYMLINK\'
                     },
                 ],
-                'symbolicLinks': [
+                \'symbolicLinks\': [
                     {
-                        'blobId': 'string',
-                        'absolutePath': 'string',
-                        'relativePath': 'string',
-                        'fileMode': 'EXECUTABLE'|'NORMAL'|'SYMLINK'
+                        \'blobId\': \'string\',
+                        \'absolutePath\': \'string\',
+                        \'relativePath\': \'string\',
+                        \'fileMode\': \'EXECUTABLE\'|\'NORMAL\'|\'SYMLINK\'
                     },
                 ],
-                'subModules': [
+                \'subModules\': [
                     {
-                        'commitId': 'string',
-                        'absolutePath': 'string',
-                        'relativePath': 'string'
+                        \'commitId\': \'string\',
+                        \'absolutePath\': \'string\',
+                        \'relativePath\': \'string\'
                     },
                 ]
             }
@@ -2004,10 +2004,10 @@ class Client(BaseClient):
         ::
         
           response = client.get_merge_conflicts(
-              repositoryName='string',
-              destinationCommitSpecifier='string',
-              sourceCommitSpecifier='string',
-              mergeOption='FAST_FORWARD_MERGE'
+              repositoryName=\'string\',
+              destinationCommitSpecifier=\'string\',
+              sourceCommitSpecifier=\'string\',
+              mergeOption=\'FAST_FORWARD_MERGE\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -2037,9 +2037,9 @@ class Client(BaseClient):
           ::
         
             {
-                'mergeable': True|False,
-                'destinationCommitId': 'string',
-                'sourceCommitId': 'string'
+                \'mergeable\': True|False,
+                \'destinationCommitId\': \'string\',
+                \'sourceCommitId\': \'string\'
             }
           **Response Structure** 
         
@@ -2066,10 +2066,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2089,7 +2089,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_pull_request(
-              pullRequestId='string'
+              pullRequestId=\'string\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -2104,29 +2104,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2229,7 +2229,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_repository(
-              repositoryName='string'
+              repositoryName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -2244,17 +2244,17 @@ class Client(BaseClient):
           ::
         
             {
-                'repositoryMetadata': {
-                    'accountId': 'string',
-                    'repositoryId': 'string',
-                    'repositoryName': 'string',
-                    'repositoryDescription': 'string',
-                    'defaultBranch': 'string',
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'cloneUrlHttp': 'string',
-                    'cloneUrlSsh': 'string',
-                    'Arn': 'string'
+                \'repositoryMetadata\': {
+                    \'accountId\': \'string\',
+                    \'repositoryId\': \'string\',
+                    \'repositoryName\': \'string\',
+                    \'repositoryDescription\': \'string\',
+                    \'defaultBranch\': \'string\',
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'cloneUrlHttp\': \'string\',
+                    \'cloneUrlSsh\': \'string\',
+                    \'Arn\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2277,7 +2277,7 @@ class Client(BaseClient):
         
               - **repositoryName** *(string) --* 
         
-                The repository's name.
+                The repository\'s name.
         
               - **repositoryDescription** *(string) --* 
         
@@ -2285,7 +2285,7 @@ class Client(BaseClient):
         
               - **defaultBranch** *(string) --* 
         
-                The repository's default branch name.
+                The repository\'s default branch name.
         
               - **lastModifiedDate** *(datetime) --* 
         
@@ -2319,7 +2319,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_repository_triggers(
-              repositoryName='string'
+              repositoryName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -2334,17 +2334,17 @@ class Client(BaseClient):
           ::
         
             {
-                'configurationId': 'string',
-                'triggers': [
+                \'configurationId\': \'string\',
+                \'triggers\': [
                     {
-                        'name': 'string',
-                        'destinationArn': 'string',
-                        'customData': 'string',
-                        'branches': [
-                            'string',
+                        \'name\': \'string\',
+                        \'destinationArn\': \'string\',
+                        \'customData\': \'string\',
+                        \'branches\': [
+                            \'string\',
                         ],
-                        'events': [
-                            'all'|'updateReference'|'createReference'|'deleteReference',
+                        \'events\': [
+                            \'all\'|\'updateReference\'|\'createReference\'|\'deleteReference\',
                         ]
                     },
                 ]
@@ -2395,7 +2395,7 @@ class Client(BaseClient):
         
                   .. note::
         
-                    The valid value "all" cannot be used with any other values.
+                    The valid value \"all\" cannot be used with any other values.
         
                   - *(string) --* 
               
@@ -2423,8 +2423,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_branches(
-              repositoryName='string',
-              nextToken='string'
+              repositoryName=\'string\',
+              nextToken=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -2444,10 +2444,10 @@ class Client(BaseClient):
           ::
         
             {
-                'branches': [
-                    'string',
+                \'branches\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2477,10 +2477,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_pull_requests(
-              repositoryName='string',
-              authorArn='string',
-              pullRequestStatus='OPEN'|'CLOSED',
-              nextToken='string',
+              repositoryName=\'string\',
+              authorArn=\'string\',
+              pullRequestStatus=\'OPEN\'|\'CLOSED\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type repositoryName: string
@@ -2516,10 +2516,10 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequestIds': [
-                    'string',
+                \'pullRequestIds\': [
+                    \'string\',
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2547,9 +2547,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_repositories(
-              nextToken='string',
-              sortBy='repositoryName'|'lastModifiedDate',
-              order='ascending'|'descending'
+              nextToken=\'string\',
+              sortBy=\'repositoryName\'|\'lastModifiedDate\',
+              order=\'ascending\'|\'descending\'
           )
         :type nextToken: string
         :param nextToken: 
@@ -2574,13 +2574,13 @@ class Client(BaseClient):
           ::
         
             {
-                'repositories': [
+                \'repositories\': [
                     {
-                        'repositoryName': 'string',
-                        'repositoryId': 'string'
+                        \'repositoryName\': \'string\',
+                        \'repositoryId\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2620,9 +2620,9 @@ class Client(BaseClient):
         ::
         
           response = client.merge_pull_request_by_fast_forward(
-              pullRequestId='string',
-              repositoryName='string',
-              sourceCommitId='string'
+              pullRequestId=\'string\',
+              repositoryName=\'string\',
+              sourceCommitId=\'string\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -2647,29 +2647,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2768,16 +2768,16 @@ class Client(BaseClient):
         ::
         
           response = client.post_comment_for_compared_commit(
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
               location={
-                  'filePath': 'string',
-                  'filePosition': 123,
-                  'relativeFileVersion': 'BEFORE'|'AFTER'
+                  \'filePath\': \'string\',
+                  \'filePosition\': 123,
+                  \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
               },
-              content='string',
-              clientRequestToken='string'
+              content=\'string\',
+              clientRequestToken=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -2787,12 +2787,12 @@ class Client(BaseClient):
         :type beforeCommitId: string
         :param beforeCommitId: 
         
-          To establish the directionality of the comparison, the full commit ID of the 'before' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'before\' commit.
         
         :type afterCommitId: string
         :param afterCommitId: **[REQUIRED]** 
         
-          To establish the directionality of the comparison, the full commit ID of the 'after' commit.
+          To establish the directionality of the comparison, the full commit ID of the \'after\' commit.
         
         :type location: dict
         :param location: 
@@ -2809,7 +2809,7 @@ class Client(BaseClient):
         
           - **relativeFileVersion** *(string) --* 
         
-            In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+            In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
         :type content: string
         :param content: **[REQUIRED]** 
@@ -2831,25 +2831,25 @@ class Client(BaseClient):
           ::
         
             {
-                'repositoryName': 'string',
-                'beforeCommitId': 'string',
-                'afterCommitId': 'string',
-                'beforeBlobId': 'string',
-                'afterBlobId': 'string',
-                'location': {
-                    'filePath': 'string',
-                    'filePosition': 123,
-                    'relativeFileVersion': 'BEFORE'|'AFTER'
+                \'repositoryName\': \'string\',
+                \'beforeCommitId\': \'string\',
+                \'afterCommitId\': \'string\',
+                \'beforeBlobId\': \'string\',
+                \'afterBlobId\': \'string\',
+                \'location\': {
+                    \'filePath\': \'string\',
+                    \'filePosition\': 123,
+                    \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                 },
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -2862,19 +2862,19 @@ class Client(BaseClient):
         
             - **beforeCommitId** *(string) --* 
         
-              In the directionality you established, the full commit ID of the 'before' commit.
+              In the directionality you established, the full commit ID of the \'before\' commit.
         
             - **afterCommitId** *(string) --* 
         
-              In the directionality you established, the full commit ID of the 'after' commit.
+              In the directionality you established, the full commit ID of the \'after\' commit.
         
             - **beforeBlobId** *(string) --* 
         
-              In the directionality you established, the blob ID of the 'before' blob.
+              In the directionality you established, the blob ID of the \'before\' blob.
         
             - **afterBlobId** *(string) --* 
         
-              In the directionality you established, the blob ID of the 'after' blob.
+              In the directionality you established, the blob ID of the \'after\' blob.
         
             - **location** *(dict) --* 
         
@@ -2890,7 +2890,7 @@ class Client(BaseClient):
         
               - **relativeFileVersion** *(string) --* 
         
-                In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
             - **comment** *(dict) --* 
         
@@ -2940,17 +2940,17 @@ class Client(BaseClient):
         ::
         
           response = client.post_comment_for_pull_request(
-              pullRequestId='string',
-              repositoryName='string',
-              beforeCommitId='string',
-              afterCommitId='string',
+              pullRequestId=\'string\',
+              repositoryName=\'string\',
+              beforeCommitId=\'string\',
+              afterCommitId=\'string\',
               location={
-                  'filePath': 'string',
-                  'filePosition': 123,
-                  'relativeFileVersion': 'BEFORE'|'AFTER'
+                  \'filePath\': \'string\',
+                  \'filePosition\': 123,
+                  \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
               },
-              content='string',
-              clientRequestToken='string'
+              content=\'string\',
+              clientRequestToken=\'string\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -2987,7 +2987,7 @@ class Client(BaseClient):
         
           - **relativeFileVersion** *(string) --* 
         
-            In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+            In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
         :type content: string
         :param content: **[REQUIRED]** 
@@ -3009,26 +3009,26 @@ class Client(BaseClient):
           ::
         
             {
-                'repositoryName': 'string',
-                'pullRequestId': 'string',
-                'beforeCommitId': 'string',
-                'afterCommitId': 'string',
-                'beforeBlobId': 'string',
-                'afterBlobId': 'string',
-                'location': {
-                    'filePath': 'string',
-                    'filePosition': 123,
-                    'relativeFileVersion': 'BEFORE'|'AFTER'
+                \'repositoryName\': \'string\',
+                \'pullRequestId\': \'string\',
+                \'beforeCommitId\': \'string\',
+                \'afterCommitId\': \'string\',
+                \'beforeBlobId\': \'string\',
+                \'afterBlobId\': \'string\',
+                \'location\': {
+                    \'filePath\': \'string\',
+                    \'filePosition\': 123,
+                    \'relativeFileVersion\': \'BEFORE\'|\'AFTER\'
                 },
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3053,11 +3053,11 @@ class Client(BaseClient):
         
             - **beforeBlobId** *(string) --* 
         
-              In the directionality of the pull request, the blob ID of the 'before' blob.
+              In the directionality of the pull request, the blob ID of the \'before\' blob.
         
             - **afterBlobId** *(string) --* 
         
-              In the directionality of the pull request, the blob ID of the 'after' blob.
+              In the directionality of the pull request, the blob ID of the \'after\' blob.
         
             - **location** *(dict) --* 
         
@@ -3073,7 +3073,7 @@ class Client(BaseClient):
         
               - **relativeFileVersion** *(string) --* 
         
-                In a comparison of commits or a pull request, whether the change is in the 'before' or 'after' of that comparison.
+                In a comparison of commits or a pull request, whether the change is in the \'before\' or \'after\' of that comparison.
         
             - **comment** *(dict) --* 
         
@@ -3123,9 +3123,9 @@ class Client(BaseClient):
         ::
         
           response = client.post_comment_reply(
-              inReplyTo='string',
-              clientRequestToken='string',
-              content='string'
+              inReplyTo=\'string\',
+              clientRequestToken=\'string\',
+              content=\'string\'
           )
         :type inReplyTo: string
         :param inReplyTo: **[REQUIRED]** 
@@ -3152,15 +3152,15 @@ class Client(BaseClient):
           ::
         
             {
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3215,15 +3215,15 @@ class Client(BaseClient):
         ::
         
           response = client.put_file(
-              repositoryName='string',
-              branchName='string',
-              fileContent=b'bytes',
-              filePath='string',
-              fileMode='EXECUTABLE'|'NORMAL'|'SYMLINK',
-              parentCommitId='string',
-              commitMessage='string',
-              name='string',
-              email='string'
+              repositoryName=\'string\',
+              branchName=\'string\',
+              fileContent=b\'bytes\',
+              filePath=\'string\',
+              fileMode=\'EXECUTABLE\'|\'NORMAL\'|\'SYMLINK\',
+              parentCommitId=\'string\',
+              commitMessage=\'string\',
+              name=\'string\',
+              email=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -3284,9 +3284,9 @@ class Client(BaseClient):
           ::
         
             {
-                'commitId': 'string',
-                'blobId': 'string',
-                'treeId': 'string'
+                \'commitId\': \'string\',
+                \'blobId\': \'string\',
+                \'treeId\': \'string\'
             }
           **Response Structure** 
         
@@ -3316,17 +3316,17 @@ class Client(BaseClient):
         ::
         
           response = client.put_repository_triggers(
-              repositoryName='string',
+              repositoryName=\'string\',
               triggers=[
                   {
-                      'name': 'string',
-                      'destinationArn': 'string',
-                      'customData': 'string',
-                      'branches': [
-                          'string',
+                      \'name\': \'string\',
+                      \'destinationArn\': \'string\',
+                      \'customData\': \'string\',
+                      \'branches\': [
+                          \'string\',
                       ],
-                      'events': [
-                          'all'|'updateReference'|'createReference'|'deleteReference',
+                      \'events\': [
+                          \'all\'|\'updateReference\'|\'createReference\'|\'deleteReference\',
                       ]
                   },
               ]
@@ -3373,7 +3373,7 @@ class Client(BaseClient):
         
               .. note::
         
-                The valid value "all" cannot be used with any other values.
+                The valid value \"all\" cannot be used with any other values.
         
               - *(string) --* 
         
@@ -3385,7 +3385,7 @@ class Client(BaseClient):
           ::
         
             {
-                'configurationId': 'string'
+                \'configurationId\': \'string\'
             }
           **Response Structure** 
         
@@ -3409,17 +3409,17 @@ class Client(BaseClient):
         ::
         
           response = client.test_repository_triggers(
-              repositoryName='string',
+              repositoryName=\'string\',
               triggers=[
                   {
-                      'name': 'string',
-                      'destinationArn': 'string',
-                      'customData': 'string',
-                      'branches': [
-                          'string',
+                      \'name\': \'string\',
+                      \'destinationArn\': \'string\',
+                      \'customData\': \'string\',
+                      \'branches\': [
+                          \'string\',
                       ],
-                      'events': [
-                          'all'|'updateReference'|'createReference'|'deleteReference',
+                      \'events\': [
+                          \'all\'|\'updateReference\'|\'createReference\'|\'deleteReference\',
                       ]
                   },
               ]
@@ -3466,7 +3466,7 @@ class Client(BaseClient):
         
               .. note::
         
-                The valid value "all" cannot be used with any other values.
+                The valid value \"all\" cannot be used with any other values.
         
               - *(string) --* 
         
@@ -3478,13 +3478,13 @@ class Client(BaseClient):
           ::
         
             {
-                'successfulExecutions': [
-                    'string',
+                \'successfulExecutions\': [
+                    \'string\',
                 ],
-                'failedExecutions': [
+                \'failedExecutions\': [
                     {
-                        'trigger': 'string',
-                        'failureMessage': 'string'
+                        \'trigger\': \'string\',
+                        \'failureMessage\': \'string\'
                     },
                 ]
             }
@@ -3528,8 +3528,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_comment(
-              commentId='string',
-              content='string'
+              commentId=\'string\',
+              content=\'string\'
           )
         :type commentId: string
         :param commentId: **[REQUIRED]** 
@@ -3549,15 +3549,15 @@ class Client(BaseClient):
           ::
         
             {
-                'comment': {
-                    'commentId': 'string',
-                    'content': 'string',
-                    'inReplyTo': 'string',
-                    'creationDate': datetime(2015, 1, 1),
-                    'lastModifiedDate': datetime(2015, 1, 1),
-                    'authorArn': 'string',
-                    'deleted': True|False,
-                    'clientRequestToken': 'string'
+                \'comment\': {
+                    \'commentId\': \'string\',
+                    \'content\': \'string\',
+                    \'inReplyTo\': \'string\',
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'lastModifiedDate\': datetime(2015, 1, 1),
+                    \'authorArn\': \'string\',
+                    \'deleted\': True|False,
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3616,8 +3616,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_default_branch(
-              repositoryName='string',
-              defaultBranchName='string'
+              repositoryName=\'string\',
+              defaultBranchName=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -3642,8 +3642,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_pull_request_description(
-              pullRequestId='string',
-              description='string'
+              pullRequestId=\'string\',
+              description=\'string\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -3663,29 +3663,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3784,8 +3784,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_pull_request_status(
-              pullRequestId='string',
-              pullRequestStatus='OPEN'|'CLOSED'
+              pullRequestId=\'string\',
+              pullRequestStatus=\'OPEN\'|\'CLOSED\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -3805,29 +3805,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -3926,8 +3926,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_pull_request_title(
-              pullRequestId='string',
-              title='string'
+              pullRequestId=\'string\',
+              title=\'string\'
           )
         :type pullRequestId: string
         :param pullRequestId: **[REQUIRED]** 
@@ -3947,29 +3947,29 @@ class Client(BaseClient):
           ::
         
             {
-                'pullRequest': {
-                    'pullRequestId': 'string',
-                    'title': 'string',
-                    'description': 'string',
-                    'lastActivityDate': datetime(2015, 1, 1),
-                    'creationDate': datetime(2015, 1, 1),
-                    'pullRequestStatus': 'OPEN'|'CLOSED',
-                    'authorArn': 'string',
-                    'pullRequestTargets': [
+                \'pullRequest\': {
+                    \'pullRequestId\': \'string\',
+                    \'title\': \'string\',
+                    \'description\': \'string\',
+                    \'lastActivityDate\': datetime(2015, 1, 1),
+                    \'creationDate\': datetime(2015, 1, 1),
+                    \'pullRequestStatus\': \'OPEN\'|\'CLOSED\',
+                    \'authorArn\': \'string\',
+                    \'pullRequestTargets\': [
                         {
-                            'repositoryName': 'string',
-                            'sourceReference': 'string',
-                            'destinationReference': 'string',
-                            'destinationCommit': 'string',
-                            'sourceCommit': 'string',
-                            'mergeBase': 'string',
-                            'mergeMetadata': {
-                                'isMerged': True|False,
-                                'mergedBy': 'string'
+                            \'repositoryName\': \'string\',
+                            \'sourceReference\': \'string\',
+                            \'destinationReference\': \'string\',
+                            \'destinationCommit\': \'string\',
+                            \'sourceCommit\': \'string\',
+                            \'mergeBase\': \'string\',
+                            \'mergeMetadata\': {
+                                \'isMerged\': True|False,
+                                \'mergedBy\': \'string\'
                             }
                         },
                     ],
-                    'clientRequestToken': 'string'
+                    \'clientRequestToken\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4072,8 +4072,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_repository_description(
-              repositoryName='string',
-              repositoryDescription='string'
+              repositoryName=\'string\',
+              repositoryDescription=\'string\'
           )
         :type repositoryName: string
         :param repositoryName: **[REQUIRED]** 
@@ -4098,8 +4098,8 @@ class Client(BaseClient):
         ::
         
           response = client.update_repository_name(
-              oldName='string',
-              newName='string'
+              oldName=\'string\',
+              newName=\'string\'
           )
         :type oldName: string
         :param oldName: **[REQUIRED]** 

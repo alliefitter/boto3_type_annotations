@@ -1,5 +1,5 @@
-from typing import List
 from typing import NoReturn
+from typing import List
 from typing import Dict
 from botocore.waiter import Waiter
 
@@ -14,13 +14,13 @@ class ServicesInactive(Waiter):
         ::
         
           waiter.wait(
-              cluster='string',
+              cluster=\'string\',
               services=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type cluster: string
@@ -63,13 +63,13 @@ class ServicesStable(Waiter):
         ::
         
           waiter.wait(
-              cluster='string',
+              cluster=\'string\',
               services=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type cluster: string
@@ -112,13 +112,13 @@ class TasksRunning(Waiter):
         ::
         
           waiter.wait(
-              cluster='string',
+              cluster=\'string\',
               tasks=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type cluster: string
@@ -161,13 +161,13 @@ class TasksStopped(Waiter):
         ::
         
           waiter.wait(
-              cluster='string',
+              cluster=\'string\',
               tasks=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type cluster: string

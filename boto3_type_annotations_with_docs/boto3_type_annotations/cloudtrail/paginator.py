@@ -16,16 +16,16 @@ class LookupEvents(Paginator):
           response_iterator = paginator.paginate(
               LookupAttributes=[
                   {
-                      'AttributeKey': 'EventId'|'EventName'|'ReadOnly'|'Username'|'ResourceType'|'ResourceName'|'EventSource'|'AccessKeyId',
-                      'AttributeValue': 'string'
+                      \'AttributeKey\': \'EventId\'|\'EventName\'|\'ReadOnly\'|\'Username\'|\'ResourceType\'|\'ResourceName\'|\'EventSource\'|\'AccessKeyId\',
+                      \'AttributeValue\': \'string\'
                   },
               ],
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
               PaginationConfig={
-                  'MaxItems': 123,
-                  'PageSize': 123,
-                  'StartingToken': 'string'
+                  \'MaxItems\': 123,
+                  \'PageSize\': 123,
+                  \'StartingToken\': \'string\'
               }
           )
         :type LookupAttributes: list
@@ -80,22 +80,22 @@ class LookupEvents(Paginator):
           ::
         
             {
-                'Events': [
+                \'Events\': [
                     {
-                        'EventId': 'string',
-                        'EventName': 'string',
-                        'ReadOnly': 'string',
-                        'AccessKeyId': 'string',
-                        'EventTime': datetime(2015, 1, 1),
-                        'EventSource': 'string',
-                        'Username': 'string',
-                        'Resources': [
+                        \'EventId\': \'string\',
+                        \'EventName\': \'string\',
+                        \'ReadOnly\': \'string\',
+                        \'AccessKeyId\': \'string\',
+                        \'EventTime\': datetime(2015, 1, 1),
+                        \'EventSource\': \'string\',
+                        \'Username\': \'string\',
+                        \'Resources\': [
                             {
-                                'ResourceType': 'string',
-                                'ResourceName': 'string'
+                                \'ResourceType\': \'string\',
+                                \'ResourceName\': \'string\'
                             },
                         ],
-                        'CloudTrailEvent': 'string'
+                        \'CloudTrailEvent\': \'string\'
                     },
                 ],
                 
@@ -156,7 +156,7 @@ class LookupEvents(Paginator):
         
                     - **ResourceName** *(string) --* 
         
-                      The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
+                      The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be \"auto-scaling-test-group\" for an Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
         
                 - **CloudTrailEvent** *(string) --* 
         

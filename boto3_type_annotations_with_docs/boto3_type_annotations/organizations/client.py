@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -26,14 +26,14 @@ class Client(BaseClient):
         ::
         
           response = client.accept_handshake(
-              HandshakeId='string'
+              HandshakeId=\'string\'
           )
         :type HandshakeId: string
         :param HandshakeId: **[REQUIRED]** 
         
           The unique identifier (ID) of the handshake that you want to accept.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -43,24 +43,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -77,7 +77,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -97,7 +97,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -133,7 +133,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -184,13 +184,13 @@ class Client(BaseClient):
            
           * If you attach the policy directly to an account, then it affects only that account. 
            
-        SCPs essentially are permission "filters". When you attach one SCP to a higher level root or OU, and you also attach a different SCP to a child OU or to an account, the child policy can further restrict only the permissions that pass through the parent filter and are available to the child. An SCP that is attached to a child cannot grant a permission that is not already granted by the parent. For example, imagine that the parent SCP allows permissions A, B, C, D, and E. The child SCP allows C, D, E, F, and G. The result is that the accounts affected by the child SCP are allowed to use only C, D, and E. They cannot use A or B because they were filtered out by the child OU. They also cannot use F and G because they were filtered out by the parent OU. They cannot be granted back by the child SCP; child SCPs can only filter the permissions they receive from the parent SCP.
+        SCPs essentially are permission \"filters\". When you attach one SCP to a higher level root or OU, and you also attach a different SCP to a child OU or to an account, the child policy can further restrict only the permissions that pass through the parent filter and are available to the child. An SCP that is attached to a child cannot grant a permission that is not already granted by the parent. For example, imagine that the parent SCP allows permissions A, B, C, D, and E. The child SCP allows C, D, E, F, and G. The result is that the accounts affected by the child SCP are allowed to use only C, D, and E. They cannot use A or B because they were filtered out by the child OU. They also cannot use F and G because they were filtered out by the parent OU. They cannot be granted back by the child SCP; child SCPs can only filter the permissions they receive from the parent SCP.
         
-        AWS Organizations attaches a default SCP named ``"FullAWSAccess`` to every root, OU, and account. This default SCP allows all services and actions, enabling any new child OU or account to inherit the permissions of the parent root or OU. If you detach the default policy, you must replace it with a policy that specifies the permissions that you want to allow in that OU or account.
+        AWS Organizations attaches a default SCP named ``\"FullAWSAccess`` to every root, OU, and account. This default SCP allows all services and actions, enabling any new child OU or account to inherit the permissions of the parent root or OU. If you detach the default policy, you must replace it with a policy that specifies the permissions that you want to allow in that OU or account.
         
         For more information about how Organizations policies permissions work, see `Using Service Control Policies <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html>`__ in the *AWS Organizations User Guide* .
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AttachPolicy>`_
         
@@ -198,15 +198,15 @@ class Client(BaseClient):
         ::
         
           response = client.attach_policy(
-              PolicyId='string',
-              TargetId='string'
+              PolicyId=\'string\',
+              TargetId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
         
           The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the  ListPolicies operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :type TargetId: string
         :param TargetId: **[REQUIRED]** 
@@ -215,11 +215,11 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :returns: None
         """
@@ -231,10 +231,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -244,7 +244,7 @@ class Client(BaseClient):
     def cancel_handshake(self, HandshakeId: str) -> Dict:
         """
         
-        This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use  DeclineHandshake instead. After a handshake is canceled, the recipient can no longer respond to that handshake.
+        This operation can be called only from the account that originated the handshake. The recipient of the handshake can\'t cancel it, but can use  DeclineHandshake instead. After a handshake is canceled, the recipient can no longer respond to that handshake.
         
         After you cancel a handshake, it continues to appear in the results of relevant APIs for only 30 days. After that it is deleted.
         
@@ -254,14 +254,14 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_handshake(
-              HandshakeId='string'
+              HandshakeId=\'string\'
           )
         :type HandshakeId: string
         :param HandshakeId: **[REQUIRED]** 
         
           The unique identifier (ID) of the handshake that you want to cancel. You can get the ID from the  ListHandshakesForOrganization operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -271,24 +271,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -305,7 +305,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -325,7 +325,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -361,7 +361,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -410,9 +410,9 @@ class Client(BaseClient):
          
         The user who calls the API to create an account must have the ``organizations:CreateAccount`` permission. If you enabled all features in the organization, AWS Organizations will create the required service-linked role named ``AWSServiceRoleForOrganizations`` . For more information, see `AWS Organizations and Service-Linked Roles <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs>`__ in the *AWS Organizations User Guide* .
         
-        AWS Organizations preconfigures the new member account with a role (named ``OrganizationAccountAccessRole`` by default) that grants users in the master account administrator permissions in the new member account. Principals in the master account can assume the role. AWS Organizations clones the company name and address information for the new account from the organization's master account.
+        AWS Organizations preconfigures the new member account with a role (named ``OrganizationAccountAccessRole`` by default) that grants users in the master account administrator permissions in the new member account. Principals in the master account can assume the role. AWS Organizations clones the company name and address information for the new account from the organization\'s master account.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         For more information about creating accounts, see `Creating an AWS Account in Your Organization <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html>`__ in the *AWS Organizations User Guide* .
         
@@ -434,15 +434,15 @@ class Client(BaseClient):
         ::
         
           response = client.create_account(
-              Email='string',
-              AccountName='string',
-              RoleName='string',
-              IamUserAccessToBilling='ALLOW'|'DENY'
+              Email=\'string\',
+              AccountName=\'string\',
+              RoleName=\'string\',
+              IamUserAccessToBilling=\'ALLOW\'|\'DENY\'
           )
         :type Email: string
         :param Email: **[REQUIRED]** 
         
-          The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address.
+          The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can\'t access the root user of the account or remove an account that was created with an invalid email address.
         
         :type AccountName: string
         :param AccountName: **[REQUIRED]** 
@@ -456,7 +456,7 @@ class Client(BaseClient):
         
           The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
         
-          If you don't specify this parameter, the role name defaults to ``OrganizationAccountAccessRole`` .
+          If you don\'t specify this parameter, the role name defaults to ``OrganizationAccountAccessRole`` .
         
           For more information about how to use this role to access the member account, see `Accessing and Administering the Member Accounts in Your Organization <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role>`__ in the *AWS Organizations User Guide* , and steps 2 and 3 in `Tutorial\: Delegate Access Across AWS Accounts Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html>`__ in the *IAM User Guide* .
         
@@ -467,7 +467,7 @@ class Client(BaseClient):
         
           If set to ``ALLOW`` , the new account enables IAM users to access account billing information *if* they have the required permissions. If set to ``DENY`` , only the root user of the new account can access account billing information. For more information, see `Activating Access to the Billing and Cost Management Console <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate>`__ in the *AWS Billing and Cost Management User Guide* .
         
-          If you don't specify this parameter, the value defaults to ``ALLOW`` , and IAM users and roles with the required permissions can access billing information for the new account.
+          If you don\'t specify this parameter, the value defaults to ``ALLOW`` , and IAM users and roles with the required permissions can access billing information for the new account.
         
         :rtype: dict
         :returns: 
@@ -477,14 +477,14 @@ class Client(BaseClient):
           ::
         
             {
-                'CreateAccountStatus': {
-                    'Id': 'string',
-                    'AccountName': 'string',
-                    'State': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'CompletedTimestamp': datetime(2015, 1, 1),
-                    'AccountId': 'string',
-                    'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
+                \'CreateAccountStatus\': {
+                    \'Id\': \'string\',
+                    \'AccountName\': \'string\',
+                    \'State\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'CompletedTimestamp\': datetime(2015, 1, 1),
+                    \'AccountId\': \'string\',
+                    \'FailureReason\': \'ACCOUNT_LIMIT_EXCEEDED\'|\'EMAIL_ALREADY_EXISTS\'|\'INVALID_ADDRESS\'|\'INVALID_EMAIL\'|\'CONCURRENT_ACCOUNT_MODIFICATION\'|\'INTERNAL_FAILURE\'
                 }
             }
           **Response Structure** 
@@ -499,7 +499,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires \"car-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **AccountName** *(string) --* 
         
@@ -543,9 +543,9 @@ class Client(BaseClient):
     def create_organization(self, FeatureSet: str = None) -> Dict:
         """
         
-        This operation must be called using credentials from the account that is to become the new organization's master account. The principal must also have the relevant IAM permissions.
+        This operation must be called using credentials from the account that is to become the new organization\'s master account. The principal must also have the relevant IAM permissions.
         
-        By default (or if you set the ``FeatureSet`` parameter to ``ALL`` ), the new organization is created with all features enabled and service control policies automatically enabled in the root. If you instead choose to create the organization supporting only the consolidated billing features by setting the ``FeatureSet`` parameter to ``CONSOLIDATED_BILLING"`` , then no policy types are enabled by default and you cannot use organization policies.
+        By default (or if you set the ``FeatureSet`` parameter to ``ALL`` ), the new organization is created with all features enabled and service control policies automatically enabled in the root. If you instead choose to create the organization supporting only the consolidated billing features by setting the ``FeatureSet`` parameter to ``CONSOLIDATED_BILLING\"`` , then no policy types are enabled by default and you cannot use organization policies.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganization>`_
         
@@ -553,7 +553,7 @@ class Client(BaseClient):
         ::
         
           response = client.create_organization(
-              FeatureSet='ALL'|'CONSOLIDATED_BILLING'
+              FeatureSet=\'ALL\'|\'CONSOLIDATED_BILLING\'
           )
         :type FeatureSet: string
         :param FeatureSet: 
@@ -572,17 +572,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Organization': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'FeatureSet': 'ALL'|'CONSOLIDATED_BILLING',
-                    'MasterAccountArn': 'string',
-                    'MasterAccountId': 'string',
-                    'MasterAccountEmail': 'string',
-                    'AvailablePolicyTypes': [
+                \'Organization\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'FeatureSet\': \'ALL\'|\'CONSOLIDATED_BILLING\',
+                    \'MasterAccountArn\': \'string\',
+                    \'MasterAccountId\': \'string\',
+                    \'MasterAccountEmail\': \'string\',
+                    \'AvailablePolicyTypes\': [
                         {
-                            'Type': 'SERVICE_CONTROL_POLICY',
-                            'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                            \'Type\': \'SERVICE_CONTROL_POLICY\',
+                            \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                         },
                     ]
                 }
@@ -599,7 +599,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of an organization.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organization ID string requires "o-" followed by from 10 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organization ID string requires \"o-\" followed by from 10 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -609,7 +609,7 @@ class Client(BaseClient):
         
               - **FeatureSet** *(string) --* 
         
-                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
+                Specifies the functionality that currently is available to the organization. If set to \"ALL\", then all features are enabled and policies can be applied to accounts in the organization. If set to \"CONSOLIDATED_BILLING\", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
         
               - **MasterAccountArn** *(string) --* 
         
@@ -655,7 +655,7 @@ class Client(BaseClient):
         
         For more information about OUs, see `Managing Organizational Units <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html>`__ in the *AWS Organizations User Guide* .
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganizationalUnit>`_
         
@@ -663,8 +663,8 @@ class Client(BaseClient):
         ::
         
           response = client.create_organizational_unit(
-              ParentId='string',
-              Name='string'
+              ParentId=\'string\',
+              Name=\'string\'
           )
         :type ParentId: string
         :param ParentId: **[REQUIRED]** 
@@ -673,9 +673,9 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type Name: string
         :param Name: **[REQUIRED]** 
@@ -690,10 +690,10 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationalUnit': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string'
+                \'OrganizationalUnit\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -708,7 +708,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) associated with this OU.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -730,7 +730,7 @@ class Client(BaseClient):
         
         For more information about policies and their use, see `Managing Organization Policies <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html>`__ .
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreatePolicy>`_
         
@@ -738,10 +738,10 @@ class Client(BaseClient):
         ::
         
           response = client.create_policy(
-              Content='string',
-              Description='string',
-              Name='string',
-              Type='SERVICE_CONTROL_POLICY'
+              Content=\'string\',
+              Description=\'string\',
+              Name=\'string\',
+              Type=\'SERVICE_CONTROL_POLICY\'
           )
         :type Content: string
         :param Content: **[REQUIRED]** 
@@ -777,16 +777,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicySummary': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                \'Policy\': {
+                    \'PolicySummary\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
-                    'Content': 'string'
+                    \'Content\': \'string\'
                 }
             }
           **Response Structure** 
@@ -805,7 +805,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -841,7 +841,7 @@ class Client(BaseClient):
     def decline_handshake(self, HandshakeId: str) -> Dict:
         """
         
-        This operation can be called only from the account that received the handshake. The originator of the handshake can use  CancelHandshake instead. The originator can't reactivate a declined request, but can re-initiate the process with a new handshake request.
+        This operation can be called only from the account that received the handshake. The originator of the handshake can use  CancelHandshake instead. The originator can\'t reactivate a declined request, but can re-initiate the process with a new handshake request.
         
         After you decline a handshake, it continues to appear in the results of relevant APIs for only 30 days. After that it is deleted.
         
@@ -851,14 +851,14 @@ class Client(BaseClient):
         ::
         
           response = client.decline_handshake(
-              HandshakeId='string'
+              HandshakeId=\'string\'
           )
         :type HandshakeId: string
         :param HandshakeId: **[REQUIRED]** 
         
           The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the  ListHandshakesForAccount operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -868,24 +868,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -902,7 +902,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -922,7 +922,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -958,7 +958,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -1014,7 +1014,7 @@ class Client(BaseClient):
     def delete_organizational_unit(self, OrganizationalUnitId: str) -> NoReturn:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganizationalUnit>`_
         
@@ -1022,14 +1022,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_organizational_unit(
-              OrganizationalUnitId='string'
+              OrganizationalUnitId=\'string\'
           )
         :type OrganizationalUnitId: string
         :param OrganizationalUnitId: **[REQUIRED]** 
         
           The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the  ListOrganizationalUnitsForParent operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
         :returns: None
         """
@@ -1038,7 +1038,7 @@ class Client(BaseClient):
     def delete_policy(self, PolicyId: str) -> NoReturn:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeletePolicy>`_
         
@@ -1046,14 +1046,14 @@ class Client(BaseClient):
         ::
         
           response = client.delete_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
         
           The unique identifier (ID) of the policy that you want to delete. You can get the ID from the  ListPolicies or  ListPoliciesForTarget operations.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :returns: None
         """
@@ -1062,7 +1062,7 @@ class Client(BaseClient):
     def describe_account(self, AccountId: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeAccount>`_
         
@@ -1070,7 +1070,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_account(
-              AccountId='string'
+              AccountId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -1087,14 +1087,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Account': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Email': 'string',
-                    'Name': 'string',
-                    'Status': 'ACTIVE'|'SUSPENDED',
-                    'JoinedMethod': 'INVITED'|'CREATED',
-                    'JoinedTimestamp': datetime(2015, 1, 1)
+                \'Account\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Email\': \'string\',
+                    \'Name\': \'string\',
+                    \'Status\': \'ACTIVE\'|\'SUSPENDED\',
+                    \'JoinedMethod\': \'INVITED\'|\'CREATED\',
+                    \'JoinedTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1147,7 +1147,7 @@ class Client(BaseClient):
     def describe_create_account_status(self, CreateAccountRequestId: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeCreateAccountStatus>`_
         
@@ -1155,14 +1155,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_create_account_status(
-              CreateAccountRequestId='string'
+              CreateAccountRequestId=\'string\'
           )
         :type CreateAccountRequestId: string
         :param CreateAccountRequestId: **[REQUIRED]** 
         
           Specifies the ``operationId`` that uniquely identifies the request. You can get the ID from the response to an earlier  CreateAccount request, or from the  ListCreateAccountStatus operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires \"car-\" followed by from 8 to 32 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -1172,14 +1172,14 @@ class Client(BaseClient):
           ::
         
             {
-                'CreateAccountStatus': {
-                    'Id': 'string',
-                    'AccountName': 'string',
-                    'State': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'CompletedTimestamp': datetime(2015, 1, 1),
-                    'AccountId': 'string',
-                    'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
+                \'CreateAccountStatus\': {
+                    \'Id\': \'string\',
+                    \'AccountName\': \'string\',
+                    \'State\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'CompletedTimestamp\': datetime(2015, 1, 1),
+                    \'AccountId\': \'string\',
+                    \'FailureReason\': \'ACCOUNT_LIMIT_EXCEEDED\'|\'EMAIL_ALREADY_EXISTS\'|\'INVALID_ADDRESS\'|\'INVALID_EMAIL\'|\'CONCURRENT_ACCOUNT_MODIFICATION\'|\'INTERNAL_FAILURE\'
                 }
             }
           **Response Structure** 
@@ -1194,7 +1194,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires \"car-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **AccountName** *(string) --* 
         
@@ -1248,14 +1248,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_handshake(
-              HandshakeId='string'
+              HandshakeId=\'string\'
           )
         :type HandshakeId: string
         :param HandshakeId: **[REQUIRED]** 
         
           The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to  InviteAccountToOrganization , or from a call to  ListHandshakesForAccount or  ListHandshakesForOrganization .
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -1265,24 +1265,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -1299,7 +1299,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -1319,7 +1319,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -1355,7 +1355,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -1418,17 +1418,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Organization': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'FeatureSet': 'ALL'|'CONSOLIDATED_BILLING',
-                    'MasterAccountArn': 'string',
-                    'MasterAccountId': 'string',
-                    'MasterAccountEmail': 'string',
-                    'AvailablePolicyTypes': [
+                \'Organization\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'FeatureSet\': \'ALL\'|\'CONSOLIDATED_BILLING\',
+                    \'MasterAccountArn\': \'string\',
+                    \'MasterAccountId\': \'string\',
+                    \'MasterAccountEmail\': \'string\',
+                    \'AvailablePolicyTypes\': [
                         {
-                            'Type': 'SERVICE_CONTROL_POLICY',
-                            'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                            \'Type\': \'SERVICE_CONTROL_POLICY\',
+                            \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                         },
                     ]
                 }
@@ -1445,7 +1445,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of an organization.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organization ID string requires "o-" followed by from 10 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organization ID string requires \"o-\" followed by from 10 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -1455,7 +1455,7 @@ class Client(BaseClient):
         
               - **FeatureSet** *(string) --* 
         
-                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
+                Specifies the functionality that currently is available to the organization. If set to \"ALL\", then all features are enabled and policies can be applied to accounts in the organization. If set to \"CONSOLIDATED_BILLING\", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
         
               - **MasterAccountArn** *(string) --* 
         
@@ -1499,7 +1499,7 @@ class Client(BaseClient):
     def describe_organizational_unit(self, OrganizationalUnitId: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganizationalUnit>`_
         
@@ -1507,14 +1507,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_organizational_unit(
-              OrganizationalUnitId='string'
+              OrganizationalUnitId=\'string\'
           )
         :type OrganizationalUnitId: string
         :param OrganizationalUnitId: **[REQUIRED]** 
         
           The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the  ListOrganizationalUnitsForParent operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -1524,10 +1524,10 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationalUnit': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string'
+                \'OrganizationalUnit\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1542,7 +1542,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) associated with this OU.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -1562,7 +1562,7 @@ class Client(BaseClient):
     def describe_policy(self, PolicyId: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribePolicy>`_
         
@@ -1570,14 +1570,14 @@ class Client(BaseClient):
         ::
         
           response = client.describe_policy(
-              PolicyId='string'
+              PolicyId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
         
           The unique identifier (ID) of the policy that you want details about. You can get the ID from the  ListPolicies or  ListPoliciesForTarget operations.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :rtype: dict
         :returns: 
@@ -1587,16 +1587,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicySummary': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                \'Policy\': {
+                    \'PolicySummary\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
-                    'Content': 'string'
+                    \'Content\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1615,7 +1615,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -1651,9 +1651,9 @@ class Client(BaseClient):
     def detach_policy(self, PolicyId: str, TargetId: str) -> NoReturn:
         """
         
-         **Note:** Every root, OU, and account must have at least one SCP attached. If you want to replace the default ``FullAWSAccess`` policy with one that limits the permissions that can be delegated, then you must attach the replacement policy before you can remove the default one. This is the authorization strategy of `whitelisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist>`__ . If you instead attach a second SCP and leave the ``FullAWSAccess`` SCP still attached, and specify ``"Effect": "Deny"`` in the second SCP to override the ``"Effect": "Allow"`` in the ``FullAWSAccess`` policy (or any other attached SCP), then you are using the authorization strategy of `blacklisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist>`__ . 
+         **Note:** Every root, OU, and account must have at least one SCP attached. If you want to replace the default ``FullAWSAccess`` policy with one that limits the permissions that can be delegated, then you must attach the replacement policy before you can remove the default one. This is the authorization strategy of `whitelisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist>`__ . If you instead attach a second SCP and leave the ``FullAWSAccess`` SCP still attached, and specify ``\"Effect\": \"Deny\"`` in the second SCP to override the ``\"Effect\": \"Allow\"`` in the ``FullAWSAccess`` policy (or any other attached SCP), then you are using the authorization strategy of `blacklisting <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist>`__ . 
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DetachPolicy>`_
         
@@ -1661,15 +1661,15 @@ class Client(BaseClient):
         ::
         
           response = client.detach_policy(
-              PolicyId='string',
-              TargetId='string'
+              PolicyId=\'string\',
+              TargetId=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
         
           The unique identifier (ID) of the policy you want to detach. You can get the ID from the  ListPolicies or  ListPoliciesForTarget operations.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :type TargetId: string
         :param TargetId: **[REQUIRED]** 
@@ -1678,11 +1678,11 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :returns: None
         """
@@ -1693,13 +1693,13 @@ class Client(BaseClient):
         
         .. warning::
         
-          We recommend that you disable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the other service is aware that it can clean up any resources that are required only for the integration. How the service cleans up its resources in the organization's accounts depends on that service. For more information, see the documentation for the other AWS service.
+          We recommend that you disable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the other service is aware that it can clean up any resources that are required only for the integration. How the service cleans up its resources in the organization\'s accounts depends on that service. For more information, see the documentation for the other AWS service.
         
-        After you perform the ``DisableAWSServiceAccess`` operation, the specified service can no longer perform operations in your organization's accounts unless the operations are explicitly permitted by the IAM policies that are attached to your roles. 
+        After you perform the ``DisableAWSServiceAccess`` operation, the specified service can no longer perform operations in your organization\'s accounts unless the operations are explicitly permitted by the IAM policies that are attached to your roles. 
         
         For more information about integrating other services with AWS Organizations, including the list of services that work with Organizations, see `Integrating AWS Organizations with Other AWS Services <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html>`__ in the *AWS Organizations User Guide* .
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DisableAWSServiceAccess>`_
         
@@ -1707,7 +1707,7 @@ class Client(BaseClient):
         ::
         
           response = client.disable_aws_service_access(
-              ServicePrincipal='string'
+              ServicePrincipal=\'string\'
           )
         :type ServicePrincipal: string
         :param ServicePrincipal: **[REQUIRED]** 
@@ -1721,7 +1721,7 @@ class Client(BaseClient):
     def disable_policy_type(self, RootId: str, PolicyType: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         .. note::
         
@@ -1733,15 +1733,15 @@ class Client(BaseClient):
         ::
         
           response = client.disable_policy_type(
-              RootId='string',
-              PolicyType='SERVICE_CONTROL_POLICY'
+              RootId=\'string\',
+              PolicyType=\'SERVICE_CONTROL_POLICY\'
           )
         :type RootId: string
         :param RootId: **[REQUIRED]** 
         
           The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the  ListRoots operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
         :type PolicyType: string
         :param PolicyType: **[REQUIRED]** 
@@ -1756,14 +1756,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Root': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'PolicyTypes': [
+                \'Root\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'PolicyTypes\': [
                         {
-                            'Type': 'SERVICE_CONTROL_POLICY',
-                            'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                            \'Type\': \'SERVICE_CONTROL_POLICY\',
+                            \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                         },
                     ]
                 }
@@ -1780,7 +1780,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) for the root.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -1826,11 +1826,11 @@ class Client(BaseClient):
         
         After you enable all features, you can separately enable or disable individual policy types in a root using  EnablePolicyType and  DisablePolicyType . To see the status of policy types in a root, use  ListRoots .
         
-        After all invited member accounts accept the handshake, you finalize the feature set change by accepting the handshake that contains ``"Action": "ENABLE_ALL_FEATURES"`` . This completes the change.
+        After all invited member accounts accept the handshake, you finalize the feature set change by accepting the handshake that contains ``\"Action\": \"ENABLE_ALL_FEATURES\"`` . This completes the change.
         
         After you enable all features in your organization, the master account in the organization can apply policies on all member accounts. These policies can restrict what users and even administrators in those accounts can do. The master account can apply policies that prevent accounts from leaving the organization. Ensure that your account administrators are aware of this.
         
-        This operation can be called only from the organization's master account. 
+        This operation can be called only from the organization\'s master account. 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnableAllFeatures>`_
         
@@ -1847,24 +1847,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -1881,7 +1881,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -1901,7 +1901,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -1937,7 +1937,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -1981,11 +1981,11 @@ class Client(BaseClient):
         
         .. warning::
         
-          We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization's accounts depends on that service. For more information, see the documentation for the other AWS service.
+          We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization\'s accounts depends on that service. For more information, see the documentation for the other AWS service.
         
         For more information about enabling services to integrate with AWS Organizations, see `Integrating AWS Organizations with Other AWS Services <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html>`__ in the *AWS Organizations User Guide* .
         
-        This operation can be called only from the organization's master account and only if the organization has `enabled all features <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html>`__ .
+        This operation can be called only from the organization\'s master account and only if the organization has `enabled all features <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html>`__ .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnableAWSServiceAccess>`_
         
@@ -1993,7 +1993,7 @@ class Client(BaseClient):
         ::
         
           response = client.enable_aws_service_access(
-              ServicePrincipal='string'
+              ServicePrincipal=\'string\'
           )
         :type ServicePrincipal: string
         :param ServicePrincipal: **[REQUIRED]** 
@@ -2007,7 +2007,7 @@ class Client(BaseClient):
     def enable_policy_type(self, RootId: str, PolicyType: str) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         You can enable a policy type in a root only if that policy type is available in the organization. Use  DescribeOrganization to view the status of available policy types in the organization.
         
@@ -2019,15 +2019,15 @@ class Client(BaseClient):
         ::
         
           response = client.enable_policy_type(
-              RootId='string',
-              PolicyType='SERVICE_CONTROL_POLICY'
+              RootId=\'string\',
+              PolicyType=\'SERVICE_CONTROL_POLICY\'
           )
         :type RootId: string
         :param RootId: **[REQUIRED]** 
         
           The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the  ListRoots operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
         :type PolicyType: string
         :param PolicyType: **[REQUIRED]** 
@@ -2042,14 +2042,14 @@ class Client(BaseClient):
           ::
         
             {
-                'Root': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string',
-                    'PolicyTypes': [
+                \'Root\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\',
+                    \'PolicyTypes\': [
                         {
-                            'Type': 'SERVICE_CONTROL_POLICY',
-                            'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                            \'Type\': \'SERVICE_CONTROL_POLICY\',
+                            \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                         },
                     ]
                 }
@@ -2066,7 +2066,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) for the root.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -2119,7 +2119,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -2131,10 +2131,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -2162,11 +2162,11 @@ class Client(BaseClient):
         
         .. warning::
         
-          * You can invite AWS accounts only from the same seller as the master account. For example, if your organization's master account was created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in India, then you can only invite other AISPL accounts to your organization. You can't combine accounts from AISPL and AWS, or any other AWS seller. For more information, see `Consolidated Billing in India <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html>`__ . 
+          * You can invite AWS accounts only from the same seller as the master account. For example, if your organization\'s master account was created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in India, then you can only invite other AISPL accounts to your organization. You can\'t combine accounts from AISPL and AWS, or any other AWS seller. For more information, see `Consolidated Billing in India <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html>`__ . 
            
           * If you receive an exception that indicates that you exceeded your account limits for the organization or that the operation failed because your organization is still initializing, wait one hour and then try again. If the error persists after an hour, then contact `AWS Customer Support <https://console.aws.amazon.com/support/home#/>`__ . 
            
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/InviteAccountToOrganization>`_
         
@@ -2175,23 +2175,23 @@ class Client(BaseClient):
         
           response = client.invite_account_to_organization(
               Target={
-                  'Id': 'string',
-                  'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                  \'Id\': \'string\',
+                  \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
               },
-              Notes='string'
+              Notes=\'string\'
           )
         :type Target: dict
         :param Target: **[REQUIRED]** 
         
           The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements: 
         
-           ``{ "Type": "ACCOUNT", "Id": "<* **account id number** * >" }``  
+           ``{ \"Type\": \"ACCOUNT\", \"Id\": \"<* **account id number** * >\" }``  
         
           If you use the AWS CLI, you can submit this as a single string, similar to the following example:
         
            ``--target Id=123456789012,Type=ACCOUNT``  
         
-          If you specify ``"Type": "ACCOUNT"`` , then you must provide the AWS account ID number as the ``Id`` . If you specify ``"Type": "EMAIL"`` , then you must specify the email address that is associated with the account.
+          If you specify ``\"Type\": \"ACCOUNT\"`` , then you must provide the AWS account ID number as the ``Id`` . If you specify ``\"Type\": \"EMAIL\"`` , then you must specify the email address that is associated with the account.
         
            ``--target Id=diego@example.com,Type=EMAIL``  
         
@@ -2199,7 +2199,7 @@ class Client(BaseClient):
         
             The unique identifier (ID) for the party.
         
-            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
           - **Type** *(string) --* **[REQUIRED]** 
         
@@ -2218,24 +2218,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshake': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Parties': [
+                \'Handshake\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Parties\': [
                         {
-                            'Id': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                            \'Id\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                         },
                     ],
-                    'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                    'RequestedTimestamp': datetime(2015, 1, 1),
-                    'ExpirationTimestamp': datetime(2015, 1, 1),
-                    'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                    'Resources': [
+                    \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                    \'RequestedTimestamp\': datetime(2015, 1, 1),
+                    \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                    \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                    \'Resources\': [
                         {
-                            'Value': 'string',
-                            'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                            'Resources': {'... recursive ...'}
+                            \'Value\': \'string\',
+                            \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                            \'Resources\': {\'... recursive ...\'}
                         },
                     ]
                 }
@@ -2252,7 +2252,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -2272,7 +2272,7 @@ class Client(BaseClient):
         
                     The unique identifier (ID) for the party.
         
-                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                    The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                   - **Type** *(string) --* 
         
@@ -2308,7 +2308,7 @@ class Client(BaseClient):
         
                 * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                  
-                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                  
                 * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                  
@@ -2378,7 +2378,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccounts>`_
         
@@ -2386,13 +2386,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_accounts(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2407,18 +2407,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Accounts': [
+                \'Accounts\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'SUSPENDED',
-                        'JoinedMethod': 'INVITED'|'CREATED',
-                        'JoinedTimestamp': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'SUSPENDED\',
+                        \'JoinedMethod\': \'INVITED\'|\'CREATED\',
+                        \'JoinedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2482,7 +2482,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccountsForParent>`_
         
@@ -2490,8 +2490,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_accounts_for_parent(
-              ParentId='string',
-              NextToken='string',
+              ParentId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ParentId: string
@@ -2502,7 +2502,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2517,18 +2517,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Accounts': [
+                \'Accounts\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Email': 'string',
-                        'Name': 'string',
-                        'Status': 'ACTIVE'|'SUSPENDED',
-                        'JoinedMethod': 'INVITED'|'CREATED',
-                        'JoinedTimestamp': datetime(2015, 1, 1)
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Email\': \'string\',
+                        \'Name\': \'string\',
+                        \'Status\': \'ACTIVE\'|\'SUSPENDED\',
+                        \'JoinedMethod\': \'INVITED\'|\'CREATED\',
+                        \'JoinedTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2590,7 +2590,7 @@ class Client(BaseClient):
         
         For more information about integrating other services with AWS Organizations, including the list of services that currently work with Organizations, see `Integrating AWS Organizations with Other AWS Services <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html>`__ in the *AWS Organizations User Guide* .
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAWSServiceAccessForOrganization>`_
         
@@ -2598,13 +2598,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_aws_service_access_for_organization(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2619,13 +2619,13 @@ class Client(BaseClient):
           ::
         
             {
-                'EnabledServicePrincipals': [
+                \'EnabledServicePrincipals\': [
                     {
-                        'ServicePrincipal': 'string',
-                        'DateEnabled': datetime(2015, 1, 1)
+                        \'ServicePrincipal\': \'string\',
+                        \'DateEnabled\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2661,7 +2661,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListChildren>`_
         
@@ -2669,9 +2669,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_children(
-              ParentId='string',
-              ChildType='ACCOUNT'|'ORGANIZATIONAL_UNIT',
-              NextToken='string',
+              ParentId=\'string\',
+              ChildType=\'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ParentId: string
@@ -2681,9 +2681,9 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type ChildType: string
         :param ChildType: **[REQUIRED]** 
@@ -2693,7 +2693,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2708,13 +2708,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Children': [
+                \'Children\': [
                     {
-                        'Id': 'string',
-                        'Type': 'ACCOUNT'|'ORGANIZATIONAL_UNIT'
+                        \'Id\': \'string\',
+                        \'Type\': \'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2736,7 +2736,7 @@ class Client(BaseClient):
         
                   * Account: a string that consists of exactly 12 digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Type** *(string) --* 
         
@@ -2756,7 +2756,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListCreateAccountStatus>`_
         
@@ -2765,9 +2765,9 @@ class Client(BaseClient):
         
           response = client.list_create_account_status(
               States=[
-                  'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
+                  \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
               ],
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type States: list
@@ -2780,7 +2780,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2795,18 +2795,18 @@ class Client(BaseClient):
           ::
         
             {
-                'CreateAccountStatuses': [
+                \'CreateAccountStatuses\': [
                     {
-                        'Id': 'string',
-                        'AccountName': 'string',
-                        'State': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'CompletedTimestamp': datetime(2015, 1, 1),
-                        'AccountId': 'string',
-                        'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
+                        \'Id\': \'string\',
+                        \'AccountName\': \'string\',
+                        \'State\': \'IN_PROGRESS\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'CompletedTimestamp\': datetime(2015, 1, 1),
+                        \'AccountId\': \'string\',
+                        \'FailureReason\': \'ACCOUNT_LIMIT_EXCEEDED\'|\'EMAIL_ALREADY_EXISTS\'|\'INVALID_ADDRESS\'|\'INVALID_EMAIL\'|\'CONCURRENT_ACCOUNT_MODIFICATION\'|\'INTERNAL_FAILURE\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2824,7 +2824,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires \"car-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **AccountName** *(string) --* 
         
@@ -2887,10 +2887,10 @@ class Client(BaseClient):
         
           response = client.list_handshakes_for_account(
               Filter={
-                  'ActionType': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                  'ParentHandshakeId': 'string'
+                  \'ActionType\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                  \'ParentHandshakeId\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -2910,12 +2910,12 @@ class Client(BaseClient):
         
             If you specify ``ParentHandshakeId`` , you cannot also specify ``ActionType`` .
         
-            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -2930,30 +2930,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshakes': [
+                \'Handshakes\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Parties': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Parties\': [
                             {
-                                'Id': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                                \'Id\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                             },
                         ],
-                        'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'ExpirationTimestamp': datetime(2015, 1, 1),
-                        'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                        'Resources': [
+                        \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                        \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                        \'Resources\': [
                             {
-                                'Value': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                                'Resources': {'... recursive ...'}
+                                \'Value\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                                \'Resources\': {\'... recursive ...\'}
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2973,7 +2973,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -2993,7 +2993,7 @@ class Client(BaseClient):
         
                       The unique identifier (ID) for the party.
         
-                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                     - **Type** *(string) --* 
         
@@ -3029,7 +3029,7 @@ class Client(BaseClient):
         
                   * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                    
-                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                    
                   * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                    
@@ -3081,7 +3081,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForOrganization>`_
         
@@ -3090,10 +3090,10 @@ class Client(BaseClient):
         
           response = client.list_handshakes_for_organization(
               Filter={
-                  'ActionType': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                  'ParentHandshakeId': 'string'
+                  \'ActionType\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                  \'ParentHandshakeId\': \'string\'
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: dict
@@ -3113,12 +3113,12 @@ class Client(BaseClient):
         
             If you specify ``ParentHandshakeId`` , you cannot also specify ``ActionType`` .
         
-            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+            The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3133,30 +3133,30 @@ class Client(BaseClient):
           ::
         
             {
-                'Handshakes': [
+                \'Handshakes\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Parties': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Parties\': [
                             {
-                                'Id': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'EMAIL'
+                                \'Id\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'EMAIL\'
                             },
                         ],
-                        'State': 'REQUESTED'|'OPEN'|'CANCELED'|'ACCEPTED'|'DECLINED'|'EXPIRED',
-                        'RequestedTimestamp': datetime(2015, 1, 1),
-                        'ExpirationTimestamp': datetime(2015, 1, 1),
-                        'Action': 'INVITE'|'ENABLE_ALL_FEATURES'|'APPROVE_ALL_FEATURES'|'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE',
-                        'Resources': [
+                        \'State\': \'REQUESTED\'|\'OPEN\'|\'CANCELED\'|\'ACCEPTED\'|\'DECLINED\'|\'EXPIRED\',
+                        \'RequestedTimestamp\': datetime(2015, 1, 1),
+                        \'ExpirationTimestamp\': datetime(2015, 1, 1),
+                        \'Action\': \'INVITE\'|\'ENABLE_ALL_FEATURES\'|\'APPROVE_ALL_FEATURES\'|\'ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE\',
+                        \'Resources\': [
                             {
-                                'Value': 'string',
-                                'Type': 'ACCOUNT'|'ORGANIZATION'|'ORGANIZATION_FEATURE_SET'|'EMAIL'|'MASTER_EMAIL'|'MASTER_NAME'|'NOTES'|'PARENT_HANDSHAKE',
-                                'Resources': {'... recursive ...'}
+                                \'Value\': \'string\',
+                                \'Type\': \'ACCOUNT\'|\'ORGANIZATION\'|\'ORGANIZATION_FEATURE_SET\'|\'EMAIL\'|\'MASTER_EMAIL\'|\'MASTER_NAME\'|\'NOTES\'|\'PARENT_HANDSHAKE\',
+                                \'Resources\': {\'... recursive ...\'}
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3176,7 +3176,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of a handshake. The originating account creates the ID when it initiates the handshake.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -3196,7 +3196,7 @@ class Client(BaseClient):
         
                       The unique identifier (ID) for the party.
         
-                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
+                      The `regex pattern <http://wikipedia.org/wiki/regex>`__ for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.
         
                     - **Type** *(string) --* 
         
@@ -3232,7 +3232,7 @@ class Client(BaseClient):
         
                   * **INVITE** : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts. 
                    
-                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred. 
+                  * **ENABLE_ALL_FEATURES** : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only *invited* member accounts. Created accounts do not receive this because those accounts were created by the organization\'s master account and approval is inferred. 
                    
                   * **APPROVE_ALL_FEATURES** : This type of handshake is sent from the Organizations service when all member accounts have approved the ``ENABLE_ALL_FEATURES`` invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features. 
                    
@@ -3282,7 +3282,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListOrganizationalUnitsForParent>`_
         
@@ -3290,8 +3290,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_organizational_units_for_parent(
-              ParentId='string',
-              NextToken='string',
+              ParentId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ParentId: string
@@ -3301,14 +3301,14 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3323,14 +3323,14 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationalUnits': [
+                \'OrganizationalUnits\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string'
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3348,7 +3348,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) associated with this OU.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -3376,7 +3376,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         .. note::
         
@@ -3388,8 +3388,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_parents(
-              ChildId='string',
-              NextToken='string',
+              ChildId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ChildId: string
@@ -3401,12 +3401,12 @@ class Client(BaseClient):
         
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3421,13 +3421,13 @@ class Client(BaseClient):
           ::
         
             {
-                'Parents': [
+                \'Parents\': [
                     {
-                        'Id': 'string',
-                        'Type': 'ROOT'|'ORGANIZATIONAL_UNIT'
+                        \'Id\': \'string\',
+                        \'Type\': \'ROOT\'|\'ORGANIZATIONAL_UNIT\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3447,9 +3447,9 @@ class Client(BaseClient):
         
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-                  * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+                  * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Type** *(string) --* 
         
@@ -3469,7 +3469,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPolicies>`_
         
@@ -3477,8 +3477,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_policies(
-              Filter='SERVICE_CONTROL_POLICY',
-              NextToken='string',
+              Filter=\'SERVICE_CONTROL_POLICY\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filter: string
@@ -3489,7 +3489,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3504,17 +3504,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3532,7 +3532,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -3572,7 +3572,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPoliciesForTarget>`_
         
@@ -3580,9 +3580,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_policies_for_target(
-              TargetId='string',
-              Filter='SERVICE_CONTROL_POLICY',
-              NextToken='string',
+              TargetId=\'string\',
+              Filter=\'SERVICE_CONTROL_POLICY\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type TargetId: string
@@ -3592,11 +3592,11 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
           * Account: a string that consists of exactly 12 digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type Filter: string
         :param Filter: **[REQUIRED]** 
@@ -3606,7 +3606,7 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3621,17 +3621,17 @@ class Client(BaseClient):
           ::
         
             {
-                'Policies': [
+                \'Policies\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3649,7 +3649,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -3689,7 +3689,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         .. note::
         
@@ -3701,13 +3701,13 @@ class Client(BaseClient):
         ::
         
           response = client.list_roots(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3722,20 +3722,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Roots': [
+                \'Roots\': [
                     {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'PolicyTypes': [
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'PolicyTypes\': [
                             {
-                                'Type': 'SERVICE_CONTROL_POLICY',
-                                'Status': 'ENABLED'|'PENDING_ENABLE'|'PENDING_DISABLE'
+                                \'Type\': \'SERVICE_CONTROL_POLICY\',
+                                \'Status\': \'ENABLED\'|\'PENDING_ENABLE\'|\'PENDING_DISABLE\'
                             },
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3753,7 +3753,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) for the root.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a root ID string requires \"r-\" followed by from 4 to 32 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         
@@ -3801,7 +3801,7 @@ class Client(BaseClient):
         
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListTargetsForPolicy>`_
         
@@ -3809,8 +3809,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_targets_for_policy(
-              PolicyId='string',
-              NextToken='string',
+              PolicyId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type PolicyId: string
@@ -3818,12 +3818,12 @@ class Client(BaseClient):
         
           The unique identifier (ID) of the policy for which you want to know its attachments.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :type NextToken: string
         :param NextToken: 
         
-          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call's ``NextToken`` response to indicate where the output should continue from.
+          Use this parameter if you receive a ``NextToken`` response in a previous request that indicates that there is more output available. Set it to the value of the previous call\'s ``NextToken`` response to indicate where the output should continue from.
         
         :type MaxResults: integer
         :param MaxResults: 
@@ -3838,15 +3838,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Targets': [
+                \'Targets\': [
                     {
-                        'TargetId': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Type': 'ACCOUNT'|'ORGANIZATIONAL_UNIT'|'ROOT'
+                        \'TargetId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Type\': \'ACCOUNT\'|\'ORGANIZATIONAL_UNIT\'|\'ROOT\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -3866,11 +3866,11 @@ class Client(BaseClient):
         
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a target ID string requires one of the following:
         
-                  * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+                  * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
                    
                   * Account: a string that consists of exactly 12 digits. 
                    
-                  * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+                  * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
                    
                 - **Arn** *(string) --* 
         
@@ -3898,7 +3898,7 @@ class Client(BaseClient):
     def move_account(self, AccountId: str, SourceParentId: str, DestinationParentId: str) -> NoReturn:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/MoveAccount>`_
         
@@ -3906,9 +3906,9 @@ class Client(BaseClient):
         ::
         
           response = client.move_account(
-              AccountId='string',
-              SourceParentId='string',
-              DestinationParentId='string'
+              AccountId=\'string\',
+              SourceParentId=\'string\',
+              DestinationParentId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -3924,9 +3924,9 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :type DestinationParentId: string
         :param DestinationParentId: **[REQUIRED]** 
@@ -3935,9 +3935,9 @@ class Client(BaseClient):
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a parent ID string requires one of the following:
         
-          * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits. 
+          * Root: a string that begins with \"r-\" followed by from 4 to 32 lower-case letters or digits. 
            
-          * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits. 
+          * Organizational unit (OU): a string that begins with \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits. 
            
         :returns: None
         """
@@ -3946,9 +3946,9 @@ class Client(BaseClient):
     def remove_account_from_organization(self, AccountId: str) -> NoReturn:
         """
         
-        The removed account becomes a stand-alone account that is not a member of any organization. It is no longer subject to any policies and is responsible for its own bill payments. The organization's master account is no longer charged for any expenses accrued by the member account after it is removed from the organization.
+        The removed account becomes a stand-alone account that is not a member of any organization. It is no longer subject to any policies and is responsible for its own bill payments. The organization\'s master account is no longer charged for any expenses accrued by the member account after it is removed from the organization.
         
-        This operation can be called only from the organization's master account. Member accounts can remove themselves with  LeaveOrganization instead.
+        This operation can be called only from the organization\'s master account. Member accounts can remove themselves with  LeaveOrganization instead.
         
         .. warning::
         
@@ -3960,7 +3960,7 @@ class Client(BaseClient):
         ::
         
           response = client.remove_account_from_organization(
-              AccountId='string'
+              AccountId=\'string\'
           )
         :type AccountId: string
         :param AccountId: **[REQUIRED]** 
@@ -3976,7 +3976,7 @@ class Client(BaseClient):
     def update_organizational_unit(self, OrganizationalUnitId: str, Name: str = None) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdateOrganizationalUnit>`_
         
@@ -3984,15 +3984,15 @@ class Client(BaseClient):
         ::
         
           response = client.update_organizational_unit(
-              OrganizationalUnitId='string',
-              Name='string'
+              OrganizationalUnitId=\'string\',
+              Name=\'string\'
           )
         :type OrganizationalUnitId: string
         :param OrganizationalUnitId: **[REQUIRED]** 
         
           The unique identifier (ID) of the OU that you want to rename. You can get the ID from the  ListOrganizationalUnitsForParent operation.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
         :type Name: string
         :param Name: 
@@ -4009,10 +4009,10 @@ class Client(BaseClient):
           ::
         
             {
-                'OrganizationalUnit': {
-                    'Id': 'string',
-                    'Arn': 'string',
-                    'Name': 'string'
+                \'OrganizationalUnit\': {
+                    \'Id\': \'string\',
+                    \'Arn\': \'string\',
+                    \'Name\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4027,7 +4027,7 @@ class Client(BaseClient):
         
                 The unique identifier (ID) associated with this OU.
         
-                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an organizational unit ID string requires \"ou-\" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second \"-\" dash and from 8 to 32 additional lower-case letters or digits.
         
               - **Arn** *(string) --* 
         
@@ -4047,7 +4047,7 @@ class Client(BaseClient):
     def update_policy(self, PolicyId: str, Name: str = None, Description: str = None, Content: str = None) -> Dict:
         """
         
-        This operation can be called only from the organization's master account.
+        This operation can be called only from the organization\'s master account.
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdatePolicy>`_
         
@@ -4055,17 +4055,17 @@ class Client(BaseClient):
         ::
         
           response = client.update_policy(
-              PolicyId='string',
-              Name='string',
-              Description='string',
-              Content='string'
+              PolicyId=\'string\',
+              Name=\'string\',
+              Description=\'string\',
+              Content=\'string\'
           )
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]** 
         
           The unique identifier (ID) of the policy that you want to update.
         
-          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
         :type Name: string
         :param Name: 
@@ -4082,7 +4082,7 @@ class Client(BaseClient):
         :type Content: string
         :param Content: 
         
-          If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see `Service Control Policy Syntax <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html>`__ in the *AWS Organizations User Guide* .
+          If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy\'s type. For more information, see `Service Control Policy Syntax <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html>`__ in the *AWS Organizations User Guide* .
         
         :rtype: dict
         :returns: 
@@ -4092,16 +4092,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Policy': {
-                    'PolicySummary': {
-                        'Id': 'string',
-                        'Arn': 'string',
-                        'Name': 'string',
-                        'Description': 'string',
-                        'Type': 'SERVICE_CONTROL_POLICY',
-                        'AwsManaged': True|False
+                \'Policy\': {
+                    \'PolicySummary\': {
+                        \'Id\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Name\': \'string\',
+                        \'Description\': \'string\',
+                        \'Type\': \'SERVICE_CONTROL_POLICY\',
+                        \'AwsManaged\': True|False
                     },
-                    'Content': 'string'
+                    \'Content\': \'string\'
                 }
             }
           **Response Structure** 
@@ -4120,7 +4120,7 @@ class Client(BaseClient):
         
                   The unique identifier (ID) of the policy.
         
-                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
+                  The `regex pattern <http://wikipedia.org/wiki/regex>`__ for a policy ID string requires \"p-\" followed by from 8 to 128 lower-case letters or digits.
         
                 - **Arn** *(string) --* 
         

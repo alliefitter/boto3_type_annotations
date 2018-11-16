@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -18,9 +18,9 @@ class Client(BaseClient):
         ::
         
           response = client.accept_invitation(
-              DetectorId='string',
-              InvitationId='string',
-              MasterId='string'
+              DetectorId=\'string\',
+              InvitationId=\'string\',
+              MasterId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty member account.
@@ -29,7 +29,7 @@ class Client(BaseClient):
         :param InvitationId: **[REQUIRED]** This value is used to validate the master account to the member account.
         
         :type MasterId: string
-        :param MasterId: **[REQUIRED]** The account ID of the master GuardDuty account whose invitation you're accepting.
+        :param MasterId: **[REQUIRED]** The account ID of the master GuardDuty account whose invitation you\'re accepting.
         
         :rtype: dict
         :returns: 
@@ -54,9 +54,9 @@ class Client(BaseClient):
         ::
         
           response = client.archive_findings(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DetectorId: string
@@ -87,10 +87,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -106,9 +106,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_detector(
-              ClientToken='string',
+              ClientToken=\'string\',
               Enable=True|False,
-              FindingPublishingFrequency='FIFTEEN_MINUTES'|'ONE_HOUR'|'SIX_HOURS'
+              FindingPublishingFrequency=\'FIFTEEN_MINUTES\'|\'ONE_HOUR\'|\'SIX_HOURS\'
           )
         :type ClientToken: string
         :param ClientToken: The idempotency token for the create request.This field is autopopulated if not provided.
@@ -127,7 +127,7 @@ class Client(BaseClient):
           ::
         
             {
-                'DetectorId': 'string'
+                \'DetectorId\': \'string\'
             }
           **Response Structure** 
         
@@ -146,27 +146,27 @@ class Client(BaseClient):
         ::
         
           response = client.create_filter(
-              Action='NOOP'|'ARCHIVE',
-              ClientToken='string',
-              Description='string',
-              DetectorId='string',
+              Action=\'NOOP\'|\'ARCHIVE\',
+              ClientToken=\'string\',
+              Description=\'string\',
+              DetectorId=\'string\',
               FindingCriteria={
-                  'Criterion': {
-                      'string': {
-                          'Eq': [
-                              'string',
+                  \'Criterion\': {
+                      \'string\': {
+                          \'Eq\': [
+                              \'string\',
                           ],
-                          'Gt': 123,
-                          'Gte': 123,
-                          'Lt': 123,
-                          'Lte': 123,
-                          'Neq': [
-                              'string',
+                          \'Gt\': 123,
+                          \'Gte\': 123,
+                          \'Lt\': 123,
+                          \'Lte\': 123,
+                          \'Neq\': [
+                              \'string\',
                           ]
                       }
                   }
               },
-              Name='string',
+              Name=\'string\',
               Rank=123
           )
         :type Action: string
@@ -220,7 +220,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -240,11 +240,11 @@ class Client(BaseClient):
         
           response = client.create_ip_set(
               Activate=True|False,
-              ClientToken='string',
-              DetectorId='string',
-              Format='TXT'|'STIX'|'OTX_CSV'|'ALIEN_VAULT'|'PROOF_POINT'|'FIRE_EYE',
-              Location='string',
-              Name='string'
+              ClientToken=\'string\',
+              DetectorId=\'string\',
+              Format=\'TXT\'|\'STIX\'|\'OTX_CSV\'|\'ALIEN_VAULT\'|\'PROOF_POINT\'|\'FIRE_EYE\',
+              Location=\'string\',
+              Name=\'string\'
           )
         :type Activate: boolean
         :param Activate: **[REQUIRED]** A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
@@ -272,7 +272,7 @@ class Client(BaseClient):
           ::
         
             {
-                'IpSetId': 'string'
+                \'IpSetId\': \'string\'
             }
           **Response Structure** 
         
@@ -293,20 +293,20 @@ class Client(BaseClient):
           response = client.create_members(
               AccountDetails=[
                   {
-                      'AccountId': 'string',
-                      'Email': 'string'
+                      \'AccountId\': \'string\',
+                      \'Email\': \'string\'
                   },
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountDetails: list
         :param AccountDetails: **[REQUIRED]** A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
         
-          - *(dict) --* An object containing the member's accountId and email address.
+          - *(dict) --* An object containing the member\'s accountId and email address.
         
             - **AccountId** *(string) --* **[REQUIRED]** Member account ID.
         
-            - **Email** *(string) --* **[REQUIRED]** Member account's email address.
+            - **Email** *(string) --* **[REQUIRED]** Member account\'s email address.
         
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account with which you want to associate member accounts.
@@ -319,10 +319,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -336,7 +336,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -350,9 +350,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_sample_findings(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingTypes=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DetectorId: string
@@ -387,11 +387,11 @@ class Client(BaseClient):
         
           response = client.create_threat_intel_set(
               Activate=True|False,
-              ClientToken='string',
-              DetectorId='string',
-              Format='TXT'|'STIX'|'OTX_CSV'|'ALIEN_VAULT'|'PROOF_POINT'|'FIRE_EYE',
-              Location='string',
-              Name='string'
+              ClientToken=\'string\',
+              DetectorId=\'string\',
+              Format=\'TXT\'|\'STIX\'|\'OTX_CSV\'|\'ALIEN_VAULT\'|\'PROOF_POINT\'|\'FIRE_EYE\',
+              Location=\'string\',
+              Name=\'string\'
           )
         :type Activate: boolean
         :param Activate: **[REQUIRED]** A boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
@@ -419,7 +419,7 @@ class Client(BaseClient):
           ::
         
             {
-                'ThreatIntelSetId': 'string'
+                \'ThreatIntelSetId\': \'string\'
             }
           **Response Structure** 
         
@@ -439,7 +439,7 @@ class Client(BaseClient):
         
           response = client.decline_invitations(
               AccountIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AccountIds: list
@@ -455,10 +455,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -472,7 +472,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -486,7 +486,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_detector(
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID that specifies the detector that you want to delete.
@@ -514,8 +514,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_filter(
-              DetectorId='string',
-              FilterName='string'
+              DetectorId=\'string\',
+              FilterName=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID that specifies the detector where you want to delete a filter.
@@ -547,7 +547,7 @@ class Client(BaseClient):
         
           response = client.delete_invitations(
               AccountIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type AccountIds: list
@@ -563,10 +563,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -580,7 +580,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -594,8 +594,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_ip_set(
-              DetectorId='string',
-              IpSetId='string'
+              DetectorId=\'string\',
+              IpSetId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detectorID that specifies the GuardDuty service whose IPSet you want to delete.
@@ -627,9 +627,9 @@ class Client(BaseClient):
         
           response = client.delete_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the GuardDuty member accounts that you want to delete.
@@ -647,10 +647,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -664,7 +664,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -678,8 +678,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_threat_intel_set(
-              DetectorId='string',
-              ThreatIntelSetId='string'
+              DetectorId=\'string\',
+              ThreatIntelSetId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to delete.
@@ -710,7 +710,7 @@ class Client(BaseClient):
         ::
         
           response = client.disassociate_from_master_account(
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty member account.
@@ -739,9 +739,9 @@ class Client(BaseClient):
         
           response = client.disassociate_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
@@ -759,10 +759,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -776,7 +776,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -797,7 +797,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -812,7 +812,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_detector(
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector that you want to retrieve.
@@ -825,11 +825,11 @@ class Client(BaseClient):
           ::
         
             {
-                'CreatedAt': 'string',
-                'FindingPublishingFrequency': 'FIFTEEN_MINUTES'|'ONE_HOUR'|'SIX_HOURS',
-                'ServiceRole': 'string',
-                'Status': 'ENABLED'|'DISABLED',
-                'UpdatedAt': 'string'
+                \'CreatedAt\': \'string\',
+                \'FindingPublishingFrequency\': \'FIFTEEN_MINUTES\'|\'ONE_HOUR\'|\'SIX_HOURS\',
+                \'ServiceRole\': \'string\',
+                \'Status\': \'ENABLED\'|\'DISABLED\',
+                \'UpdatedAt\': \'string\'
             }
           **Response Structure** 
         
@@ -856,8 +856,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_filter(
-              DetectorId='string',
-              FilterName='string'
+              DetectorId=\'string\',
+              FilterName=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detector ID that specifies the GuardDuty service where you want to list the details of the specified filter.
@@ -873,26 +873,26 @@ class Client(BaseClient):
           ::
         
             {
-                'Action': 'NOOP'|'ARCHIVE',
-                'Description': 'string',
-                'FindingCriteria': {
-                    'Criterion': {
-                        'string': {
-                            'Eq': [
-                                'string',
+                \'Action\': \'NOOP\'|\'ARCHIVE\',
+                \'Description\': \'string\',
+                \'FindingCriteria\': {
+                    \'Criterion\': {
+                        \'string\': {
+                            \'Eq\': [
+                                \'string\',
                             ],
-                            'Gt': 123,
-                            'Gte': 123,
-                            'Lt': 123,
-                            'Lte': 123,
-                            'Neq': [
-                                'string',
+                            \'Gt\': 123,
+                            \'Gte\': 123,
+                            \'Lt\': 123,
+                            \'Lte\': 123,
+                            \'Neq\': [
+                                \'string\',
                             ]
                         }
                     }
                 },
-                'Name': 'string',
-                'Rank': 123
+                \'Name\': \'string\',
+                \'Rank\': 123
             }
           **Response Structure** 
         
@@ -941,13 +941,13 @@ class Client(BaseClient):
         ::
         
           response = client.get_findings(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingIds=[
-                  'string',
+                  \'string\',
               ],
               SortCriteria={
-                  'AttributeName': 'string',
-                  'OrderBy': 'ASC'|'DESC'
+                  \'AttributeName\': \'string\',
+                  \'OrderBy\': \'ASC\'|\'DESC\'
               }
           )
         :type DetectorId: string
@@ -973,188 +973,188 @@ class Client(BaseClient):
           ::
         
             {
-                'Findings': [
+                \'Findings\': [
                     {
-                        'AccountId': 'string',
-                        'Arn': 'string',
-                        'Confidence': 123.0,
-                        'CreatedAt': 'string',
-                        'Description': 'string',
-                        'Id': 'string',
-                        'Partition': 'string',
-                        'Region': 'string',
-                        'Resource': {
-                            'AccessKeyDetails': {
-                                'AccessKeyId': 'string',
-                                'PrincipalId': 'string',
-                                'UserName': 'string',
-                                'UserType': 'string'
+                        \'AccountId\': \'string\',
+                        \'Arn\': \'string\',
+                        \'Confidence\': 123.0,
+                        \'CreatedAt\': \'string\',
+                        \'Description\': \'string\',
+                        \'Id\': \'string\',
+                        \'Partition\': \'string\',
+                        \'Region\': \'string\',
+                        \'Resource\': {
+                            \'AccessKeyDetails\': {
+                                \'AccessKeyId\': \'string\',
+                                \'PrincipalId\': \'string\',
+                                \'UserName\': \'string\',
+                                \'UserType\': \'string\'
                             },
-                            'InstanceDetails': {
-                                'AvailabilityZone': 'string',
-                                'IamInstanceProfile': {
-                                    'Arn': 'string',
-                                    'Id': 'string'
+                            \'InstanceDetails\': {
+                                \'AvailabilityZone\': \'string\',
+                                \'IamInstanceProfile\': {
+                                    \'Arn\': \'string\',
+                                    \'Id\': \'string\'
                                 },
-                                'ImageDescription': 'string',
-                                'ImageId': 'string',
-                                'InstanceId': 'string',
-                                'InstanceState': 'string',
-                                'InstanceType': 'string',
-                                'LaunchTime': 'string',
-                                'NetworkInterfaces': [
+                                \'ImageDescription\': \'string\',
+                                \'ImageId\': \'string\',
+                                \'InstanceId\': \'string\',
+                                \'InstanceState\': \'string\',
+                                \'InstanceType\': \'string\',
+                                \'LaunchTime\': \'string\',
+                                \'NetworkInterfaces\': [
                                     {
-                                        'Ipv6Addresses': [
-                                            'string',
+                                        \'Ipv6Addresses\': [
+                                            \'string\',
                                         ],
-                                        'NetworkInterfaceId': 'string',
-                                        'PrivateDnsName': 'string',
-                                        'PrivateIpAddress': 'string',
-                                        'PrivateIpAddresses': [
+                                        \'NetworkInterfaceId\': \'string\',
+                                        \'PrivateDnsName\': \'string\',
+                                        \'PrivateIpAddress\': \'string\',
+                                        \'PrivateIpAddresses\': [
                                             {
-                                                'PrivateDnsName': 'string',
-                                                'PrivateIpAddress': 'string'
+                                                \'PrivateDnsName\': \'string\',
+                                                \'PrivateIpAddress\': \'string\'
                                             },
                                         ],
-                                        'PublicDnsName': 'string',
-                                        'PublicIp': 'string',
-                                        'SecurityGroups': [
+                                        \'PublicDnsName\': \'string\',
+                                        \'PublicIp\': \'string\',
+                                        \'SecurityGroups\': [
                                             {
-                                                'GroupId': 'string',
-                                                'GroupName': 'string'
+                                                \'GroupId\': \'string\',
+                                                \'GroupName\': \'string\'
                                             },
                                         ],
-                                        'SubnetId': 'string',
-                                        'VpcId': 'string'
+                                        \'SubnetId\': \'string\',
+                                        \'VpcId\': \'string\'
                                     },
                                 ],
-                                'Platform': 'string',
-                                'ProductCodes': [
+                                \'Platform\': \'string\',
+                                \'ProductCodes\': [
                                     {
-                                        'Code': 'string',
-                                        'ProductType': 'string'
+                                        \'Code\': \'string\',
+                                        \'ProductType\': \'string\'
                                     },
                                 ],
-                                'Tags': [
+                                \'Tags\': [
                                     {
-                                        'Key': 'string',
-                                        'Value': 'string'
+                                        \'Key\': \'string\',
+                                        \'Value\': \'string\'
                                     },
                                 ]
                             },
-                            'ResourceType': 'string'
+                            \'ResourceType\': \'string\'
                         },
-                        'SchemaVersion': 'string',
-                        'Service': {
-                            'Action': {
-                                'ActionType': 'string',
-                                'AwsApiCallAction': {
-                                    'Api': 'string',
-                                    'CallerType': 'string',
-                                    'DomainDetails': {},
-                                    'RemoteIpDetails': {
-                                        'City': {
-                                            'CityName': 'string'
+                        \'SchemaVersion\': \'string\',
+                        \'Service\': {
+                            \'Action\': {
+                                \'ActionType\': \'string\',
+                                \'AwsApiCallAction\': {
+                                    \'Api\': \'string\',
+                                    \'CallerType\': \'string\',
+                                    \'DomainDetails\': {},
+                                    \'RemoteIpDetails\': {
+                                        \'City\': {
+                                            \'CityName\': \'string\'
                                         },
-                                        'Country': {
-                                            'CountryCode': 'string',
-                                            'CountryName': 'string'
+                                        \'Country\': {
+                                            \'CountryCode\': \'string\',
+                                            \'CountryName\': \'string\'
                                         },
-                                        'GeoLocation': {
-                                            'Lat': 123.0,
-                                            'Lon': 123.0
+                                        \'GeoLocation\': {
+                                            \'Lat\': 123.0,
+                                            \'Lon\': 123.0
                                         },
-                                        'IpAddressV4': 'string',
-                                        'Organization': {
-                                            'Asn': 'string',
-                                            'AsnOrg': 'string',
-                                            'Isp': 'string',
-                                            'Org': 'string'
+                                        \'IpAddressV4\': \'string\',
+                                        \'Organization\': {
+                                            \'Asn\': \'string\',
+                                            \'AsnOrg\': \'string\',
+                                            \'Isp\': \'string\',
+                                            \'Org\': \'string\'
                                         }
                                     },
-                                    'ServiceName': 'string'
+                                    \'ServiceName\': \'string\'
                                 },
-                                'DnsRequestAction': {
-                                    'Domain': 'string'
+                                \'DnsRequestAction\': {
+                                    \'Domain\': \'string\'
                                 },
-                                'NetworkConnectionAction': {
-                                    'Blocked': True|False,
-                                    'ConnectionDirection': 'string',
-                                    'LocalPortDetails': {
-                                        'Port': 123,
-                                        'PortName': 'string'
+                                \'NetworkConnectionAction\': {
+                                    \'Blocked\': True|False,
+                                    \'ConnectionDirection\': \'string\',
+                                    \'LocalPortDetails\': {
+                                        \'Port\': 123,
+                                        \'PortName\': \'string\'
                                     },
-                                    'Protocol': 'string',
-                                    'RemoteIpDetails': {
-                                        'City': {
-                                            'CityName': 'string'
+                                    \'Protocol\': \'string\',
+                                    \'RemoteIpDetails\': {
+                                        \'City\': {
+                                            \'CityName\': \'string\'
                                         },
-                                        'Country': {
-                                            'CountryCode': 'string',
-                                            'CountryName': 'string'
+                                        \'Country\': {
+                                            \'CountryCode\': \'string\',
+                                            \'CountryName\': \'string\'
                                         },
-                                        'GeoLocation': {
-                                            'Lat': 123.0,
-                                            'Lon': 123.0
+                                        \'GeoLocation\': {
+                                            \'Lat\': 123.0,
+                                            \'Lon\': 123.0
                                         },
-                                        'IpAddressV4': 'string',
-                                        'Organization': {
-                                            'Asn': 'string',
-                                            'AsnOrg': 'string',
-                                            'Isp': 'string',
-                                            'Org': 'string'
+                                        \'IpAddressV4\': \'string\',
+                                        \'Organization\': {
+                                            \'Asn\': \'string\',
+                                            \'AsnOrg\': \'string\',
+                                            \'Isp\': \'string\',
+                                            \'Org\': \'string\'
                                         }
                                     },
-                                    'RemotePortDetails': {
-                                        'Port': 123,
-                                        'PortName': 'string'
+                                    \'RemotePortDetails\': {
+                                        \'Port\': 123,
+                                        \'PortName\': \'string\'
                                     }
                                 },
-                                'PortProbeAction': {
-                                    'Blocked': True|False,
-                                    'PortProbeDetails': [
+                                \'PortProbeAction\': {
+                                    \'Blocked\': True|False,
+                                    \'PortProbeDetails\': [
                                         {
-                                            'LocalPortDetails': {
-                                                'Port': 123,
-                                                'PortName': 'string'
+                                            \'LocalPortDetails\': {
+                                                \'Port\': 123,
+                                                \'PortName\': \'string\'
                                             },
-                                            'RemoteIpDetails': {
-                                                'City': {
-                                                    'CityName': 'string'
+                                            \'RemoteIpDetails\': {
+                                                \'City\': {
+                                                    \'CityName\': \'string\'
                                                 },
-                                                'Country': {
-                                                    'CountryCode': 'string',
-                                                    'CountryName': 'string'
+                                                \'Country\': {
+                                                    \'CountryCode\': \'string\',
+                                                    \'CountryName\': \'string\'
                                                 },
-                                                'GeoLocation': {
-                                                    'Lat': 123.0,
-                                                    'Lon': 123.0
+                                                \'GeoLocation\': {
+                                                    \'Lat\': 123.0,
+                                                    \'Lon\': 123.0
                                                 },
-                                                'IpAddressV4': 'string',
-                                                'Organization': {
-                                                    'Asn': 'string',
-                                                    'AsnOrg': 'string',
-                                                    'Isp': 'string',
-                                                    'Org': 'string'
+                                                \'IpAddressV4\': \'string\',
+                                                \'Organization\': {
+                                                    \'Asn\': \'string\',
+                                                    \'AsnOrg\': \'string\',
+                                                    \'Isp\': \'string\',
+                                                    \'Org\': \'string\'
                                                 }
                                             }
                                         },
                                     ]
                                 }
                             },
-                            'Archived': True|False,
-                            'Count': 123,
-                            'DetectorId': 'string',
-                            'EventFirstSeen': 'string',
-                            'EventLastSeen': 'string',
-                            'ResourceRole': 'string',
-                            'ServiceName': 'string',
-                            'UserFeedback': 'string'
+                            \'Archived\': True|False,
+                            \'Count\': 123,
+                            \'DetectorId\': \'string\',
+                            \'EventFirstSeen\': \'string\',
+                            \'EventLastSeen\': \'string\',
+                            \'ResourceRole\': \'string\',
+                            \'ServiceName\': \'string\',
+                            \'UserFeedback\': \'string\'
                         },
-                        'Severity': 123.0,
-                        'Title': 'string',
-                        'Type': 'string',
-                        'UpdatedAt': 'string'
+                        \'Severity\': 123.0,
+                        \'Title\': \'string\',
+                        \'Type\': \'string\',
+                        \'UpdatedAt\': \'string\'
                     },
                 ]
             }
@@ -1246,9 +1246,9 @@ class Client(BaseClient):
                           
                           - *(dict) --* Security groups associated with the EC2 instance.
                             
-                            - **GroupId** *(string) --* EC2 instance's security group ID.
+                            - **GroupId** *(string) --* EC2 instance\'s security group ID.
                             
-                            - **GroupName** *(string) --* EC2 instance's security group name.
+                            - **GroupName** *(string) --* EC2 instance\'s security group name.
                         
                         - **SubnetId** *(string) --* The subnet ID of the EC2 instance.
                         
@@ -1274,7 +1274,7 @@ class Client(BaseClient):
                     
                   - **ResourceType** *(string) --* The type of the AWS resource.
               
-                - **SchemaVersion** *(string) --* Findings' schema version.
+                - **SchemaVersion** *(string) --* Findings\' schema version.
                 
                 - **Service** *(dict) --* Additional information assigned to the generated finding by GuardDuty.
                   
@@ -1456,29 +1456,29 @@ class Client(BaseClient):
         ::
         
           response = client.get_findings_statistics(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingCriteria={
-                  'Criterion': {
-                      'string': {
-                          'Eq': [
-                              'string',
+                  \'Criterion\': {
+                      \'string\': {
+                          \'Eq\': [
+                              \'string\',
                           ],
-                          'Gt': 123,
-                          'Gte': 123,
-                          'Lt': 123,
-                          'Lte': 123,
-                          'Neq': [
-                              'string',
+                          \'Gt\': 123,
+                          \'Gte\': 123,
+                          \'Lt\': 123,
+                          \'Lte\': 123,
+                          \'Neq\': [
+                              \'string\',
                           ]
                       }
                   }
               },
               FindingStatisticTypes=[
-                  'COUNT_BY_SEVERITY',
+                  \'COUNT_BY_SEVERITY\',
               ]
           )
         :type DetectorId: string
-        :param DetectorId: **[REQUIRED]** The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
+        :param DetectorId: **[REQUIRED]** The ID of the detector that specifies the GuardDuty service whose findings\' statistics you want to retrieve.
         
         :type FindingCriteria: dict
         :param FindingCriteria: Represents the criteria used for querying findings.
@@ -1518,9 +1518,9 @@ class Client(BaseClient):
           ::
         
             {
-                'FindingStatistics': {
-                    'CountBySeverity': {
-                        'string': 123
+                \'FindingStatistics\': {
+                    \'CountBySeverity\': {
+                        \'string\': 123
                     }
                 }
             }
@@ -1557,7 +1557,7 @@ class Client(BaseClient):
           ::
         
             {
-                'InvitationsCount': 123
+                \'InvitationsCount\': 123
             }
           **Response Structure** 
         
@@ -1576,8 +1576,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_ip_set(
-              DetectorId='string',
-              IpSetId='string'
+              DetectorId=\'string\',
+              IpSetId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detectorID that specifies the GuardDuty service whose IPSet you want to retrieve.
@@ -1593,10 +1593,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Format': 'TXT'|'STIX'|'OTX_CSV'|'ALIEN_VAULT'|'PROOF_POINT'|'FIRE_EYE',
-                'Location': 'string',
-                'Name': 'string',
-                'Status': 'INACTIVE'|'ACTIVATING'|'ACTIVE'|'DEACTIVATING'|'ERROR'|'DELETE_PENDING'|'DELETED'
+                \'Format\': \'TXT\'|\'STIX\'|\'OTX_CSV\'|\'ALIEN_VAULT\'|\'PROOF_POINT\'|\'FIRE_EYE\',
+                \'Location\': \'string\',
+                \'Name\': \'string\',
+                \'Status\': \'INACTIVE\'|\'ACTIVATING\'|\'ACTIVE\'|\'DEACTIVATING\'|\'ERROR\'|\'DELETE_PENDING\'|\'DELETED\'
             }
           **Response Structure** 
         
@@ -1621,7 +1621,7 @@ class Client(BaseClient):
         ::
         
           response = client.get_master_account(
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty member account.
@@ -1634,11 +1634,11 @@ class Client(BaseClient):
           ::
         
             {
-                'Master': {
-                    'AccountId': 'string',
-                    'InvitationId': 'string',
-                    'InvitedAt': 'string',
-                    'RelationshipStatus': 'string'
+                \'Master\': {
+                    \'AccountId\': \'string\',
+                    \'InvitationId\': \'string\',
+                    \'InvitedAt\': \'string\',
+                    \'RelationshipStatus\': \'string\'
                 }
             }
           **Response Structure** 
@@ -1668,9 +1668,9 @@ class Client(BaseClient):
         
           response = client.get_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the GuardDuty member accounts that you want to describe.
@@ -1688,21 +1688,21 @@ class Client(BaseClient):
           ::
         
             {
-                'Members': [
+                \'Members\': [
                     {
-                        'AccountId': 'string',
-                        'DetectorId': 'string',
-                        'Email': 'string',
-                        'InvitedAt': 'string',
-                        'MasterId': 'string',
-                        'RelationshipStatus': 'string',
-                        'UpdatedAt': 'string'
+                        \'AccountId\': \'string\',
+                        \'DetectorId\': \'string\',
+                        \'Email\': \'string\',
+                        \'InvitedAt\': \'string\',
+                        \'MasterId\': \'string\',
+                        \'RelationshipStatus\': \'string\',
+                        \'UpdatedAt\': \'string\'
                     },
                 ],
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -1718,7 +1718,7 @@ class Client(BaseClient):
                 
                 - **DetectorId** *(string) --* The unique identifier for a detector.
                 
-                - **Email** *(string) --* Member account's email address.
+                - **Email** *(string) --* Member account\'s email address.
                 
                 - **InvitedAt** *(string) --* Timestamp at which the invitation was sent
                 
@@ -1734,7 +1734,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -1745,10 +1745,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1768,8 +1768,8 @@ class Client(BaseClient):
         ::
         
           response = client.get_threat_intel_set(
-              DetectorId='string',
-              ThreatIntelSetId='string'
+              DetectorId=\'string\',
+              ThreatIntelSetId=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to describe.
@@ -1785,10 +1785,10 @@ class Client(BaseClient):
           ::
         
             {
-                'Format': 'TXT'|'STIX'|'OTX_CSV'|'ALIEN_VAULT'|'PROOF_POINT'|'FIRE_EYE',
-                'Location': 'string',
-                'Name': 'string',
-                'Status': 'INACTIVE'|'ACTIVATING'|'ACTIVE'|'DEACTIVATING'|'ERROR'|'DELETE_PENDING'|'DELETED'
+                \'Format\': \'TXT\'|\'STIX\'|\'OTX_CSV\'|\'ALIEN_VAULT\'|\'PROOF_POINT\'|\'FIRE_EYE\',
+                \'Location\': \'string\',
+                \'Name\': \'string\',
+                \'Status\': \'INACTIVE\'|\'ACTIVATING\'|\'ACTIVE\'|\'DEACTIVATING\'|\'ERROR\'|\'DELETE_PENDING\'|\'DELETED\'
             }
           **Response Structure** 
         
@@ -1826,11 +1826,11 @@ class Client(BaseClient):
         
           response = client.invite_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string',
+              DetectorId=\'string\',
               DisableEmailNotification=True|False,
-              Message='string'
+              Message=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the accounts that you want to invite to GuardDuty as members.
@@ -1854,10 +1854,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -1871,7 +1871,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -1886,7 +1886,7 @@ class Client(BaseClient):
         
           response = client.list_detectors(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: You can use this parameter to indicate the maximum number of detectors that you want in the response.
@@ -1902,10 +1902,10 @@ class Client(BaseClient):
           ::
         
             {
-                'DetectorIds': [
-                    'string',
+                \'DetectorIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1928,9 +1928,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_filters(
-              DetectorId='string',
+              DetectorId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The ID of the detector that specifies the GuardDuty service where you want to list filters.
@@ -1949,10 +1949,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FilterNames': [
-                    'string',
+                \'FilterNames\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1975,28 +1975,28 @@ class Client(BaseClient):
         ::
         
           response = client.list_findings(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingCriteria={
-                  'Criterion': {
-                      'string': {
-                          'Eq': [
-                              'string',
+                  \'Criterion\': {
+                      \'string\': {
+                          \'Eq\': [
+                              \'string\',
                           ],
-                          'Gt': 123,
-                          'Gte': 123,
-                          'Lt': 123,
-                          'Lte': 123,
-                          'Neq': [
-                              'string',
+                          \'Gt\': 123,
+                          \'Gte\': 123,
+                          \'Lt\': 123,
+                          \'Lte\': 123,
+                          \'Neq\': [
+                              \'string\',
                           ]
                       }
                   }
               },
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               SortCriteria={
-                  'AttributeName': 'string',
-                  'OrderBy': 'ASC'|'DESC'
+                  \'AttributeName\': \'string\',
+                  \'OrderBy\': \'ASC\'|\'DESC\'
               }
           )
         :type DetectorId: string
@@ -2048,10 +2048,10 @@ class Client(BaseClient):
           ::
         
             {
-                'FindingIds': [
-                    'string',
+                \'FindingIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2075,7 +2075,7 @@ class Client(BaseClient):
         
           response = client.list_invitations(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: You can use this parameter to indicate the maximum number of invitations you want in the response. The default value is 50. The maximum value is 50.
@@ -2091,15 +2091,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Invitations': [
+                \'Invitations\': [
                     {
-                        'AccountId': 'string',
-                        'InvitationId': 'string',
-                        'InvitedAt': 'string',
-                        'RelationshipStatus': 'string'
+                        \'AccountId\': \'string\',
+                        \'InvitationId\': \'string\',
+                        \'InvitedAt\': \'string\',
+                        \'RelationshipStatus\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2107,7 +2107,7 @@ class Client(BaseClient):
             
             - **Invitations** *(list) --* A list of invitation descriptions.
               
-              - *(dict) --* Invitation from an AWS account to become the current account's master.
+              - *(dict) --* Invitation from an AWS account to become the current account\'s master.
                 
                 - **AccountId** *(string) --* Inviter account ID
                 
@@ -2130,9 +2130,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_ip_sets(
-              DetectorId='string',
+              DetectorId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector that you want to retrieve.
@@ -2151,10 +2151,10 @@ class Client(BaseClient):
           ::
         
             {
-                'IpSetIds': [
-                    'string',
+                \'IpSetIds\': [
+                    \'string\',
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2177,10 +2177,10 @@ class Client(BaseClient):
         ::
         
           response = client.list_members(
-              DetectorId='string',
+              DetectorId=\'string\',
               MaxResults=123,
-              NextToken='string',
-              OnlyAssociated='string'
+              NextToken=\'string\',
+              OnlyAssociated=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account whose members you want to list.
@@ -2202,18 +2202,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Members': [
+                \'Members\': [
                     {
-                        'AccountId': 'string',
-                        'DetectorId': 'string',
-                        'Email': 'string',
-                        'InvitedAt': 'string',
-                        'MasterId': 'string',
-                        'RelationshipStatus': 'string',
-                        'UpdatedAt': 'string'
+                        \'AccountId\': \'string\',
+                        \'DetectorId\': \'string\',
+                        \'Email\': \'string\',
+                        \'InvitedAt\': \'string\',
+                        \'MasterId\': \'string\',
+                        \'RelationshipStatus\': \'string\',
+                        \'UpdatedAt\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -2227,7 +2227,7 @@ class Client(BaseClient):
                 
                 - **DetectorId** *(string) --* The unique identifier for a detector.
                 
-                - **Email** *(string) --* Member account's email address.
+                - **Email** *(string) --* Member account\'s email address.
                 
                 - **InvitedAt** *(string) --* Timestamp at which the invitation was sent
                 
@@ -2250,9 +2250,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_threat_intel_sets(
-              DetectorId='string',
+              DetectorId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The detectorID that specifies the GuardDuty service whose ThreatIntelSets you want to list.
@@ -2271,9 +2271,9 @@ class Client(BaseClient):
           ::
         
             {
-                'NextToken': 'string',
-                'ThreatIntelSetIds': [
-                    'string',
+                \'NextToken\': \'string\',
+                \'ThreatIntelSetIds\': [
+                    \'string\',
                 ]
             }
           **Response Structure** 
@@ -2299,9 +2299,9 @@ class Client(BaseClient):
         
           response = client.start_monitoring_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
@@ -2309,7 +2309,7 @@ class Client(BaseClient):
           - *(string) --* 
         
         :type DetectorId: string
-        :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
+        :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members\' findings.
         
         :rtype: dict
         :returns: 
@@ -2319,10 +2319,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -2336,7 +2336,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -2351,9 +2351,9 @@ class Client(BaseClient):
         
           response = client.stop_monitoring_members(
               AccountIds=[
-                  'string',
+                  \'string\',
               ],
-              DetectorId='string'
+              DetectorId=\'string\'
           )
         :type AccountIds: list
         :param AccountIds: **[REQUIRED]** A list of account IDs of the GuardDuty member accounts whose findings you want the master account to stop monitoring.
@@ -2361,7 +2361,7 @@ class Client(BaseClient):
           - *(string) --* 
         
         :type DetectorId: string
-        :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account that you want to stop from monitor members' findings.
+        :param DetectorId: **[REQUIRED]** The unique ID of the detector of the GuardDuty account that you want to stop from monitor members\' findings.
         
         :rtype: dict
         :returns: 
@@ -2371,10 +2371,10 @@ class Client(BaseClient):
           ::
         
             {
-                'UnprocessedAccounts': [
+                \'UnprocessedAccounts\': [
                     {
-                        'AccountId': 'string',
-                        'Result': 'string'
+                        \'AccountId\': \'string\',
+                        \'Result\': \'string\'
                     },
                 ]
             }
@@ -2388,7 +2388,7 @@ class Client(BaseClient):
                 
                 - **AccountId** *(string) --* AWS Account ID.
                 
-                - **Result** *(string) --* A reason why the account hasn't been processed.
+                - **Result** *(string) --* A reason why the account hasn\'t been processed.
             
         """
         pass
@@ -2402,9 +2402,9 @@ class Client(BaseClient):
         ::
         
           response = client.unarchive_findings(
-              DetectorId='string',
+              DetectorId=\'string\',
               FindingIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type DetectorId: string
@@ -2438,9 +2438,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_detector(
-              DetectorId='string',
+              DetectorId=\'string\',
               Enable=True|False,
-              FindingPublishingFrequency='FIFTEEN_MINUTES'|'ONE_HOUR'|'SIX_HOURS'
+              FindingPublishingFrequency=\'FIFTEEN_MINUTES\'|\'ONE_HOUR\'|\'SIX_HOURS\'
           )
         :type DetectorId: string
         :param DetectorId: **[REQUIRED]** The unique ID of the detector that you want to update.
@@ -2474,22 +2474,22 @@ class Client(BaseClient):
         ::
         
           response = client.update_filter(
-              Action='NOOP'|'ARCHIVE',
-              Description='string',
-              DetectorId='string',
-              FilterName='string',
+              Action=\'NOOP\'|\'ARCHIVE\',
+              Description=\'string\',
+              DetectorId=\'string\',
+              FilterName=\'string\',
               FindingCriteria={
-                  'Criterion': {
-                      'string': {
-                          'Eq': [
-                              'string',
+                  \'Criterion\': {
+                      \'string\': {
+                          \'Eq\': [
+                              \'string\',
                           ],
-                          'Gt': 123,
-                          'Gte': 123,
-                          'Lt': 123,
-                          'Lte': 123,
-                          'Neq': [
-                              'string',
+                          \'Gt\': 123,
+                          \'Gte\': 123,
+                          \'Lt\': 123,
+                          \'Lte\': 123,
+                          \'Neq\': [
+                              \'string\',
                           ]
                       }
                   }
@@ -2544,7 +2544,7 @@ class Client(BaseClient):
           ::
         
             {
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -2563,11 +2563,11 @@ class Client(BaseClient):
         ::
         
           response = client.update_findings_feedback(
-              Comments='string',
-              DetectorId='string',
-              Feedback='USEFUL'|'NOT_USEFUL',
+              Comments=\'string\',
+              DetectorId=\'string\',
+              Feedback=\'USEFUL\'|\'NOT_USEFUL\',
               FindingIds=[
-                  'string',
+                  \'string\',
               ]
           )
         :type Comments: string
@@ -2608,10 +2608,10 @@ class Client(BaseClient):
         
           response = client.update_ip_set(
               Activate=True|False,
-              DetectorId='string',
-              IpSetId='string',
-              Location='string',
-              Name='string'
+              DetectorId=\'string\',
+              IpSetId=\'string\',
+              Location=\'string\',
+              Name=\'string\'
           )
         :type Activate: boolean
         :param Activate: The updated boolean value that specifies whether the IPSet is active or not.
@@ -2652,10 +2652,10 @@ class Client(BaseClient):
         
           response = client.update_threat_intel_set(
               Activate=True|False,
-              DetectorId='string',
-              Location='string',
-              Name='string',
-              ThreatIntelSetId='string'
+              DetectorId=\'string\',
+              Location=\'string\',
+              Name=\'string\',
+              ThreatIntelSetId=\'string\'
           )
         :type Activate: boolean
         :param Activate: The updated boolean value that specifies whether the ThreateIntelSet is active or not.

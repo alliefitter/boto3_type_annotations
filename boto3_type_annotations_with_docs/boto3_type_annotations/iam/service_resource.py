@@ -1,10 +1,10 @@
 from typing import Optional
-from boto3.resources.collection import ResourceCollection
-from typing import Dict
 from typing import Union
+from boto3.resources.collection import ResourceCollection
 from typing import List
-from typing import NoReturn
 from datetime import datetime
+from typing import NoReturn
+from typing import Dict
 from boto3.resources import base
 
 
@@ -22,12 +22,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a AccessKey resource.::
         
-          access_key = iam.AccessKey('user_name','id')
+          access_key = iam.AccessKey(\'user_name\',\'id\')
         
         :type user_name: string
-        :param user_name: The AccessKey's user_name identifier. This **must** be set.
+        :param user_name: The AccessKey\'s user_name identifier. This **must** be set.
         :type id: string
-        :param id: The AccessKey's id identifier. This **must** be set.
+        :param id: The AccessKey\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.AccessKey`
         :returns: A AccessKey resource
@@ -38,14 +38,14 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a AccessKeyPair resource.::
         
-          access_key_pair = iam.AccessKeyPair('user_name','id','secret')
+          access_key_pair = iam.AccessKeyPair(\'user_name\',\'id\',\'secret\')
         
         :type user_name: string
-        :param user_name: The AccessKeyPair's user_name identifier. This **must** be set.
+        :param user_name: The AccessKeyPair\'s user_name identifier. This **must** be set.
         :type id: string
-        :param id: The AccessKeyPair's id identifier. This **must** be set.
+        :param id: The AccessKeyPair\'s id identifier. This **must** be set.
         :type secret: string
-        :param secret: The AccessKeyPair's secret identifier. This **must** be set.
+        :param secret: The AccessKeyPair\'s secret identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.AccessKeyPair`
         :returns: A AccessKeyPair resource
@@ -78,10 +78,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a AssumeRolePolicy resource.::
         
-          assume_role_policy = iam.AssumeRolePolicy('role_name')
+          assume_role_policy = iam.AssumeRolePolicy(\'role_name\')
         
         :type role_name: string
-        :param role_name: The AssumeRolePolicy's role_name identifier. This **must** be set.
+        :param role_name: The AssumeRolePolicy\'s role_name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.AssumeRolePolicy`
         :returns: A AssumeRolePolicy resource
@@ -103,10 +103,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Group resource.::
         
-          group = iam.Group('name')
+          group = iam.Group(\'name\')
         
         :type name: string
-        :param name: The Group's name identifier. This **must** be set.
+        :param name: The Group\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.Group`
         :returns: A Group resource
@@ -117,12 +117,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a GroupPolicy resource.::
         
-          group_policy = iam.GroupPolicy('group_name','name')
+          group_policy = iam.GroupPolicy(\'group_name\',\'name\')
         
         :type group_name: string
-        :param group_name: The GroupPolicy's group_name identifier. This **must** be set.
+        :param group_name: The GroupPolicy\'s group_name identifier. This **must** be set.
         :type name: string
-        :param name: The GroupPolicy's name identifier. This **must** be set.
+        :param name: The GroupPolicy\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.GroupPolicy`
         :returns: A GroupPolicy resource
@@ -133,10 +133,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a InstanceProfile resource.::
         
-          instance_profile = iam.InstanceProfile('name')
+          instance_profile = iam.InstanceProfile(\'name\')
         
         :type name: string
-        :param name: The InstanceProfile's name identifier. This **must** be set.
+        :param name: The InstanceProfile\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.InstanceProfile`
         :returns: A InstanceProfile resource
@@ -147,10 +147,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a LoginProfile resource.::
         
-          login_profile = iam.LoginProfile('user_name')
+          login_profile = iam.LoginProfile(\'user_name\')
         
         :type user_name: string
-        :param user_name: The LoginProfile's user_name identifier. This **must** be set.
+        :param user_name: The LoginProfile\'s user_name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.LoginProfile`
         :returns: A LoginProfile resource
@@ -161,12 +161,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a MfaDevice resource.::
         
-          mfa_device = iam.MfaDevice('user_name','serial_number')
+          mfa_device = iam.MfaDevice(\'user_name\',\'serial_number\')
         
         :type user_name: string
-        :param user_name: The MfaDevice's user_name identifier. This **must** be set.
+        :param user_name: The MfaDevice\'s user_name identifier. This **must** be set.
         :type serial_number: string
-        :param serial_number: The MfaDevice's serial_number identifier. This **must** be set.
+        :param serial_number: The MfaDevice\'s serial_number identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.MfaDevice`
         :returns: A MfaDevice resource
@@ -177,10 +177,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Policy resource.::
         
-          policy = iam.Policy('policy_arn')
+          policy = iam.Policy(\'policy_arn\')
         
         :type policy_arn: string
-        :param policy_arn: The Policy's policy_arn identifier. This **must** be set.
+        :param policy_arn: The Policy\'s policy_arn identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.Policy`
         :returns: A Policy resource
@@ -191,12 +191,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a PolicyVersion resource.::
         
-          policy_version = iam.PolicyVersion('arn','version_id')
+          policy_version = iam.PolicyVersion(\'arn\',\'version_id\')
         
         :type arn: string
-        :param arn: The PolicyVersion's arn identifier. This **must** be set.
+        :param arn: The PolicyVersion\'s arn identifier. This **must** be set.
         :type version_id: string
-        :param version_id: The PolicyVersion's version_id identifier. This **must** be set.
+        :param version_id: The PolicyVersion\'s version_id identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.PolicyVersion`
         :returns: A PolicyVersion resource
@@ -207,10 +207,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a Role resource.::
         
-          role = iam.Role('name')
+          role = iam.Role(\'name\')
         
         :type name: string
-        :param name: The Role's name identifier. This **must** be set.
+        :param name: The Role\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.Role`
         :returns: A Role resource
@@ -221,12 +221,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a RolePolicy resource.::
         
-          role_policy = iam.RolePolicy('role_name','name')
+          role_policy = iam.RolePolicy(\'role_name\',\'name\')
         
         :type role_name: string
-        :param role_name: The RolePolicy's role_name identifier. This **must** be set.
+        :param role_name: The RolePolicy\'s role_name identifier. This **must** be set.
         :type name: string
-        :param name: The RolePolicy's name identifier. This **must** be set.
+        :param name: The RolePolicy\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.RolePolicy`
         :returns: A RolePolicy resource
@@ -237,10 +237,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a SamlProvider resource.::
         
-          saml_provider = iam.SamlProvider('arn')
+          saml_provider = iam.SamlProvider(\'arn\')
         
         :type arn: string
-        :param arn: The SamlProvider's arn identifier. This **must** be set.
+        :param arn: The SamlProvider\'s arn identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.SamlProvider`
         :returns: A SamlProvider resource
@@ -251,10 +251,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a ServerCertificate resource.::
         
-          server_certificate = iam.ServerCertificate('name')
+          server_certificate = iam.ServerCertificate(\'name\')
         
         :type name: string
-        :param name: The ServerCertificate's name identifier. This **must** be set.
+        :param name: The ServerCertificate\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.ServerCertificate`
         :returns: A ServerCertificate resource
@@ -265,12 +265,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a SigningCertificate resource.::
         
-          signing_certificate = iam.SigningCertificate('user_name','id')
+          signing_certificate = iam.SigningCertificate(\'user_name\',\'id\')
         
         :type user_name: string
-        :param user_name: The SigningCertificate's user_name identifier. This **must** be set.
+        :param user_name: The SigningCertificate\'s user_name identifier. This **must** be set.
         :type id: string
-        :param id: The SigningCertificate's id identifier. This **must** be set.
+        :param id: The SigningCertificate\'s id identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.SigningCertificate`
         :returns: A SigningCertificate resource
@@ -281,10 +281,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a User resource.::
         
-          user = iam.User('name')
+          user = iam.User(\'name\')
         
         :type name: string
-        :param name: The User's name identifier. This **must** be set.
+        :param name: The User\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.User`
         :returns: A User resource
@@ -295,12 +295,12 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a UserPolicy resource.::
         
-          user_policy = iam.UserPolicy('user_name','name')
+          user_policy = iam.UserPolicy(\'user_name\',\'name\')
         
         :type user_name: string
-        :param user_name: The UserPolicy's user_name identifier. This **must** be set.
+        :param user_name: The UserPolicy\'s user_name identifier. This **must** be set.
         :type name: string
-        :param name: The UserPolicy's name identifier. This **must** be set.
+        :param name: The UserPolicy\'s name identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.UserPolicy`
         :returns: A UserPolicy resource
@@ -311,10 +311,10 @@ class ServiceResource(base.ServiceResource):
         """
         Creates a VirtualMfaDevice resource.::
         
-          virtual_mfa_device = iam.VirtualMfaDevice('serial_number')
+          virtual_mfa_device = iam.VirtualMfaDevice(\'serial_number\')
         
         :type serial_number: string
-        :param serial_number: The VirtualMfaDevice's serial_number identifier. This **must** be set.
+        :param serial_number: The VirtualMfaDevice\'s serial_number identifier. This **must** be set.
         
         :rtype: :py:class:`IAM.VirtualMfaDevice`
         :returns: A VirtualMfaDevice resource
@@ -332,18 +332,18 @@ class ServiceResource(base.ServiceResource):
         ::
         
           response = iam.change_password(
-              OldPassword='string',
-              NewPassword='string'
+              OldPassword=\'string\',
+              NewPassword=\'string\'
           )
         :type OldPassword: string
         :param OldPassword: **[REQUIRED]** 
         
-          The IAM user's current password.
+          The IAM user\'s current password.
         
         :type NewPassword: string
         :param NewPassword: **[REQUIRED]** 
         
-          The new password. The new password must conform to the AWS account's password policy, if one exists.
+          The new password. The new password must conform to the AWS account\'s password policy, if one exists.
         
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
         
@@ -360,7 +360,7 @@ class ServiceResource(base.ServiceResource):
         ::
         
           response = iam.create_account_alias(
-              AccountAlias='string'
+              AccountAlias=\'string\'
           )
         :type AccountAlias: string
         :param AccountAlias: **[REQUIRED]** 
@@ -378,7 +378,7 @@ class ServiceResource(base.ServiceResource):
         
         .. note::
         
-          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
+          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter\'s value reverts to its default value. See the **Request Parameters** section for each parameter\'s default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
            
         For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         
@@ -410,7 +410,7 @@ class ServiceResource(base.ServiceResource):
         
           Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
         
-          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | '
+          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | \'
         
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one symbol character.
         
@@ -479,8 +479,8 @@ class ServiceResource(base.ServiceResource):
         ::
         
           group = iam.create_group(
-              Path='string',
-              GroupName='string'
+              Path=\'string\',
+              GroupName=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -496,7 +496,7 @@ class ServiceResource(base.ServiceResource):
         
           The name of the group to create. Do not include the path in this value.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both \"ADMINS\" and \"admins\".
         
         :rtype: :py:class:`iam.Group`
         :returns: Group resource
@@ -514,8 +514,8 @@ class ServiceResource(base.ServiceResource):
         ::
         
           instance_profile = iam.create_instance_profile(
-              InstanceProfileName='string',
-              Path='string'
+              InstanceProfileName=\'string\',
+              Path=\'string\'
           )
         :type InstanceProfileName: string
         :param InstanceProfileName: **[REQUIRED]** 
@@ -541,7 +541,7 @@ class ServiceResource(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str, Path: str = None, Description: str = None) -> 'Policy':
         """
         
-        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy\'s default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         
         For more information about managed policies in general, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -551,10 +551,10 @@ class ServiceResource(base.ServiceResource):
         ::
         
           policy = iam.create_policy(
-              PolicyName='string',
-              Path='string',
-              PolicyDocument='string',
-              Description='string'
+              PolicyName=\'string\',
+              Path=\'string\',
+              PolicyDocument=\'string\',
+              Description=\'string\'
           )
         :type PolicyName: string
         :param PolicyName: **[REQUIRED]** 
@@ -592,7 +592,7 @@ class ServiceResource(base.ServiceResource):
         
           A friendly description of the policy.
         
-          Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+          Typically used to store information about the permissions defined in the policy. For example, \"Grants access to production DynamoDB tables.\"
         
           The policy description is immutable. After a value is assigned, it cannot be changed.
         
@@ -610,12 +610,12 @@ class ServiceResource(base.ServiceResource):
         ::
         
           role = iam.create_role(
-              Path='string',
-              RoleName='string',
-              AssumeRolePolicyDocument='string',
-              Description='string',
+              Path=\'string\',
+              RoleName=\'string\',
+              AssumeRolePolicyDocument=\'string\',
+              Description=\'string\',
               MaxSessionDuration=123,
-              PermissionsBoundary='string'
+              PermissionsBoundary=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -633,7 +633,7 @@ class ServiceResource(base.ServiceResource):
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
-          Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
+          Role names are not distinguished by case. For example, you cannot create roles named both \"PRODROLE\" and \"prodrole\".
         
         :type AssumeRolePolicyDocument: string
         :param AssumeRolePolicyDocument: **[REQUIRED]** 
@@ -658,7 +658,7 @@ class ServiceResource(base.ServiceResource):
         
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don't specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         
         :type PermissionsBoundary: string
         :param PermissionsBoundary: 
@@ -673,9 +673,9 @@ class ServiceResource(base.ServiceResource):
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> 'SamlProvider':
         """
         
-        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
+        The SAML provider resource that you create with this operation can be used as a principal in an IAM role\'s trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
         
-        When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+        When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
         .. note::
         
@@ -689,13 +689,13 @@ class ServiceResource(base.ServiceResource):
         ::
         
           saml_provider = iam.create_saml_provider(
-              SAMLMetadataDocument='string',
-              Name='string'
+              SAMLMetadataDocument=\'string\',
+              Name=\'string\'
           )
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]** 
         
-          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
           For more information, see `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*  
         
@@ -730,11 +730,11 @@ class ServiceResource(base.ServiceResource):
         ::
         
           server_certificate = iam.create_server_certificate(
-              Path='string',
-              ServerCertificateName='string',
-              CertificateBody='string',
-              PrivateKey='string',
-              CertificateChain='string'
+              Path=\'string\',
+              ServerCertificateName=\'string\',
+              CertificateBody=\'string\',
+              PrivateKey=\'string\',
+              CertificateChain=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -813,8 +813,8 @@ class ServiceResource(base.ServiceResource):
         ::
         
           signing_certificate = iam.create_signing_certificate(
-              UserName='string',
-              CertificateBody='string'
+              UserName=\'string\',
+              CertificateBody=\'string\'
           )
         :type UserName: string
         :param UserName: 
@@ -852,9 +852,9 @@ class ServiceResource(base.ServiceResource):
         ::
         
           user = iam.create_user(
-              Path='string',
-              UserName='string',
-              PermissionsBoundary='string'
+              Path=\'string\',
+              UserName=\'string\',
+              PermissionsBoundary=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -870,7 +870,7 @@ class ServiceResource(base.ServiceResource):
         
           The name of the user to create.
         
-          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+          This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".
         
         :type PermissionsBoundary: string
         :param PermissionsBoundary: 
@@ -897,8 +897,8 @@ class ServiceResource(base.ServiceResource):
         ::
         
           virtual_mfa_device = iam.create_virtual_mfa_device(
-              Path='string',
-              VirtualMFADeviceName='string'
+              Path=\'string\',
+              VirtualMFADeviceName=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -1143,7 +1143,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         
         .. note::
         
-          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
+          * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter\'s value reverts to its default value. See the **Request Parameters** section for each parameter\'s default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
            
         For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         
@@ -1175,7 +1175,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         
           Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
         
-          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | '
+          ! @ # $ % ^ & * ( ) _ + - = [ ] { } | \'
         
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one symbol character.
         
@@ -1297,7 +1297,7 @@ class AssumeRolePolicy(base.ServiceResource):
         ::
         
           response = assume_role_policy.update(
-              PolicyDocument='string'
+              PolicyDocument=\'string\'
           )
         :type PolicyDocument: string
         :param PolicyDocument: **[REQUIRED]** 
@@ -1388,7 +1388,7 @@ class Group(base.ServiceResource):
         ::
         
           response = group.add_user(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1414,7 +1414,7 @@ class Group(base.ServiceResource):
         ::
         
           response = group.attach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -1438,7 +1438,7 @@ class Group(base.ServiceResource):
         ::
         
           group = group.create(
-              Path='string',
+              Path=\'string\',
               
           )
         :type Path: string
@@ -1472,8 +1472,8 @@ class Group(base.ServiceResource):
         ::
         
           group_policy = group.create_policy(
-              PolicyName='string',
-              PolicyDocument='string'
+              PolicyName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type PolicyName: string
         :param PolicyName: **[REQUIRED]** 
@@ -1525,7 +1525,7 @@ class Group(base.ServiceResource):
         ::
         
           response = group.detach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -1585,7 +1585,7 @@ class Group(base.ServiceResource):
         ::
         
           response = group.remove_user(
-              UserName='string'
+              UserName=\'string\'
           )
         :type UserName: string
         :param UserName: **[REQUIRED]** 
@@ -1603,7 +1603,7 @@ class Group(base.ServiceResource):
         
         .. warning::
         
-          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a group\'s path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -1615,20 +1615,20 @@ class Group(base.ServiceResource):
         ::
         
           group = group.update(
-              NewPath='string',
-              NewGroupName='string'
+              NewPath=\'string\',
+              NewGroupName=\'string\'
           )
         :type NewPath: string
         :param NewPath: 
         
-          New path for the IAM group. Only include this if changing the group's path.
+          New path for the IAM group. Only include this if changing the group\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewGroupName: string
         :param NewGroupName: 
         
-          New name for the IAM group. Only include this if changing the group's name.
+          New name for the IAM group. Only include this if changing the group\'s name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -1701,7 +1701,7 @@ class GroupPolicy(base.ServiceResource):
         ::
         
           response = group_policy.put(
-              PolicyDocument='string'
+              PolicyDocument=\'string\'
           )
         :type PolicyDocument: string
         :param PolicyDocument: **[REQUIRED]** 
@@ -1759,7 +1759,7 @@ class InstanceProfile(base.ServiceResource):
         ::
         
           response = instance_profile.add_role(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -1845,7 +1845,7 @@ class InstanceProfile(base.ServiceResource):
         ::
         
           response = instance_profile.remove_role(
-              RoleName='string'
+              RoleName=\'string\'
           )
         :type RoleName: string
         :param RoleName: **[REQUIRED]** 
@@ -1873,7 +1873,7 @@ class LoginProfile(base.ServiceResource):
         ::
         
           login_profile = login_profile.create(
-              Password='string',
+              Password=\'string\',
               PasswordResetRequired=True|False
           )
         :type Password: string
@@ -1898,7 +1898,7 @@ class LoginProfile(base.ServiceResource):
         
         .. warning::
         
-          Deleting a user's password does not prevent a user from accessing AWS through the command line interface or the API. To prevent all user access you must also either make any access keys inactive or delete them. For more information about making keys inactive or deleting them, see  UpdateAccessKey and  DeleteAccessKey . 
+          Deleting a user\'s password does not prevent a user from accessing AWS through the command line interface or the API. To prevent all user access you must also either make any access keys inactive or delete them. For more information about making keys inactive or deleting them, see  UpdateAccessKey and  DeleteAccessKey . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteLoginProfile>`_
         
@@ -1960,7 +1960,7 @@ class LoginProfile(base.ServiceResource):
         ::
         
           response = login_profile.update(
-              Password='string',
+              Password=\'string\',
               PasswordResetRequired=True|False
           )
         :type Password: string
@@ -2002,8 +2002,8 @@ class MfaDevice(base.ServiceResource):
         ::
         
           response = mfa_device.associate(
-              AuthenticationCode1='string',
-              AuthenticationCode2='string'
+              AuthenticationCode1=\'string\',
+              AuthenticationCode2=\'string\'
           )
         :type AuthenticationCode1: string
         :param AuthenticationCode1: **[REQUIRED]** 
@@ -2068,8 +2068,8 @@ class MfaDevice(base.ServiceResource):
         ::
         
           response = mfa_device.resync(
-              AuthenticationCode1='string',
-              AuthenticationCode2='string'
+              AuthenticationCode1=\'string\',
+              AuthenticationCode2=\'string\'
           )
         :type AuthenticationCode1: string
         :param AuthenticationCode1: **[REQUIRED]** 
@@ -2120,7 +2120,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.attach_group(
-              GroupName='string',
+              GroupName=\'string\',
               
           )
         :type GroupName: string
@@ -2139,7 +2139,7 @@ class Policy(base.ServiceResource):
         
         .. note::
         
-          You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
+          You cannot use a managed policy as the role\'s trust policy. The role\'s trust policy is created at the same time as the role, using  CreateRole . You can update a role\'s trust policy using  UpdateAssumeRolePolicy .
         
         Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -2149,7 +2149,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.attach_role(
-              RoleName='string',
+              RoleName=\'string\',
               
           )
         :type RoleName: string
@@ -2176,7 +2176,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.attach_user(
-              UserName='string',
+              UserName=\'string\',
               
           )
         :type UserName: string
@@ -2193,7 +2193,7 @@ class Policy(base.ServiceResource):
     def create_version(self, PolicyDocument: str, SetAsDefault: bool = None) -> 'PolicyVersion':
         """
         
-        Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
+        Optionally, you can set the new version as the policy\'s default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
         
         For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         
@@ -2203,7 +2203,7 @@ class Policy(base.ServiceResource):
         ::
         
           policy_version = policy.create_version(
-              PolicyDocument='string',
+              PolicyDocument=\'string\',
               SetAsDefault=True|False
           )
         :type PolicyDocument: string
@@ -2222,7 +2222,7 @@ class Policy(base.ServiceResource):
         :type SetAsDefault: boolean
         :param SetAsDefault: 
         
-          Specifies whether to set this version as the policy's default version.
+          Specifies whether to set this version as the policy\'s default version.
         
           When this parameter is ``true`` , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
         
@@ -2236,13 +2236,13 @@ class Policy(base.ServiceResource):
     def delete(self) -> NoReturn:
         """
         
-        Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy's versions. The following steps describe the process for deleting a managed policy:
+        Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to. In addition you must delete all the policy\'s versions. The following steps describe the process for deleting a managed policy:
         
         * Detach the policy from all users, groups, and roles that the policy is attached to, using the  DetachUserPolicy ,  DetachGroupPolicy , or  DetachRolePolicy API operations. To list all the users, groups, and roles that a policy is attached to, use  ListEntitiesForPolicy . 
          
-        * Delete all versions of the policy using  DeletePolicyVersion . To list the policy's versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process. 
+        * Delete all versions of the policy using  DeletePolicyVersion . To list the policy\'s versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy\'s default version in the next step of the process. 
          
-        * Delete the policy (this automatically deletes the policy's default version) using this API. 
+        * Delete the policy (this automatically deletes the policy\'s default version) using this API. 
          
         For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -2268,7 +2268,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.detach_group(
-              GroupName='string',
+              GroupName=\'string\',
               
           )
         :type GroupName: string
@@ -2293,7 +2293,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.detach_role(
-              RoleName='string',
+              RoleName=\'string\',
               
           )
         :type RoleName: string
@@ -2318,7 +2318,7 @@ class Policy(base.ServiceResource):
         ::
         
           response = policy.detach_user(
-              UserName='string',
+              UserName=\'string\',
               
           )
         :type UserName: string
@@ -2473,7 +2473,7 @@ class Role(base.ServiceResource):
         
         .. note::
         
-          You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
+          You cannot use a managed policy as the role\'s trust policy. The role\'s trust policy is created at the same time as the role, using  CreateRole . You can update a role\'s trust policy using  UpdateAssumeRolePolicy .
         
         Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -2483,7 +2483,7 @@ class Role(base.ServiceResource):
         ::
         
           response = role.attach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -2525,7 +2525,7 @@ class Role(base.ServiceResource):
         ::
         
           response = role.detach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -2626,7 +2626,7 @@ class RolePolicy(base.ServiceResource):
     def put(self, PolicyDocument: str) -> NoReturn:
         """
         
-        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        When you embed an inline policy in a role, the inline policy is used as part of the role\'s access (permissions) policy. The role\'s trust policy is created at the same time as the role, using  CreateRole . You can update a role\'s trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
         
         A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         
@@ -2642,7 +2642,7 @@ class RolePolicy(base.ServiceResource):
         ::
         
           response = role_policy.put(
-              PolicyDocument='string'
+              PolicyDocument=\'string\'
           )
         :type PolicyDocument: string
         :param PolicyDocument: **[REQUIRED]** 
@@ -2685,7 +2685,7 @@ class SamlProvider(base.ServiceResource):
     def delete(self) -> NoReturn:
         """
         
-        Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
+        Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource\'s ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
         
         .. note::
         
@@ -2753,13 +2753,13 @@ class SamlProvider(base.ServiceResource):
         ::
         
           response = saml_provider.update(
-              SAMLMetadataDocument='string',
+              SAMLMetadataDocument=\'string\',
               
           )
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]** 
         
-          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
+          An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
         
         :rtype: dict
         :returns: 
@@ -2769,7 +2769,7 @@ class SamlProvider(base.ServiceResource):
           ::
         
             {
-                'SAMLProviderArn': 'string'
+                \'SAMLProviderArn\': \'string\'
             }
           **Response Structure** 
         
@@ -2798,7 +2798,7 @@ class ServerCertificate(base.ServiceResource):
         
         .. warning::
         
-          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
+          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn\'t detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServerCertificate>`_
         
@@ -2856,7 +2856,7 @@ class ServerCertificate(base.ServiceResource):
         
         .. warning::
         
-          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a server certificate\'s path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -2868,20 +2868,20 @@ class ServerCertificate(base.ServiceResource):
         ::
         
           server_certificate = server_certificate.update(
-              NewPath='string',
-              NewServerCertificateName='string'
+              NewPath=\'string\',
+              NewServerCertificateName=\'string\'
           )
         :type NewPath: string
         :param NewPath: 
         
-          The new path for the server certificate. Include this only if you are updating the server certificate's path.
+          The new path for the server certificate. Include this only if you are updating the server certificate\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewServerCertificateName: string
         :param NewServerCertificateName: 
         
-          The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
+          The new name for the server certificate. Include this only if you are updating the server certificate\'s name. The name of the certificate cannot contain any spaces.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -2983,7 +2983,7 @@ class User(base.ServiceResource):
         ::
         
           response = user.add_group(
-              GroupName='string',
+              GroupName=\'string\',
               
           )
         :type GroupName: string
@@ -3010,7 +3010,7 @@ class User(base.ServiceResource):
         ::
         
           response = user.attach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -3034,8 +3034,8 @@ class User(base.ServiceResource):
         ::
         
           user = user.create(
-              Path='string',
-              PermissionsBoundary='string'
+              Path=\'string\',
+              PermissionsBoundary=\'string\'
           )
         :type Path: string
         :param Path: 
@@ -3088,7 +3088,7 @@ class User(base.ServiceResource):
         ::
         
           login_profile = user.create_login_profile(
-              Password='string',
+              Password=\'string\',
               PasswordResetRequired=True|False
           )
         :type Password: string
@@ -3125,8 +3125,8 @@ class User(base.ServiceResource):
         ::
         
           user_policy = user.create_policy(
-              PolicyName='string',
-              PolicyDocument='string'
+              PolicyName=\'string\',
+              PolicyDocument=\'string\'
           )
         :type PolicyName: string
         :param PolicyName: **[REQUIRED]** 
@@ -3178,7 +3178,7 @@ class User(base.ServiceResource):
         ::
         
           response = user.detach_policy(
-              PolicyArn='string'
+              PolicyArn=\'string\'
           )
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]** 
@@ -3200,9 +3200,9 @@ class User(base.ServiceResource):
         ::
         
           mfa_device = user.enable_mfa(
-              SerialNumber='string',
-              AuthenticationCode1='string',
-              AuthenticationCode2='string'
+              SerialNumber=\'string\',
+              AuthenticationCode1=\'string\',
+              AuthenticationCode2=\'string\'
           )
         :type SerialNumber: string
         :param SerialNumber: **[REQUIRED]** 
@@ -3285,7 +3285,7 @@ class User(base.ServiceResource):
         ::
         
           response = user.remove_group(
-              GroupName='string',
+              GroupName=\'string\',
               
           )
         :type GroupName: string
@@ -3304,7 +3304,7 @@ class User(base.ServiceResource):
         
         .. warning::
         
-          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing an IAM user\'s path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
         
         .. note::
         
@@ -3316,20 +3316,20 @@ class User(base.ServiceResource):
         ::
         
           user = user.update(
-              NewPath='string',
-              NewUserName='string'
+              NewPath=\'string\',
+              NewUserName=\'string\'
           )
         :type NewPath: string
         :param NewPath: 
         
-          New path for the IAM user. Include this parameter only if you're changing the user's path.
+          New path for the IAM user. Include this parameter only if you\'re changing the user\'s path.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         
         :type NewUserName: string
         :param NewUserName: 
         
-          New name for the user. Include this parameter only if you're changing the user's name.
+          New name for the user. Include this parameter only if you\'re changing the user\'s name.
         
           This parameter allows (per its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         
@@ -3402,7 +3402,7 @@ class UserPolicy(base.ServiceResource):
         ::
         
           response = user_policy.put(
-              PolicyDocument='string'
+              PolicyDocument=\'string\'
           )
         :type PolicyDocument: string
         :param PolicyDocument: **[REQUIRED]** 
@@ -3448,7 +3448,7 @@ class VirtualMfaDevice(base.ServiceResource):
         
         .. note::
         
-          You must deactivate a user's virtual MFA device before you can delete it. For information about deactivating MFA devices, see  DeactivateMFADevice . 
+          You must deactivate a user\'s virtual MFA device before you can delete it. For information about deactivating MFA devices, see  DeactivateMFADevice . 
         
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteVirtualMFADevice>`_
         
@@ -3501,8 +3501,8 @@ class groups(ResourceCollection):
         ::
         
           group_iterator = iam.groups.filter(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -3592,13 +3592,13 @@ class groups(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -3635,8 +3635,8 @@ class instance_profiles(ResourceCollection):
         ::
         
           instance_profile_iterator = iam.instance_profiles.filter(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -3726,13 +3726,13 @@ class instance_profiles(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -3769,11 +3769,11 @@ class policies(ResourceCollection):
         ::
         
           policy_iterator = iam.policies.filter(
-              Scope='All'|'AWS'|'Local',
+              Scope=\'All\'|\'AWS\'|\'Local\',
               OnlyAttached=True|False,
-              PathPrefix='string',
-              PolicyUsageFilter='PermissionsPolicy'|'PermissionsBoundary',
-              Marker='string',
+              PathPrefix=\'string\',
+              PolicyUsageFilter=\'PermissionsPolicy\'|\'PermissionsBoundary\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type Scope: string
@@ -3886,13 +3886,13 @@ class policies(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -3929,8 +3929,8 @@ class roles(ResourceCollection):
         ::
         
           role_iterator = iam.roles.filter(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -4020,13 +4020,13 @@ class roles(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -4132,13 +4132,13 @@ class saml_providers(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -4175,8 +4175,8 @@ class server_certificates(ResourceCollection):
         ::
         
           server_certificate_iterator = iam.server_certificates.filter(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -4266,13 +4266,13 @@ class server_certificates(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -4309,8 +4309,8 @@ class users(ResourceCollection):
         ::
         
           user_iterator = iam.users.filter(
-              PathPrefix='string',
-              Marker='string',
+              PathPrefix=\'string\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type PathPrefix: string
@@ -4400,13 +4400,13 @@ class users(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances
@@ -4443,8 +4443,8 @@ class virtual_mfa_devices(ResourceCollection):
         ::
         
           virtual_mfa_device_iterator = iam.virtual_mfa_devices.filter(
-              AssignmentStatus='Assigned'|'Unassigned'|'Any',
-              Marker='string',
+              AssignmentStatus=\'Assigned\'|\'Unassigned\'|\'Any\',
+              Marker=\'string\',
               MaxItems=123
           )
         :type AssignmentStatus: string
@@ -4532,13 +4532,13 @@ class virtual_mfa_devices(ResourceCollection):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
         
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket(\'boto3\')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...     for obj in page:
             ...         print(obj.key)
-            'key1'
-            'key2'
+            \'key1\'
+            \'key2\'
         
         :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
         :return: List of resource instances

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,8 +34,8 @@ class Client(BaseClient):
         ::
         
           response = client.copy_backup_to_region(
-              DestinationRegion='string',
-              BackupId='string'
+              DestinationRegion=\'string\',
+              BackupId=\'string\'
           )
         :type DestinationRegion: string
         :param DestinationRegion: **[REQUIRED]** 
@@ -55,11 +55,11 @@ class Client(BaseClient):
           ::
         
             {
-                'DestinationBackup': {
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'SourceRegion': 'string',
-                    'SourceBackup': 'string',
-                    'SourceCluster': 'string'
+                \'DestinationBackup\': {
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'SourceRegion\': \'string\',
+                    \'SourceBackup\': \'string\',
+                    \'SourceCluster\': \'string\'
                 }
             }
           **Response Structure** 
@@ -93,10 +93,10 @@ class Client(BaseClient):
         
           response = client.create_cluster(
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
-              HsmType='string',
-              SourceBackupId='string'
+              HsmType=\'string\',
+              SourceBackupId=\'string\'
           )
         :type SubnetIds: list
         :param SubnetIds: **[REQUIRED]** 
@@ -127,38 +127,38 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'BackupPolicy': 'DEFAULT',
-                    'ClusterId': 'string',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'Hsms': [
+                \'Cluster\': {
+                    \'BackupPolicy\': \'DEFAULT\',
+                    \'ClusterId\': \'string\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'Hsms\': [
                         {
-                            'AvailabilityZone': 'string',
-                            'ClusterId': 'string',
-                            'SubnetId': 'string',
-                            'EniId': 'string',
-                            'EniIp': 'string',
-                            'HsmId': 'string',
-                            'State': 'CREATE_IN_PROGRESS'|'ACTIVE'|'DEGRADED'|'DELETE_IN_PROGRESS'|'DELETED',
-                            'StateMessage': 'string'
+                            \'AvailabilityZone\': \'string\',
+                            \'ClusterId\': \'string\',
+                            \'SubnetId\': \'string\',
+                            \'EniId\': \'string\',
+                            \'EniIp\': \'string\',
+                            \'HsmId\': \'string\',
+                            \'State\': \'CREATE_IN_PROGRESS\'|\'ACTIVE\'|\'DEGRADED\'|\'DELETE_IN_PROGRESS\'|\'DELETED\',
+                            \'StateMessage\': \'string\'
                         },
                     ],
-                    'HsmType': 'string',
-                    'PreCoPassword': 'string',
-                    'SecurityGroup': 'string',
-                    'SourceBackupId': 'string',
-                    'State': 'CREATE_IN_PROGRESS'|'UNINITIALIZED'|'INITIALIZE_IN_PROGRESS'|'INITIALIZED'|'ACTIVE'|'UPDATE_IN_PROGRESS'|'DELETE_IN_PROGRESS'|'DELETED'|'DEGRADED',
-                    'StateMessage': 'string',
-                    'SubnetMapping': {
-                        'string': 'string'
+                    \'HsmType\': \'string\',
+                    \'PreCoPassword\': \'string\',
+                    \'SecurityGroup\': \'string\',
+                    \'SourceBackupId\': \'string\',
+                    \'State\': \'CREATE_IN_PROGRESS\'|\'UNINITIALIZED\'|\'INITIALIZE_IN_PROGRESS\'|\'INITIALIZED\'|\'ACTIVE\'|\'UPDATE_IN_PROGRESS\'|\'DELETE_IN_PROGRESS\'|\'DELETED\'|\'DEGRADED\',
+                    \'StateMessage\': \'string\',
+                    \'SubnetMapping\': {
+                        \'string\': \'string\'
                     },
-                    'VpcId': 'string',
-                    'Certificates': {
-                        'ClusterCsr': 'string',
-                        'HsmCertificate': 'string',
-                        'AwsHardwareCertificate': 'string',
-                        'ManufacturerHardwareCertificate': 'string',
-                        'ClusterCertificate': 'string'
+                    \'VpcId\': \'string\',
+                    \'Certificates\': {
+                        \'ClusterCsr\': \'string\',
+                        \'HsmCertificate\': \'string\',
+                        \'AwsHardwareCertificate\': \'string\',
+                        \'ManufacturerHardwareCertificate\': \'string\',
+                        \'ClusterCertificate\': \'string\'
                     }
                 }
             }
@@ -172,11 +172,11 @@ class Client(BaseClient):
         
               - **BackupPolicy** *(string) --* 
         
-                The cluster's backup policy.
+                The cluster\'s backup policy.
         
               - **ClusterId** *(string) --* 
         
-                The cluster's identifier (ID).
+                The cluster\'s identifier (ID).
         
               - **CreateTimestamp** *(datetime) --* 
         
@@ -200,27 +200,27 @@ class Client(BaseClient):
         
                   - **SubnetId** *(string) --* 
         
-                    The subnet that contains the HSM's elastic network interface (ENI).
+                    The subnet that contains the HSM\'s elastic network interface (ENI).
         
                   - **EniId** *(string) --* 
         
-                    The identifier (ID) of the HSM's elastic network interface (ENI).
+                    The identifier (ID) of the HSM\'s elastic network interface (ENI).
         
                   - **EniIp** *(string) --* 
         
-                    The IP address of the HSM's elastic network interface (ENI).
+                    The IP address of the HSM\'s elastic network interface (ENI).
         
                   - **HsmId** *(string) --* 
         
-                    The HSM's identifier (ID).
+                    The HSM\'s identifier (ID).
         
                   - **State** *(string) --* 
         
-                    The HSM's state.
+                    The HSM\'s state.
         
                   - **StateMessage** *(string) --* 
         
-                    A description of the HSM's state.
+                    A description of the HSM\'s state.
         
               - **HsmType** *(string) --* 
         
@@ -228,11 +228,11 @@ class Client(BaseClient):
         
               - **PreCoPassword** *(string) --* 
         
-                The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+                The default password for the cluster\'s Pre-Crypto Officer (PRECO) user.
         
               - **SecurityGroup** *(string) --* 
         
-                The identifier (ID) of the cluster's security group.
+                The identifier (ID) of the cluster\'s security group.
         
               - **SourceBackupId** *(string) --* 
         
@@ -240,15 +240,15 @@ class Client(BaseClient):
         
               - **State** *(string) --* 
         
-                The cluster's state.
+                The cluster\'s state.
         
               - **StateMessage** *(string) --* 
         
-                A description of the cluster's state.
+                A description of the cluster\'s state.
         
               - **SubnetMapping** *(dict) --* 
         
-                A map of the cluster's subnets and their corresponding Availability Zones.
+                A map of the cluster\'s subnets and their corresponding Availability Zones.
         
                 - *(string) --* 
                   
@@ -264,7 +264,7 @@ class Client(BaseClient):
         
                 - **ClusterCsr** *(string) --* 
         
-                  The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is ``UNINITIALIZED`` .
+                  The cluster\'s certificate signing request (CSR). The CSR exists only when the cluster\'s state is ``UNINITIALIZED`` .
         
                 - **HsmCertificate** *(string) --* 
         
@@ -280,7 +280,7 @@ class Client(BaseClient):
         
                 - **ClusterCertificate** *(string) --* 
         
-                  The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+                  The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster\'s owner.
         
         """
         pass
@@ -294,24 +294,24 @@ class Client(BaseClient):
         ::
         
           response = client.create_hsm(
-              ClusterId='string',
-              AvailabilityZone='string',
-              IpAddress='string'
+              ClusterId=\'string\',
+              AvailabilityZone=\'string\',
+              IpAddress=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
         
-          The identifier (ID) of the HSM's cluster. To find the cluster ID, use  DescribeClusters .
+          The identifier (ID) of the HSM\'s cluster. To find the cluster ID, use  DescribeClusters .
         
         :type AvailabilityZone: string
         :param AvailabilityZone: **[REQUIRED]** 
         
-          The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use  DescribeClusters .
+          The Availability Zone where you are creating the HSM. To find the cluster\'s Availability Zones, use  DescribeClusters .
         
         :type IpAddress: string
         :param IpAddress: 
         
-          The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
+          The HSM\'s IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don\'t specify an IP address, one is chosen for you from that subnet.
         
         :rtype: dict
         :returns: 
@@ -321,15 +321,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Hsm': {
-                    'AvailabilityZone': 'string',
-                    'ClusterId': 'string',
-                    'SubnetId': 'string',
-                    'EniId': 'string',
-                    'EniIp': 'string',
-                    'HsmId': 'string',
-                    'State': 'CREATE_IN_PROGRESS'|'ACTIVE'|'DEGRADED'|'DELETE_IN_PROGRESS'|'DELETED',
-                    'StateMessage': 'string'
+                \'Hsm\': {
+                    \'AvailabilityZone\': \'string\',
+                    \'ClusterId\': \'string\',
+                    \'SubnetId\': \'string\',
+                    \'EniId\': \'string\',
+                    \'EniIp\': \'string\',
+                    \'HsmId\': \'string\',
+                    \'State\': \'CREATE_IN_PROGRESS\'|\'ACTIVE\'|\'DEGRADED\'|\'DELETE_IN_PROGRESS\'|\'DELETED\',
+                    \'StateMessage\': \'string\'
                 }
             }
           **Response Structure** 
@@ -350,27 +350,27 @@ class Client(BaseClient):
         
               - **SubnetId** *(string) --* 
         
-                The subnet that contains the HSM's elastic network interface (ENI).
+                The subnet that contains the HSM\'s elastic network interface (ENI).
         
               - **EniId** *(string) --* 
         
-                The identifier (ID) of the HSM's elastic network interface (ENI).
+                The identifier (ID) of the HSM\'s elastic network interface (ENI).
         
               - **EniIp** *(string) --* 
         
-                The IP address of the HSM's elastic network interface (ENI).
+                The IP address of the HSM\'s elastic network interface (ENI).
         
               - **HsmId** *(string) --* 
         
-                The HSM's identifier (ID).
+                The HSM\'s identifier (ID).
         
               - **State** *(string) --* 
         
-                The HSM's state.
+                The HSM\'s state.
         
               - **StateMessage** *(string) --* 
         
-                A description of the HSM's state.
+                A description of the HSM\'s state.
         
         """
         pass
@@ -384,7 +384,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_backup(
-              BackupId='string'
+              BackupId=\'string\'
           )
         :type BackupId: string
         :param BackupId: **[REQUIRED]** 
@@ -399,16 +399,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Backup': {
-                    'BackupId': 'string',
-                    'BackupState': 'CREATE_IN_PROGRESS'|'READY'|'DELETED'|'PENDING_DELETION',
-                    'ClusterId': 'string',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'CopyTimestamp': datetime(2015, 1, 1),
-                    'SourceRegion': 'string',
-                    'SourceBackup': 'string',
-                    'SourceCluster': 'string',
-                    'DeleteTimestamp': datetime(2015, 1, 1)
+                \'Backup\': {
+                    \'BackupId\': \'string\',
+                    \'BackupState\': \'CREATE_IN_PROGRESS\'|\'READY\'|\'DELETED\'|\'PENDING_DELETION\',
+                    \'ClusterId\': \'string\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'CopyTimestamp\': datetime(2015, 1, 1),
+                    \'SourceRegion\': \'string\',
+                    \'SourceBackup\': \'string\',
+                    \'SourceCluster\': \'string\',
+                    \'DeleteTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -459,7 +459,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_cluster(
-              ClusterId='string'
+              ClusterId=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -474,38 +474,38 @@ class Client(BaseClient):
           ::
         
             {
-                'Cluster': {
-                    'BackupPolicy': 'DEFAULT',
-                    'ClusterId': 'string',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'Hsms': [
+                \'Cluster\': {
+                    \'BackupPolicy\': \'DEFAULT\',
+                    \'ClusterId\': \'string\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'Hsms\': [
                         {
-                            'AvailabilityZone': 'string',
-                            'ClusterId': 'string',
-                            'SubnetId': 'string',
-                            'EniId': 'string',
-                            'EniIp': 'string',
-                            'HsmId': 'string',
-                            'State': 'CREATE_IN_PROGRESS'|'ACTIVE'|'DEGRADED'|'DELETE_IN_PROGRESS'|'DELETED',
-                            'StateMessage': 'string'
+                            \'AvailabilityZone\': \'string\',
+                            \'ClusterId\': \'string\',
+                            \'SubnetId\': \'string\',
+                            \'EniId\': \'string\',
+                            \'EniIp\': \'string\',
+                            \'HsmId\': \'string\',
+                            \'State\': \'CREATE_IN_PROGRESS\'|\'ACTIVE\'|\'DEGRADED\'|\'DELETE_IN_PROGRESS\'|\'DELETED\',
+                            \'StateMessage\': \'string\'
                         },
                     ],
-                    'HsmType': 'string',
-                    'PreCoPassword': 'string',
-                    'SecurityGroup': 'string',
-                    'SourceBackupId': 'string',
-                    'State': 'CREATE_IN_PROGRESS'|'UNINITIALIZED'|'INITIALIZE_IN_PROGRESS'|'INITIALIZED'|'ACTIVE'|'UPDATE_IN_PROGRESS'|'DELETE_IN_PROGRESS'|'DELETED'|'DEGRADED',
-                    'StateMessage': 'string',
-                    'SubnetMapping': {
-                        'string': 'string'
+                    \'HsmType\': \'string\',
+                    \'PreCoPassword\': \'string\',
+                    \'SecurityGroup\': \'string\',
+                    \'SourceBackupId\': \'string\',
+                    \'State\': \'CREATE_IN_PROGRESS\'|\'UNINITIALIZED\'|\'INITIALIZE_IN_PROGRESS\'|\'INITIALIZED\'|\'ACTIVE\'|\'UPDATE_IN_PROGRESS\'|\'DELETE_IN_PROGRESS\'|\'DELETED\'|\'DEGRADED\',
+                    \'StateMessage\': \'string\',
+                    \'SubnetMapping\': {
+                        \'string\': \'string\'
                     },
-                    'VpcId': 'string',
-                    'Certificates': {
-                        'ClusterCsr': 'string',
-                        'HsmCertificate': 'string',
-                        'AwsHardwareCertificate': 'string',
-                        'ManufacturerHardwareCertificate': 'string',
-                        'ClusterCertificate': 'string'
+                    \'VpcId\': \'string\',
+                    \'Certificates\': {
+                        \'ClusterCsr\': \'string\',
+                        \'HsmCertificate\': \'string\',
+                        \'AwsHardwareCertificate\': \'string\',
+                        \'ManufacturerHardwareCertificate\': \'string\',
+                        \'ClusterCertificate\': \'string\'
                     }
                 }
             }
@@ -519,11 +519,11 @@ class Client(BaseClient):
         
               - **BackupPolicy** *(string) --* 
         
-                The cluster's backup policy.
+                The cluster\'s backup policy.
         
               - **ClusterId** *(string) --* 
         
-                The cluster's identifier (ID).
+                The cluster\'s identifier (ID).
         
               - **CreateTimestamp** *(datetime) --* 
         
@@ -547,27 +547,27 @@ class Client(BaseClient):
         
                   - **SubnetId** *(string) --* 
         
-                    The subnet that contains the HSM's elastic network interface (ENI).
+                    The subnet that contains the HSM\'s elastic network interface (ENI).
         
                   - **EniId** *(string) --* 
         
-                    The identifier (ID) of the HSM's elastic network interface (ENI).
+                    The identifier (ID) of the HSM\'s elastic network interface (ENI).
         
                   - **EniIp** *(string) --* 
         
-                    The IP address of the HSM's elastic network interface (ENI).
+                    The IP address of the HSM\'s elastic network interface (ENI).
         
                   - **HsmId** *(string) --* 
         
-                    The HSM's identifier (ID).
+                    The HSM\'s identifier (ID).
         
                   - **State** *(string) --* 
         
-                    The HSM's state.
+                    The HSM\'s state.
         
                   - **StateMessage** *(string) --* 
         
-                    A description of the HSM's state.
+                    A description of the HSM\'s state.
         
               - **HsmType** *(string) --* 
         
@@ -575,11 +575,11 @@ class Client(BaseClient):
         
               - **PreCoPassword** *(string) --* 
         
-                The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+                The default password for the cluster\'s Pre-Crypto Officer (PRECO) user.
         
               - **SecurityGroup** *(string) --* 
         
-                The identifier (ID) of the cluster's security group.
+                The identifier (ID) of the cluster\'s security group.
         
               - **SourceBackupId** *(string) --* 
         
@@ -587,15 +587,15 @@ class Client(BaseClient):
         
               - **State** *(string) --* 
         
-                The cluster's state.
+                The cluster\'s state.
         
               - **StateMessage** *(string) --* 
         
-                A description of the cluster's state.
+                A description of the cluster\'s state.
         
               - **SubnetMapping** *(dict) --* 
         
-                A map of the cluster's subnets and their corresponding Availability Zones.
+                A map of the cluster\'s subnets and their corresponding Availability Zones.
         
                 - *(string) --* 
                   
@@ -611,7 +611,7 @@ class Client(BaseClient):
         
                 - **ClusterCsr** *(string) --* 
         
-                  The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is ``UNINITIALIZED`` .
+                  The cluster\'s certificate signing request (CSR). The CSR exists only when the cluster\'s state is ``UNINITIALIZED`` .
         
                 - **HsmCertificate** *(string) --* 
         
@@ -627,7 +627,7 @@ class Client(BaseClient):
         
                 - **ClusterCertificate** *(string) --* 
         
-                  The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+                  The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster\'s owner.
         
         """
         pass
@@ -641,10 +641,10 @@ class Client(BaseClient):
         ::
         
           response = client.delete_hsm(
-              ClusterId='string',
-              HsmId='string',
-              EniId='string',
-              EniIp='string'
+              ClusterId=\'string\',
+              HsmId=\'string\',
+              EniId=\'string\',
+              EniIp=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -674,7 +674,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HsmId': 'string'
+                \'HsmId\': \'string\'
             }
           **Response Structure** 
         
@@ -698,11 +698,11 @@ class Client(BaseClient):
         ::
         
           response = client.describe_backups(
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123,
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
               SortAscending=True|False
@@ -747,20 +747,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Backups': [
+                \'Backups\': [
                     {
-                        'BackupId': 'string',
-                        'BackupState': 'CREATE_IN_PROGRESS'|'READY'|'DELETED'|'PENDING_DELETION',
-                        'ClusterId': 'string',
-                        'CreateTimestamp': datetime(2015, 1, 1),
-                        'CopyTimestamp': datetime(2015, 1, 1),
-                        'SourceRegion': 'string',
-                        'SourceBackup': 'string',
-                        'SourceCluster': 'string',
-                        'DeleteTimestamp': datetime(2015, 1, 1)
+                        \'BackupId\': \'string\',
+                        \'BackupState\': \'CREATE_IN_PROGRESS\'|\'READY\'|\'DELETED\'|\'PENDING_DELETION\',
+                        \'ClusterId\': \'string\',
+                        \'CreateTimestamp\': datetime(2015, 1, 1),
+                        \'CopyTimestamp\': datetime(2015, 1, 1),
+                        \'SourceRegion\': \'string\',
+                        \'SourceBackup\': \'string\',
+                        \'SourceCluster\': \'string\',
+                        \'DeleteTimestamp\': datetime(2015, 1, 1)
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -821,11 +821,11 @@ class Client(BaseClient):
         
           response = client.describe_clusters(
               Filters={
-                  'string': [
-                      'string',
+                  \'string\': [
+                      \'string\',
                   ]
               },
-              NextToken='string',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type Filters: dict
@@ -863,43 +863,43 @@ class Client(BaseClient):
           ::
         
             {
-                'Clusters': [
+                \'Clusters\': [
                     {
-                        'BackupPolicy': 'DEFAULT',
-                        'ClusterId': 'string',
-                        'CreateTimestamp': datetime(2015, 1, 1),
-                        'Hsms': [
+                        \'BackupPolicy\': \'DEFAULT\',
+                        \'ClusterId\': \'string\',
+                        \'CreateTimestamp\': datetime(2015, 1, 1),
+                        \'Hsms\': [
                             {
-                                'AvailabilityZone': 'string',
-                                'ClusterId': 'string',
-                                'SubnetId': 'string',
-                                'EniId': 'string',
-                                'EniIp': 'string',
-                                'HsmId': 'string',
-                                'State': 'CREATE_IN_PROGRESS'|'ACTIVE'|'DEGRADED'|'DELETE_IN_PROGRESS'|'DELETED',
-                                'StateMessage': 'string'
+                                \'AvailabilityZone\': \'string\',
+                                \'ClusterId\': \'string\',
+                                \'SubnetId\': \'string\',
+                                \'EniId\': \'string\',
+                                \'EniIp\': \'string\',
+                                \'HsmId\': \'string\',
+                                \'State\': \'CREATE_IN_PROGRESS\'|\'ACTIVE\'|\'DEGRADED\'|\'DELETE_IN_PROGRESS\'|\'DELETED\',
+                                \'StateMessage\': \'string\'
                             },
                         ],
-                        'HsmType': 'string',
-                        'PreCoPassword': 'string',
-                        'SecurityGroup': 'string',
-                        'SourceBackupId': 'string',
-                        'State': 'CREATE_IN_PROGRESS'|'UNINITIALIZED'|'INITIALIZE_IN_PROGRESS'|'INITIALIZED'|'ACTIVE'|'UPDATE_IN_PROGRESS'|'DELETE_IN_PROGRESS'|'DELETED'|'DEGRADED',
-                        'StateMessage': 'string',
-                        'SubnetMapping': {
-                            'string': 'string'
+                        \'HsmType\': \'string\',
+                        \'PreCoPassword\': \'string\',
+                        \'SecurityGroup\': \'string\',
+                        \'SourceBackupId\': \'string\',
+                        \'State\': \'CREATE_IN_PROGRESS\'|\'UNINITIALIZED\'|\'INITIALIZE_IN_PROGRESS\'|\'INITIALIZED\'|\'ACTIVE\'|\'UPDATE_IN_PROGRESS\'|\'DELETE_IN_PROGRESS\'|\'DELETED\'|\'DEGRADED\',
+                        \'StateMessage\': \'string\',
+                        \'SubnetMapping\': {
+                            \'string\': \'string\'
                         },
-                        'VpcId': 'string',
-                        'Certificates': {
-                            'ClusterCsr': 'string',
-                            'HsmCertificate': 'string',
-                            'AwsHardwareCertificate': 'string',
-                            'ManufacturerHardwareCertificate': 'string',
-                            'ClusterCertificate': 'string'
+                        \'VpcId\': \'string\',
+                        \'Certificates\': {
+                            \'ClusterCsr\': \'string\',
+                            \'HsmCertificate\': \'string\',
+                            \'AwsHardwareCertificate\': \'string\',
+                            \'ManufacturerHardwareCertificate\': \'string\',
+                            \'ClusterCertificate\': \'string\'
                         }
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -915,11 +915,11 @@ class Client(BaseClient):
         
                 - **BackupPolicy** *(string) --* 
         
-                  The cluster's backup policy.
+                  The cluster\'s backup policy.
         
                 - **ClusterId** *(string) --* 
         
-                  The cluster's identifier (ID).
+                  The cluster\'s identifier (ID).
         
                 - **CreateTimestamp** *(datetime) --* 
         
@@ -943,27 +943,27 @@ class Client(BaseClient):
         
                     - **SubnetId** *(string) --* 
         
-                      The subnet that contains the HSM's elastic network interface (ENI).
+                      The subnet that contains the HSM\'s elastic network interface (ENI).
         
                     - **EniId** *(string) --* 
         
-                      The identifier (ID) of the HSM's elastic network interface (ENI).
+                      The identifier (ID) of the HSM\'s elastic network interface (ENI).
         
                     - **EniIp** *(string) --* 
         
-                      The IP address of the HSM's elastic network interface (ENI).
+                      The IP address of the HSM\'s elastic network interface (ENI).
         
                     - **HsmId** *(string) --* 
         
-                      The HSM's identifier (ID).
+                      The HSM\'s identifier (ID).
         
                     - **State** *(string) --* 
         
-                      The HSM's state.
+                      The HSM\'s state.
         
                     - **StateMessage** *(string) --* 
         
-                      A description of the HSM's state.
+                      A description of the HSM\'s state.
         
                 - **HsmType** *(string) --* 
         
@@ -971,11 +971,11 @@ class Client(BaseClient):
         
                 - **PreCoPassword** *(string) --* 
         
-                  The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+                  The default password for the cluster\'s Pre-Crypto Officer (PRECO) user.
         
                 - **SecurityGroup** *(string) --* 
         
-                  The identifier (ID) of the cluster's security group.
+                  The identifier (ID) of the cluster\'s security group.
         
                 - **SourceBackupId** *(string) --* 
         
@@ -983,15 +983,15 @@ class Client(BaseClient):
         
                 - **State** *(string) --* 
         
-                  The cluster's state.
+                  The cluster\'s state.
         
                 - **StateMessage** *(string) --* 
         
-                  A description of the cluster's state.
+                  A description of the cluster\'s state.
         
                 - **SubnetMapping** *(dict) --* 
         
-                  A map of the cluster's subnets and their corresponding Availability Zones.
+                  A map of the cluster\'s subnets and their corresponding Availability Zones.
         
                   - *(string) --* 
                     
@@ -1007,7 +1007,7 @@ class Client(BaseClient):
         
                   - **ClusterCsr** *(string) --* 
         
-                    The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is ``UNINITIALIZED`` .
+                    The cluster\'s certificate signing request (CSR). The CSR exists only when the cluster\'s state is ``UNINITIALIZED`` .
         
                   - **HsmCertificate** *(string) --* 
         
@@ -1023,7 +1023,7 @@ class Client(BaseClient):
         
                   - **ClusterCertificate** *(string) --* 
         
-                    The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+                    The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster\'s owner.
         
             - **NextToken** *(string) --* 
         
@@ -1048,7 +1048,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1060,10 +1060,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1095,9 +1095,9 @@ class Client(BaseClient):
         ::
         
           response = client.initialize_cluster(
-              ClusterId='string',
-              SignedCert='string',
-              TrustAnchor='string'
+              ClusterId=\'string\',
+              SignedCert=\'string\',
+              TrustAnchor=\'string\'
           )
         :type ClusterId: string
         :param ClusterId: **[REQUIRED]** 
@@ -1122,8 +1122,8 @@ class Client(BaseClient):
           ::
         
             {
-                'State': 'CREATE_IN_PROGRESS'|'UNINITIALIZED'|'INITIALIZE_IN_PROGRESS'|'INITIALIZED'|'ACTIVE'|'UPDATE_IN_PROGRESS'|'DELETE_IN_PROGRESS'|'DELETED'|'DEGRADED',
-                'StateMessage': 'string'
+                \'State\': \'CREATE_IN_PROGRESS\'|\'UNINITIALIZED\'|\'INITIALIZE_IN_PROGRESS\'|\'INITIALIZED\'|\'ACTIVE\'|\'UPDATE_IN_PROGRESS\'|\'DELETE_IN_PROGRESS\'|\'DELETED\'|\'DEGRADED\',
+                \'StateMessage\': \'string\'
             }
           **Response Structure** 
         
@@ -1131,11 +1131,11 @@ class Client(BaseClient):
             
             - **State** *(string) --* 
         
-              The cluster's state.
+              The cluster\'s state.
         
             - **StateMessage** *(string) --* 
         
-              A description of the cluster's state.
+              A description of the cluster\'s state.
         
         """
         pass
@@ -1151,8 +1151,8 @@ class Client(BaseClient):
         ::
         
           response = client.list_tags(
-              ResourceId='string',
-              NextToken='string',
+              ResourceId=\'string\',
+              NextToken=\'string\',
               MaxResults=123
           )
         :type ResourceId: string
@@ -1178,13 +1178,13 @@ class Client(BaseClient):
           ::
         
             {
-                'TagList': [
+                \'TagList\': [
                     {
-                        'Key': 'string',
-                        'Value': 'string'
+                        \'Key\': \'string\',
+                        \'Value\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1222,7 +1222,7 @@ class Client(BaseClient):
         ::
         
           response = client.restore_backup(
-              BackupId='string'
+              BackupId=\'string\'
           )
         :type BackupId: string
         :param BackupId: **[REQUIRED]** 
@@ -1237,16 +1237,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Backup': {
-                    'BackupId': 'string',
-                    'BackupState': 'CREATE_IN_PROGRESS'|'READY'|'DELETED'|'PENDING_DELETION',
-                    'ClusterId': 'string',
-                    'CreateTimestamp': datetime(2015, 1, 1),
-                    'CopyTimestamp': datetime(2015, 1, 1),
-                    'SourceRegion': 'string',
-                    'SourceBackup': 'string',
-                    'SourceCluster': 'string',
-                    'DeleteTimestamp': datetime(2015, 1, 1)
+                \'Backup\': {
+                    \'BackupId\': \'string\',
+                    \'BackupState\': \'CREATE_IN_PROGRESS\'|\'READY\'|\'DELETED\'|\'PENDING_DELETION\',
+                    \'ClusterId\': \'string\',
+                    \'CreateTimestamp\': datetime(2015, 1, 1),
+                    \'CopyTimestamp\': datetime(2015, 1, 1),
+                    \'SourceRegion\': \'string\',
+                    \'SourceBackup\': \'string\',
+                    \'SourceCluster\': \'string\',
+                    \'DeleteTimestamp\': datetime(2015, 1, 1)
                 }
             }
           **Response Structure** 
@@ -1297,11 +1297,11 @@ class Client(BaseClient):
         ::
         
           response = client.tag_resource(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagList=[
                   {
-                      'Key': 'string',
-                      'Value': 'string'
+                      \'Key\': \'string\',
+                      \'Value\': \'string\'
                   },
               ]
           )
@@ -1350,9 +1350,9 @@ class Client(BaseClient):
         ::
         
           response = client.untag_resource(
-              ResourceId='string',
+              ResourceId=\'string\',
               TagKeyList=[
-                  'string',
+                  \'string\',
               ]
           )
         :type ResourceId: string

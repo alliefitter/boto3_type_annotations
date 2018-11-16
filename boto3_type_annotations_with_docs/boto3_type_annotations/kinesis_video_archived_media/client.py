@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -41,7 +41,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -66,11 +66,11 @@ class Client(BaseClient):
         
         * Get an endpoint using `GetDataEndpoint <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_GetDataEndpoint.html>`__ , specifying ``GET_HLS_STREAMING_SESSION_URL`` for the ``APIName`` parameter. 
          
-        * Retrieve the HLS URL using ``GetHLSStreamingSessionURL`` . Kinesis Video Streams creates an HLS streaming session to be used for accessing content in a stream using the HLS protocol. ``GetHLSStreamingSessionURL`` returns an authenticated URL (that includes an encrypted session token) for the session's HLS *master playlist* (the root resource needed for streaming with HLS). 
+        * Retrieve the HLS URL using ``GetHLSStreamingSessionURL`` . Kinesis Video Streams creates an HLS streaming session to be used for accessing content in a stream using the HLS protocol. ``GetHLSStreamingSessionURL`` returns an authenticated URL (that includes an encrypted session token) for the session\'s HLS *master playlist* (the root resource needed for streaming with HLS). 
         
         .. note::
         
-           Don't share or store this token where an unauthorized entity could access it. The token provides access to the content of the stream. Safeguard the token with the same measures that you would use with your AWS credentials. 
+           Don\'t share or store this token where an unauthorized entity could access it. The token provides access to the content of the stream. Safeguard the token with the same measures that you would use with your AWS credentials. 
         
          The media that is made available through the playlist consists only of the requested stream, time range, and format. No other media data (such as frames outside the requested window or alternate bit rates) is made available. 
          
@@ -82,13 +82,13 @@ class Client(BaseClient):
            
           * **GetHLSMediaPlaylist:** Retrieves an HLS media playlist, which contains a URL to access the MP4 initialization fragment with the ``GetMP4InitFragment`` action, and URLs to access the MP4 media fragments with the ``GetMP4MediaFragment`` actions. The HLS media playlist also contains metadata about the stream that the player needs to play it, such as whether the ``PlaybackMode`` is ``LIVE`` or ``ON_DEMAND`` . The HLS media playlist is typically static for sessions with a ``PlaybackType`` of ``ON_DEMAND`` . The HLS media playlist is continually updated with new fragments for sessions with a ``PlaybackType`` of ``LIVE`` . 
            
-          * **GetMP4InitFragment:** Retrieves the MP4 initialization fragment. The media player typically loads the initialization fragment before loading any media fragments. This fragment contains the "``fytp`` " and "``moov`` " MP4 atoms, and the child atoms that are needed to initialize the media player decoder. The initialization fragment does not correspond to a fragment in a Kinesis video stream. It contains only the codec private data for the stream, which the media player needs to decode video frames. 
+          * **GetMP4InitFragment:** Retrieves the MP4 initialization fragment. The media player typically loads the initialization fragment before loading any media fragments. This fragment contains the \"``fytp`` \" and \"``moov`` \" MP4 atoms, and the child atoms that are needed to initialize the media player decoder. The initialization fragment does not correspond to a fragment in a Kinesis video stream. It contains only the codec private data for the stream, which the media player needs to decode video frames. 
            
-          * **GetMP4MediaFragment:** Retrieves MP4 media fragments. These fragments contain the "``moof`` " and "``mdat`` " MP4 atoms and their child atoms, containing the encoded fragment's video frames and their time stamps.  
+          * **GetMP4MediaFragment:** Retrieves MP4 media fragments. These fragments contain the \"``moof`` \" and \"``mdat`` \" MP4 atoms and their child atoms, containing the encoded fragment\'s video frames and their time stamps.  
         
           .. note::
         
-             After the first media fragment is made available in a streaming session, any fragments that don't contain the same codec private data are excluded in the HLS media playlist. Therefore, the codec private data does not change between fragments in a session. 
+             After the first media fragment is made available in a streaming session, any fragments that don\'t contain the same codec private data are excluded in the HLS media playlist. Therefore, the codec private data does not change between fragments in a session. 
         
            Data retrieved with this action is billable. See `Pricing <aws.amazon.comkinesis/video-streams/pricing/>`__ for details. 
            
@@ -110,17 +110,17 @@ class Client(BaseClient):
         ::
         
           response = client.get_hls_streaming_session_url(
-              StreamName='string',
-              StreamARN='string',
-              PlaybackMode='LIVE'|'ON_DEMAND',
+              StreamName=\'string\',
+              StreamARN=\'string\',
+              PlaybackMode=\'LIVE\'|\'ON_DEMAND\',
               HLSFragmentSelector={
-                  'FragmentSelectorType': 'PRODUCER_TIMESTAMP'|'SERVER_TIMESTAMP',
-                  'TimestampRange': {
-                      'StartTimestamp': datetime(2015, 1, 1),
-                      'EndTimestamp': datetime(2015, 1, 1)
+                  \'FragmentSelectorType\': \'PRODUCER_TIMESTAMP\'|\'SERVER_TIMESTAMP\',
+                  \'TimestampRange\': {
+                      \'StartTimestamp\': datetime(2015, 1, 1),
+                      \'EndTimestamp\': datetime(2015, 1, 1)
                   }
               },
-              DiscontinuityMode='ALWAYS'|'NEVER',
+              DiscontinuityMode=\'ALWAYS\'|\'NEVER\',
               Expires=123,
               MaxMediaPlaylistFragmentResults=123
           )
@@ -145,7 +145,7 @@ class Client(BaseClient):
         
           Features of the two types of session include the following:
         
-          * **``LIVE`` ** : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display. 
+          * **``LIVE`` ** : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a \"live\" notification, with no scrubber control for choosing the position in the playback window to display. 
         
           .. note::
         
@@ -241,7 +241,7 @@ class Client(BaseClient):
           ::
         
             {
-                'HLSStreamingSessionURL': 'string'
+                \'HLSStreamingSessionURL\': \'string\'
             }
           **Response Structure** 
         
@@ -269,9 +269,9 @@ class Client(BaseClient):
         ::
         
           response = client.get_media_for_fragment_list(
-              StreamName='string',
+              StreamName=\'string\',
               Fragments=[
-                  'string',
+                  \'string\',
               ]
           )
         :type StreamName: string
@@ -294,8 +294,8 @@ class Client(BaseClient):
           ::
         
             {
-                'ContentType': 'string',
-                'Payload': StreamingBody()
+                \'ContentType\': \'string\',
+                \'Payload\': StreamingBody()
             }
           **Response Structure** 
         
@@ -332,10 +332,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -367,14 +367,14 @@ class Client(BaseClient):
         ::
         
           response = client.list_fragments(
-              StreamName='string',
+              StreamName=\'string\',
               MaxResults=123,
-              NextToken='string',
+              NextToken=\'string\',
               FragmentSelector={
-                  'FragmentSelectorType': 'PRODUCER_TIMESTAMP'|'SERVER_TIMESTAMP',
-                  'TimestampRange': {
-                      'StartTimestamp': datetime(2015, 1, 1),
-                      'EndTimestamp': datetime(2015, 1, 1)
+                  \'FragmentSelectorType\': \'PRODUCER_TIMESTAMP\'|\'SERVER_TIMESTAMP\',
+                  \'TimestampRange\': {
+                      \'StartTimestamp\': datetime(2015, 1, 1),
+                      \'EndTimestamp\': datetime(2015, 1, 1)
                   }
               }
           )
@@ -422,16 +422,16 @@ class Client(BaseClient):
           ::
         
             {
-                'Fragments': [
+                \'Fragments\': [
                     {
-                        'FragmentNumber': 'string',
-                        'FragmentSizeInBytes': 123,
-                        'ProducerTimestamp': datetime(2015, 1, 1),
-                        'ServerTimestamp': datetime(2015, 1, 1),
-                        'FragmentLengthInMilliseconds': 123
+                        \'FragmentNumber\': \'string\',
+                        \'FragmentSizeInBytes\': 123,
+                        \'ProducerTimestamp\': datetime(2015, 1, 1),
+                        \'ServerTimestamp\': datetime(2015, 1, 1),
+                        \'FragmentLengthInMilliseconds\': 123
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         

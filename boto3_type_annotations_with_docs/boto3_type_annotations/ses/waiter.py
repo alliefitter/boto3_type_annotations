@@ -15,11 +15,11 @@ class IdentityExists(Waiter):
         
           waiter.wait(
               Identities=[
-                  'string',
+                  \'string\',
               ],
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type Identities: list

@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -37,32 +37,32 @@ class Client(BaseClient):
         
           response = client.describe_affected_entities(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'statusCodes': [
-                      'IMPAIRED'|'UNIMPAIRED'|'UNKNOWN',
+                  \'statusCodes\': [
+                      \'IMPAIRED\'|\'UNIMPAIRED\'|\'UNKNOWN\',
                   ]
               },
-              locale='string',
-              nextToken='string',
+              locale=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type filter: dict
@@ -72,7 +72,7 @@ class Client(BaseClient):
         
           - **eventArns** *(list) --* **[REQUIRED]** 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
@@ -143,20 +143,20 @@ class Client(BaseClient):
           ::
         
             {
-                'entities': [
+                \'entities\': [
                     {
-                        'entityArn': 'string',
-                        'eventArn': 'string',
-                        'entityValue': 'string',
-                        'awsAccountId': 'string',
-                        'lastUpdatedTime': datetime(2015, 1, 1),
-                        'statusCode': 'IMPAIRED'|'UNIMPAIRED'|'UNKNOWN',
-                        'tags': {
-                            'string': 'string'
+                        \'entityArn\': \'string\',
+                        \'eventArn\': \'string\',
+                        \'entityValue\': \'string\',
+                        \'awsAccountId\': \'string\',
+                        \'lastUpdatedTime\': datetime(2015, 1, 1),
+                        \'statusCode\': \'IMPAIRED\'|\'UNIMPAIRED\'|\'UNKNOWN\',
+                        \'tags\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -219,13 +219,13 @@ class Client(BaseClient):
         
           response = client.describe_entity_aggregates(
               eventArns=[
-                  'string',
+                  \'string\',
               ]
           )
         :type eventArns: list
         :param eventArns: 
         
-          A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+          A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
           - *(string) --* 
         
@@ -237,10 +237,10 @@ class Client(BaseClient):
           ::
         
             {
-                'entityAggregates': [
+                \'entityAggregates\': [
                     {
-                        'eventArn': 'string',
-                        'count': 123
+                        \'eventArn\': \'string\',
+                        \'count\': 123
                     },
                 ]
             }
@@ -277,60 +277,60 @@ class Client(BaseClient):
         
           response = client.describe_event_aggregates(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'regions': [
-                      'string',
+                  \'regions\': [
+                      \'string\',
                   ],
-                  'availabilityZones': [
-                      'string',
+                  \'availabilityZones\': [
+                      \'string\',
                   ],
-                  'startTimes': [
+                  \'startTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'endTimes': [
+                  \'endTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'eventStatusCodes': [
-                      'open'|'closed'|'upcoming',
+                  \'eventStatusCodes\': [
+                      \'open\'|\'closed\'|\'upcoming\',
                   ]
               },
-              aggregateField='eventTypeCategory',
+              aggregateField=\'eventTypeCategory\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type filter: dict
         :param filter: 
@@ -339,13 +339,13 @@ class Client(BaseClient):
         
           - **eventArns** *(list) --* 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
           - **eventTypeCodes** *(list) --* 
         
-            A list of unique identifiers for event types. For example, ``"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"``  
+            A list of unique identifiers for event types. For example, ``\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"``  
         
             - *(string) --* 
         
@@ -472,13 +472,13 @@ class Client(BaseClient):
           ::
         
             {
-                'eventAggregates': [
+                \'eventAggregates\': [
                     {
-                        'aggregateValue': 'string',
-                        'count': 123
+                        \'aggregateValue\': \'string\',
+                        \'count\': 123
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -519,14 +519,14 @@ class Client(BaseClient):
         
           response = client.describe_event_details(
               eventArns=[
-                  'string',
+                  \'string\',
               ],
-              locale='string'
+              locale=\'string\'
           )
         :type eventArns: list
         :param eventArns: **[REQUIRED]** 
         
-          A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+          A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
           - *(string) --* 
         
@@ -543,33 +543,33 @@ class Client(BaseClient):
           ::
         
             {
-                'successfulSet': [
+                \'successfulSet\': [
                     {
-                        'event': {
-                            'arn': 'string',
-                            'service': 'string',
-                            'eventTypeCode': 'string',
-                            'eventTypeCategory': 'issue'|'accountNotification'|'scheduledChange',
-                            'region': 'string',
-                            'availabilityZone': 'string',
-                            'startTime': datetime(2015, 1, 1),
-                            'endTime': datetime(2015, 1, 1),
-                            'lastUpdatedTime': datetime(2015, 1, 1),
-                            'statusCode': 'open'|'closed'|'upcoming'
+                        \'event\': {
+                            \'arn\': \'string\',
+                            \'service\': \'string\',
+                            \'eventTypeCode\': \'string\',
+                            \'eventTypeCategory\': \'issue\'|\'accountNotification\'|\'scheduledChange\',
+                            \'region\': \'string\',
+                            \'availabilityZone\': \'string\',
+                            \'startTime\': datetime(2015, 1, 1),
+                            \'endTime\': datetime(2015, 1, 1),
+                            \'lastUpdatedTime\': datetime(2015, 1, 1),
+                            \'statusCode\': \'open\'|\'closed\'|\'upcoming\'
                         },
-                        'eventDescription': {
-                            'latestDescription': 'string'
+                        \'eventDescription\': {
+                            \'latestDescription\': \'string\'
                         },
-                        'eventMetadata': {
-                            'string': 'string'
+                        \'eventMetadata\': {
+                            \'string\': \'string\'
                         }
                     },
                 ],
-                'failedSet': [
+                \'failedSet\': [
                     {
-                        'eventArn': 'string',
-                        'errorName': 'string',
-                        'errorMessage': 'string'
+                        \'eventArn\': \'string\',
+                        \'errorName\': \'string\',
+                        \'errorMessage\': \'string\'
                     },
                 ]
             }
@@ -678,18 +678,18 @@ class Client(BaseClient):
         
           response = client.describe_event_types(
               filter={
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ]
               },
-              locale='string',
-              nextToken='string',
+              locale=\'string\',
+              nextToken=\'string\',
               maxResults=123
           )
         :type filter: dict
@@ -738,14 +738,14 @@ class Client(BaseClient):
           ::
         
             {
-                'eventTypes': [
+                \'eventTypes\': [
                     {
-                        'service': 'string',
-                        'code': 'string',
-                        'category': 'issue'|'accountNotification'|'scheduledChange'
+                        \'service\': \'string\',
+                        \'code\': \'string\',
+                        \'category\': \'issue\'|\'accountNotification\'|\'scheduledChange\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -790,60 +790,60 @@ class Client(BaseClient):
         
           response = client.describe_events(
               filter={
-                  'eventArns': [
-                      'string',
+                  \'eventArns\': [
+                      \'string\',
                   ],
-                  'eventTypeCodes': [
-                      'string',
+                  \'eventTypeCodes\': [
+                      \'string\',
                   ],
-                  'services': [
-                      'string',
+                  \'services\': [
+                      \'string\',
                   ],
-                  'regions': [
-                      'string',
+                  \'regions\': [
+                      \'string\',
                   ],
-                  'availabilityZones': [
-                      'string',
+                  \'availabilityZones\': [
+                      \'string\',
                   ],
-                  'startTimes': [
+                  \'startTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'endTimes': [
+                  \'endTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'lastUpdatedTimes': [
+                  \'lastUpdatedTimes\': [
                       {
-                          'from': datetime(2015, 1, 1),
-                          'to': datetime(2015, 1, 1)
+                          \'from\': datetime(2015, 1, 1),
+                          \'to\': datetime(2015, 1, 1)
                       },
                   ],
-                  'entityArns': [
-                      'string',
+                  \'entityArns\': [
+                      \'string\',
                   ],
-                  'entityValues': [
-                      'string',
+                  \'entityValues\': [
+                      \'string\',
                   ],
-                  'eventTypeCategories': [
-                      'issue'|'accountNotification'|'scheduledChange',
+                  \'eventTypeCategories\': [
+                      \'issue\'|\'accountNotification\'|\'scheduledChange\',
                   ],
-                  'tags': [
+                  \'tags\': [
                       {
-                          'string': 'string'
+                          \'string\': \'string\'
                       },
                   ],
-                  'eventStatusCodes': [
-                      'open'|'closed'|'upcoming',
+                  \'eventStatusCodes\': [
+                      \'open\'|\'closed\'|\'upcoming\',
                   ]
               },
-              nextToken='string',
+              nextToken=\'string\',
               maxResults=123,
-              locale='string'
+              locale=\'string\'
           )
         :type filter: dict
         :param filter: 
@@ -852,13 +852,13 @@ class Client(BaseClient):
         
           - **eventArns** *(list) --* 
         
-            A list of event ARNs (unique identifiers). For example: ``"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"``  
+            A list of event ARNs (unique identifiers). For example: ``\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"``  
         
             - *(string) --* 
         
           - **eventTypeCodes** *(list) --* 
         
-            A list of unique identifiers for event types. For example, ``"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"``  
+            A list of unique identifiers for event types. For example, ``\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"``  
         
             - *(string) --* 
         
@@ -985,21 +985,21 @@ class Client(BaseClient):
           ::
         
             {
-                'events': [
+                \'events\': [
                     {
-                        'arn': 'string',
-                        'service': 'string',
-                        'eventTypeCode': 'string',
-                        'eventTypeCategory': 'issue'|'accountNotification'|'scheduledChange',
-                        'region': 'string',
-                        'availabilityZone': 'string',
-                        'startTime': datetime(2015, 1, 1),
-                        'endTime': datetime(2015, 1, 1),
-                        'lastUpdatedTime': datetime(2015, 1, 1),
-                        'statusCode': 'open'|'closed'|'upcoming'
+                        \'arn\': \'string\',
+                        \'service\': \'string\',
+                        \'eventTypeCode\': \'string\',
+                        \'eventTypeCategory\': \'issue\'|\'accountNotification\'|\'scheduledChange\',
+                        \'region\': \'string\',
+                        \'availabilityZone\': \'string\',
+                        \'startTime\': datetime(2015, 1, 1),
+                        \'endTime\': datetime(2015, 1, 1),
+                        \'lastUpdatedTime\': datetime(2015, 1, 1),
+                        \'statusCode\': \'open\'|\'closed\'|\'upcoming\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1076,7 +1076,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1088,10 +1088,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to

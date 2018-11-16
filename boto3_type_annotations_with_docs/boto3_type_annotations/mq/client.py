@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -35,40 +35,40 @@ class Client(BaseClient):
         
           response = client.create_broker(
               AutoMinorVersionUpgrade=True|False,
-              BrokerName='string',
+              BrokerName=\'string\',
               Configuration={
-                  'Id': 'string',
-                  'Revision': 123
+                  \'Id\': \'string\',
+                  \'Revision\': 123
               },
-              CreatorRequestId='string',
-              DeploymentMode='SINGLE_INSTANCE'|'ACTIVE_STANDBY_MULTI_AZ',
-              EngineType='ACTIVEMQ',
-              EngineVersion='string',
-              HostInstanceType='string',
+              CreatorRequestId=\'string\',
+              DeploymentMode=\'SINGLE_INSTANCE\'|\'ACTIVE_STANDBY_MULTI_AZ\',
+              EngineType=\'ACTIVEMQ\',
+              EngineVersion=\'string\',
+              HostInstanceType=\'string\',
               Logs={
-                  'Audit': True|False,
-                  'General': True|False
+                  \'Audit\': True|False,
+                  \'General\': True|False
               },
               MaintenanceWindowStartTime={
-                  'DayOfWeek': 'MONDAY'|'TUESDAY'|'WEDNESDAY'|'THURSDAY'|'FRIDAY'|'SATURDAY'|'SUNDAY',
-                  'TimeOfDay': 'string',
-                  'TimeZone': 'string'
+                  \'DayOfWeek\': \'MONDAY\'|\'TUESDAY\'|\'WEDNESDAY\'|\'THURSDAY\'|\'FRIDAY\'|\'SATURDAY\'|\'SUNDAY\',
+                  \'TimeOfDay\': \'string\',
+                  \'TimeZone\': \'string\'
               },
               PubliclyAccessible=True|False,
               SecurityGroups=[
-                  'string',
+                  \'string\',
               ],
               SubnetIds=[
-                  'string',
+                  \'string\',
               ],
               Users=[
                   {
-                      'ConsoleAccess': True|False,
-                      'Groups': [
-                          'string',
+                      \'ConsoleAccess\': True|False,
+                      \'Groups\': [
+                          \'string\',
                       ],
-                      'Password': 'string',
-                      'Username': 'string'
+                      \'Password\': \'string\',
+                      \'Username\': \'string\'
                   },
               ]
           )
@@ -86,7 +86,7 @@ class Client(BaseClient):
           - **Revision** *(integer) --* The revision number of the configuration.
         
         :type CreatorRequestId: string
-        :param CreatorRequestId: The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.This field is autopopulated if not provided.
+        :param CreatorRequestId: The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn\'t require idempotency.This field is autopopulated if not provided.
         
         :type DeploymentMode: string
         :param DeploymentMode: Required. The deployment mode of the broker.
@@ -98,7 +98,7 @@ class Client(BaseClient):
         :param EngineVersion: Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
         
         :type HostInstanceType: string
-        :param HostInstanceType: Required. The broker's instance type.
+        :param HostInstanceType: Required. The broker\'s instance type.
         
         :type Logs: dict
         :param Logs: Enables Amazon CloudWatch logging for brokers.
@@ -117,7 +117,7 @@ class Client(BaseClient):
           - **TimeZone** *(string) --* The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
         
         :type PubliclyAccessible: boolean
-        :param PubliclyAccessible: Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+        :param PubliclyAccessible: Required. Enables connections from applications outside of the VPC that hosts the broker\'s subnets.
         
         :type SecurityGroups: list
         :param SecurityGroups: The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
@@ -152,8 +152,8 @@ class Client(BaseClient):
           ::
         
             {
-                'BrokerArn': 'string',
-                'BrokerId': 'string'
+                \'BrokerArn\': \'string\',
+                \'BrokerId\': \'string\'
             }
           **Response Structure** 
         
@@ -174,9 +174,9 @@ class Client(BaseClient):
         ::
         
           response = client.create_configuration(
-              EngineType='ACTIVEMQ',
-              EngineVersion='string',
-              Name='string'
+              EngineType=\'ACTIVEMQ\',
+              EngineVersion=\'string\',
+              Name=\'string\'
           )
         :type EngineType: string
         :param EngineType: Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.
@@ -195,15 +195,15 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Created': datetime(2015, 1, 1),
-                'Id': 'string',
-                'LatestRevision': {
-                    'Created': datetime(2015, 1, 1),
-                    'Description': 'string',
-                    'Revision': 123
+                \'Arn\': \'string\',
+                \'Created\': datetime(2015, 1, 1),
+                \'Id\': \'string\',
+                \'LatestRevision\': {
+                    \'Created\': datetime(2015, 1, 1),
+                    \'Description\': \'string\',
+                    \'Revision\': 123
                 },
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -236,13 +236,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_user(
-              BrokerId='string',
+              BrokerId=\'string\',
               ConsoleAccess=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              Password='string',
-              Username='string'
+              Password=\'string\',
+              Username=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.
@@ -284,7 +284,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_broker(
-              BrokerId='string'
+              BrokerId=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
@@ -297,7 +297,7 @@ class Client(BaseClient):
           ::
         
             {
-                'BrokerId': 'string'
+                \'BrokerId\': \'string\'
             }
           **Response Structure** 
         
@@ -316,8 +316,8 @@ class Client(BaseClient):
         ::
         
           response = client.delete_user(
-              BrokerId='string',
-              Username='string'
+              BrokerId=\'string\',
+              Username=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.
@@ -348,7 +348,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_broker(
-              BrokerId='string'
+              BrokerId=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
@@ -361,68 +361,68 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoMinorVersionUpgrade': True|False,
-                'BrokerArn': 'string',
-                'BrokerId': 'string',
-                'BrokerInstances': [
+                \'AutoMinorVersionUpgrade\': True|False,
+                \'BrokerArn\': \'string\',
+                \'BrokerId\': \'string\',
+                \'BrokerInstances\': [
                     {
-                        'ConsoleURL': 'string',
-                        'Endpoints': [
-                            'string',
+                        \'ConsoleURL\': \'string\',
+                        \'Endpoints\': [
+                            \'string\',
                         ],
-                        'IpAddress': 'string'
+                        \'IpAddress\': \'string\'
                     },
                 ],
-                'BrokerName': 'string',
-                'BrokerState': 'CREATION_IN_PROGRESS'|'CREATION_FAILED'|'DELETION_IN_PROGRESS'|'RUNNING'|'REBOOT_IN_PROGRESS',
-                'Configurations': {
-                    'Current': {
-                        'Id': 'string',
-                        'Revision': 123
+                \'BrokerName\': \'string\',
+                \'BrokerState\': \'CREATION_IN_PROGRESS\'|\'CREATION_FAILED\'|\'DELETION_IN_PROGRESS\'|\'RUNNING\'|\'REBOOT_IN_PROGRESS\',
+                \'Configurations\': {
+                    \'Current\': {
+                        \'Id\': \'string\',
+                        \'Revision\': 123
                     },
-                    'History': [
+                    \'History\': [
                         {
-                            'Id': 'string',
-                            'Revision': 123
+                            \'Id\': \'string\',
+                            \'Revision\': 123
                         },
                     ],
-                    'Pending': {
-                        'Id': 'string',
-                        'Revision': 123
+                    \'Pending\': {
+                        \'Id\': \'string\',
+                        \'Revision\': 123
                     }
                 },
-                'Created': datetime(2015, 1, 1),
-                'DeploymentMode': 'SINGLE_INSTANCE'|'ACTIVE_STANDBY_MULTI_AZ',
-                'EngineType': 'ACTIVEMQ',
-                'EngineVersion': 'string',
-                'HostInstanceType': 'string',
-                'Logs': {
-                    'Audit': True|False,
-                    'AuditLogGroup': 'string',
-                    'General': True|False,
-                    'GeneralLogGroup': 'string',
-                    'Pending': {
-                        'Audit': True|False,
-                        'General': True|False
+                \'Created\': datetime(2015, 1, 1),
+                \'DeploymentMode\': \'SINGLE_INSTANCE\'|\'ACTIVE_STANDBY_MULTI_AZ\',
+                \'EngineType\': \'ACTIVEMQ\',
+                \'EngineVersion\': \'string\',
+                \'HostInstanceType\': \'string\',
+                \'Logs\': {
+                    \'Audit\': True|False,
+                    \'AuditLogGroup\': \'string\',
+                    \'General\': True|False,
+                    \'GeneralLogGroup\': \'string\',
+                    \'Pending\': {
+                        \'Audit\': True|False,
+                        \'General\': True|False
                     }
                 },
-                'MaintenanceWindowStartTime': {
-                    'DayOfWeek': 'MONDAY'|'TUESDAY'|'WEDNESDAY'|'THURSDAY'|'FRIDAY'|'SATURDAY'|'SUNDAY',
-                    'TimeOfDay': 'string',
-                    'TimeZone': 'string'
+                \'MaintenanceWindowStartTime\': {
+                    \'DayOfWeek\': \'MONDAY\'|\'TUESDAY\'|\'WEDNESDAY\'|\'THURSDAY\'|\'FRIDAY\'|\'SATURDAY\'|\'SUNDAY\',
+                    \'TimeOfDay\': \'string\',
+                    \'TimeZone\': \'string\'
                 },
-                'PendingEngineVersion': 'string',
-                'PubliclyAccessible': True|False,
-                'SecurityGroups': [
-                    'string',
+                \'PendingEngineVersion\': \'string\',
+                \'PubliclyAccessible\': True|False,
+                \'SecurityGroups\': [
+                    \'string\',
                 ],
-                'SubnetIds': [
-                    'string',
+                \'SubnetIds\': [
+                    \'string\',
                 ],
-                'Users': [
+                \'Users\': [
                     {
-                        'PendingChange': 'CREATE'|'UPDATE'|'DELETE',
-                        'Username': 'string'
+                        \'PendingChange\': \'CREATE\'|\'UPDATE\'|\'DELETE\',
+                        \'Username\': \'string\'
                     },
                 ]
             }
@@ -440,9 +440,9 @@ class Client(BaseClient):
               
               - *(dict) --* Returns information about all brokers.
                 
-                - **ConsoleURL** *(string) --* The URL of the broker's ActiveMQ Web Console.
+                - **ConsoleURL** *(string) --* The URL of the broker\'s ActiveMQ Web Console.
                 
-                - **Endpoints** *(list) --* The broker's wire-level protocol endpoints.
+                - **Endpoints** *(list) --* The broker\'s wire-level protocol endpoints.
                   
                   - *(string) --* 
               
@@ -482,7 +482,7 @@ class Client(BaseClient):
             
             - **EngineVersion** *(string) --* The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
             
-            - **HostInstanceType** *(string) --* The broker's instance type.
+            - **HostInstanceType** *(string) --* The broker\'s instance type.
             
             - **Logs** *(dict) --* The list of information about logs currently enabled and pending to be deployed for the specified broker.
               
@@ -510,7 +510,7 @@ class Client(BaseClient):
           
             - **PendingEngineVersion** *(string) --* The version of the broker engine to upgrade to.
             
-            - **PubliclyAccessible** *(boolean) --* Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+            - **PubliclyAccessible** *(boolean) --* Required. Enables connections from applications outside of the VPC that hosts the broker\'s subnets.
             
             - **SecurityGroups** *(list) --* Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
               
@@ -540,7 +540,7 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration(
-              ConfigurationId='string'
+              ConfigurationId=\'string\'
           )
         :type ConfigurationId: string
         :param ConfigurationId: **[REQUIRED]** The unique ID that Amazon MQ generates for the configuration.
@@ -553,18 +553,18 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Created': datetime(2015, 1, 1),
-                'Description': 'string',
-                'EngineType': 'ACTIVEMQ',
-                'EngineVersion': 'string',
-                'Id': 'string',
-                'LatestRevision': {
-                    'Created': datetime(2015, 1, 1),
-                    'Description': 'string',
-                    'Revision': 123
+                \'Arn\': \'string\',
+                \'Created\': datetime(2015, 1, 1),
+                \'Description\': \'string\',
+                \'EngineType\': \'ACTIVEMQ\',
+                \'EngineVersion\': \'string\',
+                \'Id\': \'string\',
+                \'LatestRevision\': {
+                    \'Created\': datetime(2015, 1, 1),
+                    \'Description\': \'string\',
+                    \'Revision\': 123
                 },
-                'Name': 'string'
+                \'Name\': \'string\'
             }
           **Response Structure** 
         
@@ -603,8 +603,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_configuration_revision(
-              ConfigurationId='string',
-              ConfigurationRevision='string'
+              ConfigurationId=\'string\',
+              ConfigurationRevision=\'string\'
           )
         :type ConfigurationId: string
         :param ConfigurationId: **[REQUIRED]** The unique ID that Amazon MQ generates for the configuration.
@@ -620,10 +620,10 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationId': 'string',
-                'Created': datetime(2015, 1, 1),
-                'Data': 'string',
-                'Description': 'string'
+                \'ConfigurationId\': \'string\',
+                \'Created\': datetime(2015, 1, 1),
+                \'Data\': \'string\',
+                \'Description\': \'string\'
             }
           **Response Structure** 
         
@@ -648,8 +648,8 @@ class Client(BaseClient):
         ::
         
           response = client.describe_user(
-              BrokerId='string',
-              Username='string'
+              BrokerId=\'string\',
+              Username=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.
@@ -665,19 +665,19 @@ class Client(BaseClient):
           ::
         
             {
-                'BrokerId': 'string',
-                'ConsoleAccess': True|False,
-                'Groups': [
-                    'string',
+                \'BrokerId\': \'string\',
+                \'ConsoleAccess\': True|False,
+                \'Groups\': [
+                    \'string\',
                 ],
-                'Pending': {
-                    'ConsoleAccess': True|False,
-                    'Groups': [
-                        'string',
+                \'Pending\': {
+                    \'ConsoleAccess\': True|False,
+                    \'Groups\': [
+                        \'string\',
                     ],
-                    'PendingChange': 'CREATE'|'UPDATE'|'DELETE'
+                    \'PendingChange\': \'CREATE\'|\'UPDATE\'|\'DELETE\'
                 },
-                'Username': 'string'
+                \'Username\': \'string\'
             }
           **Response Structure** 
         
@@ -721,7 +721,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -733,10 +733,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -769,7 +769,7 @@ class Client(BaseClient):
         
           response = client.list_brokers(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
@@ -785,18 +785,18 @@ class Client(BaseClient):
           ::
         
             {
-                'BrokerSummaries': [
+                \'BrokerSummaries\': [
                     {
-                        'BrokerArn': 'string',
-                        'BrokerId': 'string',
-                        'BrokerName': 'string',
-                        'BrokerState': 'CREATION_IN_PROGRESS'|'CREATION_FAILED'|'DELETION_IN_PROGRESS'|'RUNNING'|'REBOOT_IN_PROGRESS',
-                        'Created': datetime(2015, 1, 1),
-                        'DeploymentMode': 'SINGLE_INSTANCE'|'ACTIVE_STANDBY_MULTI_AZ',
-                        'HostInstanceType': 'string'
+                        \'BrokerArn\': \'string\',
+                        \'BrokerId\': \'string\',
+                        \'BrokerName\': \'string\',
+                        \'BrokerState\': \'CREATION_IN_PROGRESS\'|\'CREATION_FAILED\'|\'DELETION_IN_PROGRESS\'|\'RUNNING\'|\'REBOOT_IN_PROGRESS\',
+                        \'Created\': datetime(2015, 1, 1),
+                        \'DeploymentMode\': \'SINGLE_INSTANCE\'|\'ACTIVE_STANDBY_MULTI_AZ\',
+                        \'HostInstanceType\': \'string\'
                     },
                 ],
-                'NextToken': 'string'
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -818,7 +818,7 @@ class Client(BaseClient):
                 
                 - **DeploymentMode** *(string) --* Required. The deployment mode of the broker.
                 
-                - **HostInstanceType** *(string) --* The broker's instance type.
+                - **HostInstanceType** *(string) --* The broker\'s instance type.
             
             - **NextToken** *(string) --* The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
         """
@@ -833,9 +833,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_configuration_revisions(
-              ConfigurationId='string',
+              ConfigurationId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type ConfigurationId: string
         :param ConfigurationId: **[REQUIRED]** The unique ID that Amazon MQ generates for the configuration.
@@ -854,14 +854,14 @@ class Client(BaseClient):
           ::
         
             {
-                'ConfigurationId': 'string',
-                'MaxResults': 123,
-                'NextToken': 'string',
-                'Revisions': [
+                \'ConfigurationId\': \'string\',
+                \'MaxResults\': 123,
+                \'NextToken\': \'string\',
+                \'Revisions\': [
                     {
-                        'Created': datetime(2015, 1, 1),
-                        'Description': 'string',
-                        'Revision': 123
+                        \'Created\': datetime(2015, 1, 1),
+                        \'Description\': \'string\',
+                        \'Revision\': 123
                     },
                 ]
             }
@@ -898,7 +898,7 @@ class Client(BaseClient):
         
           response = client.list_configurations(
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type MaxResults: integer
         :param MaxResults: The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
@@ -914,24 +914,24 @@ class Client(BaseClient):
           ::
         
             {
-                'Configurations': [
+                \'Configurations\': [
                     {
-                        'Arn': 'string',
-                        'Created': datetime(2015, 1, 1),
-                        'Description': 'string',
-                        'EngineType': 'ACTIVEMQ',
-                        'EngineVersion': 'string',
-                        'Id': 'string',
-                        'LatestRevision': {
-                            'Created': datetime(2015, 1, 1),
-                            'Description': 'string',
-                            'Revision': 123
+                        \'Arn\': \'string\',
+                        \'Created\': datetime(2015, 1, 1),
+                        \'Description\': \'string\',
+                        \'EngineType\': \'ACTIVEMQ\',
+                        \'EngineVersion\': \'string\',
+                        \'Id\': \'string\',
+                        \'LatestRevision\': {
+                            \'Created\': datetime(2015, 1, 1),
+                            \'Description\': \'string\',
+                            \'Revision\': 123
                         },
-                        'Name': 'string'
+                        \'Name\': \'string\'
                     },
                 ],
-                'MaxResults': 123,
-                'NextToken': 'string'
+                \'MaxResults\': 123,
+                \'NextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -978,9 +978,9 @@ class Client(BaseClient):
         ::
         
           response = client.list_users(
-              BrokerId='string',
+              BrokerId=\'string\',
               MaxResults=123,
-              NextToken='string'
+              NextToken=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.
@@ -999,13 +999,13 @@ class Client(BaseClient):
           ::
         
             {
-                'BrokerId': 'string',
-                'MaxResults': 123,
-                'NextToken': 'string',
-                'Users': [
+                \'BrokerId\': \'string\',
+                \'MaxResults\': 123,
+                \'NextToken\': \'string\',
+                \'Users\': [
                     {
-                        'PendingChange': 'CREATE'|'UPDATE'|'DELETE',
-                        'Username': 'string'
+                        \'PendingChange\': \'CREATE\'|\'UPDATE\'|\'DELETE\',
+                        \'Username\': \'string\'
                     },
                 ]
             }
@@ -1039,7 +1039,7 @@ class Client(BaseClient):
         ::
         
           response = client.reboot_broker(
-              BrokerId='string'
+              BrokerId=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.
@@ -1068,15 +1068,15 @@ class Client(BaseClient):
         
           response = client.update_broker(
               AutoMinorVersionUpgrade=True|False,
-              BrokerId='string',
+              BrokerId=\'string\',
               Configuration={
-                  'Id': 'string',
-                  'Revision': 123
+                  \'Id\': \'string\',
+                  \'Revision\': 123
               },
-              EngineVersion='string',
+              EngineVersion=\'string\',
               Logs={
-                  'Audit': True|False,
-                  'General': True|False
+                  \'Audit\': True|False,
+                  \'General\': True|False
               }
           )
         :type AutoMinorVersionUpgrade: boolean
@@ -1110,16 +1110,16 @@ class Client(BaseClient):
           ::
         
             {
-                'AutoMinorVersionUpgrade': True|False,
-                'BrokerId': 'string',
-                'Configuration': {
-                    'Id': 'string',
-                    'Revision': 123
+                \'AutoMinorVersionUpgrade\': True|False,
+                \'BrokerId\': \'string\',
+                \'Configuration\': {
+                    \'Id\': \'string\',
+                    \'Revision\': 123
                 },
-                'EngineVersion': 'string',
-                'Logs': {
-                    'Audit': True|False,
-                    'General': True|False
+                \'EngineVersion\': \'string\',
+                \'Logs\': {
+                    \'Audit\': True|False,
+                    \'General\': True|False
                 }
             }
           **Response Structure** 
@@ -1156,9 +1156,9 @@ class Client(BaseClient):
         ::
         
           response = client.update_configuration(
-              ConfigurationId='string',
-              Data='string',
-              Description='string'
+              ConfigurationId=\'string\',
+              Data=\'string\',
+              Description=\'string\'
           )
         :type ConfigurationId: string
         :param ConfigurationId: **[REQUIRED]** The unique ID that Amazon MQ generates for the configuration.
@@ -1177,20 +1177,20 @@ class Client(BaseClient):
           ::
         
             {
-                'Arn': 'string',
-                'Created': datetime(2015, 1, 1),
-                'Id': 'string',
-                'LatestRevision': {
-                    'Created': datetime(2015, 1, 1),
-                    'Description': 'string',
-                    'Revision': 123
+                \'Arn\': \'string\',
+                \'Created\': datetime(2015, 1, 1),
+                \'Id\': \'string\',
+                \'LatestRevision\': {
+                    \'Created\': datetime(2015, 1, 1),
+                    \'Description\': \'string\',
+                    \'Revision\': 123
                 },
-                'Name': 'string',
-                'Warnings': [
+                \'Name\': \'string\',
+                \'Warnings\': [
                     {
-                        'AttributeName': 'string',
-                        'ElementName': 'string',
-                        'Reason': 'DISALLOWED_ELEMENT_REMOVED'|'DISALLOWED_ATTRIBUTE_REMOVED'|'INVALID_ATTRIBUTE_VALUE_REMOVED'
+                        \'AttributeName\': \'string\',
+                        \'ElementName\': \'string\',
+                        \'Reason\': \'DISALLOWED_ELEMENT_REMOVED\'|\'DISALLOWED_ATTRIBUTE_REMOVED\'|\'INVALID_ATTRIBUTE_VALUE_REMOVED\'
                     },
                 ]
             }
@@ -1236,13 +1236,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_user(
-              BrokerId='string',
+              BrokerId=\'string\',
               ConsoleAccess=True|False,
               Groups=[
-                  'string',
+                  \'string\',
               ],
-              Password='string',
-              Username='string'
+              Password=\'string\',
+              Username=\'string\'
           )
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The unique ID that Amazon MQ generates for the broker.

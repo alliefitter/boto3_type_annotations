@@ -1,10 +1,10 @@
-from botocore.paginate import Paginator
-from typing import Optional
 from typing import Union
-from botocore.waiter import Waiter
+from botocore.paginate import Paginator
 from typing import NoReturn
 from botocore.client import BaseClient
+from typing import Optional
 from typing import List
+from botocore.waiter import Waiter
 from typing import Dict
 
 
@@ -15,10 +15,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :return: ``True`` if the operation can be paginated,
             ``False`` otherwise.
@@ -34,8 +34,8 @@ class Client(BaseClient):
         ::
         
           response = client.cancel_job(
-              jobId='string',
-              reason='string'
+              jobId=\'string\',
+              reason=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -86,38 +86,38 @@ class Client(BaseClient):
         ::
         
           response = client.create_compute_environment(
-              computeEnvironmentName='string',
-              type='MANAGED'|'UNMANAGED',
-              state='ENABLED'|'DISABLED',
+              computeEnvironmentName=\'string\',
+              type=\'MANAGED\'|\'UNMANAGED\',
+              state=\'ENABLED\'|\'DISABLED\',
               computeResources={
-                  'type': 'EC2'|'SPOT',
-                  'minvCpus': 123,
-                  'maxvCpus': 123,
-                  'desiredvCpus': 123,
-                  'instanceTypes': [
-                      'string',
+                  \'type\': \'EC2\'|\'SPOT\',
+                  \'minvCpus\': 123,
+                  \'maxvCpus\': 123,
+                  \'desiredvCpus\': 123,
+                  \'instanceTypes\': [
+                      \'string\',
                   ],
-                  'imageId': 'string',
-                  'subnets': [
-                      'string',
+                  \'imageId\': \'string\',
+                  \'subnets\': [
+                      \'string\',
                   ],
-                  'securityGroupIds': [
-                      'string',
+                  \'securityGroupIds\': [
+                      \'string\',
                   ],
-                  'ec2KeyPair': 'string',
-                  'instanceRole': 'string',
-                  'tags': {
-                      'string': 'string'
+                  \'ec2KeyPair\': \'string\',
+                  \'instanceRole\': \'string\',
+                  \'tags\': {
+                      \'string\': \'string\'
                   },
-                  'bidPercentage': 123,
-                  'spotIamFleetRole': 'string',
-                  'launchTemplate': {
-                      'launchTemplateId': 'string',
-                      'launchTemplateName': 'string',
-                      'version': 'string'
+                  \'bidPercentage\': 123,
+                  \'spotIamFleetRole\': \'string\',
+                  \'launchTemplate\': {
+                      \'launchTemplateId\': \'string\',
+                      \'launchTemplateName\': \'string\',
+                      \'version\': \'string\'
                   }
               },
-              serviceRole='string'
+              serviceRole=\'string\'
           )
         :type computeEnvironmentName: string
         :param computeEnvironmentName: **[REQUIRED]** 
@@ -238,8 +238,8 @@ class Client(BaseClient):
           ::
         
             {
-                'computeEnvironmentName': 'string',
-                'computeEnvironmentArn': 'string'
+                \'computeEnvironmentName\': \'string\',
+                \'computeEnvironmentArn\': \'string\'
             }
           **Response Structure** 
         
@@ -267,13 +267,13 @@ class Client(BaseClient):
         ::
         
           response = client.create_job_queue(
-              jobQueueName='string',
-              state='ENABLED'|'DISABLED',
+              jobQueueName=\'string\',
+              state=\'ENABLED\'|\'DISABLED\',
               priority=123,
               computeEnvironmentOrder=[
                   {
-                      'order': 123,
-                      'computeEnvironment': 'string'
+                      \'order\': 123,
+                      \'computeEnvironment\': \'string\'
                   },
               ]
           )
@@ -317,8 +317,8 @@ class Client(BaseClient):
           ::
         
             {
-                'jobQueueName': 'string',
-                'jobQueueArn': 'string'
+                \'jobQueueName\': \'string\',
+                \'jobQueueArn\': \'string\'
             }
           **Response Structure** 
         
@@ -346,7 +346,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_compute_environment(
-              computeEnvironment='string'
+              computeEnvironment=\'string\'
           )
         :type computeEnvironment: string
         :param computeEnvironment: **[REQUIRED]** 
@@ -378,7 +378,7 @@ class Client(BaseClient):
         ::
         
           response = client.delete_job_queue(
-              jobQueue='string'
+              jobQueue=\'string\'
           )
         :type jobQueue: string
         :param jobQueue: **[REQUIRED]** 
@@ -408,7 +408,7 @@ class Client(BaseClient):
         ::
         
           response = client.deregister_job_definition(
-              jobDefinition='string'
+              jobDefinition=\'string\'
           )
         :type jobDefinition: string
         :param jobDefinition: **[REQUIRED]** 
@@ -441,10 +441,10 @@ class Client(BaseClient):
         
           response = client.describe_compute_environments(
               computeEnvironments=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type computeEnvironments: list
         :param computeEnvironments: 
@@ -475,47 +475,47 @@ class Client(BaseClient):
           ::
         
             {
-                'computeEnvironments': [
+                \'computeEnvironments\': [
                     {
-                        'computeEnvironmentName': 'string',
-                        'computeEnvironmentArn': 'string',
-                        'ecsClusterArn': 'string',
-                        'type': 'MANAGED'|'UNMANAGED',
-                        'state': 'ENABLED'|'DISABLED',
-                        'status': 'CREATING'|'UPDATING'|'DELETING'|'DELETED'|'VALID'|'INVALID',
-                        'statusReason': 'string',
-                        'computeResources': {
-                            'type': 'EC2'|'SPOT',
-                            'minvCpus': 123,
-                            'maxvCpus': 123,
-                            'desiredvCpus': 123,
-                            'instanceTypes': [
-                                'string',
+                        \'computeEnvironmentName\': \'string\',
+                        \'computeEnvironmentArn\': \'string\',
+                        \'ecsClusterArn\': \'string\',
+                        \'type\': \'MANAGED\'|\'UNMANAGED\',
+                        \'state\': \'ENABLED\'|\'DISABLED\',
+                        \'status\': \'CREATING\'|\'UPDATING\'|\'DELETING\'|\'DELETED\'|\'VALID\'|\'INVALID\',
+                        \'statusReason\': \'string\',
+                        \'computeResources\': {
+                            \'type\': \'EC2\'|\'SPOT\',
+                            \'minvCpus\': 123,
+                            \'maxvCpus\': 123,
+                            \'desiredvCpus\': 123,
+                            \'instanceTypes\': [
+                                \'string\',
                             ],
-                            'imageId': 'string',
-                            'subnets': [
-                                'string',
+                            \'imageId\': \'string\',
+                            \'subnets\': [
+                                \'string\',
                             ],
-                            'securityGroupIds': [
-                                'string',
+                            \'securityGroupIds\': [
+                                \'string\',
                             ],
-                            'ec2KeyPair': 'string',
-                            'instanceRole': 'string',
-                            'tags': {
-                                'string': 'string'
+                            \'ec2KeyPair\': \'string\',
+                            \'instanceRole\': \'string\',
+                            \'tags\': {
+                                \'string\': \'string\'
                             },
-                            'bidPercentage': 123,
-                            'spotIamFleetRole': 'string',
-                            'launchTemplate': {
-                                'launchTemplateId': 'string',
-                                'launchTemplateName': 'string',
-                                'version': 'string'
+                            \'bidPercentage\': 123,
+                            \'spotIamFleetRole\': \'string\',
+                            \'launchTemplate\': {
+                                \'launchTemplateId\': \'string\',
+                                \'launchTemplateName\': \'string\',
+                                \'version\': \'string\'
                             }
                         },
-                        'serviceRole': 'string'
+                        \'serviceRole\': \'string\'
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -666,12 +666,12 @@ class Client(BaseClient):
         
           response = client.describe_job_definitions(
               jobDefinitions=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              jobDefinitionName='string',
-              status='string',
-              nextToken='string'
+              jobDefinitionName=\'string\',
+              status=\'string\',
+              nextToken=\'string\'
           )
         :type jobDefinitions: list
         :param jobDefinitions: 
@@ -712,65 +712,65 @@ class Client(BaseClient):
           ::
         
             {
-                'jobDefinitions': [
+                \'jobDefinitions\': [
                     {
-                        'jobDefinitionName': 'string',
-                        'jobDefinitionArn': 'string',
-                        'revision': 123,
-                        'status': 'string',
-                        'type': 'string',
-                        'parameters': {
-                            'string': 'string'
+                        \'jobDefinitionName\': \'string\',
+                        \'jobDefinitionArn\': \'string\',
+                        \'revision\': 123,
+                        \'status\': \'string\',
+                        \'type\': \'string\',
+                        \'parameters\': {
+                            \'string\': \'string\'
                         },
-                        'retryStrategy': {
-                            'attempts': 123
+                        \'retryStrategy\': {
+                            \'attempts\': 123
                         },
-                        'containerProperties': {
-                            'image': 'string',
-                            'vcpus': 123,
-                            'memory': 123,
-                            'command': [
-                                'string',
+                        \'containerProperties\': {
+                            \'image\': \'string\',
+                            \'vcpus\': 123,
+                            \'memory\': 123,
+                            \'command\': [
+                                \'string\',
                             ],
-                            'jobRoleArn': 'string',
-                            'volumes': [
+                            \'jobRoleArn\': \'string\',
+                            \'volumes\': [
                                 {
-                                    'host': {
-                                        'sourcePath': 'string'
+                                    \'host\': {
+                                        \'sourcePath\': \'string\'
                                     },
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ],
-                            'environment': [
+                            \'environment\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'mountPoints': [
+                            \'mountPoints\': [
                                 {
-                                    'containerPath': 'string',
-                                    'readOnly': True|False,
-                                    'sourceVolume': 'string'
+                                    \'containerPath\': \'string\',
+                                    \'readOnly\': True|False,
+                                    \'sourceVolume\': \'string\'
                                 },
                             ],
-                            'readonlyRootFilesystem': True|False,
-                            'privileged': True|False,
-                            'ulimits': [
+                            \'readonlyRootFilesystem\': True|False,
+                            \'privileged\': True|False,
+                            \'ulimits\': [
                                 {
-                                    'hardLimit': 123,
-                                    'name': 'string',
-                                    'softLimit': 123
+                                    \'hardLimit\': 123,
+                                    \'name\': \'string\',
+                                    \'softLimit\': 123
                                 },
                             ],
-                            'user': 'string'
+                            \'user\': \'string\'
                         },
-                        'timeout': {
-                            'attemptDurationSeconds': 123
+                        \'timeout\': {
+                            \'attemptDurationSeconds\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -864,7 +864,7 @@ class Client(BaseClient):
         
                     - *(dict) --* 
         
-                      A data volume used in a job's container properties.
+                      A data volume used in a job\'s container properties.
         
                       - **host** *(dict) --* 
         
@@ -908,7 +908,7 @@ class Client(BaseClient):
         
                     - *(dict) --* 
         
-                      Details on a Docker volume mount point that is used in a job's container properties.
+                      Details on a Docker volume mount point that is used in a job\'s container properties.
         
                       - **containerPath** *(string) --* 
         
@@ -960,7 +960,7 @@ class Client(BaseClient):
         
                   - **attemptDurationSeconds** *(integer) --* 
         
-                    The time duration in seconds (measured from the job attempt's ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
+                    The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         
             - **nextToken** *(string) --* 
         
@@ -979,10 +979,10 @@ class Client(BaseClient):
         
           response = client.describe_job_queues(
               jobQueues=[
-                  'string',
+                  \'string\',
               ],
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type jobQueues: list
         :param jobQueues: 
@@ -1013,23 +1013,23 @@ class Client(BaseClient):
           ::
         
             {
-                'jobQueues': [
+                \'jobQueues\': [
                     {
-                        'jobQueueName': 'string',
-                        'jobQueueArn': 'string',
-                        'state': 'ENABLED'|'DISABLED',
-                        'status': 'CREATING'|'UPDATING'|'DELETING'|'DELETED'|'VALID'|'INVALID',
-                        'statusReason': 'string',
-                        'priority': 123,
-                        'computeEnvironmentOrder': [
+                        \'jobQueueName\': \'string\',
+                        \'jobQueueArn\': \'string\',
+                        \'state\': \'ENABLED\'|\'DISABLED\',
+                        \'status\': \'CREATING\'|\'UPDATING\'|\'DELETING\'|\'DELETED\'|\'VALID\'|\'INVALID\',
+                        \'statusReason\': \'string\',
+                        \'priority\': 123,
+                        \'computeEnvironmentOrder\': [
                             {
-                                'order': 123,
-                                'computeEnvironment': 'string'
+                                \'order\': 123,
+                                \'computeEnvironment\': \'string\'
                             },
                         ]
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1100,7 +1100,7 @@ class Client(BaseClient):
         
           response = client.describe_jobs(
               jobs=[
-                  'string',
+                  \'string\',
               ]
           )
         :type jobs: list
@@ -1118,97 +1118,97 @@ class Client(BaseClient):
           ::
         
             {
-                'jobs': [
+                \'jobs\': [
                     {
-                        'jobName': 'string',
-                        'jobId': 'string',
-                        'jobQueue': 'string',
-                        'status': 'SUBMITTED'|'PENDING'|'RUNNABLE'|'STARTING'|'RUNNING'|'SUCCEEDED'|'FAILED',
-                        'attempts': [
+                        \'jobName\': \'string\',
+                        \'jobId\': \'string\',
+                        \'jobQueue\': \'string\',
+                        \'status\': \'SUBMITTED\'|\'PENDING\'|\'RUNNABLE\'|\'STARTING\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'attempts\': [
                             {
-                                'container': {
-                                    'containerInstanceArn': 'string',
-                                    'taskArn': 'string',
-                                    'exitCode': 123,
-                                    'reason': 'string',
-                                    'logStreamName': 'string'
+                                \'container\': {
+                                    \'containerInstanceArn\': \'string\',
+                                    \'taskArn\': \'string\',
+                                    \'exitCode\': 123,
+                                    \'reason\': \'string\',
+                                    \'logStreamName\': \'string\'
                                 },
-                                'startedAt': 123,
-                                'stoppedAt': 123,
-                                'statusReason': 'string'
+                                \'startedAt\': 123,
+                                \'stoppedAt\': 123,
+                                \'statusReason\': \'string\'
                             },
                         ],
-                        'statusReason': 'string',
-                        'createdAt': 123,
-                        'retryStrategy': {
-                            'attempts': 123
+                        \'statusReason\': \'string\',
+                        \'createdAt\': 123,
+                        \'retryStrategy\': {
+                            \'attempts\': 123
                         },
-                        'startedAt': 123,
-                        'stoppedAt': 123,
-                        'dependsOn': [
+                        \'startedAt\': 123,
+                        \'stoppedAt\': 123,
+                        \'dependsOn\': [
                             {
-                                'jobId': 'string',
-                                'type': 'N_TO_N'|'SEQUENTIAL'
+                                \'jobId\': \'string\',
+                                \'type\': \'N_TO_N\'|\'SEQUENTIAL\'
                             },
                         ],
-                        'jobDefinition': 'string',
-                        'parameters': {
-                            'string': 'string'
+                        \'jobDefinition\': \'string\',
+                        \'parameters\': {
+                            \'string\': \'string\'
                         },
-                        'container': {
-                            'image': 'string',
-                            'vcpus': 123,
-                            'memory': 123,
-                            'command': [
-                                'string',
+                        \'container\': {
+                            \'image\': \'string\',
+                            \'vcpus\': 123,
+                            \'memory\': 123,
+                            \'command\': [
+                                \'string\',
                             ],
-                            'jobRoleArn': 'string',
-                            'volumes': [
+                            \'jobRoleArn\': \'string\',
+                            \'volumes\': [
                                 {
-                                    'host': {
-                                        'sourcePath': 'string'
+                                    \'host\': {
+                                        \'sourcePath\': \'string\'
                                     },
-                                    'name': 'string'
+                                    \'name\': \'string\'
                                 },
                             ],
-                            'environment': [
+                            \'environment\': [
                                 {
-                                    'name': 'string',
-                                    'value': 'string'
+                                    \'name\': \'string\',
+                                    \'value\': \'string\'
                                 },
                             ],
-                            'mountPoints': [
+                            \'mountPoints\': [
                                 {
-                                    'containerPath': 'string',
-                                    'readOnly': True|False,
-                                    'sourceVolume': 'string'
+                                    \'containerPath\': \'string\',
+                                    \'readOnly\': True|False,
+                                    \'sourceVolume\': \'string\'
                                 },
                             ],
-                            'readonlyRootFilesystem': True|False,
-                            'ulimits': [
+                            \'readonlyRootFilesystem\': True|False,
+                            \'ulimits\': [
                                 {
-                                    'hardLimit': 123,
-                                    'name': 'string',
-                                    'softLimit': 123
+                                    \'hardLimit\': 123,
+                                    \'name\': \'string\',
+                                    \'softLimit\': 123
                                 },
                             ],
-                            'privileged': True|False,
-                            'user': 'string',
-                            'exitCode': 123,
-                            'reason': 'string',
-                            'containerInstanceArn': 'string',
-                            'taskArn': 'string',
-                            'logStreamName': 'string'
+                            \'privileged\': True|False,
+                            \'user\': \'string\',
+                            \'exitCode\': 123,
+                            \'reason\': \'string\',
+                            \'containerInstanceArn\': \'string\',
+                            \'taskArn\': \'string\',
+                            \'logStreamName\': \'string\'
                         },
-                        'arrayProperties': {
-                            'statusSummary': {
-                                'string': 123
+                        \'arrayProperties\': {
+                            \'statusSummary\': {
+                                \'string\': 123
                             },
-                            'size': 123,
-                            'index': 123
+                            \'size\': 123,
+                            \'index\': 123
                         },
-                        'timeout': {
-                            'attemptDurationSeconds': 123
+                        \'timeout\': {
+                            \'attemptDurationSeconds\': 123
                         }
                     },
                 ]
@@ -1373,7 +1373,7 @@ class Client(BaseClient):
         
                     - *(dict) --* 
         
-                      A data volume used in a job's container properties.
+                      A data volume used in a job\'s container properties.
         
                       - **host** *(dict) --* 
         
@@ -1413,7 +1413,7 @@ class Client(BaseClient):
         
                     - *(dict) --* 
         
-                      Details on a Docker volume mount point that is used in a job's container properties.
+                      Details on a Docker volume mount point that is used in a job\'s container properties.
         
                       - **containerPath** *(string) --* 
         
@@ -1505,7 +1505,7 @@ class Client(BaseClient):
         
                   - **attemptDurationSeconds** *(integer) --* 
         
-                    The time duration in seconds (measured from the job attempt's ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
+                    The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         
         """
         pass
@@ -1526,7 +1526,7 @@ class Client(BaseClient):
         
         :type HttpMethod: string
         :param HttpMethod: The http method to use on the generated url. By
-            default, the http method is whatever is used in the method's model.
+            default, the http method is whatever is used in the method\'s model.
         
         :returns: The presigned url
         """
@@ -1538,10 +1538,10 @@ class Client(BaseClient):
         :type operation_name: string
         :param operation_name: The operation name.  This is the same name
             as the method name on the client.  For example, if the
-            method name is ``create_foo``, and you'd normally invoke the
+            method name is ``create_foo``, and you\'d normally invoke the
             operation as ``client.create_foo(**kwargs)``, if the
             ``create_foo`` operation can be paginated, you can use the
-            call ``client.get_paginator("create_foo")``.
+            call ``client.get_paginator(\"create_foo\")``.
         
         :raise OperationNotPageableError: Raised if the operation is not
             pageable.  You can use the ``client.can_paginate`` method to
@@ -1575,11 +1575,11 @@ class Client(BaseClient):
         ::
         
           response = client.list_jobs(
-              jobQueue='string',
-              arrayJobId='string',
-              jobStatus='SUBMITTED'|'PENDING'|'RUNNABLE'|'STARTING'|'RUNNING'|'SUCCEEDED'|'FAILED',
+              jobQueue=\'string\',
+              arrayJobId=\'string\',
+              jobStatus=\'SUBMITTED\'|\'PENDING\'|\'RUNNABLE\'|\'STARTING\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\',
               maxResults=123,
-              nextToken='string'
+              nextToken=\'string\'
           )
         :type jobQueue: string
         :param jobQueue: 
@@ -1618,26 +1618,26 @@ class Client(BaseClient):
           ::
         
             {
-                'jobSummaryList': [
+                \'jobSummaryList\': [
                     {
-                        'jobId': 'string',
-                        'jobName': 'string',
-                        'createdAt': 123,
-                        'status': 'SUBMITTED'|'PENDING'|'RUNNABLE'|'STARTING'|'RUNNING'|'SUCCEEDED'|'FAILED',
-                        'statusReason': 'string',
-                        'startedAt': 123,
-                        'stoppedAt': 123,
-                        'container': {
-                            'exitCode': 123,
-                            'reason': 'string'
+                        \'jobId\': \'string\',
+                        \'jobName\': \'string\',
+                        \'createdAt\': 123,
+                        \'status\': \'SUBMITTED\'|\'PENDING\'|\'RUNNABLE\'|\'STARTING\'|\'RUNNING\'|\'SUCCEEDED\'|\'FAILED\',
+                        \'statusReason\': \'string\',
+                        \'startedAt\': 123,
+                        \'stoppedAt\': 123,
+                        \'container\': {
+                            \'exitCode\': 123,
+                            \'reason\': \'string\'
                         },
-                        'arrayProperties': {
-                            'size': 123,
-                            'index': 123
+                        \'arrayProperties\': {
+                            \'size\': 123,
+                            \'index\': 123
                         }
                     },
                 ],
-                'nextToken': 'string'
+                \'nextToken\': \'string\'
             }
           **Response Structure** 
         
@@ -1719,56 +1719,56 @@ class Client(BaseClient):
         ::
         
           response = client.register_job_definition(
-              jobDefinitionName='string',
-              type='container',
+              jobDefinitionName=\'string\',
+              type=\'container\',
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               containerProperties={
-                  'image': 'string',
-                  'vcpus': 123,
-                  'memory': 123,
-                  'command': [
-                      'string',
+                  \'image\': \'string\',
+                  \'vcpus\': 123,
+                  \'memory\': 123,
+                  \'command\': [
+                      \'string\',
                   ],
-                  'jobRoleArn': 'string',
-                  'volumes': [
+                  \'jobRoleArn\': \'string\',
+                  \'volumes\': [
                       {
-                          'host': {
-                              'sourcePath': 'string'
+                          \'host\': {
+                              \'sourcePath\': \'string\'
                           },
-                          'name': 'string'
+                          \'name\': \'string\'
                       },
                   ],
-                  'environment': [
+                  \'environment\': [
                       {
-                          'name': 'string',
-                          'value': 'string'
+                          \'name\': \'string\',
+                          \'value\': \'string\'
                       },
                   ],
-                  'mountPoints': [
+                  \'mountPoints\': [
                       {
-                          'containerPath': 'string',
-                          'readOnly': True|False,
-                          'sourceVolume': 'string'
+                          \'containerPath\': \'string\',
+                          \'readOnly\': True|False,
+                          \'sourceVolume\': \'string\'
                       },
                   ],
-                  'readonlyRootFilesystem': True|False,
-                  'privileged': True|False,
-                  'ulimits': [
+                  \'readonlyRootFilesystem\': True|False,
+                  \'privileged\': True|False,
+                  \'ulimits\': [
                       {
-                          'hardLimit': 123,
-                          'name': 'string',
-                          'softLimit': 123
+                          \'hardLimit\': 123,
+                          \'name\': \'string\',
+                          \'softLimit\': 123
                       },
                   ],
-                  'user': 'string'
+                  \'user\': \'string\'
               },
               retryStrategy={
-                  'attempts': 123
+                  \'attempts\': 123
               },
               timeout={
-                  'attemptDurationSeconds': 123
+                  \'attemptDurationSeconds\': 123
               }
           )
         :type jobDefinitionName: string
@@ -1835,7 +1835,7 @@ class Client(BaseClient):
         
             - *(dict) --* 
         
-              A data volume used in a job's container properties.
+              A data volume used in a job\'s container properties.
         
               - **host** *(dict) --* 
         
@@ -1879,7 +1879,7 @@ class Client(BaseClient):
         
             - *(dict) --* 
         
-              Details on a Docker volume mount point that is used in a job's container properties.
+              Details on a Docker volume mount point that is used in a job\'s container properties.
         
               - **containerPath** *(string) --* 
         
@@ -1941,7 +1941,7 @@ class Client(BaseClient):
         
           - **attemptDurationSeconds** *(integer) --* 
         
-            The time duration in seconds (measured from the job attempt's ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
+            The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         
         :rtype: dict
         :returns: 
@@ -1951,9 +1951,9 @@ class Client(BaseClient):
           ::
         
             {
-                'jobDefinitionName': 'string',
-                'jobDefinitionArn': 'string',
-                'revision': 123
+                \'jobDefinitionName\': \'string\',
+                \'jobDefinitionArn\': \'string\',
+                \'revision\': 123
             }
           **Response Structure** 
         
@@ -1983,39 +1983,39 @@ class Client(BaseClient):
         ::
         
           response = client.submit_job(
-              jobName='string',
-              jobQueue='string',
+              jobName=\'string\',
+              jobQueue=\'string\',
               arrayProperties={
-                  'size': 123
+                  \'size\': 123
               },
               dependsOn=[
                   {
-                      'jobId': 'string',
-                      'type': 'N_TO_N'|'SEQUENTIAL'
+                      \'jobId\': \'string\',
+                      \'type\': \'N_TO_N\'|\'SEQUENTIAL\'
                   },
               ],
-              jobDefinition='string',
+              jobDefinition=\'string\',
               parameters={
-                  'string': 'string'
+                  \'string\': \'string\'
               },
               containerOverrides={
-                  'vcpus': 123,
-                  'memory': 123,
-                  'command': [
-                      'string',
+                  \'vcpus\': 123,
+                  \'memory\': 123,
+                  \'command\': [
+                      \'string\',
                   ],
-                  'environment': [
+                  \'environment\': [
                       {
-                          'name': 'string',
-                          'value': 'string'
+                          \'name\': \'string\',
+                          \'value\': \'string\'
                       },
                   ]
               },
               retryStrategy={
-                  'attempts': 123
+                  \'attempts\': 123
               },
               timeout={
-                  'attemptDurationSeconds': 123
+                  \'attemptDurationSeconds\': 123
               }
           )
         :type jobName: string
@@ -2123,7 +2123,7 @@ class Client(BaseClient):
         
           - **attemptDurationSeconds** *(integer) --* 
         
-            The time duration in seconds (measured from the job attempt's ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
+            The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         
         :rtype: dict
         :returns: 
@@ -2133,8 +2133,8 @@ class Client(BaseClient):
           ::
         
             {
-                'jobName': 'string',
-                'jobId': 'string'
+                \'jobName\': \'string\',
+                \'jobId\': \'string\'
             }
           **Response Structure** 
         
@@ -2160,8 +2160,8 @@ class Client(BaseClient):
         ::
         
           response = client.terminate_job(
-              jobId='string',
-              reason='string'
+              jobId=\'string\',
+              reason=\'string\'
           )
         :type jobId: string
         :param jobId: **[REQUIRED]** 
@@ -2196,14 +2196,14 @@ class Client(BaseClient):
         ::
         
           response = client.update_compute_environment(
-              computeEnvironment='string',
-              state='ENABLED'|'DISABLED',
+              computeEnvironment=\'string\',
+              state=\'ENABLED\'|\'DISABLED\',
               computeResources={
-                  'minvCpus': 123,
-                  'maxvCpus': 123,
-                  'desiredvCpus': 123
+                  \'minvCpus\': 123,
+                  \'maxvCpus\': 123,
+                  \'desiredvCpus\': 123
               },
-              serviceRole='string'
+              serviceRole=\'string\'
           )
         :type computeEnvironment: string
         :param computeEnvironment: **[REQUIRED]** 
@@ -2251,8 +2251,8 @@ class Client(BaseClient):
           ::
         
             {
-                'computeEnvironmentName': 'string',
-                'computeEnvironmentArn': 'string'
+                \'computeEnvironmentName\': \'string\',
+                \'computeEnvironmentArn\': \'string\'
             }
           **Response Structure** 
         
@@ -2278,13 +2278,13 @@ class Client(BaseClient):
         ::
         
           response = client.update_job_queue(
-              jobQueue='string',
-              state='ENABLED'|'DISABLED',
+              jobQueue=\'string\',
+              state=\'ENABLED\'|\'DISABLED\',
               priority=123,
               computeEnvironmentOrder=[
                   {
-                      'order': 123,
-                      'computeEnvironment': 'string'
+                      \'order\': 123,
+                      \'computeEnvironment\': \'string\'
                   },
               ]
           )
@@ -2296,7 +2296,7 @@ class Client(BaseClient):
         :type state: string
         :param state: 
         
-          Describes the queue's ability to accept new jobs.
+          Describes the queue\'s ability to accept new jobs.
         
         :type priority: integer
         :param priority: 
@@ -2328,8 +2328,8 @@ class Client(BaseClient):
           ::
         
             {
-                'jobQueueName': 'string',
-                'jobQueueArn': 'string'
+                \'jobQueueName\': \'string\',
+                \'jobQueueArn\': \'string\'
             }
           **Response Structure** 
         

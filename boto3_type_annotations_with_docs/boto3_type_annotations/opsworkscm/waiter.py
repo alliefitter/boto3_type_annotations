@@ -13,11 +13,11 @@ class NodeAssociated(Waiter):
         ::
         
           waiter.wait(
-              NodeAssociationStatusToken='string',
-              ServerName='string',
+              NodeAssociationStatusToken=\'string\',
+              ServerName=\'string\',
               WaiterConfig={
-                  'Delay': 123,
-                  'MaxAttempts': 123
+                  \'Delay\': 123,
+                  \'MaxAttempts\': 123
               }
           )
         :type NodeAssociationStatusToken: string
